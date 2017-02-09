@@ -17,9 +17,11 @@ We are submitting an application as a mentoring organisation for Google Summer o
 
 ### Students
 
-You can take a look at our official project ideas (here)[https://docs.google.com/spreadsheets/d/1Dg8LhFt4ky-z1Fg16BNLd9m1tue3QnAHeCc9MPmUuDg/edit#gid=0]
+You can take a look at our official project ideas [here](https://docs.google.com/spreadsheets/d/1Dg8LhFt4ky-z1Fg16BNLd9m1tue3QnAHeCc9MPmUuDg/edit#gid=0)
 
 ### Mentors
 
-Add your ideas to our page (here)[https://docs.google.com/spreadsheets/d/1Dg8LhFt4ky-z1Fg16BNLd9m1tue3QnAHeCc9MPmUuDg/edit#gid=0]
+Add your ideas to our page [here](https://docs.google.com/spreadsheets/d/1Dg8LhFt4ky-z1Fg16BNLd9m1tue3QnAHeCc9MPmUuDg/edit#gid=0)
 
+Also please contact the org admins to add you to the gsoc github team:
+https://github.com/orgs/cncf/teams/gsoc-2017-mentors
