@@ -104,3 +104,37 @@ linkerd is a resilient service mesh for cloud native apps: https://linkerd.io/
 * Recommended Skills: Scala
 * Mentor(s): Oliver Gould (@olix0r), Alex Leong (@adleong)
 * Issue: TBD
+
+### OpenTracing
+
+OpenTracing is a vendor-neutral open standard for distributed tracing: http://opentracing.io/
+
+#### OpenTracing adaptor for AWS X-Ray 
+* Description: Build an OpenTracing adaptor for AWS X-Ray.
+* Recommended Skills: golang
+* Mentor(s): Ben Sigelman (@bensigelman)
+* Issue: TBD
+
+#### OpenTracing <> HAProxy instrumentation
+* Description: Add opentracing support to HAProxy.
+* Recommended Skills: golang, haproxy
+* Mentor(s): Paul Draper (@pauldraper)
+* Issue: TODO
+
+#### Instrument Nginx for OpenTracing
+* Description: Add support for instrumenting ngnix with opentracing.
+* Recommended Skills: golang, nginx 
+* Mentor(s): Paul Draper (@pauldraper)
+* Issue: TODO
+
+#### Add "net/rpc" and "database/sql" support
+* Description: Currently, instrumentation is just provided for net/http. Instrumentation for net/rpc and database/sqlseems is worth doing
+* Recommended Skills: golang
+* Mentor(s): Paul Draper (@pauldraper)
+* Issue: https://github.com/opentracing-contrib/go-stdlib/issues/8
+
+#### go-restful + OpenTracing
+* Description: Instrument go-restful (https://github.com/emicklei/go-restful), a wildly used Golang REST web services framework, with OpenTracing.
+* Recommended Skills: golang
+* Mentor(s): Wu Sheng (@wu-sheng)
+* Issue: TBD
