@@ -30,7 +30,14 @@ https://github.com/orgs/cncf/teams/gsoc-2017-mentors
 
 ### Kubernetes
 
-TODO
+#### Improve ThirdPartyResources
+
+* Description: ThirdPartyResources were added some time ago, but the implementation has languished with multiple outstanding capabilities that are missing. They did not complete the list of requirements for graduating to beta (kubernetes/kubernetes#22768).
+* Recommended Skills: golang
+* Mentor(s): Stefan Schimanski (@sttts)
+* Issue: https://github.com/kubernetes/features/issues/95
+
+#### TODO
 
 ### Fluentd
 
@@ -75,25 +82,25 @@ linkerd is a resilient service mesh for cloud native apps: https://linkerd.io/
 * Issue: TBD
 
 #### QUIC Netty codec
-* Description: Add opentracing support in linkerd.
+* Description: Build a QUIC Netty codec.
 * Recommended Skills: Scala
 * Mentor(s): Oliver Gould (@olix0r)
 * Issue: TBD
 
 #### Runtime debugging DSL
-* Description: Add opentracing support in linkerd.
+* Description: TODO
 * Recommended Skills: Scala
 * Mentor(s): Oliver Gould (@olix0r), Alex Leong (@adleong)
 * Issue: TBD
 
 #### Redis protocol support
-* Description: Add opentracing support in linkerd.
+* Description: Add redis protocol support.
 * Recommended Skills: Scala
 * Mentor(s): Oliver Gould (@olix0r), Alex Leong (@adleong)
 * Issue: TBD
 
 #### MySQL protocol support
-* Description: Add opentracing support in linkerd.
+* Description: Add mysql protocol support.
 * Recommended Skills: Scala
 * Mentor(s): Oliver Gould (@olix0r), Alex Leong (@adleong)
 * Issue: TBD
