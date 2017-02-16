@@ -79,31 +79,25 @@ linkerd is a resilient service mesh for cloud native apps: https://linkerd.io/
 * Description: Add opentracing support in linkerd.
 * Recommended Skills: Scala
 * Mentor(s): Oliver Gould (@olix0r), Andrew Seigner (@siggy)
-* Issue: TBD
+* Issue: https://github.com/linkerd/linkerd/issues/1079
 
 #### QUIC Netty codec
 * Description: Build a QUIC Netty codec.
-* Recommended Skills: Scala
+* Recommended Skills: Java, Netty, UNIX Networking
 * Mentor(s): Oliver Gould (@olix0r)
-* Issue: TBD
-
-#### Runtime debugging DSL
-* Description: TODO
-* Recommended Skills: Scala
-* Mentor(s): Oliver Gould (@olix0r), Alex Leong (@adleong)
-* Issue: TBD
+* Issue: https://github.com/linkerd/linkerd/issues/1078
 
 #### Redis protocol support
 * Description: Add redis protocol support.
-* Recommended Skills: Scala
+* Recommended Skills: Scala, Finagle, Redis
 * Mentor(s): Oliver Gould (@olix0r), Alex Leong (@adleong)
-* Issue: TBD
+* Issue: https://github.com/linkerd/linkerd/issues/1077
 
 #### MySQL protocol support
 * Description: Add mysql protocol support.
-* Recommended Skills: Scala
+* Recommended Skills: Scala, Finagle, MySQL
 * Mentor(s): Oliver Gould (@olix0r), Alex Leong (@adleong)
-* Issue: TBD
+* Issue: https://github.com/linkerd/linkerd/issues/1080
 
 ### OpenTracing
 
