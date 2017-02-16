@@ -63,3 +63,37 @@ Prometheus is an open-source systems monitoring and alerting toolkit: https://pr
 * Recommended Skills: golang
 * Mentor(s): Ben Kochie (@SuperQ)
 * Issue: https://github.com/prometheus/prometheus/issues/1695
+
+### linkerd
+
+linkerd is a resilient service mesh for cloud native apps: https://linkerd.io/
+
+#### Adopt OpenTracing in linkerd
+* Description: Add opentracing support in linkerd.
+* Recommended Skills: Scala
+* Mentor(s): Oliver Gould (@olix0r), Andrew Seigner (@siggy)
+* Issue: TBD
+
+#### QUIC Netty codec
+* Description: Add opentracing support in linkerd.
+* Recommended Skills: Scala
+* Mentor(s): Oliver Gould (@olix0r)
+* Issue: TBD
+
+#### Runtime debugging DSL
+* Description: Add opentracing support in linkerd.
+* Recommended Skills: Scala
+* Mentor(s): Oliver Gould (@olix0r), Alex Leong (@adleong)
+* Issue: TBD
+
+#### Redis protocol support
+* Description: Add opentracing support in linkerd.
+* Recommended Skills: Scala
+* Mentor(s): Oliver Gould (@olix0r), Alex Leong (@adleong)
+* Issue: TBD
+
+#### MySQL protocol support
+* Description: Add opentracing support in linkerd.
+* Recommended Skills: Scala
+* Mentor(s): Oliver Gould (@olix0r), Alex Leong (@adleong)
+* Issue: TBD
