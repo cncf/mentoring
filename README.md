@@ -25,3 +25,41 @@ Add your ideas to our page [here](https://docs.google.com/spreadsheets/d/1Dg8LhF
 
 Also please contact the org admins to add you to the gsoc github team:
 https://github.com/orgs/cncf/teams/gsoc-2017-mentors
+
+## Project Ideas
+
+### Kubernetes
+
+TODO
+
+### Fluentd
+
+Fluentd is an open source data collector for unified logging layer: http://www.fluentd.org/
+
+#### Fluentd Monitoring Dashboard
+* Description: 
+* Recommended Skills: 
+* Mentor(s): Eduard Silva (@edsiper)
+* Issue: 
+
+#### Fluent Bit: plugins development and extend golang interface 
+* Description: 
+* Recommended Skills: 
+* Mentor(s): Eduard Silva (@edsiper)
+* Issue: 
+
+### Prometheus
+
+Prometheus is an open-source systems monitoring and alerting toolkit: https://prometheus.io/
+
+#### Add option to log slow queries and recording rules
+* Description: Having something like PostgreSQL's log_min_duration_statement would be useful to debug performance problems. It would be great to collect detailed query information, like how many chunks were necessary to compute the result and how many had to be loaded from disk.
+* Recommended Skills: golang
+* Mentor(s): Ben Kochie (@SuperQ)
+* Issue: https://github.com/prometheus/prometheus/issues/1315
+
+#### General purpose rule/alert testing tool
+* Description: Write a wrapper that turns (https://github.com/prometheus/prometheus/blob/master/promql/test.go) into a general-purpose rule/alert testing tool.
+* Recommended Skills: golang
+* Mentor(s): Ben Kochie (@SuperQ)
+* Issue: https://github.com/prometheus/prometheus/issues/1695
