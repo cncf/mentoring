@@ -44,16 +44,16 @@ https://github.com/orgs/cncf/teams/gsoc-2017-mentors
 Fluentd is an open source data collector for unified logging layer: http://www.fluentd.org/
 
 #### Fluentd Monitoring Dashboard
-* Description: 
-* Recommended Skills: 
-* Mentor(s): Eduard Silva (@edsiper)
-* Issue: 
+* Description: [Fluentd](http://fluentd.org) as a log collector and aggregator, runs as a service in background, for hence having graphical built-in monitoring capabilities is a must for all scenarios. This project aims to implement a web based dashboard that reports the Fluentd internals from different stages of the data cycle: collection, parsing, filtering, buffering and outputs.
+* Recommended Skills: Ruby, API, CSS, Bootstrap and Javascript
+* Mentor(s): Eduardo Silva (@edsiper)
+* Issue: https://github.com/fluent/fluentd/issues/1475
 
-#### Fluent Bit: plugins development and extend golang interface 
-* Description: 
-* Recommended Skills: 
-* Mentor(s): Eduard Silva (@edsiper)
-* Issue: 
+#### Fluent Bit: plugins development and extend golang interface
+* Description: [Fluent Bit](http://fluentbit.io) is a log forwarder that can be integrated with Fluentd or work in standalone mode for log handling. This project aims to extend the number of plugins available to perform data collection, filtering and outputs.
+* Recommended Skills: C, TCP, Sockets, Golang and Linux.
+* Mentor(s): Eduardo Silva (@edsiper)
+* Issue: https://github.com/fluent/fluent-bit/issues/194
 
 ### Prometheus
 
@@ -103,7 +103,7 @@ linkerd is a resilient service mesh for cloud native apps: https://linkerd.io/
 
 OpenTracing is a vendor-neutral open standard for distributed tracing: http://opentracing.io/
 
-#### OpenTracing adaptor for AWS X-Ray 
+#### OpenTracing adaptor for AWS X-Ray
 * Description: Build an OpenTracing adaptor for AWS X-Ray.
 * Recommended Skills: golang
 * Mentor(s): Ben Sigelman (@bensigelman)
@@ -117,7 +117,7 @@ OpenTracing is a vendor-neutral open standard for distributed tracing: http://op
 
 #### Instrument Nginx for OpenTracing
 * Description: Add support for instrumenting ngnix with opentracing.
-* Recommended Skills: golang, nginx 
+* Recommended Skills: golang, nginx
 * Mentor(s): Paul Draper (@pauldraper)
 * Issue: TODO
 
