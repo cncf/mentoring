@@ -37,6 +37,27 @@ https://github.com/orgs/cncf/teams/gsoc-2017-mentors
 * Mentor(s): Stefan Schimanski (@sttts)
 * Issue: https://github.com/kubernetes/features/issues/95
 
+#### Code metrics infrastructure, measure, report in CI
+
+* Description: The Kubernetes code base grows every day. Reviews mostly concentrate on functionality and architecture, less on code hygiene like test coverage, cyclomatic complexity, linting etc. The goal of this project is to find better ways to support developers and reviewers by making these metrics more visible on new pull-requests. Ideas are to extend our github bots to post a green-yellow-red traffic light for certain measurements or to add new merge gates e.g. if test coverage goes down without being acknowledged by reviewers. 
+* Recommended Skills: golang
+* Mentor(s): Stefan Schimanski (@sttts)
+* Issue:
+
+#### Prototype ssh based replacement for kubctl-exec
+
+* Description: Kubectl exec is implemented with a proprietary protocol. The communication is not end-to-end encrypted. This project is about prototyping the integration of an on-demand SSH server in the kubelet and tunneling of the connection through the apiserver.
+* Recommended Skills: golang
+* Mentor(s): Stefan Schimanski (@sttts)
+* Issue:
+
+#### Bazel rules for generated code
+
+* Description: Bazel is Google's internal build tool with more than a decade of history internally, recently OpenSource'ed. It is well suited for big code bases and complex build dependency graphs. Today Kubernetes uses a large GNU make based build system mixed with a lot of bash scripting, which is slow, error prone and more and more unmaintainable. Early work has been done already to compile Kubernetes and to run tests with Bazel. A big next step is to integrate the various code generators that are heavily used in Kubernetes. The goal is better maintainability and much faster turn around cycles for developers and our CI infrastructure.
+* Recommended Skills: golang, interest in build systems, able to read existing Makefiles and bash code
+* Mentor(s): Stefan Schimanski (@sttts)
+* Issue:
+
 #### TODO
 
 ### Fluentd
@@ -44,16 +65,16 @@ https://github.com/orgs/cncf/teams/gsoc-2017-mentors
 Fluentd is an open source data collector for unified logging layer: http://www.fluentd.org/
 
 #### Fluentd Monitoring Dashboard
-* Description: 
-* Recommended Skills: 
-* Mentor(s): Eduard Silva (@edsiper)
-* Issue: 
+* Description: [Fluentd](http://fluentd.org) as a log collector and aggregator, runs as a service in background, for hence having graphical built-in monitoring capabilities is a must for all scenarios. This project aims to implement a web based dashboard that reports the Fluentd internals from different stages of the data cycle: collection, parsing, filtering, buffering and outputs.
+* Recommended Skills: Ruby, API, CSS, Bootstrap and Javascript
+* Mentor(s): Eduardo Silva (@edsiper)
+* Issue: https://github.com/fluent/fluentd/issues/1475
 
-#### Fluent Bit: plugins development and extend golang interface 
-* Description: 
-* Recommended Skills: 
-* Mentor(s): Eduard Silva (@edsiper)
-* Issue: 
+#### Fluent Bit: plugins development and extend golang interface
+* Description: [Fluent Bit](http://fluentbit.io) is a log forwarder that can be integrated with Fluentd or work in standalone mode for log handling. This project aims to extend the number of plugins available to perform data collection, filtering and outputs.
+* Recommended Skills: C, TCP, Sockets, Golang and Linux.
+* Mentor(s): Eduardo Silva (@edsiper)
+* Issue: https://github.com/fluent/fluent-bit/issues/194
 
 ### Prometheus
 
@@ -79,31 +100,25 @@ linkerd is a resilient service mesh for cloud native apps: https://linkerd.io/
 * Description: Add opentracing support in linkerd.
 * Recommended Skills: Scala
 * Mentor(s): Oliver Gould (@olix0r), Andrew Seigner (@siggy)
-* Issue: TBD
+* Issue: https://github.com/linkerd/linkerd/issues/1079
 
 #### QUIC Netty codec
 * Description: Build a QUIC Netty codec.
-* Recommended Skills: Scala
+* Recommended Skills: Java, Netty, UNIX Networking
 * Mentor(s): Oliver Gould (@olix0r)
-* Issue: TBD
-
-#### Runtime debugging DSL
-* Description: TODO
-* Recommended Skills: Scala
-* Mentor(s): Oliver Gould (@olix0r), Alex Leong (@adleong)
-* Issue: TBD
+* Issue: https://github.com/linkerd/linkerd/issues/1078
 
 #### Redis protocol support
 * Description: Add redis protocol support.
-* Recommended Skills: Scala
+* Recommended Skills: Scala, Finagle, Redis
 * Mentor(s): Oliver Gould (@olix0r), Alex Leong (@adleong)
-* Issue: TBD
+* Issue: https://github.com/linkerd/linkerd/issues/1077
 
 #### MySQL protocol support
 * Description: Add mysql protocol support.
-* Recommended Skills: Scala
+* Recommended Skills: Scala, Finagle, MySQL
 * Mentor(s): Oliver Gould (@olix0r), Alex Leong (@adleong)
-* Issue: TBD
+* Issue: https://github.com/linkerd/linkerd/issues/1080
 
 ### OpenTracing
 
@@ -117,11 +132,6 @@ In addition to the following projects, students may choose an equivalent framewo
 * Description: X-Ray is a distributed tracing service provided by AWS. X-Ray intrumentation does not currently conform to OpenTracing, it provides a similar (but proprietary) API. Make X-Ray vendor-neutral by building an OpenTracing/X-Ray adaptor, so that it can be plugged in to the OpenTracing ecosystem.
 * Recommended Skills: golang
 * Mentor(s): Ben Sigelman (@bensigelman)
-
-#### OpenTracing <> HAProxy instrumentation
-* Description: Load Balancers and Gateways provide an important service, and are present in almost every distributed system. Instrumentation at this layer is often the best first step towards tracing an entire system. Add opentracing support for HAProxy via a plugin. See [Envoy](https://lyft.github.io/envoy/docs/intro/arch_overview/tracing.html) as an example.
-* Recommended Skills: golang, haproxy
-* Mentor(s): Paul Draper (@pauldraper)
 
 #### OpenTracing Instrumentation for Nginx, HAProxy, or other Load Balancers
 * Description: Load Balancers and Gateways provide a variety of important services, and are present in almost every distributed system. Instrumentation at this layer is often the best first step towards tracing an entire system. Add intrumentation to Nginx, HAProxy, or equilvant gateway service via an OpenTracing plugin. See [Envoy](https://lyft.github.io/envoy/docs/intro/arch_overview/tracing.html) as an example.
