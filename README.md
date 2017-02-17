@@ -37,6 +37,13 @@ https://github.com/orgs/cncf/teams/gsoc-2017-mentors
 * Mentor(s): Stefan Schimanski (@sttts)
 * Issue: https://github.com/kubernetes/features/issues/95
 
+#### Code metrics infrastructure, measure, report in CI
+
+* Description: The Kubernetes code base grows every day. Reviews mostly concentrate on functionality and architecture, less on code hygiene like test coverage, cyclomatic complexity, linting etc. The goal of this project is to find better ways to support developers and reviewers by making these metrics more visible on new pull-requests. Ideas are to extend our github bots to post a green-yellow-red traffic light for certain measurements or to add new merge gates e.g. if test coverage goes down without being acknowledged by reviewers. 
+* Recommended Skills: golang
+* Mentor(s): Stefan Schimanski (@sttts)
+* Issue:
+
 #### TODO
 
 ### Fluentd
