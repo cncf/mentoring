@@ -51,6 +51,13 @@ https://github.com/orgs/cncf/teams/gsoc-2017-mentors
 * Mentor(s): Stefan Schimanski (@sttts)
 * Issue:
 
+#### Bazel rules for generated code
+
+* Description: Bazel is Google's internal build tool with more than a decade of history internally, recently OpenSource'ed. It is well suited for big code bases and complex build dependency graphs. Today Kubernetes uses a large GNU make based build system mixed with a lot of bash scripting, which is slow, error prone and more and more unmaintainable. Early work has been done already to compile Kubernetes and to run tests with Bazel. A big next step is to integrate the various code generators that are heavily used in Kubernetes. The goal is better maintainability and much faster turn around cycles for developers and our CI infrastructure.
+* Recommended Skills: golang, interest in build systems, able to read existing Makefiles and bash code
+* Mentor(s): Stefan Schimanski (@sttts)
+* Issue:
+
 #### TODO
 
 ### Fluentd
