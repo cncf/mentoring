@@ -58,6 +58,13 @@ https://github.com/orgs/cncf/teams/gsoc-2017-mentors
 * Mentor(s): Stefan Schimanski (@sttts)
 * Issue:
 
+#### Create and implement a Data Model to standardize Kubernetes logs
+
+* Description: To perform operations in large kubernetes clusters, where microservices-based applications can be composed of a considerable number of pods, well-structured logs are required. A Data Model that can help find the right field in the right log and tag it (i.e. app name) is required. This way the logs can be easily processed, correlated and queried so the troubleshooting becomes much easier and the time to find root causes for problems gets dramatically reduced. An example implementation can be done with Fluentd ElasticSearch and Kibana
+* Recommended Skills: knowledge on Kubernetes internals, basic Ruby coding skills, knowledge on JSON / YAML
+* Mentor(s): Peter Portante, Tushar Katarki, Miguel Pérez Colino (backup)
+* Issue:
+
 #### TODO
 
 ### Fluentd
