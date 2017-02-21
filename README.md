@@ -65,6 +65,24 @@ https://github.com/orgs/cncf/teams/gsoc-2017-mentors
 * Mentor(s): Peter Portante, Tushar Katarki, Miguel Pérez Colino (backup)
 * Issue:
 
+#### Develop a set of Jupyter Notebooks for the Python Client
+
+* Description: The Kubernetes python client  is currently in incubation. Jupyter is the new interactive python interface, it has a web accessible UI and several key features to discovery Python modules as well as interact directly with a shell. In this project, the student will learn the Kubernetes API by using the Python client and develop a set of Notebooks that highlight the Kubernetes primitives. These will all be interactive notebooks that can be run as a Kubernetes applications.
+* Recommended Skills: Python
+* Mentor(s): Sebastien Goasguen
+
+#### Improve kompose support for docker bundles
+
+* Description: Kompose is a Kubernetes incubator project that translates docker-compose application description into a set of Kubernetes manifests. As docker-compose evolves and new versions are avaialable, kompose needs to keep up. In this project, the student will learn the docker bundle format, evaluate its current use and development state, then improve the kompose bundle support. The student will also participate in the support of docker-compose v3 format.
+* Recommended Skills: Golang
+* Mentor(s): Sebastien Goasguen
+
+#### Develop advanced Charts for Helm
+
+* Description:  Helm is the package manager for Kubernetes. Application packaged by Helm are called Charts, there are currently over 50 charts in the repository. This project aims at learning Helm and Charts and contributing to Charts development. The student will focus on advanced applications pipelines that use multiple charts as dependencies.
+* Recommended Skills: Golang, Kubernetes, Bash
+* Mentor(s): Sebastien Goasguen
+
 #### TODO
 
 ### Fluentd
