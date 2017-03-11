@@ -50,7 +50,7 @@ https://github.com/orgs/cncf/teams/gsoc-2017-mentors
 * Description: Kubectl exec is implemented with a proprietary protocol. The communication is not end-to-end encrypted. This project is about prototyping the integration of an on-demand SSH server in the kubelet and tunneling of the connection through the apiserver.
 * Recommended Skills: golang
 * Mentor(s): Stefan Schimanski (@sttts)
-* Issue:
+* Issue: https://github.com/kubernetes/kubernetes/issues/42950
 
 #### Bazel rules for generated code
 
