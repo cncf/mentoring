@@ -178,7 +178,7 @@ In addition to the following projects, students may choose an equivalent framewo
 * Recommended Skills: golang
 * Mentor(s): Wu Sheng (@wu-sheng)
 
-###gRPC
+### gRPC
 [gRPC](grpc.io) is fast and efficient open source RPC framework.
 
 #### gRPC C Core:
