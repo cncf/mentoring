@@ -184,42 +184,40 @@ In addition to the following projects, students may choose an equivalent framewo
 #### gRPC C Core:
 
 * Port gRPC to  one of the major BSD platforms ([FreeBSD](https://freebsd.org), [NetBSD](https://netbsd.org), and [OpenBSD](https://openbsd.org)) and create packages for them. Add [kqueue](https://www.freebsd.org/cgi/man.cgi?query=kqueue) support in the process.
-* Required skills:* C programming language, BSD operating system.
-* Likely Mentors:* [Craig Tiller](https://github.com/ctiller),
+* Required skills: C programming language, BSD operating system.
+* Likely Mentors: [Craig Tiller](https://github.com/ctiller),
  [Nicolas Noble](https://github.com/nicolasnoble),
  [Vijay Pai](https://github.com/vjpai).
 
 * Fix gRPC C-core's URI parser. The current parser does not qualify as a standard parser according to [RFC3986]( https://tools.ietf.org/html/rfc3986). Write test suites to verify this and make changes necessary to make the URI parser compliant.
-* Required skills:* C programming language, HTTP standard compliance.
-* Likely mentors:* [Craig Tiller](https://github.com/ctiller).
+* Required skills: C programming language, HTTP standard compliance.
+* Likely mentors: [Craig Tiller](https://github.com/ctiller).
 
 * HPACK compression efficiency evaluation - Figure out how to benchmark gRPC's compression efficiency (both in terms of bytes on the wire and cpu cycles). Implement benchmarks. Potentially extend this to other full-stack gRPC implementations (Java and Go).
-* Required skills:* C programming language, software performance benchmarking, potentially Java and Go.
-* Likely mentors:* [Craig Tiller](https://github.com/ctiller).
+* Required skills: C programming language, software performance benchmarking, potentially Java and Go.
+* Likely mentors: [Craig Tiller](https://github.com/ctiller).
 
 
 #### gRPC Python:
 
 * Port gRPC Python to [PyPy](http://pypy.org). Investigate the state of [Cython support](http://docs.cython.org/src/userguide/pypy.html) to do this or potentially explore [cffi](https://cffi.readthedocs.org/en/latest/).
-* Required skills:* Python programming language, PyPy Python interpreter.
-* Likely mentors:* [Nathaniel Manista](https://github.com/nathanielmanistaatgoogle), [Masood Malekghassemi](https://github.com/soltanmm).
+* Required skills: Python programming language, PyPy Python interpreter.
+* Likely mentors: [Nathaniel Manista](https://github.com/nathanielmanistaatgoogle), [Masood Malekghassemi](https://github.com/soltanmm).
 
 * Develop and test Python 3.5 Support for gRPC. Make necessary changes to port gRPC and package it for supported platforms.
-* Required skills:* Python programming language, Python 3.5 interpreter.
-* Likely mentors:* [Nathaniel Manista](https://github.com/nathanielmanistaatgoogle), [Masood Malekghassemi](https://github.com/soltanmm).
+* Required skills: Python programming language, Python 3.5 interpreter.
+* Likely mentors: [Nathaniel Manista](https://github.com/nathanielmanistaatgoogle), [Masood Malekghassemi](https://github.com/soltanmm).
  
 #### gRPC Ruby/Java:
 
 * [jRuby](http://jruby.org) support for gRPC. Develop a jRuby wrapper for gRPC based on grpc-java and ensure that it is API compatible with the existing Ruby implementation and passes all tests.
-* Required skills:* Java programming language, Ruby programming language.
-* Likely mentors:* [Michael Lumish](https://github.com/murgatroid99), [Eric Anderson](https://github.com/ejona86).
+* Required skills: Java programming language, Ruby programming language.
+* Likely mentors: [Michael Lumish](https://github.com/murgatroid99), [Eric Anderson](https://github.com/ejona86).
 
 
 #### gRPC Wire Protocol:
 
 * Develop a [Wireshark](https://wireshark.org) plugin for the gRPC protocol. Provide documentation and tutorials for this plugin.
-* Bonus:* consider set-up and use with mobile clients.
-* Required skills:* Wireshark software.
-* Likely mentors:* [Nicolas Noble](https://github.com/nicolasnoble).
-
-
+* Bonus: consider set-up and use with mobile clients.
+* Required skills: Wireshark software.
+* Likely mentors: [Nicolas Noble](https://github.com/nicolasnoble).
