@@ -221,3 +221,20 @@ In addition to the following projects, students may choose an equivalent framewo
 * Bonus: consider set-up and use with mobile clients.
 * Required skills: Wireshark software.
 * Likely mentors: [Nicolas Noble](https://github.com/nicolasnoble).
+
+### CoreDNS
+
+CoreDNS is a DNS server that chains middleware.
+
+#### DNSSEC
+
+* Develop/extend the DNSSEC middleware to be able to do on-the-fly-signing and exchanging
+  key material with the registrar - in essence implementing zero-touch DNSSEC.
+* Required skills: DNSSEC, cryptography.
+* Mentors: [Miek Gieben](https://github.com/miekg).
+
+#### Middleware
+
+* Develop a middleware that can use [dnstap](http://dnstap.info/) for DNS data exchange
+* Required skills: dnstap
+* Mentors: [John Belamaric](https://github.com/johnbelamaric), [Miek Gieben](https://github.com/miekg).
