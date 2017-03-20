@@ -40,7 +40,7 @@ https://github.com/orgs/cncf/teams/gsoc-2017-mentors
 
 #### Code metrics infrastructure, measure, report in CI
 
-* Description: The Kubernetes code base grows every day. Reviews mostly concentrate on functionality and architecture, less on code hygiene like test coverage, cyclomatic complexity, linting etc. The goal of this project is to find better ways to support developers and reviewers by making these metrics more visible on new pull-requests. Ideas are to extend our github bots to post a green-yellow-red traffic light for certain measurements or to add new merge gates e.g. if test coverage goes down without being acknowledged by reviewers. 
+* Description: The Kubernetes code base grows every day. Reviews mostly concentrate on functionality and architecture, less on code hygiene like test coverage, cyclomatic complexity, linting etc. The goal of this project is to find better ways to support developers and reviewers by making these metrics more visible on new pull-requests. Ideas are to extend our github bots to post a green-yellow-red traffic light for certain measurements or to add new merge gates e.g. if test coverage goes down without being acknowledged by reviewers.
 * Recommended Skills: golang
 * Mentor(s): Stefan Schimanski (@sttts)
 * Issue:
@@ -157,18 +157,18 @@ With v1.0 of OpenTracing complete, we are now in the process of intrumenting maj
 
 In addition to the following projects, students may choose an equivalent framework, library, or service, provided it is widely used and Open Source.
 
-#### OpenTracing adaptor for AWS X-Ray 
+#### OpenTracing adaptor for AWS X-Ray
 * Description: X-Ray is a distributed tracing service provided by AWS. X-Ray intrumentation does not currently conform to OpenTracing, it provides a similar (but proprietary) API. Make X-Ray vendor-neutral by building an OpenTracing/X-Ray adaptor, so that it can be plugged in to the OpenTracing ecosystem.
 * Recommended Skills: golang
 * Mentor(s): Ben Sigelman (@bensigelman)
 
 #### OpenTracing Instrumentation for Nginx, HAProxy, or other Load Balancers
 * Description: Load Balancers and Gateways provide a variety of important services, and are present in almost every distributed system. Instrumentation at this layer is often the best first step towards tracing an entire system. Add intrumentation to Nginx, HAProxy, or equilvant gateway service via an OpenTracing plugin. See [Envoy](https://lyft.github.io/envoy/docs/intro/arch_overview/tracing.html) as an example.
-* Recommended Skills: C++, nginx 
+* Recommended Skills: C++, nginx
 * Mentor(s): Paul Draper (@pauldraper)
 
 #### Add "net/rpc" and "database/sql" support for Golang
-* Description: Instrumented wrappers for the io functionality in Golang's stdlib, such as net/rpc and database/sql, is critical. So far, only net/http has been instrumented. 
+* Description: Instrumented wrappers for the io functionality in Golang's stdlib, such as net/rpc and database/sql, is critical. So far, only net/http has been instrumented.
 * Recommended Skills: golang
 * Mentor(s): Paul Draper (@pauldraper)
 * Issue: https://github.com/opentracing-contrib/go-stdlib/issues/8
@@ -207,7 +207,7 @@ In addition to the following projects, students may choose an equivalent framewo
 * Develop and test Python 3.5 Support for gRPC. Make necessary changes to port gRPC and package it for supported platforms.
 * Required skills: Python programming language, Python 3.5 interpreter.
 * Likely mentors: [Nathaniel Manista](https://github.com/nathanielmanistaatgoogle), [Masood Malekghassemi](https://github.com/soltanmm).
- 
+
 #### gRPC Ruby/Java:
 
 * [jRuby](http://jruby.org) support for gRPC. Develop a jRuby wrapper for gRPC based on grpc-java and ensure that it is API compatible with the existing Ruby implementation and passes all tests.
@@ -221,3 +221,20 @@ In addition to the following projects, students may choose an equivalent framewo
 * Bonus: consider set-up and use with mobile clients.
 * Required skills: Wireshark software.
 * Likely mentors: [Nicolas Noble](https://github.com/nicolasnoble).
+
+### CoreDNS
+
+CoreDNS is a DNS server that chains middleware.
+
+#### DNSSEC
+
+* Develop/extend the DNSSEC middleware to be able to do on-the-fly-signing and exchanging
+  key material with the registrar - in essence implementing zero-touch DNSSEC.
+* Required skills: DNSSEC, cryptography.
+* Mentors: [Miek Gieben](https://github.com/miekg).
+
+#### Middleware
+
+* Develop a middleware that can use [dnstap](http://dnstap.info/) for DNS data exchange
+* Required skills: dnstap
+* Mentors: [John Belamaric](https://github.com/johnbelamaric), [Miek Gieben](https://github.com/miekg).
