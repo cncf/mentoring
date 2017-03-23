@@ -244,3 +244,20 @@ CoreDNS is a DNS server that chains middleware.
 * Develop a middleware that supports [etcd3 API](https://coreos.com/etcd/docs/latest/v2/api_v3.html) See also https://github.com/coredns/coredns/issues/341
 * Required skills: Go
 * Mentors: [John Belamaric](https://github.com/johnbelamaric)
+
+### CRI - Container Runtime Interface
+
+[CRI](http://blog.kubernetes.io/2016/12/container-runtime-interface-cri-in-kubernetes.html) is one of the key features of Kubernetes. It is designed to decouple container runtime (e.g. [Docker](https://github.com/docker/docker)) from kubelet by defining a imperative interface for runtimes to follow. Less overhead, less effort and cleaner code base for users to integrate container runtimes into Kubernetes.
+
+#### CRI + Frakti + Unikernels
+
+The goal of this task is to integrate Unikernels as Kubernetes runtime by using Frakti project.
+
+[Frakti](https://github.com/kubernetes/frakti) is an official Kubernetes sub-project which is a well-designed CRI implementation for hypervisor-based runtimes. It now support hypervisor container as well as mixed container runtimes (e.g. Docker + HyperContainer)on same node.
+
+[Unikernels](http://unikernel.org/) are specialised, single-address-space machine images constructed by using library operating systems. You can consider it as a virtual machine but only has a special OS compiled with your applications binaries. Unikernels are considered as the future infrastructure of [IoT](https://en.wikipedia.org/wiki/Internet_of_things) and cloud system.
+
+* Develop a build-in `unikshim` for Frakti to manage Unikernels workloads to serve Kubernetes. Hypervisor manager like libvirt (or QEMU, or even KVM) need to be installed to manage those Unikernels machines and the `unikshim` will be able to communicate with this manager to control the lifecycle of those workloads.
+* Required skills: Golang, Operating System knowledge.
+* Mentors: [Pengfei Ni](http://github.com/feiskyer), [Harry Zhang](https://github.com/resouer).
+* Issue: https://github.com/kubernetes/frakti/issues/99
