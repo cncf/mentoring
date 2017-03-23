@@ -214,13 +214,19 @@ In addition to the following projects, students may choose an equivalent framewo
 * Required skills: Java programming language, Ruby programming language.
 * Likely mentors: [Michael Lumish](https://github.com/murgatroid99), [Eric Anderson](https://github.com/ejona86).
 
-
 #### gRPC Wire Protocol:
 
 * Develop a [Wireshark](https://wireshark.org) plugin for the gRPC protocol. Provide documentation and tutorials for this plugin.
 * Bonus: consider set-up and use with mobile clients.
 * Required skills: Wireshark software.
 * Likely mentors: [Nicolas Noble](https://github.com/nicolasnoble).
+
+#### gRPC Web:
+
+* Implement a reusable Web UI form to invoke gRPC end-points with preconfigured or discovery based protobuf definition.
+* Required skills: JS/HTML/CSS
+* Likely mentors: [Wenbo Zhu](https://github.com/wenbozhu).
+
 
 ### CoreDNS
 
