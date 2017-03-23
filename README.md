@@ -230,14 +230,20 @@ CoreDNS is a DNS server that chains middleware.
 
 * Develop/extend the DNSSEC middleware to be able to do on-the-fly-signing and exchanging
   key material with the registrar - in essence implementing zero-touch DNSSEC.
-* Required skills: DNSSEC, cryptography.
+* Required skills: DNSSEC, cryptography, Go
 * Mentors: [Miek Gieben](https://github.com/miekg).
 
-#### Middleware
+#### dnstap Middleware
 
 * Develop a middleware that can use [dnstap](http://dnstap.info/) for DNS data exchange
-* Required skills: dnstap
+* Required skills: dnstap, Go
 * Mentors: [John Belamaric](https://github.com/johnbelamaric), [Miek Gieben](https://github.com/miekg).
+
+#### etcd3 Support
+
+* Develop a middleware that supports [etcd3 API](https://coreos.com/etcd/docs/latest/v2/api_v3.html) See also https://github.com/coredns/coredns/issues/341
+* Required skills: Go
+* Mentors: [John Belamaric](https://github.com/johnbelamaric)
 
 ### CRI - Container Runtime Interface
 
