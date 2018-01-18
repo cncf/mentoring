@@ -21,8 +21,7 @@ It's best if you use a public communication channel whenever possible; however, 
 You can join the CNCF slack [here](https://slack.cncf.io/).
 
 ## Current Year
-
-We are planning to submit an application as a mentoring organisation for Google Summer of Code 2018.
+We have submitted an application as a mentoring organisation for Google Summer of Code 2018.
 
 ### Students
 
