@@ -134,7 +134,7 @@ Misc. ideas:
 #### Prometheus Outalator
 * Description: A full-fledged outlator fully integrated with the Alertmanager. https://landing.google.com/sre/book/chapters/tracking-outages.html
 * Recommended Skills: golang, javascript
-* Mentor(s): Frederic Branczyk (@brancz), Brian Brazil (@brian-brazil), Richard Hartmann (@RichiH) 
+* Mentor(s): Frederic Branczyk (@brancz), Brian Brazil (@brian-brazil), Richard Hartmann (@RichiH)
 
 ### Envoy
 
@@ -142,12 +142,12 @@ TODO
 
 ### CoreDNS
 
-CoreDNS is a DNS server that chains middleware.
+CoreDNS is a DNS server that chains plugins <https://coredns.io>.
 
 #### DNSSEC
 
-* Develop/extend the DNSSEC plugin to be able to do on-the-fly-signing and exchanging
-  key material with the registrar - in essence implementing zero-touch DNSSEC.
+* Develop/extend the DNSSEC plugin be able to exchange key material with the registrar - in essence
+  implementing zero-touch DNSSEC.
 * Required skills: DNSSEC, cryptography, Go
 * Mentors: [Miek Gieben](https://github.com/miekg).
 
@@ -158,6 +158,7 @@ CoreDNS is a DNS server that chains middleware.
 * Mentors: [John Belamaric](https://github.com/johnbelamaric)
 
 #### Autoscaling Secondary DNS in Kubernetes
+
 * This is more complicated than it sounds. When a primary zone changes, the secondary servers are notified.
 If CoreDNS is running as a set of autoscaling Pods in Kubernetes, only one of the CoreDNS instances will
 receive the NOTIFY message through the load balancer. It is necessary for that CoreDNS Pod to understand
