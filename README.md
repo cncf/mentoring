@@ -38,7 +38,9 @@ Add your ideas to the README list below.
 
 ### Kubernetes
 
-TODO
+Please visit the [Kubernetes GSoC page](https://git.k8s.io/community/mentoring/google-summer-of-code.md) for general information.
+
+A list of project ideas for Kubernetes will be published soon.
 
 ### Prometheus
 
