@@ -8,7 +8,8 @@ If you need help with anything CNCF + Summer of code related, you can file an is
 
 * Chris Aniszczyk ([@caniszczyk](https://github.com/caniszczyk)): https://twitter.com/cra
 * Ihor Dvoretskyi ([@idvoretskyi](https://github.com/idvoretskyi)): https://twitter.com/idvoretskyi
-* Cameron Zahedi ([@czahedi](https://github.com/czahedi))
+* Nikhita Raghunath ([@nikhita](https://github.com/nikhita)): https://twitter.com/TheNikhita
+* Paris Pittman ([@parispittman](https://github.com/parispittman)): https://twitter.com/ParisInBmore
 
 It's best if you use a public communication channel whenever possible; however, if you need to communicate in private, please feel free to send the admins a note via info@cncf.io (please use the public channels for any project-related discussion).
 
