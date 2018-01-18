@@ -133,3 +133,30 @@ Misc. ideas:
 ### Envoy
 
 TODO
+
+### CoreDNS
+
+CoreDNS is a DNS server that chains middleware.
+
+#### DNSSEC
+
+* Develop/extend the DNSSEC plugin to be able to do on-the-fly-signing and exchanging
+  key material with the registrar - in essence implementing zero-touch DNSSEC.
+* Required skills: DNSSEC, cryptography, Go
+* Mentors: [Miek Gieben](https://github.com/miekg).
+
+#### etcd3 Support
+
+* Develop a plugin that supports [etcd3 API](https://coreos.com/etcd/docs/latest/v2/api_v3.html) See also https://github.com/coredns/coredns/issues/341
+* Required skills: Go
+* Mentors: [John Belamaric](https://github.com/johnbelamaric)
+
+#### Autoscaling Secondary DNS in Kubernetes
+* This is more complicated than it sounds. When a primary zone changes, the secondary servers are notified.
+If CoreDNS is running as a set of autoscaling Pods in Kubernetes, only one of the CoreDNS instances will
+receive the NOTIFY message through the load balancer. It is necessary for that CoreDNS Pod to understand
+how to relay that message to other CoreDNS Pods. This should be done without a direct reliance on the Kubernetes
+API as it can be useful in non-Kubernetes deployments as well, so it is necessary to define a mechanism whereby
+CoreDNS instances may discovery one another.
+* Required skills: Go
+* Mentors: [John Belamaric](https://github.com/johnbelamaric)
