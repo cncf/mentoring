@@ -189,3 +189,9 @@ API as it can be useful in non-Kubernetes deployments as well, so it is necessar
 CoreDNS instances may discovery one another.
 * Required skills: Go
 * Mentors: [John Belamaric](https://github.com/johnbelamaric)
+
+#### Conditional Name Server Identifier
+
+* Description: Currently CoreDNS supports DNS Name Server Identifier (NSID) to allow a DNS server to self-identify itself. In a distributed system collision may occur, so a mechanism is needed to allow a server to conditionally declare its identity. There a several ways to achieve this goal. One way is to ask a name server to wait until its precedence already declares (e.g., `server-1`), before assigning a non-conflict identity to itself (e.g., `server-2`). Another way is to extract the identity from another source, e.g., the timestamp of the server on the cloud, or a lock from K-V store like zookeeper or etcd.
+* Recommended Skills: Golang
+* Mentors: [Yong Tang](https://github.com/yongtang)
