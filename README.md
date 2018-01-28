@@ -160,7 +160,17 @@ Misc. ideas:
 
 ### Envoy
 
-TODO
+#### Replace evbuffer buffer implementation with custom rewrite
+* Description: Currently Envoy uses a buffer implementation based on libevent evbuffer. This
+  implementation has a number of shortcomings. We would like to do a custom C++14 rewrite.
+* Required skills: C/C++
+* Mentor(s): Lyft networking team
+
+#### Add more fuzzing
+* Description: Envoy is only now getting fuzz testing support. By this summer the coverage will
+  be limited. We would love someone to come and increase the fuzz coverage.
+* Required skills: C/C++
+* Mentor(s): Lyft networking team and consulting with Google Envoy team.
 
 ### CoreDNS
 
