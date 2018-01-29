@@ -205,3 +205,10 @@ CoreDNS instances may discovery one another.
 * Description: Currently CoreDNS supports DNS Name Server Identifier (NSID) to allow a DNS server to self-identify itself. In a distributed system collision may occur, so a mechanism is needed to allow a server to conditionally declare its identity. There a several ways to achieve this goal. One way is to ask a name server to wait until its precedence already declares (e.g., `server-1`), before assigning a non-conflict identity to itself (e.g., `server-2`). Another way is to extract the identity from another source, e.g., the timestamp of the server on the cloud, or a lock from K-V store like zookeeper or etcd.
 * Recommended Skills: Golang
 * Mentors: [Yong Tang](https://github.com/yongtang)
+
+### gRPC 
+
+gRPC is a high performance, open source RPC Framework <https://grpc.io>.
+
+The gRPC project maintains an [up-to-date list of summer of code project ideas](https://github.com/grpc/grpc/blob/master/summerofcode/ideas.md) in their repo.
+
