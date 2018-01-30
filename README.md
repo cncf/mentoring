@@ -39,30 +39,38 @@ Add your ideas to the README list below.
 
 Please visit the [Kubernetes GSoC page](https://git.k8s.io/community/mentoring/google-summer-of-code.md) for general information.
 
-### OpenAPI spec references in CustomResourceDefinitions
+#### OpenAPI spec references in CustomResourceDefinitions
 * Description: CustomResourceDefinitions (CRDs) often reuse Kubernetes types and embed them, e.g. a PodSpec. Today a CRD has to copy the whole OpenAPI spec for that type. For types like PodSpec these can be huge. The idea here is to define a Kubernetes OpenAPI universe which allows to point from a CRD to the spec of other types in the universe, e.g. the mentioned PodSpec.
 This project includes conceptual work of defining such a universe with the current, published OpenAPI spec in mind, to come up with a design for how and when to resolve the new references, to write a proposal for all that and of course to code the feature within the apiextensions-apiserver.
 * Recommended Skills: Golang, OpenAPI
 * Mentor(s): Dr. Stefan Schimanski (@sttts), Mehdy Bohlool (@mbohlool)
 * Issue: https://github.com/kubernetes/kubernetes/issues/54579
 
-### Client-go semantic versioning
+#### Client-go semantic versioning
 * Description: The client-go library is vendored by many 3rdparty projects. We version it with semantic version numbers like 5.0.0, 5.0.1, 5.0.2, 6.0.0. On each release we increase the major version. We don't have any tooling in place that warns about incompatible changes when changes are merged into the Kubernetes code-base.
 This project is about changing this by developing and applying a tool to each Kubernetes code change that looks at the changed Go code and whether it breaks any Golang interfaces. This also involves the definition which parts of client-go and other libraries are actual interfaces we promise to preserve. Finally, this project includes the integration into our test infrastructure.
 * Recommended Skills: Golang, Go parser, Go language specification and semantics, CI
 * Mentor(s): Dr. Stefan Schimanski (@sttts), Chao Xu (@caesarxuchao)
 
-### Batch scheduling and queueing for data processing/ML workloads
+#### Batch scheduling and queueing for data processing/ML workloads
 * Description: Investigate kube-arbitrator, adapt one well known application running on Kubernetes (Apache Spark/Tensorflow/others) to use batch scheduling and queueing functionality, do performance benchmarking, and then produce a document detailing the approach and recommendations.
 * Recommended Skill(s): Golang
 * Mentor(s): Klaus Ma (@k82cn), Anirudh Ramanathan (@foxish), @ynli
 * Issue: https://github.com/kubernetes/features/issues/269
 
-### Strategic Merge Patch support for CustomResourceDefinitions
+#### Strategic Merge Patch support for CustomResourceDefinitions
 * Description: Strategic Merge Patches are a data format of the HTTP Patch operation against Kubernetes objects. They allow to control how maps and slices are modified, either via tags in the patches or via tags on the Go types. CustomResources are no native Go types in Kubernetes which breaks Strategic Merge Patch. This topic is about adding Strategic Merge Patch support for `runtime.Unstructured` and to create an API to define the default merge strategies for JSON paths within CustomResources.
 * Recommended Skill(s): Golang, Algorithms
 * Mentors(s): Dr. Stefan Schimanski (@sttts)
 * Issue: https://github.com/kubernetes/kubernetes/issues/56348 and https://github.com/kubernetes/kubernetes/pull/58064
+
+### Containerd
+
+#### KataContainers support for containerd/cri-containerd 
+* Description: [cri-containerd](https://github.com/containerd/cri-containerd) is a Kubernetes CRI implementation for [containerd](https://github.com/containerd/containerd), the core part of Docker. [KataContainers](https://katacontainers.io) is a OCI container runtime which leverages hypervisor-based isolation for Linux container stack. This topic aims at integrating KataContainers as a underlying runtime of containerd and serve Kubernetes CRI. In which case, users of Kubernetes will be able to enjoy security and multi-tenancy brought by KataConainers as well as native Linux container experience brought by containerd.
+* Recommended Skill(s): Golang, Linux Operating System
+* Mentors(s): Harry Zhang (@resouer), Lantao Liu (@Random-Liu),  Jiangshan Lai (@laijs)
+
 
 ### Prometheus
 
