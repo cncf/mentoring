@@ -64,6 +64,13 @@ This project is about changing this by developing and applying a tool to each Ku
 * Mentors(s): Dr. Stefan Schimanski (@sttts)
 * Issue: https://github.com/kubernetes/kubernetes/issues/56348 and https://github.com/kubernetes/kubernetes/pull/58064
 
+#### OpenTracing support
+In order to troubleshoot Kubernetes latencies it would be great to have tracing support. Metrics are great for alerting, to know if something is wrong, but by design are not meant to trace the execution of single requests. Tracing support would allow troubleshooting high latency requests in order to find performance improvement opportunities more easily and quickly.
+This project involves evaluating tracing solutions as well as implementing support for the Kubernetes API handlers.
+* Recommended skills: Kubernetes, OpenTracing
+* Mentor(s): Dr. Stefan Schimanski (@sttts), Frederic Branczyk (@brancz)
+* Issue: https://github.com/kubernetes/kubernetes/issues/26507
+
 ### Containerd
 
 #### KataContainers support for containerd/cri-containerd 
