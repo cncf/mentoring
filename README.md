@@ -91,6 +91,13 @@ Prometheus ideas:
 * Mentor(s): Frederic Branczyk (@brancz), Goutham V (@gouthamve)
 * Issue: https://github.com/prometheus/prometheus/issues/3690
 
+#### Refactor the APIs for better readability and less maintenance overhead
+* Description: Currently the HTTP API is not very well organized and needs some tidying up. The actual course of action is not decided yet, but [go-kit](https://github.com/go-kit/kit) looks like a good fit. 
+* Recommended Skills: golang
+* Mentor(s): Krasi Georgiev (@krasi-georgiev)
+* Issue: https://github.com/prometheus/prometheus/issues/3416
+
+
 #### Add option to log slow queries
 * Description: Having something like PostgreSQL's log_min_duration_statement would be useful to debug performance problems. It would be great to collect detailed query information, like how many chunks were necessary to compute the result and how many had to be loaded from disk. Further having detailed stats like the number of series/samples/blocks touched would be great.
 * Recommended Skills: golang
