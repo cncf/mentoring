@@ -21,13 +21,13 @@ It's best if you use a public communication channel whenever possible; however, 
 You can join the CNCF slack [here](https://slack.cncf.io/).
 
 ## Current Year
-We have submitted an application as a mentoring organisation for Google Summer of Code 2018.
+We have been accepted as a [mentoring organisation](https://summerofcode.withgoogle.com/organizations/6453865516367872/) for Google Summer of Code 2018.
 
 ### Students
 
-The list of official project ideas will be published soon.
+The list of official project ideas is published below.
 
-To get an idea about the projects, you can take a look at the list of project ideas published for [GSoC 2017](/2017.md).
+You can also take a look at the list of project ideas published for [GSoC 2017](/2017.md).
 
 ### Mentors
 
