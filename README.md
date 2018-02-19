@@ -97,6 +97,12 @@ Prometheus ideas:
 * Mentor(s): Krasi Georgiev (@krasi-georgiev)
 * Issue: https://github.com/prometheus/prometheus/issues/3416
 
+#### Unify the testing across all packages.
+* Description: Currently we have tests using just the standard library so there is a lot of code repetition. We want to unify the tests and make the code 'dry'. 
+* Recommended Skills: golang
+* Mentor(s): Goutham V (@gouthamve), Krasi Georgiev (@krasi-georgiev)
+* Issue: https://github.com/prometheus/prometheus/issues/3242
+
 
 #### Add option to log slow queries
 * Description: Having something like PostgreSQL's log_min_duration_statement would be useful to debug performance problems. It would be great to collect detailed query information, like how many chunks were necessary to compute the result and how many had to be loaded from disk. Further having detailed stats like the number of series/samples/blocks touched would be great.
