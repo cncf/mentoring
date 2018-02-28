@@ -129,12 +129,6 @@ Prometheus ideas:
 
 Alertmanager ideas:
 
-#### Replace weaveworks/mesh
-* Description: It's effectively unmaintained, and we have various known problems; initial investigation shows hashicorp/memberlist might be a good candidate, as it has many similar primitives in its library.
-* Recommended Skills: golang
-* Mentor(s): Frederic Branczyk (@brancz)
-* Issue: https://github.com/prometheus/alertmanager/issues/1200
-
 #### Optimize Alert Ingest Path
 * Description: While benchmarking & profiling Alertmanager it quickly became obvious, that the ingest path blocks _a lot_ and can be optimised.
 * Recommended Skills: golang
