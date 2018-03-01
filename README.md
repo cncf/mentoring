@@ -227,3 +227,48 @@ CoreDNS instances may discovery one another.
 * Description: Currently CoreDNS supports DNS Name Server Identifier (NSID) to allow a DNS server to self-identify itself. In a distributed system collision may occur, so a mechanism is needed to allow a server to conditionally declare its identity. There a several ways to achieve this goal. One way is to ask a name server to wait until its precedence already declares (e.g., `server-1`), before assigning a non-conflict identity to itself (e.g., `server-2`). Another way is to extract the identity from another source, e.g., the timestamp of the server on the cloud, or a lock from K-V store like zookeeper or etcd.
 * Recommended Skills: Golang
 * Mentors: [Yong Tang](https://github.com/yongtang)
+
+### Rook
+
+Rook is an open source storage orchestrator for cloud-native environments: https://rook.io/
+
+#### Rook issues for first time contributors
+
+* Description: Contributing to a major open source project can be difficult to figure out where to start.
+Beyond learning what the project does, you need to learn the code base, how to build and test your code, how to get your changes approved, and more.
+The "help wanted" issues are scoped to a manageable effort for first time contributors.
+A perfect place to jump in and contribute to an open source project!
+* Issue Link: [Rook Help Wanted](https://github.com/rook/rook/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
+* Diffuculty: Easy
+* Recommended Skills: Golang, Kubernetes, [Ceph](https://ceph.com/), Linux
+* Mentors: [Jared Watts](https://github.com/jbw976) and [Travis Nielsen](https://github.com/travisn)
+
+#### Improve management experience with rich progress, status and error messaging
+
+* Description: When a user creates a storage cluster, resource pool, or other object using `kubectl`, the current experience is not ideal.
+Since these operations can be time consuming and can also fail, the user would greatly benefit by having a richer experience such as early validation, progress updates, meaningful status and helpful messaging.
+* Issue Link: [Rook #1539](https://github.com/rook/rook/issues/1539)
+* Diffuculty: Easy
+* Recommended Skills: Golang, Kubernetes
+* Mentors: [Jared Watts](https://github.com/jbw976) and [Travis Nielsen](https://github.com/travisn)
+
+#### Add Network File System (NFS) as a Rook storage backend
+
+* Description: We want to expand the set of storage backends that Rook can deploy and orchestrate in cloud-native environments.
+[Network File System (NFS)](https://help.ubuntu.com/lts/serverguide/network-file-system.html) would bring value to users by providing access to shared storage over the network.
+This project would require you to write Go code to interact with Linux OS and the Kubernetes API to deploy and configure containers running the NFS daemon.
+* Issue Link: [Rook #1551](https://github.com/rook/rook/issues/1551)
+* Diffuculty: Medium
+* Recommended Skills: Golang, Kubernetes, Linux
+* Mentors: [Jared Watts](https://github.com/jbw976) and [Travis Nielsen](https://github.com/travisn)
+
+#### Support for volume snapshots and backup policy
+
+* Description: A user of a Kubernetes cluster with Rook should be able to create, manage and backup snapshots of their data that is managed by a Rook storage backend.
+Policies should be defined to help configure snapshot and backup schedules, included data, retention, etc.
+This is a challenging but exciting project that could tremendously help users by helping ensure their valuable data is reliably protected and backed up.
+This project also has potential to interact with and take a leadership position in the greater Kubernetes community.
+* Issue Link: [Rook #1552](https://github.com/rook/rook/issues/1552)
+* Diffuculty: Hard
+* Recommended Skills: Golang, Kubernetes, [Ceph](https://ceph.com/)
+* Mentors: [Jared Watts](https://github.com/jbw976) and [Travis Nielsen](https://github.com/travisn)
