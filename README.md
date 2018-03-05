@@ -127,6 +127,12 @@ Prometheus ideas:
 * Mentor(s): Goutham V (@gouthamve), Brian Brazil (@brian-brazil)
 * Issue: https://github.com/prometheus/prometheus/issues/422
 
+#### Remote read should handle down or misbehaving backends gracefully
+* Description: If a remote backend is erroring, then the whole query fails. We need to make sure that doesn't happen and at least partial data is returned.
+* Recommended Skills: golang
+* Mentor(s): Goutham V (@gouthamve), Brian Brazil (@brian-brazil), Tom Wilkie (@tomwilkie)
+* Issue: https://github.com/prometheus/prometheus/issues/2573 https://github.com/prometheus/prometheus/issues/2972
+
 Alertmanager ideas:
 
 #### Optimize Alert Ingest Path
