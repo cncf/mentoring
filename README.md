@@ -73,7 +73,7 @@ This project involves evaluating tracing solutions as well as implementing suppo
 
 ### Containerd
 
-#### KataContainers support for containerd/cri-containerd 
+#### KataContainers support for containerd/cri-containerd
 * Description: [cri-containerd](https://github.com/containerd/cri-containerd) is a Kubernetes CRI implementation for [containerd](https://github.com/containerd/containerd), the core part of Docker. [KataContainers](https://katacontainers.io) is a OCI container runtime which leverages hypervisor-based isolation for Linux container stack. This topic aims at integrating KataContainers as a underlying runtime of containerd and serve Kubernetes CRI. In which case, users of Kubernetes will be able to enjoy security and multi-tenancy brought by KataConainers as well as native Linux container experience brought by containerd.
 * Recommended Skill(s): Golang, Linux Operating System
 * Mentors(s): Harry Zhang (@resouer), Lantao Liu (@Random-Liu),  Jiangshan Lai (@laijs)
@@ -92,7 +92,7 @@ Prometheus ideas:
 * Issue: https://github.com/prometheus/prometheus/issues/3690
 
 #### Refactor the APIs for better readability and less maintenance overhead
-* Description: Currently the HTTP API is not very well organized and needs some tidying up. The actual course of action is not decided yet, but [go-kit](https://github.com/go-kit/kit) looks like a good fit. 
+* Description: Currently the HTTP API is not very well organized and needs some tidying up. The actual course of action is not decided yet, but [go-kit](https://github.com/go-kit/kit) looks like a good fit.
 * Recommended Skills: golang
 * Mentor(s): Krasi Georgiev (@krasi-georgiev)
 * Issue: https://github.com/prometheus/prometheus/issues/3416
@@ -272,3 +272,58 @@ This project also has potential to interact with and take a leadership position 
 * Diffuculty: Hard
 * Recommended Skills: Golang, Kubernetes, [Ceph](https://ceph.com/)
 * Mentors: [Jared Watts](https://github.com/jbw976) and [Travis Nielsen](https://github.com/travisn)
+
+### The Update Framework
+
+A framework for securing software update systems -
+[website](https://theupdateframework.com/) and [GitHub
+repo](https://github.com/theupdateframework/tuf).
+
+#### Key rotation and explicit self-revocation
+
+* Description: Generalize the mechanism of key rotation.
+  Rotation is the process by which a role uses their old key to invalidate
+  their old key and transfer trust in the old key to a new key. Performing a
+  key rotation does not require parties that delegated trust to the old key to
+  change their delegation to the new key. Conceptually, the rotation process
+  says if you trusted key X (or threshold of keys X_0, ... X_n), now instead
+  trust key Y (or threshold of keys Y_0, ... Y_n). Rotation of a key may be
+  performed any number of times, transferring trust from X to Y, then from Y to
+  Z, etc.
+* Task Link: [TAP 8](https://github.com/theupdateframework/taps/blob/master/tap8.md)
+* Difficulty: Medium
+* Recommended Skills: Python
+* Mentors: [Justin Cappos](https://github.com/JustinCappos),
+  [Vladimir Diaz](https://github.com/vladimir.v.diaz), and
+  [Sebastien Awwad](https://github.com/awwad)
+
+#### Multi-role delegations
+
+* Description: Allow a target/glob pattern to be delegated to a combination of
+  roles on a repository, all of whom must sign the same hashes and length of
+  the target.  This is done by adding the AND relation to delegations.
+* Task Link: [TAP 3](https://github.com/theupdateframework/taps/blob/master/tap3.md)
+* Difficulty: Medium
+* Recommended Skills: Python
+* Mentors: [Justin Cappos](https://github.com/JustinCappos),
+  [Vladimir Diaz](https://github.com/vladimir.v.diaz), and
+  [Sebastien Awwad](https://github.com/awwad)
+
+#### Setting URLs for roles in the Root metadata file
+
+* Description: Allow each top-level role in the root metadata file to be
+  optionally associated with a list of URLs. This allows the implementation of
+  at least two interesting uses cases. First, it enables a user to associate a
+  remote repository with a different root of trust, even if the user does not
+  control this repository. This allows the user to, for example, restrict trust
+  in a community repository to a single project. Second, it enables repository
+  administrators to use mirrors in a safe and limited way. Specifically,
+  administrators can instruct TUF clients to always download some metadata
+  files from the original repository, and others from mirrors, so that clients
+  are always informed of the latest versions of metadata and, thus, targets.
+* Task Link: [TAP 5](https://github.com/theupdateframework/taps/blob/master/tap5.md)
+* Difficulty: Medium
+* Recommended Skills: Python
+* Mentors: [Justin Cappos](https://github.com/JustinCappos),
+  [Vladimir Diaz](https://github.com/vladimir.v.diaz), and
+  [Sebastien Awwad](https://github.com/awwad)
