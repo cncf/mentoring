@@ -74,7 +74,10 @@ This project involves evaluating tracing solutions as well as implementing suppo
 ### Containerd
 
 #### KataContainers support for containerd/cri-containerd
-* Description: [cri-containerd](https://github.com/containerd/cri-containerd) is a Kubernetes CRI implementation for [containerd](https://github.com/containerd/containerd), the core part of Docker. [KataContainers](https://katacontainers.io) is a OCI container runtime which leverages hypervisor-based isolation for Linux container stack. This topic aims at integrating KataContainers as a underlying runtime of containerd and serve Kubernetes CRI. In which case, users of Kubernetes will be able to enjoy security and multi-tenancy brought by KataConainers as well as native Linux container experience brought by containerd.
+* Description: [KataContainers](https://katacontainers.io) is a OCI container runtime which leverages hypervisor-based isolation for Linux container stack. [cri-containerd](https://github.com/containerd/cri-containerd) is a Kubernetes CRI implementation for [containerd](https://github.com/containerd/containerd), the core part of Docker. This topic aims at integrating KataContainers as a underlying runtime of containerd and serve Kubernetes CRI. In which case, users of Kubernetes will be able to enjoy security and multi-tenancy brought by KataConainers as well as native Linux container experience brought by containerd.
+
+[Update]: The preliminary design doc of this project [can be found here](https://docs.google.com/document/d/1znUEfsl-J5WGVpRGZEFQtD-kNwqhFSvRSKly7cS7d8M/).
+
 * Recommended Skill(s): Golang, Linux Operating System
 * Mentors(s): Harry Zhang (@resouer), Lantao Liu (@Random-Liu),  Jiangshan Lai (@laijs)
 
