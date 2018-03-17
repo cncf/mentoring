@@ -16,7 +16,7 @@ If you need help with anything CNCF + Summer of code related, you can file an is
 
 ## Communication
 
-It's best if you use a public communication channel whenever possible; however, if you need to communicate in private, please feel free to send the admins a note via info@cncf.io (please use the public channels for any project-related discussion).
+It's best if you use a public communication channel whenever possible; however, if you need to communicate in private, please feel free to send the admins a note via soc@cncf.io (please use the public channels for any project-related discussion).
 
 You can join the CNCF slack [here](https://slack.cncf.io/).
 
