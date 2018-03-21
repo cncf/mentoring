@@ -52,8 +52,8 @@ This project is about changing this by developing and applying a tool to each Ku
 * Recommended Skills: Golang, Go parser, Go language specification and semantics, CI
 * Mentor(s): Dr. Stefan Schimanski (@sttts), Chao Xu (@caesarxuchao)
 
-#### Batch scheduling and queueing for data processing/ML workloads
-* Description: Investigate kube-arbitrator, adapt one well known application running on Kubernetes (Apache Spark/Tensorflow/others) to use batch scheduling and queueing functionality, do performance benchmarking, and then produce a document detailing the approach and recommendations.
+#### Batch scheduling & resource sharing for data processing/ML workloads
+* Description: Investigate kube-arbitrator, adapt one well known batch type of application running on Kubernetes (Apache Spark/Tensorflow/others) to use dynamic resource sharing, produce an example that simulates real-world use-cases with shared multi-tenant clusters and do performance benchmarking. The final deliverables here are the example of one or more batch applications on Kubernetes running using dynamic resource sharing, and performance benchmarking. 
 * Recommended Skill(s): Golang
 * Mentor(s): Klaus Ma (@k82cn), Anirudh Ramanathan (@foxish), @ynli
 * Issue: https://github.com/kubernetes/features/issues/269
