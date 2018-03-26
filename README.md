@@ -8,6 +8,7 @@ If you need help with anything CNCF + Summer of code related, you can file an is
 
 * Chris Aniszczyk ([@caniszczyk](https://github.com/caniszczyk)): https://twitter.com/cra
 * Ihor Dvoretskyi ([@idvoretskyi](https://github.com/idvoretskyi)): https://twitter.com/idvoretskyi
+* Nikhita Raghunath ([@nikhita](https://github.com/nikhita)): https://twitter.com/TheNikhita
 
 ### Project Leads
 #### Kubernetes
