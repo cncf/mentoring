@@ -18,7 +18,11 @@ You can join the CNCF slack [here](https://slack.cncf.io/).
 
 ## Current Year
 
-We will be applying as a mentoring organization for Google Summer of Code 2019.
+CNCF is applying as a mentoring organization for Google Summer of Code 2019.
+
+### Timeline
+
+Please, check out the official [GSoC program timeline for 2019](https://developers.google.com/open-source/gsoc/timeline).
 
 ### Students
 
@@ -31,6 +35,8 @@ You can also take a look at the list of project ideas published for GSoC [2017](
 Add your ideas to the list below.
 
 ## Project Ideas
+
+Please, submit your ideas below using the [template](/PROJECT_IDEA_TEMPLATE.md). **IMPORTANT**: The deadline to submit a project idea is February 6 20:00 UTC.
 
 ### Kubernetes
 
