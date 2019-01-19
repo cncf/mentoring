@@ -51,6 +51,18 @@ Prometheus ideas:
 
 #### Refactor the APIs for better readability and less maintenance overhead
 * Description: Currently the HTTP API is not very well organized and needs some tidying up. The actual course of action is not decided yet, but [go-kit](https://github.com/go-kit/kit) looks like a good fit.
-* Recommended Skills: golang
+* Recommended Skills: Golang
 * Mentor(s): Krasi Georgiev (@krasi-georgiev)
 * Issue: https://github.com/prometheus/prometheus/issues/3416
+
+#### Benchmarks for TSDB
+* Description: The TSDB module used in Prometheus  doesn’t have proper benchmarks yet, which means we cannot see the potential impact of the changes we are introducing. The idea is to build some automated benchmarking which can be added to the CI pipeline.
+* Recommended Skills: CI, Golang, Kubernetes
+* Mentor(s): Krasi Georgiev (@krasi-georgiev)
+* Issue: https://github.com/prometheus/tsdb/issues/235
+
+#### Continue the work on Prombench
+* Description: Since we finished Prombench there have been few requests to add scalability tests, add more tests with the race enabled and there are few pending issues to be fixed.
+* Recommended Skills: CI, Golang, Kubernetes, Grafana
+* Mentor(s): Krasi Georgiev (@krasi-georgiev)
+* Issue: https://github.com/prometheus/prombench/issues - the High priority ones should be addressed first.
