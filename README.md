@@ -49,12 +49,6 @@ Prometheus is an open-source systems monitoring and alerting toolkit: https://pr
 
 Prometheus ideas:
 
-#### Refactor the APIs for better readability and less maintenance overhead
-* Description: Currently the HTTP API is not very well organized and needs some tidying up. The actual course of action is not decided yet, but [go-kit](https://github.com/go-kit/kit) looks like a good fit.
-* Recommended Skills: Golang
-* Mentor(s): Krasi Georgiev (@krasi-georgiev)
-* Issue: https://github.com/prometheus/prometheus/issues/3416
-
 #### Benchmarks for TSDB
 * Description: The TSDB module used in Prometheus  doesn’t have proper benchmarks yet, which means we cannot see the potential impact of the changes we are introducing. The idea is to build some automated benchmarking which can be added to the CI pipeline.
 * Recommended Skills: CI, Golang, Kubernetes
