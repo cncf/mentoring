@@ -43,6 +43,13 @@ Please, submit your ideas below using the [template](/PROJECT_IDEA_TEMPLATE.md).
 Please visit the [Kubernetes GSoC page](https://git.k8s.io/community/mentoring/google-summer-of-code.md) for general information.
 For any questions or comments, please reach out to us on the #gsoc-apps channel on the [Kubernetes slack](http://slack.k8s.io/).
 
+#### Integrate kube-batch with pytorch-operator/mxnet-operator
+
+* Description: [kube-batch](https://github.com/kubernetes-sigs/kube-batch) is a batch scheduler for kubernetes by features for batch workload, e.g. coscheduling/gang-scheduling, faire-sharing; the train job of MxNet and Pytorch have requirements to those features. This idea is to integrate kube-batch to support gang-scheduling/coscheduling and other batch features in related operators.
+* Recommended Skills: golang, kubernetes, kubeflow
+* Mentor(s): Klaus Ma (@k82cn)
+* Issue: https://github.com/kubeflow/mxnet-operator/issues/16 , https://github.com/kubeflow/pytorch-operator/issues/129
+
 ### Prometheus
 
 Prometheus is an open-source systems monitoring and alerting toolkit: https://prometheus.io/
