@@ -50,6 +50,13 @@ For any questions or comments, please reach out to us on the #gsoc-apps channel 
 * Mentor(s): Klaus Ma (@k82cn)
 * Issue: https://github.com/kubeflow/mxnet-operator/issues/16 , https://github.com/kubeflow/pytorch-operator/issues/129
 
+#### Implement volume snapshotting support into the external Manila provisioner
+
+* Description: The external OpenStack Manila provisioner lack ability to take a snapshot of the volumes and turn the snapshots to persistent volumes using container orchestrator API. The goal is to implement the missing feature in the Manila (CSI) provisioner.
+* Recommended Skills: Golang, Kubernetes, Ceph, OpenStack
+* Mentor(s): Tomas Smetana (@tsmetana)
+* Issue: https://github.com/kubernetes/cloud-provider-openstack/issues/453
+
 ### Prometheus
 
 Prometheus is an open-source systems monitoring and alerting toolkit: https://prometheus.io/
