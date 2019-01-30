@@ -57,6 +57,20 @@ For any questions or comments, please reach out to us on the #gsoc-apps channel 
 * Mentor(s): Tomas Smetana (@tsmetana)
 * Issue: https://github.com/kubernetes/cloud-provider-openstack/issues/453
 
+#### Enable full e2e tests for external Azure cloud provider
+
+- Description: The external Azure cloud provider has added its initial e2e tests, but it’s still not running the full e2e tests today. The goal is to add the missing tests and publish them on the testgrid.
+- Recommended Skills: Golang, Kubernetes, Azure
+- Mentor(s): Pengfei Ni (@feiskyer)
+- Issue: https://github.com/kubernetes/cloud-provider-azure/issues/4
+
+#### CSI drivers for AzureDisk and AzureFile
+
+- Description: External drivers for AzureDisk and AzureFile would be implemented as new CSI drivers. The goal is mirror the current functions from in-tree drivers and setup e2e tests as well as documentation for them.
+- Recommended Skills: Golang, Kubernetes, Azure
+- Mentor(s): Andy Zhang (@andyzhangx)
+- Issue: https://github.com/kubernetes/org/issues/344
+
 ### Prometheus
 
 Prometheus is an open-source systems monitoring and alerting toolkit: https://prometheus.io/
