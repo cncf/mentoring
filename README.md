@@ -1,22 +1,26 @@
-# CNCF + Summer of Code
+CNCF + Summer of Code
+=====================
 
 The Cloud Native Computing Foundation participates in [Google Summer of Code](https://summerofcode.withgoogle.com/) (GSoC). CNCF is a great place to spend a summer learning, coding, participating and contributing. We are an exciting open source foundation with a vibrant community of projects, and we look forward to your application and your project ideas!
 
-## Organization Admins
+Organization Admins
+-------------------
 
 If you need help with anything CNCF + Summer of code related, you can file an issue or contact one of the admins below:
 
-* Chris Aniszczyk ([@caniszczyk](https://github.com/caniszczyk)): https://twitter.com/cra
-* Ihor Dvoretskyi ([@idvoretskyi](https://github.com/idvoretskyi)): https://twitter.com/idvoretskyi
-* Nikhita Raghunath ([@nikhita](https://github.com/nikhita)): https://twitter.com/TheNikhita
+-	Chris Aniszczyk ([@caniszczyk](https://github.com/caniszczyk)\): https://twitter.com/cra
+-	Ihor Dvoretskyi ([@idvoretskyi](https://github.com/idvoretskyi)\): https://twitter.com/idvoretskyi
+-	Nikhita Raghunath ([@nikhita](https://github.com/nikhita)\): https://twitter.com/TheNikhita
 
-## Communication
+Communication
+-------------
 
 It's best if you use a public communication channel whenever possible; however, if you need to communicate in private, please feel free to send the admins a note via soc@cncf.io (please use the public channels for any project-related discussion).
 
 You can join the CNCF slack [here](https://slack.cncf.io/).
 
-## Current Year
+Current Year
+------------
 
 CNCF is applying as a mentoring organization for Google Summer of Code 2019.
 
@@ -28,48 +32,48 @@ Please, check out the official [GSoC program timeline for 2019](https://develope
 
 The list of official project ideas will be published below.
 
-You can also take a look at the list of project ideas published for GSoC [2017](/2017.md) and [2018](/2018.md).
+You can also take a look at the list of project ideas published for GSoC [2017](/2017.md) and [2018](/2018.md)\.
 
 ### Mentors
 
 Add your ideas to the list below.
 
-## Project Ideas
+Project Ideas
+-------------
 
 Please, submit your ideas below using the [template](/PROJECT_IDEA_TEMPLATE.md). **IMPORTANT**: The deadline to submit a project idea is February 6 20:00 UTC.
 
 ### Kubernetes
 
-Please visit the [Kubernetes GSoC page](https://git.k8s.io/community/mentoring/google-summer-of-code.md) for general information.
-For any questions or comments, please reach out to us on the #gsoc-apps channel on the [Kubernetes slack](http://slack.k8s.io/).
+Please visit the [Kubernetes GSoC page](https://git.k8s.io/community/mentoring/google-summer-of-code.md) for general information. For any questions or comments, please reach out to us on the #gsoc-apps channel on the [Kubernetes slack](http://slack.k8s.io/).
 
 #### Integrate kube-batch with pytorch-operator/mxnet-operator
 
-* Description: [kube-batch](https://github.com/kubernetes-sigs/kube-batch) is a batch scheduler for kubernetes by features for batch workload, e.g. coscheduling/gang-scheduling, faire-sharing; the train job of MxNet and Pytorch have requirements to those features. This idea is to integrate kube-batch to support gang-scheduling/coscheduling and other batch features in related operators.
-* Recommended Skills: golang, kubernetes, kubeflow
-* Mentor(s): Klaus Ma (@k82cn)
-* Issue: https://github.com/kubeflow/mxnet-operator/issues/16 , https://github.com/kubeflow/pytorch-operator/issues/129
+-	Description: [kube-batch](https://github.com/kubernetes-sigs/kube-batch) is a batch scheduler for kubernetes by features for batch workload, e.g. coscheduling/gang-scheduling, faire-sharing; the train job of MxNet and Pytorch have requirements to those features. This idea is to integrate kube-batch to support gang-scheduling/coscheduling and other batch features in related operators.
+-	Recommended Skills: golang, kubernetes, kubeflow
+-	Mentor(s): Klaus Ma (@k82cn)
+-	Issue: https://github.com/kubeflow/mxnet-operator/issues/16 , https://github.com/kubeflow/pytorch-operator/issues/129
 
 #### Implement volume snapshotting support into the external Manila provisioner
 
-* Description: The external OpenStack Manila provisioner lack ability to take a snapshot of the volumes and turn the snapshots to persistent volumes using container orchestrator API. The goal is to implement the missing feature in the Manila (CSI) provisioner.
-* Recommended Skills: Golang, Kubernetes, Ceph, OpenStack
-* Mentor(s): Tomas Smetana (@tsmetana)
-* Issue: https://github.com/kubernetes/cloud-provider-openstack/issues/453
+-	Description: The external OpenStack Manila provisioner lack ability to take a snapshot of the volumes and turn the snapshots to persistent volumes using container orchestrator API. The goal is to implement the missing feature in the Manila (CSI) provisioner.
+-	Recommended Skills: Golang, Kubernetes, Ceph, OpenStack
+-	Mentor(s): Tomas Smetana (@tsmetana)
+-	Issue: https://github.com/kubernetes/cloud-provider-openstack/issues/453
 
 #### Enable full e2e tests for external Azure cloud provider
 
-- Description: The external Azure cloud provider has added its initial e2e tests, but it’s still not running the full e2e tests today. The goal is to add the missing tests and publish them on the testgrid.
-- Recommended Skills: Golang, Kubernetes, Azure
-- Mentor(s): Pengfei Ni (@feiskyer)
-- Issue: https://github.com/kubernetes/cloud-provider-azure/issues/4
+-	Description: The external Azure cloud provider has added its initial e2e tests, but it’s still not running the full e2e tests today. The goal is to add the missing tests and publish them on the testgrid.
+-	Recommended Skills: Golang, Kubernetes, Azure
+-	Mentor(s): Pengfei Ni (@feiskyer)
+-	Issue: https://github.com/kubernetes/cloud-provider-azure/issues/4
 
 #### CSI drivers for AzureDisk and AzureFile
 
-- Description: External drivers for AzureDisk and AzureFile would be implemented as new CSI drivers. The goal is mirror the current functions from in-tree drivers and setup e2e tests as well as documentation for them.
-- Recommended Skills: Golang, Kubernetes, Azure
-- Mentor(s): Andy Zhang (@andyzhangx)
-- Issue: https://github.com/kubernetes/org/issues/344
+-	Description: External drivers for AzureDisk and AzureFile would be implemented as new CSI drivers. The goal is mirror the current functions from in-tree drivers and setup e2e tests as well as documentation for them.
+-	Recommended Skills: Golang, Kubernetes, Azure
+-	Mentor(s): Andy Zhang (@andyzhangx)
+-	Issue: https://github.com/kubernetes/org/issues/344
 
 ### Prometheus
 
@@ -78,13 +82,15 @@ Prometheus is an open-source systems monitoring and alerting toolkit: https://pr
 Prometheus ideas:
 
 #### Benchmarks for TSDB
-* Description: The TSDB module used in Prometheus  doesn’t have proper benchmarks yet, which means we cannot see the potential impact of the changes we are introducing. The idea is to build some automated benchmarking which can be added to the CI pipeline.
-* Recommended Skills: CI, Golang, Kubernetes
-* Mentor(s): Krasi Georgiev (@krasi-georgiev)
-* Issue: https://github.com/prometheus/tsdb/issues/235
+
+-	Description: The TSDB module used in Prometheus doesn’t have proper benchmarks yet, which means we cannot see the potential impact of the changes we are introducing. The idea is to build some automated benchmarking which can be added to the CI pipeline.
+-	Recommended Skills: CI, Golang, Kubernetes
+-	Mentor(s): Krasi Georgiev (@krasi-georgiev)
+-	Issue: https://github.com/prometheus/tsdb/issues/235
 
 #### Continue the work on Prombench
-* Description: Since we finished Prombench there have been few requests to add scalability tests, add more tests with the race enabled and there are few pending issues to be fixed.
-* Recommended Skills: CI, Golang, Kubernetes, Grafana
-* Mentor(s): Krasi Georgiev (@krasi-georgiev)
-* Issue: https://github.com/prometheus/prombench/issues - the High priority ones should be addressed first.
+
+-	Description: Since we finished Prombench there have been few requests to add scalability tests, add more tests with the race enabled and there are few pending issues to be fixed.
+-	Recommended Skills: CI, Golang, Kubernetes, Grafana
+-	Mentor(s): Krasi Georgiev (@krasi-georgiev)
+-	Issue: https://github.com/prometheus/prombench/issues - the High priority ones should be addressed first.
