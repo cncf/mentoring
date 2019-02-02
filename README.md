@@ -94,3 +94,14 @@ Prometheus ideas:
 -	Recommended Skills: CI, Golang, Kubernetes, Grafana
 -	Mentor(s): Krasi Georgiev (@krasi-georgiev)
 -	Issue: https://github.com/prometheus/prombench/issues - the High priority ones should be addressed first.
+
+### Open Policy Agent (OPA)
+
+OPA is a domain-agnostic policy engine that embodies "policy as code": https://www.openpolicyagent.org/
+
+#### IntelliJ plugin to experiment with and visualize policy evaluation
+
+-   Description: OPA features a high-level declarative language that lets you express policies like "user X can perform operation Y on resource Z" or "all images deployed in Kubernetes must come from an internal registry and be scanned for vulnerabilities". The language supports many features: unit testing, dry running, tracing, etc. While users can access these features via the command-line, IDE integrations greatly improve the policy authoring experience. The idea is to port functionality that we have inside of [VS Code](https://github.com/tsandall/vscode-opa) to IntelliJ. This would significantly improve the authoring experience for people that use IntelliJ on a day-to-day basis.
+-   Recommended Skills: Java, IntelliJ (not required, but nice to have)
+-   Mentor(s): Torin Sandall (@tsandall)
+-   Issue: https://github.com/open-policy-agent/opa/issues/1085
