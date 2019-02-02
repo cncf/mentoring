@@ -105,3 +105,15 @@ OPA is a domain-agnostic policy engine that embodies "policy as code": https://w
 -   Recommended Skills: Java, IntelliJ (not required, but nice to have)
 -   Mentor(s): Torin Sandall (@tsandall)
 -   Issue: https://github.com/open-policy-agent/opa/issues/1085
+
+#### Interactive website detailing OPA integrations
+- Description: OPA has been integrated with 20+ cloud-native systems to provide rich, context-aware policy support, e.g. Kubernetes, Istio, Envoy, Linkerd, Terraform, Ceph, Minio.  Today there is no authoritative guide for users to understand what those integrations are, how they work, or how to get started.  This project involves designing and implementing an interactive web portal that helps users understand the integrations available with OPA.  It will be data-driven, so that new integrations can easily be added to the portal, and each entry will include code-snippets, videos, blog posts, github-repos, tutorials, reviews, and overall status.
+- Recommended Skills: Frontend HTML/CSS/JavaScript, Backend Node/Python/Go/etc.
+- Mentor(s): Tim Hinrichs (@timothyhinrichs) and Torin Sandall (@tsandall)
+- Issue: https://github.com/open-policy-agent/opa/issues/1194
+
+#### Integration with IPTables
+- Description: One common use of policy is to set up IP packet filter rules in the Linux kernel.  The policy dictates what to do with different kinds of packets.  There have been several requests in the past to use OPA policies to control IPTables, but no one has come forth with an integration.  This project involves designing the layout of IPTable rules using OPA's policy language, implementing the algorithms that generate IPTables from that layout, and writing the code that populates the generated IPTables rules into Linux.
+- Recommended Skills: Go and Linux
+- Mentor(s): Tim Hinrichs (@timothyhinrichs) and Torin Sandall (@tsandall)
+- Issue: https://github.com/open-policy-agent/opa/issues/1195
