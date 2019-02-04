@@ -82,6 +82,13 @@ Please visit the [Kubernetes GSoC page](https://git.k8s.io/community/mentoring/g
 -	Mentor(s): Zach Corleissen (@zacharysarah), Luc Perkins (@lucperkins)
 -	Issue: https://github.com/kubernetes/website/issues/12496
 
+#### Fully automate API and reference doc generation
+
+- Description: The process for generating reference docs is fragile and its outputs are inconsistent. The goal is to fully automate reference doc generation with outputs sharing a standard format.
+- Recommended Skills: Golang
+- Mentor(s): Zach Corleissen (@zacharysarah), Luc Perkins (@lucperkins)
+- Issue: https://github.com/kubernetes/website/issues/12503
+
 #### Add support for Custom Resource Definitions to the Dashboard
 
 - Description: Kubernetes Dashboard has no support for Custom Resource Definitions yet. The goal is to provide support for them as it was done for Third Party Resources in the past. Users should be able to perform at least the basic operations on the resources they have defined.
