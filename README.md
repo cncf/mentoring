@@ -75,6 +75,13 @@ Please visit the [Kubernetes GSoC page](https://git.k8s.io/community/mentoring/g
 -	Mentor(s): Andy Zhang (@andyzhangx)
 -	Issue: https://github.com/kubernetes/org/issues/344
 
+#### Streamline and simplify SASS for the Kubernetes website
+
+-	Description: The website's SASS is prohibitively complex. The goal is to streamline the site's SASS and make attributes easily discoverable and changeable.
+-	Recommended Skills: HTML, SASS/CSS, Golang
+-	Mentor(s): Zach Corleissen (@zacharysarah), Luc Perkins (@lucperkins)
+-	Issue: https://github.com/kubernetes/website/issues/12496
+
 ### Prometheus
 
 Prometheus is an open-source systems monitoring and alerting toolkit: https://prometheus.io/
