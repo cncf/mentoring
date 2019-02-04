@@ -82,6 +82,20 @@ Please visit the [Kubernetes GSoC page](https://git.k8s.io/community/mentoring/g
 -	Mentor(s): Zach Corleissen (@zacharysarah), Luc Perkins (@lucperkins)
 -	Issue: https://github.com/kubernetes/website/issues/12496
 
+#### Add support for Custom Resource Definitions to the Dashboard
+
+- Description: Kubernetes Dashboard has no support for Custom Resource Definitions yet. The goal is to provide support for them as it was done for Third Party Resources in the past. Users should be able to perform at least the basic operations on the resources they have defined.
+- Recommended Skills: Kubernetes, Golang, TypeScript, Angular
+- Mentor(s): Marcin Maciaszczyk (@maciaszczykm), Sebastian Florek (@floreks)
+- Issue: https://github.com/kubernetes/dashboard/issues/2493
+
+#### Add plugin mechanism to the Dashboard
+
+- Description: We would like to introduce a plugin mechanism to the Kubernetes Dashboard. The goal is to define the plugin framework architecture, scope, how it could enhance the Dashboard UI and utilize third party APIs to extend its functionality.
+- Recommended Skills: Kubernetes, Golang, TypeScript, Angular
+- Mentor(s): Marcin Maciaszczyk (@maciaszczykm), Sebastian Florek (@floreks)
+- Issue: https://github.com/kubernetes/dashboard/issues/1832
+
 ### Prometheus
 
 Prometheus is an open-source systems monitoring and alerting toolkit: https://prometheus.io/
@@ -146,4 +160,3 @@ CoreDNS is a fast and flexible DNS server. It has a focus of service discovery i
 -	Description: CoreDNS is able to serve DNS with cloud vendors (such as AWS) as the backend. The feature is very much useful in a hybrid environment where cloud-vendor specific service endpoints need to be exposed to clusters managed by Kubernetes. The goal of this project is to support Azure DNS (similar to already supported [route53 plugin](https://github.com/coredns/coredns/tree/master/plugin/route53)) as a backend for CoreDNS.
 -	Recommended Skills: Golang, Microsoft Azure
 -	Mentor(s): Yong Tang (@yongtang)
-
