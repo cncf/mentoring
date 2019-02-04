@@ -160,3 +160,36 @@ CoreDNS is a fast and flexible DNS server. It has a focus of service discovery i
 -	Description: CoreDNS is able to serve DNS with cloud vendors (such as AWS) as the backend. The feature is very much useful in a hybrid environment where cloud-vendor specific service endpoints need to be exposed to clusters managed by Kubernetes. The goal of this project is to support Azure DNS (similar to already supported [route53 plugin](https://github.com/coredns/coredns/tree/master/plugin/route53)) as a backend for CoreDNS.
 -	Recommended Skills: Golang, Microsoft Azure
 -	Mentor(s): Yong Tang (@yongtang)
+
+### TiKV
+
+TiKV is an open-source distributed transactional Key-Value database. [https://tikv.org](https://tikv.org).
+
+#### Migrate to tower-grpc
+
+- Description: We use grpc-rs which wraps C gRPC, and we want to work better with Rust community and use a pure Rust gRPC. The goal for this section is to use tower-grpc to replace our current grpc-rs.
+- Recommended Skills: Rust, gRPC
+- Mentor(s): Brian Anderson (@brson), JianJun Li (@busyjay), Nick Cameron (@nrc)
+- Issue: https://github.com/tikv/tikv/issues/3951
+
+#### Introduce other storage engines
+
+- Description: TiKV uses RocksDB as its storage engine, but RocksDB is not suitable for all workloads. The goal for this section is to use other storage engines to satisfy different workloads.
+- Recommended Skills: Rust, RocksDB
+- Mentor(s): Brian Anderson (@brson), Yi Wu (@yiwu-arbug)
+- Issue: https://github.com/tikv/tikv/issues/4184
+
+
+#### Build TiKV clients in different languages
+
+- Description: TiKV now only contains an official Go client, we need more. The goal for this section is to build TiKV client with other languages like C++, Java, Rust, etc.
+- Recommended Skills: C++/Java/Rust, gRPC
+- Mentor(s): Ana Hobden (@hoverbear), JianJun Li (@busyjay)
+- Issue: https://github.com/tikv/tikv/issues/4185
+
+#### Auto-tune RocksDB
+
+- Description: TiKV heavily depends on RocksDB, but RocksDB has many configurations and it is hard to choose proper values in production. The goal for this section is to auto-tune RocksDB in real time for different workloads.
+- Recommended Skills: Rust, RocksDB
+- Mentor(s): Brian Anderson (@brson), Yi Wu (@yiwu-arbug)
+- Issue: https://github.com/tikv/tikv/issues/4052
