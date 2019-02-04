@@ -78,7 +78,7 @@ Please visit the [Kubernetes GSoC page](https://git.k8s.io/community/mentoring/g
 #### Streamline and simplify SASS for the Kubernetes website
 
 -	Description: The website's SASS is prohibitively complex. The goal is to streamline the site's SASS and make attributes easily discoverable and changeable.
--	Recommended Skills: HTML, SASS/CSS, Golang
+-	Recommended Skills: HTML, SASS/CSS
 -	Mentor(s): Zach Corleissen (@zacharysarah), Luc Perkins (@lucperkins)
 -	Issue: https://github.com/kubernetes/website/issues/12496
 
