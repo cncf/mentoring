@@ -117,3 +117,26 @@ OPA is a domain-agnostic policy engine that embodies "policy as code": https://w
 - Recommended Skills: Go and Linux
 - Mentor(s): Tim Hinrichs (@timothyhinrichs) and Torin Sandall (@tsandall)
 - Issue: https://github.com/open-policy-agent/opa/issues/1195
+
+### CoreDNS
+
+CoreDNS is a fast and flexible DNS server. It has a focus of service discovery in a hybrid environment and is the default DNS server in Kubernetes (since 1.13+): https://github.com/coredns/coredns
+
+#### Support source-IP based query block/allow
+
+-	Description: When CoreDNS serves DNS queries publicly or inside Kubernetes clusters, the source IP of the incoming DNS query is an important identity. For security considerations, only certain queries (from specific source-IP or CIDR block) should be allowed to prevent the server from being attacked. The goal of this project is to support a firewall-like source-IP based block/allow mechanism for CoreDNS.
+-	Recommended Skills: Golang
+-	Mentor(s): Yong Tang (@yongtang)
+
+#### Support Google Cloud DNS backend
+
+-	Description: CoreDNS is able to serve DNS with cloud vendors (such as AWS) as the backend. The feature is very much useful in a hybrid environment where cloud-vendor specific service endpoints need to be exposed to clusters managed by Kubernetes. The goal of this project is to support Google Cloud DNS (similar to already supported [route53 plugin](https://github.com/coredns/coredns/tree/master/plugin/route53)) as a backend for CoreDNS.
+-	Recommended Skills: Golang, Google Cloud
+-	Mentor(s): Yong Tang (@yongtang)
+
+#### Support Azure DNS backend
+
+-	Description: CoreDNS is able to serve DNS with cloud vendors (such as AWS) as the backend. The feature is very much useful in a hybrid environment where cloud-vendor specific service endpoints need to be exposed to clusters managed by Kubernetes. The goal of this project is to support Azure DNS (similar to already supported [route53 plugin](https://github.com/coredns/coredns/tree/master/plugin/route53)) as a backend for CoreDNS.
+-	Recommended Skills: Golang, Microsoft Azure
+-	Mentor(s): Yong Tang (@yongtang)
+
