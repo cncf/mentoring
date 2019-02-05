@@ -176,14 +176,14 @@ TiKV is an open-source distributed transactional Key-Value database. [https://ti
 
 - Description: We use grpc-rs which wraps C gRPC, and we want to work better with Rust community and use a pure Rust gRPC. The goal for this section is to use tower-grpc to replace our current grpc-rs.
 - Recommended Skills: Rust, gRPC
-- Mentor(s): Brian Anderson (@brson), JianJun Li (@busyjay), Nick Cameron (@nrc)
+- Mentor(s): JianJun Li (@busyjay), Nick Cameron (@nrc)
 - Issue: https://github.com/tikv/tikv/issues/3951
 
 #### Introduce other storage engines
 
 - Description: TiKV uses RocksDB as its storage engine, but RocksDB is not suitable for all workloads. The goal for this section is to use other storage engines to satisfy different workloads.
 - Recommended Skills: Rust, RocksDB
-- Mentor(s): Brian Anderson (@brson), Yi Wu (@yiwu-arbug)
+- Mentor(s): Nick Cameron (@nrc), Yi Wu (@yiwu-arbug)
 - Issue: https://github.com/tikv/tikv/issues/4184
 
 
@@ -198,5 +198,5 @@ TiKV is an open-source distributed transactional Key-Value database. [https://ti
 
 - Description: TiKV heavily depends on RocksDB, but RocksDB has many configurations and it is hard to choose proper values in production. The goal for this section is to auto-tune RocksDB in real time for different workloads.
 - Recommended Skills: Rust, RocksDB
-- Mentor(s): Brian Anderson (@brson), Yi Wu (@yiwu-arbug)
+- Mentor(s): Yi Wu (@yiwu-arbug)
 - Issue: https://github.com/tikv/tikv/issues/4052
