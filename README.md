@@ -200,3 +200,16 @@ TiKV is an open-source distributed transactional Key-Value database. [https://ti
 - Recommended Skills: Rust, RocksDB
 - Mentor(s): Yi Wu (@yiwu-arbug)
 - Issue: https://github.com/tikv/tikv/issues/4052
+
+### Linkerd and Envoy
+
+Linkerd is an ultralight service mesh for Kubernetes and beyond: https://linkerd.io.
+Envoy is an open source edge and service proxy, designed for cloud-native applications: https://www.envoyproxy.io.
+
+#### Benchmarks for Linkerd and Envoy
+
+- Description: Linkerd, like other service meshes are plagued by the question of adopters asking the question: "what's the performance overhead of the service mesh?". Envoy does not publish performance test results [see How fast is Envoy](https://www.envoyproxy.io/docs/envoy/latest/faq/how_fast_is_envoy)). Linkerd, Istio, Envoy and the list of other service meshes don't have a consistent set of performance benchmarks between them. So, even if Envoy were to publish performance results, users still wouldn't be able to compare overhead between Linkerd and Envoy. The project idea here is to build a multi-mesh performance benchmark tool.
+
+- Recommended Skills: Golang, JavaScript, Kubernetes
+- Mentor(s): Lee Calcote (@leecalcote)
+- Issue: https://github.com/envoyproxy/envoy/issues/5536 and https://discourse.linkerd.io/t/linkerd-performance/146
