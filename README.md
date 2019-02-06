@@ -272,3 +272,109 @@ GitHub: https://github.com/rook/rook
 - Recommended Skills: Kubernetes, Golang
 - Mentor(s): [Jared Watts](https://github.com/jbw976)
 - Issue: [#1705](https://github.com/rook/rook/issues/1705), [#1704](https://github.com/rook/rook/issues/1704)
+
+### Linkerd and Envoy
+
+Linkerd is an ultralight service mesh for Kubernetes and beyond: https://linkerd.io.
+Envoy is an open source edge and service proxy, designed for cloud-native applications: https://www.envoyproxy.io.
+
+#### Benchmarks for Linkerd and Envoy
+
+- Description: Linkerd, like other service meshes are plagued by the question of adopters asking the question: "what's the performance overhead of the service mesh?". Envoy does not publish performance test results [see How fast is Envoy](https://www.envoyproxy.io/docs/envoy/latest/faq/how_fast_is_envoy)). Linkerd, Istio, Envoy and the list of other service meshes don't have a consistent set of performance benchmarks between them. So, even if Envoy were to publish performance results, users still wouldn't be able to compare overhead between Linkerd and Envoy. The project idea here is to build a multi-mesh performance benchmark tool.
+
+- Recommended Skills: Golang, JavaScript, Kubernetes
+- Mentor(s): Lee Calcote (@leecalcote)
+- Issue: https://github.com/envoyproxy/envoy/issues/5536 and https://discourse.linkerd.io/t/linkerd-performance/146
+
+### Virtual Kubelet 
+
+Virtual kubelet is a Kubebernetes kubelet implementation.
+
+#### Conformance testing for Virtual Kubelet
+
+* Description: As the project gets closer to stabilizing the interface that providers implement, users of vk are looking for a run through the Kubertenes conformance test suite. This project will direct parts of the virtual kubelet interface.
+* Issue: https://github.com/virtual-kubelet/virtual-kubelet/issues/81
+* Recommended Skills: Go
+* Mentors: Ria Bhatia (rbitia), Brian Goff (cpuguy83)
+
+### Linkerd
+
+Linkerd is an ultralight service mesh for Kubernetes that provides
+observability, reliability, and security for your microservices.
+[https://linkerd.io](https://linkerd.io)
+
+#### Cross-cloud integration testing
+
+- Description: With the proliferation of managed Kubernetes services on many
+  cloud platforms (GKE, AKS, EKS, Kubernetes on DigitalOcean), the subtle
+  differences between these providers can create hard to debug and understand
+  issues. This project involves building out the tooling to create clusters on
+  multiple providers, interact with those and run the integration test suite
+  on them. It will surface bugs earlier, make it easier to replicate user
+  issues and provide a common framework to build sample workloads on top of.
+- Recommended Skills: Bash, TravisCI, Go, Cloud Providers
+- Mentor(s): Thomas Rampelberg (@grampelberg)
+- Issue: [https://github.com/linkerd/linkerd2/issues/2213](https://github.com/linkerd/linkerd2/issues/2213)
+
+#### Auto-Update
+
+- Description: Linkerd has frequent updates and keeping up with the weekly edge
+  releases can be difficult. This project involves building an Kubernetes
+  operator that can observe the version-check API, auto-update the control plane
+  and replace the Linkerd data plane proxies with the correct version.
+- Recommended Skills: Go, Kubernetes
+- Mentor(s): Thomas Rampelberg (@grampelberg)
+- Issue: [https://github.com/linkerd/linkerd2/issues/1903](https://github.com/linkerd/linkerd2/issues/1903)
+
+#### Conformance Validation
+
+- Description: Linkerd has an extensive `check` suite that validates a cluster
+  is ready to install Linkerd and that the install was successful. These checks
+  are, unfortunately, static checks. Because of the wide number of ways a
+  Kubernetes cluster can be configured, Users want a way to validate their
+  specific install for conformance over time. This project involves building a
+  sample application that exercises all the features of Linkerd and allows an
+  end user to run this on their own cluster to validate that everything is
+  working and configured correctly over a long time.
+- Recommended Skills: Go, Bash, Kubernetes, gRPC
+- Mentor(s): Thomas Rampelberg (@grampelberg)
+- Issue: [https://github.com/linkerd/linkerd2/issues/1096](https://github.com/linkerd/linkerd2/issues/1096)
+
+#### Alertmanager Integration
+
+- Description: Linkerd provides rich metrics that are stored in Prometheus out
+  of the box. These are for both the control plane and data plane. The goal is
+  to provide Alertmanager integration that comes out of the box, is configurable
+  with preferred channels (email, slack) and works with ServiceProfiles to
+  easily create alerts that are per-service and per-route.
+- Recommended Skills: Go, Prometheus, Grafana, Kubernetes
+- Mentor(s): Thomas Rampelberg (@grampelberg)
+- Issue: [https://github.com/linkerd/linkerd2/issues/1726](https://github.com/linkerd/linkerd2/issues/1726)
+
+#### Kafka Introspection
+
+- Description: HTTP based traffic is only one type of modern applications. Many use message
+  queues such as Kafka. Getting the metrics for consumers/producers/messages are
+  just as critical to application health as requests and responses in HTTP. The
+  goal of this project is to implement a Kafka codec for the Linkerd proxy that
+  allows it to introspect the Kafka protocol and provide metrics on that protocol.
+- Recommended Skills: Go, Rust, Kubernetes, Kafka
+- Mentor(s): Thomas Rampelberg (@grampelberg)
+- Issue: [https://github.com/linkerd/linkerd2/issues/2214](https://github.com/linkerd/linkerd2/issues/2214)
+
+### rkt
+
+rkt is a pod-native container engine for Linux. It is composable, secure, and built on standards.
+
+#### Add support for the OCI runtime spec by implementing a runc stage2
+
+- Description: rkt implements the App Container Executor specification of the [appc Container Specification](https://github.com/appc/spec) and uses systemd unit properties to implement its features. To implement the OCI runtime spec, systemd unit properties are not suitable since they differ from what the spec defines. The idea is to replace systemd unit properties by runc to implement the OCI runtime spec. Work for this [has already started](https://github.com/rkt/rkt/issues/3408).
+- Recommended Skills: Golang.
+- Mentor(s): Iago López Galeiras (@iaguis), Alban Crequy (@albanc)
+
+#### Add native OCI image support
+
+- Description: rkt supports the OCI image spec by converting an OCI image to its internal format (appc). The idea is to implement native support for the OCI image spec using the [containers/image library](https://github.com/containers/image). This will also involve coming up with a reasonable scheme to support both appc and OCI images, and refactoring rkt's image store and fetching logic.
+- Recommended Skills: Golang.
+- Mentor(s): Iago López Galeiras (@iaguis), Alban Crequy (@albanc)
+- Issue: [https://github.com/linkerd/linkerd2/issues/2214](https://github.com/linkerd/linkerd2/issues/2214)
