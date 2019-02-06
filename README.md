@@ -201,6 +201,78 @@ TiKV is an open-source distributed transactional Key-Value database. [https://ti
 - Mentor(s): Yi Wu (@yiwu-arbug)
 - Issue: https://github.com/tikv/tikv/issues/4052
 
+### Rook
+
+Rook is an open source cloud-native storage orchestrator for Kubernetes, providing the platform, framework, and support for a diverse set of storage solutions to natively integrate with cloud-native environments.
+
+Website: https://rook.io/  
+GitHub: https://github.com/rook/rook
+
+#### Upgrade Rook to a more advanced operator/controller framework
+
+- Description: Rook currently builds its [operator](https://coreos.com/blog/introducing-operators.html) functionality from its own homegrown [operator kit](https://github.com/rook/operator-kit).
+  This framework was a very early effort in the ecosystem and there are now more mature efforts that provide more rich functionality and experience.
+  The various available operator/controller frameworks should be evaluated and the best fit for advancing the Rook project should be integrated into the numerous Rook operators and controllers.
+  This will provide a more robust experience for both our developer and end user communities, as well as provide the student with a deep experience and familiarity to Kubernetes custom controllers written for production scenarios.
+- Recommended Skills: Kubernetes, Golang
+- Mentor(s): [Jared Watts](https://github.com/jbw976)
+- Issue: [#1981](https://github.com/rook/rook/issues/1981)
+
+#### Storage provider features and enhancements
+
+- Description: Rook supports many storage providers to integrate them into Kubernetes and provide their storage services to pods and workloads.
+  This project will enable you to become familiar with many of Rook's supported storage systems and bring multiple enhancements through the full software development life-cycle.
+  Along with the mentor for this project, you will learn about the storage systems supported by Rook, choose the highest impact features to benefit the community, then design and implement the features to be included in a future official release.
+  Some examples include:
+  - Support a "secure" mode in the CockroachDB operator to include certificates and SSL in all network communication
+  - Add a dynamic provisioner to the Network File System (NFS) operator to provision NFS storage for client pods on demand
+- Recommended Skills: Kubernetes, Golang, storage concepts and systems
+- Mentor(s): [Jared Watts](https://github.com/jbw976) and [Rohan Gupta](https://github.com/rohan47)
+- Issue: Multiple issues to be chosen by student, such as [#1809](https://github.com/rook/rook/issues/1809), [#2062](https://github.com/rook/rook/issues/2062), [#2283](https://github.com/rook/rook/issues/2283), [#2531](https://github.com/rook/rook/issues/2531), [#1804](https://github.com/rook/rook/issues/1804)
+
+#### Enable multiple network interfaces for Rook storage providers
+
+- Description: Many of the storage providers supported by Rook can benefit from enabling them to consume multiple network interfaces.
+  A common pattern for utilizing these multiple networks is to separate the internal "backend" traffic amongst the storage system components from the client "frontend" traffic to service client requests, increasing performance and throughput.
+  This project will include designing a common experience for exposing this concept to storage administrators and also implementing a reusable code implementation for multiple storage providers to easily integrate this functionality.
+  Familiarity with networking concepts and architecture will be very beneficial while building this feature.
+- Recommended Skills: Kubernetes, Golang. networking
+- Mentor(s): [Dmitry Yusupov](https://github.com/dyusupov)
+- Issue: [#2621](https://github.com/rook/rook/issues/2621)
+
+#### Enhance and extend the Rook framework for storage solutions
+
+- Description: Rook is more than just a collection of operators and custom resources, it is a framework for storage providers to integrate their solutions into cloud-native environments.
+  This framework provides general implementations that each storage solution can consume to integrate with Kubernetes more easily and provide more functionality.
+  We'd like to continue growing and developing this framework to broaden its scope of impact.
+  For example, it would greatly improve the user experience for many of Rooks supported storage solutions if we could support early validation, status reporting, and progress for long running operations.
+  Likewise, many storage solutions would benefit if the Rook framework supported specifying the underlying storage fabric in a more flexible and dynamic way.
+  For this project, you will learn about the design and features of the Rook framework then choose the highest impact enhancements to design, implement, and bring through the entire software development life-cycle to be included in a future official release.
+- Recommended Skills: Kubernetes, Golang
+- Mentor(s): [Jared Watts](https://github.com/jbw976)
+- Issue: Multiple issues to be chosen by student, such as [#1539](https://github.com/rook/rook/issues/1539), [#2363](https://github.com/rook/rook/issues/2363), [#2107](https://github.com/rook/rook/issues/2107), [#1744](https://github.com/rook/rook/issues/1744), and [#1228](https://github.com/rook/rook/issues/1228)
+
+#### Expand coverage and scope of Rook's continuous integration (CI) system
+
+- Description: For every pull request, commit to master, and official release, Rook runs a [build and testing continuous integration system](https://jenkins.rook.io/).
+  This system builds and packages all of the Rook artifacts, dynamically deploys and configures multiple versions of Kubernetes clusters across multiple environments, and then executes all of the Rook integration tests to ensure that the current version of Rook meets all the quality expectations of the community.
+  It would greatly benefit the broader community to expand the coverage of this CI system to cover more hardware architectures, cloud provider environments, and Kubernetes offerings.
+  In addition to expanding test coverage to all these new platforms, it would also be beneficial to parallelize the testing pipelines to improve efficiency and lower test run time.
+- Recommended Skills: Kubernetes, Golang, testing and quality assurance
+- Mentor(s): [Jared Watts](https://github.com/jbw976)
+- Issue: Multiple issues, including [#1901](https://github.com/rook/rook/issues/1901), [#1315](https://github.com/rook/rook/issues/1315), [#1841](https://github.com/rook/rook/issues/1841), and [#1218](https://github.com/rook/rook/issues/1218)
+
+#### Dynamic provisioning for portable workloads
+
+- Description: Rook has architected a great solution for integrating many storage systems into cloud-native environments and also supporting the provisioning of storage for clients in these systems.
+  This solution can be taken further to support scenarios of workload portability, where an application merely needs to express its need for a general type of storage, and a matching Rook storage provider will dynamically provision this storage on demand, enabling applications to be written once but run anywhere.
+  For example, an application could express its general need for an object storage bucket, and at deployment time that bucket could be provided from Ceph, EdgeFS, Minio, or even one of the public cloud providers.
+  This project is an early vision and there will be significant design work to bring this to practical fruition, including integration with the [Crossplane project](https://crossplane.io/).
+  It is recommended to read the [high level architecture/vision document](https://docs.google.com/document/d/1whncqdUeU2cATGEJhHvzXWC9xdK29Er45NJeoemxebo/edit?usp=sharing) for further background understanding.
+- Recommended Skills: Kubernetes, Golang
+- Mentor(s): [Jared Watts](https://github.com/jbw976)
+- Issue: [#1705](https://github.com/rook/rook/issues/1705), [#1704](https://github.com/rook/rook/issues/1704)
+
 ### Linkerd and Envoy
 
 Linkerd is an ultralight service mesh for Kubernetes and beyond: https://linkerd.io.
