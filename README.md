@@ -208,7 +208,7 @@ Envoy is an open source edge and service proxy, designed for cloud-native applic
 
 #### Benchmarks for Linkerd and Envoy
 
-- Description: Linkerd, like other service meshes are plagued by the question of adopters asking the question: "what's the performance overhead of the service mesh?". Envoy does not publish performance test results [see How fast is Enovy](https://www.envoyproxy.io/docs/envoy/latest/faq/how_fast_is_envoy)). Linkerd, Istio, Enovy and the list of other service meshes don't have a consistent set of performance benchmarks between them. So, even if Envoy were to publish performance results, users still wouldn't be able to compare overhead between Linkerd and Envoy. The project idea here is to build a multi-mesh performance benchmark tool.
+- Description: Linkerd, like other service meshes are plagued by the question of adopters asking the question: "what's the performance overhead of the service mesh?". Envoy does not publish performance test results [see How fast is Enovy](https://www.envoyproxy.io/docs/envoy/latest/faq/how_fast_is_envoy)). Linkerd, Istio, Envoy and the list of other service meshes don't have a consistent set of performance benchmarks between them. So, even if Envoy were to publish performance results, users still wouldn't be able to compare overhead between Linkerd and Envoy. The project idea here is to build a multi-mesh performance benchmark tool.
 
 - Recommended Skills: Golang, JavaScript, Kubernetes
 - Mentor(s): Lee Calcote (@leecalcote)
