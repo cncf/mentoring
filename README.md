@@ -213,3 +213,68 @@ Envoy is an open source edge and service proxy, designed for cloud-native applic
 - Recommended Skills: Golang, JavaScript, Kubernetes
 - Mentor(s): Lee Calcote (@leecalcote)
 - Issue: https://github.com/envoyproxy/envoy/issues/5536 and https://discourse.linkerd.io/t/linkerd-performance/146
+
+### Linkerd
+
+Linkerd is an ultralight service mesh for Kubernetes that provides
+observability, reliability, and security for your microservices.
+[https://linkerd.io](https://linkerd.io)
+
+#### Cross-cloud integration testing
+
+- Description: With the proliferation of managed Kubernetes services on many
+  cloud platforms (GKE, AKS, EKS, Kubernetes on DigitalOcean), the subtle
+  differences between these providers can create hard to debug and understand
+  issues. This project involves building out the tooling to create clusters on
+  multiple providers, interact with those and run the integration test suite
+  on them. It will surface bugs earlier, make it easier to replicate user
+  issues and provide a common framework to build sample workloads on top of.
+- Recommended Skills: Bash, TravisCI, Go, Cloud Providers
+- Mentor(s): Thomas Rampelberg (@grampelberg)
+- Issue: [https://github.com/linkerd/linkerd2/issues/2213](https://github.com/linkerd/linkerd2/issues/2213)
+
+#### Auto-Update
+
+- Description: Linkerd has frequent updates and keeping up with the weekly edge
+  releases can be difficult. This project involves building an Kubernetes
+  operator that can observe the version-check API, auto-update the control plane
+  and replace the Linkerd data plane proxies with the correct version.
+- Recommended Skills: Go, Kubernetes
+- Mentor(s): Thomas Rampelberg (@grampelberg)
+- Issue: [https://github.com/linkerd/linkerd2/issues/1903](https://github.com/linkerd/linkerd2/issues/1903)
+
+#### Conformance Validation
+
+- Description: Linkerd has an extensive `check` suite that validates a cluster
+  is ready to install Linkerd and that the install was successful. These checks
+  are, unfortunately, static checks. Because of the wide number of ways a
+  Kubernetes cluster can be configured, Users want a way to validate their
+  specific install for conformance over time. This project involves building a
+  sample application that exercises all the features of Linkerd and allows an
+  end user to run this on their own cluster to validate that everything is
+  working and configured correctly over a long time.
+- Recommended Skills: Go, Bash, Kubernetes, gRPC
+- Mentor(s): Thomas Rampelberg (@grampelberg)
+- Issue: [https://github.com/linkerd/linkerd2/issues/1096](https://github.com/linkerd/linkerd2/issues/1096)
+
+#### Alertmanager Integration
+
+- Description: Linkerd provides rich metrics that are stored in Prometheus out
+  of the box. These are for both the control plane and data plane. The goal is
+  to provide Alertmanager integration that comes out of the box, is configurable
+  with preferred channels (email, slack) and works with ServiceProfiles to
+  easily create alerts that are per-service and per-route.
+- Recommended Skills: Go, Prometheus, Grafana, Kubernetes
+- Mentor(s): Thomas Rampelberg (@grampelberg)
+- Issue: [https://github.com/linkerd/linkerd2/issues/1726](https://github.com/linkerd/linkerd2/issues/1726)
+
+#### Kafka Introspection
+
+- Description: HTTP based traffic is only one type of modern applications. Many use message
+  queues such as Kafka. Getting the metrics for consumers/producers/messages are
+  just as critical to application health as requests and responses in HTTP. The
+  goal of this project is to implement a Kafka codec for the Linkerd proxy that
+  allows it to introspect the Kafka protocol and provide metrics on that protocol.
+- Recommended Skills: Go, Rust, Kubernetes, Kafka
+- Mentor(s): Thomas Rampelberg (@grampelberg)
+- Issue: [https://github.com/linkerd/linkerd2/issues/2214](https://github.com/linkerd/linkerd2/issues/2214)
