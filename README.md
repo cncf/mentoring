@@ -214,6 +214,17 @@ Envoy is an open source edge and service proxy, designed for cloud-native applic
 - Mentor(s): Lee Calcote (@leecalcote)
 - Issue: https://github.com/envoyproxy/envoy/issues/5536 and https://discourse.linkerd.io/t/linkerd-performance/146
 
+### Virtual Kubelet 
+
+Virtual kubelet is a Kubebernetes kubelet implementation.
+
+#### Conformance testing for Virtual Kubelet
+
+* Description: As the project gets closer to stabilizing the interface that providers implement, users of vk are looking for a run through the Kubertenes conformance test suite. This project will direct parts of the virtual kubelet interface.
+* Issue: https://github.com/virtual-kubelet/virtual-kubelet/issues/81
+* Recommended Skills: Go
+* Mentors: Ria Bhatia (rbitia), Brian Goff (cpuguy83)
+
 ### Linkerd
 
 Linkerd is an ultralight service mesh for Kubernetes that provides
