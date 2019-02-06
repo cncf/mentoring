@@ -215,7 +215,7 @@ GitHub: https://github.com/rook/rook
   The various available operator/controller frameworks should be evaluated and the best fit for advancing the Rook project should be integrated into the numerous Rook operators and controllers.
   This will provide a more robust experience for both our developer and end user communities, as well as provide the student with a deep experience and familiarity to Kubernetes custom controllers written for production scenarios.
 - Recommended Skills: Kubernetes, Golang
-- Mentor(s): [Jared Watts](https://github.com/jbw976)
+- Mentor(s): [Jared Watts](https://github.com/jbw976) and [Yannis Zarkadas](https://github.com/yanniszark)
 - Issue: [#1981](https://github.com/rook/rook/issues/1981)
 
 #### Storage provider features and enhancements
