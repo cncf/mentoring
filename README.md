@@ -214,6 +214,17 @@ Envoy is an open source edge and service proxy, designed for cloud-native applic
 - Mentor(s): Lee Calcote (@leecalcote)
 - Issue: https://github.com/envoyproxy/envoy/issues/5536 and https://discourse.linkerd.io/t/linkerd-performance/146
 
+### Virtual Kubelet 
+
+Virtual kubelet is a Kubebernetes kubelet implementation.
+
+#### Conformance testing for Virtual Kubelet
+
+* Description: As the project gets closer to stabilizing the interface that providers implement, users of vk are looking for a run through the Kubertenes conformance test suite. This project will direct parts of the virtual kubelet interface.
+* Issue: https://github.com/virtual-kubelet/virtual-kubelet/issues/81
+* Recommended Skills: Go
+* Mentors: Ria Bhatia (rbitia), Brian Goff (cpuguy83)
+
 ### Linkerd
 
 Linkerd is an ultralight service mesh for Kubernetes that provides
@@ -294,3 +305,4 @@ rkt is a pod-native container engine for Linux. It is composable, secure, and bu
 - Description: rkt supports the OCI image spec by converting an OCI image to its internal format (appc). The idea is to implement native support for the OCI image spec using the [containers/image library](https://github.com/containers/image). This will also involve coming up with a reasonable scheme to support both appc and OCI images, and refactoring rkt's image store and fetching logic.
 - Recommended Skills: Golang.
 - Mentor(s): Iago López Galeiras (@iaguis), Alban Crequy (@albanc)
+- Issue: [https://github.com/linkerd/linkerd2/issues/2214](https://github.com/linkerd/linkerd2/issues/2214)
