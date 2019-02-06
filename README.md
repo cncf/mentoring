@@ -378,3 +378,19 @@ rkt is a pod-native container engine for Linux. It is composable, secure, and bu
 - Recommended Skills: Golang.
 - Mentor(s): Iago López Galeiras (@iaguis), Alban Crequy (@albanc)
 - Issue: [https://github.com/linkerd/linkerd2/issues/2214](https://github.com/linkerd/linkerd2/issues/2214)
+
+### containerd
+
+containerd is a OCI-compliant container runtime for Linux. It is a stable, secure, and performant runtime used in both Docker and Kubernetes, as well as many other projects.
+
+#### Snapshotter implementation for block devices
+
+- Description: containerd uses snapshotter drivers to interface with specific filesystem technologies, like overlayfs, aufs, btrfs, among others. Several projects would benefit from a snapshotter implementation for block or remote devices.
+- Recommended Skills: Golang.
+- Mentor(s): Derek McGowan (@dmcgowan), Phil Estes (@estesp)
+
+#### p2p or remote blob store implementation
+
+- Description: containerd stores image content (layer blobs) in a local content store today. Implementation of a p2p or remote blob store would be a great addition to containerd capabilities.
+- Recommended Skills: Golang.
+- Mentor(s): Derek McGowan (@dmcgowan), Phil Estes (@estesp)
