@@ -123,6 +123,20 @@ Prometheus ideas:
 -	Mentor(s): Krasi Georgiev (@krasi-georgiev)
 -	Issue: https://github.com/prometheus/prombench/issues - the High priority ones should be addressed first.
 
+#### Persist Retroactive Rule Reevaluations 
+
+-	Description: Right now one of the biggest issues with recording rules is that data is only available since the rule was created. Which means any dashboards that use the recording rule will not have data prior to the recording rules create time. We can already reevaluate queries on old data, but we should be able to persist that for a certain window from [Oldest, Now).
+-	Recommended Skills: Golang
+-	Mentor(s): Ganesh Vernekar (@codesome), Goutham Veeramachaneni (@gouthamve)
+-	Issue: https://github.com/prometheus/prometheus/issues/11.
+
+#### Optimize queries using regex matchers for set lookups 
+
+-	Description: A common use case for regex matchers is to use them to query all series matching a set of label values, e.g. `up{instance=~"foo|bar|baz"}`. Grafana's template variables feature is a big user of that pattern. We could catch and split it into 3 different matchers, each selecting the three cases. This would make the templated queries produced by Grafana much faster.
+-	Recommended Skills: Golang
+-	Mentor(s): Goutham Veeramachaneni (@gouthamve)
+-	Issue: https://github.com/prometheus/prometheus/issues/2651.
+
 ### Open Policy Agent (OPA)
 
 OPA is a domain-agnostic policy engine that embodies "policy as code": https://www.openpolicyagent.org/
