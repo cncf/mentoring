@@ -394,3 +394,31 @@ containerd is a OCI-compliant container runtime for Linux. It is a stable, secur
 - Description: containerd stores image content (layer blobs) in a local content store today. Implementation of a p2p or remote blob store would be a great addition to containerd capabilities.
 - Recommended Skills: Golang.
 - Mentor(s): Derek McGowan (@dmcgowan), Phil Estes (@estesp)
+
+### Falco
+
+[Falco](https://falco.org) is an open source project for intrusion and abnormality detection for Cloud Native platforms such as Kubernetes, Mesosphere, and Cloud Foundry. 
+
+#### Improved Falco Outputs
+
+-	Description: The goal behind this idea is to improve the available options for sending alerts from Falco when a security violation occurs inside a container. Currently outputs are limited to stdout, files, syslog, and executing a program. We’d like to offer more output options such as: NATS.io, Kafka, gRPC, Google Pub/Sub, AWS SNS, HTTPs Webhooks, etc.
+-	Recommended Skills: C/C++ experience, working with external libraries, working knowledge of message queues and modern Pub/Sub systems
+-	Mentor(s): Mark Stemm (@mstemm), Loris Degioanni (@ldegio), Michael Ducy (@mfdii)
+
+#### Additional Event Sources
+
+-	Description: Allow Falco to ingest events from other sources. Currently Falco ingests system call events and events from Kubernetes audit logging. End users can then use Falco’s out of the box (or create their own) rules to detect abnormal behavior in these event streams. This idea would implement the ability for Falco to ingest other event sources such as: cloud provider events, application events, events from Service Mesh tools such as Istio, etc.
+-	Recommended Skills: C/C++ experience, working with external libraries, parsing JSON, best practices around running applications that send events to define new rules for the event source.
+-	Mentor(s): Mark Stemm (@mstemm), Loris Degioanni (@ldegio), Michael Ducy (@mfdii) 
+
+#### Layer 7 Inspection and Detection
+
+-	Description: Extend Falco to inspect layer 7 payloads and create rules to detect bad best practices such as storing secrets in plain text, attempts at exploiting an api, etc. This would optionally include work to intercept layer 7 payloads before encryption occurs. 
+-	Recommended Skills: C/C++ experience, understanding of shared memory on Linux, crytography knowledge.
+-	Mentor(s): Mark Stemm (@mstemm), Loris Degioanni (@ldegio)
+
+#### Falco integration with AI/ML platforms
+
+-	Description: Falco can generate a large number of events. This is useful for creating a complete audit trail of activity in a cloud native platform such as Kubernetes. As this audit trail may container normal conditions and abnormal conditions, applying ML models to this audit trail can be useful to baseline “normal” and then to detect activity that is suspect. This idea would take Falco alerts and ship them into a ML system for analysis. As this is an experiment, we are indifferent to the ML tool of choice but Cloud based tools such as Google Cloud AI or Google Cloud ML. 
+-	Recommended Skills: C/C++, Lua, Tensorflow
+-	Mentor(s): Mark Stemm (@mstemm), Loris Degioanni (@ldegio), Michael Ducy (@mfdii)
