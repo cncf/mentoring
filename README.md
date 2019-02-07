@@ -422,3 +422,25 @@ containerd is a OCI-compliant container runtime for Linux. It is a stable, secur
 -	Description: Falco can generate a large number of events. This is useful for creating a complete audit trail of activity in a cloud native platform such as Kubernetes. As this audit trail may container normal conditions and abnormal conditions, applying ML models to this audit trail can be useful to baseline “normal” and then to detect activity that is suspect. This idea would take Falco alerts and ship them into a ML system for analysis. As this is an experiment, we are indifferent to the ML tool of choice but Cloud based tools such as Google Cloud AI or Google Cloud ML. 
 -	Recommended Skills: C/C++, Lua, Tensorflow
 -	Mentor(s): Mark Stemm (@mstemm), Loris Degioanni (@ldegio), Michael Ducy (@mfdii)
+
+### Cortex
+
+Cortex is an open-source project providing horizontally scalable, multi-tenant, long term storage for [Prometheus](https://prometheus.io/). You can find the project at [https://github.com/cortexproject/cortex](https://github.com/cortexproject/cortex).
+
+#### Improve Ingester Handover
+
+- Description: The ingester is a stateful component in the Cortex ecosystem that builds Prometheus chunks from incoming samples. In order to distribute load, a [Distributed Hash Table](https://en.wikipedia.org/wiki/Distributed_hash_table) is used to route requests to different Ingesters. The current implementation only allows users to scale up their ingester pools by 1 Ingester per 12 hour period, which is not great when load changes dramatically. This project will be to improve how Ingesters hand over their data when they are being created or deleted in order to easily scale.
+- Recommended Skills: Golang
+- Mentor(s): Bryan Boreham (@bboreham)
+
+#### Centralized Rate Limiting
+
+- Description: The current rate limiting implementation in Cortex is is per instance of a component. This project is to make rate limiting central so that an operator does not have to change their limits whenever they scale their cluster. See [this issue](https://github.com/cortexproject/cortex/issues/1090).
+- Recommended Skills: Golang
+- Mentor(s): Bryan Boreham (@bboreham)
+
+#### Use etcd in Cortex
+
+- Description: Cortex currently uses Consul as a key value store to hold cluster state. We would like Cortex to support [etcd](https://github.com/etcd-io/etcd), another CNCF project that many people are familiar with running. See [this issue](https://github.com/cortexproject/cortex/issues/1144).
+- Recommended Skills: Golang
+- Mentor(s): Bryan Boreham (@bboreham)
