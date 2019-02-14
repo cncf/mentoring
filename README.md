@@ -182,6 +182,31 @@ CoreDNS is a fast and flexible DNS server. It has a focus of service discovery i
 -	Recommended Skills: Golang, Microsoft Azure
 -	Mentor(s): Yong Tang (@yongtang)
 
+### Add annotations to Storyscript
+
+> [Storyscript](https://github.com/storyscript), by [Asyncy](https://asyncy.com) an open-source microservice choreography platform, is a language for stringing microservices together on Kubernetes. Asyncy is a CNCF/LF member.
+
+A way to describe expectations on data, similarly to what happens in some languages. This can be a powerful feature and below I am providing some example for context. See [storyscript/storyscript#390](https://github.com/storyscript/storyscript/issues/390) for full details.
+
+### Add OpenFaaS support to Asyncy Engine
+
+> [Asyncy](https://asyncy.com) an open-source microservice choreography platform, is a language for stringing microservices together on Kubernetes. Asyncy is a CNCF/LF member.
+
+Asynsy strings together microservices but also serverless. Adding support for OpenFaaS would be a fantastic addition to the platform.
+
+### Add KNative support to Asyncy Engine
+
+> [Asyncy](https://asyncy.com) an open-source microservice choreography platform, is a language for stringing microservices together on Kubernetes. Asyncy is a CNCF/LF member.
+
+Asynsy strings together microservices but also serverless. Adding support for KNative would be a fantastic addition to the platform.
+
+### Create VSCode plugin for Storyscript
+
+> [Storyscript](https://github.com/storyscript), by [Asyncy](https://asyncy.com) an open-source microservice choreography platform, is a language for stringing microservices together on Kubernetes. Asyncy is a CNCF/LF member.
+
+A VSCode plugin would help with service discovery, documentation, support and help while developers write stories.
+Other IDE plugins may be tasks as well.
+
 ### TiKV
 
 TiKV is an open-source distributed transactional Key-Value database. [https://tikv.org](https://tikv.org).
