@@ -137,6 +137,13 @@ Prometheus ideas:
 -	Mentor(s): Goutham Veeramachaneni (@gouthamve)
 -	Issue: https://github.com/prometheus/prometheus/issues/2651.
 
+#### Package for bulk imports
+
+-	Description: Currently if you want to migrate to Prometheus, the only way is to leave all the monitoring data from the old tool behind and start fresh. This project aims to add a package to help generate Prometheus TSDB blocks out of old data and bulk import into Prometheus.
+-	Recommended Skills: Golang
+-	Mentor(s): Ganesh Vernekar (@codesome)
+-	Issue: https://github.com/prometheus/prometheus/issues/535.
+
 ### Open Policy Agent (OPA)
 
 OPA is a domain-agnostic policy engine that embodies "policy as code": https://www.openpolicyagent.org/
