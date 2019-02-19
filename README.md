@@ -68,9 +68,23 @@ Please visit the [Kubernetes GSoC page](https://git.k8s.io/community/mentoring/g
 -	Mentor(s): Pengfei Ni (@feiskyer)
 -	Issue: https://github.com/kubernetes/cloud-provider-azure/issues/4
 
-#### CSI drivers for AzureDisk and AzureFile
+#### CSI driver for AzureDisk
 
--	Description: External drivers for AzureDisk and AzureFile would be implemented as new CSI drivers. The goal is mirror the current functions from in-tree drivers and setup e2e tests as well as documentation for them.
+-	Description: External driver for AzureDisk would be implemented as new CSI driver. The goal is mirror the current functions from in-tree driver and setup e2e tests as well as documentation for them.
+-	Recommended Skills: Golang, Kubernetes, Azure
+-	Mentor(s): Andy Zhang (@andyzhangx)
+-	Issue: https://github.com/kubernetes/org/issues/344
+
+#### CSI driver for AzureFile
+
+-	Description: External driver for AzureFile would be implemented as new CSI driver. The goal is mirror the current functions from in-tree driver and setup e2e tests as well as documentation for them.
+-	Recommended Skills: Golang, Kubernetes, Azure
+-	Mentor(s): Andy Zhang (@andyzhangx)
+-	Issue: https://github.com/kubernetes/org/issues/344
+
+#### CSI driver for Blobfuse
+
+-	Description: External driver for Blobfuse would be implemented as new CSI driver. The goal is mirror the current functions from blobfuse driver and setup e2e tests as well as documentation for them.
 -	Recommended Skills: Golang, Kubernetes, Azure
 -	Mentor(s): Andy Zhang (@andyzhangx)
 -	Issue: https://github.com/kubernetes/org/issues/344
