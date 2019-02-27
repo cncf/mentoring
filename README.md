@@ -70,21 +70,30 @@ Please visit the [Kubernetes GSoC page](https://git.k8s.io/community/mentoring/g
 
 #### CSI driver for AzureDisk
 
--	Description: External driver for AzureDisk would be implemented as new CSI driver. The goal is mirror the current functions from in-tree driver and setup e2e tests as well as documentation for them.
+-	Description: External driver for AzureDisk would be implemented as new CSI driver. The goal is:
+    - mirror the current functions from in-tree driver
+    - implement new features for CSI driver, e.g. snapshot, helm chart support
+    - setup unit tests, sanity tests, e2e tests as well as documentation for them.
 -	Recommended Skills: Golang, Kubernetes, Azure
 -	Mentor(s): Andy Zhang (@andyzhangx)
 -	Issue: https://github.com/kubernetes/org/issues/344
 
 #### CSI driver for AzureFile
 
--	Description: External driver for AzureFile would be implemented as new CSI driver. The goal is mirror the current functions from in-tree driver and setup e2e tests as well as documentation for them.
+-	Description: External driver for AzureFile would be implemented as new CSI driver. The goal is:
+    - mirror the current functions from in-tree driver
+    - implement new features for CSI driver, e.g. snapshot, helm chart support
+    - setup unit tests, sanity tests, e2e tests as well as documentation for them.
 -	Recommended Skills: Golang, Kubernetes, Azure
 -	Mentor(s): Andy Zhang (@andyzhangx)
 -	Issue: https://github.com/kubernetes/org/issues/344
 
 #### CSI driver for Blobfuse
 
--	Description: External driver for Blobfuse would be implemented as new CSI driver. The goal is mirror the current functions from blobfuse driver and setup e2e tests as well as documentation for them.
+-	Description: External driver for Blobfuse would be implemented as new CSI driver. The goal is:
+    - mirror the current functions from in-tree driver
+    - implement new features for CSI driver, e.g. snapshot, helm chart support
+    - setup unit tests, sanity tests, e2e tests as well as documentation for them.
 -	Recommended Skills: Golang, Kubernetes, Azure
 -	Mentor(s): Andy Zhang (@andyzhangx)
 -	Issue: https://github.com/kubernetes/org/issues/344
