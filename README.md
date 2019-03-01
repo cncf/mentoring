@@ -45,7 +45,12 @@ Please, submit your ideas below using the [template](/PROJECT_IDEA_TEMPLATE.md).
 
 ### Kubernetes
 
-Please visit the [Kubernetes GSoC page](https://git.k8s.io/community/mentoring/google-summer-of-code.md) for general information. For any questions or comments, please reach out to us on the #gsoc-apps channel on the [Kubernetes slack](http://slack.k8s.io/).
+Please visit the [Kubernetes GSoC page](https://git.k8s.io/community/mentoring/google-summer-of-code.md) for general information.
+
+**Communication**:
+
+For any questions or comments, please reach out to us on the #gsoc-apps channel on the [Kubernetes slack](http://slack.k8s.io/).
+Please don't use DMs or personal emails unless strictly necessary.
 
 #### Integrate kube-batch with pytorch-operator/mxnet-operator
 
