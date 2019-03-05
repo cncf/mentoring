@@ -473,6 +473,24 @@ containerd is a OCI-compliant container runtime for Linux. It is a stable, secur
 -	Recommended Skills: C/C++, Lua, Tensorflow
 -	Mentor(s): Mark Stemm (@mstemm), Loris Degioanni (@ldegio), Michael Ducy (@mfdii)
 
+#### Prometheis Metrics Exporter
+
+-	Description: Export Prometheus metrics for Falco events and alerts such as: Total rules triggered; Events dropped; Count of rules triggered by: rule name, rule event source, rule tag; Alerts sent; Alerts failed to send: Total, by output.
+-	Recommended Skills: C/C++, Lua, Understanding of Prometheus Metrics format and best practices 
+-	Mentor(s): Mark Stemm (@mstemm), Loris Degioanni (@ldegio), Michael Ducy (@mfdii)
+
+#### Performance Analysis and Optimization
+
+-	Description: Analyze the performance of Falco in regards to the number of events that can be processed by the Falco engine. Document the existing performance constraints of Falco. Optimize the Falco engine to increase the throughput of the Falco engine and provide an analysis of the performance improvements implemented with before and after metrics.
+-	Recommended Skills: C/C++, Lua, Understanding of performance analysis
+-	Mentor(s): Mark Stemm (@mstemm), Loris Degioanni (@ldegio), Michael Ducy (@mfdii)
+
+#### Falco rules profiles for applications and security benchmarks
+
+-	Description: Create Falco rules for common applications and security benchmarks such as CIS benchmarks. Rules should allow access to common files, folders, processes, and network ports based on profiling of applications.
+-	Recommended Skills: Understanding of common Applications and Security Benchmarks
+-	Mentor(s): Mark Stemm (@mstemm), Michael Ducy (@mfdii)
+
 ### Cortex
 
 Cortex is an open-source project providing horizontally scalable, multi-tenant, long term storage for [Prometheus](https://prometheus.io/). You can find the project at [https://github.com/cortexproject/cortex](https://github.com/cortexproject/cortex).
