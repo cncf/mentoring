@@ -473,7 +473,7 @@ containerd is a OCI-compliant container runtime for Linux. It is a stable, secur
 -	Recommended Skills: C/C++, Lua, Tensorflow
 -	Mentor(s): Mark Stemm (@mstemm), Loris Degioanni (@ldegio), Michael Ducy (@mfdii)
 
-#### Prometheis Metrics Exporter
+#### Prometheus Metrics Exporter
 
 -	Description: Export Prometheus metrics for Falco events and alerts such as: Total rules triggered; Events dropped; Count of rules triggered by: rule name, rule event source, rule tag; Alerts sent; Alerts failed to send: Total, by output.
 -	Recommended Skills: C/C++, Lua, Understanding of Prometheus Metrics format and best practices 
