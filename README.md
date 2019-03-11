@@ -132,6 +132,20 @@ Please don't use DMs or personal emails unless strictly necessary.
 - Mentor(s): Marcin Maciaszczyk (@maciaszczykm), Sebastian Florek (@floreks)
 - Issue: https://github.com/kubernetes/dashboard/issues/1832
 
+#### Run GPU sharing workloads with Kubernetes + Kubeflow
+
+- Description: We would like to introduce a Kubernetes native way to run jobs which could share GPU and isolation capability by leveraging Kubernetes scheduling and Device Plugin extensibility, together with [kubeflow/arena](https://github.com/kubeflow/arena).
+- Recommended Skills: Kubernetes, Golang, basic Machine Learning training experience
+- Mentors: Harry Zhang (@resouer), Kai Zhang (@wsxiaozhang), Jian He (@jian-he)
+- Issue: https://github.com/kubernetes/kubernetes/issues/52757
+
+#### Kubernetes with hardware devices topology awareness at node level
+
+- Description: We would like to propose a improvement on current Kubernetes topology manager to become aware of generic hardware device topology at node level, so Deep Learning training can be improved significantly due to data inter-connection between NVIDIA GPU devices on the node.
+- Recommended Skills: Kubernetes, Golang, basic Machine Learning training experience
+- Mentors: Harry Zhang (@resouer), Kai Zhang (@wsxiaozhang), Jian He (@jian-he)
+- Issue(s): https://github.com/kubernetes/kubernetes/issues/49964, https://github.com/kubernetes/enhancements/issues/693
+
 ### Prometheus
 
 Prometheus is an open-source systems monitoring and alerting toolkit: https://prometheus.io/
