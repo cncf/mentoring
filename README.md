@@ -104,20 +104,6 @@ Please don't use DMs or personal emails unless strictly necessary.
 -	Mentor(s): Andy Zhang (@andyzhangx)
 -	Issue: https://github.com/kubernetes/org/issues/344
 
-#### Streamline and simplify SASS for the Kubernetes website
-
--	Description: The website's SASS is prohibitively complex. The goal is to streamline the site's SASS and make attributes easily discoverable and changeable.
--	Recommended Skills: HTML, SASS/CSS
--	Mentor(s): Zach Corleissen (@zacharysarah), Luc Perkins (@lucperkins)
--	Issue: https://github.com/kubernetes/website/issues/12496
-
-#### Fully automate API and reference doc generation
-
-- Description: The process for generating reference docs is fragile and its outputs are inconsistent. The goal is to fully automate reference doc generation with outputs sharing a standard format.
-- Recommended Skills: Golang
-- Mentor(s): Zach Corleissen (@zacharysarah), Luc Perkins (@lucperkins)
-- Issue: https://github.com/kubernetes/website/issues/12503
-
 #### Add support for Custom Resource Definitions to the Dashboard
 
 - Description: Kubernetes Dashboard has no support for Custom Resource Definitions yet. The goal is to provide support for them as it was done for Third Party Resources in the past. Users should be able to perform at least the basic operations on the resources they have defined.
