@@ -185,13 +185,13 @@ OPA is a domain-agnostic policy engine that embodies "policy as code": https://w
 -   Issue: https://github.com/open-policy-agent/opa/issues/1085
 
 #### Interactive website detailing OPA integrations
-- Description: OPA has been integrated with 20+ cloud-native systems to provide rich, context-aware policy support, e.g. Kubernetes, Istio, Envoy, Linkerd, Terraform, Ceph, Minio.  Today there is no authoritative guide for users to understand what those integrations are, how they work, or how to get started.  This project involves designing and implementing an interactive web portal that helps users understand the integrations available with OPA.  It will be data-driven, so that new integrations can easily be added to the portal, and each entry will include code-snippets, videos, blog posts, github-repos, tutorials, reviews, and overall status.
+- Description: OPA has been integrated with 20+ cloud-native systems to provide rich, context-aware policy support, e.g. Kubernetes, Istio, Envoy, Linkerd, Terraform, Ceph, Minio. Today there is no authoritative guide for users to understand what those integrations are, how they work, or how to get started. This project involves designing and implementing an interactive web portal that helps users understand the integrations available with OPA. It will be data-driven, so that new integrations can easily be added to the portal, and each entry will include code-snippets, videos, blog posts, github-repos, tutorials, reviews, and overall status.
 - Recommended Skills: Frontend HTML/CSS/JavaScript, Backend Node/Python/Go/etc.
 - Mentor(s): Tim Hinrichs (@timothyhinrichs) and Torin Sandall (@tsandall)
 - Issue: https://github.com/open-policy-agent/opa/issues/1194
 
 #### Integration with IPTables
-- Description: One common use of policy is to set up IP packet filter rules in the Linux kernel.  The policy dictates what to do with different kinds of packets.  There have been several requests in the past to use OPA policies to control IPTables, but no one has come forth with an integration.  This project involves designing the layout of IPTable rules using OPA's policy language, implementing the algorithms that generate IPTables from that layout, and writing the code that populates the generated IPTables rules into Linux.
+- Description: One common use of policy is to set up IP packet filter rules in the Linux kernel. The policy dictates what to do with different kinds of packets. There have been several requests in the past to use OPA policies to control IPTables, but no one has come forth with an integration. This project involves designing the layout of IPTable rules using OPA's policy language, implementing the algorithms that generate IPTables from that layout, and writing the code that populates the generated IPTables rules into Linux.
 - Recommended Skills: Go and Linux
 - Mentor(s): Tim Hinrichs (@timothyhinrichs) and Torin Sandall (@tsandall)
 - Issue: https://github.com/open-policy-agent/opa/issues/1195
@@ -338,7 +338,7 @@ Envoy is an open source edge and service proxy, designed for cloud-native applic
 
 ### Virtual Kubelet 
 
-Virtual kubelet is a Kubebernetes kubelet implementation.
+Virtual kubelet is a Kubernetes kubelet implementation.
 
 #### Conformance testing for Virtual Kubelet
 
@@ -464,7 +464,7 @@ containerd is a OCI-compliant container runtime for Linux. It is a stable, secur
 #### Layer 7 Inspection and Detection
 
 -	Description: Extend Falco to inspect layer 7 payloads and create rules to detect bad best practices such as storing secrets in plain text, attempts at exploiting an api, etc. This would optionally include work to intercept layer 7 payloads before encryption occurs. 
--	Recommended Skills: C/C++ experience, understanding of shared memory on Linux, crytography knowledge.
+-	Recommended Skills: C/C++ experience, understanding of shared memory on Linux, cryptography knowledge.
 -	Mentor(s): Mark Stemm (@mstemm), Loris Degioanni (@ldegio)
 
 #### Falco integration with AI/ML platforms
@@ -503,7 +503,7 @@ Cortex is an open-source project providing horizontally scalable, multi-tenant, 
 
 #### Centralized Rate Limiting
 
-- Description: The current rate limiting implementation in Cortex is is per instance of a component. This project is to make rate limiting central so that an operator does not have to change their limits whenever they scale their cluster. See [this issue](https://github.com/cortexproject/cortex/issues/1090).
+- Description: The current rate limiting implementation in Cortex is per instance of a component. This project is to make rate limiting central so that an operator does not have to change their limits whenever they scale their cluster. See [this issue](https://github.com/cortexproject/cortex/issues/1090).
 - Recommended Skills: Golang
 - Mentor(s): Bryan Boreham (@bboreham)
 
