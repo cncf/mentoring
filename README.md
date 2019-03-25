@@ -48,6 +48,7 @@ List of Participating Projects for 2019:
 - [Kubernetes](#kubernetes)
 - [Prometheus](#prometheus)
 - [Open Policy Agent](#open-policy-agent-opa)
+- [CoreDNS](#coredns)
 - [TiKV](#tikv)
 - [Rook](#rook)
 - [Linkerd and Envoy](#linkerd-and-envoy)
