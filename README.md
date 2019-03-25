@@ -44,6 +44,20 @@ Project Ideas
 
 Please, submit your ideas below using the [template](/PROJECT_IDEA_TEMPLATE.md). **IMPORTANT**: The deadline to submit a project idea is February 6 20:00 UTC.
 
+List of Participating Projects for 2019:
+- [Kubernetes](#kubernetes)
+- [Prometheus](#prometheus)
+- [Open Policy Agent](#open-policy-agent-opa)
+- [TiKV](#tikv)
+- [Rook](#rook)
+- [Linkerd and Envoy](#linkerd-and-envoy)
+- [Virtual Kubelet](#virtual-kubelet)
+- [Linkerd](#linkerd)
+- [rkt](#rkt)
+- [containerd](#containerd)
+- [Falco](#falco)
+- [Cortex](#cortex)
+
 ### Kubernetes
 
 Please visit the [Kubernetes GSoC page](https://git.k8s.io/community/mentoring/google-summer-of-code.md) for general information.
