@@ -464,6 +464,11 @@ containerd is a OCI-compliant container runtime for Linux. It is a stable, secur
 
 [Falco](https://falco.org) is an open source project for intrusion and abnormality detection for Cloud Native platforms such as Kubernetes, Mesosphere, and Cloud Foundry. 
 
+**Communication**:
+
+For any questions or comments, please reach out to us on the #gsoc channel on the [Falco/Sysdig OSS slack](http://slack.sysdig.com/).
+Please don't use DMs or personal emails unless strictly necessary.
+
 #### Improved Falco Outputs
 
 -	Description: The goal behind this idea is to improve the available options for sending alerts from Falco when a security violation occurs inside a container. Currently outputs are limited to stdout, files, syslog, and executing a program. We’d like to offer more output options such as: NATS.io, Kafka, gRPC, Google Pub/Sub, AWS SNS, HTTPs Webhooks, etc.
