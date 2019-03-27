@@ -23,7 +23,7 @@ It's best if you use a public communication channel whenever possible; however, 
 Current Year
 ------------
 
-CNCF is applying as a mentoring organization for Google Summer of Code 2019.
+CNCF is participating as a mentoring organization for Google Summer of Code 2019.
 
 ### Timeline
 
