@@ -160,6 +160,13 @@ Prometheus ideas:
 -	Mentor(s): Krasi Georgiev (@krasi-georgiev)
 -	Issue: https://github.com/prometheus/tsdb/issues/235
 
+#### Postings Compression
+
+-	Postings is a lists of numbers which are references to series that contain a given label pair. They are used as a reference table to get the requested series. The project is to research and implement some compression.
+-	Recommended Skills: Golang, Compression algorithms
+-	Mentor(s): Goutham Veeramachaneni (@gouthamve) / Krasi Georgiev (@krasi-georgiev)
+-	Issue: https://github.com/prometheus/tsdb/issues/234
+
 #### Continue the work on Prombench
 
 -	Description: Since we finished Prombench there have been few requests to add scalability tests, add more tests with the race enabled and there are few pending issues to be fixed.
