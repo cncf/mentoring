@@ -169,8 +169,8 @@ Prometheus ideas:
 
 #### Allow index files larger than 64GB.
 
--	This would require some code refactoring on how the index file is saved to disk using varints or some compression.
--	Recommended Skills: Golang, Compression algorithms
+-	This would require some code refactoring on how the index file is saved to disk using varints.
+-	Recommended Skills: Golang
 -	Mentor(s): Goutham Veeramachaneni (@gouthamve) / Krasi Georgiev (@krasi-georgiev)
 -	Issue: https://github.com/prometheus/tsdb/issues/561
 
