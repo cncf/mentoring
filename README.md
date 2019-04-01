@@ -167,6 +167,13 @@ Prometheus ideas:
 -	Mentor(s): Goutham Veeramachaneni (@gouthamve) / Krasi Georgiev (@krasi-georgiev)
 -	Issue: https://github.com/prometheus/tsdb/issues/234
 
+#### Allow index files larger than 64GB.
+
+-	This would require some code refactoring on how the index file is saved to disk using varints or some compression.
+-	Recommended Skills: Golang, Compression algorithms
+-	Mentor(s): Goutham Veeramachaneni (@gouthamve) / Krasi Georgiev (@krasi-georgiev)
+-	Issue: https://github.com/prometheus/tsdb/issues/561
+
 #### Continue the work on Prombench
 
 -	Description: Since we finished Prombench there have been few requests to add scalability tests, add more tests with the race enabled and there are few pending issues to be fixed.
