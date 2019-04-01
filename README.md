@@ -118,7 +118,7 @@ Prometheus ideas:
 
 #### Postings Compression
 
--	Postings is a lists of series references that contain a given label pair associated with the list.They are used as a reference table to get the requested series. The project is to research and implement some compression.
+-	Postings is a lists of numbers which are references to series that contain a given label pair. They are used as a reference table to get the requested series. The project is to research and implement some compression.
 -	Recommended Skills: Golang, Compression algorithms
 -	Mentor(s): Goutham Veeramachaneni (@gouthamve) / Krasi Georgiev (@krasi-georgiev)
 -	Issue: https://github.com/prometheus/tsdb/issues/234
