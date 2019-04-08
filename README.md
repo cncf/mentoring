@@ -464,7 +464,7 @@ rkt is a pod-native container engine for Linux. It is composable, secure, and bu
 - Description: rkt supports the OCI image spec by converting an OCI image to its internal format (appc). The idea is to implement native support for the OCI image spec using the [containers/image library](https://github.com/containers/image). This will also involve coming up with a reasonable scheme to support both appc and OCI images, and refactoring rkt's image store and fetching logic.
 - Recommended Skills: Golang.
 - Mentor(s): Iago López Galeiras (@iaguis), Alban Crequy (@albanc)
-- Issue: [https://github.com/linkerd/linkerd2/issues/2214](https://github.com/linkerd/linkerd2/issues/2214)
+- Issue: https://github.com/rkt/rkt/issues/2541
 
 ### containerd
 
