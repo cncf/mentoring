@@ -174,12 +174,19 @@ Prometheus ideas:
 -	Mentor(s): Goutham Veeramachaneni (@gouthamve) / Krasi Georgiev (@krasi-georgiev)
 -	Issue: https://github.com/prometheus/tsdb/issues/561
 
-#### Continue the work on Prombench
+#### Continue the work on high priority issues in Prombench
 
--	Description: Since we finished Prombench there have been few requests to add scalability tests, add more tests with the race enabled and there are few pending issues to be fixed.
+-	Description: Since we finished Prombench there have been few requests to add scalability tests, add more tests with the race enabled and fix the other high priority issues.
 -	Recommended Skills: CI, Golang, Kubernetes, Grafana
 -	Mentor(s): Krasi Georgiev (@krasi-georgiev)
 -	Issue: https://github.com/prometheus/prombench/issues - the High priority ones should be addressed first.
+
+#### Continue the work on low hanging issues in Prombench
+
+-	Description: Work needs to be done to check whether Prow can be replaced by Github actions, getting metrics without any gaps and other `low hanging fruit` labeled issues.
+-	Recommended Skills: CI, Docker, Kubernetes, Grafana
+-	Mentor(s): Krasi Georgiev (@krasi-georgiev)
+-	Issue: https://github.com/prometheus/prombench/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3A%22low+hanging+fruit%22
 
 #### Persist Retroactive Rule Reevaluations 
 
