@@ -384,6 +384,13 @@ Virtual kubelet is a Kubernetes kubelet implementation.
 * Recommended Skills: Go
 * Mentors: Ria Bhatia (rbitia), Brian Goff (cpuguy83)
 
+#### Controller for Virtual Kubelet
+
+* Descrption: The user experience around installation and management of Virtual Kubelet leaves a lot to be desired. This project loos to explore how to improve this UX through the use of a new Kubernetes controller for managing Virtual Kubelet instances.
+* Issue: https://github.com/virtual-kubelet/virtual-kubelet/issues/565
+* Recommended Skills: Go
+* Mentors: Ria Bhatia (rbitia), Brian Goff (cpuguy83)
+
 ### Linkerd
 
 Linkerd is an ultralight service mesh for Kubernetes that provides
