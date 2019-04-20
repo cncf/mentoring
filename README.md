@@ -229,7 +229,7 @@ OPA is a domain-agnostic policy engine that embodies "policy as code": https://w
 #### Integration with IPTables
 - Description: One common use of policy is to set up IP packet filter rules in the Linux kernel. The policy dictates what to do with different kinds of packets. There have been several requests in the past to use OPA policies to control IPTables, but no one has come forth with an integration. This project involves designing the layout of IPTable rules using OPA's policy language, implementing the algorithms that generate IPTables from that layout, and writing the code that populates the generated IPTables rules into Linux.
 - Recommended Skills: Go and Linux
-- Mentor(s): Tim Hinrichs (@timothyhinrichs) and Torin Sandall (@tsandall)
+- Mentor(s): Reinaldo Penno (@repenno) and Tim Hinrichs (@timothyhinrichs)
 - Issue: https://github.com/open-policy-agent/opa/issues/1195
 
 ### CoreDNS
