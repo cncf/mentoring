@@ -2,11 +2,27 @@
 
 [Community Bridge](https://communitybridge.org/) is a platform Developed by the Linux Foundation, which accelerates the adoption, innovation, and sustainability of open source software.
 
+Community Bridge is actively used by the Cloud Native Computing Foundation as
+a mentorship platform across the CNCF projects.
+
 ### 2020
 
-#### Q1 - Project Ideas
+#### Q1
 
-Please, submit your ideas below using the [template](/PROJECT_IDEA_TEMPLATE.md).
+#### Timeline
+
+- December 5 2019 - December 15 2019: applications opened
+- December 16 2019: 5 projects/slots are announced by CNCF
+- December 16 2019 - March 16 2020: coding
+- March 20 2020: results announced
+
+#### How to apply?
+
+Project maintainers and mentors, please, submit your ideas below (under the Project Ideas) section using the [template](/PROJECT_IDEA_TEMPLATE.md).
+
+#### Project Ideas:
+
+TBD
 
 ### 2019
 
