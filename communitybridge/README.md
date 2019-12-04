@@ -2,6 +2,12 @@
 
 [Community Bridge](https://communitybridge.org/) is a platform Developed by the Linux Foundation, which accelerates the adoption, innovation, and sustainability of open source software.
 
+### 2020
+
+#### Q1 - Project Ideas
+
+Please, submit your ideas below using the [template](/PROJECT_IDEA_TEMPLATE.md).
+
 ### 2019
 
 2019 year, CNCF was participating in the Community Bridge, sponsoring three students to work on Kubernetes and CoreDNS projects during the foundations’ pilot stage.
