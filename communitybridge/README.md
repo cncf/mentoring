@@ -9,6 +9,9 @@ a mentorship platform across the CNCF projects.
 
 #### Q1
 
+See our recent post with the program announcement on [CNCF
+Blog](https://www.cncf.io/blog/2019/12/05/cncf-to-participate-in-the-community-bridge-mentorship-program/).
+
 #### Timeline
 
 - December 5 2019 - December 15 2019: applications opened
