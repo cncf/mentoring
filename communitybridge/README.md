@@ -25,7 +25,12 @@ Project maintainers and mentors, please, submit your ideas below (under the Proj
 
 #### Project Ideas:
 
-TBD
+#### Kubernetes working group for multi-tenancy: HNC + Tenant Operator 
+
+-	Description: Integrate the Tenant Operator with the Hierarchical Namespace Controller, per [this design document](https://docs.google.com/document/d/1QAWtYdRZGseSar_KgyfiIisL7JTGMHCfqB_Legfa39w/edit#heading=h.7wst4safj8dx)
+-	Recommended Skills: golang, some familiarity with the Hierarchical Namespace Controller
+-	Mentor(s): Adrian Ludwin @aludwin, Tasha Drew @tashimi 
+-	Issue: https://github.com/kubernetes-sigs/multi-tenancy/issues/300
 
 ### 2019
 
