@@ -14,8 +14,10 @@ Blog](https://www.cncf.io/blog/2019/12/05/cncf-to-participate-in-the-community-b
 
 #### Timeline
 
-- December 5 2019 - December 15 2019: applications opened
-- December 16 2019: 5 projects/slots are announced by CNCF
+- December 5 2019 - December 15 2019: applications opened; students matching to
+  projects/mentors
+- December 16 2019: 5 projects/slots are announced by CNCF; students may apply
+  via the [Community Bridge platform](https://people.communitybridge.org/)
 - December 16 2019 - March 16 2020: coding
 - March 20 2020: results announced
 
