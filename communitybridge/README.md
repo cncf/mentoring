@@ -27,6 +27,8 @@ Project maintainers and mentors, please, submit your ideas below (under the Proj
 
 #### Project Ideas:
 
+### Kubernetes
+
 #### Kubernetes working group for multi-tenancy: HNC + Tenant Operator 
 
 -	Description: Integrate the Tenant Operator with the Hierarchical Namespace Controller, per [this design document](https://docs.google.com/document/d/1QAWtYdRZGseSar_KgyfiIisL7JTGMHCfqB_Legfa39w/edit#heading=h.7wst4safj8dx)
@@ -34,7 +36,13 @@ Project maintainers and mentors, please, submit your ideas below (under the Proj
 -	Mentor(s): Adrian Ludwin @aludwin, Tasha Drew @tashimi 
 -	Issue: https://github.com/kubernetes-sigs/multi-tenancy/issues/300
 
-#### Prometheus
+#### Kubernetes working group for multi-tenancy: Add label aggregation and overrides to Hierarchical Namespace Controller
+- Description: add label aggregation and overrides to hierarchical namespace controller ("hnc")
+- Recommended Skills: golang, some familiarity with the Hierarchical Namespace Controller, Kubernetes CRDs 
+- Mentor(s): Adrian Ludwin @aludwin, Tasha Drew @tashimi
+- Issue: https://github.com/kubernetes-sigs/multi-tenancy/issues/303
+
+### Prometheus
 
 #### Benchmarks for TSDB
 - Description: The TSDB module used in Prometheus  doesn’t have proper benchmarks yet, which means we cannot see the potential impact of the changes we are introducing. The idea is to build some automated benchmarking which can be added to the CI pipeline.
@@ -60,13 +68,59 @@ Project maintainers and mentors, please, submit your ideas below (under the Proj
 - Relevant Issues: https://github.com/prometheus/prometheus/issues/2935 
 - Potential Mentors: Gouthamve @gouthamve 
 
-#### Cortex
+### Cortex
 
 #### Storage Plugins
 - Description: So there are serveral open issues to support new storage types. As adoption increases, there will be new requests coming up. Further, we're re-using cortex in Loki a fair bit and are finding that the storage trade-offs in Loki and Cortex are different and seeing some implementation details for Loki leaking into Cortex. We need a good way to come up with a plugin system that lets the new storage codes live outside the cortex tree. One of the first obvious candidate is the grpc-plugin system from Hashicorp, that has been used to do similar storage plugins for Jaeger.
 - Recommended Skills: Golang
 - Relevant Issues: https://github.com/cortexproject/cortex/issues/1681
 - Potential Mentors: Gouthamve @gouthamve
+
+### OpenTelemetry
+
+#### Implement zPages for OpenTelemetry
+
+-   Description: zPages is a great practice many organizations and SRE uses for
+    the last line of defence while troubleshooting application issues. zPages
+    aggregate telemetry in-process in a memory buffer and allow to query this
+    informaiton directly from the app. It will be great to design and implement
+    zPages for the language of your choice. I set C# as a language I maintain,
+    but will be happy to mentor in other languages as well.
+-	Recommended Skills: C#, basic html/css
+-	Mentor(s): Sergey Kanzhelev (@SergeyKanzhelev)
+-	Issue: https://github.com/open-telemetry/opentelemetry-dotnet/issues/81
+
+#### OpenTelemetry integrations registry
+
+-   Description: The goal of OpenTelemetry is to make robust, portable telemetry
+    a built-in feature of cloud-native software. One step towards this goal is
+    tracking of all integrations implemented or desired. Similar to
+    https://opentracing.io/registry/, but also include automatic status updates
+    and versions.
+-	Recommended Skills: Go, html/css
+-	Mentor(s): Sergey Kanzhelev (@SergeyKanzhelev)
+-	Issue: https://github.com/open-telemetry/opentelemetry.io/issues/59
+
+#### OpenTelemetry libraries compatibility tests
+
+-   Description: OpenTelemetry project has a unique challange - it implements
+    similar patterns for data collection on many languages. Building a framework
+    and a set of libraries compatibility tests is a great way to ensure the best
+    expirience for end users. Need to know one or more programming languages.
+    Specified C# which I maintain, but happy to mentor on other languages.
+-	Recommended Skills: C#
+-	Mentor(s): Sergey Kanzhelev (@SergeyKanzhelev)
+-	Issue: https://github.com/open-telemetry/opentelemetry.io/issues/59
+
+#### OpenTelemetry C# integration with Azure, Amazon, and Google Cloud metadata services
+
+-   Description: OpenTelemetry C# SDK can be used on any cloud. All major clouds
+    provide a similar mechanisms to obtain deployment instance information. The
+    task is to obtain those properties from the service like
+    [this](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+    and associate resulting properties with the telemetry reported by SDK.
+-	Recommended Skills: C#
+-	Mentor(s): Sergey Kanzhelev (@SergeyKanzhelev)
 
 ### 2019
 
