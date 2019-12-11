@@ -27,6 +27,8 @@ Project maintainers and mentors, please, submit your ideas below (under the Proj
 
 #### Project Ideas:
 
+### Kubernetes
+
 #### Kubernetes working group for multi-tenancy: HNC + Tenant Operator 
 
 -	Description: Integrate the Tenant Operator with the Hierarchical Namespace Controller, per [this design document](https://docs.google.com/document/d/1QAWtYdRZGseSar_KgyfiIisL7JTGMHCfqB_Legfa39w/edit#heading=h.7wst4safj8dx)
@@ -34,7 +36,13 @@ Project maintainers and mentors, please, submit your ideas below (under the Proj
 -	Mentor(s): Adrian Ludwin @aludwin, Tasha Drew @tashimi 
 -	Issue: https://github.com/kubernetes-sigs/multi-tenancy/issues/300
 
-#### Prometheus
+#### Kubernetes working group for multi-tenancy: Add label aggregation and overrides to Hierarchical Namespace Controller
+- Description: add label aggregation and overrides to hierarchical namespace controller ("hnc")
+- Recommended Skills: golang, some familiarity with the Hierarchical Namespace Controller, Kubernetes CRDs 
+- Mentor(s): Adrian Ludwin @aludwin, Tasha Drew @tashimi
+- Issue: https://github.com/kubernetes-sigs/multi-tenancy/issues/303
+
+### Prometheus
 
 #### Benchmarks for TSDB
 - Description: The TSDB module used in Prometheus  doesn’t have proper benchmarks yet, which means we cannot see the potential impact of the changes we are introducing. The idea is to build some automated benchmarking which can be added to the CI pipeline.
@@ -59,6 +67,8 @@ Project maintainers and mentors, please, submit your ideas below (under the Proj
 - Recommended Skills: Golang
 - Relevant Issues: https://github.com/prometheus/prometheus/issues/2935 
 - Potential Mentors: Gouthamve @gouthamve 
+
+### OpenTelemetry
 
 #### Implement zPages for OpenTelemetry
 
@@ -103,7 +113,6 @@ Project maintainers and mentors, please, submit your ideas below (under the Proj
     and associate resulting properties with the telemetry reported by SDK.
 -	Recommended Skills: C#
 -	Mentor(s): Sergey Kanzhelev (@SergeyKanzhelev)
-
 
 ### 2019
 
