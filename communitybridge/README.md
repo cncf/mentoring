@@ -68,6 +68,14 @@ Project maintainers and mentors, please, submit your ideas below (under the Proj
 - Relevant Issues: https://github.com/prometheus/prometheus/issues/2935 
 - Potential Mentors: Gouthamve @gouthamve 
 
+### Cortex
+
+#### Storage Plugins
+- Description: So there are serveral open issues to support new storage types. As adoption increases, there will be new requests coming up. Further, we're re-using cortex in Loki a fair bit and are finding that the storage trade-offs in Loki and Cortex are different and seeing some implementation details for Loki leaking into Cortex. We need a good way to come up with a plugin system that lets the new storage codes live outside the cortex tree. One of the first obvious candidate is the grpc-plugin system from Hashicorp, that has been used to do similar storage plugins for Jaeger.
+- Recommended Skills: Golang
+- Relevant Issues: https://github.com/cortexproject/cortex/issues/1681
+- Potential Mentors: Gouthamve @gouthamve
+
 ### OpenTelemetry
 
 #### Implement zPages for OpenTelemetry
