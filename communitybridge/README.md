@@ -60,6 +60,50 @@ Project maintainers and mentors, please, submit your ideas below (under the Proj
 - Relevant Issues: https://github.com/prometheus/prometheus/issues/2935 
 - Potential Mentors: Gouthamve @gouthamve 
 
+#### Implement zPages for OpenTelemetry
+
+-   Description: zPages is a great practice many organizations and SRE uses for
+    the last line of defence while troubleshooting application issues. zPages
+    aggregate telemetry in-process in a memory buffer and allow to query this
+    informaiton directly from the app. It will be great to design and implement
+    zPages for the language of your choice. I set C# as a language I maintain,
+    but will be happy to mentor in other languages as well.
+-	Recommended Skills: C#, basic html/css
+-	Mentor(s): Sergey Kanzhelev (@SergeyKanzhelev)
+-	Issue: https://github.com/open-telemetry/opentelemetry-dotnet/issues/81
+
+#### OpenTelemetry integrations registry
+
+-   Description: The goal of OpenTelemetry is to make robust, portable telemetry
+    a built-in feature of cloud-native software. One step towards this goal is
+    tracking of all integrations implemented or desired. Similar to
+    https://opentracing.io/registry/, but also include automatic status updates
+    and versions.
+-	Recommended Skills: Go, html/css
+-	Mentor(s): Sergey Kanzhelev (@SergeyKanzhelev)
+-	Issue: https://github.com/open-telemetry/opentelemetry.io/issues/59
+
+#### OpenTelemetry libraries compatibility tests
+
+-   Description: OpenTelemetry project has a unique challange - it implements
+    similar patterns for data collection on many languages. Building a framework
+    and a set of libraries compatibility tests is a great way to ensure the best
+    expirience for end users. Need to know one or more programming languages.
+    Specified C# which I maintain, but happy to mentor on other languages.
+-	Recommended Skills: C#
+-	Mentor(s): Sergey Kanzhelev (@SergeyKanzhelev)
+-	Issue: https://github.com/open-telemetry/opentelemetry.io/issues/59
+
+#### OpenTelemetry C# integration with Azure, Amazon, and Google Cloud metadata services
+
+-   Description: OpenTelemetry C# SDK can be used on any cloud. All major clouds
+    provide a similar mechanisms to obtain deployment instance information. The
+    task is to obtain those properties from the service like
+    [this](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+    and associate resulting properties with the telemetry reported by SDK.
+-	Recommended Skills: C#
+-	Mentor(s): Sergey Kanzhelev (@SergeyKanzhelev)
+
 
 ### 2019
 
