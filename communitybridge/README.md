@@ -34,6 +34,33 @@ Project maintainers and mentors, please, submit your ideas below (under the Proj
 -	Mentor(s): Adrian Ludwin @aludwin, Tasha Drew @tashimi 
 -	Issue: https://github.com/kubernetes-sigs/multi-tenancy/issues/300
 
+#### Prometheus
+
+#### Benchmarks for TSDB
+- Description: The TSDB module used in Prometheus  doesn’t have proper benchmarks yet, which means we cannot see the potential impact of the changes we are introducing. The idea is to build some automated benchmarking which can be added to the CI pipeline.
+- Recommended Skills: CI, Golang, K8s
+- Relevant Issues: https://github.com/prometheus/tsdb/issues/235 
+- Potential Mentors: Krasi Georgiev @krasi-georgiev
+
+#### PromQL/Rule formatting tool
+- Description: Like "gofmt" for Go, we ought to have a "promfmt" for Prometheus since we have a syntax tree. The idea being that the system produces uniform style that minimizes deviation and learning curve. Care should be taken to preserve comments.
+- Recommended Skills: Golang
+- Relevant Issues: https://github.com/prometheus/prometheus/issues/21
+- Potential Mentors: Ganesh Vernekar @codesome
+
+#### Persist retroactive rule evaluations
+- Description: We can already reevaluate queries on old data, but we should be able to persist that for a certain window from (Oldest, Now).
+- Recommended Skills: Golang
+- Relevant Issues: https://github.com/prometheus/prometheus/issues/11
+- Potential Mentors: Ganesh Vernekar @codesome, Goutham Veeramachaneni @gouthamve
+
+#### e2e test SD mechanisms 
+- Description: We're not really excellent in the correctness / bug-free-ness department yet, partially because certain key components either lack tests or you'd have to run them in a real-world scenario for a while to discover certain bugs. I'm especially looking at our under-tested service discovery mechanisms here that require e.g. a Zookeeper or Consul as a dependency to test them for real. It'd be cool to have a test environment that runs a Prometheus release end-to-end (with different SD mechanisms) for a while and checks the results (evaluated expressions, alerts, etc.) for sanity.
+- Recommended Skills: Golang
+- Relevant Issues: https://github.com/prometheus/prometheus/issues/2935 
+- Potential Mentors: Gouthamve @gouthamve 
+
+
 ### 2019
 
 2019 year, CNCF was participating in the Community Bridge, sponsoring three students to work on Kubernetes and CoreDNS projects during the foundations’ pilot stage.
