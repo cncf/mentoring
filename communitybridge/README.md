@@ -36,12 +36,6 @@ Project maintainers and mentors, please, submit your ideas below (under the Proj
 -	Mentor(s): Adrian Ludwin @aludwin, Tasha Drew @tashimi 
 -	Issue: https://github.com/kubernetes-sigs/multi-tenancy/issues/300
 
-#### Kubernetes working group for multi-tenancy: Add label aggregation and overrides to Hierarchical Namespace Controller
-- Description: add label aggregation and overrides to hierarchical namespace controller ("hnc")
-- Recommended Skills: golang, some familiarity with the Hierarchical Namespace Controller, Kubernetes CRDs 
-- Mentor(s): Adrian Ludwin @aludwin, Tasha Drew @tashimi
-- Issue: https://github.com/kubernetes-sigs/multi-tenancy/issues/303
-
 ### Prometheus
 
 #### Benchmarks for TSDB
