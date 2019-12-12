@@ -14,9 +14,9 @@ Blog](https://www.cncf.io/blog/2019/12/05/cncf-to-participate-in-the-community-b
 
 #### Timeline
 
-- December 5 2019 - December 15 2019: applications opened; students matching to
+- December 5 2019 - December 15 2019: applications opened; mentees matching to
   projects/mentors
-- December 16 2019: 5 projects/slots are announced by CNCF; students may apply
+- December 16 2019: 5 projects/slots are announced by CNCF; mentees may apply
   via the [Community Bridge platform](https://people.communitybridge.org/)
 - December 16 2019 - March 16 2020: coding
 - March 20 2020: results announced
@@ -124,7 +124,7 @@ Project maintainers and mentors, please, submit your ideas below (under the Proj
 
 ### 2019
 
-2019 year, CNCF was participating in the Community Bridge, sponsoring three students to work on Kubernetes and CoreDNS projects during the foundations’ pilot stage.
+2019 year, CNCF was participating in the Community Bridge, sponsoring three mentees to work on Kubernetes and CoreDNS projects during the foundations’ pilot stage.
 
 See our blog post here on the [CNCF
 Blog](https://www.cncf.io/blog/2019/08/22/cncf-hosts-three-student-internships-for-kubernetes-and-coredns-projects-through-linux-foundations-communitybridge/).
