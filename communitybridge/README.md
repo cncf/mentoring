@@ -1,13 +1,18 @@
-## Community Bridge by The Linux Foundation
+# Community Bridge by The Linux Foundation
 
 [Community Bridge](https://communitybridge.org/) is a platform Developed by the Linux Foundation, which accelerates the adoption, innovation, and sustainability of open source software.
 
 Community Bridge is actively used by the Cloud Native Computing Foundation as
 a mentorship platform across the CNCF projects.
 
-### 2020
+## Program Maintainers
 
-#### Q1
+- Chris Aniszczyk ([@caniszczyk](https://github.com/caniszczyk)\): https://twitter.com/cra
+- Ihor Dvoretskyi ([@idvoretskyi](https://github.com/idvoretskyi)\): https://twitter.com/idvoretskyi
+
+## 2020
+
+### Q1
 
 See our recent post with the program announcement on [CNCF
 Blog](https://www.cncf.io/blog/2019/12/05/cncf-to-participate-in-the-community-bridge-mentorship-program/).
@@ -21,24 +26,24 @@ Blog](https://www.cncf.io/blog/2019/12/05/cncf-to-participate-in-the-community-b
 - December 16 2019 - March 16 2020: coding
 - March 20 2020: results announced
 
-#### How to apply?
+### How to apply?
 
 Project maintainers and mentors, please, submit your ideas below (under the Project Ideas) section using the [template](/PROJECT_IDEA_TEMPLATE.md).
 
-#### Project Ideas:
+### Project Ideas:
 
 ### Kubernetes
 
-#### Kubernetes working group for multi-tenancy: HNC + Tenant Operator 
+#### Kubernetes working group for multi-tenancy: HNC + Tenant Operator
 
 -	Description: Integrate the Tenant Operator with the Hierarchical Namespace Controller, per [this design document](https://docs.google.com/document/d/1QAWtYdRZGseSar_KgyfiIisL7JTGMHCfqB_Legfa39w/edit#heading=h.7wst4safj8dx)
 -	Recommended Skills: golang, some familiarity with the Hierarchical Namespace Controller
--	Mentor(s): Adrian Ludwin @aludwin, Tasha Drew @tashimi 
+-	Mentor(s): Adrian Ludwin @aludwin, Tasha Drew @tashimi
 -	Issue: https://github.com/kubernetes-sigs/multi-tenancy/issues/300
 
 #### Kubernetes working group for multi-tenancy: Add label aggregation and overrides to Hierarchical Namespace Controller
 - Description: add label aggregation and overrides to hierarchical namespace controller ("hnc")
-- Recommended Skills: golang, some familiarity with the Hierarchical Namespace Controller, Kubernetes CRDs 
+- Recommended Skills: golang, some familiarity with the Hierarchical Namespace Controller, Kubernetes CRDs
 - Mentor(s): Adrian Ludwin @aludwin, Tasha Drew @tashimi
 - Issue: https://github.com/kubernetes-sigs/multi-tenancy/issues/303
 
@@ -47,7 +52,7 @@ Project maintainers and mentors, please, submit your ideas below (under the Proj
 #### Benchmarks for TSDB
 - Description: The TSDB module used in Prometheus  doesn’t have proper benchmarks yet, which means we cannot see the potential impact of the changes we are introducing. The idea is to build some automated benchmarking which can be added to the CI pipeline.
 - Recommended Skills: CI, Golang, K8s
-- Relevant Issues: https://github.com/prometheus/tsdb/issues/235 
+- Relevant Issues: https://github.com/prometheus/tsdb/issues/235
 - Potential Mentors: Krasi Georgiev @krasi-georgiev
 
 #### PromQL/Rule formatting tool
@@ -62,11 +67,11 @@ Project maintainers and mentors, please, submit your ideas below (under the Proj
 - Relevant Issues: https://github.com/prometheus/prometheus/issues/11
 - Potential Mentors: Ganesh Vernekar @codesome, Goutham Veeramachaneni @gouthamve
 
-#### e2e test SD mechanisms 
+#### e2e test SD mechanisms
 - Description: We're not really excellent in the correctness / bug-free-ness department yet, partially because certain key components either lack tests or you'd have to run them in a real-world scenario for a while to discover certain bugs. I'm especially looking at our under-tested service discovery mechanisms here that require e.g. a Zookeeper or Consul as a dependency to test them for real. It'd be cool to have a test environment that runs a Prometheus release end-to-end (with different SD mechanisms) for a while and checks the results (evaluated expressions, alerts, etc.) for sanity.
 - Recommended Skills: Golang
-- Relevant Issues: https://github.com/prometheus/prometheus/issues/2935 
-- Potential Mentors: Gouthamve @gouthamve 
+- Relevant Issues: https://github.com/prometheus/prometheus/issues/2935
+- Potential Mentors: Gouthamve @gouthamve
 
 ### Cortex
 
@@ -122,9 +127,10 @@ Project maintainers and mentors, please, submit your ideas below (under the Proj
 -	Recommended Skills: C#
 -	Mentor(s): Sergey Kanzhelev (@SergeyKanzhelev)
 
-### 2019
+## 2019
 
-2019 year, CNCF was participating in the Community Bridge, sponsoring three mentees to work on Kubernetes and CoreDNS projects during the foundations’ pilot stage.
+In 2019, CNCF was participating in the Community Bridge, sponsoring three mentees to work on Kubernetes and CoreDNS projects during the foundations’ pilot stage.
 
 See our blog post here on the [CNCF
 Blog](https://www.cncf.io/blog/2019/08/22/cncf-hosts-three-student-internships-for-kubernetes-and-coredns-projects-through-linux-foundations-communitybridge/).
+
