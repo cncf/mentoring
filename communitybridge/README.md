@@ -10,6 +10,10 @@ a mentorship platform across the CNCF projects.
 - Chris Aniszczyk ([@caniszczyk](https://github.com/caniszczyk)\): https://twitter.com/cra
 - Ihor Dvoretskyi ([@idvoretskyi](https://github.com/idvoretskyi)\): https://twitter.com/idvoretskyi
 
+## Communication
+
+Please use the dedicated [#communitybridge](https://cloud-native.slack.com/archives/CPV83DB51) channel on the [CNCF Slack](https://slack.cncf.io/).
+
 ## 2020
 
 ### Q1
