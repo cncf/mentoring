@@ -131,6 +131,15 @@ Project maintainers and mentors, please, submit your ideas below (under the Proj
 -	Recommended Skills: C#
 -	Mentor(s): Sergey Kanzhelev (@SergeyKanzhelev)
 
+### Thanos
+
+#### Improved Read Write Coordination for Object Storage
+
+- Description: Thanos is a distributed system that runs different operations on object storage. Components that read from the bucket synchronize files from storage lazilly, implying eventually consistency of file uploads. Additionally, some object storage systems have some form of eventual consistency on a different level, e.g "read after update" in AWS or ["list after write" for OpenStack Swift](https://docs.openstack.org/swift/latest/overview_architecture.html#updaters). With growing adoption, we need to make sure the Thanos project is fully resilient to those cases, which is why we designed [read write coordination](https://thanos.io/proposals/201901-read-write-operations-bucket.md/). We are happy to mentor candidates to implement this task, which will greatly help the Thanos community and increase the candidate's knowledge in Go and distributed systems.     
+- Recommended Skills: Golang
+- Relevant Issues: https://thanos.io/proposals/201901-read-write-operations-bucket.md/ https://github.com/thanos-io/thanos/issues/1528
+- Potential Mentors: Bartek Plotka (@bwplotka)
+
 ## 2019
 
 In 2019, CNCF was participating in the Community Bridge, sponsoring three mentees to work on Kubernetes and CoreDNS projects during the foundations’ pilot stage.
