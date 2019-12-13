@@ -45,11 +45,13 @@ Project maintainers and mentors, please, submit your ideas below (under the Proj
 -	Mentor(s): Adrian Ludwin @aludwin, Tasha Drew @tashimi
 -	Issue: https://github.com/kubernetes-sigs/multi-tenancy/issues/300
 
-#### Kubernetes working group for CSI driver on Windows support
-- Description: Currently CSI driver is linux based, cannot run on Windows. The main difficulty is file system design difference between Linux and Windows. The idea is to support Azure Disk & File CSI driver on Windows leveraging existing CSI solution.
-- Recommended Skills: golang, Windows, Kubernetes
+#### Kubernetes working group for CSI driver
+- Description: Container Storage Interface (CSI) is a standard for exposing storage systems to containerized workloads on Kubernetes without ever having to touch the core Kubernetes code. The idea is to implement a few new CSI features and also e2e tests to cover those features, e.g. inline volume support, volume expansion, windows support, monitoring, etc.
+- Recommended Skills: golang, Kubernetes
 - Mentor(s): Andy Zhang @andyzhangx
-- Issue: https://github.com/kubernetes-sigs/azuredisk-csi-driver/issues/45
+- Issue: 
+  - https://github.com/kubernetes-sigs/azuredisk-csi-driver/issues
+  - https://github.com/kubernetes-sigs/blobfuse-csi-driver/issues 
 
 ### Prometheus
 
