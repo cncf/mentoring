@@ -36,6 +36,29 @@ Project maintainers and mentors, please, submit your ideas below (under the Proj
 
 ### Project Ideas:
 
+### Fluentd
+
+#### Extend internal metrics support on Fluent Bit
+
+- Description: [Fluent Bit](https://fluentbit.io) already collect internal metrics from the data pipeline, these metrics are exposed through a HTTP end-point which already provides a Prometheus format for remote consumption. On this project, the student will work in the following tasks:
+  - Dig into the internal metrics design, improve the API so other core components can register their own metrics.
+  - Implement a new mechanism to let Fluent Bit ship metrics through current available output plugins.
+  - Minor tasks associated with project metrics, performance benchmarks and documentation.
+- Recommended Skills: C, Linux user-space development and basics of system calls
+- Mentor(s): Eduardo Silva @edsiper
+- Issue: https://github.com/fluent/fluent-bit/issues/1811
+
+#### Improve Fluent Bit usability / user-experience
+
+- Description: Nowadays [Fluent Bit](https://fluentbit.io) is a very advanced tool for log processing, so there is some intrinsic complexity and from a usability perspective (end user), it is very easy to make mistakes from a configuration perspective. The team is working on different improvement areas to reduce the number of mistakes and reduce the learning curve, the student aims to help with all these areas. Some related tasks:
+  - Help to migrate plugins to the new Config Maps mechanism [FLB #1672](https://github.com/fluent/fluent-bit/issues/1672)
+  - Improve error messages handling
+  - Extend internal logging mechanism to support a structure and messages routable mode.
+  - General tasks associated with core API usage and documentation.
+- Recommended Skills: C, Linux user-space development ands basics of system calls
+- Mentor(s): Eduardo Silva @edsiper
+- Issue: https://github.com/fluent/fluent-bit/issues/1812
+
 ### Kubernetes
 
 #### Kubernetes working group for multi-tenancy: HNC + Tenant Operator
@@ -49,9 +72,9 @@ Project maintainers and mentors, please, submit your ideas below (under the Proj
 - Description: Container Storage Interface (CSI) is a standard for exposing storage systems to containerized workloads on Kubernetes without ever having to touch the core Kubernetes code. The idea is to implement a few new CSI features and also e2e tests to cover those features, e.g. inline volume support, volume expansion, windows support, monitoring, etc.
 - Recommended Skills: golang, Kubernetes
 - Mentor(s): Andy Zhang @andyzhangx
-- Issue: 
+- Issue:
   - https://github.com/kubernetes-sigs/azuredisk-csi-driver/issues
-  - https://github.com/kubernetes-sigs/blobfuse-csi-driver/issues 
+  - https://github.com/kubernetes-sigs/blobfuse-csi-driver/issues
 
 ### Prometheus
 
@@ -137,7 +160,7 @@ Project maintainers and mentors, please, submit your ideas below (under the Proj
 
 #### Improved Read Write Coordination for Object Storage
 
-- Description: Thanos is a distributed system that runs different operations on object storage. Components that read from the bucket synchronize files from storage lazilly, implying eventually consistency of file uploads. Additionally, some object storage systems have some form of eventual consistency on a different level, e.g "read after update" in AWS or ["list after write" for OpenStack Swift](https://docs.openstack.org/swift/latest/overview_architecture.html#updaters). With growing adoption, we need to make sure the Thanos project is fully resilient to those cases, which is why we designed [read write coordination](https://thanos.io/proposals/201901-read-write-operations-bucket.md/). We are happy to mentor candidates to implement this task, which will greatly help the Thanos community and increase the candidate's knowledge in Go and distributed systems.     
+- Description: Thanos is a distributed system that runs different operations on object storage. Components that read from the bucket synchronize files from storage lazilly, implying eventually consistency of file uploads. Additionally, some object storage systems have some form of eventual consistency on a different level, e.g "read after update" in AWS or ["list after write" for OpenStack Swift](https://docs.openstack.org/swift/latest/overview_architecture.html#updaters). With growing adoption, we need to make sure the Thanos project is fully resilient to those cases, which is why we designed [read write coordination](https://thanos.io/proposals/201901-read-write-operations-bucket.md/). We are happy to mentor candidates to implement this task, which will greatly help the Thanos community and increase the candidate's knowledge in Go and distributed systems.
 - Recommended Skills: Golang
 - Relevant Issues: https://thanos.io/proposals/201901-read-write-operations-bucket.md/ https://github.com/thanos-io/thanos/issues/1528
 - Potential Mentors: Bartek Plotka (@bwplotka)
@@ -148,4 +171,3 @@ In 2019, CNCF was participating in the Community Bridge, sponsoring three mentee
 
 See our blog post here on the [CNCF
 Blog](https://www.cncf.io/blog/2019/08/22/cncf-hosts-three-student-internships-for-kubernetes-and-coredns-projects-through-linux-foundations-communitybridge/).
-
