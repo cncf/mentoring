@@ -19,16 +19,42 @@ Blog](https://www.cncf.io/blog/2019/12/05/cncf-to-participate-in-the-community-b
 
 #### Timeline
 
-- December 5 2019 - December 15 2019: applications opened; mentees matching to
-  projects/mentors
-- December 16 2019: 5 projects/slots are announced by CNCF; mentees may apply
-  via the [Community Bridge platform](https://people.communitybridge.org/)
-- December 16 2019 - March 16 2020: coding
-- March 20 2020: results announced
+- December 5 2019 - December 15 2019: applications opened;
+
+    - Mentees matching to projects/mentors;
+
+- December 16 2019: 5 projects/slots are announced by CNCF;
+
+    - Mentors and mentees may apply via the [Community Bridge platform](https://people.communitybridge.org/), see more details below on how to apply;
+
+- December 16 2019 - March 16 2020: coding period;
+
+- March 20 2020: results announced!
 
 ### How to apply?
 
-Project maintainers and mentors, please, submit your ideas below (under the Project Ideas) section using the [template](/PROJECT_IDEA_TEMPLATE.md).
+#### Projects
+Project maintainers and mentors, please, submit your ideas below (under the Project Ideas section) section using the [template](/PROJECT_IDEA_TEMPLATE.md).
+
+CNCF will select the projects that will participate in the Community Bridge
+mentorship round and they will appear on the Community Bridge website on
+December 16.
+
+#### Mentors
+
+If you are a mentor and your project will be selected to participate in the
+Community Bridge mentorship program, you'll have to apply as a mentor on the
+Community Bridge website. Please see the [Community Bridge
+guidelines](https://docs.linuxfoundation.org/display/DOCS/Mentors) for more
+details.
+
+#### Mentee
+
+If you are a mentee and your desired project will be selected to participate in the
+Community Bridge mentorship program, you'll have to apply as a mentee on the
+Community Bridge website. Please see the [Community Bridge
+guidelines](https://docs.linuxfoundation.org/display/DOCS/Mentees) for more
+details.
 
 ### Project Ideas:
 
