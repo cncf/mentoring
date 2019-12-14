@@ -69,7 +69,7 @@ Project maintainers and mentors, please, submit your ideas below (under the Proj
 - Potential Mentors: Gouthamve @gouthamve 
 
 #### Various React UI improvements and filtering label values API with matchers.
-- Description: Now that Prometheus has the brand new experimental React UI it would  needs various bugfixes and improvements. It is still missing few features from the old UI and as an addition to this want to add support for graph multiple expressions in one graph.
+- Description: Now that Prometheus has a brand new experimental React UI it would need various bug fixes and improvements. It is still missing a few features from the old UI, and as an addition to this we want to add support for showing multiple expressions in one graph.
 - Recommended Skills: React, Golang
 - Relevant Issues: https://github.com/prometheus/prometheus/issues/6178, https://github.com/prometheus/prometheus/issues/1237
 - Potential Mentors: Krasi Georgiev @krasi-georgiev and Julius Volz  @juliusv
