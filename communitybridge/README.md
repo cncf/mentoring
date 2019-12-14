@@ -24,15 +24,10 @@ Blog](https://www.cncf.io/blog/2019/12/05/cncf-to-participate-in-the-community-b
 #### Timeline
 
 - December 5 2019 - December 15 2019: applications opened;
-
     - Mentees matching to projects/mentors;
-
 - December 16 2019: 5 projects/slots are announced by CNCF;
-
     - Mentors and mentees may apply via the [Community Bridge platform](https://people.communitybridge.org/), see more details below on how to apply;
-
 - December 16 2019 - March 16 2020: coding period;
-
 - March 20 2020: results announced!
 
 ### How to apply?
