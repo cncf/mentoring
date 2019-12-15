@@ -186,6 +186,12 @@ details.
 - Relevant Issues: https://thanos.io/proposals/201901-read-write-operations-bucket.md/ https://github.com/thanos-io/thanos/issues/1528
 - Potential Mentors: Bartek Plotka (@bwplotka)
 
+#### End to End Benchmarking Tests on Demand through CI
+- Description: In order to increase confidence in Thanos' performance across releases and major changes, we would like to introduce a way to run reproducible e2e benchmark tests, ideally from the PR and with the use of Kubernetes. This work involves setting up Thanos scenarios and load generators that will run benchmarks for a certain period of time and output resource usage for the given Thanos version.
+- Recommended Skills: Golang, Kubernetes
+- Relevant Issues: https://github.com/thanos-io/thanos/issues/1707
+- Potential Mentors: Giedrius Statkevičius (@GiedriusS)
+
 ### CoreDNS
 
 #### Autoscaling CoreDNS Nodes on Kubernetes Clusters Through Exposed Metrics
