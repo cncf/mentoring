@@ -133,6 +133,12 @@ details.
 - Relevant Issues: https://github.com/prometheus/prometheus/issues/2935
 - Potential Mentors: Gouthamve @gouthamve
 
+#### Various React UI improvements and filtering label values API with matchers.
+- Description: Now that Prometheus has a brand new experimental React UI it would need various bug fixes and improvements. It is still missing a few features from the old UI, and as an addition to this we want to add support for showing multiple expressions in one graph.
+- Recommended Skills: React, Golang
+- Relevant Issues: https://github.com/prometheus/prometheus/issues/6178, https://github.com/prometheus/prometheus/issues/1237, https://github.com/prometheus/prometheus/issues/39
+- Potential Mentors: Krasi Georgiev @krasi-georgiev and Julius Volz  @juliusv
+
 ### Cortex
 
 #### Storage Plugins
@@ -195,6 +201,25 @@ details.
 - Recommended Skills: Golang
 - Relevant Issues: https://thanos.io/proposals/201901-read-write-operations-bucket.md/ https://github.com/thanos-io/thanos/issues/1528
 - Potential Mentors: Bartek Plotka (@bwplotka)
+
+#### End to End Benchmarking Tests on Demand through CI
+- Description: In order to increase confidence in Thanos' performance across releases and major changes, we would like to introduce a way to run reproducible e2e benchmark tests, ideally from the PR and with the use of Kubernetes. This work involves setting up Thanos scenarios and load generators that will run benchmarks for a certain period of time and output resource usage for the given Thanos version.
+- Recommended Skills: Golang, Kubernetes
+- Relevant Issues: https://github.com/thanos-io/thanos/issues/1707
+- Potential Mentors: Giedrius Statkevičius (@GiedriusS)
+
+### CoreDNS
+
+#### Autoscaling CoreDNS Nodes on Kubernetes Clusters Through Exposed Metrics
+
+- Description: [CoreDNS](https://github.com/coredns/coredns) is Kubernetes' default DNS server for service discovery. As service discovery with DNS is the (often overlooked) critical piece for clusters, it is important to maintain enough capacity for serving the cluster-wide service discovery. CoreDNS already have a `metrics` plugin with metrics information exposed. In this project, the student will work on the following tasks:
+  - Write metrics scraping method to extract the metrics from exposed CoreDNS metrics plugin.
+  - Develop a method in transforming collected metrics into desired capacity for CoreDNS nodes.
+  - Implement a routine to interact with Kubernetes API to autoscaling CoreDNS node with designed capacity.
+- Bonus Task: Use machine learning algorithm for transforming metrics to above mentioned designed capacity. We will provide a start algorithm to help student getting started with machine learning, if student is willing to take this bonus task.
+- Recommended Skills: Golang and DNS for this project, basic machine learning for bonus task.
+- Mentor(s): Yong Tang @yongtang
+- Issue: https://github.com/coredns/coredns/issues/3541
 
 ## 2019
 
