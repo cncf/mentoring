@@ -59,6 +59,9 @@ Community Bridge website. Please see the [Community Bridge
 guidelines](https://docs.linuxfoundation.org/display/DOCS/Mentees) for more
 details.
 
+The stipend is $5500 per student/cycle. Please check out the
+[guidelines](https://docs.linuxfoundation.org/display/DOCS/Get+Reimbursed) on how to be paid.
+
 ### Participating projects:
 
 - [Kubernetes](https://people.communitybridge.org/project/2d438b9a-c539-46d0-9eed-c6ee4404c88a)
