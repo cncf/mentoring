@@ -27,8 +27,12 @@ Blog](https://www.cncf.io/blog/2019/12/05/cncf-to-participate-in-the-community-b
     - Mentees matching to projects/mentors;
 - December 16 2019: 5 projects/slots are announced by CNCF;
     - Mentors and mentees may apply via the [Community Bridge platform](https://people.communitybridge.org/), see more details below on how to apply;
-- December 16 2019 - March 16 2020: coding period;
+- December 16 2019 - March 16 2020: mentees matching and coding;
+    - January 31 2020 - intermediate checkpoint. Mentors verify the quality of
+      the completed tasks. First 50% of the stipend is being paid to the mentee
+      if this stage is passed.
 - March 20 2020: results announced!
+    - Second 50% of the stipend is being paid to the mentees.
 
 ### How to apply?
 
