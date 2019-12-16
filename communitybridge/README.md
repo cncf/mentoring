@@ -47,13 +47,23 @@ Community Bridge website. Please see the [Community Bridge
 guidelines](https://docs.linuxfoundation.org/display/DOCS/Mentors) for more
 details.
 
-#### Mentee
+#### Mentees
 
 If you are a mentee and your desired project will be selected to participate in the
 Community Bridge mentorship program, you'll have to apply as a mentee on the
 Community Bridge website. Please see the [Community Bridge
 guidelines](https://docs.linuxfoundation.org/display/DOCS/Mentees) for more
 details.
+
+### Participating projects:
+
+- [Kubernetes](https://people.communitybridge.org/project/2d438b9a-c539-46d0-9eed-c6ee4404c88a)
+- [Prometheus](https://people.communitybridge.org/project/9595fbe7-6a8d-43d4-aebb-a54d57f33fdd)
+- [Fluentd](https://people.communitybridge.org/project/d24ab158-e4e5-4042-91ad-b30ae52941d2)
+- [CoreDNS](https://people.communitybridge.org/project/6705be57-130f-43f5-ba80-11605ffdb1f9)
+- [Cortex](https://people.communitybridge.org/project/38bb5e81-2bca-42f5-b31d-3bcd2da732d3)
+- [OpenTelemetry](https://people.communitybridge.org/project/f1275c0e-7152-4e09-8d8b-6b14598afbc3)
+- [Thanos](https://people.communitybridge.org/project/f51284ab-f652-47b1-9819-cd4135e75c00)
 
 ### Project Ideas:
 
