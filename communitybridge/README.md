@@ -62,6 +62,12 @@ details.
 The stipend is $5500 per student/cycle. Please check out the
 [guidelines](https://docs.linuxfoundation.org/display/DOCS/Get+Reimbursed) on how to be paid.
 
+### Mentee selection process
+
+Mentors are responsible for selecting and matching mentees to their projects.
+
+Mentee candidates are required to provide cover letters while applying, so mentors may review them. In addition, mentors may also interview the candidates to understand their level of qualification before making the final decision.
+
 ### Participating projects:
 
 - [Kubernetes](https://people.communitybridge.org/project/2d438b9a-c539-46d0-9eed-c6ee4404c88a)
