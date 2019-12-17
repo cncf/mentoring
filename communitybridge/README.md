@@ -66,7 +66,7 @@ The stipend is $5500 per student/cycle. Please check out the
 
 Mentors are responsible for selecting and matching mentees to their projects.
 
-Mentee candidates are required to provide cover letters while applying, so mentors may review them. In addition, mentors may also interview the candidates to understand their level of qualification before making the final decision.
+Mentee candidates are required to provide cover letters (Statement of Purpose) while applying, so mentors may review them. In addition, mentors may also interview the candidates to understand their level of qualification before making the final decision.
 
 ### Participating projects:
 
