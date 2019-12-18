@@ -14,6 +14,10 @@ a mentorship platform across the CNCF projects.
 
 Please use the dedicated [#communitybridge](https://cloud-native.slack.com/archives/CPV83DB51) channel on the [CNCF Slack](https://slack.cncf.io/).
 
+### Community Bridge platform support
+
+In the case of any issues with the Community Bridge platform/website itself, please reach out to the [Community Bridge support team](https://support.communitybridge.org/) directly.
+
 ## 2020
 
 ### Q1
@@ -75,7 +79,7 @@ Mentors are responsible for selecting and matching mentees to their projects.
 
 Mentee candidates are required to provide cover letters (Statement of Purpose) while applying, so mentors may review them. In addition, mentors may also interview the candidates to understand their level of qualification before making the final decision.
 
-Please note that you'll be asked to provide the Statement of Purpose letter
+If you are a mentee, please note that you'll be asked to provide the Statement of Purpose letter
 after the mentor's selection. Please be patient.
 
 ### Participating projects:
