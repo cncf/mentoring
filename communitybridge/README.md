@@ -59,6 +59,13 @@ Community Bridge website. Please see the [Community Bridge
 guidelines](https://docs.linuxfoundation.org/display/DOCS/Mentees) for more
 details.
 
+Information on the application process is covered at the [Community Bridge
+documentation
+website](https://docs.linuxfoundation.org/display/DOCS/Apply+to+a+Project).
+Please not that once you've applied, your application moves to the pending
+state until a mentor will pick it up. There is no need to reapply (you'll see
+an error if you'll try to reapply).
+
 The stipend is $5500 per student/cycle. Please check out the
 [guidelines](https://docs.linuxfoundation.org/display/DOCS/Get+Reimbursed) on how to be paid.
 
@@ -67,6 +74,9 @@ The stipend is $5500 per student/cycle. Please check out the
 Mentors are responsible for selecting and matching mentees to their projects.
 
 Mentee candidates are required to provide cover letters (Statement of Purpose) while applying, so mentors may review them. In addition, mentors may also interview the candidates to understand their level of qualification before making the final decision.
+
+Please note that you'll be asked to provide the Statement of Purpose letter
+after the mentor's selection. Please be patient.
 
 ### Participating projects:
 
