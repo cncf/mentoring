@@ -10,6 +10,10 @@ a mentorship platform across the CNCF projects.
 - Chris Aniszczyk ([@caniszczyk](https://github.com/caniszczyk)\): https://twitter.com/cra
 - Ihor Dvoretskyi ([@idvoretskyi](https://github.com/idvoretskyi)\): https://twitter.com/idvoretskyi
 
+## Community Bridge Mentorship Guidelines
+
+Please see the program-wide guidelines at the [CommunityBridge website](https://communitybridge.org/guide/).
+
 ## Communication
 
 Please use the dedicated [#communitybridge](https://cloud-native.slack.com/archives/CPV83DB51) channel on the [CNCF Slack](https://slack.cncf.io/).
