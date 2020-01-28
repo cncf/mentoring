@@ -30,3 +30,16 @@ Project Ideas
 -------------
 
 If you are a project maintainer and consider mentoring during the GSoC 2020 cycle, please, submit your ideas below using the [template](/PROJECT_IDEA_TEMPLATE.md).
+
+For example:
+
+### Prometheus (sample):
+
+#### Refactor the APIs for better readability and less maintenance overhead
+
+-	Description: Currently the HTTP API is not very well organized and needs some tidying up. The actual course of action is not decided yet, but [go-kit](https://github.com/go-kit/kit) looks like a good fit.
+-	Recommended Skills: golang
+-	Mentor(s): Krasi Georgiev (@krasi-georgiev)
+-	Issue: https://github.com/prometheus/prometheus/issues/3416
+
+_Add your project ideas below:_
