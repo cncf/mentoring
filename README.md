@@ -43,3 +43,21 @@ For example:
 -	Issue: https://github.com/prometheus/prometheus/issues/3416
 
 _Add your project ideas below:_
+
+### Thanos
+
+#### Per Series Metric Retention
+
+-	Description: Thanos is allowing storing metrics for long, if not unlimited time. Currently however there is no fine-granular process of retaining only some portion of metrics for longer time e.g useful
+aggregations), while deleting other part early on. This task is aiming to implment this missing feature in Thanos and potentially Prometheus.
+-	Recommended Skills: golang, distributed systems, object storage (AWS, S3)
+-	Mentor(s): Bartlomiej Plotka (@bwplotka)
+-	Issue: https://github.com/thanos-io/thanos/issues/903
+
+#### End to End Benchmarking Tests on Demand through CI
+
+- Description: In order to increase confidence in Thanos' performance across releases and major changes, we would like to introduce a way to run reproducible e2e benchmark tests, ideally from the PR and with the use of Kubernetes. This work involves setting up Thanos scenarios and load generators that will run benchmarks for a certain period of time and output resource usage for the given Thanos version.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s): Giedrius Statkevičius (@GiedriusS)
+- Issue: https://github.com/thanos-io/thanos/issues/1707
+
