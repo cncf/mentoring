@@ -70,13 +70,13 @@ TiKV uses RocksDB as its storage layer, currently RocksDB support assigns a list
 -	Mentor(s): Yi Wu (@yiwu-arbug), Wei Liu (@Little-Wallace)
 -	Issue: https://github.com/tikv/tikv/issues/6507
 
-### Versioned RawKV.
+#### Versioned RawKV.
 - Description: TiKV with raw-mode does not support multiple version with one key. When user migrate data from HBase to TiKV, they want to read history record and hope TiKV could delete expired key. In addition, atomic operations like incrementAndGet and checkAndPut can be introduced to ease HBase to TiKV migration. See more in  Versioned KV
 - Recommended Skills: HBase or BigTable, Rust
 - Mentor(s): Wei Liu (@Little-Wallace)
 - Issue: https://github.com/tikv/tikv/issues/6508
 
-### Cloud-native KV-service
+#### Cloud-native KV-service
 - Description: Explore cloud-native design for distributed KV-service that is cost effective. Investigate using different storage backend (local/persistent SSDs, EBS, S3, etc) to store TiKV data, and their pros and cons.
 - Recommended Skills:  Golang, Rust
 - Mentor(s): Yi Wu (@yiwu-arbug), Wei Liu (@Little-Wallace)
