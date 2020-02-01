@@ -61,3 +61,25 @@ aggregations), while deleting other part early on. This task is aiming to implme
 - Mentor(s): Giedrius Statkevičius (@GiedriusS)
 - Issue: https://github.com/thanos-io/thanos/issues/1707
 
+### TiKV
+
+#### Support Cold/Hot Tier storage in TiKV
+- Description: 
+TiKV uses RocksDB as its storage layer, currently RocksDB support assigns a list of path, newer data is placed into paths specified earlier in the list while older data gradually moves to paths specified later in the list. For example we may use a 300GB fast local SSD as the first path, and a 2TB HDD disk as the second path, and an 16TB remote network disk as the last path. This will reduce the total cost, but the older data doesn’t mean it is cold data. If there is some older but frequently accessed data, it will host in block-cache normally, but the total memory is limited. If this frequently accessed data can be pulled up to the first path(the local fast ssd), it can achieve a better read performance for TiKV.
+-	Recommended Skills: Rust, RocksDB
+-	Mentor(s): Yi Wu (@yiwu-arbug), Wei Liu (@Little-Wallace)
+-	Issue: https://github.com/tikv/tikv/issues/6507
+
+### Versioned RawKV.
+
+- Description: TiKV with raw-mode does not support multiple version with one key. When user migrate data from HBase to TiKV, they want to read history record and hope TiKV could delete expired key. In addition, atomic operations like incrementAndGet and checkAndPut can be introduced to ease HBase to TiKV migration. See more in  Versioned KV
+- Recommended Skills: HBase or BigTable, Rust
+- Mentor(s): Wei Liu (@Little-Wallace)
+- Issue: https://github.com/tikv/tikv/issues/6508
+
+### Cloud-native KV-service
+- Description: Explore cloud-native design for distributed KV-service that is cost effective. Investigate using different storage backend (local/persistent SSDs, EBS, S3, etc) to store TiKV data, and their pros and cons.
+- Recommended Skills:  Golang, Rust
+- Mentor(s): Yi Wu (@yiwu-arbug), Wei Liu (@Little-Wallace)
+- Issue: https://github.com/tikv/tikv/issues/6506
+
