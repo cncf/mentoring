@@ -71,7 +71,6 @@ TiKV uses RocksDB as its storage layer, currently RocksDB support assigns a list
 -	Issue: https://github.com/tikv/tikv/issues/6507
 
 ### Versioned RawKV.
-
 - Description: TiKV with raw-mode does not support multiple version with one key. When user migrate data from HBase to TiKV, they want to read history record and hope TiKV could delete expired key. In addition, atomic operations like incrementAndGet and checkAndPut can be introduced to ease HBase to TiKV migration. See more in  Versioned KV
 - Recommended Skills: HBase or BigTable, Rust
 - Mentor(s): Wei Liu (@Little-Wallace)
