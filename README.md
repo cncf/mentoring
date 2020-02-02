@@ -82,3 +82,12 @@ TiKV uses RocksDB as its storage layer, currently RocksDB support assigns a list
 - Mentor(s): Yi Wu (@yiwu-arbug), Wei Liu (@Little-Wallace)
 - Issue: https://github.com/tikv/tikv/issues/6506
 
+### Cortex
+
+#### Allow Cortex to selectively disable indexing of labels.
+
+- Description: The idea is that Cortex should have config saying "do not index any label `kubernetes_io_arch`", then ingester skips indexing it and querier knows if it does appear in a query to fall back to scanning each chunk.
+Rationale: some labels are not very selective, or very rarely come up in queries. Not indexing them reduces IO and storage cost.
+- Recommended Skills:  Go
+- Mentor(s): Bryan Boreham (@bboreham)
+- Issue: https://github.com/cortexproject/cortex/issues/2068
