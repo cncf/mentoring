@@ -91,3 +91,13 @@ Rationale: some labels are not very selective, or very rarely come up in queries
 - Recommended Skills:  Go
 - Mentor(s): Bryan Boreham (@bboreham)
 - Issue: https://github.com/cortexproject/cortex/issues/2068
+
+### Dragonfly
+
+#### Optimize the p2p scheduling algorithm for stremaing-p2p in Dragonfly
+
+- Description: Dragonfly is plannig to implement a new P2P based on streaming, which sends the data between p2p network to user end directly, in order to achieve the purpose of reading and writing to disk as few as possible. And the **P2P Streaming Sliding Window** is designed to control the number of pieces of a file that can be scheduled and downloaded to avoid unlimited memory usage. So It's better to optimize the p2p scheduling algorithm for this new feature, which can reduce the memory usage of client and promote the p2p transmisstion.
+- Recommended Skills:  Go
+- Mentor(s): Jin Zhang (@lowzj), Yuxing Liu (@Starnop)
+- Issue: https://github.com/dragonflyoss/Dragonfly/issues/1164
+
