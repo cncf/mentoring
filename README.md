@@ -101,3 +101,13 @@ Rationale: some labels are not very selective, or very rarely come up in queries
 - Mentor(s): Jin Zhang (@lowzj), Yuxing Liu (@Starnop)
 - Issue: https://github.com/dragonflyoss/Dragonfly/issues/1164
 
+
+### Flux
+
+#### Improve observability and error reporting in Flux.
+
+- Description: Users have been requesting better observability and error reporting in Flux for a while. We should improve that situation, letting users monitor the state of Flux and diagnose any problems easily. Among other ways, this can be done by improving/replacing Flux's events API, improving logs and error reporting, adding Prometheus metrics and adding a Grafana dashboard.
+- Recommended Skills: Go, Prometheus, Grafana, Kubernetes
+- Mentor(s): Alfonso Acosta (@2opremio)
+- Issue: https://github.com/fluxcd/flux/issues/2812
+
