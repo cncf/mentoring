@@ -131,6 +131,20 @@ Rationale: some labels are not very selective, or very rarely come up in queries
 - Mentor(s): Alfonso Acosta (@2opremio)
 - Issue: https://github.com/fluxcd/flux/issues/2812
 
+### OpenTelemetry
+
+#### OpenTelemetry integration with Azure, Amazon, and Google Cloud metadata services
+
+- Description: OpenTelemetry C# SDK can be used on any cloud. All major clouds provide a similar mechanisms to obtain deployment instance information. The task is to obtain those properties from the service like [this](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service) and associate resulting properties with the telemetry reported by SDK.
+- Recommended Skills: C# (or any other major language)
+- Mentor(s): Sergey Kanzhelev (@SergeyKanzhelev)
+
+#### OpenTelemetry libraries compatibility tests
+
+- Description: OpenTelemetry project has a unique challenge - it implements similar patterns for data collection on many languages. Building a framework and a set of libraries compatibility tests is a great way to ensure the best experience for end users. Need to know one or more programming languages. Specified C# which I maintain, but happy to mentor on other languages.
+- Recommended Skills: C# (or any other major language)
+- Mentor(s): Sergey Kanzhelev (@SergeyKanzhelev)
+
 ### Prometheus
 
 #### Benchmarks for TSDB
