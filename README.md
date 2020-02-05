@@ -167,3 +167,33 @@ Rationale: some labels are not very selective, or very rarely come up in queries
 -	Recommended Skills: Golang
 -	Mentor(s): Ganesh Vernekar (@codesome)
 -	Issue: https://github.com/prometheus/prometheus/issues/21.
+
+### in-toto
+
+#### Port runlib into in-toto golang
+
+-	Description: The in-toto golang implementation is missing parts of the
+    runlib library (the runtime library to capture evidence of a running
+    process). Port the missing implementation parts from either the Python or
+    the Java implementations.
+-	Recommended Skills: Golang
+-	Mentor(s): Santiago Torres-Arias (@santiagotorres), Lukas Puehringer (@lukpueh)
+-	Issue: https://github.comin-toto/in-toto-golang/issues/30
+
+#### Port verify into in-toto Java
+
+-	Description: The in-toto java implementation (as used by the Jenkins
+    plugin), is missing methods to provie a full `verify()` function. Implement
+    those, based off of either the golang or python implementations
+-	Recommended Skills: Java
+-	Mentor(s): Santiago Torres-Arias (@santiagotorres), Lukas Puehringer (@lukpueh)
+-	Issue: https://github.comin-toto/in-toto-java/issues/17
+
+#### Add metadata pretty print function
+
+-	Description: in-toto could use a method/tool to provide custom-formatting
+    and display of metadata to ease integration with third-party tools or to
+    ease human-readability
+-	Recommended Skills: Python
+-	Mentor(s): Santiago Torres-Arias (@santiagotorres), Lukas Puehringer (@lukpueh)
+-	Issue: https://github.comin-toto/in-toto/issues/18
