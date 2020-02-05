@@ -131,3 +131,25 @@ Rationale: some labels are not very selective, or very rarely come up in queries
 - Mentor(s): Alfonso Acosta (@2opremio)
 - Issue: https://github.com/fluxcd/flux/issues/2812
 
+### Prometheus
+
+#### Benchmarks for TSDB
+
+-	Description: The TSDB module used in Prometheus doesn’t have proper benchmarks yet, which means we cannot see the potential impact of the changes we are introducing. The idea is to build some automated benchmarking which can be added to the CI pipeline.
+-	Recommended Skills: CI, Golang, Kubernetes
+-	Mentor(s): Krasi Georgiev (@krasi-georgiev)
+-	Issue: https://github.com/prometheus/tsdb/issues/235
+
+#### Persist Retroactive Rule Reevaluations 
+
+-	Description: Right now one of the biggest issues with recording rules is that data is only available since the rule was created. Which means any dashboards that use the recording rule will not have data prior to the recording rules create time. We can already reevaluate queries on old data, but we should be able to persist that for a certain window from [Oldest, Now).
+-	Recommended Skills: Golang
+-	Mentor(s): Ganesh Vernekar (@codesome)
+-	Issue: https://github.com/prometheus/prometheus/issues/11.
+
+#### Rule formatting tool
+
+-	Description: Like "gofmt" for Go, we ought to have a "promfmt" for Prometheus since we have a syntax tree. The idea being that the system produces uniform style that minimizes deviation and learning curve. Care should be taken to preserve comments.
+-	Recommended Skills: Golang
+-	Mentor(s): Ganesh Vernekar (@codesome)
+-	Issue: https://github.com/prometheus/prometheus/issues/21.
