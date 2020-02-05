@@ -84,7 +84,7 @@ aggregations), while deleting other part early on. This task is aiming to implme
 ### TiKV
 
 #### Support Cold/Hot Tier storage in TiKV
-- Description: 
+- Description:
 TiKV uses RocksDB as its storage layer, currently RocksDB support assigns a list of path, newer data is placed into paths specified earlier in the list while older data gradually moves to paths specified later in the list. For example we may use a 300GB fast local SSD as the first path, and a 2TB HDD disk as the second path, and an 16TB remote network disk as the last path. This will reduce the total cost, but the older data doesn’t mean it is cold data. If there is some older but frequently accessed data, it will host in block-cache normally, but the total memory is limited. If this frequently accessed data can be pulled up to the first path(the local fast ssd), it can achieve a better read performance for TiKV.
 -	Recommended Skills: Rust, RocksDB
 -	Mentor(s): Yi Wu (@yiwu-arbug), Wei Liu (@Little-Wallace)
@@ -131,6 +131,15 @@ Rationale: some labels are not very selective, or very rarely come up in queries
 - Mentor(s): Alfonso Acosta (@2opremio)
 - Issue: https://github.com/fluxcd/flux/issues/2812
 
+### KubeEdge
+
+#### KubeEdge installer to support conversion between different config versions
+
+Description: the latest KubeEdge release introduced component config API to config components. The structure is different with the old configuration file used in prior (v1.2 and older) releases. Providing convert functionality to generate new configuration according old ones would help speed up the upgrade process from an old KubeEdge release. And to provide backward compatibility during follow-up component config API enhancements, conversion framework is needed to support multiple component config API versions in a same release.
+Recommended Skills: Go, Kubernetes
+Mentor(s): kadis (@kadisi), Kevin Wang (@kevin-wangzefeng)
+issue： https://github.com/kubeedge/kubeedge/issues/1437
+
 ### OpenTelemetry
 
 #### OpenTelemetry integration with Azure, Amazon, and Google Cloud metadata services
@@ -154,7 +163,7 @@ Rationale: some labels are not very selective, or very rarely come up in queries
 -	Mentor(s): Krasi Georgiev (@krasi-georgiev)
 -	Issue: https://github.com/prometheus/tsdb/issues/235
 
-#### Persist Retroactive Rule Reevaluations 
+#### Persist Retroactive Rule Reevaluations
 
 -	Description: Right now one of the biggest issues with recording rules is that data is only available since the rule was created. Which means any dashboards that use the recording rule will not have data prior to the recording rules create time. We can already reevaluate queries on old data, but we should be able to persist that for a certain window from [Oldest, Now).
 -	Recommended Skills: Golang
