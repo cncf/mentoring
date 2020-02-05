@@ -64,6 +64,11 @@ _Add your project ideas below:_
 - Mentor(s): Justin Santa Barbara (@justinsb), Leigh Capili (@stealthybox)
 - Issue: https://github.com/kubernetes-sigs/cluster-addons/issues/39
 
+#### CoreDNS operator :- New features 
+- Description:- This project aims to add new features and change the directory struture of the CoreDNS operator.The operator   could hash the configMap bytes and then update the name by appending the hash to it. The Deployment would then be updated   to reference this new name. This would allow the Deployment with multiple replicas to undergo a proper (and safe)  
+  RollingUpdate. And then creating an end-to-end smoketest for coredns-operator. The test should run locally by default (via   kind or kinder) and support running on a remote kubernetes cluster when provided.
+- Recommended Skills:- Go, Kubernetes, Bash, CoreDNS
+
 ### Thanos
 
 #### Per Series Metric Retention
