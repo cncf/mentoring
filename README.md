@@ -61,7 +61,7 @@ _Add your project ideas below:_
   and plan to get involved with the kubernetes community in fixing
   them.
 - Recommended Skills: Go, Kubernetes
-- Mentor(s): Justin Santa Barbara (@justinsb), Leigh Capili (@stealthybox)
+- Mentor(s): Justin Santa Barbara (@justinsb), Leigh Capili (@stealthybox), Sandeep Rajan (@rajansandeep)
 - Issue: https://github.com/kubernetes-sigs/cluster-addons/issues/39
 
 ### Thanos
