@@ -187,7 +187,7 @@ issue： https://github.com/kubeedge/kubeedge/issues/1437
     the Java implementations.
 -	Recommended Skills: Golang
 -	Mentor(s): Santiago Torres-Arias (@santiagotorres), Lukas Puehringer (@lukpueh)
--	Issue: https://github.comin-toto/in-toto-golang/issues/30
+-	Issue: https://github.com/in-toto/in-toto-golang/issues/30
 
 #### Port verify into in-toto Java
 
@@ -196,7 +196,7 @@ issue： https://github.com/kubeedge/kubeedge/issues/1437
     those, based off of either the golang or python implementations
 -	Recommended Skills: Java
 -	Mentor(s): Santiago Torres-Arias (@santiagotorres), Lukas Puehringer (@lukpueh)
--	Issue: https://github.comin-toto/in-toto-java/issues/17
+-	Issue: https://github.com/in-toto/in-toto-java/issues/17
 
 #### Add metadata pretty print function
 
@@ -205,7 +205,7 @@ issue： https://github.com/kubeedge/kubeedge/issues/1437
     ease human-readability
 -	Recommended Skills: Python
 -	Mentor(s): Santiago Torres-Arias (@santiagotorres), Lukas Puehringer (@lukpueh)
--	Issue: https://github.comin-toto/in-toto/issues/18
+-	Issue: https://github.com/in-toto/in-toto/issues/18
 
 ### TUF
 
@@ -216,7 +216,7 @@ issue： https://github.com/kubeedge/kubeedge/issues/1437
     Provie a possibly async-io based replacement to handle timeout on slow
     retrieval attacks
 -	Recommended Skills: python, async-io (preferred, but not necessary)
--	Mentor(s): Santiago Torres-Arias (@santiagotorres), Luk
+-	Mentor(s): Santiago Torres-Arias (@santiagotorres)
 -	Issue: https://github.com/theupdateframework/tuf/issues/932
 
 #### Improve delegation graph management code
