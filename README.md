@@ -197,3 +197,27 @@ Rationale: some labels are not very selective, or very rarely come up in queries
 -	Recommended Skills: Python
 -	Mentor(s): Santiago Torres-Arias (@santiagotorres), Lukas Puehringer (@lukpueh)
 -	Issue: https://github.comin-toto/in-toto/issues/18
+
+### TUF
+
+#### Reinstate full protection against slow retrieval attacks
+
+-	Description: The current python implementation removed protection for
+    slow-retrieval attacks, due to python-lock management, requests and urllib.
+    Provie a possibly async-io based replacement to handle timeout on slow
+    retrieval attacks
+-	Recommended Skills: python, async-io (preferred, but not necessary)
+-	Mentor(s): Santiago Torres-Arias (@santiagotorres), Luk
+-	Issue: https://github.com/theupdateframework/tuf/issues/932
+
+#### Improve delegation graph management code
+
+-	Description: The reference implementation continues to try to provide a
+    1-to-1 mapping of roles to
+    keyids-the-role-should-be-signed-by-in-order-to-be-valid. This is not
+    correct: the same role may need to be validated expecting different sets of
+    keys, based on how the role was reached in the depth-first search while
+    looking for target information.
+-	Recommended Skills: python
+-	Mentor(s): Santiago Torres-Arias (@santiagotorres)
+-	Issue: https://github.com/theupdateframework/tuf/issues/660
