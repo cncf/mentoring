@@ -44,6 +44,26 @@ For example:
 
 _Add your project ideas below:_
 
+### Kubernetes
+
+#### Cluster Addons: Package all the things!
+
+- Description: The cluster-addons project aims to make kubernetes
+  simpler and more reliable, by dividing clusters into simple,
+  reusable, modularized parts.  Collaboration between the various
+  approaches in the ecosystem has now gotten us to a point where we
+  have a reasonable framework and a few example operators, but it's
+  time to start building out the full set of real-world operators that
+  will run on the world's Kubernetes clusters.  That's where you come
+  in!  Though this should start gently (there are plenty of simple
+  addons), it won't be quite that simple: you should expect to find
+  lots of fun challenges that need fixing, likely a few design flaws,
+  and plan to get involved with the kubernetes community in fixing
+  them.
+- Recommended Skills: Go, Kubernetes
+- Mentor(s): Justin Santa Barbara (@justinsb), Leigh Capili (@stealthybox)
+- Issue: https://github.com/kubernetes-sigs/cluster-addons/issues/39
+
 ### Thanos
 
 #### Per Series Metric Retention
