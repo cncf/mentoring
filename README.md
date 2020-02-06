@@ -230,3 +230,21 @@ issue： https://github.com/kubeedge/kubeedge/issues/1437
 -	Recommended Skills: python
 -	Mentor(s): Santiago Torres-Arias (@santiagotorres)
 -	Issue: https://github.com/theupdateframework/tuf/issues/660
+
+### Open Policy Agent (OPA)
+
+OPA is a domain-agnostic policy engine that embodies "policy as code": https://www.openpolicyagent.org/
+
+#### IntelliJ plugin to experiment with and visualize policy evaluation
+
+-   Description: OPA features a high-level declarative language that lets you express policies like "user X can perform operation Y on resource Z" or "all images deployed in Kubernetes must come from an internal registry and be scanned for vulnerabilities". The language supports many features: unit testing, dry running, tracing, etc. While users can access these features via the command-line, IDE integrations greatly improve the policy authoring experience. The idea is to port functionality that we have inside of [VS Code](https://github.com/tsandall/vscode-opa) to IntelliJ. This would significantly improve the authoring experience for people that use IntelliJ on a day-to-day basis.
+-   Recommended Skills: Java, IntelliJ (not required, but nice to have)
+-   Mentor(s): Asad Ali (@asadali)
+-   Issue: https://github.com/open-policy-agent/opa/issues/1085
+
+#### OPA - MongoDB query translator
+
+-   Description: MongoDB is a general-purpose, document-based, distributed database with a rich query language. OPA features a high-level declarative language called `Rego` purpose-built for expressing policies over complex hierarchical data structures. OPA is often used to enforce policies over incoming API requests, but using OPA's "partial evaluation" feature it is also possible to enforce policies when data is accessed inside of document-oriented databases like MongoDB. In this model, callers query OPA to obtain a set of conditions to apply to the database query and then rewrite the database query accordingly. There are existing projects that translate "partial evaluation" results to SQL and Elasticsearch. This project would involve designing and implementing a Rego to MongoDB query translator that supports basic relational operations like ==, !=, >, <, etc. This project would hugely benefit the community to perform authorization and data-filtering in MongoDB using OPA.
+-   Recommended Skills: Go/Python, MongoDB (not required, but nice to have)
+-   Mentor(s): Ash Narkar (@ashutosh-narkar)
+-   Issue: https://github.com/open-policy-agent/opa/issues/2059
