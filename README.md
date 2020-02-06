@@ -230,3 +230,10 @@ issue： https://github.com/kubeedge/kubeedge/issues/1437
 -	Recommended Skills: python
 -	Mentor(s): Santiago Torres-Arias (@santiagotorres)
 -	Issue: https://github.com/theupdateframework/tuf/issues/660
+
+#### Proactive, application-driven Vertical Scaling of Kubernetes Pods
+
+-	Description: In-Place Pod Vertical Scaling (planned feature for 1.18) allows resizing Pods without restarts. This feature will be used by Vertical Pod Autoscaler (VPA). Currently, VPA determines the right resources based on historical and current usage metrics. However, this approach is reactive in nature. Certain applications such as code development environments hosted in Pods know when resource needs are about change. For example, the Pod consumes minimal resources when user is writing code, and needs significantly higher resources when user builds the code. If VPA could offer a proactive way for applications to resize Pods, they could leverage the full power of In-Place Pod Vertical Scaling. The central idea of this project is to facilitate a way for application to request a +/- delta to the resources recommended by VPA, and drive resize action by VPA. One possible approach is to extend VerticalPodAutoScaler CRD Spec with a delta field that the application is allowed to set, and modify VPA to watch for this change, and update the recommendation & invoke Pod resize.
+-	Recommended Skills: Golang, Kubernetes, Vertical Pod Autoscaler (VPA)
+-	Mentor(s): Vinay Kulkarni (@vinaykul)
+-	Issue:
