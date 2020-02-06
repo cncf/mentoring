@@ -135,10 +135,10 @@ Rationale: some labels are not very selective, or very rarely come up in queries
 
 #### KubeEdge installer to support conversion between different config versions
 
-Description: the latest KubeEdge release introduced component config API to config components. The structure is different with the old configuration file used in prior (v1.2 and older) releases. Providing convert functionality to generate new configuration according old ones would help speed up the upgrade process from an old KubeEdge release. And to provide backward compatibility during follow-up component config API enhancements, conversion framework is needed to support multiple component config API versions in a same release.
-Recommended Skills: Go, Kubernetes
-Mentor(s): kadis (@kadisi), Kevin Wang (@kevin-wangzefeng)
-issue： https://github.com/kubeedge/kubeedge/issues/1437
+- Description: the latest KubeEdge release introduced component config API to config components. The structure is different with the old configuration file used in prior (v1.2 and older) releases. Providing convert functionality to generate new configuration according old ones would help speed up the upgrade process from an old KubeEdge release. And to provide backward compatibility during follow-up component config API enhancements, conversion framework is needed to support multiple component config API versions in a same release.
+- Recommended Skills: Go, Kubernetes
+- Mentor(s): kadis (@kadisi), Kevin Wang (@kevin-wangzefeng)
+- Issue： https://github.com/kubeedge/kubeedge/issues/1437
 
 ### OpenTelemetry
 
