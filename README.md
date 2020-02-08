@@ -238,7 +238,7 @@ Rationale: some labels are not very selective, or very rarely come up in queries
 - Description: As a DNS server, CoreDNS is critical to overall devops infrastructure. Any anomaly related to CoreDNS server should be taken seriously. While altering rules (combined with monitoring tools such as Prometheus) helps in discovering issues, those rules are often crafted manually and requires human expertise. It would help a lot if machine learning could be utilized to further automate the monitoring/alerting in case of anomaly.
   This project intends to build and train a model that could be used for anomaly detection of CoreDNS server through metrics collected from Prometheus. Since the metrics pipeline to Prometheus is already available in CoreDNS, the project’s focus is mostly on model building. It is suggested to use tf.keras to build the model. A successful model should at least be able to detect a scenario that is alerting and requires further devops or security intervention.  
 - Recommended Skills:  DNS/CoreDNS, Prometheus, Keras/TensorFlow, Python
-- Mentor(s): Yong Tang (@yongtang)
+- Mentor(s): Yong Tang (@yongtang), Paul Greenberg (@greenpau)
 - Issue: https://github.com/coredns/coredns/issues/3658
 
 
@@ -248,7 +248,7 @@ Rationale: some labels are not very selective, or very rarely come up in queries
 - Description: CoreDNS is the cluster DNS server for Kubernetes and is very much critical for the overall health of the Kubernetes cluster. It is very important to monitoring the health of CoreDNS itself and restarting or repairing any CoreDNS pods that are not behaving correctly. While CoreDNS exposes a health check itself, the health check is not UDP (DNS) based. The existing health check is also launched locally which could be very much different when accessed by other pods remotely.
   This project intends to build an application that checks CoreDNS health through UDP (DNS) externally, and, restart CoreDNS pods by interacting with Kubernetes API through golang. This is an important project that will greatly improve the overall health of Kubernetes clusters through automation.
 - Recommended Skills:  Go, DNS, Kubernetes
-- Mentor(s): Yong Tang (@yongtang)
+- Mentor(s): Yong Tang (@yongtang), Paul Greenberg (@greenpau)
 - Issue: https://github.com/coredns/coredns/issues/3658
 
 
