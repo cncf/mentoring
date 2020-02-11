@@ -279,3 +279,14 @@ OPA is a domain-agnostic policy engine that embodies "policy as code": https://w
 -   Recommended Skills: Go/Python, MongoDB (not required, but nice to have)
 -   Mentor(s): Ash Narkar (@ashutosh-narkar)
 -   Issue: https://github.com/open-policy-agent/opa/issues/2059
+
+### Virtual Kubelet
+
+#### Enhance Volcano scheduler to support Virtual Kubelet
+
+- Description: When there're not enough resources in one cluster, virtual kubelet is one of solutions to scale out cluster.
+  It's better to enhance scheduler to balance resource in cluster and virtual kubelet. It's also a good example to the other
+  scheduler on how to integrate with Virtual Kubelet.
+- Recommended Skills: Go, Kubernetes, Virtual Kubelet, Volcano
+- Mentor(s): Klaus Ma (@k82cn)
+- Issue: https://github.com/volcano-sh/volcano/issues/624 , https://github.com/virtual-kubelet/virtual-kubelet/issues/812
