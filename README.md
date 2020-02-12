@@ -74,6 +74,13 @@ _Add your project ideas below:_
 - Mentor(s): Jeff Johnson (@johnsonj)
 - Issue:- https://github.com/kubernetes-sigs/cluster-addons/issues/40
 
+#### Kubernetes Multitenancy Working Group: Benchmarks
+
+-   Description: The Kubernetes Multi-Tenancy Working Group is chartered with exploring and defining multi-tenancy models for Kubernetes.  An overview of working group activities can be found in this [Kubernetes Multi-Tenancy Working Group](https://drive.google.com/file/d/1VFVE0lktXq9zaV6H04GyZBV3oQzoYKV6/edit) . The [Multitenancy Benchmarks](https://github.com/kubernetes-sigs/multi-tenancy/tree/master/benchmarks) effort focuses on measuring and validating the desired behaviors for multitenancy. Part of this effort is to automate behavioral and configuration checks on existing clusters, which will be the focus of this project. This automated test suit will help all Kubernetes users validate whether their clusters are setup correctly for multi-tenancy.
+-   Recommended Skills: Go, Kubernetes
+-   Mentor(s): Jim Bugwadia (@JimBugwadia)
+-   Issue: Multiple issues - https://github.com/kubernetes-sigs/multi-tenancy/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+MTB
+
 ### Thanos
 
 #### Per Series Metric Retention
@@ -280,14 +287,13 @@ OPA is a domain-agnostic policy engine that embodies "policy as code": https://w
 -   Mentor(s): Ash Narkar (@ashutosh-narkar)
 -   Issue: https://github.com/open-policy-agent/opa/issues/2059
 
+### Virtual Kubelet
 
-### Multitenancy Working Group
+#### Enhance Volcano scheduler to support Virtual Kubelet
 
-#### Multitenancy Benchmarks
-
--   Description: The Kubernetes Multi-Tenancy Working Group is chartered with exploring and defining multi-tenancy models for Kubernetes.  An overview of working group activities can be found in this [Kubernetes Multi-Tenancy Working Group](https://drive.google.com/file/d/1VFVE0lktXq9zaV6H04GyZBV3oQzoYKV6/edit) . The [Multitenancy Benchmarks](https://github.com/kubernetes-sigs/multi-tenancy/tree/master/benchmarks) effort focuses on measuring and validating the desired behaviors for multitenancy. Part of this effort is to automate behavioral and configuration checks on existing clusters, which will be the focus of this project. This automated test suit will help all Kubernetes users validate whether their clusters are setup correctly for multi-tenancy.
--   Recommended Skills: Go, Kubernetes
--   Mentor(s): Jim Bugwadia (@JimBugwadia)
--   Issue: Multiple issues - https://github.com/kubernetes-sigs/multi-tenancy/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+MTB
-
-
+- Description: When there're not enough resources in one cluster, virtual kubelet is one of solutions to scale out cluster.
+  It's better to enhance scheduler to balance resource in cluster and virtual kubelet. It's also a good example to the other
+  scheduler on how to integrate with Virtual Kubelet.
+- Recommended Skills: Go, Kubernetes, Virtual Kubelet, Volcano
+- Mentor(s): Klaus Ma (@k82cn)
+- Issue: https://github.com/volcano-sh/volcano/issues/624 , https://github.com/virtual-kubelet/virtual-kubelet/issues/812
