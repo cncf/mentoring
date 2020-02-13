@@ -90,13 +90,13 @@ after the mentor's selection. Please be patient.
 
 ### Participating projects:
 
-- [Kubernetes](https://people.communitybridge.org/project/2d438b9a-c539-46d0-9eed-c6ee4404c88a); [Funding page](https://funding.communitybridge.org/projects/2d438b9a-c539-46d0-9eed-c6ee4404c88a)
-- [Prometheus](https://people.communitybridge.org/project/9595fbe7-6a8d-43d4-aebb-a54d57f33fdd); [Funding page](https://funding.communitybridge.org/projects/9595fbe7-6a8d-43d4-aebb-a54d57f33fdd)
-- [Fluentd](https://people.communitybridge.org/project/d24ab158-e4e5-4042-91ad-b30ae52941d2); [Funding page](https://funding.communitybridge.org/projects/d24ab158-e4e5-4042-91ad-b30ae52941d2)
-- [CoreDNS](https://people.communitybridge.org/project/6705be57-130f-43f5-ba80-11605ffdb1f9); [Funding page](https://funding.communitybridge.org/projects/6705be57-130f-43f5-ba80-11605ffdb1f9)
-- [Cortex](https://people.communitybridge.org/project/38bb5e81-2bca-42f5-b31d-3bcd2da732d3); [Funding page](https://funding.communitybridge.org/projects/38bb5e81-2bca-42f5-b31d-3bcd2da732d3)
-- [OpenTelemetry](https://people.communitybridge.org/project/f1275c0e-7152-4e09-8d8b-6b14598afbc3); [Funding page](https://funding.communitybridge.org/projects/f1275c0e-7152-4e09-8d8b-6b14598afbc3)
-- [Thanos](https://people.communitybridge.org/project/f51284ab-f652-47b1-9819-cd4135e75c00); [Funding page](https://funding.communitybridge.org/projects/f51284ab-f652-47b1-9819-cd4135e75c00)
+- [Kubernetes](https://people.communitybridge.org/project/2d438b9a-c539-46d0-9eed-c6ee4404c88a); [CommunityBridge Funding](https://funding.communitybridge.org/projects/2d438b9a-c539-46d0-9eed-c6ee4404c88a)
+- [Prometheus](https://people.communitybridge.org/project/9595fbe7-6a8d-43d4-aebb-a54d57f33fdd); [CommunityBridge Funding](https://funding.communitybridge.org/projects/9595fbe7-6a8d-43d4-aebb-a54d57f33fdd)
+- [Fluentd](https://people.communitybridge.org/project/d24ab158-e4e5-4042-91ad-b30ae52941d2); [CommunityBridge Funding](https://funding.communitybridge.org/projects/d24ab158-e4e5-4042-91ad-b30ae52941d2)
+- [CoreDNS](https://people.communitybridge.org/project/6705be57-130f-43f5-ba80-11605ffdb1f9); [CommunityBridge Funding](https://funding.communitybridge.org/projects/6705be57-130f-43f5-ba80-11605ffdb1f9)
+- [Cortex](https://people.communitybridge.org/project/38bb5e81-2bca-42f5-b31d-3bcd2da732d3); [CommunityBridge Funding](https://funding.communitybridge.org/projects/38bb5e81-2bca-42f5-b31d-3bcd2da732d3)
+- [OpenTelemetry](https://people.communitybridge.org/project/f1275c0e-7152-4e09-8d8b-6b14598afbc3); [CommunityBridge Funding](https://funding.communitybridge.org/projects/f1275c0e-7152-4e09-8d8b-6b14598afbc3)
+- [Thanos](https://people.communitybridge.org/project/f51284ab-f652-47b1-9819-cd4135e75c00); [CommunityBridge Funding](https://funding.communitybridge.org/projects/f51284ab-f652-47b1-9819-cd4135e75c00)
 
 ### Project Ideas:
 
