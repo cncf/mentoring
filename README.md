@@ -81,6 +81,13 @@ _Add your project ideas below:_
 -   Mentor(s): Jim Bugwadia (@JimBugwadia)
 -   Issue: Multiple issues - https://github.com/kubernetes-sigs/multi-tenancy/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+MTB
 
+#### A better experience for Kubernetes to provision and consume cloud resources
+
+- Description: This task focus on creating a better experience for Kubernetes to provision cloud resources by simply using CRDs to model them and leveraging various existing mechanisms including Service Catalog, OAM Trait system and Service Binding Operator to achieve smarter connection information injection and consuming. It also helps a lot to achieve better interoperability between Kubernetes community and public cloud providers.
+- Recommended Skills: Go, Kubernetes
+- Mentor(s): Jianbo Sun (@wonderflow), Lei Zhang (@resouer)
+- Issue: Multiple issues - https://github.com/kubernetes/kubernetes/issues/14475, https://github.com/kubernetes/community/pull/254, https://github.com/oam-dev/cloud-provider/issues/13
+
 ### Thanos
 
 #### Per Series Metric Retention
