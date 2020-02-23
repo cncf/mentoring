@@ -81,6 +81,13 @@ _Add your project ideas below:_
 -   Mentor(s): Jim Bugwadia (@JimBugwadia)
 -   Issue: Multiple issues - https://github.com/kubernetes-sigs/multi-tenancy/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+MTB
 
+#### Kubernetes Policy Working Group: Policy Violation Custom Resource and Adapters
+
+-   Description: The Kubernetes Policy Working Group is providing an overall architecture that describes both the current policy related implementations as well as future policy related proposals in Kubernetes. As part of this effort, the group is proposing a Kubernetes Custom Resources Definition (CRD) for policy violations and writing adapters to convert from various Kubernetes policy management tools such as OPA, Falco, Kyverno, kube-bench, etc. to report policy violations in a common format. The Policy Violation CRD can then be used by the Dashboard to show violations.
+-   Recommended Skills: Go, Kubernetes
+-   Mentor(s): Jim Bugwadia (@JimBugwadia)
+-   Issue: https://github.com/kubernetes/community/issues/4538
+
 #### A better experience for Kubernetes to provision and consume cloud resources
 
 - Description: This task focus on creating a better experience for Kubernetes to provision cloud resources by simply using CRDs to model them and leveraging various existing mechanisms including Service Catalog, OAM Trait system and Service Binding Operator to achieve smarter connection information injection and consuming. It also helps a lot to achieve better interoperability between Kubernetes community and public cloud providers.
