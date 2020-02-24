@@ -304,3 +304,19 @@ OPA is a domain-agnostic policy engine that embodies "policy as code": https://w
 - Recommended Skills: Go, Kubernetes, Virtual Kubelet, Volcano
 - Mentor(s): Klaus Ma (@k82cn)
 - Issue: https://github.com/volcano-sh/volcano/issues/624 , https://github.com/virtual-kubelet/virtual-kubelet/issues/812
+
+### Vitess
+
+#### Native Failover without Orchestrator
+
+- Description: Currently Vitess relies on [Orchestrator](https://github.com/openark/orchestrator) to provide automated failover. While the functionality provided meets user expectations, it increases the complexity of [getting started](https://vitess.io/docs/user-guides/integration-with-orchestrator/) and operating Vitess. We see benefit in having a native implementation.
+- Recommended Skills: golang, mysql
+- Mentor(s): Anthony Yeh (@enisoc)
+- Issue: https://github.com/vitessio/vitess/issues/2366
+
+#### Support for collations in VTGate
+
+- Description: Currently the Vitess router (vtgate) does not support MySQL collations. This makes it difficult to push down queries that have constraints, ordering or grouping requirements on types that support character sets (i.e. varchar, char, text).
+- Recommended Skills: golang, mysql
+- Mentor(s): Morgan Tocker (@morgo)
+- Issue: https://github.com/vitessio/vitess/issues/3591
