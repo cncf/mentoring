@@ -201,6 +201,18 @@ Rationale: some labels are not very selective, or very rarely come up in queries
 -	Mentor(s): Ganesh Vernekar (@codesome)
 -	Issue: https://github.com/prometheus/prometheus/issues/21.
 
+#### Allow running prombench locally
+-	Description: Currently prombench development requires the user to setup GKE environment. Having prombench to run in a local k8s cluster would make adding changes much easier and faster. Support for kubeconfig and a proper way to switch local and GKE environment is not available yet. Adding these features will be essential to the completion of the project.
+-	Recommended Skills: CI, Golang, Kubernetes
+-	Mentor(s): Hrishikesh Barman (@geekodour)
+-	Issue: https://github.com/prometheus/test-infra/issues/333.
+
+#### Update Grafana dashboards for test-infra
+-	Description: The test-infra dashboards available at [prombench.prometheus.io/grafana](http://prombench.prometheus.io/grafana/) could be improved on different aspects, some of it will require understanding prometheus metrics and make the dashboards more useful to catch bugs during the bench tests. There are various high and low priority issues to work on.
+-	Recommended Skills: CI, Golang, Grafana, Kubernetes, Prometheus
+-	Mentor(s): Hrishikesh Barman (@geekodour)
+-	Issue: https://github.com/prometheus/test-infra/issues/328.
+
 ### in-toto
 
 #### Port runlib into in-toto golang
