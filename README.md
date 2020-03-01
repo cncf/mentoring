@@ -353,21 +353,21 @@ OPA is a domain-agnostic policy engine that embodies "policy as code": https://w
 
 - Description: The Buildpack Registry is a place to publish, store, and discover buildpacks. The initial implementation is a client side with minimal server-side support. The first pass will include setting up the GitHub repo and adding the relevant commands in the CLI.
 - Recommended Skills: Go, Docker
-- Mentor(s): Javier Romero (@jromero)
+- Mentor(s): Javier Romero (@jromero), Joe Kutner (@codefinger), Terence Lee (@hone)
 - Issue: https://github.com/buildpacks/rfcs/blob/master/text/0022-client-side-buildpack-registry.md
 
 #### Isolate Registry Credentials from Builder Images
 
 - Description: pack is a CLI for doing builds with Cloud Native Buildpacks. It uses builder images to create all lifecycle phase containers. When pack build is run with the --publish flag, the user's registry credentials are injected into the analyze and export containers as environment variables. This means that users must place a high level of trust in their selected builder image. Users may not realize that credentials are given to builder images and experiment with builders from untrusted vendors. This change isolates analyze, restore, and export phases in containers built from trusted images rather than the builder image.
 - Recommended Skills: Go, Docker
-- Mentor(s): Javier Romero (@jromero)
+- Mentor(s): Javier Romero (@jromero), Emily Casey (@ekcasey)
 - Issue: https://github.com/buildpacks/rfcs/blob/master/text/0025-dont-trust-builders.md
 
 #### Lifecycle Transparency
 
 - Description: Cloud Native Buildpacks are magic! Magic is great, but sometimes users want to better understand what is going on under the hood. Redesign the lifecycle output to demystify the build process for users. This will require some creativity.
 - Recommended Skills: Go
-- Mentor(s): Javier Romero (@jromero)
+- Mentor(s): Javier Romero (@jromero), Emily Casey (@ekcasey)
 - Issue: https://github.com/buildpacks/lifecycle/issues/264
 
 ### OpenEBS
