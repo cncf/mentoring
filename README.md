@@ -369,3 +369,28 @@ OPA is a domain-agnostic policy engine that embodies "policy as code": https://w
 - Recommended Skills: Go
 - Mentor(s): Javier Romero (@jromero)
 - Issue: https://github.com/buildpacks/lifecycle/issues/264
+
+### OpenEBS
+
+#### kubectl plugin for OpenEBS
+
+- Description: OpenEBS is completely Kubernetes native and is implemented using microservices. The microservices are deployed as Kubernetes deployments, statefulset or daemon sets and so forth. In order to know the status of the components - like OpenEBS control plane or a given OpenEBS volume, a user may have to multiple kubectl commands to get the required information. To improve the usability, the proposal is to have a kubectl plugin for OpenEBS can provide a simple CLI to perform common operations. 
+- Recommended Skills: Go, Kubernetes
+- Mentor(s): Kiran Mova (@kmova), Amit Kumar Das (@AmitKumarDas)
+- Issue: https://github.com/openebs/openebs/issues/2946, https://github.com/openebs/openebs/issues/290
+
+#### Grafana dashboards for OpenEBS
+- Description: All the openebs components are deployed as Kubernetes native objects and support scraping of metrics via Prometheus. This is a feature request to implement Grafana dashboards for: overall status, volume and pool usage. 
+- Recommended Skills: Prometheus, Grafana
+- Mentor(s): Kiran Mova (@kmova)
+- Issue: https://github.com/openebs/openebs/issues/2947
+
+#### Improve the release management process for OpenEBS
+- Description: OpenEBS uses microservices architecture pattern and its components are developed in different GitHub repositories. Tagging the repository with a new release, will trigger a build process on Travis CI and new version of the component is built and pushed to container registeries. There is certain order/dependency in which the components are released, and requires release tagging the components to happen in a specified order. It would be nice to automate this process by making use of web hooks on docker, travis and github or there could be a better alternative that needs to be explored. 
+- Recommended Skills: Build and Release Management, Makefiles, GitHub, Travis
+- Mentor(s): Kiran Mova (@kmova)
+- Issue: https://github.com/openebs/openebs/issues/288
+
+
+
+
