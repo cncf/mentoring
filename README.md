@@ -169,6 +169,7 @@ Rationale: some labels are not very selective, or very rarely come up in queries
 - Description: KubeEdge has a repository (https://github.com/kubeedge/example) shows sample applications and demos to illustrate possible use cases of KubeEdge platform. The idea is to build a new sample application to run OpenCV on KubeEdge platform to demo image processing (or computer vision) at edge.
 - Recommended Skills: Go, Python, Kubernetes
 - Mentor(s): Yin Ding (@dingyin)
+- Issue：https://github.com/kubeedge/examples/issues/39
 
 ### OpenTelemetry
 
