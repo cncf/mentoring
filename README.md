@@ -164,6 +164,12 @@ Rationale: some labels are not very selective, or very rarely come up in queries
 - Mentor(s): kadis (@kadisi), Kevin Wang (@kevin-wangzefeng)
 - Issue： https://github.com/kubeedge/kubeedge/issues/1437
 
+#### KubeEdge AI application
+
+- Description: KubeEdge has a repository (https://github.com/kubeedge/example) shows sample applications and demos to illustrate possible use cases of KubeEdge platform. The idea is to build a new sample application to run OpenCV on KubeEdge platform to demo image processing (or computer vision) at edge.
+- Recommended Skills: Go, Python, Kubernetes
+- Mentor(s): Yin Ding (@dingyin)
+
 ### OpenTelemetry
 
 #### OpenTelemetry integration with Azure, Amazon, and Google Cloud metadata services
