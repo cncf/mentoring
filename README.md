@@ -391,6 +391,27 @@ OPA is a domain-agnostic policy engine that embodies "policy as code": https://w
 - Mentor(s): Kiran Mova (@kmova)
 - Issue: https://github.com/openebs/openebs/issues/288
 
+### Rook
+#### Rewrite NFS Operator to use controller runtime and fix other open issues along with it.
+
+- Description: Convert the [NFS controller](https://github.com/rook/rook/blob/master/pkg/operator/nfs/controller.go) to be managed with the controller-runtime.
+  Currently Rook only has a simple watch in an informer as seen [here](https://github.com/rook/rook/blob/master/pkg/operator/k8sutil/customresource.go#L54).
+  What is use case behind this feature ?
+  - The controller runtime will improve reliability of the operator in several areas:
+  - Events can be re-queued if failed or the operator is not able to complete the operation
+  - Exponential backoff is provided automatically for re-queued events
+  - Waiting for the next event does not need to block on the current event if it is taking a long time and the event can be re-queued.
+  Several controllers in Rook are using the controller runtime. For examples, see the [pool controller](https://github.com/rook/rook/blob/master/pkg/operator/ceph/pool/controller.go) or [disruption budget controller](https://github.com/rook/rook/blob/master/pkg/operator/ceph/disruption/clusterdisruption/reconcile.go).
+  Also other open NFS Operator issues can be easily addressed while rewriting the operator.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s): Ashish Ranjan(@ashishranjan738), Jared Watts(@jbw976), Rohan Gupta(@rohan47)
+- Issues: 
+  - https://github.com/rook/rook/issues/4950
+  - https://github.com/rook/rook/issues/4259
+  - https://github.com/rook/rook/issues/2721
+  - https://github.com/rook/rook/issues/3073
+  - https://github.com/rook/rook/issues/3074
+
 
 
 
