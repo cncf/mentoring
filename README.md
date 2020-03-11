@@ -214,6 +214,12 @@ Rationale: some labels are not very selective, or very rarely come up in queries
 -	Mentor(s): Hrishikesh Barman (@geekodour)
 -	Issue: https://github.com/prometheus/test-infra/issues/333.
 
+#### Allow running prombench on EKS
+-	Description: Currently prombench benchmarking infrastructure runs on GKE. It'll be good to have it run on EKS as well if we need to migrate away from GKE, that'll be very useful. This is similar to [#333](https://github.com/prometheus/test-infra/issues/333) and could possibly be worked on together.
+-	Recommended Skills: CI, Golang, Kubernetes
+-	Mentor(s): Hrishikesh Barman (@geekodour)
+-	Issue: https://github.com/prometheus/test-infra/issues/341.
+
 #### Update Grafana dashboards for test-infra
 -	Description: The test-infra dashboards available at [prombench.prometheus.io/grafana](http://prombench.prometheus.io/grafana/) could be improved on different aspects, some of it will require understanding prometheus metrics and make the dashboards more useful to catch bugs during the bench tests. There are various high and low priority issues to work on.
 -	Recommended Skills: CI, Golang, Grafana, Kubernetes, Prometheus
