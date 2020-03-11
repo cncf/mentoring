@@ -61,18 +61,21 @@ _Add your project ideas below:_
   and plan to get involved with the kubernetes community in fixing
   them.
 - Recommended Skills: Go, Kubernetes
-- Mentor(s): Justin Santa Barbara (@justinsb), Leigh Capili (@stealthybox), Sandeep Rajan (@rajansandeep)
+- Mentor(s): Justin Santa Barbara (@justinsb), Leigh Capili (@stealthybox)
 - Issue: https://github.com/kubernetes-sigs/cluster-addons/issues/39
 
-#### CoreDNS operator :- New features 
-- Description:- This project aims to add new features and change the directory struture of the CoreDNS operator.The operator could
-  hash the configMap bytes and then update the name by appending the hash to it. The Deployment would then be updated to reference this
-  new name. This would allow the Deployment with multiple replicas to undergo a proper (and safe)  
-  RollingUpdate. And then creating an end-to-end smoketest for coredns-operator. The test should run locally by default (via kind or
-  kinder) and support running on a remote kubernetes cluster when provided.
-- Recommended Skills:- Go, Kubernetes, Bash, CoreDNS
-- Mentor(s): Jeff Johnson (@johnsonj)
-- Issue:- https://github.com/kubernetes-sigs/cluster-addons/issues/40
+#### CoreDNS operator: Prototype to Reality 
+- Description: CoreDNS Operator aims to manage the lifecycle of the CoreDNS installation in the cluster. 
+  It is concerned with the installation, updating, and configuration of CoreDNS. The current operator 
+  is a proof of concept of the add-on library. The goal of the alpha operator is to provide a minimal feature 
+  set that is manageable, predictable, and reliable in a production environment. You will work with
+  various CNCF groups to understand the problem and set milestones and criteria for the productionization
+  of the operator. You will establish the  fundamental testing for the operator to ensure long term 
+  success of the project. The project is ran out of the cluster addons working group which provides a 
+  friendly venue to learn more about the internals of Kubernetes.
+- Recommended Skills: Go, Kubernetes, Bash, CoreDNS
+- Mentor(s): Jeff Johnson (@johnsonj), Sandeep Rajan (@rajansandeep)
+- Issue: https://github.com/kubernetes-sigs/cluster-addons/issues/47
 
 #### Kubernetes Multitenancy Working Group: Benchmarks
 
