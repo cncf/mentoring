@@ -98,15 +98,14 @@ _Add your project ideas below:_
 -	Description: Thanos is allowing storing metrics for long, if not unlimited time. Currently however there is no fine-granular process of retaining only some portion of metrics for longer time e.g useful
 aggregations), while deleting other part early on. This task is aiming to implment this missing feature in Thanos and potentially Prometheus.
 -	Recommended Skills: golang, distributed systems, object storage (AWS, S3)
--	Mentor(s): Bartlomiej Plotka (@bwplotka)
+-	Mentor(s): Bartlomiej Plotka (@bwplotka), Giedrius Statkevičius (@GiedriusS)
 -	Issue: https://github.com/thanos-io/thanos/issues/903
 
-#### End to End Benchmarking Tests on Demand through CI
+#### Enriching and Extending Thanos UIs with React for Awesome User Experience!
 
-- Description: In order to increase confidence in Thanos' performance across releases and major changes, we would like to introduce a way to run reproducible e2e benchmark tests, ideally from the PR and with the use of Kubernetes. This work involves setting up Thanos scenarios and load generators that will run benchmarks for a certain period of time and output resource usage for the given Thanos version.
-- Recommended Skills: Golang, Kubernetes
-- Mentor(s): Giedrius Statkevičius (@GiedriusS)
-- Issue: https://github.com/thanos-io/thanos/issues/1707
+- Description: Thanos allows scaling Prometheus metrics in an easy and gradual process. So far we used successfully pieces of old Prometheus UI with some improvements. However, since Prometheus now moved all UI pages to React, it opens new possibilities for Thanos as well. Thanks to reacting we can enrich our UI even more while resuing many components from Prometheus with ease. As part of this task, we plan to move all UI to React and enrich them with Thanos features. We also plan to add UI to every component of Thanos ensuring consistency and improve the experience of using Thanos even more! Help us and work with friendly community and team towards our goals! 💪
+- Mentor(s): Bartlomiej Plotka (@bwplotka), Lucas Servén Marín (@squat)
+- Issue: https://github.com/thanos-io/thanos/issues/2198
 
 ### TiKV
 
