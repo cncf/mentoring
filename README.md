@@ -237,7 +237,7 @@ Rationale: some labels are not very selective, or very rarely come up in queries
     process). Port the missing implementation parts from either the Python or
     the Java implementations.
 -	Recommended Skills: Golang
--	Mentor(s): Santiago Torres-Arias (@santiagotorres), Lukas Puehringer (@lukpueh)
+-	Mentor(s): Santiago Torres-Arias (@santiagotorres), Lukas Puehringer (@lukpueh), Justin Cappos (@JustinCappos)
 -	Issue: https://github.com/in-toto/in-toto-golang/issues/30
 
 #### Port verify into in-toto Java
@@ -246,7 +246,7 @@ Rationale: some labels are not very selective, or very rarely come up in queries
     plugin), is missing methods to provie a full `verify()` function. Implement
     those, based off of either the golang or python implementations
 -	Recommended Skills: Java
--	Mentor(s): Santiago Torres-Arias (@santiagotorres), Lukas Puehringer (@lukpueh)
+-	Mentor(s): Santiago Torres-Arias (@santiagotorres), Lukas Puehringer (@lukpueh), Justin Cappos (@JustinCappos)
 -	Issue: https://github.com/in-toto/in-toto-java/issues/17
 
 #### Add metadata pretty print function
@@ -255,7 +255,7 @@ Rationale: some labels are not very selective, or very rarely come up in queries
     and display of metadata to ease integration with third-party tools or to
     ease human-readability
 -	Recommended Skills: Python
--	Mentor(s): Santiago Torres-Arias (@santiagotorres), Lukas Puehringer (@lukpueh)
+-	Mentor(s): Santiago Torres-Arias (@santiagotorres), Lukas Puehringer (@lukpueh), Justin Cappos (@JustinCappos)
 -	Issue: https://github.com/in-toto/in-toto/issues/18
 
 ### TUF
@@ -267,7 +267,7 @@ Rationale: some labels are not very selective, or very rarely come up in queries
     Provie a possibly async-io based replacement to handle timeout on slow
     retrieval attacks
 -	Recommended Skills: python, async-io (preferred, but not necessary)
--	Mentor(s): Santiago Torres-Arias (@santiagotorres)
+-	Mentor(s): Santiago Torres-Arias (@santiagotorres), Lukas Puehringer (@lukpueh), Justin Cappos (@JustinCappos)
 -	Issue: https://github.com/theupdateframework/tuf/issues/932
 
 #### Improve delegation graph management code
@@ -279,7 +279,7 @@ Rationale: some labels are not very selective, or very rarely come up in queries
     keys, based on how the role was reached in the depth-first search while
     looking for target information.
 -	Recommended Skills: python
--	Mentor(s): Santiago Torres-Arias (@santiagotorres)
+-	Mentor(s): Santiago Torres-Arias (@santiagotorres), Lukas Puehringer (@lukpueh), Justin Cappos (@JustinCappos)
 -	Issue: https://github.com/theupdateframework/tuf/issues/660
 
 ### CoreDNS
