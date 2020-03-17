@@ -189,13 +189,6 @@ Rationale: some labels are not very selective, or very rarely come up in queries
 
 ### Prometheus
 
-#### Benchmarks for TSDB
-
--	Description: The TSDB module used in Prometheus doesn’t have proper benchmarks yet, which means we cannot see the potential impact of the changes we are introducing. The idea is to build some automated benchmarking which can be added to the CI pipeline.
--	Recommended Skills: CI, Golang, Kubernetes
--	Mentor(s): Krasi Georgiev (@krasi-georgiev)
--	Issue: https://github.com/prometheus/tsdb/issues/235
-
 #### Persist Retroactive Rule Reevaluations
 
 -	Description: Right now one of the biggest issues with recording rules is that data is only available since the rule was created. Which means any dashboards that use the recording rule will not have data prior to the recording rules create time. We can already reevaluate queries on old data, but we should be able to persist that for a certain window from [Oldest, Now).
