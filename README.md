@@ -81,8 +81,8 @@ _Add your project ideas below:_
 
 -   Description: The Kubernetes Multi-Tenancy Working Group is chartered with exploring and defining multi-tenancy models for Kubernetes.  An overview of working group activities can be found in this [Kubernetes Multi-Tenancy Working Group](https://drive.google.com/file/d/1VFVE0lktXq9zaV6H04GyZBV3oQzoYKV6/edit) . The [Multitenancy Benchmarks](https://github.com/kubernetes-sigs/multi-tenancy/tree/master/benchmarks) effort focuses on measuring and validating the desired behaviors for multitenancy. Part of this effort is to automate behavioral and configuration checks on existing clusters, which will be the focus of this project. This automated test suit will help all Kubernetes users validate whether their clusters are setup correctly for multi-tenancy.
 -   Recommended Skills: Go, Kubernetes
--   Mentor(s): Jim Bugwadia (@JimBugwadia)
--   Issue: Multiple issues - https://github.com/kubernetes-sigs/multi-tenancy/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+MTB
+-   Mentor(s):Tasha Drew (@tashimi), Ryan Bezdicek (@rjbez17), Jim Bugwadia (@JimBugwadia)
+-   Issue: https://github.com/kubernetes-sigs/multi-tenancy/issues/551
 
 #### A better experience for Kubernetes to provision and consume cloud resources
 
