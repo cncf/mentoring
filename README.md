@@ -236,7 +236,7 @@ Rationale: some labels are not very selective, or very rarely come up in queries
 #### Port verify into in-toto Java
 
 -	Description: The in-toto java implementation (as used by the Jenkins
-    plugin), is missing methods to provie a full `verify()` function. Implement
+    plugin), is missing methods to provide a full `verify()` function. Implement
     those, based off of either the golang or python implementations
 -	Recommended Skills: Java
 -	Mentor(s): Santiago Torres-Arias (@santiagotorres), Lukas Puehringer (@lukpueh), Justin Cappos (@JustinCappos)
@@ -260,7 +260,7 @@ Rationale: some labels are not very selective, or very rarely come up in queries
     Provie a possibly async-io based replacement to handle timeout on slow
     retrieval attacks
 -	Recommended Skills: python, async-io (preferred, but not necessary)
--	Mentor(s): Santiago Torres-Arias (@santiagotorres), Lukas Puehringer (@lukpueh), Justin Cappos (@JustinCappos)
+-	Mentor(s): Santiago Torres-Arias (@santiagotorres), Lukas Puehringer (@lukpueh), Trishank Karthik Kuppusamy (@trishankatdatadog), Justin Cappos (@JustinCappos)
 -	Issue: https://github.com/theupdateframework/tuf/issues/932
 
 #### Improve delegation graph management code
@@ -272,7 +272,7 @@ Rationale: some labels are not very selective, or very rarely come up in queries
     keys, based on how the role was reached in the depth-first search while
     looking for target information.
 -	Recommended Skills: python
--	Mentor(s): Santiago Torres-Arias (@santiagotorres), Lukas Puehringer (@lukpueh), Justin Cappos (@JustinCappos)
+-	Mentor(s): Santiago Torres-Arias (@santiagotorres), Lukas Puehringer (@lukpueh), Trishank Karthik Kuppusamy (@trishankatdatadog), Justin Cappos (@JustinCappos)
 -	Issue: https://github.com/theupdateframework/tuf/issues/660
 
 ### CoreDNS
