@@ -420,6 +420,15 @@ OPA is a domain-agnostic policy engine that embodies "policy as code": https://w
   - https://github.com/rook/rook/issues/3073
   - https://github.com/rook/rook/issues/3074
 
+#### Service Mesh Interface (SMI) Conformance Tool
 
+ - Description:  Ensure that a service mesh is properly configured and that its behavior
+   conforms to official SMI specifications. Conformance consists of both capabilities
+   and compliance status as outlined in the design specification. Use Meshery as the
+   underlying technology to support SMI validation.
+ - Recommended Skills: Golang, Kubernetes
+ - Mentor(s): Lee Calcote (@lcalcote), Sagar Utekar (@named_uttu)
+-- Issues: [https://github.com/servicemeshinterface/smi-spec/issues/70](https://github.com/servicemeshinterface/smi-spec/issues/70)
+ - Design Spec: [https://docs.google.com/document/d/1HL8Sk7NSLLj-9PRqoHYVIGyU6fZxUQFotrxbmfFtjwc/edit#](https://docs.google.com/document/d/1HL8Sk7NSLLj-9PRqoHYVIGyU6fZxUQFotrxbmfFtjwc/edit#)
 
 
