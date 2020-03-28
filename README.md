@@ -198,9 +198,9 @@ Rationale: some labels are not very selective, or very rarely come up in queries
 
 #### Rule formatting tool
 
--	Description: Like "gofmt" for Go, we ought to have a "promfmt" for Prometheus since we have a syntax tree. The idea being that the system produces uniform style that minimizes deviation and learning curve. Care should be taken to preserve comments.
+-	Description: Like "gofmt" for Go, we ought to have a "promfmt" functionality for Prometheus since we have a syntax tree. The idea being that the system produces uniform style PromQL expressions and rule files that minimizes deviation and learning curve. Care should be taken to preserve comments.
 -	Recommended Skills: Golang
--	Mentor(s): Ganesh Vernekar (@codesome)
+-	Mentor(s): Ganesh Vernekar (@codesome), Tobias Guggenmos (@slrtbtfs)
 -	Issue: https://github.com/prometheus/prometheus/issues/21.
 
 #### Allow running prombench locally
