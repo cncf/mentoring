@@ -91,6 +91,13 @@ _Add your project ideas below:_
 - Mentor(s): Jianbo Sun (@wonderflow), Ryan Zhang (@ryanzhang-oss)
 - Issue: Multiple issues - https://github.com/kubernetes/kubernetes/issues/14475, https://github.com/kubernetes/community/pull/254, https://github.com/oam-dev/cloud-provider/issues/13
 
+#### Integrate etcdadm with Cluster API to Support External Etcd Topology
+
+-	Description: Cluster API supports external etcd by adding kubeadm external etcd configuration inside `clusterConfiguration` field in `KubeadmConfig` directly. The limitation is Cluster API is unable to manage external etcd itself. This project aims to address that limitation by implementing a controlplane that uses etcdadm to manage the aspect of the external etcd cluster.
+-	Recommended Skills: Go, Kubernetes
+-	Mentor(s): Daniel Lipovetsky (@dlipovetsky)
+-	Issue: https://github.com/kubernetes-sigs/etcdadm/issues/153
+
 ### Thanos
 
 #### Per Series Metric Retention
