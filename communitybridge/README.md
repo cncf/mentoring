@@ -39,7 +39,7 @@ Blog](https://www.cncf.io/blog/2019/12/05/cncf-to-participate-in-the-community-b
     - January 31 2020 - intermediate checkpoint. Mentors verify the quality of
       the completed tasks. First 50% of the stipend is being paid to the mentee
       if this stage is passed.
-- March 20 2020: results announced!
+- April 1 (deadline extended) ~~March 20~~ 2020: results announced!
     - Second 50% of the stipend is being paid to the mentees.
 
 ### How to apply?
