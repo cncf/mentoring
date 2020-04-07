@@ -375,7 +375,7 @@ OPA is a domain-agnostic policy engine that embodies "policy as code": https://w
 
 - Description: Cloud Native Buildpacks are magic! Magic is great, but sometimes users want to better understand what is going on under the hood. Redesign the lifecycle output to demystify the build process for users. This will require some creativity.
 - Recommended Skills: Go
-- Mentor(s): Javier Romero (@jromero), Emily Casey (@ekcasey)
+- Mentor(s): Javier Romero (@jromero), Emily Casey (@ekcasey), Stephen Levine (@sclevine)
 - Issue: https://github.com/buildpacks/lifecycle/issues/264
 
 ### OpenEBS
