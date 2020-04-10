@@ -64,14 +64,14 @@ _Add your project ideas below:_
 - Mentor(s): Justin Santa Barbara (@justinsb), Leigh Capili (@stealthybox)
 - Issue: https://github.com/kubernetes-sigs/cluster-addons/issues/39
 
-#### CoreDNS operator: Prototype to Reality 
-- Description: CoreDNS Operator aims to manage the lifecycle of the CoreDNS installation in the cluster. 
-  It is concerned with the installation, updating, and configuration of CoreDNS. The current operator 
-  is a proof of concept of the add-on library. The goal of the alpha operator is to provide a minimal feature 
+#### CoreDNS operator: Prototype to Reality
+- Description: CoreDNS Operator aims to manage the lifecycle of the CoreDNS installation in the cluster.
+  It is concerned with the installation, updating, and configuration of CoreDNS. The current operator
+  is a proof of concept of the add-on library. The goal of the alpha operator is to provide a minimal feature
   set that is manageable, predictable, and reliable in a production environment. You will work with
   various CNCF groups to understand the problem and set milestones and criteria for the productionization
-  of the operator. You will establish the  fundamental testing for the operator to ensure long term 
-  success of the project. The project is ran out of the cluster addons working group which provides a 
+  of the operator. You will establish the  fundamental testing for the operator to ensure long term
+  success of the project. The project is ran out of the cluster addons working group which provides a
   friendly venue to learn more about the internals of Kubernetes.
 - Recommended Skills: Go, Kubernetes, Bash, CoreDNS
 - Mentor(s): Jeff Johnson (@johnsonj), Sandeep Rajan (@rajansandeep)
@@ -280,14 +280,14 @@ Rationale: some labels are not very selective, or very rarely come up in queries
 #### Anomaly detection of CoreDNS server through machine learning
 
 - Description: As a DNS server, CoreDNS is critical to overall devops infrastructure. Any anomaly related to CoreDNS server should be taken seriously. While altering rules (combined with monitoring tools such as Prometheus) helps in discovering issues, those rules are often crafted manually and requires human expertise. It would help a lot if machine learning could be utilized to further automate the monitoring/alerting in case of anomaly.
-  This project intends to build and train a model that could be used for anomaly detection of CoreDNS server through metrics collected from Prometheus. Since the metrics pipeline to Prometheus is already available in CoreDNS, the project’s focus is mostly on model building. It is suggested to use tf.keras to build the model. A successful model should at least be able to detect a scenario that is alerting and requires further devops or security intervention.  
+  This project intends to build and train a model that could be used for anomaly detection of CoreDNS server through metrics collected from Prometheus. Since the metrics pipeline to Prometheus is already available in CoreDNS, the project’s focus is mostly on model building. It is suggested to use tf.keras to build the model. A successful model should at least be able to detect a scenario that is alerting and requires further devops or security intervention.
 - Recommended Skills:  DNS/CoreDNS, Prometheus, Keras/TensorFlow, Python
 - Mentor(s): Yong Tang (@yongtang), Paul Greenberg (@greenpau)
 - Issue: https://github.com/coredns/coredns/issues/3658
 
 
 
-#### External health check and orchestration of CoreDNS in Kubernetes clusters 
+#### External health check and orchestration of CoreDNS in Kubernetes clusters
 
 - Description: CoreDNS is the cluster DNS server for Kubernetes and is very much critical for the overall health of the Kubernetes cluster. It is very important to monitoring the health of CoreDNS itself and restarting or repairing any CoreDNS pods that are not behaving correctly. While CoreDNS exposes a health check itself, the health check is not UDP (DNS) based. The existing health check is also launched locally which could be very much different when accessed by other pods remotely.
   This project intends to build an application that checks CoreDNS health through UDP (DNS) externally, and, restart CoreDNS pods by interacting with Kubernetes API through golang. This is an important project that will greatly improve the overall health of Kubernetes clusters through automation.
@@ -382,19 +382,19 @@ OPA is a domain-agnostic policy engine that embodies "policy as code": https://w
 
 #### kubectl plugin for OpenEBS
 
-- Description: OpenEBS is completely Kubernetes native and is implemented using microservices. The microservices are deployed as Kubernetes deployments, statefulset or daemon sets and so forth. In order to know the status of the components - like OpenEBS control plane or a given OpenEBS volume, a user may have to multiple kubectl commands to get the required information. To improve the usability, the proposal is to have a kubectl plugin for OpenEBS can provide a simple CLI to perform common operations. 
+- Description: OpenEBS is completely Kubernetes native and is implemented using microservices. The microservices are deployed as Kubernetes deployments, statefulset or daemon sets and so forth. In order to know the status of the components - like OpenEBS control plane or a given OpenEBS volume, a user may have to multiple kubectl commands to get the required information. To improve the usability, the proposal is to have a kubectl plugin for OpenEBS can provide a simple CLI to perform common operations.
 - Recommended Skills: Go, Kubernetes
 - Mentor(s): Kiran Mova (@kmova), Amit Kumar Das (@AmitKumarDas)
 - Issue: https://github.com/openebs/openebs/issues/2946, https://github.com/openebs/openebs/issues/290
 
 #### Grafana dashboards for OpenEBS
-- Description: All the openebs components are deployed as Kubernetes native objects and support scraping of metrics via Prometheus. This is a feature request to implement Grafana dashboards for: overall status, volume and pool usage. 
+- Description: All the openebs components are deployed as Kubernetes native objects and support scraping of metrics via Prometheus. This is a feature request to implement Grafana dashboards for: overall status, volume and pool usage.
 - Recommended Skills: Prometheus, Grafana
 - Mentor(s): Kiran Mova (@kmova)
 - Issue: https://github.com/openebs/openebs/issues/2947
 
 #### Improve the release management process for OpenEBS
-- Description: OpenEBS uses microservices architecture pattern and its components are developed in different GitHub repositories. Tagging the repository with a new release, will trigger a build process on Travis CI and new version of the component is built and pushed to container registeries. There is certain order/dependency in which the components are released, and requires release tagging the components to happen in a specified order. It would be nice to automate this process by making use of web hooks on docker, travis and github or there could be a better alternative that needs to be explored. 
+- Description: OpenEBS uses microservices architecture pattern and its components are developed in different GitHub repositories. Tagging the repository with a new release, will trigger a build process on Travis CI and new version of the component is built and pushed to container registeries. There is certain order/dependency in which the components are released, and requires release tagging the components to happen in a specified order. It would be nice to automate this process by making use of web hooks on docker, travis and github or there could be a better alternative that needs to be explored.
 - Recommended Skills: Build and Release Management, Makefiles, GitHub, Travis
 - Mentor(s): Kiran Mova (@kmova)
 - Issue: https://github.com/openebs/openebs/issues/288
@@ -413,14 +413,14 @@ OPA is a domain-agnostic policy engine that embodies "policy as code": https://w
   Also other open NFS Operator issues can be easily addressed while rewriting the operator.
 - Recommended Skills: Golang, Kubernetes
 - Mentor(s): Ashish Ranjan(@ashishranjan738), Jared Watts(@jbw976), Rohan Gupta(@rohan47)
-- Issues: 
+- Issues:
   - https://github.com/rook/rook/issues/4950
   - https://github.com/rook/rook/issues/4259
   - https://github.com/rook/rook/issues/2721
   - https://github.com/rook/rook/issues/3073
   - https://github.com/rook/rook/issues/3074
 
-### Service Mesh Interface (SMI) 
+### Service Mesh Interface (SMI)
 #### Conformance Tool
 
  - Description:  Ensure that a service mesh is properly configured and that its behavior
@@ -435,7 +435,7 @@ OPA is a domain-agnostic policy engine that embodies "policy as code": https://w
 
 ### Envoy
 #### Distributed Load Testing of Envoy Data Planes
-- Description: Many performance benchmarks are limited to single instance load generation 
+- Description: Many performance benchmarks are limited to single instance load generation
   (single pod load generator). This limits the amount of traffic that can be generated to output of the single machine that the benchmark tool runs on in or out of a cluster. Overcoming this limitation would allow for more flexible and robust testing. Distributed load testing in parallel poses a challenge when merging results without losing the precision we need to gain insight into the high tail percentiles.
 - Recommended Skill(s): Golang, Kubernetes
 - Issue(s): https://github.com/envoyproxy/envoy-perf/issues/72
