@@ -23,8 +23,7 @@ It's best if you use a public communication channel whenever possible; however, 
 Current Year
 ------------
 
-CNCF is planning to participate in GSoC 2020. Please stay tuned before the
-official announcement (Q1'2020).
+CNCF is to participating in GSoC 2020! Please see the formal [announcement](https://www.cncf.io/blog/2020/03/09/cncf-joins-google-summer-of-code-2020/) by us.
 
 Project Ideas
 -------------
