@@ -4,7 +4,7 @@ If CNCF has received satisfactory results on your mentorship evaluation, you sho
 
 You can also find the Expensify user documentation with screenshots [here](https://docs.linuxfoundation.org/display/DOCS/Get+Reimbursed).
 
-Once you have completed the Expensify account setup, please complete the [Linux Foundation Wire Transfer Form](https://github.com/cncf/soc/raw/master/communitybridge/payments/Linux%20Foundation%20Wire%20Transfer%20Form.pdf). You will need to attach it to your expense in place of a receipt. 
+Once you have completed the Expensify account setup, please complete the [Linux Foundation Wire Transfer Form](https://github.com/cncf/mentoring/raw/master/communitybridge/payments/Linux%20Foundation%20Wire%20Transfer%20Form.pdf). You will need to attach it to your expense in place of a receipt. 
 
 Next, please go ahead and submit an expense report for your first stipend payment via Expensify per instructions below: 
 
