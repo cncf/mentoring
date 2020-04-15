@@ -1,21 +1,26 @@
-# Season of Docs
+Season of Docs
+==============
 
-TODO
+Season of Docs is a program that gives an opportunity for the technical writers to work with the open source projects.
 
-## Program Cycles and Archive data
+CNCF is planning to participate in the Season of Docs in 2020, more details coming soon.
 
-| Year | Term  | Status    | Announcement                                                                                                                                                         | Details                      |
-|------|-------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| 2020 | Q2    | Ongoing   | TBD                                                                                                                                                                  | [Q2'2020](2020/q2/README.md) |
+Program Cycles and Archive data
+-------------------------------
+
+| Year | Term | Status  | Announcement | Details              |
+|------|------|---------|--------------|----------------------|
+| 2020 | Q2   | Ongoing | TBD          | [Q2'2020](README.md) |
 
 ### Current cycle
 
 TODO
 
-## Program Maintainers
+Program Maintainers
+-------------------
 
-- Chris Aniszczyk ([@caniszczyk](https://github.com/caniszczyk)\): https://twitter.com/cra
-- Ihor Dvoretskyi ([@idvoretskyi](https://github.com/idvoretskyi)\): https://twitter.com/idvoretskyi
+-	Chris Aniszczyk ([@caniszczyk](https://github.com/caniszczyk)\): https://twitter.com/cra
+-	Ihor Dvoretskyi ([@idvoretskyi](https://github.com/idvoretskyi)\): https://twitter.com/idvoretskyi
 
 ### How to apply?
 
@@ -25,8 +30,7 @@ Project maintainers and mentors, are requested to submit the ideas below (under 
 
 #### Mentors
 
-If you are a mentor and your project will be selected to participate in the
-Season of Docs mentorship program, you'll have to apply as a mentor on the Season of Docs website.
+If you are a mentor and your project will be selected to participate in the Season of Docs mentorship program, you'll have to apply as a mentor on the Season of Docs website.
 
 #### Mentees
 
@@ -38,6 +42,7 @@ Mentors are responsible for selecting and matching mentees to their projects.
 
 TODO
 
-## Communication
+Communication
+-------------
 
 Please use the dedicated [#mentoring](https://cloud-native.slack.com/archives/CPV83DB51) channel on the [CNCF Slack](https://slack.cncf.io/).

@@ -63,7 +63,7 @@ Program Statistics
 
 #### 2020
 
-_In progress_
+*In progress*
 
 #### 2019
 
