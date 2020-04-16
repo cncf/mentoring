@@ -10,6 +10,6 @@ https://github.com/kubernetes/community/blob/master/mentoring/programs/outreachy
 | Year | Mentee          | Project    |
 |------|-----------------|------------|
 | 2017 | Ellen Korbes    | Kubernetes |
-|      | Yolande Amante  | Kubernetes |
+| 2017 | Yolande Amante  | Kubernetes |
 | 2018 | Eduar Tua       | Kubernetes |
 | 2019 | Vishakha Nihore | Kubernetes |
