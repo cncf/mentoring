@@ -67,12 +67,43 @@ Program Statistics
 
 #### 2019
 
-TODO
+| CNCF Projects     | GSoC Project                                                                                                                                                | Mentor(s)                                          | Mentee              |
+|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|---------------------|
+| CoreDNS           | [Support Source IP Based Query Block/Allow in CoreDNS](https://summerofcode.withgoogle.com/archive/2019/projects/4786589752885248/)                         | Yong Tang                                          | An Xiao             |
+| Envoy/Linkerd     | [Multi-mesh performance benchmark tool](https://summerofcode.withgoogle.com/archive/2019/projects/6211205507579904/)                                        | Lee Calcote                                        | Shahriyar Mammadov  |
+| Falco             | [Falco engine performance analysis and optimization](https://summerofcode.withgoogle.com/archive/2019/projects/6404259405365248/)                           | Loris Degioanni,Lorenzo Fontana,Leonardo Di Donato | Mattia Lavacca      |
+| Kubernetes        | [Add Plugin Mechanism to the Dashboard](https://summerofcode.withgoogle.com/archive/2019/projects/6552345297551360/)                                        | Marcin Maciaszczyk, Sebastian Florek               | Ajat Prabha         |
+| Kubernetes        | [Add Support for Custom Resource Definitions to the Dashboard](https://summerofcode.withgoogle.com/archive/2019/projects/5962909421666304/)                 | Marcin Maciaszczyk, Sebastian Florek               | Elijah Oyekunle     |
+| Kubernetes        | [Implement volume snapshotting support into the external Manila provisioner](https://summerofcode.withgoogle.com/archive/2019/projects/5574535259095040/)   | Tomáš Smetana                                      | Róbert Vašek        |
+| Kubernetes        | [Kubernetes with hardware devices topology awareness at node level](https://summerofcode.withgoogle.com/archive/2019/projects/6336863634194432/)            | Lei Zhang, Jian He, Kai Zhang                      | Junjun LI           |
+| Kubernetes        | [Run GPU sharing workloads with Kubernetes + Kubeflow](https://summerofcode.withgoogle.com/archive/2019/projects/5857894333939712/)                         | Lei Zhang,Jian He,Kai Zhang                        | Jianbo Ma           |
+| Open Policy Agent | [IPTables Integration with OPEN POLICY AGENT(OPA)](https://summerofcode.withgoogle.com/archive/2019/projects/6201904034480128/)                             | Tim Hinrichs, Reinaldo Penno                       | Urvil Patel         |
+| Prometheus        | [Extending Prombench and adding rule formatting for Prometheus](https://summerofcode.withgoogle.com/archive/2019/projects/4610665543630848/)                | Krasi Georgiev                                     | Hrishikesh Barman   |
+| Prometheus        | [GitHub integrated benchmarking tool for Prometheus TSDB](https://summerofcode.withgoogle.com/archive/2019/projects/5218130282938368/)                      | Krasi Georgiev                                     | Vladimir Masarik    |
+| Prometheus        | [Optimize queries using regex matchers for set lookups & Postings compression](https://summerofcode.withgoogle.com/archive/2019/projects/5513478607994880/) | Ganesh Vernekar                                    | Zhiqi WANG          |
+| rkt               | [Add support for the OCI runtime spec by implementing a runc stage2](https://summerofcode.withgoogle.com/archive/2019/projects/6333611203100672/)           | Alban Crequy, Iago López Galeiras                  | Alejandro Germain   |
+| Rook              | [Enable multiple network interfaces for Rook storage providers](https://summerofcode.withgoogle.com/archive/2019/projects/5963949340622848/)                | Dmitry Yusupov                                     | Giovan Isa Musthofa |
+| TiKV              | [Proposal for Auto-tune RocksDB](https://summerofcode.withgoogle.com/archive/2019/projects/4737753357484032/)                                               | Wu                                                 | Yuanli Wang         |
 
 #### 2018
 
-TODO
+| CNCF Projects | GSoC Project                                                                                                                                | Mentor(s)                                      | Mentee          |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | --------------- |
+| containerd    | [Integrate Containerd with Katacontainers](https://summerofcode.withgoogle.com/archive/2018/projects/6403629539917824/)                     | Harry Zhang                                    | Jian Liu        |
+| CoreDNS       | [Conditional Name Server Identifier - CoreDNS](https://summerofcode.withgoogle.com/archive/2018/projects/4869116712189952/)                 | Miek Gieben, Yong Tang, John Belamaric         | Jiacheng Xu     |
+| Envoy         | [Extending Envoy's fuzzing coverage](https://summerofcode.withgoogle.com/archive/2018/projects/5597459212402688/)                           | Matt Klein, Constance Caramanolis, Harvey Tuch | Anirudh M       |
+| Kubernetes    | [Storage API for Aggregated API Servers](https://summerofcode.withgoogle.com/archive/2018/projects/5952269212188672/)                       | David Eads, Stefan Schimanski                  | Marko Mudrinić  |
+| Prometheus    | [Building a testing & benchmarking environment for Prometheus](https://summerofcode.withgoogle.com/archive/2018/projects/6728419798679552/) | Krasi Georgiev, gouthamve                      | Harsh_Agarwal   |
+| Prometheus    | [Composite Label Indices & Alerts rule testing](https://summerofcode.withgoogle.com/archive/2018/projects/4516877250330624/)                | gouthamve                                      | Ganesh Vernekar |
+| Rook          | [Add Network File System (NFS) as a Rook storage backend](https://summerofcode.withgoogle.com/archive/2018/projects/5713541642321920/)      | Travs Nielsen, jbw976                          | Rohan Gupta     |
 
 #### 2017
 
-TODO
+| CNCF Projects | GSoC Project                                                                                                                                                                         | Mentor(s)                   | Mentee             |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------- | ------------------ |
+| Kubernetes    | [Create and implement a Data model to standardize Kubernetes logs](https://summerofcode.withgoogle.com/archive/2017/projects/5112703567790080/)                                      | Miguel Pérez Colino         | Amit Kumar Jaiswal |
+| Kubernetes    | [Develop a set of Jupyter Notebooks for the Kubernetes Python Client + Kubernetes Python Client update](https://summerofcode.withgoogle.com/archive/2017/projects/6048005979373568/) | Sebastien Goasguen          | Konrad Djimeli     |
+| CoreDNS       | [dnstap Middleware](https://summerofcode.withgoogle.com/archive/2017/projects/5269744752001024/)                                                                                     | Miek Gieben, John Belamaric | Antoine D.         |
+| Kubernetes    | [Improve Third Party Resources](https://summerofcode.withgoogle.com/archive/2017/projects/5736684469616640/)                                                                         | Stefan Schimanski           | Nikhita Raghunath  |
+| OpenTracing   | [instrument OpenTracing with go-restful web framework](https://summerofcode.withgoogle.com/archive/2017/projects/5449224187543552/)                                                  | Wu Sheng, Ted Young         | MINGQIANG LIANG    |
+
