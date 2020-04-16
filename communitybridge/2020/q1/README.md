@@ -3,7 +3,7 @@ Q1
 
 *Status: completed*
 
-See our recent post with the program announcement on [CNCF Blog](https://www.cncf.io/blog/2019/12/05/cncf-to-participate-in-the-community-bridge-mentorship-program/).
+See our recent post with the program results on [CNCF Blog](https://www.cncf.io/blog/2020/04/15/seven-cncf-interns-graduate-from-the-2020-linux-foundation-communitybridge-program/).
 
 ### Completed Projects
 
