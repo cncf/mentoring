@@ -12,3 +12,4 @@ Blog](https://www.cncf.io/blog/2019/08/22/cncf-hosts-three-student-internships-f
 | Kubernetes    	| Integrating kube-batch with pytorch-operator/mxnet-operator 	| Klaus Ma       	| [Suryavanshi Virendrasingh](https://www.linkedin.com/in/virendrasingh-suryavanshi-47460498/) 	|
 | Kubernetes    	| CSI Driver for Azure Disk                                   	| Xia Zhang      	| [Priyanshu Khandelwal](https://www.linkedin.com/in/priyanshu-khandelwal-7283b6133/)          	|
 | CoreDNS       	| Support Google Cloud DNS backend                            	| Yong Tang      	| [Palash Nigam](https://www.linkedin.com/in/palash25/)                                        	|
+| Jaeger & Linkerd   |  Distributed Tracing support for Linkerd                  |  Juraci Paixão & Thomas Grampelberg | [Tarun Pothulapati](https://www.linkedin.com/in/tpothulapati/)     |
