@@ -36,3 +36,12 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 -	Issue:
 	-	https://github.com/kubernetes-sigs/azurefile-csi-driver/issues
 	-	https://github.com/Azure/kubernetes-volume-drivers/issues/48
+
+#### Developer Experience
+
+##### Kruise Deployment Wizard
+
+-	Description: The Kruise Wizard is a tool that streamlines the creation of initial deployment manifests for complex Kubernetes applications. Development and traditional Ops teams can now use a wizard-like tool to define application deployments and generate a set of Kustomized based YAML files. These files are committed to a Git repository allowing seamless GitOps adoption. Kustomized based Kubernetes deployments can then be deployed utilizing a variety of CD tools as in our case: ArgoCD.
+-	Recommended Skills: golang, kubernetes, argoCD, Kustomize
+-	Mentor(s): Ken Owens (@kenowens12)
+-	Upstream Issue (URL):https://github.com/Mastercard/Kruise-API
