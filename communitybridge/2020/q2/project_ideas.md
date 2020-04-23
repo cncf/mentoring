@@ -45,3 +45,13 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 -	Recommended Skills: golang, kubernetes, argoCD, Kustomize
 -	Mentor(s): Ken Owens (@kenowens12)
 -	Upstream Issue (URL):https://github.com/Mastercard/Kruise-API
+
+
+### OPA
+
+##### OPA Go APIs
+
+-	Description: We embed OPA in our applications to implement policy as code. We found that current OPA Go APIs are not designed for API calls. It is mainly for standalone CLI.  For example, policy input has to be file via file path. In APIs, policy input could be either string or bytes.  We have to write policy data into temp file in order to call OPA APIs.  In addition to OPA APIs, we also want to build policy repository to support policy agent   
+-	Recommended Skills: golang, OPA
+-	Mentor(s): Jingnan Zhou (@jingnanzhou)
+
