@@ -26,4 +26,13 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 ### Proposed Project ideas
 
-...
+### Kubernetes
+
+#### Kubernetes working group for CSI driver
+
+-	Description: Container Storage Interface (CSI) is a standard for exposing storage systems to containerized workloads on Kubernetes. The idea is to implement a few new CSI features and also e2e tests to cover those features, e.g. volume expansion, Windows support, inline volume support etc. Also, there are requirements to rewrite some flexvolume drivers(e.g. [smb driver](https://github.com/Azure/kubernetes-volume-drivers/tree/master/flexvolume/smb)) to CSI driver.
+-	Recommended Skills: golang, Kubernetes
+-	Mentor(s): Andy Zhang @andyzhangx
+-	Issue:
+	-	https://github.com/kubernetes-sigs/azurefile-csi-driver/issues
+	-	https://github.com/Azure/kubernetes-volume-drivers/issues/48
