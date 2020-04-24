@@ -7,10 +7,10 @@ _Status: ongoing_
 #### Timeline
 _Note: this timeline is proposed and may be a subject to change before the formal program launch announcement_
 
-- April 16 - April 24: project applications opened
+- April 16 - May 1: project applications opened
     - projects are invited to submit their proposals to https://github.com/cncf/mentoring/blob/master/communitybridge/2020/q2/project_ideas.md
-- April 30: selected projects/slots are announced by CNCF;
-- May 1 - May 10: mentees applications opened, projects are selecting mentees;
+- May 4: selected projects/slots are announced by CNCF;
+- May 4 - May 10: mentees applications opened, projects are selecting mentees;
 - May 11 - mentees are selected by the mentors, coding starts;
 - June 15 - 1st evaluation checkpoint;
     - Mentors verify the quality of the completed tasks;
