@@ -39,7 +39,7 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 ### Argo
 
-##### Kruise Deployment Wizard
+#### Kruise Deployment Wizard
 
 -	Description: The Kruise Wizard is a tool that streamlines the creation of initial deployment manifests for complex Kubernetes applications. Development and traditional Ops teams can now use a wizard-like tool to define application deployments and generate a set of Kustomized based YAML files. These files are committed to a Git repository allowing seamless GitOps adoption. Kustomized based Kubernetes deployments can then be deployed utilizing a variety of CD tools as in our case: ArgoCD.
 -	Recommended Skills: golang, kubernetes, argoCD, Kustomize
@@ -49,9 +49,27 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 ### OPA
 
-##### OPA Go APIs
+#### OPA Go APIs
 
 -	Description: We embed OPA in our applications to implement policy as code. We found that current OPA Go APIs are not designed for API calls. It is mainly for standalone CLI.  For example, policy input has to be file via file path. In APIs, policy input could be either string or bytes.  We have to write policy data into temp file in order to call OPA APIs.  In addition to OPA APIs, we also want to build policy repository to support policy agent   
 -	Recommended Skills: golang, OPA
 -	Mentor(s): Jingnan Zhou (@jingnanzhou)
 -	Upstream Issue (URL): https://github.com/open-policy-agent/opa/issues/2336
+
+### Thanos
+
+#### Metrics Deletion 
+
+- Description: Thanos is allowing storing metrics for long, if not unlimited time. Currently, however there is no fine-granular process of retaining only some portion of metrics for a longer time e.g useful aggregations), while deleting another part early on. This task is aiming to implement this missing feature in Thanos and potentially Prometheus. You will learn how to write efficient and reliable distributed systems, and how to deal with large scale challenges.
+- Recommended Skills: go, distributed systems, object storage (AWS, S3)
+- Mentor(s): Bartlomiej Plotka (@bwplotka), Matthias Loibl (@metalmatze)
+- Issue: https://github.com/thanos-io/thanos/issues/1598
+
+#### Versioned Website Docs
+
+- Description: The Thanos website includes a documentation area that contains per-component docs and configuration built by rendering the markdown files from the tip of master of the Thanos repository. This frequently causes confusion for users, as breaking changes are often merged into master that conflict with the APIs of previous releases. To solve this user-facing issue, we would like to allow the website to show a different set of docs for every Thanos release. This project will involve designing a documentation structure and version picker in the website to select different versions of documents. We will also need to design a workflow for managing docs that integrates with our Git workflow, i.e. updating corresponding docs on pull requests, cherry-picks, etc.
+- Recommended Skills: go, HTML, JavaScript, CSS
+- Mentor(s): Lucas Servén Marín (@squat), Bartlomiej Plotka (@bwplotka)
+- Issue: https://github.com/thanos-io/thanos/issues/2488
+ 
+
