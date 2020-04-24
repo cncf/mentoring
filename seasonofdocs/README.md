@@ -104,3 +104,35 @@ The Kubernetes special interest group (SIG) for command line interfaces (CLI), o
 - How to work with stakeholders in open source projects
 - How to document a new tool
 - Bleeding edge command line tools for Kubernetes
+
+### Thanos: Complete Katacoda tutorials
+
+This is a great project for a writer with some passion for Docker and Kubernetes, interested in doing interactive docs: specifically learning to build [Katacoda Course](https://katacoda.com/scenario-examples/scenarios/create-course).
+
+Currently, we have a single [Katacoda](https://katacoda.com/bwplotka/courses/thanos/1-globalview) tutorial, which helps Thanos users to start up quickly and understand the concepts. To help improve the user experience further we have planned five more tutorials.
+
+The Katacoda tutorials are written in YAML format and don't require a lot of custom tooling. We have a moderate amount of docs on our website [thanos.io](https://thanos.io/), which should help you to get started quickly. Also, there are many youtube videos explaining the concepts. 
+
+We can offer friendly community support and technical guidance and feedback.
+We're looking for one contributor to explore interactive tutorials and learn some technical concepts along the way. We are definitely not looking for perfection on the first try.
+
+#### Project goals
+
+Our goal is a helpful, consistent, user experience for understanding Thanos and the problems it solves.
+
+Writing interactive tutorials: 
+- Intro: Downsampling and unlimited metric retention for Prometheus
+- Intro: Global and meta alerts with Thanos
+- Advanced: Connecting remote Prometheuses to Thanos using simple Envoy setup.
+- Advanced: Using Prometheus remote write to stream metrics to Thanos
+- Advanced: Query low tail latency with low cost: Introducing caching to Thanos
+
+More details on Thanos open issue: https://github.com/thanos-io/thanos/issues/2041
+
+#### What you'll learn
+
+A writer who takes on this project will learn:
+
+- How to work with open source projects
+- How to write user-focused tutorials that are clear and simple to understand
+- How to work with tools for doing interesting and interactive tutorials
