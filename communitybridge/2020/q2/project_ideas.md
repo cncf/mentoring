@@ -37,6 +37,21 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 	-	https://github.com/kubernetes-sigs/azurefile-csi-driver/issues
 	-	https://github.com/Azure/kubernetes-volume-drivers/issues/48
 
+#### Kubernetes Multi-Tenancy Working Group: Multi-Tenancy Benchmarks
+
+-	Description: The Kubernetes Multi-Tenancy Working Group is chartered with exploring and defining multi-tenancy models for Kubernetes. An overview of working group activities can be found in this Kubernetes Multi-Tenancy Working Group . The Multitenancy Benchmarks effort focuses on measuring and validating the desired behaviors for multitenancy. Part of this effort is to automate behavioral and configuration checks on existing clusters, which will be the focus of this project. This automated test suit will help all Kubernetes users validate whether their clusters are setup correctly for multi-tenancy.
+-	Recommended Skills: Go, Kubernetes
+-	Mentor(s):Tasha Drew (@tashimi), Ryan Bezdicek (@rjbez17), Jim Bugwadia (@JimBugwadia)
+-	Issue: https://github.com/kubernetes-sigs/multi-tenancy/issues/551
+
+#### Kubernetes Policy Working Group: Policy Violation CRD
+
+-   Description: The Kubernetes Policy Working Group is providing an overall architecture that describes both the current policy related implementations as well as future policy related proposals in Kubernetes. As part of this effort, the group is proposing a Kubernetes Custom Resources Definition (CRD) for policy violations and writing adapters to convert from various Kubernetes policy management tools such as OPA, Falco, Kyverno, kube-bench, etc. to report policy violations in a common format. The Policy Violation CRD can then be used by the Dashboard to show violations.
+-   Recommended Skills: Go, Kubernetes
+-   Mentor(s): Jim Bugwadia (@JimBugwadia)
+-   Issue: https://github.com/kubernetes-sigs/wg-policy-prototypes/issues/3
+
+
 ### Argo
 
 #### Kruise Deployment Wizard
