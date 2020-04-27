@@ -87,7 +87,7 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Mentor(s): Lucas Servén Marín (@squat), Bartlomiej Plotka (@bwplotka)
 - Issue: https://github.com/thanos-io/thanos/issues/2488
  
-#### CommunityBridge: Per Request Query Tracking and Limiting
+#### Per Request Query Tracking and Limiting
 
 - Description: Thanos is at the very high-level: durable and cheap database capable of storing a very large amount of metric data. This means that querying that data can be expensive. Imagine someone queries years of data for millions of series. No matter how fast or efficient our indexing is, even the amount of data being passed through the network can get expensive. This is why users should have control, potentially someday per tenant to tell what query was performed, for how long and how much data it was using, and what happened or error. Users should also be able to limit such large queries.
 Recommended Skills: go, distributed systems, Linux
