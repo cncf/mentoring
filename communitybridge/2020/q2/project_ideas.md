@@ -94,3 +94,11 @@ Recommended Skills: go, distributed systems, Linux
 - Mentor(s): Bartek Plotka (@bwplotka), Kemal Akkoyun (@kakkoyun)
 - Issue: https://github.com/thanos-io/thanos/issues/1706 and https://github.com/thanos-io/thanos/issues/2527
 
+### Prometheus
+
+#### Allow running prombench locally
+
+- Description: Currently prombench development requires the user to setup GKE environment. Having prombench to run in a local k8s cluster would make adding changes much easier and faster. Support for kubeconfig and a proper way to switch local and GKE environment is not available yet. Adding these features will be essential to the completion of the project.
+- Recommended Skills: CI, Golang, Kubernetes
+- Mentor(s): Hrishikesh Barman (@geekodour)
+- Issue: https://github.com/prometheus/test-infra/issues/333.
