@@ -71,6 +71,13 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 -	Mentor(s): Jingnan Zhou (@jingnanzhou)
 -	Upstream Issue (URL): https://github.com/open-policy-agent/opa/issues/2336
 
+#### OPA - MongoDB query translator
+
+-   Description: MongoDB is a general-purpose, document-based, distributed database with a rich query language. OPA features a high-level declarative language called `Rego` purpose-built for expressing policies over complex hierarchical data structures. OPA is often used to enforce policies over incoming API requests, but using OPA's "partial evaluation" feature it is also possible to enforce policies when data is accessed inside of document-oriented databases like MongoDB. In this model, callers query OPA to obtain a set of conditions to apply to the database query and then rewrite the database query accordingly. There are existing projects that translate "partial evaluation" results to SQL and Elasticsearch. This project would involve designing and implementing a Rego to MongoDB query translator that supports basic relational operations like ==, !=, >, <, etc. This project would hugely benefit the community to perform authorization and data-filtering in MongoDB using OPA.
+-   Recommended Skills: Go/Python, MongoDB (not required, but nice to have)
+-   Mentor(s): Ash Narkar (@ashutosh-narkar)
+-   Issue: https://github.com/open-policy-agent/opa/issues/2059
+
 ### Thanos
 
 #### Metrics Deletion 
