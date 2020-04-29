@@ -110,3 +110,11 @@ Recommended Skills: go, distributed systems, Linux
 - Mentor(s): Bartlomiej Plotka (@bwplotka)
 - Issue: https://github.com/prometheus/prometheus/issues/11.
 
+### Envoy
+
+#### Enrich Envoy stats with header size histogram
+
+- Description: Currently there is lack of visibility into size of request headers that are proxied through Envoy. Adding corresponding histogram would increase observability for Envoy based systems.
+- Recommended Skills: C++
+- Mentor(s): Kateryna Nezdolii (@nezdolik)
+- Issue: https://github.com/envoyproxy/envoy/issues/10308.
