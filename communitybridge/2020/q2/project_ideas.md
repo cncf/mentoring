@@ -103,9 +103,10 @@ Recommended Skills: go, distributed systems, Linux
 
 ### Prometheus
 
-#### Allow running prombench locally
+#### Persist Retroactive Rule Reevaluations
 
-- Description: Currently prombench development requires the user to setup GKE environment. Having prombench to run in a local k8s cluster would make adding changes much easier and faster. Support for kubeconfig and a proper way to switch local and GKE environment is not available yet. Adding these features will be essential to the completion of the project.
-- Recommended Skills: CI, Golang, Kubernetes
-- Mentor(s): Hrishikesh Barman (@geekodour)
-- Issue: https://github.com/prometheus/test-infra/issues/333.
+- Description: Right now one of the biggest issues with recording rules is that data is only available since the rule was created. Which means any dashboards that use the recording rule will not have data prior to the recording rules create time. We can already reevaluate queries on old data, but we should be able to persist that for a certain window from [Oldest, Now).
+- Recommended Skills: Golang
+- Mentor(s): Bartlomiej Plotka (@bwplotka)
+- Issue: https://github.com/prometheus/prometheus/issues/11.
+
