@@ -118,3 +118,12 @@ Recommended Skills: go, distributed systems, Linux
 - Recommended Skills: C++
 - Mentor(s): Kateryna Nezdolii (@nezdolik)
 - Issue: https://github.com/envoyproxy/envoy/issues/10308.
+
+### Service Mesh Interface
+
+#### SMI Conformance Testing
+
+- Description: Ensure that a service mesh is properly configured and that its behavior conforms to official SMI specifications. Conformance consists of both capabilities and compliance status as outlined in the [design specification](https://docs.google.com/document/d/1HL8Sk7NSLLj-9PRqoHYVIGyU6fZxUQFotrxbmfFtjwc/edit).
+- Recommended Skills**: Golang (nice to have: Kubernetes, Service Mesh)
+- Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)), Vinayak Shinde ([@vinushnd](https://twitter.com/vinushnd))
+- Issue: [https://github.com/servicemeshinterface/smi-spec/issues/70](https://github.com/servicemeshinterface/smi-spec/issues/70)
