@@ -127,3 +127,32 @@ Recommended Skills: go, distributed systems, Linux
 - Recommended Skills**: Golang (nice to have: Kubernetes, Service Mesh)
 - Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)), Vinayak Shinde ([@vinushnd](https://twitter.com/vinushnd))
 - Issue: [https://github.com/servicemeshinterface/smi-spec/issues/70](https://github.com/servicemeshinterface/smi-spec/issues/70)
+
+### OpenEBS
+
+#### A easy to use command-line interface (CLI) for OpenEBS. 
+
+- Description: OpenEBS is completely Kubernetes native and is implemented using microservices. OpenEBS can be installed via kubectl or helm chart and managed via custom resources. To improve the usability of OpenEBS, the proposal is to have a easy to use OpenEBS CLI (similar to `kubectl`) to perform operations like:
+  - install  => Install OpenEBS
+  - upgrade  => Upgrade OpenEBS components
+  - status   => Print the readiness of various components, verify prerequisites are met to run openebs pools and volumes. 
+  - version  => Print the OpenEBS version and associated images
+  - describe => Describe OpenEBS resources like pools and volumes. 
+  - create   => Create OpenEBS resources 
+  - delete   => Delete OpenEBS resources 
+
+- Recommended Skills: Go, Kubernetes
+- Mentor(s): Kiran Mova (@kmova)
+- Related Issues: 
+  - https://github.com/openebs/openebs/issues/2946
+  - https://github.com/openebs/openebs/issues/1248
+  - https://github.com/openebs/openebs/issues/290
+
+#### Multiarch support for OpenEBS Docker images
+
+- Description: OpenEBS Supports automated builds for amd64 and arm64. It will be good to make use of the "docker manifest" command to link different arch images into a single docker repository. This should allow kubernetes nodes to pull in the required container images.
+- Recommended Skills: Docker, Shell, Makefile
+- Mentor(s): Kiran Mova (@kmova)
+- Related Issues:
+  - https://github.com/openebs/openebs/issues/3023
+
