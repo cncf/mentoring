@@ -39,7 +39,7 @@ mentorship round and they will appear on the Community Bridge website after the 
 If you are a mentor and your project will be selected to participate in the
 Community Bridge mentorship program, you'll have to apply as a mentor on the
 Community Bridge website. Please see the [Community Bridge
-guidelines](https://docs.linuxfoundation.org/display/DOCS/Mentors) for more
+guidelines](https://docs.linuxfoundation.org/docs/communitybridge/communitybridge-mentorship/mentor-guide) for more
 details.
 
 #### Mentees
@@ -47,7 +47,7 @@ details.
 If you are a mentee and your desired project will be selected to participate in the
 Community Bridge mentorship program, you'll have to apply as a mentee on the
 Community Bridge website. Please see the [Community Bridge
-guidelines](https://docs.linuxfoundation.org/display/DOCS/Mentees) for more
+guidelines](https://docs.linuxfoundation.org/docs/communitybridge/communitybridge-mentorship/mentee-guide) for more
 details.
 
 Information on the application process is covered at the [Community Bridge
