@@ -165,3 +165,24 @@ Recommended Skills: go, distributed systems, Linux
 - Mentor(s): Kiran Mova (@kmova)
 - Related Issues:
   - https://github.com/openebs/openebs/issues/3023
+
+### KubeEdge
+
+#### Support metrics-server in cloud
+
+- Description: Now we have integrated cadvisor in edge, and it also needs to integrate metrics-server in the cloud to collect monitoring data of edge nodes.
+- Recommended Skills: Golang
+- Mentor(s): Kevin Wang (@kevin-wangzefeng)
+- Related Issues:
+  - https://github.com/kubeedge/kubeedge/issues/1561
+
+#### Add certificate rotation for edge node
+
+- Description: At present, the edge nodes of KubeEdge only apply for certificates when they first started. And we need to automatically generate a new key and request a new certificate from the cloudcore periodically.
+- Recommended Skills: Golang
+- Mentor(s): Fisher Xu (@fisherxu)
+- Related Issues:
+  - https://github.com/kubeedge/kubeedge/issues/1630
+  
+
+
