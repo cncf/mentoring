@@ -128,6 +128,16 @@ Recommended Skills: go, distributed systems, Linux
 - Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)), Vinayak Shinde ([@vinushnd](https://twitter.com/vinushnd))
 - Issue: [https://github.com/servicemeshinterface/smi-spec/issues/70](https://github.com/servicemeshinterface/smi-spec/issues/70)
 
+### TiKV
+
+#### Full Chunk-based Computing
+
+- Description: Currently, TiKV computing framework using a simple and inefficient memory layout in computing framework. Using Chunk (a column-based memory layout) instead to improve memory locality and reduce memory allocation during expression evaluation.
+- Recommended Skills: Rust, Database
+- Mentor(s): Tianyi Zhuang (@TennyZhuang), breeswish (@breeswish)
+- Upstream Issue (URL): https://github.com/tikv/tikv/issues/7724
+
+
 ### OpenEBS
 
 #### A easy to use command-line interface (CLI) for OpenEBS. 
@@ -155,4 +165,3 @@ Recommended Skills: go, distributed systems, Linux
 - Mentor(s): Kiran Mova (@kmova)
 - Related Issues:
   - https://github.com/openebs/openebs/issues/3023
-
