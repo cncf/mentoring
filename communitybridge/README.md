@@ -53,7 +53,7 @@ details.
 Information on the application process is covered at the [Community Bridge
 documentation
 website](https://docs.linuxfoundation.org/display/DOCS/Apply+to+a+Project).
-Please not that once you've applied, your application moves to the pending
+Please note that once you've applied, your application moves to the pending
 state until a mentor will pick it up. There is no need to reapply (you'll see
 an error if you'll try to reapply).
 
