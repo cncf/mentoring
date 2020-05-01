@@ -132,7 +132,7 @@ Recommended Skills: go, distributed systems, Linux
 
 #### Full Chunk-based Computing
 
-- Description: Currently, TiKV computing framework using a simple and inefficient memory layout in computing framework. Using Chunk (a column-based memory layout) instead to improve memory locality and reduce memory allocation during expression evaluation.
+- Description: Currently, TiKV uses a simple but inefficient memory layout in computing framework. Using Chunk, a column-based memory layout, could improve memory locality and reduce memory allocation during expression evaluation.
 - Recommended Skills: Rust, Database
 - Mentor(s): Tianyi Zhuang (@TennyZhuang), breeswish (@breeswish)
 - Upstream Issue (URL): https://github.com/tikv/tikv/issues/7724
