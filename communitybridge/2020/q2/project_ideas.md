@@ -107,8 +107,15 @@ Recommended Skills: go, distributed systems, Linux
 
 - Description: Right now one of the biggest issues with recording rules is that data is only available since the rule was created. Which means any dashboards that use the recording rule will not have data prior to the recording rules create time. We can already reevaluate queries on old data, but we should be able to persist that for a certain window from [Oldest, Now).
 - Recommended Skills: Golang
-- Mentor(s): Bartlomiej Plotka (@bwplotka)
+- Mentor(s): Bartlomiej Plotka (@bwplotka), Callum Styan (@cstyan)
 - Issue: https://github.com/prometheus/prometheus/issues/11.
+
+#### Remote Write WAL Pointer + Other Improvements
+
+- Description: Remote write has gone through a rewrite in the last year, but there are still open improvements and feature additions that can be explored. For example, because remote write now sends data via Prometheus' WAL, the pointer for each remote write queue into the WAL should be persisted across restarts. The addition of new record types, or a new remote write specific WAL, so that new data not currently part of the WAL can be remote written coulda also be investigated.
+- Recommended Skills: Golang, database and dist. systems nice to have.
+- Mentor(s): Callum Styan (@cstyan), Chris Marchbanks (@csmarchbanks)
+- Issue: https://github.com/prometheus/prometheus/issues/6333
 
 ### Envoy
 
