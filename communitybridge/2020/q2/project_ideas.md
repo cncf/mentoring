@@ -66,7 +66,7 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 #### OPA Go APIs
 
--	Description: We embed OPA in our applications to implement policy as code. We found that current OPA Go APIs are not designed for API calls. It is mainly for standalone CLI.  For example, policy input has to be file via file path. In APIs, policy input could be either string or bytes.  We have to write policy data into temp file in order to call OPA APIs.  In addition to OPA APIs, we also want to build policy repository to support policy agent   
+-	Description: We embed OPA in our applications to implement policy as code. We found that current OPA Go APIs are not designed for API calls. It is mainly for standalone CLI.  For example, policy input has to be file via file path. In APIs, policy input could be either string or bytes.  We have to write policy data into temp file in order to call OPA APIs.  In addition to OPA APIs, we also want to build policy repository to support policy agent
 -	Recommended Skills: golang, OPA
 -	Mentor(s): Jingnan Zhou (@jingnanzhou)
 -	Upstream Issue (URL): https://github.com/open-policy-agent/opa/issues/2336
@@ -80,7 +80,7 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 ### Thanos
 
-#### Metrics Deletion 
+#### Metrics Deletion
 
 - Description: Thanos is allowing storing metrics for long, if not unlimited time. Currently, however there is no fine-granular process of retaining only some portion of metrics for a longer time e.g useful aggregations), while deleting another part early on. This task is aiming to implement this missing feature in Thanos and potentially Prometheus. You will learn how to write efficient and reliable distributed systems, and how to deal with large scale challenges.
 - Recommended Skills: go, distributed systems, object storage (AWS, S3)
@@ -147,20 +147,20 @@ Recommended Skills: go, distributed systems, Linux
 
 ### OpenEBS
 
-#### A easy to use command-line interface (CLI) for OpenEBS. 
+#### A easy to use command-line interface (CLI) for OpenEBS.
 
 - Description: OpenEBS is completely Kubernetes native and is implemented using microservices. OpenEBS can be installed via kubectl or helm chart and managed via custom resources. To improve the usability of OpenEBS, the proposal is to have a easy to use OpenEBS CLI (similar to `kubectl`) to perform operations like:
   - install  => Install OpenEBS
   - upgrade  => Upgrade OpenEBS components
-  - status   => Print the readiness of various components, verify prerequisites are met to run openebs pools and volumes. 
+  - status   => Print the readiness of various components, verify prerequisites are met to run openebs pools and volumes.
   - version  => Print the OpenEBS version and associated images
-  - describe => Describe OpenEBS resources like pools and volumes. 
-  - create   => Create OpenEBS resources 
-  - delete   => Delete OpenEBS resources 
+  - describe => Describe OpenEBS resources like pools and volumes.
+  - create   => Create OpenEBS resources
+  - delete   => Delete OpenEBS resources
 
 - Recommended Skills: Go, Kubernetes
 - Mentor(s): Kiran Mova (@kmova)
-- Related Issues: 
+- Related Issues:
   - https://github.com/openebs/openebs/issues/2946
   - https://github.com/openebs/openebs/issues/1248
   - https://github.com/openebs/openebs/issues/290
@@ -180,7 +180,7 @@ Recommended Skills: go, distributed systems, Linux
   - be thin-provisioned
   - be able to enforce storage size limits
   - be able to expose volume metrics
-  
+
 - Recommended Skills: Kubernetes, Linux, Python, Go
 - Mentor(s): Kiran Mova (@kmova)
 - Related Issues:
@@ -204,12 +204,12 @@ Recommended Skills: go, distributed systems, Linux
 - Mentor(s): Fisher Xu (@fisherxu)
 - Related Issues:
   - https://github.com/kubeedge/kubeedge/issues/1630
-  
+
 
 #### Fluentd
 ##### Fluent Bit Monitoring: Web UI
 
-- Description:  Fluent Bit exposes internal metrics from the data processing pipeline through its HTTP interface. This project aims to build a Web UI to show the components of the data pipeline and its continuous metrics with dashboards and further info. The metrics are exposed in JSON format and should be scrapped by the UI. The UI can be deployable on any HTTP server without the need for NodeJS. 
+- Description:  Fluent Bit exposes internal metrics from the data processing pipeline through its HTTP interface. This project aims to build a Web UI to show the components of the data pipeline and its continuous metrics with dashboards and further info. The metrics are exposed in JSON format and should be scrapped by the UI. The UI can be deployable on any HTTP server without the need for NodeJS.
 
 
   Please refer to the Upstream Issue link for more details and candidate requirements.
@@ -229,3 +229,62 @@ Recommended Skills: go, distributed systems, Linux
 - Implementation: The deliverable of this project is a golang program that could be deployed in a Kubernetes cluster independently while at the same time, monitoring CoreDNS pods in the same cluster and interacting Kubernetes API (server) to restart CoreDNS pods as needed.
 - Related Issues:
   - https://github.com/coredns/rfc/issues/7
+
+
+### Linkerd
+
+#### Egress Metrics
+
+-	Description: Linkerd provides rich metrics for traffic inside the mesh. As most external services utilize HTTPS, it is unable to provide metrics today. This project intends to provide visibility into the traffic that is leaving clusters and surface metrics for that traffic.
+-	Recommended Skills: golang, Kubernetes
+-	Mentor(s): Thomas Rampelberg (@grampelberg)
+-	Issue:
+	- https://github.com/linkerd/linkerd2/issues/3190
+
+#### Service Topologies
+
+- Description: It is valuable to have metadata related to the topology of a cluster when making load balancing decisions. This metadata can be used to control egress costs between regions or even make advanced routing decisions in multicluster situations. As part of Kubernetes 1.17, [service topology](https://kubernetes.io/docs/concepts/services-networking/service-topology/) landed. This provides extra metadata as part of endpoints for a service to control weighting. Imagine transparently failing over to nodes running in a different zone if the pods locally are no longer running. Linkerd should implement support for this functionality.
+- Recommended Skills: golang, Kubernetes, rust, Tokio
+- Mentor(s): Thomas Rampelberg (@grampelberg)
+- Issue:
+  - https://github.com/linkerd/linkerd2/issues/4325
+
+#### PCAP-NG Export
+
+- Description: It is difficult to debug what is happening to the network traffic for workloads on Kubernetes. Linkerd provides tap and stat to provide some glimpses into what's happening. Many times, this is enough. Unfortunately, when low level problems and protocol issues crop up, the existing tools are not enough. This causes users to inject the debug container and tcpdump traffic on a pod by pod basis. This project will add PCAP-NG as an export format for tap. This can then be dumped locally or forwarded to Wireshark for analysis and debugging.
+- Recommended Skills: golang, Kubernetes, rust, Tokio
+- Mentor(s): Thomas Rampelberg (@grampelberg)
+- Issue:
+  - https://github.com/linkerd/linkerd2/issues/4326
+
+#### Granular RBAC for Metrics
+
+- Description: Kubernetes is a multitenant system, many users can interact without seeing what others are working with. Today, Linkerd runs a single control plane per cluster. This results in the metrics collected being stored in a single backend (Prometheus). In some high security environments, this means that the users of the cluster are unable to get the benefit of Linkerd's rich metrics. This project will introduce Kubernetes based, granular RBAC so that cluster operators can control what end users are able to view.
+- Recommended Skills: golang, Kubernetes, Prometheus
+- Mentor(s): Thomas Rampelberg (@grampelberg)
+- Issue:
+  - https://github.com/linkerd/linkerd2/issues/3312
+
+#### Kafka Proxy Codec
+
+- Description: HTTP based traffic is only one type of modern applications. Many use message queues such as Kafka. Getting the metrics for consumers/producers/messages are just as critical to application health as requests and responses in HTTP. This project will implement a Kafka codec that allows the Linkerd proxy to introspect Kafka's protocol and provide metrics for the communications between consumers and producers. This should show up as a CLI command, dashboard and visualization of the topology between message consumers and HTTP actors.
+- Recommended Skills: golang, Kubernetes, rust, Tokio, Kafka
+- Mentor(s): Thomas Rampelberg (@grampelberg)
+- Issue:
+  - https://github.com/linkerd/linkerd2/issues/2214
+
+#### JWT Authentication
+
+- Description: Linkerd implements service-service authentication today via. mTLS. This does not yet extend to user based authentication. This project will implement JWT authentication to provide applications using the service mesh a method for implementing authorization on a per-user basis.
+- Recommended Skills: golang, Kubernetes, rust, Tokio
+- Mentor(s): Thomas Rampelberg (@grampelberg)
+- Issue:
+  - https://github.com/linkerd/linkerd2/issues/3704
+
+#### Network Diagnostics
+
+- Description: It can be challenging to diagnose why things aren't working in a remote cluster. Is there a connectivity issue? What happens when a specific request is sent to a service? How do I work with the data that comes back? Linkerd should make this kind of interaction with a cluster's traffic easy and seamless. This project introduces a new command to the CLI: `exec`. This will wire up the networking locally for a user where local binaries (such as curl or ping) can interact with a Kubernetes cluster natively. It will use local binaries and produce local output to allow users to use their local tools and files to diagnose what's going on with their cluster.
+- Recommended Skills: golang, Kubernetes
+- Mentor(s): Thomas Rampelberg (@grampelberg)
+- Issue:
+  - https://github.com/linkerd/linkerd2/issues/4327
