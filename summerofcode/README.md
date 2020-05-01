@@ -439,3 +439,61 @@ OPA is a domain-agnostic policy engine that embodies "policy as code": https://w
 - Recommended Skill(s): Golang, Kubernetes
 - Issue(s): https://github.com/envoyproxy/envoy-perf/issues/72
 - Mentor(s): Lee Calcote (@lcalcote), Prateek Sahu (@PrateekSahu22) Kanishkar J (@_kanishkarj_)
+
+### Linkerd
+
+#### Egress Metrics
+
+-	Description: Linkerd provides rich metrics for traffic inside the mesh. As most external services utilize HTTPS, it is unable to provide metrics today. This project intends to provide visibility into the traffic that is leaving clusters and surface metrics for that traffic.
+-	Recommended Skills: golang, Kubernetes
+-	Mentor(s): Thomas Rampelberg (@grampelberg)
+-	Issue:
+	- https://github.com/linkerd/linkerd2/issues/3190
+
+#### Service Topologies
+
+- Description: It is valuable to have metadata related to the topology of a cluster when making load balancing decisions. This metadata can be used to control egress costs between regions or even make advanced routing decisions in multicluster situations. As part of Kubernetes 1.17, [service topology](https://kubernetes.io/docs/concepts/services-networking/service-topology/) landed. This provides extra metadata as part of endpoints for a service to control weighting. Imagine transparently failing over to nodes running in a different zone if the pods locally are no longer running. Linkerd should implement support for this functionality.
+- Recommended Skills: golang, Kubernetes, rust, Tokio
+- Mentor(s): Thomas Rampelberg (@grampelberg)
+- Issue:
+  - https://github.com/linkerd/linkerd2/issues/4325
+
+#### PCAP-NG Export
+
+- Description: It is difficult to debug what is happening to the network traffic for workloads on Kubernetes. Linkerd provides tap and stat to provide some glimpses into what's happening. Many times, this is enough. Unfortunately, when low level problems and protocol issues crop up, the existing tools are not enough. This causes users to inject the debug container and tcpdump traffic on a pod by pod basis. This project will add PCAP-NG as an export format for tap. This can then be dumped locally or forwarded to Wireshark for analysis and debugging.
+- Recommended Skills: golang, Kubernetes, rust, Tokio
+- Mentor(s): Thomas Rampelberg (@grampelberg)
+- Issue:
+  - https://github.com/linkerd/linkerd2/issues/4326
+
+#### Granular RBAC for Metrics
+
+- Description: Kubernetes is a multitenant system, many users can interact without seeing what others are working with. Today, Linkerd runs a single control plane per cluster. This results in the metrics collected being stored in a single backend (Prometheus). In some high security environments, this means that the users of the cluster are unable to get the benefit of Linkerd's rich metrics. This project will introduce Kubernetes based, granular RBAC so that cluster operators can control what end users are able to view.
+- Recommended Skills: golang, Kubernetes, Prometheus
+- Mentor(s): Thomas Rampelberg (@grampelberg)
+- Issue:
+  - https://github.com/linkerd/linkerd2/issues/3312
+
+#### Kafka Proxy Codec
+
+- Description: HTTP based traffic is only one type of modern applications. Many use message queues such as Kafka. Getting the metrics for consumers/producers/messages are just as critical to application health as requests and responses in HTTP. This project will implement a Kafka codec that allows the Linkerd proxy to introspect Kafka's protocol and provide metrics for the communications between consumers and producers. This should show up as a CLI command, dashboard and visualization of the topology between message consumers and HTTP actors.
+- Recommended Skills: golang, Kubernetes, rust, Tokio, Kafka
+- Mentor(s): Thomas Rampelberg (@grampelberg)
+- Issue:
+  - https://github.com/linkerd/linkerd2/issues/2214
+
+#### JWT Authentication
+
+- Description: Linkerd implements service-service authentication today via. mTLS. This does not yet extend to user based authentication. This project will implement JWT authentication to provide applications using the service mesh a method for implementing authorization on a per-user basis.
+- Recommended Skills: golang, Kubernetes, rust, Tokio
+- Mentor(s): Thomas Rampelberg (@grampelberg)
+- Issue:
+  - https://github.com/linkerd/linkerd2/issues/3704
+
+#### Network Diagnostics
+
+- Description: It can be challenging to diagnose why things aren't working in a remote cluster. Is there a connectivity issue? What happens when a specific request is sent to a service? How do I work with the data that comes back? Linkerd should make this kind of interaction with a cluster's traffic easy and seamless. This project introduces a new command to the CLI: `exec`. This will wire up the networking locally for a user where local binaries (such as curl or ping) can interact with a Kubernetes cluster natively. It will use local binaries and produce local output to allow users to use their local tools and files to diagnose what's going on with their cluster.
+- Recommended Skills: golang, Kubernetes
+- Mentor(s): Thomas Rampelberg (@grampelberg)
+- Issue:
+  - https://github.com/linkerd/linkerd2/issues/4327
