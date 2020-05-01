@@ -166,6 +166,20 @@ Recommended Skills: go, distributed systems, Linux
 - Related Issues:
   - https://github.com/openebs/openebs/issues/3023
 
+#### New storage backend using raw disk images
+
+- Description: OpenEBS Dynamic Local PV with Hostpath are great for use cases with low latency requirements and running on nodes with few attached drives or block devices. Using bare hostpath has the limitation of enforcing the capacity limits requested by PVC. The proposal is to implement a new type of storage, backed by a raw disk image on the host, that is mounted inside the pod. The storage backend should:
+  - have near-zero performance overhead, compared to using local disks
+  - be thin-provisioned
+  - be able to enforce storage size limits
+  - be able to expose volume metrics
+  
+- Recommended Skills: Kubernetes, Linux, Python, Go
+- Mentor(s): Kiran Mova (@kmova)
+- Related Issues:
+  - https://github.com/openebs/openebs/issues/2871
+
+
 ### KubeEdge
 
 #### Support metrics-server in cloud
