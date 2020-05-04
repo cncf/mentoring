@@ -206,7 +206,7 @@ Recommended Skills: go, distributed systems, Linux
   - https://github.com/kubeedge/kubeedge/issues/1630
 
 
-#### Fluentd
+### Fluentd
 ##### Fluent Bit Monitoring: Web UI
 
 - Description:  Fluent Bit exposes internal metrics from the data processing pipeline through its HTTP interface. This project aims to build a Web UI to show the components of the data pipeline and its continuous metrics with dashboards and further info. The metrics are exposed in JSON format and should be scrapped by the UI. The UI can be deployable on any HTTP server without the need for NodeJS.
@@ -218,7 +218,7 @@ Recommended Skills: go, distributed systems, Linux
 -	Upstream Issue (URL): https://github.com/fluent/fluent-bit/issues/2147
 
 
-#### CoreDNS
+### CoreDNS
 
 ##### External health check and orchestration of CoreDNS in Kubernetes clusters**
 
