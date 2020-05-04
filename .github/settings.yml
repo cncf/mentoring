@@ -1,0 +1,36 @@
+repository:
+  # See https://developer.github.com/v3/repos/#edit for all available settings.
+
+  # The name of the repository. Changing this will rename the repository
+  name: mentoring
+
+  # A short description of the repository that will show up on GitHub
+  description: 👩🏿‍🎓👨🏽‍🎓👩🏻‍🎓CNCF Mentoring + CommunityBridge + Summer of Code
+
+  # A URL with more information about the repository
+  homepage: https://mentoring.cncf.io
+
+  # Collaborators: give specific users access to this repository.
+collaborators:
+  # Admins
+  - username: caniszczyk
+    permission: admin
+
+  - username: idvoretskyi
+    permission: admin
+
+labels:
+  - name: community bridge
+    color: a2dcf2
+  - name: enhancement
+    color: 84b6eb
+  - name: help-wanted
+    color: ffff54
+  - name: good first issue
+    color: ff8c00
+  - name: outreachy
+    color: 7fd811
+  - name: season of docs
+    color: f4af97
+  - name: summer of code
+    color: 00ffff
