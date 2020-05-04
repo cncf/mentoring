@@ -18,6 +18,27 @@ The CNCF has applied to participate in the Season of Docs in 2020. We'll announc
 
 ## 2020 project ideas
 
+### Provide a robust collection of example Falco rules
+
+[Falco](https://falcosecurity.org) is a runtime behavior detection and alerting engine for Linux that enables you to write [rules](https://falco.org/docs/rules/) that determine conditions under which security notifications are produced, for example when a shell is run inside a container or when a sensitive file is read. Because Falco rules require useres to learn a specific syntax and a specific set of built-in functions, it's vital that those users have access to a comprehensive and use-case-specific "library" of example rules that they can draw upon for guidance and inspiration.
+
+#### Project goals
+
+Our goal is to enable Falco users to create more robust detection and alerting systems for their containerized workloads. To that end, the Season of Docs project would involve:
+
+- Creating a library of example rules, organized based on use case
+- Formulating a set of best practices for Falco rules
+- Assembling a "cheatsheet" of some of the most important or illustrative rules
+- Providing usability feedback to Falco project maintainers
+
+#### What you'll learn
+
+A writer who takes on this project stands to learn a great deal about:
+
+- The Linux operating system (filesystems, networking, processes)
+- Detection and alerting practices
+- Security concerns in a cloud native context
+
 ### Update how the Kubernetes website serves API references
 
 This is a great project for a writer interested in doc tooling: specifically, publishing API references with the [Hugo](https://gohugo.io).
@@ -26,7 +47,7 @@ Currently, the Kubernetes API references are large HTML documents generated from
 
 The manual build process is cumbersome and fragile. Docs are generated and imported by hand at release time (once per quarter), rather than automated (continuous integration and delivery) like the rest of the docs. The result is an unfriendly UX that isn't integrated with the rest of the site, either in UX or tooling.
 
-To help improve API reference docs, we're applying Google's [Docsy Hugo theme](https://www.docsy.dev/about/) to the [kubernetes.io](https://kubernetes.io) website. 
+To help improve API reference docs, we're applying Google's [Docsy Hugo theme](https://www.docsy.dev/about/) to the [kubernetes.io](https://kubernetes.io) website.
 
 One of the features Docsy provides is native Swagger support. We're excited about automating our API reference generation. We need a technical writer to guide our migration from our existing process to a friendlier set of API references that are continuously generated like the rest of our docs.
 
@@ -39,7 +60,7 @@ Our goal is a helpful, consistent, integrated experience for contributing, deliv
 
 - Using the Docsy theme's [`swaggerui` shortcode](https://www.docsy.dev/docs/adding-content/shortcodes/#swaggerui), transform Kubernetes API Swagger specs in kubernetes/kubernetes into pages in k/website.
 
-   This goal requires engaging the Kubernetes developer community and helping achieve community buy-in for a transformed toolchain. You'll get lots of support here from the docs, infrastructure, and contributor special interest groups (SIGs). 
+   This goal requires engaging the Kubernetes developer community and helping achieve community buy-in for a transformed toolchain. You'll get lots of support here from the docs, infrastructure, and contributor special interest groups (SIGs).
 
 - Update the contribution docs on [how to generate API references](https://kubernetes.io/docs/contribute/generate-ref-docs/), hopefully by deleting them.
 
