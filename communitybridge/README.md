@@ -22,6 +22,14 @@ The Community Bridge program is ongoing. The current cycle is Q2'2020, and more 
 - Chris Aniszczyk ([@caniszczyk](https://github.com/caniszczyk)\): https://twitter.com/cra
 - Ihor Dvoretskyi ([@idvoretskyi](https://github.com/idvoretskyi)\): https://twitter.com/idvoretskyi
 
+## Communication
+
+In the case of any questions or issues with the Community Bridge platform/website itself, please reach out to the [Community Bridge support team](https://support.communitybridge.org/) directly.
+
+For the CNCF-specific questions, please use the dedicated [#mentoring](https://cloud-native.slack.com/archives/CPV83DB51) channel on the [CNCF Slack](https://slack.cncf.io/) (or email us to <mentoring@cncf.io> if you have any questions you don't want to raise up publicly).
+
+Please to avoid using DM's to contact the program maintainers.
+
 ## Community Bridge Program Guidelines
 
 Please see the program-wide guidelines at the [CommunityBridge website](https://communitybridge.org/guide/).
@@ -52,7 +60,7 @@ details.
 
 Information on the application process is covered at the [Community Bridge
 documentation
-website](https://docs.linuxfoundation.org/display/DOCS/Apply+to+a+Project).
+website](https://docs.linuxfoundation.org/docs/communitybridge/communitybridge-mentorship/mentee-guide/how-to-apply).
 Please note that once you've applied, your application moves to the pending
 state until a mentor will pick it up. There is no need to reapply (you'll see
 an error if you'll try to reapply).
@@ -70,11 +78,3 @@ Mentee candidates are required to provide cover letters (Statement of Purpose) w
 
 If you are a mentee, please note that you'll be asked to provide the Statement of Purpose letter
 after the mentor's selection. Please be patient.
-
-## Communication
-
-Please use the dedicated [#communitybridge](https://cloud-native.slack.com/archives/CPV83DB51) channel on the [CNCF Slack](https://slack.cncf.io/).
-
-### Community Bridge platform support
-
-In the case of any issues with the Community Bridge platform/website itself, please reach out to the [Community Bridge support team](https://support.communitybridge.org/) directly.
