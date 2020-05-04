@@ -10,7 +10,7 @@ a mentorship platform across the CNCF projects.
 | Year | Term  | Status    | Announcement                                                                                                                                                         | Details                      |
 |------|-------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | 2020 | Q2    | Ongoing   | TBD                                                                                                                                                                  | [Q2'2020](2020/q2/README.md) |
-|      | Q1    | Completed | [CNCF Blog](https://www.cncf.io/blog/2020/04/15/seven-cncf-interns-graduate-from-the-2020-linux-foundation-communitybridge-program/)                                                                                                                                                                  | [Q1'2020](2020/q2/README.md) |
+|      | Q1    | Completed | [CNCF Blog](https://www.cncf.io/blog/2020/04/15/seven-cncf-interns-graduate-from-the-2020-linux-foundation-communitybridge-program/)                                                                                                                                                                  | [Q1'2020](2020/q1/README.md) |
 | 2019 | Pilot | Completed | [CNCF Blog](https://www.cncf.io/blog/2019/08/22/cncf-hosts-three-student-internships-for-kubernetes-and-coredns-projects-through-linux-foundations-communitybridge/) | [2019](2019/README.md)       |
 
 ### Current cycle
