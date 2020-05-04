@@ -13,18 +13,20 @@ The CNCF has applied to participate in the Season of Docs in 2020. We'll announc
 ## Program Maintainers
 
 -	Chris Aniszczyk ([@caniszczyk](https://github.com/caniszczyk)\): https://twitter.com/cra
--   Zach Corleissen ([@zacharysarah](https://github.com/zacharysarah)\): https://twitter.com/zachorsarah
+-  Zach Corleissen ([@zacharysarah](https://github.com/zacharysarah)\): https://twitter.com/zachorsarah
 -	Ihor Dvoretskyi ([@idvoretskyi](https://github.com/idvoretskyi)\): https://twitter.com/idvoretskyi
 
 ## 2020 project ideas
 
 ### Provide a robust collection of example Falco rules
 
-[Falco](https://falcosecurity.org) is a runtime behavior detection and alerting engine for Linux that enables you to write [rules](https://falco.org/docs/rules/) that determine conditions under which security notifications are produced, for example when a shell is run inside a container or when a sensitive file is read. Because Falco rules require useres to learn a specific syntax and a specific set of built-in functions, it's vital that those users have access to a comprehensive and use-case-specific "library" of example rules that they can draw upon for guidance and inspiration.
+[Falco](https://falcosecurity.org) is a runtime behavior detection and alerting engine for Linux. It enables you to write [rules](https://falco.org/docs/rules) that determine (a) the conditions under which a security notification should be produced and (b) what alert output should be provided. Examples include outputting JSON when a shell is run inside a container and logging to syslog when a sensitive file is read.
+
+Because Falco rules require users to learn a specific syntax and a specific set of built-in functions, it's vital that those users have access to a comprehensive and use-case-specific "library" of example rules that they can draw upon for guidance and inspiration.
 
 #### Project goals
 
-Our goal is to enable Falco users to create more robust detection and alerting systems for their containerized workloads. To that end, the Season of Docs project would involve:
+Our goal is to enable Falco users to create more robust detection and alerting systems for their Linux workloads. To that end, the Season of Docs project would involve:
 
 - Creating a library of example rules, organized based on use case
 - Formulating a set of best practices for Falco rules
