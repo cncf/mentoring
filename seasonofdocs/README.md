@@ -105,6 +105,36 @@ The Kubernetes special interest group (SIG) for command line interfaces (CLI), o
 - How to document a new tool
 - Bleeding edge command line tools for Kubernetes
 
+
+### Update the Kubernetes Developer Guide
+
+The [Kubernetes Developer Guide][kdg] serves as the source of truth for contributors to the core Kubernetes project. Along with our [Contributor Guide][kcg], the Developer Guide is the primary means of onboarding new contributors. While the Contributor Guide benefits from several large iterations and improvements, and is useful for new contributors, our developer documentation has fallen behind and isn't in sync with current development practices. This causes a great deal of friction with contributors, especially new and prospective ones. 
+
+We are looking for a technical writer to improve the developer experience for all contributors. The developer documentation can be overwhelming. Its deficiencies aren’t always obvious, even to seasoned contributors. We know the developer guide is large, and aren’t expecting a full overhaul. Our goal is to make iterative improvements.
+
+We are a friendly, passionate, and supportive [community][kcom] with experienced developers who are available to answer questions and mentor a writer.
+
+#### Project Goals
+
+- Revise, improve and update the [Kubernetes Developer Guide][kdg]
+- Establish new best practices for developers
+- Add well-organized metadata to surface the documentation on the [Kubernetes contributor site][kcs]
+
+#### What you’ll learn
+
+- How to work with a large diverse and distributed team
+- How to manage content with the [Hugo site framework][hugo]
+- How to contribute effectively to the Kubernetes project
+- How to work with open source developers of new APIs and developer features 
+
+
+[kdg]: https://github.com/kubernetes/community/tree/master/contributors/devel
+[kcg]:https://github.com/kubernetes/community/tree/master/contributors/guide
+[kcom]: https://kubernetes.io/community/
+[kcs]: https://github.com/kubernetes-sigs/contributor-site
+[hugo]: https://gohugo.io/
+
+
 ### Thanos: Complete Katacoda tutorials
 
 This is a great project for a writer with some passion for Docker and Kubernetes, interested in doing interactive docs: specifically learning to build [Katacoda Course](https://katacoda.com/scenario-examples/scenarios/create-course).
