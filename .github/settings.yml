@@ -19,6 +19,11 @@ collaborators:
   - username: idvoretskyi
     permission: admin
 
+  # Maintainers
+
+  - username: zacharysarah
+    permission: write
+
 labels:
   - name: community bridge
     color: a2dcf2
