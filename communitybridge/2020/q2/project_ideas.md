@@ -80,12 +80,13 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 ### Thanos
 
-#### Metrics Deletion
+#### Thanos Query Frontend
 
-- Description: Thanos is allowing storing metrics for long, if not unlimited time. Currently, however there is no fine-granular process of retaining only some portion of metrics for a longer time e.g useful aggregations), while deleting another part early on. This task is aiming to implement this missing feature in Thanos and potentially Prometheus. You will learn how to write efficient and reliable distributed systems, and how to deal with large scale challenges.
-- Recommended Skills: go, distributed systems, object storage (AWS, S3)
-- Mentor(s): Bartlomiej Plotka (@bwplotka), Matthias Loibl (@metalmatze)
-- Issue: https://github.com/thanos-io/thanos/issues/1598
+- Description: As per [proposal](https://thanos.io/proposals/202004_embedd_cortex_frontend.md/) we plan to embedd Cortex query frontend as new Thanos command. With this project you will have opportunity to work in
+both Cortex and Thanos codebase to improve both worlds while creating shiny new command in Thanos project for this microservice proxy.
+- Recommended Skills: go, distributed systems, caching
+- Mentor(s): Bartlomiej Plotka (@bwplotka)
+- Issue: https://github.com/thanos-io/thanos/issues/2454
 
 #### Versioned Website Docs
 
