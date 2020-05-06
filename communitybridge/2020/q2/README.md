@@ -36,6 +36,9 @@ July 27: results announced!
 - [Thanos](https://people.communitybridge.org/project/f51284ab-f652-47b1-9819-cd4135e75c00)
 - [TiKV](https://people.communitybridge.org/project/c6a0326c-b053-41a3-9bf2-1e7e78481ca6)
 
+### Selected Projects
+
+Selected projects are listed [here](./selected_projects.md)
 
 ### Project Ideas
 
