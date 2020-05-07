@@ -289,3 +289,20 @@ Recommended Skills: go, distributed systems, Linux
 - Mentor(s): Thomas Rampelberg (@grampelberg)
 - Issue:
   - https://github.com/linkerd/linkerd2/issues/4327
+
+### KubeVirt
+
+#### Kernel boot
+
+-	Description: KubeVirt allows to boot from regular (virtual) disks, an alternative booting method is to directly provide a kernel, initrd, and cmdline to a VM for booting. Such a feature is generally useful for many unikernel projects like the European Project Unicore. This project is about defining the relevant API and adding the necessary kernel boot support to KubeVirt.
+-	Recommended Skills: golang, Kubernetes, virtualization
+-	Mentor(s): Daniel Belenky (@danielBelenky)
+-	Issue:
+	- https://github.com/kubevirt/kubevirt/issues/2741
+
+
+-	Description: KubeVirt is running VMs on Kubernetes, in order to simplify operations, KubeVirt should expose more metrics about the VMs (workloads) and it's infrastructure components, in order to improve serviceability by integrating with projects like prometheus. This project is about adding a couple of more metrics to different KubeVirt components.
+-	Recommended Skills: golang, Kubernetes
+-	Mentor(s): Daniel Belenky (@danielBelenky)
+-	Issue:
+	- https://github.com/kubevirt/kubevirt/issues/3385
