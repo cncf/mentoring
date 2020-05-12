@@ -102,6 +102,19 @@ Recommended Skills: go, distributed systems, Linux
 - Mentor(s): Bartek Plotka (@bwplotka), Kemal Akkoyun (@kakkoyun)
 - Issue: https://github.com/thanos-io/thanos/issues/1706 and https://github.com/thanos-io/thanos/issues/2527
 
+### Complete Katacoda tutorials
+
+- Description: This is a great project for a writer with some passion for Docker and Kubernetes, interested in doing interactive docs: specifically learning to build [Katacoda Course](https://katacoda.com/scenario-examples/scenarios/create-course). Currently, we have a single [Katacoda](https://katacoda.com/bwplotka/courses/thanos/1-globalview) tutorial, which helps Thanos users to start up quickly and understand the concepts. To help improve the user experience further we have planned five more tutorials. The Katacoda tutorials are written in YAML format and don't require a lot of custom tooling. We have a moderate amount of docs on our website [thanos.io](https://thanos.io/), which should help you to get started quickly. Also, there are many youtube videos explaining the concepts. We can offer friendly community support and technical guidance and feedback.
+We're looking for one contributor to explore interactive tutorials and learn some technical concepts along the way. We are definitely not looking for perfection on the first try. Writing interactive tutorials: 
+  * Intro: Downsampling and unlimited metric retention for Prometheus
+  * Intro: Global and meta alerts with Thanos
+  * Advanced: Connecting remote Prometheuses to Thanos using simple Envoy setup.
+  * Advanced: Using Prometheus remote write to stream metrics to Thanos
+  * Advanced: Query low tail latency with low cost: Introducing caching to Thanos
+Recommended Skills: Distributed systems, Linux, Kubernetes, Docker
+- Mentor(s): Bartek Plotka (@bwplotka), Povilas Versockas (@povilasv)
+- Issue: https://github.com/thanos-io/thanos/issues/2041
+
 ### Prometheus
 
 #### Persist Retroactive Rule Reevaluations
