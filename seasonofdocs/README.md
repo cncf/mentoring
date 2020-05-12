@@ -1,20 +1,37 @@
+---
+maintainers:
+- caniszczyk
+- idvoretskyi
+- zacharysarah
+---
+
 # Season of Docs
 
 Google [Season of Docs](https://developers.google.com/season-of-docs) gives technical writers an opportunity to work with open source projects.
 
-The CNCF has applied to participate in the Season of Docs in 2020. We'll announce more details pending our acceptance into the program.
+## 2020 participation
 
-### Program Cycles and Archive data
+The CNCF has been [accepted as a mentoring organization](https://opensource.googleblog.com/2020/05/season-of-docs-announces-participating.html) in Season of Docs (GSoD) 2020!
 
-| Year | Term | Status  | Announcement | Details              |
-|------|------|---------|--------------|----------------------|
-| 2020 | Q2   | Applied | TBD          | [Q2'2020](README.md) |
+### What's happening now?
 
-## Program Maintainers
+All steps are based on the [GSoD 2020 timeline](https://developers.google.com/season-of-docs/docs/timeline).
 
--	Chris Aniszczyk ([@caniszczyk](https://github.com/caniszczyk)\): https://twitter.com/cra
--  Zach Corleissen ([@zacharysarah](https://github.com/zacharysarah)\): https://twitter.com/zachorsarah
--	Ihor Dvoretskyi ([@idvoretskyi](https://github.com/idvoretskyi)\): https://twitter.com/idvoretskyi
+#### May 11 - June 8
+
+We are in the [technical writer exploration phase](https://developers.google.com/season-of-docs/docs/tech-writer-guide):
+
+> You may discuss project ideas with any of the participating organizations. To make contact, use the organization's email address shown in the list of participating organizations. Early discussions help you put together a good project proposal for submission to the Google program administrators during the technical writer application phase. The initial project ideas may come from the ideas list that the organization has proposed. You may propose your own ideas too.
+
+Contact [mentoring@cncf.io](mailto:mentoring@cncf.io) with specific ideas for one of the listed projects. Be sure to include your resume that clearly shows previous technical writing experience.
+
+### Make effective contact
+
+Make contact only through [mentoring@cncf.io](mailto:mentoring@cncf.io). Do not contact project organizers through other email or platforms.
+
+Read the [technical writer guide](https://developers.google.com/season-of-docs/docs/tech-writer-guide) carefully and follow its guidelines. Make sure you understand your responsibilities and duties as a candidate.
+
+If your contact email does not reference an idea for a specific project, or requests only to be told what to do, it is a sign that you have not read the [technical writer guide](https://developers.google.com/season-of-docs/docs/tech-writer-guide) and reduces your chances of selection.
 
 ## 2020 project ideas
 
@@ -189,3 +206,9 @@ A writer who takes on this project will learn:
 - How to work with open source projects
 - How to write user-focused tutorials that are clear and simple to understand
 - How to work with tools for doing interesting and interactive tutorials
+
+## Program Cycles and Archive data
+
+| Year | Term | Status   | Announcement           | Details              |
+|------|------|----------|------------------------|----------------------|
+| 2020 | Q2   | Accepted | http://goo.gle/2WOt8xs | [Q2'2020](README.md) |
