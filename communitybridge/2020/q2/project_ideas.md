@@ -300,7 +300,7 @@ Recommended Skills: go, distributed systems, Linux
 -	Issue:
 	- https://github.com/kubevirt/kubevirt/issues/2741
 
-
+#### Improve Observability
 -	Description: KubeVirt is running VMs on Kubernetes, in order to simplify operations, KubeVirt should expose more metrics about the VMs (workloads) and it's infrastructure components, in order to improve serviceability by integrating with projects like prometheus. This project is about adding a couple of more metrics to different KubeVirt components.
 -	Recommended Skills: golang, Kubernetes
 -	Mentor(s): Daniel Belenky (@danielBelenky)
