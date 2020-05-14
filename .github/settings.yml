@@ -18,6 +18,9 @@ collaborators:
 
   - username: idvoretskyi
     permission: admin
+    
+  - username: amye
+    permission: admin
 
   # Maintainers
 
