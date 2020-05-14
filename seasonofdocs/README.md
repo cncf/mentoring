@@ -37,7 +37,7 @@ If your contact email does not reference an idea for a specific project, or requ
 
 ### Provide a robust collection of example Falco rules
 
-[Falco](https://falcosecurity.org) is a runtime behavior detection and alerting engine for Linux. It enables you to write [rules](https://falco.org/docs/rules) that determine (a) the conditions under which a security notification should be produced and (b) what alert output should be provided. Examples include outputting JSON when a shell is run inside a container and logging to syslog when a sensitive file is read.
+[Falco](https://falco.org/) is a runtime behavior detection and alerting engine for Linux. It enables you to write [rules](https://falco.org/docs/rules) that determine (a) the conditions under which a security notification should be produced and (b) what alert output should be provided. Examples include outputting JSON when a shell is run inside a container and logging to syslog when a sensitive file is read.
 
 Because Falco rules require users to learn a specific syntax and a specific set of built-in functions, it's vital that those users have access to a comprehensive and use-case-specific "library" of example rules that they can draw upon for guidance and inspiration.
 
