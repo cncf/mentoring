@@ -6,11 +6,9 @@ The Cloud Native Computing Foundation (CNCF) participates in a variety of mentor
 Organization Admins
 -------------------
 
-If you need help with anything mentoring at CNCF, you can file an issue or contact one of the admins below:
+If you need help with anything mentoring at CNCF, you can file an issue at this repo or reach out to us at the #mentoring channel on [CNCF Slack](https://slack.cncf.io/).
 
--	Chris Aniszczyk ([@caniszczyk](https://github.com/caniszczyk)\): https://twitter.com/cra
--	Ihor Dvoretskyi ([@idvoretskyi](https://github.com/idvoretskyi)\): https://twitter.com/idvoretskyi
--	Nikhita Raghunath ([@nikhita](https://github.com/nikhita)\): https://twitter.com/TheNikhita
+Organization admins for specific mentorship programs are listed on the programs respective pages.
 
 Communication
 -------------
