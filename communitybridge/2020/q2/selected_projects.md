@@ -110,3 +110,16 @@ List of Selected Projects
 - Mentee: [Ranjith Kumar Adha](https://people.communitybridge.org/mentee/9654d6c4-1ea5-46d4-b72e-fb78c2326aa6,872be524-7465-4639-be88-1b451c581826)
 - Upstream Issue (URL): https://github.com/envoyproxy/envoy/issues/10308, https://github.com/envoyproxy/envoy/issues/3621
 - Community Bridge project (URL): [https://people.communitybridge.org/project/872be524-7465-4639-be88-1b451c581826](https://people.communitybridge.org/project/872be524-7465-4639-be88-1b451c581826)
+
+### CoreDNS
+
+##### External health check and orchestration of CoreDNS in Kubernetes clusters**
+
+- Description: CoreDNS is the cluster DNS server for Kubernetes and is very much critical for the overall health of the Kubernetes cluster. It is very important to monitoring the health of CoreDNS itself and restarting or repairing any CoreDNS pods that are not behaving correctly. While CoreDNS exposes a health check itself, the health check is not UDP (DNS) based. The existing health check is also launched locally which could be very much different when accessed by other pods remotely.
+  This project intends to build an application that checks CoreDNS health through UDP (DNS) externally, and, restart CoreDNS pods by interacting with Kubernetes API through golang. This is an important project that will greatly improve the overall health of Kubernetes clusters through automation.
+- Recommended Skills:  Go, DNS, Kubernetes
+- Mentor(s): Yong Tang (@yongtang), Paul Greenberg (@greenpau)
+- Mentee: [Jayesh Sharma](https://people.communitybridge.org/mentee/4ea84460-17c7-4cbb-be95-11ade6195ed3,6705be57-130f-43f5-ba80-11605ffdb1f9)
+- Implementation: The deliverable of this project is a golang program that could be deployed in a Kubernetes cluster independently while at the same time, monitoring CoreDNS pods in the same cluster and interacting Kubernetes API (server) to restart CoreDNS pods as needed.
+- Related Issues:
+  - https://github.com/coredns/rfc/issues/7
