@@ -66,3 +66,25 @@ List of Selected Projects
 -	Issue:
 	-	[https://github.com/linkerd/linkerd2/issues/4325](https://github.com/linkerd/linkerd2/issues/4325)
 -	Community Bridge project (URL): [https://people.communitybridge.org/project/65742dc0-7217-4c4a-a609-f5f0fcde5c0a](https://people.communitybridge.org/project/65742dc0-7217-4c4a-a609-f5f0fcde5c0a)
+
+### KubeEdge
+
+#### Support metrics-server in cloud
+
+- Description: Now we have integrated cadvisor in edge, and it also needs to integrate metrics-server in the cloud to collect monitoring data of edge nodes.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s): Kevin Wang (@kevin-wangzefeng)
+- Mentee: [Tiecheng Shen](https://people.communitybridge.org/mentee/b26f53c3-4b47-4bf8-80ff-262aff137722,1b931913-44a4-43a7-92ed-d7b2089060b1)
+- Related Issues:
+  - https://github.com/kubeedge/kubeedge/issues/1561
+- Community Bridge project (URL): [https://people.communitybridge.org/project/1b931913-44a4-43a7-92ed-d7b2089060b1](https://people.communitybridge.org/project/1b931913-44a4-43a7-92ed-d7b2089060b1)
+
+#### Add certificate rotation for edge node
+
+- Description: At present, the edge nodes of KubeEdge only apply for certificates when they first started. And we need to automatically generate a new key and request a new certificate from the cloudcore periodically.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s): Kevin Wang (@kevin-wangzefeng), Fisher Xu (@fisherxu)
+- Mentee: [Jiejie Xu](https://people.communitybridge.org/mentee/571fd9fa-0253-4525-af33-dcab4d2e0454,1b931913-44a4-43a7-92ed-d7b2089060b1)
+- Related Issues:
+  - https://github.com/kubeedge/kubeedge/issues/1630
+- Community Bridge project (URL): [https://people.communitybridge.org/project/1b931913-44a4-43a7-92ed-d7b2089060b1](https://people.communitybridge.org/project/1b931913-44a4-43a7-92ed-d7b2089060b1)
