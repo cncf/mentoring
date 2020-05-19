@@ -51,3 +51,14 @@ Project maintainers and mentors, please submit the selected below (under the Sel
 	-	https://github.com/kubernetes-sigs/azurefile-csi-driver/issues
 -   Community Bridge project (URL): https://people.communitybridge.org/project/2d438b9a-c539-46d0-9eed-c6ee4404c88a
 
+### Linkerd
+
+#### Service Topologies
+
+- Description: It is valuable to have metadata related to the topology of a cluster when making load balancing decisions. This metadata can be used to control egress costs between regions or even make advanced routing decisions in multicluster situations. As part of Kubernetes 1.17, [service topology](https://kubernetes.io/docs/concepts/services-networking/service-topology/) landed. This provides extra metadata as part of endpoints for a service to control weighting. Imagine transparently failing over to nodes running in a different zone if the pods locally are no longer running. Linkerd should implement support for this functionality.
+- Recommended Skills: golang, Kubernetes, rust, Tokio
+- Mentor(s): [Thomas Rampelberg](https://twitter.com/grampelberg) (@grampelberg)
+- Mentee: [Matei David](https://github.com/Matei207)
+- Issue:
+  - [https://github.com/linkerd/linkerd2/issues/4325](https://github.com/linkerd/linkerd2/issues/4325)
+- Community Bridge project (URL): [https://people.communitybridge.org/project/65742dc0-7217-4c4a-a609-f5f0fcde5c0a](https://people.communitybridge.org/project/65742dc0-7217-4c4a-a609-f5f0fcde5c0a)
