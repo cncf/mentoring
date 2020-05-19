@@ -99,3 +99,14 @@ List of Selected Projects
 - Mentee: [Chi Zhang](https://people.communitybridge.org/mentee/4a9369ba-d561-4849-99cb-3544aff51294,c6a0326c-b053-41a3-9bf2-1e7e78481ca6)
 - Upstream Issue (URL): https://github.com/tikv/tikv/issues/7724
 - Community Bridge project (URL): [https://people.communitybridge.org/project/c6a0326c-b053-41a3-9bf2-1e7e78481ca6](https://people.communitybridge.org/project/c6a0326c-b053-41a3-9bf2-1e7e78481ca6)
+
+### Envoy
+
+#### Improve Envoy observability for http module
+
+- Description: Currently there are multiple useful metrics  missing for http requests that are proxied through Envoy. Adding corresponding metrics would increase observability for Envoy based systems and improve user experience.
+- Recommended Skills: C++
+- Mentor(s): Kateryna Nezdolii ([@nezdolik](https://github.com/nezdolik))
+- Mentee: [Ranjith Kumar Adha](https://people.communitybridge.org/mentee/9654d6c4-1ea5-46d4-b72e-fb78c2326aa6,872be524-7465-4639-be88-1b451c581826)
+- Upstream Issue (URL): https://github.com/envoyproxy/envoy/issues/10308, https://github.com/envoyproxy/envoy/issues/3621
+- Community Bridge project (URL): [https://people.communitybridge.org/project/872be524-7465-4639-be88-1b451c581826](https://people.communitybridge.org/project/872be524-7465-4639-be88-1b451c581826)
