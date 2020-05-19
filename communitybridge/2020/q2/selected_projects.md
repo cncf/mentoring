@@ -88,3 +88,14 @@ List of Selected Projects
 - Related Issues:
   - https://github.com/kubeedge/kubeedge/issues/1630
 - Community Bridge project (URL): [https://people.communitybridge.org/project/1b931913-44a4-43a7-92ed-d7b2089060b1](https://people.communitybridge.org/project/1b931913-44a4-43a7-92ed-d7b2089060b1)
+
+### TiKV
+
+#### Full Chunk-based Computing
+
+- Description: Currently, TiKV uses a simple but inefficient memory layout in computing framework. Using Chunk, a column-based memory layout, could improve memory locality and reduce memory allocation during expression evaluation.
+- Recommended Skills: Rust, Database
+- Mentor(s): Tianyi Zhuang ([@TennyZhuang](https://github.com/TennyZhuang)), breeswish ([@breeswish](https://github.com/breeswish))
+- Mentee: [Chi Zhang](https://people.communitybridge.org/mentee/4a9369ba-d561-4849-99cb-3544aff51294,c6a0326c-b053-41a3-9bf2-1e7e78481ca6)
+- Upstream Issue (URL): https://github.com/tikv/tikv/issues/7724
+- Community Bridge project (URL): [https://people.communitybridge.org/project/c6a0326c-b053-41a3-9bf2-1e7e78481ca6](https://people.communitybridge.org/project/c6a0326c-b053-41a3-9bf2-1e7e78481ca6)
