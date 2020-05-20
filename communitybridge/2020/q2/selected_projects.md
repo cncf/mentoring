@@ -123,3 +123,14 @@ List of Selected Projects
 - Implementation: The deliverable of this project is a golang program that could be deployed in a Kubernetes cluster independently while at the same time, monitoring CoreDNS pods in the same cluster and interacting Kubernetes API (server) to restart CoreDNS pods as needed.
 - Related Issues:
   - https://github.com/coredns/rfc/issues/7
+
+### OPA
+
+#### OPA - MongoDB query translator
+
+- Description: MongoDB is a general-purpose, document-based, distributed database with a rich query language. OPA features a high-level declarative language called `Rego` purpose-built for expressing policies over complex hierarchical data structures. OPA is often used to enforce policies over incoming API requests, but using OPA's "partial evaluation" feature it is also possible to enforce policies when data is accessed inside of document-oriented databases like MongoDB. In this model, callers query OPA to obtain a set of conditions to apply to the database query and then rewrite the database query accordingly. There are existing projects that translate "partial evaluation" results to SQL and Elasticsearch. This project would involve designing and implementing a Rego to MongoDB query translator that supports basic relational operations like ==, !=, >, <, etc. This project would hugely benefit the community to perform authorization and data-filtering in MongoDB using OPA.
+- Recommended Skills: Go/Python, MongoDB (not required, but nice to have)
+- Mentor(s): Ash Narkar (@ashutosh-narkar)
+- Mentee: [Vineeth Pothulapati](https://people.communitybridge.org/mentee/1027186d-a51f-49cc-a8d8-a8a69b9ceb55,12a9270f-8673-4acb-92ec-fd539fc2b567)
+- Upstream Issue: https://github.com/open-policy-agent/opa/issues/2059
+- Community Bridge project (URL): [https://people.communitybridge.org/project/12a9270f-8673-4acb-92ec-fd539fc2b567](https://people.communitybridge.org/project/12a9270f-8673-4acb-92ec-fd539fc2b567)
