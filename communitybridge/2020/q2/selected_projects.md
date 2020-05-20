@@ -134,3 +134,22 @@ List of Selected Projects
 - Mentee: [Vineeth Pothulapati](https://people.communitybridge.org/mentee/1027186d-a51f-49cc-a8d8-a8a69b9ceb55,12a9270f-8673-4acb-92ec-fd539fc2b567)
 - Upstream Issue: https://github.com/open-policy-agent/opa/issues/2059
 - Community Bridge project (URL): [https://people.communitybridge.org/project/12a9270f-8673-4acb-92ec-fd539fc2b567](https://people.communitybridge.org/project/12a9270f-8673-4acb-92ec-fd539fc2b567)
+
+### KubeVirt
+
+#### Kernel boot
+
+-	Description: KubeVirt allows to boot from regular (virtual) disks, an alternative booting method is to directly provide a kernel, initrd, and cmdline to a VM for booting. Such a feature is generally useful for many unikernel projects like the European Project Unicore. This project is about defining the relevant API and adding the necessary kernel boot support to KubeVirt.
+-	Recommended Skills: golang, Kubernetes, virtualization
+-	Mentor(s): Daniel Belenky (@danielBelenky), Daniel Hiller (@dhiller)
+-       Mentee: [Hritvi Bhandari](https://people.communitybridge.org/mentee/cb7362a0-d10b-4806-8c43-6ffa4031515b,de7ca1c2-2d22-4919-bef8-6cca50a54426)
+-	Issue:
+	- https://github.com/kubevirt/kubevirt/issues/2741
+
+#### Improve Observability
+-	Description: KubeVirt is running VMs on Kubernetes, in order to simplify operations, KubeVirt should expose more metrics about the VMs (workloads) and it's infrastructure components, in order to improve serviceability by integrating with projects like prometheus. This project is about adding a couple of more metrics to different KubeVirt components.
+-	Recommended Skills: golang, Kubernetes
+-	Mentor(s): Daniel Belenky (@danielBelenky), Daniel Hiller (@dhiller)
+-       Mentee: [Arthur Silva Sens](https://people.communitybridge.org/mentee/bd26d0f8-0af5-4032-9fb2-ae6becb621c4,de7ca1c2-2d22-4919-bef8-6cca50a54426)
+-	Issue:
+	- https://github.com/kubevirt/kubevirt/issues/3385
