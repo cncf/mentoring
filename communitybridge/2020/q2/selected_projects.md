@@ -6,8 +6,8 @@ Project maintainers and mentors, please submit the selected below (under the Sel
 ### Template
 
 ```
-#### CNCF Project Name
-##### Title
+### CNCF Project Name
+#### Title
 
 -	Description:
 -	Recommended Skills:
@@ -186,3 +186,35 @@ List of Selected Projects
 -	Mentee: [Mehran Kholdi](https://people.communitybridge.org/mentee/b72c04dc-9650-4e3a-a335-14c5123b8f32,40a443f9-cb78-49e6-96ad-26616acb2113)
 -	Related Issues:
 	-	https://github.com/openebs/openebs/issues/2871
+	
+	
+### Prometheus
+
+#### Persist Retroactive Rule Reevaluations
+
+-	Description: Right now one of the biggest issues with recording rules is that data is only available since the rule was created. Which means any dashboards that use the recording rule will not have data prior to the recording rules create time. We can already reevaluate queries on old data, but we should be able to persist that for a certain window from `[Oldest, Now)`
+-	Recommended Skills: Go
+-	Mentor(s): Bartlomiej Plotka (@bwplotka), Callum Styan (@cstyan)
+-       Mentee (Communty Bridge URL): [Jessica Grebenschikov] https://people.communitybridge.org/mentee/aceb6a84-ce89-4e4d-8a2d-4a4dd8eb2f46,9595fbe7-6a8d-43d4-aebb-a54d57f33fdd)
+-	Upstream Issue (URL):  https://github.com/prometheus/prometheus/issues/11
+-       Community Bridge project (URL): https://people.communitybridge.org/project/9595fbe7-6a8d-43d4-aebb-a54d57f33fdd
+
+### Thanos
+
+#### Versioned Website Docs
+
+-	Description: The Thanos website includes a documentation area that contains per-component docs and configuration built by rendering the markdown files from the tip of master of the Thanos repository. This frequently causes confusion for users, as breaking changes are often merged into master that conflict with the APIs of previous releases. To solve this user-facing issue, we would like to allow the website to show a different set of docs for every Thanos release. This project will involve designing a documentation structure and version picker in the website to select different versions of documents. We will also need to design a workflow for managing docs that integrates with our Git workflow, i.e. updating corresponding docs on pull requests, cherry-picks, etc.
+-	Recommended Skills: go, HTML, JavaScript, CSS
+-	Mentor(s): Lucas Servén Marín (@squat), Bartlomiej Plotka (@bwplotka)
+-       Mentee (Communty Bridge URL): [Uchechukwu Obasi](https://people.communitybridge.org/mentee/365bfa7f-ce76-4300-85ce-f5611ebc74af,f51284ab-f652-47b1-9819-cd4135e75c00)
+-	Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/2488
+-       Community Bridge project (URL): https://people.communitybridge.org/project/f51284ab-f652-47b1-9819-cd4135e75c00
+
+#### Per Request Query Tracking and Limiting
+
+-	Description: Thanos is at the very high-level: durable and cheap database capable of storing a very large amount of metric data. This means that querying that data can be expensive. Imagine someone queries years of data for millions of series. No matter how fast or efficient our indexing is, even the amount of data being passed through the network can get expensive. This is why users should have control, potentially someday per tenant to tell what query was performed, for how long and how much data it was using, and what happened or error. Users should also be able to limit such large queries.
+-	Recommended Skills: go, distributed systems, Linux
+-	Mentor(s): Bartek Plotka (@bwplotka), Kemal Akkoyun (@kakkoyun)
+-       Mentee (Communty Bridge URL):[Yash Sharma](https://people.communitybridge.org/mentee/9deb66ad-7c34-466f-bc1e-c4a177326c6f,f51284ab-f652-47b1-9819-cd4135e75c00)
+-	Upstream Issues (URL): https://github.com/thanos-io/thanos/issues/1706 and https://github.com/thanos-io/thanos/issues/2527
+-       Community Bridge project (URL): https://people.communitybridge.org/project/f51284ab-f652-47b1-9819-cd4135e75c00
