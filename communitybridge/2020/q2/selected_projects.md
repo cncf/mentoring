@@ -153,3 +153,36 @@ List of Selected Projects
 -       Mentee: [Arthur Silva Sens](https://people.communitybridge.org/mentee/bd26d0f8-0af5-4032-9fb2-ae6becb621c4,de7ca1c2-2d22-4919-bef8-6cca50a54426)
 -	Issue:
 	- https://github.com/kubevirt/kubevirt/issues/3385
+
+### OpenEBS
+
+#### A easy to use command-line interface (CLI) for OpenEBS.
+
+-	Description: OpenEBS is completely Kubernetes native and is implemented using microservices. OpenEBS can be installed via kubectl or helm chart and managed via custom resources. To improve the usability of OpenEBS, the proposal is to have a easy to use OpenEBS CLI (similar to `kubectl`) to perform operations mentioned below.
+	-	install  => Install OpenEBS
+	-	upgrade  => Upgrade OpenEBS components
+	-	status   => Print the readiness of various components, verify prerequisites are met to run openebs pools and volumes.
+	-	version  => Print the OpenEBS version and associated images
+	-	describe => Describe OpenEBS resources like pools and volumes.
+	-	create   => Create OpenEBS resources
+	-	delete   => Delete OpenEBS resources
+-	Recommended Skills: Go, Kubernetes
+-	Mentor(s): Kiran Mova (@kmova)
+-	Mentee: [Vani Singh](https://people.communitybridge.org/mentee/fdfc538b-938b-475f-a68b-52cca059386f,40a443f9-cb78-49e6-96ad-26616acb2113)
+-	Related Issues:
+	-	https://github.com/openebs/openebs/issues/2946
+	-	https://github.com/openebs/openebs/issues/1248
+	-	https://github.com/openebs/openebs/issues/290
+
+#### New storage backend using raw disk images
+
+-	Description: OpenEBS Dynamic Local PV with Hostpath are great for use cases with low latency requirements and running on nodes with few attached drives or block devices. Using bare hostpath has the limitation of enforcing the capacity limits requested by PVC. The proposal is to implement a new type of storage, backed by a raw disk image on the host, that is mounted inside the pod. The storage backend should:
+	-	have near-zero performance overhead, compared to using local disks
+	-	be thin-provisioned
+	-	be able to enforce storage size limits
+	-	be able to expose volume metrics
+-	Recommended Skills: Kubernetes, Linux, Python, Go
+-	Mentor(s): Kiran Mova (@kmova)
+-	Mentee: [Mehran Kholdi](https://people.communitybridge.org/mentee/b72c04dc-9650-4e3a-a335-14c5123b8f32,40a443f9-cb78-49e6-96ad-26616acb2113)
+-	Related Issues:
+	-	https://github.com/openebs/openebs/issues/2871
