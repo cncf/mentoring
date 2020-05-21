@@ -55,6 +55,16 @@ List of Selected Projects
 	-	https://github.com/kubernetes-sigs/azurefile-csi-driver/issues
 -	Community Bridge project (URL): https://people.communitybridge.org/project/2d438b9a-c539-46d0-9eed-c6ee4404c88a
 
+##### Kubernetes working group for Multi-tenancy: Multi-tenancy benchmark project
+
+-	Description: The Kubernetes Multi-Tenancy Working Group is chartered with exploring and defining multi-tenancy models for Kubernetes. An overview of working group activities can be found in this Kubernetes Multi-Tenancy Working Group . The Multitenancy Benchmarks effort focuses on measuring and validating the desired behaviors for multitenancy. Part of this effort is to automate behavioral and configuration checks on existing clusters, which will be the focus of this project. This automated test suit will help all Kubernetes users validate whether their clusters are setup correctly for multi-tenancy.
+-	Recommended Skills: Go, Kubernetes
+-	Mentor(s): Tasha Drew [@tashimi](https://github.com/tashimi), Ryan Bezdicek [@rjbez17](https://github.com/rjbez17), Jim Bugwadia [@JimBugwadia](https://github.com/JimBugwadia)
+-	Mentee: [Divya Rani](https://people.communitybridge.org/mentee/b65e7f25-a1c7-458a-98d5-e990122c843d,2d438b9a-c539-46d0-9eed-c6ee4404c88a)
+-	Upstream Issue (URL): 
+	-	https://github.com/kubernetes-sigs/multi-tenancy/issues/551 
+-	Community Bridge project: [Kubernetes](https://people.communitybridge.org/project/2d438b9a-c539-46d0-9eed-c6ee4404c88a)
+
 ### Linkerd
 
 #### Service Topologies
