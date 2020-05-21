@@ -167,8 +167,8 @@ List of Selected Projects
 	-	create   => Create OpenEBS resources
 	-	delete   => Delete OpenEBS resources
 -	Recommended Skills: Go, Kubernetes
--	Mentor(s): Kiran Mova (@kmova)
--	Mentee: [Vani Singh](https://people.communitybridge.org/mentee/fdfc538b-938b-475f-a68b-52cca059386f,40a443f9-cb78-49e6-96ad-26616acb2113)
+-	Mentor(s): Kiran Mova (@kmova), Amit Kumar Das (@AmitKumarDas)
+-	Mentee(s): [Vani Singh](https://people.communitybridge.org/mentee/fdfc538b-938b-475f-a68b-52cca059386f,40a443f9-cb78-49e6-96ad-26616acb2113), [Harsh Thakur](https://people.communitybridge.org/mentee/b41c735b-64f5-4da4-a26d-b3bd0f867e35,40a443f9-cb78-49e6-96ad-26616acb2113)
 -	Related Issues:
 	-	https://github.com/openebs/openebs/issues/2946
 	-	https://github.com/openebs/openebs/issues/1248
