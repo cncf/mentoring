@@ -149,20 +149,20 @@ List of Selected Projects
 
 #### Kernel boot
 
-- Description: KubeVirt allows to boot from regular (virtual) disks, an alternative booting method is to directly provide a kernel, initrd, and cmdline to a VM for booting. Such a feature is generally useful for many unikernel projects like the European Project Unicore. This project is about defining the relevant API and adding the necessary kernel boot support to KubeVirt.
-- Recommended Skills: golang, Kubernetes, virtualization
-- Mentor(s): Daniel Belenky (@danielBelenky), Daniel Hiller (@dhiller)
-- Mentee: [Hritvi Bhandari](https://people.communitybridge.org/mentee/cb7362a0-d10b-4806-8c43-6ffa4031515b,de7ca1c2-2d22-4919-bef8-6cca50a54426)
-- Issue:
-  - https://github.com/kubevirt/kubevirt/issues/2741
+-	Description: KubeVirt allows to boot from regular (virtual) disks, an alternative booting method is to directly provide a kernel, initrd, and cmdline to a VM for booting. Such a feature is generally useful for many unikernel projects like the European Project Unicore. This project is about defining the relevant API and adding the necessary kernel boot support to KubeVirt.
+-	Recommended Skills: golang, Kubernetes, virtualization
+-	Mentor(s): Daniel Belenky (@danielBelenky), Daniel Hiller (@dhiller)
+-       Mentee: [Hritvi Bhandari](https://people.communitybridge.org/mentee/cb7362a0-d10b-4806-8c43-6ffa4031515b,de7ca1c2-2d22-4919-bef8-6cca50a54426)
+-	Issue:
+	- https://github.com/kubevirt/kubevirt/issues/2741
 
 #### Improve Observability
-- Description: KubeVirt is running VMs on Kubernetes, in order to simplify operations, KubeVirt should expose more metrics about the VMs (workloads) and it's infrastructure components, in order to improve serviceability by integrating with projects like prometheus. This project is about adding a couple of more metrics to different KubeVirt components.
-- Recommended Skills: golang, Kubernetes
-- Mentor(s): Daniel Belenky (@danielBelenky), Daniel Hiller (@dhiller)
-- Mentee: [Arthur Silva Sens](https://people.communitybridge.org/mentee/bd26d0f8-0af5-4032-9fb2-ae6becb621c4,de7ca1c2-2d22-4919-bef8-6cca50a54426)
-- Issue:
-  - https://github.com/kubevirt/kubevirt/issues/3385
+-	Description: KubeVirt is running VMs on Kubernetes, in order to simplify operations, KubeVirt should expose more metrics about the VMs (workloads) and it's infrastructure components, in order to improve serviceability by integrating with projects like prometheus. This project is about adding a couple of more metrics to different KubeVirt components.
+-	Recommended Skills: golang, Kubernetes
+-	Mentor(s): Daniel Belenky (@danielBelenky), Daniel Hiller (@dhiller)
+-       Mentee: [Arthur Silva Sens](https://people.communitybridge.org/mentee/bd26d0f8-0af5-4032-9fb2-ae6becb621c4,de7ca1c2-2d22-4919-bef8-6cca50a54426)
+-	Issue:
+	- https://github.com/kubevirt/kubevirt/issues/3385
 
 ### OpenEBS
 
@@ -251,3 +251,12 @@ List of Selected Projects
 -	Mentee (Communty Bridge URL): [Sonia Singla](https://people.communitybridge.org/mentee/4966d917-9539-47ae-b335-7ef92f59f6c7,f51284ab-f652-47b1-9819-cd4135e75c00)
 -	Upstream Issues (URL): https://github.com/thanos-io/thanos/issues/2041
 -	Community Bridge project (URL): https://people.communitybridge.org/project/f51284ab-f652-47b1-9819-cd4135e75c00
+### Argo
+#### Enhancing Developer Experience with Open Application Model Delpoyment using Argo CD
+
+-	Description: Work with Argo CD community to enhace the declarative application development patterns into cloud native platforms
+-	Recommended Skills: Go, Deployment, System Analsis
+-	Mentor(s): Ken Owens
+-       Mentee (Communty Bridge URL): Darshan Chaudhary (https://people.communitybridge.org/mentee/5c5cec97-9863-4a44-bb15-31e7f36cb952,5d5d4357-f340-47c9-9ff2-7b0536291576)
+-	Upstream Issue (URL): TBD
+-       Community Bridge project (URL):https://people.communitybridge.org/project/5d5d4357-f340-47c9-9ff2-7b0536291576
