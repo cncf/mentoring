@@ -205,8 +205,17 @@ List of Selected Projects
 -	Description: Right now one of the biggest issues with recording rules is that data is only available since the rule was created. Which means any dashboards that use the recording rule will not have data prior to the recording rules create time. We can already reevaluate queries on old data, but we should be able to persist that for a certain window from `[Oldest, Now)`
 -	Recommended Skills: Go
 -	Mentor(s): Bartlomiej Plotka (@bwplotka), Callum Styan (@cstyan)
--       Mentee (Communty Bridge URL): [Jessica Grebenschikov] https://people.communitybridge.org/mentee/aceb6a84-ce89-4e4d-8a2d-4a4dd8eb2f46,9595fbe7-6a8d-43d4-aebb-a54d57f33fdd)
+-       Mentee (Communty Bridge URL): [Jessica Grebenschikov](https://people.communitybridge.org/mentee/aceb6a84-ce89-4e4d-8a2d-4a4dd8eb2f46,9595fbe7-6a8d-43d4-aebb-a54d57f33fdd)
 -	Upstream Issue (URL):  https://github.com/prometheus/prometheus/issues/11
+-       Community Bridge project (URL): https://people.communitybridge.org/project/9595fbe7-6a8d-43d4-aebb-a54d57f33fdd
+
+#### Remote Write WAL Pointer + Other Improvements
+
+-       Description: Remote write has gone through a rewrite in the last year, but there are still open improvements and feature additions that can be explored. For example, because remote write now sends data via Prometheus' WAL, the pointer for each remote write queue into the WAL should be persisted across restarts. The addition of new record types, or a new remote write specific WAL, so that new data not currently part of the WAL can be remote written coulda also be investigated.
+-       Recommended Skills: Go, database and dist. systems nice to have.
+-       Mentee (Communty Bridge URL): [Nicole Jingco](https://people.communitybridge.org/mentee/f63d546c-b38b-42fe-9d78-24b077c7a21a,9595fbe7-6a8d-43d4-aebb-a54d57f33fdd)
+-       Mentor(s): Callum Styan (@cstyan), Chris Marchbanks (@csmarchbanks)
+-	Upstream Issue (URL): https://github.com/prometheus/prometheus/issues/6333
 -       Community Bridge project (URL): https://people.communitybridge.org/project/9595fbe7-6a8d-43d4-aebb-a54d57f33fdd
 
 ### Thanos
@@ -227,4 +236,18 @@ List of Selected Projects
 -	Mentor(s): Bartek Plotka (@bwplotka), Kemal Akkoyun (@kakkoyun)
 -       Mentee (Communty Bridge URL):[Yash Sharma](https://people.communitybridge.org/mentee/9deb66ad-7c34-466f-bc1e-c4a177326c6f,f51284ab-f652-47b1-9819-cd4135e75c00)
 -	Upstream Issues (URL): https://github.com/thanos-io/thanos/issues/1706 and https://github.com/thanos-io/thanos/issues/2527
+-       Community Bridge project (URL): https://people.communitybridge.org/project/f51284ab-f652-47b1-9819-cd4135e75c00
+
+#### Complete Katacoda tutorials
+
+-       Description: This is a great project for a writer with some passion for Docker and Kubernetes, interested in doing interactive docs: specifically learning to build Katacoda Course. Currently, we have a single Katacoda tutorial, which helps Thanos users to start up quickly and understand the concepts. To help improve the user experience further we have planned five more tutorials. The Katacoda tutorials are written in YAML format and don't require a lot of custom tooling. We have a moderate amount of docs on our website thanos.io, which should help you to get started quickly. Also, there are many youtube videos explaining the concepts. We can offer friendly community support and technical guidance and feedback. We're looking for one contributor to explore interactive tutorials and learn some technical concepts along the way. We are definitely not looking for perfection on the first try. Writing interactive tutorials:
+  - Intro: Downsampling and unlimited metric retention for Prometheus
+  - Intro: Global and meta alerts with Thanos
+  - Advanced: Connecting remote Prometheuses to Thanos using simple Envoy setup.
+  - Advanced: Using Prometheus remote write to stream metrics to Thanos
+  - Advanced: Query low tail latency with low cost: Introducing caching to Thanos 
+-       Recommended Skills: Distributed systems, Linux, Kubernetes, Docker
+-       Mentor(s): Bartek Plotka (@bwplotka), Povilas Versockas (@povilasv)
+-       Mentee (Communty Bridge URL): [Sonia Singla](https://people.communitybridge.org/mentee/4966d917-9539-47ae-b335-7ef92f59f6c7,f51284ab-f652-47b1-9819-cd4135e75c00)
+-	Upstream Issues (URL): https://github.com/thanos-io/thanos/issues/2041
 -       Community Bridge project (URL): https://people.communitybridge.org/project/f51284ab-f652-47b1-9819-cd4135e75c00
