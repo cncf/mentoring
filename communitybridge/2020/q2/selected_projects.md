@@ -61,8 +61,8 @@ List of Selected Projects
 -	Recommended Skills: Go, Kubernetes
 -	Mentor(s): Tasha Drew [@tashimi](https://github.com/tashimi), Ryan Bezdicek [@rjbez17](https://github.com/rjbez17), Jim Bugwadia [@JimBugwadia](https://github.com/JimBugwadia)
 -	Mentee: [Divya Rani](https://people.communitybridge.org/mentee/b65e7f25-a1c7-458a-98d5-e990122c843d,2d438b9a-c539-46d0-9eed-c6ee4404c88a)
--	Upstream Issue (URL): 
-	-	https://github.com/kubernetes-sigs/multi-tenancy/issues/551 
+-	Upstream Issue (URL):
+	-	https://github.com/kubernetes-sigs/multi-tenancy/issues/551
 -	Community Bridge project: [Kubernetes](https://people.communitybridge.org/project/2d438b9a-c539-46d0-9eed-c6ee4404c88a)
 
 ### Linkerd
@@ -196,8 +196,8 @@ List of Selected Projects
 -	Mentee: [Mehran Kholdi](https://people.communitybridge.org/mentee/b72c04dc-9650-4e3a-a335-14c5123b8f32,40a443f9-cb78-49e6-96ad-26616acb2113)
 -	Related Issues:
 	-	https://github.com/openebs/openebs/issues/2871
-	
-	
+
+
 ### Prometheus
 
 #### Persist Retroactive Rule Reevaluations
@@ -245,9 +245,25 @@ List of Selected Projects
 	-	Intro: Global and meta alerts with Thanos
 	-	Advanced: Connecting remote Prometheuses to Thanos using simple Envoy setup.
 	-	Advanced: Using Prometheus remote write to stream metrics to Thanos
-	-	Advanced: Query low tail latency with low cost: Introducing caching to Thanos 
+	-	Advanced: Query low tail latency with low cost: Introducing caching to Thanos
 -	Recommended Skills: Distributed systems, Linux, Kubernetes, Docker
 -	Mentor(s): Bartek Plotka (@bwplotka), Povilas Versockas (@povilasv)
 -	Mentee (Communty Bridge URL): [Sonia Singla](https://people.communitybridge.org/mentee/4966d917-9539-47ae-b335-7ef92f59f6c7,f51284ab-f652-47b1-9819-cd4135e75c00)
 -	Upstream Issues (URL): https://github.com/thanos-io/thanos/issues/2041
 -	Community Bridge project (URL): https://people.communitybridge.org/project/f51284ab-f652-47b1-9819-cd4135e75c00
+
+### Fluentd
+
+#### Fluent Bit Monitoring Web UI
+
+- Description: [Fluent Bit](https://fluentbit.io) exposes internal metrics from the data processing pipeline through its HTTP interface. This project aims to build a Web UI to show the components of the data pipeline and its continuous metrics with dashboards and further info. The metrics are exposed in JSON format and should be scrapped by the UI. The UI can be deployable on any HTTP server __without__ the need for __NodeJS__.
+
+- Please refer to the Upstream Issue link for more details and candidate requirements:
+  -	Recommended Skills: Javascript, VueJS, CSS, HTML & general design skills
+  -	Mentor(s): Eduardo Silva (@edsiper)
+  -	Upstream Issue (URL): https://github.com/fluent/fluent-bit/issues/2147
+
+- Mentor(s): [Eduardo Silva](https://twitter.com/edsiper) (@edsiper)
+- Mentee: [Shivam Singhal](https://people.communitybridge.org/mentee/9cb20c4a-c637-4453-9cf5-6dd5e7130d60,d24ab158-e4e5-4042-91ad-b30ae52941d2)
+- Issue: [https://github.com/fluent/fluent-bit/issues/2147](https://github.com/fluent/fluent-bit/issues/2147)
+- Community Bridge project (URL): [https://people.communitybridge.org/project/d24ab158-e4e5-4042-91ad-b30ae52941d2](https://people.communitybridge.org/project/d24ab158-e4e5-4042-91ad-b30ae52941d2)
