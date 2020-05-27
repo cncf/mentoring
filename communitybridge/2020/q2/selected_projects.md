@@ -267,3 +267,15 @@ List of Selected Projects
 - Mentee: [Shivam Singhal](https://people.communitybridge.org/mentee/9cb20c4a-c637-4453-9cf5-6dd5e7130d60,d24ab158-e4e5-4042-91ad-b30ae52941d2)
 - Issue: [https://github.com/fluent/fluent-bit/issues/2147](https://github.com/fluent/fluent-bit/issues/2147)
 - Community Bridge project (URL): [https://people.communitybridge.org/project/d24ab158-e4e5-4042-91ad-b30ae52941d2](https://people.communitybridge.org/project/d24ab158-e4e5-4042-91ad-b30ae52941d2)
+
+
+### Argo
+
+#### Enhancing Developer Experience with Open Application Model Delpoyment using Argo CD
+
+-	Description: Work with Argo CD community to enhace the declarative application development patterns into cloud native platforms
+-	Recommended Skills: Go, Deployment, System Analsis
+-	Mentor(s): Ken Owens
+-       Mentee (Communty Bridge URL): Darshan Chaudhary (https://people.communitybridge.org/mentee/5c5cec97-9863-4a44-bb15-31e7f36cb952,5d5d4357-f340-47c9-9ff2-7b0536291576)
+-	Upstream Issue (URL): TBD
+-       Community Bridge project (URL):https://people.communitybridge.org/project/5d5d4357-f340-47c9-9ff2-7b0536291576
