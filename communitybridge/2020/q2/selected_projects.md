@@ -274,6 +274,6 @@ Project maintainers and mentors, please submit the selected below (under the Sel
 - Description: Work with Argo CD community to enhace the declarative application development patterns into cloud native platforms
 - Recommended Skills: Go, Deployment, System Analsis
 - Mentor(s): Ken Owens
-- Mentee (Communty Bridge URL): Darshan Chaudhary (https://people.communitybridge.org/mentee/5c5cec97-9863-4a44-bb15-31e7f36cb952,5d5d4357-f340-47c9-9ff2-7b0536291576
+- Mentee (Communty Bridge URL): [Darshan Chaudhary](https://people.communitybridge.org/mentee/5c5cec97-9863-4a44-bb15-31e7f36cb952,5d5d4357-f340-47c9-9ff2-7b0536291576)
 - Upstream Issue (URL): TBD
-- Community Bridge project (URL):https://people.communitybridge.org/project/5d5d4357-f340-47c9-9ff2-7b0536291576
+- Community Bridge project (URL): https://people.communitybridge.org/project/5d5d4357-f340-47c9-9ff2-7b0536291576
