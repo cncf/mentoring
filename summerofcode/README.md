@@ -97,7 +97,7 @@ _Add your project ideas below:_
 -	Description: Thanos is allowing storing metrics for long, if not unlimited time. Currently however there is no fine-granular process of retaining only some portion of metrics for longer time e.g useful
 aggregations), while deleting other part early on. This task is aiming to implment this missing feature in Thanos and potentially Prometheus.
 -	Recommended Skills: golang, distributed systems, object storage (AWS, S3)
--	Mentor(s): Bartlomiej Plotka (@bwplotka), Giedrius Statkevičius (@GiedriusS)
+-	Mentor(s): Bartlomiej Plotka (@bwplotka), Matthias Loibl (@metalmatze)
 -	Issue: https://github.com/thanos-io/thanos/issues/903
 
 #### Enriching and Extending Thanos UIs with React for Awesome User Experience!
