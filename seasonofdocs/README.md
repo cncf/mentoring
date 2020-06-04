@@ -9,6 +9,8 @@ maintainers:
 
 Google [Season of Docs](https://developers.google.com/season-of-docs) gives technical writers an opportunity to work with open source projects.
 
+:stop_sign: **UPDATE June 4, 2020:** Applications for GSoD 2020 are closed. Thank you to everyone who applied! :stop_sign:
+
 ## 2020 participation
 
 The CNCF has been [accepted as a mentoring organization](https://opensource.googleblog.com/2020/05/season-of-docs-announces-participating.html) in Season of Docs (GSoD) 2020!
