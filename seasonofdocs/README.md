@@ -9,7 +9,7 @@ maintainers:
 
 Google [Season of Docs](https://developers.google.com/season-of-docs) gives technical writers an opportunity to work with open source projects.
 
-:stop_sign: **UPDATE June 4, 2020:** Thank you to everyone who applied! We've been overwhelmed by interest, and we're no longer reviewing candidate submissions. :stop_sign:
+:stop_sign: **UPDATE June 4, 2020:** Thank you to everyone who reached out for more information! We've been overwhelmed by interest, and we're no longer reviewing candidate proposals. :stop_sign:
 
 ## 2020 participation
 
