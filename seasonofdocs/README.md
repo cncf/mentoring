@@ -11,6 +11,10 @@ Google [Season of Docs](https://developers.google.com/season-of-docs) gives tech
 
 :stop_sign: **UPDATE June 4, 2020:** Thank you to everyone who reached out for more information! We've been overwhelmed by interest, and we're no longer reviewing candidate proposals. :stop_sign:
 
+## Contact us
+
+Contact the CNCF about Google Season of Docs only through [mentoring@cncf.io](mailto:mentoring@cncf.io). Do not contact project organizers through other platforms.
+
 ## 2020 participation
 
 The CNCF has been [accepted as a mentoring organization](https://opensource.googleblog.com/2020/05/season-of-docs-announces-participating.html) in Season of Docs (GSoD) 2020!
@@ -19,21 +23,11 @@ The CNCF has been [accepted as a mentoring organization](https://opensource.goog
 
 All steps are based on the [GSoD 2020 timeline](https://developers.google.com/season-of-docs/docs/timeline).
 
-#### May 11 - June 8
+#### June 9 - July 9
 
-We are in the [technical writer exploration phase](https://developers.google.com/season-of-docs/docs/tech-writer-guide):
+We are in the [technical writer application phase](https://developers.google.com/season-of-docs/docs/tech-writer-guide#technical_writer_application_phase):
 
-> You may discuss project ideas with any of the participating organizations. To make contact, use the organization's email address shown in the list of participating organizations. Early discussions help you put together a good project proposal for submission to the Google program administrators during the technical writer application phase. The initial project ideas may come from the ideas list that the organization has proposed. You may propose your own ideas too.
-
-Contact [mentoring@cncf.io](mailto:mentoring@cncf.io) with specific ideas for one of the listed projects. Be sure to include your resume that clearly shows previous technical writing experience.
-
-### Make effective contact
-
-Make contact only through [mentoring@cncf.io](mailto:mentoring@cncf.io). Do not contact project organizers through other email or platforms.
-
-Read the [technical writer guide](https://developers.google.com/season-of-docs/docs/tech-writer-guide) carefully and follow its guidelines. Make sure you understand your responsibilities and duties as a candidate.
-
-If your contact email does not reference an idea for a specific project, or requests only to be told what to do, it is a sign that you have not read the [technical writer guide](https://developers.google.com/season-of-docs/docs/tech-writer-guide) and reduces your chances of selection.
+> The technical writer application phase runs from June 9, 2020 - July 9, 2020. During this period, you can apply to take part in Season of Docs. The Google program administrators forward the relevant details from your application to your chosen open source organization. The open source organization administrators and mentors then select the projects they want to mentor.
 
 ## 2020 project ideas
 
@@ -181,4 +175,3 @@ We are a friendly, passionate, and supportive [community][kcom] with experienced
 | Year | Term | Status   | Announcement           | Details              |
 |------|------|----------|------------------------|----------------------|
 | 2020 | Q2   | Accepted | http://goo.gle/2WOt8xs | [Q2'2020](README.md) |
-
