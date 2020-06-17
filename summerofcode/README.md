@@ -438,7 +438,7 @@ OPA is a domain-agnostic policy engine that embodies "policy as code": https://w
   (single pod load generator). This limits the amount of traffic that can be generated to output of the single machine that the benchmark tool runs on in or out of a cluster. Overcoming this limitation would allow for more flexible and robust testing. Distributed load testing in parallel poses a challenge when merging results without losing the precision we need to gain insight into the high tail percentiles.
 - Recommended Skill(s): Golang, Kubernetes
 - Issue(s): https://github.com/envoyproxy/envoy-perf/issues/72
-- Mentor(s): Lee Calcote (@lcalcote), Prateek Sahu (@PrateekSahu22) Kanishkar J (@_kanishkarj_)
+- Mentor(s): Lee Calcote (@lcalcote), Prateek Sahu (@PrateekSahu22), Shivay Lamba (@howdevelop)
 
 ### Linkerd
 
