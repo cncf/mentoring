@@ -163,7 +163,27 @@ We are a friendly, passionate, and supportive [community][kcom] with experienced
 - How to contribute effectively to the Kubernetes project
 - How to work with open source developers of new APIs and developer features 
 
+### Improve documentation of SMI & related service meshes
 
+Currently, There is no well-structured, hands-on tutorial that walk users through various service meshes & user flows. There is a need of documentation that provides developer playground and test interactions for SMI to users. Also, we need to design and create a complete set of User Guide, Admin Guide, Install & Upgrade Guide, and so on.
+
+We are looking for a technical writer to improve the developer experience for all contributors at SMI. Your docs mentors will provide guidance on information architecture, user-tutorial detailed guide and how to work in an open source workflow.
+
+#### Project Goals 
+
+- Use the [Swaggo][swaggo] Tool to generate the API endpoint documentation
+- Use any open-source training track tool to create tutorial for Linkerd & performance management for service meshes
+- Update the contributors documentation and create an user guide for SMI
+
+#### What you'll learn
+
+- How to work with stakeholders in open-source projects
+- How to work with different open-source tools to create training tutorials
+- How to work with different service meshes and exploring service mesh architecture
+- How to create and render beautiful API docs using [swaggo/swag][swaggo]
+
+
+[swaggo]: https://github.com/swaggo/swag
 [kdg]: https://github.com/kubernetes/community/tree/master/contributors/devel
 [kcg]:https://github.com/kubernetes/community/tree/master/contributors/guide
 [kcom]: https://kubernetes.io/community/
