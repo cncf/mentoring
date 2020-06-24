@@ -12,7 +12,7 @@ _Note: this timeline is proposed and may be a subject to change before the forma
 - May 4: selected projects/slots are announced by CNCF;
 - May 5 - May 18: mentees applications opened, projects are selecting mentees;
 - May 20 - mentees are selected by the mentors, coding starts;
-- June 22 - 1st evaluation checkpoint;
+- June 22 - June 28: 1st evaluation;
     - Mentors verify the quality of the completed tasks;
     - First 50% of the stipend is being paid to the mentee if this stage is passed;
 - July 27 - 2nd (final) evaluation checkpoint;
