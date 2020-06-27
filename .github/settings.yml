@@ -22,10 +22,8 @@ collaborators:
   - username: amye
     permission: admin
 
-  # Maintainers
-
   - username: zacharysarah
-    permission: write
+    permission: admin
 
 labels:
   - name: community bridge
