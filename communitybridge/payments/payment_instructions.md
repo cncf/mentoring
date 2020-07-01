@@ -1,17 +1,29 @@
-### Payment instructions for mentees
+Directions on how to receive Mentorship Stipend Payments 
 
-If CNCF has received satisfactory results on your mentorship evaluation, you should have received an email inviting you to Expensify. Please follow the link in the email and create an Expensify account in order to receive your stipend payments.
+**NOTE: Each time after you receive a satisfactory mentorship evaluation you need to submit the invoice to receive your stipend payment.**
 
-You can also find the Expensify user documentation with screenshots [here](https://docs.linuxfoundation.org/display/DOCS/Get+Reimbursed).
+To receive your Mentorship stipend payment, please submit an invoice via Expensify per instructions below:
 
-Once you have completed the Expensify account setup, please complete the [Linux Foundation Wire Transfer Form](https://github.com/cncf/mentoring/raw/master/communitybridge/payments/Linux%20Foundation%20Wire%20Transfer%20Form.pdf). You will need to attach it to your expense in place of a receipt. 
+You can all find all the details with screenshots in CommunityBridge user documentation here: 
+https://docs.linuxfoundation.org/docs/communitybridge/communitybridge-mentorship/mentees/submit-a-report-to-receive-a-mentorship-stipend
 
-Next, please go ahead and submit an expense report for your first stipend payment via Expensify per instructions below: 
+Instructions to create an Expensify report to receive mentorship stipend: 
 
-1. Create an expense and complete the following fields: 
-* Merchant: your name
-* Date: the date of the stipend payment
-* Total: the amount of your stipend payment provided to you by your mentorship adminCategory: mentee
-* Description: name of your mentorship program + mentee stipend payment
-2. Create a report titled: your name - mentee 1st stipend payment
-3. Add the expense to the report and submit.
+- Login to Expensify https://www.expensify.com 
+- Create an expense and complete the following fields:
+  -  Merchant: your name (international mentees: your name - International) 
+  - Date: the date of the stipend payment
+  - Total: the amount of your stipend payment for each evaluation period Category: mentee
+  - Description: name of your mentorship - mentee stipend payment <number> of <number> (for example: Jane Brown - mentee stipend payment 1 of 3). NOTE: the number of payments will vary depending on your project, please check with your project maintainer if you don’t know the total number of your stipend payments
+- Create a report titled: your name - mentee stipend payment <number> of <number>
+- Add the expense to the report and submit
+
+You will also need to complete bank and financial information upon submitting your initial invoice. Depending on your location:
+1. United States residents: please add US bank deposit account to Expensify
+1. International mentees: please add “International” next to your name. The Linux Foundation will use the Wire Transfer Form you submitted with your acceptance letter to process your stipend payment 
+
+**Payment Receipt Timeline**
+
+It may take up to 45 business days for the funds to be deposited to your bank account.*
+
+*Wire Transfer recipients will get the funds deposited to their account directly from Linux Foundation.
