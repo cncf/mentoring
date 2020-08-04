@@ -68,7 +68,7 @@ an error if you'll try to reapply).
 The stipend is $5500 per student/cycle. Please check out the
 [guidelines](payments/payment_instructions.md) on how to be paid.
 
-**Please note that you are eligible to participate as a mentee in a single project per-cycle. In total, you may participate in up to two cycles of the Community Bridge Mentorship program.**
+**Please see the full eligibility criteria in the [Community Bridge documentation](https://docs.linuxfoundation.org/docs/communitybridge/mentorship/mentee-guide/am-i-eligible)**.
 
 ### Mentee selection process
 
