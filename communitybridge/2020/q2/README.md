@@ -2,10 +2,9 @@
 
 ## Q2
 
-_Status: ongoing_
+_Status: completed_
 
 ### Timeline
-_Note: this timeline is proposed and may be a subject to change before the formal program launch announcement_
 
 - April 16 - May 1: project applications opened
     - projects are invited to submit their proposals to https://github.com/cncf/mentoring/blob/master/communitybridge/2020/q2/project_ideas.md
