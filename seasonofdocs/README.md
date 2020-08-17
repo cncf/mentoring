@@ -23,12 +23,11 @@ The CNCF has been [accepted as a mentoring organization](https://opensource.goog
 
 All steps are based on the [GSoD 2020 timeline](https://developers.google.com/season-of-docs/docs/timeline).
 
-#### July 9 - July 31
+#### August 17 - September 13
 
-We are in the [proposal review period](https://developers.google.com/season-of-docs/docs/project-selection):
+We are in the [community bonding period](https://developers.google.com/season-of-docs/docs/timeline):
 
-> Organization administrators and mentors assess the technical writer proposals.
-> Organization administrators submit their selected technical writing project(s) to the Google program administrators. For each project, the organization administrator specifies the technical writer who will do the work.
+> Technical writers get to know mentors, get up to speed with the open source organization, and refine their projects in collaboration with mentors
 
 ## 2020 project ideas
 
