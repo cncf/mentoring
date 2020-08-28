@@ -31,7 +31,7 @@ Program Statistics
 | ---- | --------------- | ----------- | ---------------- |
 | 2020 | CommunityBridge | 27          | TBD              |
 |      | GSoC            | 17          |                  |
-|      | GSoD            | TBD         |                  |
+|      | GSoD            | 4           |                  |
 |      | Outreachy       | TBD         |                  |
 | 2019 | CommunityBridge | 4           | 20               |
 |      | GSoC            | 15          |                  |
