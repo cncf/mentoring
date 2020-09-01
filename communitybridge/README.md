@@ -7,11 +7,12 @@ a mentorship platform across the CNCF projects.
 
 ## Program Cycles and Archive data
 
-| Year | Term  | Status    | Announcement                                                                                                                                                         | Details                      |
-|------|-------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| 2020 | Q2    | Completed   | [CNCF Blog](https://www.cncf.io/blog/2020/08/13/21-cncf-interns-graduate-from-the-q2-2020-linux-foundation-communitybridge-program/)                                                                                                                                                                  | [Q2'2020](2020/q2/README.md) |
-|      | Q1    | Completed | [CNCF Blog](https://www.cncf.io/blog/2020/04/15/seven-cncf-interns-graduate-from-the-2020-linux-foundation-communitybridge-program/)                                                                                                                                                                  | [Q1'2020](2020/q1/README.md) |
-| 2019 | Pilot | Completed | [CNCF Blog](https://www.cncf.io/blog/2019/08/22/cncf-hosts-three-student-internships-for-kubernetes-and-coredns-projects-through-linux-foundations-communitybridge/) | [2019](2019/README.md)       |
+| Year | Term  | Status    | Announcement                                                                                                                                                         | Details                            |
+| ---- | ----- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
+| 2020 | Q3-Q4 | Ongoing   | _TBD_                                                                                                                                                                | [Q3-Q4'2020](2020/q3-q4/README.md) |
+|      | Q2    | Completed | [CNCF Blog](https://www.cncf.io/blog/2020/08/13/21-cncf-interns-graduate-from-the-q2-2020-linux-foundation-communitybridge-program/)                                 | [Q2'2020](2020/q2/README.md)       |
+|      | Q1    | Completed | [CNCF Blog](https://www.cncf.io/blog/2020/04/15/seven-cncf-interns-graduate-from-the-2020-linux-foundation-communitybridge-program/)                                 | [Q1'2020](2020/q1/README.md)       |
+| 2019 | Pilot | Completed | [CNCF Blog](https://www.cncf.io/blog/2019/08/22/cncf-hosts-three-student-internships-for-kubernetes-and-coredns-projects-through-linux-foundations-communitybridge/) | [2019](2019/README.md)             |
 
 ### Current cycle
 
@@ -37,6 +38,7 @@ Please see the program-wide guidelines at the [CommunityBridge website](https://
 ### How to apply?
 
 #### Projects
+
 Project maintainers and mentors, are requested to submit the ideas below (under the Project Ideas section) section using the [template](/PROJECT_IDEA_TEMPLATE.md).
 
 CNCF will select the projects that will participate in the Community Bridge
