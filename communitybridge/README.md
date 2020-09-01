@@ -65,8 +65,7 @@ Please note that once you've applied, your application moves to the pending
 state until a mentor will pick it up. There is no need to reapply (you'll see
 an error if you'll try to reapply).
 
-The stipend is $5500 per student/cycle. Please check out the
-[guidelines](payments/payment_instructions.md) on how to be paid.
+The stipend guides and amounts are listed [here](https://docs.linuxfoundation.org/docs/communitybridge/mentorship/mentee-stipends).
 
 **Please see the full eligibility criteria in the [Community Bridge documentation](https://docs.linuxfoundation.org/docs/communitybridge/mentorship/mentee-guide/am-i-eligible)**.
 
