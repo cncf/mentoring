@@ -26,4 +26,10 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 ### Proposed Project ideas
 
-_TBD_
+#### Kubernetes
+##### Create Application for Elections Authenticated by External Oauth
+
+-	Description: Create a web-based voting application, with voting logic based on CIVS project, that allows use of external Oauth, such as Github, for voter authentication
+-	Recommended Skills: Application development, schedule management, programming
+-	Mentor(s): Josh Berkus, Marky Jackson, Jaice Singer DuMars
+-	Upstream Issue (URL): [Kubernetes community 5096](https://github.com/kubernetes/community/issues/5096)
