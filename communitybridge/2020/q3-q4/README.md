@@ -6,7 +6,7 @@ _Status: ongoing_
 
 ### Timeline
 
-- September 1 - September 7 (1 week): project applications opened
+- September 1 - September 9 (1 week): project applications opened
     - Projects are invited to submit their proposals 
 - September 7 - September 21 (2 weeks): CNCF staff selects the projects
 - September 21 - selected projects/slots are announced by CNCF;
