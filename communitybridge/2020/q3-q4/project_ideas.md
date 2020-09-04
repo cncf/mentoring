@@ -42,3 +42,11 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Upstream Issue (URL):
   - https://github.com/kubernetes-csi/csi-driver-smb/issues
 - Community Bridge project (URL): https://people.communitybridge.org/project/2d438b9a-c539-46d0-9eed-c6ee4404c88a
+
+#### Chaos Mesh
+##### Create a debug information collector for Chaos Mesh
+
+-	Description: Create a command tool to help us collected debug information about the specific chaos experiment, it can collect the chaos-daemon log, tc rules, iptables rules, etc.
+-	Recommended Skills: Chaos Mesh, Kubernetes, golang
+-	Mentor(s): Keao Yang([@YangKeao](https://github.com/YangKeao)), Cwen Yin([@cwen0](https://github.com/cwen0))
+-	Issue: https://github.com/chaos-mesh/chaos-mesh/issues/694
