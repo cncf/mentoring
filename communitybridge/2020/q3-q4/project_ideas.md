@@ -46,7 +46,7 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 #### Chaos Mesh
 ##### Create a debug information collector for Chaos Mesh
 
--	Description: Create a command tool to help us collected debug information about the specific chaos experiment, it can collect the chaos-daemon log, tc rules, iptables rules, etc.
+-	Description: Create a diagnotic info collector for Chaos Mesh to collect debugging info of a specific chaos experiment, covering chaos-daemon log, tc rules, iptables rules, etc.
 -	Recommended Skills: Chaos Mesh, Kubernetes, golang
 -	Mentor(s): Keao Yang([@YangKeao](https://github.com/YangKeao)), Cwen Yin([@cwen0](https://github.com/cwen0))
 -	Issue: https://github.com/chaos-mesh/chaos-mesh/issues/694
