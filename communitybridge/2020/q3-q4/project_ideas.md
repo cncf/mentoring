@@ -102,3 +102,18 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 -	Recommended Skills: Volcano, Job Management, Golang
 -	Mentor(s): Zhonghu Xu(@hzxuzhonghu), Klaus Ma(@k82cn) 
 -	Upstream Issue (URL): https://github.com/volcano-sh/volcano/issues/1034
+
+#### Keptn
+##### Keptn CLI to support multiple contexts like KUBECONFIG
+
+- Description: Improve the Keptn CLI to make it easier for users to authenticate to a cluster by just configuring the Kubernetes context. This will enable the user to switch between multiple Keptn installations easily.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s): Jürgen Etzlstorfer ([@jetzlstorfer](https://github.com/jetzlstorfer)), Christian Kreuzberger ([@christian-kreuzberger-dtx](https://github.com/christian-kreuzberger-dtx)), Andreas Grimmer ([@agrimmer](https://github.com/agrimmer))
+- Upstream Issue (URL): https://github.com/keptn/keptn/issues/2300
+
+##### Visualize remediation actions as counteractions for alerts
+
+- Description: Improve the existing UI by adding UI elements for existing (multi-stage) remediation actions for services that are managed by Keptn. 
+- Recommended Skills: Angular
+- Mentor(s): Jürgen Etzlstorfer ([@jetzlstorfer](https://github.com/jetzlstorfer)), Johannes Bräuer ([@johannes-b](https://github.com/johannes-b))
+- Upstream Issue (URL): https://github.com/keptn/keptn/issues/2299
