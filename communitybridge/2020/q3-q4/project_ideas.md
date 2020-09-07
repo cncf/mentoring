@@ -50,3 +50,25 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 -	Recommended Skills: Chaos Mesh, Kubernetes, golang
 -	Mentor(s): Keao Yang([@YangKeao](https://github.com/YangKeao)), Cwen Yin([@cwen0](https://github.com/cwen0))
 -	Issue: https://github.com/chaos-mesh/chaos-mesh/issues/694
+
+#### KubeEdge
+##### Support list-watch from edgecore for applications on the edge
+
+-	Description: Some applications running on the edge side need to connect to the k8s master through list-watch interface, but on the edge it cannot directly connect to the k8s master. So we need forward the list-watch requests to the k8s master through the cloud-side channel.
+-	Recommended Skills: KubeEdge, Kubernetes, golang
+-	Mentor(s): Kevin Wang([@kevin-wangzefeng](https://github.com/kevin-wangzefeng)), Fei Xu([@fisherxu](https://github.com/fisherxu))
+-	Issue: https://github.com/kubeedge/kubeedge/issues/1758
+
+##### Use device API both on cloud and edge
+
+-	Description: Now we have defined device API in the cloud side, but the edgeside(edgecore and mapper) still don't use the API, we should refactor edgeside and use same API on cloud and edge to reduce complexity.
+-	Recommended Skills: KubeEdge, Kubernetes, golang
+-	Mentor(s): Kevin Wang([@kevin-wangzefeng](https://github.com/kevin-wangzefeng)), Fei Xu([@fisherxu](https://github.com/fisherxu))
+-	Issue: https://github.com/kubeedge/kubeedge/issues/2140
+
+##### Add EdgeGateway as the ingress gateway on Edge
+
+-	Description: Add the EdgeGateway as the ingress gateway on Edge to dispatch request to multiple backend pods on the Edge side.
+-	Recommended Skills: KubeEdge, Kubernetes, golang
+-	Mentor(s): Kevin Wang([@kevin-wangzefeng](https://github.com/kevin-wangzefeng)), Fei Xu([@fisherxu](https://github.com/fisherxu))
+-	Issue: https://github.com/kubeedge/kubeedge/issues/1432
