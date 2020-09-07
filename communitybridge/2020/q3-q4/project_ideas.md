@@ -72,3 +72,11 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 -	Recommended Skills: KubeEdge, Kubernetes, golang
 -	Mentor(s): Kevin Wang([@kevin-wangzefeng](https://github.com/kevin-wangzefeng)), Fei Xu([@fisherxu](https://github.com/fisherxu))
 -	Issue: https://github.com/kubeedge/kubeedge/issues/1432
+
+#### TiKV
+##### Support ENUM / SET push down for TiKV Coprocessor
+
+- Description: Coprocessor is a TiKV component to handle predicate push down. This task is to add `ENUM` and `SET` data type to it, so that the performance can be improved in scenarios that involve with these two data types.
+- Recommended Skills: Rust, Database
+- Mentor(s): Chi Zhang (@skyzh)
+- Upstream Issue (URL): https://github.com/tikv/tikv/issues/8605
