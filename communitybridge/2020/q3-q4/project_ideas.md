@@ -80,3 +80,25 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Recommended Skills: Rust, Database
 - Mentor(s): Chi Zhang (@skyzh)
 - Upstream Issue (URL): https://github.com/tikv/tikv/issues/8605
+
+#### Volcano
+##### Implement hierarchy queue to better support fair-share
+
+-	Description: Implement hierarchy queue to better support fair-share
+-	Recommended Skills: Volcano, Scheduling, Golang
+-	Mentor(s): Zhonghu Xu(@hzxuzhonghu), Klaus Ma(@k82cn) 
+-	Upstream Issue (URL): https://github.com/volcano-sh/volcano/issues/1033
+
+##### Customize scheduling algorithms per queue
+
+-	Description: Support customized scheduling algorithms per queue
+-	Recommended Skills: Kubernetes, Scheduling, Golang
+-	Mentor(s): Zhonghu Xu(@hzxuzhonghu), Klaus Ma(@k82cn) 
+-	Upstream Issue (URL): https://github.com/volcano-sh/volcano/issues/1035
+
+##### Implement specific job types to improve usability
+
+-	Description: Improve Job API to support specific types of job
+-	Recommended Skills: Volcano, Job Management, Golang
+-	Mentor(s): Zhonghu Xu(@hzxuzhonghu), Klaus Ma(@k82cn) 
+-	Upstream Issue (URL): https://github.com/volcano-sh/volcano/issues/1034
