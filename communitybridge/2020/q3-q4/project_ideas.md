@@ -141,3 +141,9 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 -	Mentor(s): @SergeyKanzhelev
 -	Upstream Issue (URL): will be created
 
+
+##### PHP Issue Triaging
+-   Description: Work on open tickets associated with ([opentelemetry-php](https://github.com/open-telemetry/opentelemetry-php/))
+-   Recommended Skills: PHP experience
+-   Mentor(s): @bobstrecansky
+-   Upstream Issue (URL): will be created
