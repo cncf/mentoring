@@ -142,7 +142,7 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 -	Upstream Issue (URL): will be created
 
 
-##### PHP Issue Triaging
+##### PHP Exporter Development
 -   Description: Develop some of the exporters for PHP that are found in the ([Spec Compliance Matrix](https://github.com/open-telemetry/opentelemetry-specification/blob/master/spec-compliance-matrix.md#exporters)) that are not yet completed for PHP.  There are some really neat exporter implementations that would be excellent candidates.
 -   Recommended Skills: PHP experience
 -   Mentor(s): @bobstrecansky
