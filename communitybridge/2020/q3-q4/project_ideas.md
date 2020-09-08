@@ -124,3 +124,20 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Recommended Skills: Angular
 - Mentor(s): Jürgen Etzlstorfer ([@jetzlstorfer](https://github.com/jetzlstorfer)), Johannes Bräuer ([@johannes-b](https://github.com/johannes-b))
 - Upstream Issue (URL): https://github.com/keptn/keptn/issues/2299
+
+#### Opentelemetry
+
+##### ETW exporter
+
+-	Description: Add exporter for ETW (Event Tracing for Windows) as one of the optional recommended exporters that languages may decide to implement as part of SDK. Initial set of languages to support: C++ and/or C#.
+-	Recommended Skills: some C++ or C# coding experience. Windows development environment is needed
+-	Mentor(s): @maxgolov
+-	Upstream Issue (URL): will be created
+
+##### OpenTelemetry to FluentBit exporter
+
+-	Description: Define a data format and create an exporter from OpenTelemetry to FluentBit. This will allow customers to use existing log delivery pipeline to upload telemetry collected by the rich set of various OpenTelemetry SDKs. 
+-	Recommended Skills: one of the languages suported by OpenTelemetry. Ideally C# or Go
+-	Mentor(s): @SergeyKanzhelev
+-	Upstream Issue (URL): will be created
+
