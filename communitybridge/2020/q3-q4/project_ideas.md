@@ -85,7 +85,7 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 - Description: This task is to support the authorization and authentication ability by rbac control in TiKV, so that the data accessing security will more complete in TiKV.
 - Recommended Skills: Rust, Golang
-- Mentors(s): Song Gao (@Yisaer), Yutong Liang (rleungx)
+- Mentors(s): Song Gao (@yisaer), Yutong Liang (@rleungx)
 -	Upstream Issue (URL): https://github.com/tikv/tikv/issues/8621
 
 #### Volcano
