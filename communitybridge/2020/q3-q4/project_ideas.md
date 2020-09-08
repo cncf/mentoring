@@ -81,6 +81,13 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Mentor(s): Chi Zhang (@skyzh)
 - Upstream Issue (URL): https://github.com/tikv/tikv/issues/8605
 
+#### Support rbac control for data accessing in TiKV
+
+- Description: This task is to support the authorization and authentication ability by rbac control in TiKV, so that the security of the data accessing in TiKV will become more complete.
+- Recommended Skills: Rust, Golang
+- Mentors(s): Song Gao (@yisaer), Yutong Liang (@rleungx)
+- Upstream Issue (URL): https://github.com/tikv/tikv/issues/8621
+
 #### Volcano
 ##### Implement hierarchy queue to better support fair-share
 
