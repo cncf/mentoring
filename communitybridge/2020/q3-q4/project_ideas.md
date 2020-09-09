@@ -51,6 +51,13 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 -	Mentor(s): Keao Yang([@YangKeao](https://github.com/YangKeao)), Cwen Yin([@cwen0](https://github.com/cwen0))
 -	Issue: https://github.com/chaos-mesh/chaos-mesh/issues/694
 
+##### Support chaos-daemon work independently on a non-k8s node.
+
+-	Description: Now chaos-daemon only can be run as a DaemonSet service on the Kubernetes cluster, but many users want to inject faults into Kubernetes itself or their applications are not deployed in the Kubernetes environment, which makes them unable to use Chaos Mesh. So we need to make chaos-daemon can work independently on a non-k8s node and support to inject faults to this node directly.
+-	Recommended Skills: Chaos Mesh, Kubernetes, golang
+-	Mentor(s): Keao Yang([@YangKeao](https://github.com/YangKeao)), Cwen Yin([@cwen0](https://github.com/cwen0))
+-	Issue: https://github.com/chaos-mesh/chaos-mesh/issues/888
+
 #### KubeEdge
 ##### Support list-watch from edgecore for applications on the edge
 
