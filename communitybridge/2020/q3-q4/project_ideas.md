@@ -168,3 +168,22 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 -	Recommended Skills: React, JavaScript, Golang
 -	Mentor(s): Lucas Servén Marín(@squat), Bartek Plotka(@bwplotka)
 -	Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/3142
+
+#### Open Service Mesh, Kuma and Service Mesh Interface
+
+##### Standards validation for OSM and Kuma
+
+- Description: As two of the service meshes in the CNCF, both Kuma and Open Service Mesh need their implementations of standard specifications validated. This is true for Service Mesh Interface (SMI) and Service Mesh Performance (SMP) specifications. Both API specifications spanning many service meshes. Each service mesh implementing the SMI and SMP specifciation need their conformance validated.
+
+- Recommended Skills: golang
+- Mentor(s): Lee Calcote (@leecalcote), Abishek Kumar (@kumarabd)
+-	Upstream Issue (URL): https://github.com/openservicemesh/osm/issues/172
+
+#### Open Service Mesh
+
+##### Support for WebAssembly filters
+- Description: Bring OSM on par with other service meshes that support WASM filters in their data plane. OSM's Envoy proxies can be extended at runtime with filters that are running in a WebAssembly sandbox (https://github.com/envoyproxy/envoy-wasm). Provide ability to dynamically load and unload Envoy WASM filters.
+
+- Recommended Skills: golang, rust
+- Mentor(s): Lee Calcote (@leecalcote), Dev Kalra (@kalradev)
+-	Upstream Issue (URL): https://github.com/openservicemesh/osm/issues/1671
