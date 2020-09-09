@@ -100,21 +100,21 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 -	Description: Implement hierarchy queue to better support fair-share
 -	Recommended Skills: Volcano, Scheduling, Golang
--	Mentor(s): Zhonghu Xu(@hzxuzhonghu), Klaus Ma(@k82cn) 
+-	Mentor(s): Zhonghu Xu(@hzxuzhonghu), Klaus Ma(@k82cn)
 -	Upstream Issue (URL): https://github.com/volcano-sh/volcano/issues/1033
 
 ##### Customize scheduling algorithms per queue
 
 -	Description: Support customized scheduling algorithms per queue
 -	Recommended Skills: Kubernetes, Scheduling, Golang
--	Mentor(s): Zhonghu Xu(@hzxuzhonghu), Klaus Ma(@k82cn) 
+-	Mentor(s): Zhonghu Xu(@hzxuzhonghu), Klaus Ma(@k82cn)
 -	Upstream Issue (URL): https://github.com/volcano-sh/volcano/issues/1035
 
 ##### Implement specific job types to improve usability
 
 -	Description: Improve Job API to support specific types of job
 -	Recommended Skills: Volcano, Job Management, Golang
--	Mentor(s): Zhonghu Xu(@hzxuzhonghu), Klaus Ma(@k82cn) 
+-	Mentor(s): Zhonghu Xu(@hzxuzhonghu), Klaus Ma(@k82cn)
 -	Upstream Issue (URL): https://github.com/volcano-sh/volcano/issues/1034
 
 #### Keptn
@@ -127,7 +127,7 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 ##### Visualize remediation actions as counteractions for alerts
 
-- Description: Improve the existing UI by adding UI elements for existing (multi-stage) remediation actions for services that are managed by Keptn. 
+- Description: Improve the existing UI by adding UI elements for existing (multi-stage) remediation actions for services that are managed by Keptn.
 - Recommended Skills: Angular
 - Mentor(s): Jürgen Etzlstorfer ([@jetzlstorfer](https://github.com/jetzlstorfer)), Johannes Bräuer ([@johannes-b](https://github.com/johannes-b))
 - Upstream Issue (URL): https://github.com/keptn/keptn/issues/2299
@@ -143,14 +143,28 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 ##### OpenTelemetry to FluentBit exporter
 
--	Description: Define a data format and create an exporter from OpenTelemetry to FluentBit. This will allow customers to use existing log delivery pipeline to upload telemetry collected by the rich set of various OpenTelemetry SDKs. 
+-	Description: Define a data format and create an exporter from OpenTelemetry to FluentBit. This will allow customers to use existing log delivery pipeline to upload telemetry collected by the rich set of various OpenTelemetry SDKs.
 -	Recommended Skills: one of the languages suported by OpenTelemetry. Ideally C# or Go
 -	Mentor(s): @SergeyKanzhelev
 -	Upstream Issue (URL): will be created
-
 
 ##### PHP Exporter Development
 -   Description: Develop some of the exporters for PHP that are found in the ([Spec Compliance Matrix](https://github.com/open-telemetry/opentelemetry-specification/blob/master/spec-compliance-matrix.md#exporters)) that are not yet completed for PHP.  There are some really neat exporter implementations that would be excellent candidates.
 -   Recommended Skills: PHP experience
 -   Mentor(s): @bobstrecansky
 -   Upstream Issue (URL): will be created
+
+#### Thanos
+##### Receive: Hashring Update Improvements
+
+-	Description: Currently, any change to the hashring configuration file will trigger all Thanos Receive nodes to flush their multi-TSDBs, causing them to enter an unready state until the flush is complete. This unavailability during a flush allows for a clear state transition, however it can result in downtimes on the order of five minutes for every configuration change. We propose modifying how the Thanos Receive component re-configures itself after the hashring configuration file has changed so that the system experiences no downtime.
+-	Recommended Skills: Thanos, Timeseries database, Golang
+-	Mentor(s): Lucas Servén Marín(@squat), Frederic Branczyk(@brancz)
+-	Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/3141
+
+##### UI Enhancements
+
+-	Description: The Thanos project has recently migrated its UI to one built on re-usable and shareable components written in React, with the goal of fostering collaboration with the broader Prometheus community. As part of this proposal, we would like to further collaborate with the Prometheus community to continue building a shared UI component library and to contribute upstream to Prometheus so that it can leverage these components in its UI.
+-	Recommended Skills: React, JavaScript, Golang
+-	Mentor(s): Lucas Servén Marín(@squat), Bartek Plotka(@bwplotka)
+-	Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/3142
