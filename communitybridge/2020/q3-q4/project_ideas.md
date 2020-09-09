@@ -148,23 +148,16 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 -   Upstream Issue (URL): will be created
 
 #### Thanos
-##### Receive Controller (tentative)
+##### Receive: Hashring Update Improvements
 
--	Description: Receive Controller (tentative)
--	Recommended Skills: Thanos, Kubernetes, Golang
--	Mentor(s): Bartek Plotka(@bwplotka), Kemal Akkoyun(@kakkoyun), Lucas Servén Marín(@squat), Frederic Branczyk(@brancz)
--	Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/XXX
-
-##### Receive Hashring Update improvements (tentative)
-
--	Description: Receive Hashring Update improvements (tentative)
+-	Description: Currently, any change to the hashring configuration file will trigger all Thanos Receive nodes to flush their multi-TSDBs, causing them to enter an unready state until the flush is complete. This unavailability during a flush allows for a clear state transition, however it can result in downtimes on the order of five minutes for every configuration change. We propose modifying how the Thanos Receive component re-configures itself after the hashring configuration file has changed so that the system experiences no downtime.
 -	Recommended Skills: Thanos, Timeseries database, Golang
--	Mentor(s): Bartek Plotka(@bwplotka), Kemal Akkoyun(@kakkoyun), Lucas Servén Marín(@squat), Frederic Branczyk(@brancz)
--	Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/XXX
+-	Mentor(s): Lucas Servén Marín(@squat), Frederic Branczyk(@brancz)
+-	Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/3141
 
-##### UI Improvements follow-up work (tentative)
+##### UI Enhancements
 
--	Description: UI Improvements follow-up work (tentative)
+-	Description: The Thanos project has recently migrated its UI to one built on re-usable and shareable components written in React, with the goal of fostering collaboration with the broader Prometheus community. As part of this proposal, we would like to further collaborate with the Prometheus community to continue building a shared UI component library and to contribute upstream to Prometheus so that it can leverage these components in its UI.
 -	Recommended Skills: React, JavaScript, Golang
--	Mentor(s): Bartek Plotka(@bwplotka), Kemal Akkoyun(@kakkoyun), Lucas Servén Marín(@squat), Frederic Branczyk(@brancz)
--	Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/XXX
+-	Mentor(s): Lucas Servén Marín(@squat), Bartek Plotka(@bwplotka)
+-	Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/3142
