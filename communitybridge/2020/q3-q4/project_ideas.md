@@ -166,7 +166,7 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 -	Description: The Thanos project has recently migrated its UI to one built on re-usable and shareable components written in React, with the goal of fostering collaboration with the broader Prometheus community. As part of this proposal, we would like to further collaborate with the Prometheus community to continue building a shared UI component library and to contribute upstream to Prometheus so that it can leverage these components in its UI.
 -	Recommended Skills: React, JavaScript, Golang
--	Mentor(s): Lucas Servén Marín(@squat), Bartek Plotka(@bwplotka)
+-	Mentor(s): Kemal Akkoyun(@kakkoyun), Bartek Plotka(@bwplotka)
 -	Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/3142
 
 #### Open Service Mesh, Kuma and Service Mesh Interface
