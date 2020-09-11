@@ -187,3 +187,16 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Recommended Skills: golang, rust
 - Mentor(s): Lee Calcote (@leecalcote), Dev Kalra (@kalradev)
 -	Upstream Issue (URL): https://github.com/openservicemesh/osm/issues/1671
+
+#### Prometheus
+
+##### Add various post processing steps in query API after PromQL execution
+
+- Description: The results from the `query`/`query_range` are often unordered w.r.t. the label values and sample value. Also, there is no limit on how many series the endpoint can return. In this project, we want to extend those query APIs to include options for post processing the output to do the following:
+* Support nested sorting (ascending/descending) of time series based on (1) Label values (2) Sample values for `/query` endpoint.
+* Support limiting the number of time series returned by `query`/`query_range` endpoint.
+* If time permits, expore how we can do nested sorting of time series for `query_range` API.
+
+- Recommended Skills: golang
+- Mentor(s): Bartek Plotka(@bwplotka), Ganesh Vernekar (@codesome)
+- Upstream Issue (URL): TODO
