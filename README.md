@@ -1,31 +1,27 @@
-CNCF Mentoring Initiatives
-==========================
+# CNCF Mentoring Initiatives
 
 The Cloud Native Computing Foundation (CNCF) participates in a variety of mentoring programs. CNCF is a great place to spend a summer learning, coding, participating and contributing. We are an exciting open source foundation with a vibrant community of projects, and we look forward to your application and your project ideas!
 
-Organization Admins
--------------------
+## Organization Admins
 
 If you need help with anything mentoring at CNCF, you can file an issue at this repo or reach out to us at the #mentoring channel on [CNCF Slack](https://slack.cncf.io/).
 
 Organization admins for specific mentorship programs are listed on the programs respective pages.
 
-Communication
--------------
+## Communication
 
 Please reach out to us on the #mentoring channel on the [CNCF slack](https://slack.cncf.io/). Please don't use DMs unless strictly necessary as doing so both has the potential of overwhelming project maintainers and others with similar questions lose the benefit of public discussion.
 
 It's best if you use a public communication channel whenever possible; however, if you need to communicate in private, please feel free to send the admins a note via mentoring@cncf.io (please use the public channels for any project-related discussion).
 
 | Program                                                               | Purpose                                                                         | Details and historical data                  |
-|-----------------------------------------------------------------------|---------------------------------------------------------------------------------|----------------------------------------------|
+| --------------------------------------------------------------------- | ------------------------------------------------------------------------------- | -------------------------------------------- |
 | [Community Bridge](https://people.communitybridge.org/)               | Mentoring initiative by the Linux Foundation                                    | [communitybridge](communitybridge/README.md) |
 | [Google Summer of Code](https://summerofcode.withgoogle.com/)         | Mentoring program for the students                                              | [summerofcode](summerofcode/README.md)       |
 | [Google Season of Docs](https://developers.google.com/season-of-docs) | Mentoring initiative for the technical writers                                  | [seasonofdocs](seasonofdocs/README.md)       |
-| [Outreachy](https://www.outreachy.org)             | Mentoring initiative for the communities traditionally underrepresented in tech | [outreachy](outreachy/README.md)             |
+| [Outreachy](https://www.outreachy.org)                                | Mentoring initiative for the communities traditionally underrepresented in tech | [outreachy](outreachy/README.md)             |
 
-Program Statistics
-------------------
+## Program Statistics
 
 | Year | Program         | Internships | Total (per year) |
 | ---- | --------------- | ----------- | ---------------- |
@@ -41,41 +37,40 @@ Program Statistics
 | 2017 | GSoC            | 6           | 8                |
 |      | Outreachy       | 2           |                  |
 
-
 ### Community Bridge
 
 #### 2020
 
 ##### Q2
 
-| CNCF Projects 	| Community Bridge Project 	| Mentor Name(s) 	| Mentee Name 	| Blog post 	|
-|-	|-	|-	|-	|-	|
-| Argo 	| Enhancing Developer Experience with Open Application Model Delpoyment using Argo CD 	| Ken Owens 	| [Darshan Chaudhary](https://people.communitybridge.org/mentee/5c5cec97-9863-4a44-bb15-31e7f36cb952,5d5d4357-f340-47c9-9ff2-7b0536291576) 	|  	|
-| CoreDNS 	| External health check and orchestration of CoreDNS in Kubernetes clusters 	| Yong Tang 	| [Jayesh Sharma](https://people.communitybridge.org/mentee/4ea84460-17c7-4cbb-be95-11ade6195ed3,6705be57-130f-43f5-ba80-11605ffdb1f9) 	|  	|
-| Envoy 	| Improve Envoy observability for http module 	| Kateryna Nezdolii 	| [Ranjith Kumar Adha](https://people.communitybridge.org/mentee/9654d6c4-1ea5-46d4-b72e-fb78c2326aa6,872be524-7465-4639-be88-1b451c581826) 	|  	|
-| Fluentd 	| Fluent Bit Monitoring Web UI 	| Eduardo Silva 	| [Shivam Singhal](https://people.communitybridge.org/mentee/9cb20c4a-c637-4453-9cf5-6dd5e7130d60,d24ab158-e4e5-4042-91ad-b30ae52941d2) 	|  	|
-| KubeEdge 	| Support metrics-server in cloud 	| Fei Xu 	| [Tiecheng Shen](https://people.communitybridge.org/mentee/b26f53c3-4b47-4bf8-80ff-262aff137722,1b931913-44a4-43a7-92ed-d7b2089060b1) 	|  	|
-| KubeEdge 	| Add certificate rotation for edge node 	| Fei Xu 	| [Jiejie Xu](https://people.communitybridge.org/mentee/571fd9fa-0253-4525-af33-dcab4d2e0454,1b931913-44a4-43a7-92ed-d7b2089060b1) 	|  	|
-| KubeVirt 	| Kernel boot 	| Fabian Deutsch, Daniel Belenky, Daniel Hiller 	| [Hritvi Bhandari](https://people.communitybridge.org/mentee/cb7362a0-d10b-4806-8c43-6ffa4031515b,de7ca1c2-2d22-4919-bef8-6cca50a54426) 	|  	|
-| KubeVirt 	| Improve Observability 	| Fabian Deutsch, Daniel Belenky, Daniel Hiller 	| [Arthur Silva Sens](https://people.communitybridge.org/mentee/bd26d0f8-0af5-4032-9fb2-ae6becb621c4,de7ca1c2-2d22-4919-bef8-6cca50a54426) 	| [My first real experience with Open Source](https://medium.com/@arthursens2005/my-first-real-experience-with-open-source-59728469ca52) 	|
-| Kubernetes 	| Multi-tenancy benchmark project 	| Tasha Drew 	| [Divya Rani](https://people.communitybridge.org/mentee/b65e7f25-a1c7-458a-98d5-e990122c843d,2d438b9a-c539-46d0-9eed-c6ee4404c88a) 	|  	|
-| Kubernetes 	| Kubernetes working group for CSI driver 	| Andy Zhang 	| [Animesh Kumar](https://people.communitybridge.org/mentee/51d3fad8-fac8-49c0-ba18-9c96635b07f1,2d438b9a-c539-46d0-9eed-c6ee4404c88a) 	|  	|
-| Linkerd 	| Service Topologies 	| Thomas Rampelberg 	|  	|  	|
-| Open Policy Agent 	| OPA - MongoDB query translator 	| Ash Narkar 	| [Vineeth Pothulapati](https://people.communitybridge.org/mentee/1027186d-a51f-49cc-a8d8-a8a69b9ceb55,12a9270f-8673-4acb-92ec-fd539fc2b567) 	|  	|
-| OpenEBS 	| New storage backend using raw disk images 	| Kiran Mova 	| [Mehran Kholdi](https://people.communitybridge.org/mentee/b72c04dc-9650-4e3a-a335-14c5123b8f32,40a443f9-cb78-49e6-96ad-26616acb2113) 	|  	|
-| OpenEBS 	| A easy to use command-line interface (CLI) for OpenEBS. 	| Kiran Mova 	| [Harsh Thakur](https://people.communitybridge.org/mentee/b41c735b-64f5-4da4-a26d-b3bd0f867e35,40a443f9-cb78-49e6-96ad-26616acb2113) 	|  [Crossing the Community Bridge](https://medium.com/harsh-thakur/journey-of-community-bridge-a2a190b6c098)	|
-| Prometheus 	| Persist Retroactive Rule Reevaluations 	| Callum Styan, Bartlomiej Plotka 	| [Jessica Grebenschikov](https://people.communitybridge.org/mentee/aceb6a84-ce89-4e4d-8a2d-4a4dd8eb2f46,9595fbe7-6a8d-43d4-aebb-a54d57f33fdd) 	|  	|
-| Prometheus 	| Remote Write WAL Pointer + Other Improvements 	| Callum Styan, Bartlomiej Plotka 	| [Nicole Jingco](https://people.communitybridge.org/mentee/f63d546c-b38b-42fe-9d78-24b077c7a21a,9595fbe7-6a8d-43d4-aebb-a54d57f33fdd) 	|  	|
-| Service Mesh Interface 	| SMI Conformance with Meshery 	| Lee Calcote, Vinayak Shinde 	| [Kanishkar J](https://people.communitybridge.org/mentee/2733c465-9ea8-4889-a3a3-e1b9215393ee,359dda52-7fb7-4fa8-82cd-a27216757a57) 	|  	|
-| Thanos 	| Per Request Query Tracking and Limiting 	| Povilas Versockas, Bartlomiej Plotka, Kemal Akkoyun 	| [Yash Sharma](https://people.communitybridge.org/mentee/4966d917-9539-47ae-b335-7ef92f59f6c7,f51284ab-f652-47b1-9819-cd4135e75c00) 	|  	|
-| Thanos 	| Complete Katacoda tutorials 	| Povilas Versockas, Bartlomiej Plotka, Kemal Akkoyun 	| [Sonia Singla](https://people.communitybridge.org/mentee/4966d917-9539-47ae-b335-7ef92f59f6c7,f51284ab-f652-47b1-9819-cd4135e75c00) 	| [Get the most out of Community Bridge Program](https://soniasingla.com/most-cb-program/) 	|
-| Thanos 	| Versioned Website Docs 	| Povilas Versockas, Bartlomiej Plotka, Kemal Akkoyun 	| [Uchechukwu Obasi](https://people.communitybridge.org/mentee/365bfa7f-ce76-4300-85ce-f5611ebc74af,f51284ab-f652-47b1-9819-cd4135e75c00) 	|  	|
-| TiKV 	| Full Chunk-based Computing 	| Tianyi Zhuang, Wish Shi 	| [Chi Zhang](https://people.communitybridge.org/mentee/4a9369ba-d561-4849-99cb-3544aff51294,c6a0326c-b053-41a3-9bf2-1e7e78481ca6) 	| [My CommunityBridge Mentorship with TiKV Project](https://tikv.org/blog/communitybridge-mentorship/) 	|
+| CNCF Projects          | Community Bridge Project                                                            | Mentor Name(s)                                      | Mentee Name                                                                                                                                  | Blog post                                                                                                                              |
+| ---------------------- | ----------------------------------------------------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Argo                   | Enhancing Developer Experience with Open Application Model Delpoyment using Argo CD | Ken Owens                                           | [Darshan Chaudhary](https://people.communitybridge.org/mentee/5c5cec97-9863-4a44-bb15-31e7f36cb952,5d5d4357-f340-47c9-9ff2-7b0536291576)     |                                                                                                                                        |
+| CoreDNS                | External health check and orchestration of CoreDNS in Kubernetes clusters           | Yong Tang                                           | [Jayesh Sharma](https://people.communitybridge.org/mentee/4ea84460-17c7-4cbb-be95-11ade6195ed3,6705be57-130f-43f5-ba80-11605ffdb1f9)         |                                                                                                                                        |
+| Envoy                  | Improve Envoy observability for http module                                         | Kateryna Nezdolii                                   | [Ranjith Kumar Adha](https://people.communitybridge.org/mentee/9654d6c4-1ea5-46d4-b72e-fb78c2326aa6,872be524-7465-4639-be88-1b451c581826)    |                                                                                                                                        |
+| Fluentd                | Fluent Bit Monitoring Web UI                                                        | Eduardo Silva                                       | [Shivam Singhal](https://people.communitybridge.org/mentee/9cb20c4a-c637-4453-9cf5-6dd5e7130d60,d24ab158-e4e5-4042-91ad-b30ae52941d2)        |                                                                                                                                        |
+| KubeEdge               | Support metrics-server in cloud                                                     | Fei Xu                                              | [Tiecheng Shen](https://people.communitybridge.org/mentee/b26f53c3-4b47-4bf8-80ff-262aff137722,1b931913-44a4-43a7-92ed-d7b2089060b1)         |                                                                                                                                        |
+| KubeEdge               | Add certificate rotation for edge node                                              | Fei Xu                                              | [Jiejie Xu](https://people.communitybridge.org/mentee/571fd9fa-0253-4525-af33-dcab4d2e0454,1b931913-44a4-43a7-92ed-d7b2089060b1)             |                                                                                                                                        |
+| KubeVirt               | Kernel boot                                                                         | Fabian Deutsch, Daniel Belenky, Daniel Hiller       | [Hritvi Bhandari](https://people.communitybridge.org/mentee/cb7362a0-d10b-4806-8c43-6ffa4031515b,de7ca1c2-2d22-4919-bef8-6cca50a54426)       |                                                                                                                                        |
+| KubeVirt               | Improve Observability                                                               | Fabian Deutsch, Daniel Belenky, Daniel Hiller       | [Arthur Silva Sens](https://people.communitybridge.org/mentee/bd26d0f8-0af5-4032-9fb2-ae6becb621c4,de7ca1c2-2d22-4919-bef8-6cca50a54426)     | [My first real experience with Open Source](https://medium.com/@arthursens2005/my-first-real-experience-with-open-source-59728469ca52) |
+| Kubernetes             | Multi-tenancy benchmark project                                                     | Tasha Drew                                          | [Divya Rani](https://people.communitybridge.org/mentee/b65e7f25-a1c7-458a-98d5-e990122c843d,2d438b9a-c539-46d0-9eed-c6ee4404c88a)            |                                                                                                                                        |
+| Kubernetes             | Kubernetes working group for CSI driver                                             | Andy Zhang                                          | [Animesh Kumar](https://people.communitybridge.org/mentee/51d3fad8-fac8-49c0-ba18-9c96635b07f1,2d438b9a-c539-46d0-9eed-c6ee4404c88a)         |                                                                                                                                        |
+| Linkerd                | Service Topologies                                                                  | Thomas Rampelberg                                   |                                                                                                                                              |                                                                                                                                        |
+| Open Policy Agent      | OPA - MongoDB query translator                                                      | Ash Narkar                                          | [Vineeth Pothulapati](https://people.communitybridge.org/mentee/1027186d-a51f-49cc-a8d8-a8a69b9ceb55,12a9270f-8673-4acb-92ec-fd539fc2b567)   |                                                                                                                                        |
+| OpenEBS                | New storage backend using raw disk images                                           | Kiran Mova                                          | [Mehran Kholdi](https://people.communitybridge.org/mentee/b72c04dc-9650-4e3a-a335-14c5123b8f32,40a443f9-cb78-49e6-96ad-26616acb2113)         |                                                                                                                                        |
+| OpenEBS                | A easy to use command-line interface (CLI) for OpenEBS.                             | Kiran Mova                                          | [Harsh Thakur](https://people.communitybridge.org/mentee/b41c735b-64f5-4da4-a26d-b3bd0f867e35,40a443f9-cb78-49e6-96ad-26616acb2113)          | [Crossing the Community Bridge](https://medium.com/harsh-thakur/journey-of-community-bridge-a2a190b6c098)                              |
+| Prometheus             | Persist Retroactive Rule Reevaluations                                              | Callum Styan, Bartlomiej Plotka                     | [Jessica Grebenschikov](https://people.communitybridge.org/mentee/aceb6a84-ce89-4e4d-8a2d-4a4dd8eb2f46,9595fbe7-6a8d-43d4-aebb-a54d57f33fdd) |                                                                                                                                        |
+| Prometheus             | Remote Write WAL Pointer + Other Improvements                                       | Callum Styan, Bartlomiej Plotka                     | [Nicole Jingco](https://people.communitybridge.org/mentee/f63d546c-b38b-42fe-9d78-24b077c7a21a,9595fbe7-6a8d-43d4-aebb-a54d57f33fdd)         |                                                                                                                                        |
+| Service Mesh Interface | SMI Conformance with Meshery                                                        | Lee Calcote, Vinayak Shinde                         | [Kanishkar J](https://people.communitybridge.org/mentee/2733c465-9ea8-4889-a3a3-e1b9215393ee,359dda52-7fb7-4fa8-82cd-a27216757a57)           |                                                                                                                                        |
+| Thanos                 | Per Request Query Tracking and Limiting                                             | Povilas Versockas, Bartlomiej Plotka, Kemal Akkoyun | [Yash Sharma](https://people.communitybridge.org/mentee/4966d917-9539-47ae-b335-7ef92f59f6c7,f51284ab-f652-47b1-9819-cd4135e75c00)           |                                                                                                                                        |
+| Thanos                 | Complete Katacoda tutorials                                                         | Povilas Versockas, Bartlomiej Plotka, Kemal Akkoyun | [Sonia Singla](https://people.communitybridge.org/mentee/4966d917-9539-47ae-b335-7ef92f59f6c7,f51284ab-f652-47b1-9819-cd4135e75c00)          | [Get the most out of Community Bridge Program](https://soniasingla.com/most-cb-program/)                                               |
+| Thanos                 | Versioned Website Docs                                                              | Povilas Versockas, Bartlomiej Plotka, Kemal Akkoyun | [Uchechukwu Obasi](https://people.communitybridge.org/mentee/365bfa7f-ce76-4300-85ce-f5611ebc74af,f51284ab-f652-47b1-9819-cd4135e75c00)      |                                                                                                                                        |
+| TiKV                   | Full Chunk-based Computing                                                          | Tianyi Zhuang, Wish Shi                             | [Chi Zhang](https://people.communitybridge.org/mentee/4a9369ba-d561-4849-99cb-3544aff51294,c6a0326c-b053-41a3-9bf2-1e7e78481ca6)             | [My CommunityBridge Mentorship with TiKV Project](https://tikv.org/blog/communitybridge-mentorship/)                                   |
 
 ##### Q1
 
 | CNCF Projects | Community Bridge Project                                                                                                                                                             | Mentor Name(s)                          | Mentee Name                                                                                           |
-|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|-------------------------------------------------------------------------------------------------------|
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | Cortex        | Storage Plugins                                                                                                                                                                      | Goutham Veeramachaneni                  | [Vineeth Pothulapati](https://people.communitybridge.org/mentee/1027186d-a51f-49cc-a8d8-a8a69b9ceb55) |
 | Fluentd       | Extending internal metrics support on Fluent Bit and improving Fluent Bit usability / user-experience                                                                                | Eduardo Silva and Masoud Koleini        | [Atibhi Agarwal](https://people.communitybridge.org/mentee/d42ae6ad-d081-4fd1-8640-6eb11f48f684)      |
 | Kubernetes    | Integrating the Tenant Operator with the hierarchical namespace controller                                                                                                           | Tasha Drew and Fei Guo                  | [Shivani Singhal](https://people.communitybridge.org/mentee/568f73ab-4787-4a2c-a808-b4b8b878457f)     |
@@ -89,7 +84,7 @@ Program Statistics
 ##### Pilot
 
 | CNCF Projects | Community Bridge Project                                    | Mentor Name(s) | Mentee Name                                                                                  |
-|---------------|-------------------------------------------------------------|----------------|----------------------------------------------------------------------------------------------|
+| ------------- | ----------------------------------------------------------- | -------------- | -------------------------------------------------------------------------------------------- |
 | Kubernetes    | Integrating kube-batch with pytorch-operator/mxnet-operator | Klaus Ma       | [Suryavanshi Virendrasingh](https://www.linkedin.com/in/virendrasingh-suryavanshi-47460498/) |
 | Kubernetes    | CSI Driver for Azure Disk                                   | Xia Zhang      | [Priyanshu Khandelwal](https://www.linkedin.com/in/priyanshu-khandelwal-7283b6133/)          |
 | CoreDNS       | Support Google Cloud DNS backend                            | Yong Tang      | [Palash Nigam](https://www.linkedin.com/in/palash25/)                                        |
@@ -99,7 +94,7 @@ Program Statistics
 #### 2020
 
 | CNCF Projects          | GSoC Project                                                                                       | Mentor Name(s)                                        | Mentee Name              | Blog post (optional)                                  |
-|------------------------|----------------------------------------------------------------------------------------------------|-------------------------------------------------------|--------------------------|-------------------------------------------------------|
+| ---------------------- | -------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ------------------------ | ----------------------------------------------------- |
 | CoreDNS                | Anomaly Detection of CoreDNS Server through Machine Learning                                       | Yong Tang                                             | Chanakya Ekbote          |                                                       |
 | Cortex                 | Selectively disable Indexing of labels                                                             | Bryan Boreham, Ryan Zhang                             | JayBatra                 |                                                       |
 | Envoy                  | Distributed Load Testing of Envoy Data Planes                                                      | Ryan Zhang, Lee Calcote, Shivay Lamba                 | Kush Trivedi             |                                                       |
@@ -121,7 +116,7 @@ Program Statistics
 #### 2019
 
 | CNCF Projects     | GSoC Project                                                                                                                                                | Mentor(s)                                          | Mentee              |
-|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|---------------------|
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------------------- |
 | CoreDNS           | [Support Source IP Based Query Block/Allow in CoreDNS](https://summerofcode.withgoogle.com/archive/2019/projects/4786589752885248/)                         | Yong Tang                                          | An Xiao             |
 | Envoy/Linkerd     | [Multi-mesh performance benchmark tool](https://summerofcode.withgoogle.com/archive/2019/projects/6211205507579904/)                                        | Lee Calcote                                        | Shahriyar Mammadov  |
 | Falco             | [Falco engine performance analysis and optimization](https://summerofcode.withgoogle.com/archive/2019/projects/6404259405365248/)                           | Loris Degioanni,Lorenzo Fontana,Leonardo Di Donato | Mattia Lavacca      |
@@ -159,4 +154,3 @@ Program Statistics
 | CoreDNS       | [dnstap Middleware](https://summerofcode.withgoogle.com/archive/2017/projects/5269744752001024/)                                                                                     | Miek Gieben, John Belamaric | Antoine D.         |
 | Kubernetes    | [Improve Third Party Resources](https://summerofcode.withgoogle.com/archive/2017/projects/5736684469616640/)                                                                         | Stefan Schimanski           | Nikhita Raghunath  |
 | OpenTracing   | [instrument OpenTracing with go-restful web framework](https://summerofcode.withgoogle.com/archive/2017/projects/5449224187543552/)                                                  | Wu Sheng, Ted Young         | MINGQIANG LIANG    |
-
