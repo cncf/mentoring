@@ -139,20 +139,20 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 -	Description: Add exporter for ETW (Event Tracing for Windows) as one of the optional recommended exporters that languages may decide to implement as part of SDK. Initial set of languages to support: C++ and/or C#.
 -	Recommended Skills: some C++ or C# coding experience. Windows development environment is needed
 -	Mentor(s): @maxgolov
--	Upstream Issue (URL): will be created
+-	Upstream Issue (URL): https://github.com/open-telemetry/opentelemetry-cpp/issues/326
 
 ##### OpenTelemetry to FluentBit exporter
 
 -	Description: Define a data format and create an exporter from OpenTelemetry to FluentBit. This will allow customers to use existing log delivery pipeline to upload telemetry collected by the rich set of various OpenTelemetry SDKs.
 -	Recommended Skills: one of the languages suported by OpenTelemetry. Ideally C# or Go
 -	Mentor(s): @SergeyKanzhelev
--	Upstream Issue (URL): will be created
+-	Upstream Issue (URL): https://github.com/open-telemetry/opentelemetry-dotnet-contrib/issues/31
 
 ##### PHP Exporter Development
 -   Description: Develop some of the exporters for PHP that are found in the ([Spec Compliance Matrix](https://github.com/open-telemetry/opentelemetry-specification/blob/master/spec-compliance-matrix.md#exporters)) that are not yet completed for PHP.  There are some really neat exporter implementations that would be excellent candidates.
 -   Recommended Skills: PHP experience
 -   Mentor(s): @bobstrecansky
--   Upstream Issue (URL): will be created
+-   Upstream Issue (URL): https://github.com/open-telemetry/opentelemetry-php/issues/175
 
 #### Thanos
 ##### Receive: Hashring Update Improvements
