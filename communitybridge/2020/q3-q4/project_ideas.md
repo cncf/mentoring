@@ -199,4 +199,4 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 - Recommended Skills: golang
 - Mentor(s): Bartek Plotka(@bwplotka), Ganesh Vernekar (@codesome)
-- Upstream Issue (URL): TODO
+- Upstream Issue (URL): https://github.com/prometheus/prometheus/issues/7903
