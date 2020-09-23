@@ -23,19 +23,19 @@ It's best if you use a public communication channel whenever possible; however, 
 
 ## Program Statistics
 
-| Year | Program         | Internships | Total (per year) |
-| ---- | --------------- | ----------- | ---------------- |
-| 2020 | CommunityBridge | 27          | TBD              |
-|      | GSoC            | 16          |                  |
-|      | GSoD            | 4           |                  |
-|      | Outreachy       | TBD         |                  |
-| 2019 | CommunityBridge | 4           | 20               |
-|      | GSoC            | 15          |                  |
-|      | Outreachy       | 1           |                  |
-| 2018 | GSoC            | 7           | 8                |
-|      | Outreachy       | 1           |                  |
-| 2017 | GSoC            | 6           | 8                |
-|      | Outreachy       | 2           |                  |
+| Year | Program         | Internships | Total (per year)        |
+| ---- | --------------- | ----------- | ----------------------- |
+| 2020 | CommunityBridge | 27          | 37 _(year in progress)_ |
+|      | GSoC            | 16          |                         |
+|      | GSoD            | 4           |                         |
+|      | Outreachy       | TBD         |                         |
+| 2019 | CommunityBridge | 4           | 20                      |
+|      | GSoC            | 15          |                         |
+|      | Outreachy       | 1           |                         |
+| 2018 | GSoC            | 7           | 8                       |
+|      | Outreachy       | 1           |                         |
+| 2017 | GSoC            | 6           | 8                       |
+|      | Outreachy       | 2           |                         |
 
 ### Community Bridge
 
