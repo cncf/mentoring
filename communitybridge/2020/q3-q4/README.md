@@ -26,11 +26,11 @@ Q3-Q4
 
 ### Participating Projects
 
-*TBD*
+See the announcement at [CNCF Blog](https://www.cncf.io/blog/2020/09/21/calling-all-mentees-cncf-communitybridge-projects-for-the-fall-2020-program/).
 
 ### Selected Projects
 
-Selected projects are listed [here](./selected_projects.md)
+Selected projects are listed [here](./selected_projects.md).
 
 ### Project Ideas
 
