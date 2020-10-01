@@ -182,7 +182,7 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 ##### UI: Extending BlockViewer
 
 -	Description: Thanos BlockViewer UI proven to be essential part of debuggability story for the Thanos proejct. It allows to see exact state of data in Object Storage in an provider agnostic way. This project is about extending this UI with richer features, context and actions to increase observability and control. As part of this proposal, we would like to also contribute the same BlockViewer to Prometheus community to make sure it gives the same value for Prometheus project.
--	Recommended Skills: React, JavaScript, Golan, ObjectStorage
+-	Recommended Skills: React, JavaScript, Golang, ObjectStorage
 -	Mentor(s): Prem Saraswat(@prmsrswt), Bartek Plotka(@bwplotka)
 -	Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/3112
 
