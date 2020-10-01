@@ -172,12 +172,19 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 -	Mentor(s): Lucas Servén Marín(@squat), Frederic Branczyk(@brancz)
 -	Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/3141
 
-##### UI Enhancements
+##### UI: Enhancements
 
--	Description: The Thanos project has recently migrated its UI to one built on re-usable and shareable components written in React, with the goal of fostering collaboration with the broader Prometheus community. As part of this proposal, we would like to further collaborate with the Prometheus community to continue building a shared UI component library and to contribute upstream to Prometheus so that it can leverage these components in its UI.
+-	Description: The Thanos project has recently migrated its UI to one built on re-usable and shareable components written in React, with the goal of fostering collaboration with the broader Prometheus community. As part of this proposal, we would like create further UI components like status, configuration and discovery pages for better debuggability as well as basic benchmarking and regressions test. Additionally the plan is to collaborate with the Prometheus community to continue building a shared UI component library and to contribute upstream to Prometheus so that it can leverage these components in its UI.
 -	Recommended Skills: React, JavaScript, Golang
--	Mentor(s): Kemal Akkoyun(@kakkoyun), Bartek Plotka(@bwplotka)
+-	Mentor(s): Kemal Akkoyun(@kakkoyun), Prem Saraswat(@prmsrswt)
 -	Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/3142
+
+##### UI: Extending BlockViewer
+
+-	Description: Thanos BlockViewer UI proven to be essential part of debuggability story for the Thanos proejct. It allows to see exact state of data in Object Storage in an provider agnostic way. This project is about extending this UI with richer features, context and actions to increase observability and control. As part of this proposal, we would like to also contribute the same BlockViewer to Prometheus community to make sure it gives the same value for Prometheus project.
+-	Recommended Skills: React, JavaScript, Golang, ObjectStorage
+-	Mentor(s): Prem Saraswat(@prmsrswt), Bartek Plotka(@bwplotka)
+-	Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/3112
 
 #### Open Service Mesh, Kuma and Service Mesh Interface
 
