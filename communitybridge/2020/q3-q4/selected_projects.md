@@ -41,3 +41,15 @@ Project maintainers and mentors, please submit the selected below (under the Sel
 - Mentee: Mishal Shah (@mishal23)
 -	Issue: https://github.com/open-telemetry/opentelemetry-cpp/issues/326
 - Community Bridge project (URL): https://people.communitybridge.org/project/f1275c0e-7152-4e09-8d8b-6b14598afbc3
+
+#### OpenTelemetry SDK PHP Exporter
+   -   Description: Develop some of the exporters for PHP that are found in the ([Spec Compliance Matrix](https://github.com/open-telemetry/opentelemetry-specification/blob/master/spec-compliance-matrix.md#exporters)) that are not yet completed for PHP.  There are some really neat exporter implementations that would be excellent candidates for creation / improvements:
+      - OTLP (priority)
+      - Zipkin
+      - Jaeger
+      - Prometheus
+- Recommended Skills: PHP
+- Mentor: Bob Strecansky (@bobstrecansky)
+- Mentee: Ritick Singh (@riticksingh)
+- Issue: https://github.com/open-telemetry/opentelemetry-php/issues/175
+- Community Bridge Project (URL): https://people.communitybridge.org/project/f1275c0e-7152-4e09-8d8b-6b14598afbc3
