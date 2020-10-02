@@ -41,3 +41,23 @@ Project maintainers and mentors, please submit the selected below (under the Sel
 - Mentee: Mishal Shah (@mishal23)
 -	Issue: https://github.com/open-telemetry/opentelemetry-cpp/issues/326
 - Community Bridge project (URL): https://people.communitybridge.org/project/f1275c0e-7152-4e09-8d8b-6b14598afbc3
+
+#### Keptn
+
+##### Keptn CLI to support multiple contexts like KUBECONFIG
+
+-	Description: Improve the Keptn CLI to make it easier for users to authenticate to a cluster by just configuring the Kubernetes context. This will enable the user to switch between multiple Keptn installations easily.
+-	Recommended Skills: Golang, Kubernetes
+-	Mentor(s): Jürgen Etzlstorfer ([@jetzlstorfer](https://github.com/jetzlstorfer)), Christian Kreuzberger ([@christian-kreuzberger-dtx](https://github.com/christian-kreuzberger-dtx))
+- Mentee: Ankit Jain (@ankitjain28may)
+-	Upstream Issue (URL): https://github.com/keptn/keptn/issues/2300
+- Community Bridge project (URL): https://people.communitybridge.org/project/ba41187f-fa8d-47e1-8046-4040e5b35b73
+
+##### Visualize remediation actions as counteractions for alerts
+
+-	Description: Improve the existing UI by adding UI elements for existing (multi-stage) remediation actions for services that are managed by Keptn.
+-	Recommended Skills: Angular
+-	Mentor(s): Jürgen Etzlstorfer ([@jetzlstorfer](https://github.com/jetzlstorfer)), Johannes Bräuer ([@johannes-b](https://github.com/johannes-b)\)
+- Mentee: Ayush Nawal (@ayushnawal)
+-	Upstream Issue (URL): https://github.com/keptn/keptn/issues/2299
+- Community Bridge project (URL): https://people.communitybridge.org/project/ba41187f-fa8d-47e1-8046-4040e5b35b73
