@@ -79,3 +79,7 @@ Mentee candidates are required to provide cover letters (Statement of Purpose) w
 
 If you are a mentee, please note that you'll be asked to provide the Statement of Purpose letter
 after the mentor's selection. Please be patient.
+
+### Stipends
+
+The Community Bridge stipend policy is described here - https://docs.linuxfoundation.org/docs/communitybridge/mentorship/mentee-stipends
