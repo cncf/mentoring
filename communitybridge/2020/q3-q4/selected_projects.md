@@ -53,3 +53,14 @@ Project maintainers and mentors, please submit the selected below (under the Sel
 - Mentee: Ritick Singh (@riticksingh)
 - Issue: https://github.com/open-telemetry/opentelemetry-php/issues/175
 - Community Bridge Project (URL): https://people.communitybridge.org/project/f1275c0e-7152-4e09-8d8b-6b14598afbc3
+
+### TiKV
+
+#### Support ENUM / SET push down for TiKV Coprocessor
+
+-	Description: Coprocessor is a TiKV component to handle predicate push down. This task is to add `ENUM` and `SET` data type to it, so that the performance can be improved in scenarios that involve with these two data types.
+-	Recommended Skills: Rust, Database
+-	Mentor(s): Chi Zhang (@skyzh)
+-  Mentee: Hao Ding (@Xuanwo)
+-	Upstream Issue (URL): https://github.com/tikv/tikv/issues/8605
+-  Community Bridge Project (URL): https://people.communitybridge.org/project/c6a0326c-b053-41a3-9bf2-1e7e78481ca6
