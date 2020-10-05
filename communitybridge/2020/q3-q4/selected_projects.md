@@ -58,18 +58,18 @@ Project maintainers and mentors, please submit the selected below (under the Sel
 
 #### Create a debug information collector for Chaos Mesh
 
--	Description: Create a diagnotic info collector for Chaos Mesh to collect debugging info of a specific chaos experiment, covering chaos-daemon log, tc rules, iptables rules, etc.
--	Recommended Skills: Chaos Mesh, Kubernetes, golang
--	Mentor(s): Keao Yang([@YangKeao](https://github.com/YangKeao)), Cwen Yin([@cwen0](https://github.com/cwen0)\)
--  Mentee (Communty Bridge URL): [Shuyang Wu](https://people.communitybridge.org/mentee/3a7e3c44-6a0e-4be1-a722-5176d97569ab,12a8bfec-ba3f-496e-bc26-118e9f5eebe6)
--	Upstream Issue (URL): https://github.com/chaos-mesh/chaos-mesh/issues/694
--  Community Bridge Project (URL): https://people.communitybridge.org/project/12a8bfec-ba3f-496e-bc26-118e9f5eebe6
+- Description: Create a diagnotic info collector for Chaos Mesh to collect debugging info of a specific chaos experiment, covering chaos-daemon log, tc rules, iptables rules, etc.
+- Recommended Skills: Chaos Mesh, Kubernetes, golang
+- Mentor(s): Keao Yang([@YangKeao](https://github.com/YangKeao)), Cwen Yin([@cwen0](https://github.com/cwen0)\)
+- Mentee (Communty Bridge URL): [Shuyang Wu](https://people.communitybridge.org/mentee/3a7e3c44-6a0e-4be1-a722-5176d97569ab,12a8bfec-ba3f-496e-bc26-118e9f5eebe6)([@Yiyiyimu](https://github.com/yiyiyimu/))
+- Issue: https://github.com/chaos-mesh/chaos-mesh/issues/694
+- Community Bridge Project (URL): https://people.communitybridge.org/project/12a8bfec-ba3f-496e-bc26-118e9f5eebe6
 
 #### Support chaos-daemon work independently on a non-k8s node.
 
--	Description: At present, chaos-daemon can only be run as a daemonset service in the Kubernetes environment, but some users want to inject faults into Kubernetes cluster itself, and they cannot use Chaos Mesh to do this. There are also some users who are unable to use Chaos Mesh because their applications are not deployed in the Kubernetes environment. So we need to make the chaos-daemon component run on non-k8s nodes alone, and inject faults directly into this node to solve the problems mentioned above.
--	Recommended Skills: Chaos Mesh, Kubernetes, golang
--	Mentor(s): Keao Yang([@YangKeao](https://github.com/YangKeao)), Cwen Yin([@cwen0](https://github.com/cwen0)\)
--  Mentee (Communty Bridge URL): [Manish Dangi](https://people.communitybridge.org/mentee/4778882c-f043-4fc1-a567-dc5e7a4437ed,12a8bfec-ba3f-496e-bc26-118e9f5eebe6)
--	Upstream Issue (URL): https://github.com/chaos-mesh/chaos-mesh/issues/888
--  Community Bridge Project (URL): https://people.communitybridge.org/project/12a8bfec-ba3f-496e-bc26-118e9f5eebe6
+- Description: At present, chaos-daemon can only be run as a daemonset service in the Kubernetes environment, but some users want to inject faults into Kubernetes cluster itself, and they cannot use Chaos Mesh to do this. There are also some users who are unable to use Chaos Mesh because their applications are not deployed in the Kubernetes environment. So we need to make the chaos-daemon component run on non-k8s nodes alone, and inject faults directly into this node to solve the problems mentioned above.
+- Recommended Skills: Chaos Mesh, Kubernetes, golang
+- Mentor(s): Keao Yang([@YangKeao](https://github.com/YangKeao)), Cwen Yin([@cwen0](https://github.com/cwen0)\)
+- Mentee (Communty Bridge URL): [Manish Dangi](https://people.communitybridge.org/mentee/4778882c-f043-4fc1-a567-dc5e7a4437ed,12a8bfec-ba3f-496e-bc26-118e9f5eebe6)([@manishdangi98](https://github.com/manishdangi98/))
+- Issue: https://github.com/chaos-mesh/chaos-mesh/issues/888
+- Community Bridge Project (URL): https://people.communitybridge.org/project/12a8bfec-ba3f-496e-bc26-118e9f5eebe6
