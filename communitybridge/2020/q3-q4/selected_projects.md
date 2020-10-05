@@ -58,9 +58,9 @@ Project maintainers and mentors, please submit the selected below (under the Sel
 
 #### Support ENUM / SET push down for TiKV Coprocessor
 
--	Description: Coprocessor is a TiKV component to handle predicate push down. This task is to add `ENUM` and `SET` data type to it, so that the performance can be improved in scenarios that involve with these two data types.
--	Recommended Skills: Rust, Database
--	Mentor(s): Chi Zhang (@skyzh)
+-  Description: Coprocessor is a TiKV component to handle predicate push down. This task is to add `ENUM` and `SET` data type to it, so that the performance can be improved in scenarios that involve with these two data types.
+-  Recommended Skills: Rust, Database
+-  Mentor(s): Chi Zhang (@skyzh)
 -  Mentee: Hao Ding (@Xuanwo)
--	Upstream Issue (URL): https://github.com/tikv/tikv/issues/8605
+-  Upstream Issue (URL): https://github.com/tikv/tikv/issues/8605
 -  Community Bridge Project (URL): https://people.communitybridge.org/project/c6a0326c-b053-41a3-9bf2-1e7e78481ca6
