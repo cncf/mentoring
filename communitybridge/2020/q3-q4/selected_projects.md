@@ -53,3 +53,17 @@ Project maintainers and mentors, please submit the selected below (under the Sel
 - Mentee: Ritick Singh (@riticksingh)
 - Issue: https://github.com/open-telemetry/opentelemetry-php/issues/175
 - Community Bridge Project (URL): https://people.communitybridge.org/project/f1275c0e-7152-4e09-8d8b-6b14598afbc3
+
+### Prometheus
+
+#### Add various post processing steps in query API after PromQL execution
+
+-	Description: The results from the query/query_range are often unordered w.r.t. the label values and sample value. Also, there is no limit on how many series the endpoint can return. In this project, we want to extend those query APIs to include options for post processing the output to do the following:
+  * Support nested sorting (ascending/descending) of time series based on (1) Label values (2) Sample values for /query endpoint.
+  * Support limiting the number of time series returned by query/query_range endpoint.
+  * If time permits, expore how we can do nested sorting of time series for query_range API.
+-	Recommended Skills: Go, PromQL
+-	Mentor(s): Bartek Plotka(@bwplotka), Ganesh Vernekar (@codesome)
+-  Mentee (Communty Bridge URL): [Gayathri Venkatesh @GayathriVenkatesh](https://people.communitybridge.org/mentee/9bc4e5a8-41f4-4daa-9982-edaaeb8988b5,9595fbe7-6a8d-43d4-aebb-a54d57f33fdd)
+-	Upstream Issue (URL):  https://github.com/prometheus/prometheus/issues/7947, https://github.com/prometheus/prometheus/issues/7948
+-  Community Bridge project (URL): https://people.communitybridge.org/project/9595fbe7-6a8d-43d4-aebb-a54d57f33fdd
