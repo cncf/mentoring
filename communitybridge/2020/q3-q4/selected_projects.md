@@ -53,3 +53,32 @@ Project maintainers and mentors, please submit the selected below (under the Sel
 - Mentee: Ritick Singh (@riticksingh)
 - Issue: https://github.com/open-telemetry/opentelemetry-php/issues/175
 - Community Bridge Project (URL): https://people.communitybridge.org/project/f1275c0e-7152-4e09-8d8b-6b14598afbc3
+
+#### Thanos
+
+##### Receive: Hashring Update Improvements
+
+- Description: urrently, any change to the hashring configuration file will trigger all Thanos Receive nodes to flush their multi-TSDBs, causing them to enter an unready state until the flush is complete. This unavailability during a flush allows for a clear state transition, however it can result in downtimes on the order of five minutes for every configuration change. We propose modifying how the Thanos Receive component re-configures itself after the hashring configuration file has changed so that the system experiences no downtime.
+- Recommended Skills: Thanos, Timeseries database, Golang
+- Mentor(s): Lucas Servén Marín(@squat), Frederic Branczyk(@brancz)
+- Mentee: [T.S.S. Chandana @Chans321](https://people.communitybridge.org/mentee/402c80c6-c37d-4575-8120-41849ada956e,f51284ab-f652-47b1-9819-cd4135e75c00)
+- Issue: https://github.com/thanos-io/thanos/issues/3141
+- Community Bridge project (URL): https://people.communitybridge.org/project/f51284ab-f652-47b1-9819-cd4135e75c00
+
+##### UI: Enhancements
+
+- Description: The Thanos project has recently migrated its UI to one built on re-usable and shareable components written in React, with the goal of fostering collaboration with the broader Prometheus community. As part of this proposal, we would like create further UI components like status, configuration and discovery pages for better debuggability as well as basic benchmarking and regressions test. Additionally the plan is to collaborate with the Prometheus community to continue building a shared UI component library and to contribute upstream to Prometheus so that it can leverage these components in its UI.
+- Recommended Skills: React, JavaScript, Golang
+- Mentor(s): Kemal Akkoyun(@kakkoyun), Prem Saraswat(@prmsrswt)
+- Mentee: [Raphael Noriode @Oghenebrume50](https://people.communitybridge.org/mentee/194d1349-15b0-41e7-bb4e-db19021765da,f51284ab-f652-47b1-9819-cd4135e75c00)
+- Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/3142
+- Community Bridge project (URL): https://people.communitybridge.org/project/f51284ab-f652-47b1-9819-cd4135e75c00
+
+##### UI: Extending BlockViewer
+
+- Description: Thanos BlockViewer UI proven to be essential part of debuggability story for the Thanos proejct. It allows to see exact state of data in Object Storage in an provider agnostic way. This project is about extending this UI with richer features, context and actions to increase observability and control. As part of this proposal, we would like to also contribute the same BlockViewer to Prometheus community to make sure it gives the same value for Prometheus project.
+- Recommended Skills: React, JavaScript, Golang, ObjectStorage
+- Mentor(s): Prem Saraswat(@prmsrswt), Bartek Plotka(@bwplotka)
+- Mentee: [Kunal Kushwaha @kunal-kushwaha](https://people.communitybridge.org/mentee/13a85bc2-0972-4f90-9f91-5d34bee5c15b,9595fbe7-6a8d-43d4-aebb-a54d57f33fdd)
+- Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/3112
+- Community Bridge project (URL): https://people.communitybridge.org/project/f51284ab-f652-47b1-9819-cd4135e75c00
