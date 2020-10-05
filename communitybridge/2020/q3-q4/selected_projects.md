@@ -53,3 +53,14 @@ Project maintainers and mentors, please submit the selected below (under the Sel
 - Mentee: Ritick Singh (@riticksingh)
 - Issue: https://github.com/open-telemetry/opentelemetry-php/issues/175
 - Community Bridge Project (URL): https://people.communitybridge.org/project/f1275c0e-7152-4e09-8d8b-6b14598afbc3
+
+### TiKV
+
+#### Support rbac control for data accessing in TiKV
+
+-  Description: This task is to support the authorization and authentication ability by rbac control in TiKV, so that the security of the data accessing in TiKV will become more complete.
+-  Recommended Skills: Golang, Rust
+-  Mentor(s): Song Gao (@Yisaer)
+-  Mentee: Yanning Chen (@PhotonQuantum)
+-  Upstream Issue (URL): https://github.com/tikv/tikv/issues/8621
+-  Community Bridge Project (URL): https://people.communitybridge.org/project/c6a0326c-b053-41a3-9bf2-1e7e78481ca6
