@@ -50,7 +50,7 @@ Project maintainers and mentors, please submit the selected below (under the Sel
       - Prometheus
 - Recommended Skills: PHP
 - Mentor: Bob Strecansky (@bobstrecansky)
-- Mentee: Ritick Singh (@riticksingh)
+- Mentee: Ritick Gautam ([@riticksingh](https://github.com/riticksingh))
 - Issue: https://github.com/open-telemetry/opentelemetry-php/issues/175
 - Community Bridge Project (URL): https://people.communitybridge.org/project/f1275c0e-7152-4e09-8d8b-6b14598afbc3
 
