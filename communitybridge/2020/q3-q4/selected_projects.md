@@ -42,6 +42,27 @@ Project maintainers and mentors, please submit the selected below (under the Sel
 -	Issue: https://github.com/open-telemetry/opentelemetry-cpp/issues/326
 - Community Bridge project (URL): https://people.communitybridge.org/project/f1275c0e-7152-4e09-8d8b-6b14598afbc3
 
+##### OpenTelemetry SDK PHP Exporter
+   -   Description: Develop some of the exporters for PHP that are found in the ([Spec Compliance Matrix](https://github.com/open-telemetry/opentelemetry-specification/blob/master/spec-compliance-matrix.md#exporters)) that are not yet completed for PHP.  There are some really neat exporter implementations that would be excellent candidates for creation / improvements:
+      - OTLP (priority)
+      - Zipkin
+      - Jaeger
+      - Prometheus
+- Recommended Skills: PHP
+- Mentor: Bob Strecansky (@bobstrecansky)
+- Mentee: Ritick Singh (@riticksingh)
+- Issue: https://github.com/open-telemetry/opentelemetry-php/issues/175
+- Community Bridge Project (URL): https://people.communitybridge.org/project/f1275c0e-7152-4e09-8d8b-6b14598afbc3
+
+##### OpenTelemetry to FluentBit exporter
+
+-	Description: Define a data format and create an exporter for traces and metrics from OpenTelemetry to FluentBit. This will allow customers to use existing log delivery pipeline to upload telemetry collected by the rich set of various OpenTelemetry SDKs. Pipeline we want to enalbe is SDK->FluentBit->OpenTelemetry Collector->Jaeger to see traces.
+- Recommended Skills: GoLang
+- Mentor: @SergeyKanzhelev
+- Mentee: Aditya Prajapati (@Syn3rman)
+- Upstream Issue (URL): https://github.com/open-telemetry/opentelemetry-go-contrib/issues/386
+- Community Bridge Project (URL): https://people.communitybridge.org/project/f1275c0e-7152-4e09-8d8b-6b14598afbc3
+
 #### Keptn
 
 ##### Keptn CLI to support multiple contexts like KUBECONFIG
@@ -62,17 +83,6 @@ Project maintainers and mentors, please submit the selected below (under the Sel
 -	Upstream Issue (URL): https://github.com/keptn/keptn/issues/2299
 - Community Bridge project (URL): https://people.communitybridge.org/project/ba41187f-fa8d-47e1-8046-4040e5b35b73
 =======
-##### OpenTelemetry SDK PHP Exporter
-   -   Description: Develop some of the exporters for PHP that are found in the ([Spec Compliance Matrix](https://github.com/open-telemetry/opentelemetry-specification/blob/master/spec-compliance-matrix.md#exporters)) that are not yet completed for PHP.  There are some really neat exporter implementations that would be excellent candidates for creation / improvements:
-      - OTLP (priority)
-      - Zipkin
-      - Jaeger
-      - Prometheus
-- Recommended Skills: PHP
-- Mentor: Bob Strecansky (@bobstrecansky)
-- Mentee: Ritick Singh (@riticksingh)
-- Issue: https://github.com/open-telemetry/opentelemetry-php/issues/175
-- Community Bridge Project (URL): https://people.communitybridge.org/project/f1275c0e-7152-4e09-8d8b-6b14598afbc3
 
 #### TiKV
 
