@@ -209,3 +209,24 @@ Project maintainers and mentors, please submit the selected below (under the Sel
 -	Upstream Issue (URL):  https://github.com/prometheus/prometheus/issues/7947, https://github.com/prometheus/prometheus/issues/7948
 -  Community Bridge project (URL): https://people.communitybridge.org/project/9595fbe7-6a8d-43d4-aebb-a54d57f33fdd
 
+#### Open Service Mesh, Kuma and Service Mesh Interface
+
+##### Standards validation for OSM and Kuma
+
+- Description: As two of the service meshes in the CNCF, both Kuma and Open Service Mesh need their implementations of standard specifications validated. This is true for Service Mesh Interface (SMI) and Service Mesh Performance (SMP) specifications. Both API specifications spanning many service meshes. Each service mesh implementing the SMI and SMP specifciation need their conformance validated.
+- Recommended Skills: golang
+- Mentor(s): Lee Calcote (@leecalcote), Abishek Kumar (@kumarabd)
+- Mentee: [Dhruv Patel](https://people.communitybridge.org/mentee/bc370282-64a9-4bab-969f-28e13afca894,359dda52-7fb7-4fa8-82cd-a27216757a57)
+- Upstream Issue (URL): https://github.com/openservicemesh/osm/issues/172
+- Community Bridge project (URL): https://people.communitybridge.org/project/359dda52-7fb7-4fa8-82cd-a27216757a57
+
+#### Open Service Mesh
+
+##### Support for WebAssembly filters
+
+- Description: Bring OSM on par with other service meshes that support WASM filters in their data plane. OSM's Envoy proxies can be extended at runtime with filters that are running in a WebAssembly sandbox (https://github.com/envoyproxy/envoy-wasm). Provide ability to dynamically load and unload Envoy WASM filters.
+- Recommended Skills: golang, rust
+- Mentor(s): Lee Calcote (@leecalcote), Abishek Kumar (@kumarabd)
+- Mentee: [Kush Trivedi](https://people.communitybridge.org/mentee/9a0da751-ed41-442c-ba29-6f148de0d4dd,3918e3c7-c94e-4ff6-86cf-75affba454a1)
+- Upstream Issue (URL): https://github.com/openservicemesh/osm/issues/1671
+- Community Bridge project (URL): https://people.communitybridge.org/project/3918e3c7-c94e-4ff6-86cf-75affba454a1
