@@ -230,3 +230,32 @@ Project maintainers and mentors, please submit the selected below (under the Sel
 - Mentee: [Kush Trivedi](https://people.communitybridge.org/mentee/9a0da751-ed41-442c-ba29-6f148de0d4dd,3918e3c7-c94e-4ff6-86cf-75affba454a1)
 - Upstream Issue (URL): https://github.com/openservicemesh/osm/issues/1671
 - Community Bridge project (URL): https://people.communitybridge.org/project/3918e3c7-c94e-4ff6-86cf-75affba454a1
+
+#### KubeEdge
+
+##### Support list-watch from edgecore for applications on the edge
+
+- Description: Some applications running on the edge side need to connect to the k8s master through list-watch interface, but on the edge it cannot directly connect to the k8s master. So we need forward the list-watch requests to the k8s master through the cloud-side channel.
+- Recommended Skills: KubeEdge, Kubernetes, golang
+- Mentor(s): Kevin Wang([@kevin-wangzefeng](https://github.com/kevin-wangzefeng)), Fei Xu([@fisherxu](https://github.com/fisherxu))
+- Mentee: [Rachel-Shao](https://people.communitybridge.org/mentee/eb993ee8-318f-420a-a076-2c13e1d9dd2f,1b931913-44a4-43a7-92ed-d7b2089060b1)
+- Upstream Issue (URL): https://github.com/kubeedge/kubeedge/issues/1758
+- Community Bridge project (URL): https://people.communitybridge.org/project/1b931913-44a4-43a7-92ed-d7b2089060b1
+
+##### Use device API both on cloud and edge
+
+- Description: Now we have defined device API in the cloud side, but the edgeside(edgecore and mapper) still don't use the API, we should refactor edgeside and use same API on cloud and edge to reduce complexity.
+- Recommended Skills: KubeEdge, Kubernetes, golang
+- Mentor(s): Kevin Wang([@kevin-wangzefeng](https://github.com/kevin-wangzefeng)), Fei Xu([@fisherxu](https://github.com/fisherxu))
+- Mentee: [Jinyong Mao](https://people.communitybridge.org/mentee/11f7a84a-931a-48ae-bbd2-9f7d8c38200a,1b931913-44a4-43a7-92ed-d7b2089060b1)
+- Upstream Issue (URL): https://github.com/kubeedge/kubeedge/issues/2140
+- Community Bridge project (URL): https://people.communitybridge.org/project/1b931913-44a4-43a7-92ed-d7b2089060b1
+
+##### Add EdgeGateway as the ingress gateway on Edge
+
+- Description: Add the EdgeGateway as the ingress gateway on Edge to dispatch request to multiple backend pods on the Edge side.
+- Recommended Skills: KubeEdge, Kubernetes, golang
+- Mentor(s): Kevin Wang([@kevin-wangzefeng](https://github.com/kevin-wangzefeng)), Fei Xu([@fisherxu](https://github.com/fisherxu))
+- Mentee: [Zhiling Feng](https://people.communitybridge.org/mentee/3c61a3d2-adfe-469a-8669-471e16c9c580,1b931913-44a4-43a7-92ed-d7b2089060b1)
+- Upstream Issue (URL): https://github.com/kubeedge/kubeedge/issues/1432
+- Community Bridge project (URL): https://people.communitybridge.org/project/1b931913-44a4-43a7-92ed-d7b2089060b1
