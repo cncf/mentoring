@@ -159,12 +159,21 @@ Project maintainers and mentors, please submit the selected below (under the Sel
 
 ##### Working group for CSI driver
 -	Description: Container Storage Interface (CSI) is a standard for exposing storage systems to containerized workloads on Kubernetes. This project mainly focus on [SMB CSI driver](https://github.com/kubernetes-csi/csi-driver-smb) and [NFS CSI driver](https://github.com/kubernetes-csi/csi-driver-nfs): set up solid unit tests, test coverage data, e2e test pipeline first and then implement a few new CSI features, e.g. dynamc provisioning support, inline volume support, etc.
--	Recommended Skills: golang, Kubernetes
+-	Recommended Skills: Go, Kubernetes, Python, JavaScript
 -	Mentor(s): Andy Zhang [@andyzhangx](https://github.com/andyzhangx)
 -   Mentee: Mayank Shah (@mayankshah1607)
 -	Upstream Issue (URL):
 	-	https://github.com/kubernetes-csi/csi-driver-smb/issues
 -	Community Bridge project (URL): https://people.communitybridge.org/project/2d438b9a-c539-46d0-9eed-c6ee4404c88a
+
+##### Create Application for Elections Authenticated by External Oauth
+-	Description: Create a web-based voting application, with voting logic based on CIVS project, that allows use of external Oauth, such as Github, for voter authentication.
+-	Recommended Skills: golang, Kubernetes
+-	Mentor(s): Josh Berkus ([@jberkus](https://github.com/jberkus)), Jaice Singer Dumars ([@jdumars](https://github.com/jdumars)), Sergey Kanzhelev ([@SergeyKanzhelev](https://github.com/SergeyKanzhelev/)), Marky Jackson ([@markyjackson-taulia](ttps://github.com/markyjackson-taulia)\)
+-   Mentee: Manish Sahani (@manishsahani999)
+-	Upstream Issue (URL):
+	-	https://github.com/kubernetes/community/issues/5096
+-	Community Bridge project (URL): https://people.communitybridge.org/project/953e5f12-460b-4bf1-80b3-5171c2044462
 
 #### Thanos
 
