@@ -110,7 +110,7 @@ Project maintainers and mentors, please submit the selected below (under the Sel
 
 - Description: Implement hierarchy queue to better support fair-share
 - Recommended Skills: Volcano, Scheduling, Golang
-- Mentor(s): Zhonghu Xu(@hzxuzhonghu), Klaus Ma(@k82cn)
+- Mentor(s): Lei Wu(@Thor-wl)
 - Mentee: wangqian qian(@My-pleasure)
 - Issue: https://github.com/volcano-sh/volcano/issues/1033
 - Community Bridge Project (URL): https://people.communitybridge.org/project/837a970d-64c3-46d1-ade2-5b8b8997a0d4
@@ -120,7 +120,7 @@ Project maintainers and mentors, please submit the selected below (under the Sel
 
 - Description: Support customized scheduling algorithms per queue
 - Recommended Skills: Kubernetes, Scheduling, Golang
-- Mentor(s): Zhonghu Xu(@hzxuzhonghu), Klaus Ma(@k82cn)
+- Mentor(s): Leibo Wang(@william-wang)
 - Mentee: Srestha Srivastava(@sresthas)
 - Issue: https://github.com/volcano-sh/volcano/issues/1035
 - Community Bridge Project (URL): https://people.communitybridge.org/project/837a970d-64c3-46d1-ade2-5b8b8997a0d4
@@ -130,7 +130,7 @@ Project maintainers and mentors, please submit the selected below (under the Sel
 
 - Description: Improve Job API to support specific types of job
 - Recommended Skills: Volcano, Job Management, Golang
-- Mentor(s): Zhonghu Xu(@hzxuzhonghu), Klaus Ma(@k82cn)
+- Mentor(s): Leibo Wang(@william-wang)
 - Mentee: Liang Tang(@shinytang6)
 - Issue: https://github.com/volcano-sh/volcano/issues/1034
 - Community Bridge Project (URL): https://people.communitybridge.org/project/837a970d-64c3-46d1-ade2-5b8b8997a0d4
