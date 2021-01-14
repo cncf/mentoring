@@ -25,10 +25,10 @@ It's best if you use a public communication channel whenever possible; however, 
 
 | Year | Program         | Internships | Total (per year)        |
 | ---- | --------------- | ----------- | ----------------------- |
-| 2020 | CommunityBridge | 27          | 37 _(year in progress)_ |
+| 2020 | CommunityBridge | 50          | 71 _(year in progress)_ |
 |      | GSoC            | 16          |                         |
 |      | GSoD            | 4           |                         |
-|      | Outreachy       | TBD         |                         |
+|      | Outreachy       | 1           |                         |
 | 2019 | CommunityBridge | 4           | 20                      |
 |      | GSoC            | 15          |                         |
 |      | Outreachy       | 1           |                         |
