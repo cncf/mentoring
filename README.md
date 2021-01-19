@@ -43,8 +43,27 @@ It's best if you use a public communication channel whenever possible; however, 
 
 ##### Q3-Q4
 
-| CNCF Projects | Community Bridge Project | Mentor Name(s) | Mentee Name | Blog post |
-| ------------- | ------------------------ | -------------- | ----------- | --------- |
+| CNCF Projects          | Community Bridge Project                                              | Mentor Name(s)                                             | Mentee Name        | Blog post |
+|------------------------|-----------------------------------------------------------------------|------------------------------------------------------------|--------------------|-----------|
+| Chaos Mesh             | Create a debug information collector for Chaos Mesh                   | Keao Yang, Cwen Yin                                        | Shuyang Wu         |           |
+| Keptn                  | Keptn CLI to support multiple contexts like KUBECONFIG                | Jürgen Etzlstorfer, Christian Kreuzberger, Andreas Grimmer | Ankit Jain         |           |
+| KubeEdge               | Support list-watch from edgecore for applications on the edge         | Kevin Wang, Fei Xu                                         | Rachel Shao        |           |
+| KubeEdge               | Use device API both on cloud and edge                                 | Kevin Wang, Fei Xu                                         | Jinyong Mao        |           |
+| KubeEdge               | Add EdgeGateway as the ingress gateway on Edge                        | Kevin Wang, Fei Xu                                         | Zhiling Feng       |           |
+| Kubernetes             | Create Application for Elections Authenticated by External Oauth      | Josh Berkus, Marky Jackson                                 | Manish Sahani      |           |
+| Kubernetes             | Kubernetes working group for CSI driver                               | Andy Zhang                                                 | Mayank Shah        |           |
+| Open Service Mesh      | Support for WebAssembly filters                                       | Lee Calcote, Dev Kalra                                     | Kush Trivedi       |           |
+| OpenTelemetry          | ETW exporter                                                          | Max Golovanov                                              | Mishal Shah        |           |
+| OpenTelemetry          | OpenTelemetry to FluentBit exporter                                   | Sergey Kanzhelev                                           | Aditya Prajapati   |           |
+| Prometheus             | Add various post processing steps in query API after PromQL execution | Bartek Plotka, Ganesh Vernekar                             | Gayathri Venkatesh |           |
+| Service Mesh Interface | Standards validation for OSM and Kuma                                 | Lee Calcote, Abishek Kumar                                 | Dhruv Patel        |           |
+| Thanos                 | Receive: Hashring Update Improvements                                 | Lucas Servén Marín, Frederic Branczyk                      | T.S.S. Chandana    |           |
+| Thanos                 | UI Enhancements                                                       | Kemal Akkoyun, Bartek Plotka                               | Raphael Noriode    |           |
+| TiKV                   | Support ENUM / SET push down for TiKV Coprocessor                     | Chi Zhang                                                  | Hao Ding           |           |
+| TiKV                   | Support rbac control for data accessing in TiKV                       | Song Gao, Yutong Liang                                     | Yanning Chen       |           |
+| Volcano                | Implement hierarchy queue to better support fair-share                | Lei Wu                                                     | Wangqian Qian      |           |
+| Volcano                | Customize scheduling algorithms per queue                             | Leibo Wang                                                 | Srestha Srivastava |           |
+| Volcano                | Implement specific job types to improve usability                     | Leibo Wang                                                 | Liang Tang         |           |
 
 ##### Q2
 
