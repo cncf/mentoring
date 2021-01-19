@@ -8,7 +8,7 @@ LFX Mentorship/Community Bridge is actively used by the Cloud Native Computing F
 
 | Year | Term  | Status Announcement | Details                                                                                                                                                              |
 | ---- | ----- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2020 | Q3-Q4 | Ongoing             | [CNCF Blog](https://www.cncf.io/blog/2020/09/04/cncf-will-participate-in-communitybridge-mentorships-for-q3-and-q4-2020/)                                            | [Q3-Q4'2020](2020/q3-q4/README.md) |
+| 2020 | Q3-Q4 | Completed             | [CNCF Blog](https://www.cncf.io/blog/2020/09/04/cncf-will-participate-in-communitybridge-mentorships-for-q3-and-q4-2020/)                                            | [Q3-Q4'2020](2020/q3-q4/README.md) |
 |      | Q2    | Completed           | [CNCF Blog](https://www.cncf.io/blog/2020/08/13/21-cncf-interns-graduate-from-the-q2-2020-linux-foundation-communitybridge-program/)                                 | [Q2'2020](2020/q2/README.md) |
 |      | Q1    | Completed           | [CNCF Blog](https://www.cncf.io/blog/2020/04/15/seven-cncf-interns-graduate-from-the-2020-linux-foundation-communitybridge-program/)                                 | [Q1'2020](2020/q1/README.md) |
 | 2019 | Pilot | Completed           | [CNCF Blog](https://www.cncf.io/blog/2019/08/22/cncf-hosts-three-student-internships-for-kubernetes-and-coredns-projects-through-linux-foundations-communitybridge/) | [2019](2019/README.md) |
