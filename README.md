@@ -14,32 +14,37 @@ Please reach out to us on the #mentoring channel on the [CNCF slack](https://sla
 
 It's best if you use a public communication channel whenever possible; however, if you need to communicate in private, please feel free to send the admins a note via mentoring@cncf.io (please use the public channels for any project-related discussion).
 
-| Program                                                               | Purpose                                                                         | Details and historical data                  |
-| --------------------------------------------------------------------- | ------------------------------------------------------------------------------- | -------------------------------------------- |
-| [LFX Mentorship (ex-CommunityBridge)](https://people.communitybridge.org/)               | Mentoring initiative by the Linux Foundation                                    | [communitybridge](communitybridge/README.md) |
-| [Google Summer of Code](https://summerofcode.withgoogle.com/)         | Mentoring program for the students                                              | [summerofcode](summerofcode/README.md)       |
-| [Google Season of Docs](https://developers.google.com/season-of-docs) | Mentoring initiative for the technical writers                                  | [seasonofdocs](seasonofdocs/README.md)       |
-| [Outreachy](https://www.outreachy.org)                                | Mentoring initiative for the communities traditionally underrepresented in tech | [outreachy](outreachy/README.md)             |
+| Program                                                                    | Purpose                                                                         | Details and historical data                  |
+| -------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | -------------------------------------------- |
+| [LFX Mentorship (ex-CommunityBridge)](https://people.communitybridge.org/) | Mentoring initiative by the Linux Foundation                                    | [communitybridge](communitybridge/README.md) |
+| [Google Summer of Code](https://summerofcode.withgoogle.com/)              | Mentoring program for the students                                              | [summerofcode](summerofcode/README.md)       |
+| [Google Season of Docs](https://developers.google.com/season-of-docs)      | Mentoring initiative for the technical writers                                  | [seasonofdocs](seasonofdocs/README.md)       |
+| [Outreachy](https://www.outreachy.org)                                     | Mentoring initiative for the communities traditionally underrepresented in tech | [outreachy](outreachy/README.md)             |
 
 ## Program Statistics
 
-| Year | Program         | Internships | Total (per year)        |
-| ---- | --------------- | ----------- | ----------------------- |
-| 2020 | CommunityBridge | 50          | 71 _(year in progress)_ |
-|      | GSoC            | 16          |                         |
-|      | GSoD            | 4           |                         |
-|      | Outreachy       | 1           |                         |
-| 2019 | CommunityBridge | 4           | 20                      |
-|      | GSoC            | 15          |                         |
-|      | Outreachy       | 1           |                         |
-| 2018 | GSoC            | 7           | 8                       |
-|      | Outreachy       | 1           |                         |
-| 2017 | GSoC            | 6           | 8                       |
-|      | Outreachy       | 2           |                         |
+| Year | Program                          | Internships | Total (per year) |
+| ---- | -------------------------------- | ----------- | ---------------- |
+| 2020 | LFX Mentorship (CommunityBridge) | 50          | 71               |
+|      | GSoC                             | 16          |                  |
+|      | GSoD                             | 4           |                  |
+|      | Outreachy                        | 1           |                  |
+| 2019 | CommunityBridge                  | 4           | 20               |
+|      | GSoC                             | 15          |                  |
+|      | Outreachy                        | 1           |                  |
+| 2018 | GSoC                             | 7           | 8                |
+|      | Outreachy                        | 1           |                  |
+| 2017 | GSoC                             | 6           | 8                |
+|      | Outreachy                        | 2           |                  |
 
 ### Community Bridge
 
 #### 2020
+
+##### Q3-Q4
+
+| CNCF Projects | Community Bridge Project | Mentor Name(s) | Mentee Name | Blog post |
+| ------------- | ------------------------ | -------------- | ----------- | --------- |
 
 ##### Q2
 
