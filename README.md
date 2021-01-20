@@ -46,7 +46,7 @@ It's best if you use a public communication channel whenever possible; however, 
 | CNCF Projects          | Community Bridge Project                                              | Mentor Name(s)                                             | Mentee Name        | Blog post |
 |------------------------|-----------------------------------------------------------------------|------------------------------------------------------------|--------------------|-----------|
 | Chaos Mesh             | Create a debug information collector for Chaos Mesh                   | Keao Yang, Cwen Yin                                        | Shuyang Wu         |           |
-| Keptn                  | Keptn CLI to support multiple contexts like KUBECONFIG                | Jürgen Etzlstorfer, Christian Kreuzberger, Andreas Grimmer | Ankit Jain         |           |
+| Keptn                  | Keptn CLI to support multiple contexts like KUBECONFIG                | Jürgen Etzlstorfer, Christian Kreuzberger, Andreas Grimmer | Ankit Jain         |  [CommunityBridge Mentee with Keptn](https://ankitjain28.me/communitybridge-mentee-with-keptn/)         |
 | KubeEdge               | Support list-watch from edgecore for applications on the edge         | Kevin Wang, Fei Xu                                         | Rachel Shao        |           |
 | KubeEdge               | Use device API both on cloud and edge                                 | Kevin Wang, Fei Xu                                         | Jinyong Mao        |           |
 | KubeEdge               | Add EdgeGateway as the ingress gateway on Edge                        | Kevin Wang, Fei Xu                                         | Zhiling Feng       |           |
