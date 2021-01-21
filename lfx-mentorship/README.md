@@ -1,8 +1,8 @@
-# Community Bridge by The Linux Foundation
+# LFX Mentorship (ex-Community Bridge) by The Linux Foundation
 
 [LFX Mentorship](https://lfx.linuxfoundation.org/tools/mentorship/) (previously known as Community Bridge) is a platform Developed by the Linux Foundation, which accelerates the adoption, innovation, and sustainability of open source software.
 
-LFX Mentorship/Community Bridge is actively used by the Cloud Native Computing Foundation as a mentorship platform across the CNCF projects.
+LFX Mentorship is actively used by the Cloud Native Computing Foundation as a mentorship platform across the CNCF projects.
 
 ## Program Cycles and Archive data
 
@@ -16,7 +16,7 @@ LFX Mentorship/Community Bridge is actively used by the Cloud Native Computing F
 
 ### Current cycle
 
-The Community Bridge program is ongoing. The current cycle is Q2'2020, and more details are available on the [dedicated page](2020/q2/README.md).
+The LFX Mentorship program is ongoing. The current cycle is Spring'2021, and more details are available on the [dedicated page](2021/01-Spring/README.md).
 
 ## Program Maintainers
 
@@ -27,7 +27,7 @@ The Community Bridge program is ongoing. The current cycle is Q2'2020, and more 
 
 In the case of any questions or issues with the LFX Mentorship platform/website itself, please reach out to the [LFX Mentorship support team](https://support.linuxfoundation.org/) directly.
 
-For the CNCF-specific questions, please use the dedicated [#mentoring](https://cloud-native.slack.com/archives/CPV83DB51) channel on the [CNCF Slack](https://slack.cncf.io/) (or email us to <mentoring@cncf.io> if you have any questions you don't want to raise up publicly).
+For the CNCF-specific questions, please use the dedicated [#mentoring](https://cloud-native.slack.com/archives/CPV83DB51) channel on the [CNCF Slack](https://slack.cncf.io/) (or email us to mentoring@cncf.io if you have any questions you don't want to raise up publicly).
 
 Please to avoid using DM's to contact the program maintainers.
 
@@ -41,35 +41,23 @@ Please see the program-wide guidelines at the [LFX Mentorship website](https://d
 
 Project maintainers and mentors, are requested to submit the ideas below (under the Project Ideas section) section using the [template](/PROJECT_IDEA_TEMPLATE.md).
 
-CNCF will select the projects that will participate in the Community Bridge
-mentorship round and they will appear on the Community Bridge website after the selection.
+CNCF will select the projects that will participate in the Community Bridge mentorship round and they will appear on the Community Bridge website after the selection.
 
 #### Mentors
 
-If you are a mentor and your project will be selected to participate in the
-LFX Mentorship program, you'll have to apply as a mentor on the
-LFX Mentorship website. Please see the [LFX Mentorship
-guidelines](https://docs.linuxfoundation.org/lfx/mentorship/mentor-guide) for more
-details.
+If you are a mentor and your project will be selected to participate in the LFX Mentorship program, you'll have to apply as a mentor on the LFX Mentorship website. Please see the [LFX Mentorship guidelines](https://docs.linuxfoundation.org/lfx/mentorship/mentor-guide) for more details.
 
 #### Mentees
 
-If you are a mentee and your desired project will be selected to participate in the
-LFX Mentorship program, you'll have to apply as a mentee on the
-LFX Mentorship website. Please see the [LFX Mentorship
-guidelines](https://docs.linuxfoundation.org/lfx/mentorship/mentee-guide) for moreZQ
-details.
+If you are a mentee and your desired project will be selected to participate in the LFX Mentorship program, you'll have to apply as a mentee on the LFX Mentorship website. Please see the [LFX Mentorship guidelines](https://docs.linuxfoundation.org/lfx/mentorship/mentee-guide) for more details.
 
-Information on the application process is covered at the [LFX Mentorship
-documentation
-website](https://docs.linuxfoundation.org/lfx/mentorship/mentees/apply-to-a-project).
-Please note that once you've applied, your application moves to the pending
-state until a mentor will pick it up. There is no need to reapply (you'll see
-an error if you'll try to reapply).
+Information on the application process is covered at the [LFX Mentorship documentation website](https://docs.linuxfoundation.org/lfx/mentorship/mentees/apply-to-a-project). Please note that once you've applied, your application moves to the pending state until a mentor will pick it up. There is no need to reapply (you'll see an error if you'll try to reapply).
 
-The stipend guides and amounts are listed [here](https://docs.linuxfoundation.org/docs/communitybridge/mentorship/mentee-stipends).
+The stipend guides and amounts are listed [here](https://docs.linuxfoundation.org/lfx/mentorship/mentee-stipends).
 
-**Please see the full eligibility criteria in the [Community Bridge documentation](https://docs.linuxfoundation.org/docs/communitybridge/mentorship/mentee-guide/am-i-eligible)**.
+##### Eligibility
+
+**Please see the full eligibility criteria in the [LFX Mentorship documentation](https://docs.linuxfoundation.org/lfx/mentorship/mentees)**.
 
 ### Mentee selection process
 
@@ -77,10 +65,8 @@ Mentors are responsible for selecting and matching mentees to their projects.
 
 Mentee candidates are required to provide cover letters (Statement of Purpose) while applying, so mentors may review them. In addition, mentors may also interview the candidates to understand their level of qualification before making the final decision.
 
-If you are a mentee, please note that you'll be asked to provide the Statement of Purpose letter
-after the mentor's selection. Please be patient.
+If you are a mentee, please note that you'll be asked to provide the Statement of Purpose letter after the mentor's selection. Please be patient.
 
 ### Stipends
 
-The LFX Mentorship stipend policy is described here -
-https://docs.linuxfoundation.org/lfx/mentorship/mentee-stipends.
+The LFX Mentorship stipend policy is described here - https://docs.linuxfoundation.org/lfx/mentorship/mentee-stipends.
