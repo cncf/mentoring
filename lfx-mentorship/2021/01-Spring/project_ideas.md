@@ -27,4 +27,13 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 ### Proposed Project ideas
 
+#### WG Policy
+##### CIS Benchmarks Policy Report
+-	Description: Execute CIS benchmark checks and produce a Policy Report CRD. 
+-	Recommended Skills: Golang, CLI, JSON
+-	Mentor(s): Jim Bugwadia (@JimBugwadia)
+-	Upstream Issue (URL): https://github.com/kubernetes-sigs/wg-policy-prototypes/issues/29
+
+
+
 #### TBD
