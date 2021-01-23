@@ -31,7 +31,7 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 ##### Monitor Kyverno with Prometheus
 
--	Description: Keep track of all the dynamic components in Kyverno, publish real-time metrics with Prometheus.
+-	Description: Publish Kyverno policy execution metrics to Prometheus and Grafana
 -	Recommended Skills: Golang, Prometheus
 -	Mentor(s): Shuting Zhao (@realshuting)
 -	Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/256
