@@ -36,4 +36,13 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 
 
+#### Kyverno
+##### Monitor Kyverno with Prometheus
+
+-	Description: Publish Kyverno policy execution metrics to Prometheus and Grafana
+-	Recommended Skills: Golang, Prometheus
+-	Mentor(s): Shuting Zhao (@realshuting)
+-	Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/256
+
+
 #### TBD
