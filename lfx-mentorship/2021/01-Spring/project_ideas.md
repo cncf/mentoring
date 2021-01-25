@@ -45,4 +45,12 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 -	Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/256
 
 
+### OpenTelemetry PHP
+#### Work through OpenTelemetry User Research Documentation and Implement Fixes
+
+-   Description: Implement the fixes suggested in the user research documentation to make this project more consumable for end users.
+-   Recommended Skills: PHP
+-   Mentor: Bob Strecansky (@bobstrecansky)
+-   Upstream Issue (Project URL): https://github.com/open-telemetry/opentelemetry-php/projects/5
+
 #### TBD
