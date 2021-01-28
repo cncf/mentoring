@@ -58,9 +58,6 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 ### Chaos Mesh
 
-
-### Chaos Mesh
-
 #### Chaos Engineering as a Service
 
 -	Description: Chaos Mesh is not like Chaos Engineering as a Service now:
