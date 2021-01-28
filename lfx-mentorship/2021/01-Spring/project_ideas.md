@@ -79,3 +79,19 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 
 #### TBD
+
+
+### Chaos Mesh
+
+#### Chaos Engineering as a Service
+
+-	Description: Chaos Mesh is not like Chaos Engineering as a Service now:
+    - Poor observability: the result of chaos experiments are not easy to observe and judge, the users need to check whether the Chaos effects by manual.
+    - [Chaosd](https://github.com/chaos-mesh/chaosd)(for physic node) is too simple: only supports command line operation, does not support task scheduling and life cycle management.
+    - The costs of learning operation and maintenance are high: the maintenance of Chaos Mesh and Chaosd are not unified.
+
+    It should a unified place to manage Chaos experiments for multiple platforms and multiple clusters, and can see the monitoring data of the experiment.
+
+-	Recommended Skills: Golang
+-	Mentor(s): Wang Xiang (@[WangXiangUSTC](https://github.com/WangXiangUSTC))
+-	Upstream Issue (URL): https://github.com/chaos-mesh/chaos-mesh/issues/1462
