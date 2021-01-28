@@ -53,4 +53,29 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 -   Mentor: Bob Strecansky (@bobstrecansky)
 -   Upstream Issue (Project URL): https://github.com/open-telemetry/opentelemetry-php/projects/5
 
+
+#### TiKV
+##### Coprocessor plugin
+
+-	Description: Implement a basic coprocessor plugin runtime on top of Wasmer.
+-	Recommended Skills: Rust
+-	Mentor(s): Andy Lok (@andylokandy), Alex Chi (@skyzh)
+-	Upstream Issue (URL): https://github.com/tikv/tikv/issues/8036
+
+##### Implement Jepsen test for TiKV
+
+-	Description: Build a intergration test framework with Jepsen for TiKV,
+    using the TiKV Rust client.
+-	Recommended Skills: Rust/Clojure
+-	Mentor(s): Andy Lok (@andylokandy)
+-	Upstream Issue (URL): https://github.com/tikv/tikv/issues/9588
+
+##### Bulid on Windows
+
+-	Description: Make TiKV build and run on Windows.
+-	Recommended Skills: Rust
+-	Mentor(s): Andy Lok (@andylokandy)
+-	Upstream Issue (URL): https://github.com/tikv/tikv/issues/9103
+
+
 #### TBD
