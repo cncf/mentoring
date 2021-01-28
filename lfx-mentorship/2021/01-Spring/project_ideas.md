@@ -68,5 +68,5 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
     It should a unified place to manage Chaos experiments for multiple platforms and multiple clusters, and can see the monitoring data of the experiment.
 
 -	Recommended Skills: Golang
--	Mentor(s): Wang Xiang (@WangXiangUSTC)
+-	Mentor(s): Wang Xiang (@[WangXiangUSTC](https://github.com/WangXiangUSTC))
 -	Upstream Issue (URL): https://github.com/chaos-mesh/chaos-mesh/issues/1462
