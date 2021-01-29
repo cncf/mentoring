@@ -70,7 +70,7 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 -	Mentor(s): Andy Lok (@andylokandy)
 -	Upstream Issue (URL): https://github.com/tikv/tikv/issues/9588
 
-##### Bulid on Windows
+##### Build on Windows
 
 -	Description: Make TiKV build and run on Windows.
 -	Recommended Skills: Rust
@@ -95,3 +95,13 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 -	Recommended Skills: Golang
 -	Mentor(s): Wang Xiang (@[WangXiangUSTC](https://github.com/WangXiangUSTC))
 -	Upstream Issue (URL): https://github.com/chaos-mesh/chaos-mesh/issues/1462
+
+### SIG Usability
+#### Jobs-to-Be-Done study
+
+Qualitative analysis of user interview recordings for Jobs-to-Be-done study
+
+- Description: SIG Usability is conducting a Jobs-to-Be-Done study meant to identify the highest impact areas for improving Kubernetes UX. We are in the process of conducting user interviews and need some help going back through the transcribed recordings to annotate and pull out insights from the conversations. Overall, this is a great opportunity for someone who’s studied or engaged in UX/IA/Usability to get involved in open source.
+- Recommended Skills: User Research, UX, synthesis
+- Mentors: Gaby Moreno (@morengab), Tasha Drew (@tashimi)
+- Upstream Issue (URL): https://github.com/kubernetes-sigs/sig-usability/issues/9 
