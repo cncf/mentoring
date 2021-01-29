@@ -34,6 +34,18 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 -	Mentor(s): Jim Bugwadia (@JimBugwadia)
 -	Upstream Issue (URL): https://github.com/kubernetes-sigs/wg-policy-prototypes/issues/29
 
+#### Keptn
+##### Improve Prometheus integration and exposure of Prometheus metrics
+-	Description: In the current implementation the Prometheus integration in Keptn lacks customisability and configuration options. Also, Keptn core services should be instrumented to expose Prometheus metrics. The goal of this project is to refactor or rewrite the integration and add Prometheus to Keptn core services. 
+-	Recommended Skills: golang, experience with Prometheus
+-	Mentor(s): Jürgen Etzlstorfer (@jetzlstorfer)
+-	Upstream Issue (URL): https://github.com/keptn-contrib/prometheus-service/issues/53 
+
+##### Generate service skeleton via CLI
+-   Description: Provide a CLI command for Keptn CLI that generates a template repository to start developing a Keptn service integration.
+-   Recommended Skills: golang, go-templates, Docker
+-   Mentor(s): Jürgen Etzlstorfer(@jetzlstorfer) 
+-   Upstream Issue (URL): https://github.com/keptn/keptn/issues/3034 
 
 
 #### Kyverno
