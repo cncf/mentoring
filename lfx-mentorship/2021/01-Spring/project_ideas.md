@@ -117,3 +117,32 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 - Recommended Skills: User Research, UX, synthesis
 - Mentors: Gaby Moreno (@morengab), Tasha Drew (@tashimi)
 - Upstream Issue (URL): https://github.com/kubernetes-sigs/sig-usability/issues/9 
+
+
+#### KubeEdge
+
+##### Support multi-instance high availability cloudcore for large-scale cluster
+
+-	Description:Cloudcore is the core component of kubeegde in cloud, which is responsible for sending resources of cloud to the edge. Now the cloudcore is running in leader/follower mode, only one instance can run at the same time. For the more larger scale cluster, we need to support multi-instance high availability for cloudcore.
+-	Recommended Skills: Golang, KubeEdge
+-	Mentor(s): Kevin(Zefeng) Wang (@[kevin-wangzefeng](https://github.com/kevin-wangzefeng))
+-	Upstream Issue (URL): https://github.com/kubeedge/kubeedge/issues/2543
+
+##### Design more tests for specific scenarios of edge computing 
+
+-	We need to do some designs for adding more tests especially for the specific scenarios of edge computing, eg:
+    - Application migration when the network is disconnected
+    - System stability when the network is unstable
+    - Run large-scale cluster tests periodically
+-	Recommended Skills: Golang, KubeEdge
+-	Mentor(s): Fisher(Fei) Xu (@[fisherxu](https://github.com/fisherxu))
+-	Upstream Issue (URL): https://github.com/kubeedge/kubeedge/issues/2544
+
+
+##### Integration and verification of third-party CNI/CSI based on the edge side list-watch 
+
+-	We need to integration and verification of third-party CNI/CSI for the edge applications.
+-	Recommended Skills: Golang, KubeEdge
+-	Mentor(s): Zhe Gong (@[GsssC](https://github.com/GsssC)), Fisher(Fei) Xu (@[fisherxu](https://github.com/fisherxu))
+-	Upstream Issue (URL): https://github.com/kubeedge/kubeedge/issues/2545
+
