@@ -132,6 +132,15 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 -	Mentor(s): Wang Xiang (@[WangXiangUSTC](https://github.com/WangXiangUSTC))
 -	Upstream Issue (URL): https://github.com/chaos-mesh/chaos-mesh/issues/1462
 
+##### Enriching AWS chaos
+
+-	Description: We have already made a technical previewing implementation for AWS Chaos, it could inject some simple chaos now, such as stop/restart the EC2. And we want to make it more stable and structured. And there is another direction of AWS chaos: AWS service failure. It might be useful for testing infrastructure automation tools. Basically there are two things that we want to do:
+        - enriching e2e test cases using localstack
+        - more chaos by simulating AWS service failure by hijacking `awscli` request to a modified localstack
+-	Recommended Skills: Golang, Python(Optional)
+-	Mentor(s): Zhiqiang Zhou(@STRRL)
+-	Upstream Issue (URL): https://github.com/chaos-mesh/chaos-mesh/issues/1472
+
 ### SIG Usability
 #### Jobs-to-Be-Done study
 
