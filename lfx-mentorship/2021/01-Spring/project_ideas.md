@@ -88,7 +88,31 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 -	Recommended Skills: Rust
 -	Mentor(s): Andy Lok (@andylokandy)
 -	Upstream Issue (URL): https://github.com/tikv/tikv/issues/9103
+#### Tremor
 
+##### Support for Syslog Protocol
+-	Description: Enable Tremor to receive and send Syslog Protocol Messages (https://tools.ietf.org/html/rfc5424) , supporting as much syslog implementations as possible that might deviate from the standard
+-	Recommended Skills: Rust Programming (beginner is ok), some experience with syslog (beginner is ok)
+-	Mentor(s): Matthias Wahl (@mfelsche), Anup Dhamala (@anupdhml)
+-	Upstream Issue (URL): https://github.com/tremor-rs/tremor-runtime/issues/12
+
+##### Continuous benchmarking and benchmarking infrastructure
+-	Description: Set up infrastructure for running Tremor benchmarks periodically
+-	Recommended Skills: Rust Programming, Github CI, Shell scripting, Linux command line
+-	Mentor(s): Anup Dhamala (@anupdhml), Darach Ennis (@darach)
+-	Upstream Issue (URL): https://github.com/tremor-rs/tremor-runtime/issues/722
+
+##### Property based tests for tremor-script
+-	Description: Extend property-based testing for tremor script
+-	Recommended Skills: Erlang Programming, Rust Programming, Property Based Testing (EQC)
+-	Mentor(s): Heinz Gies (@Licenser), Matthias Wahl (@mfelsche)
+-	Upstream Issue (URL): https://github.com/tremor-rs/tremor-runtime/issues/721
+
+#### Google Cloud Connector
+-	Description: Enhance tremor with connectors for the Google Cloud Platform
+-	Recommended Skills: Rust programming ( beginner is ok ), some experience with Google Cloud or other platforms
+-	Mentor(s): Darach Ennis (@darach), Heinz Gies (@Licenser)
+-	Upstream Issue (URL): https://github.com/tremor-rs/tremor-runtime/issues/724
 
 #### TBD
 
