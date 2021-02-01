@@ -49,6 +49,18 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 - Mentors: Gaby Moreno (@morengab), Tasha Drew (@tashimi)
 - Upstream Issue (URL): https://github.com/kubernetes-sigs/sig-usability/issues/9
 
+##### SIG Architecture
+
+###### Develop tools for evaluating dependency updates to Kubernetes
+
+- Description: Implement command line utilities that can help Kubernetes developers evaluate new dependencies by capturing statistics/metrics and estimating cost of adding something new. This will 
+  involve diving deep into golang dependency chains (transitive/shared dependencies) and coming up with new metrics to estimate how burdensome something new can be or how much we will save by getting 
+  rid of something so we can prioritize work and get more efficient from a developer workflow perspective.
+- Recommended Skills: Golang, CLI
+- Mentor(s): Davanum Srinivas (@dims)
+- Upstream Issue (URL): [code organization meeting notes](https://docs.google.com/document/d/1HtTI0rJEGP_MSf6eO87aCmx_tzpovPAAg7U2Zxwm8FE/edit?ts=5c9d0a4c#heading=h.8phgvuqrxjsg)
+
+
 ##### SIG Cluster Lifecycle
 
 ###### Add support for phases in "kubeadm upgrade apply"
