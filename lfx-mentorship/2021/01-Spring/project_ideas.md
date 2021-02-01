@@ -49,6 +49,15 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 - Mentors: Gaby Moreno (@morengab), Tasha Drew (@tashimi)
 - Upstream Issue (URL): https://github.com/kubernetes-sigs/sig-usability/issues/9
 
+##### SIG Cluster Lifecycle
+
+###### Add support for phases in "kubeadm upgrade apply"
+
+- Description: Implement support for "phases" in the "upgrade apply" command of kubeadm. Phases act like subcommands and allow granular execution of functiodnality.
+- Recommended Skills: Golang, CLI
+- Mentor(s): Lubomir I. Ivanov (@neolit123)
+- Upstream Issue (URL): https://github.com/kubernetes/kubeadm/issues/1318
+
 #### Keptn
 
 ##### Improve Prometheus integration and exposure of Prometheus metrics
