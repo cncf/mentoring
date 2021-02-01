@@ -185,3 +185,37 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 - Recommended Skills: Golang, KubeEdge
 - Mentor(s): Zhe Gong (@[GsssC](https://github.com/GsssC)), Fisher(Fei) Xu (@[fisherxu](https://github.com/fisherxu))
 - Upstream Issue (URL): https://github.com/kubeedge/kubeedge/issues/2545
+
+#### Thanos
+
+##### Multi-Tenant Instrumentation for Thanos operations
+
+- Description: Thanos can store and serve the data for multiple tenants at once. However, currently, Thanos does not always provide the needed introspective information about actions related to the tenant (e.g external labels). Allowing admins to obtain tenants’ information on per tenant queries, operations and ingestion would give actionable insight and answer questions such as: What data is used/queried the most for a tenant X? During this mentorship, you will implement logic that will enormously improve the experience of running multi-tenant Thanos on the scale. You will learn more about Go, instrumentation, multitenancy, APIs, and SRE concepts like SLOs.
+- Recommended Skills: Go, Prometheus (basic), Instrumentation (basic)
+- Mentor(s): [@yashrsharma44](https://github.com/yashrsharma44), [@kakkoyun](https://github.com/kakkoyun)
+- Upstream Issue (URL): 
+  - https://github.com/thanos-io/thanos/issues/3572
+
+
+##### Stateless Ruler
+
+- Description: Thanos Ruler is a critical component in Thanos that is responsible for the alert evaluation and recording rules. However, a few extensive rules can create a significant amount of resulting time-series, limiting the scalability of Thanos Rule, as it uses a single embedded TSDB. Recording/Alerting Rules are a substantial piece of monitoring infrastructure, so we want to ensure users can operate Rulers and scale them in an easy way. There is no way to scale rule evaluation and storage today except functionally sharding rules onto multiple instances of the Thanos Ruler component. Luckily, we have already solved scaling storage of time-series across various processes using Thanos Receiver. To scale rule evaluations and storage, during this mentorship, you will have a chance to implement the proposal that allows the Thanos rule component to have a stateless mode, storing results of queries by sending them to a Thanos receive hash-ring instead of storing them locally. You will learn about Go, Time-series databases, distributed system design, Prometheus, and of course Thanos.
+- Recommended Skills: Go
+- Mentor(s): [@bwplotka](https://github.com/bwplotka), [@squat](https://github.com/squat), [@kakkoyun](https://github.com/kakkoyun)
+- Upstream Issue (URL):
+  - https://github.com/thanos-io/thanos/issues/3761
+
+##### Vertical Block Sharding
+
+- Description: Current Thanos topology is generally horizontally scalable. However, the use cases and approaches of deploying Thanos shifted through time. While initially, Thanos was enabling ingestion through sidecars, now it’s not uncommon to see Thanos receiver usage. This means that the invariant of definite size TSDB block is no longer true. With offline deduplication and arbitrary Receive tenants data can be ingested into huge, often hundreds GB size [TSDB blocks](https://thanos.io/tip/thanos/storage.md/#tsdb-block). This makes it harder to scale compaction and query operation on top of such blocks. The idea of this work is to vertically split larger blocks into smaller ones with the common scaling technique called sharding. As a mentee, we will guide you to make progress towards this goal by teaming up with experienced developers to deliver transparent automation for vertical block sharding! We are looking forward to working with you! During this mentorship, you will learn a lot about programming in Go, distributed Systems, TimeSeries Database, Prometheus, Thanos!
+- Recommended Skills: Go
+- Mentor(s): [@bwplotka](https://github.com/bwplotka), [@kakkoyun](https://github.com/kakkoyun)
+- Upstream Issue (URL):
+  - https://github.com/thanos-io/thanos/issues/3068
+
+##### gRPC Exemplars API
+
+- Description: Exemplars are an amazing solution that allows linking metrics to logs, traces, and more! Recently Prometheus added support to Exemplars as defined by OpenMetrics API. In Thanos with our powerful deployment flexibility, we can allow federating Exemplars up to multi-cluster, global level! During this task mentee will develop together with mentors a new gRPC API that allows to access Prometheus exemplars on Thanos level. This is a work item bringing novel and edge technology to the open-source, which will enormously help Thanos users. During this mentorship, you will learn a lot about programming in Go, distributed Systems, gRPC Observability, Prometheus, Thanos!
+- Recommended Skills: Go, gRPC
+- Mentor(s): [@squat](https://github.com/squat), [@prmsrswt](https://github.com/prmsrswt)
+- Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/3435
