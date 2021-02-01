@@ -64,10 +64,10 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 ##### Implement Jepsen test for TiKV
 
--	Description: Build a intergration test framework with Jepsen for TiKV,
+-	Description: Build an intergration test framework with Jepsen for TiKV,
     using the TiKV Rust client.
 -	Recommended Skills: Rust/Clojure
--	Mentor(s): Andy Lok (@andylokandy)
+-	Mentor(s): ZiQian Qin (@ekexium), Andy Lok (@andylokandy)
 -	Upstream Issue (URL): https://github.com/tikv/tikv/issues/9588
 
 ##### Bulid on Windows
