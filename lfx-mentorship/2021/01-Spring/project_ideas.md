@@ -60,7 +60,6 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 - Mentor(s): Davanum Srinivas (@dims)
 - Upstream Issue (URL): [code organization meeting notes](https://docs.google.com/document/d/1HtTI0rJEGP_MSf6eO87aCmx_tzpovPAAg7U2Zxwm8FE/edit?ts=5c9d0a4c#heading=h.8phgvuqrxjsg)
 
-
 ##### SIG Cluster Lifecycle
 
 ###### Add support for phases in "kubeadm upgrade apply"
@@ -217,7 +216,6 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 - Upstream Issue (URL):
   - https://github.com/thanos-io/thanos/issues/3572
 
-
 ##### Stateless Ruler
 
 - Description: Thanos Ruler is a critical component in Thanos that is responsible for the alert evaluation and recording rules. However, a few extensive rules can create a significant amount of resulting time-series, limiting the scalability of Thanos Rule, as it uses a single embedded TSDB. Recording/Alerting Rules are a substantial piece of monitoring infrastructure, so we want to ensure users can operate Rulers and scale them in an easy way. There is no way to scale rule evaluation and storage today except functionally sharding rules onto multiple instances of the Thanos Ruler component. Luckily, we have already solved scaling storage of time-series across various processes using Thanos Receiver. To scale rule evaluations and storage, during this mentorship, you will have a chance to implement the proposal that allows the Thanos rule component to have a stateless mode, storing results of queries by sending them to a Thanos receive hash-ring instead of storing them locally. You will learn about Go, Time-series databases, distributed system design, Prometheus, and of course Thanos.
@@ -241,18 +239,18 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 - Mentor(s): [@squat](https://github.com/squat), [@prmsrswt](https://github.com/prmsrswt)
 - Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/3435
 
-
 #### OpenEBS
 
 ##### A easy to use command-line interface (CLI) for OpenEBS.
 
 - Description: OpenEBS is completely Kubernetes native and is implemented using microservices. OpenEBS can be installed via kubectl or helm chart and managed via Kubernetes custom resources. To improve the usability of OpenEBS, the proposal is to have a easy to use OpenEBS CLI (similar to `kubectl`) to perform operations like:
-  - upgrade  => Upgrade OpenEBS pools and volumes
-  - status   => Print the readiness of various components, verify prerequisites are met to run openebs pools and volumes.
-  - version  => Print the OpenEBS version and associated images
+
+  - upgrade => Upgrade OpenEBS pools and volumes
+  - status => Print the readiness of various components, verify prerequisites are met to run openebs pools and volumes.
+  - version => Print the OpenEBS version and associated images
   - describe => Describe OpenEBS component status like component/control plane, pools and volumes.
-  - create   => Create OpenEBS resources
-  - delete   => Delete OpenEBS resources
+  - create => Create OpenEBS resources
+  - delete => Delete OpenEBS resources
 
 - Recommended Skills: Go, Kubernetes
 - Mentor(s): Kiran Mova (@kmova)
@@ -266,20 +264,17 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 - Mentor(s): Kiran Mova (@kmova)
 - Upstream Issues (URL): https://github.com/openebs/openebs/issues/3333
 
- 
-=======
-
 #### Volcano
 
 ##### Enhanced Support to GPU
 
-- Description: Volcano has supported GPU sharing, but not enough. It's a lack of supporting multiple GPUs used for one container in device plugin. Your task is to complete related features about GPU support. 
+- Description: Volcano has supported GPU sharing, but not enough. It's a lack of supporting multiple GPUs used for one container in device plugin. Your task is to complete related features about GPU support.
 - Recommended Skills: Go(basic), Kubernetes(basic), Volcano
 - Mentor(s): [@William-Wang](https://github.com/william-wang)
 - Upstream Issue (URL):
   - https://github.com/volcano-sh/devices/issues/12
-  
-##### System Stability Enhancement 
+
+##### System Stability Enhancement
 
 - Description: Add more UT/E2E to cover more classical scenarios. Conduct complete stress testing and regression testing, Offer test report, give the improvement plan and put it into practice.
 - Recommended Skills: Go, Test
@@ -299,51 +294,49 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 
 ##### Crisscross - Write controllers in your language of choice
 
--	Description: Crossplane provides a broad library of Kubernetes custom resources that let you orchestrate systems external to Kubernetes. These include AWS S3 buckets, GCP CloudSQL instances, Azure Cosmos tables, plain old SQL databases, Helm releases, and Dominos pizzas. We call these 'managed resources'. Crossplane's goal is to allow platform teams to build their own custom resources that are in turn composed of these primitives without needing to write Kubernetes controllers in Go. [Crisscross](https://github.com/hasheddan/crisscross) is an experimental project that lets folks add new managed resources to Crossplane without writing Go code. We would love help fleshing out the Crisscross proof of concept. This will likely take the form of writing a web service with endpoints that accept CRUD verbs from Crossplane and uses them to orchstrate an external system - for example CRUDing a DigitalOcean Droplet or an OpenStack Server. Familiarity with Go is a bonus (Crisscross itself is written in Go), but not necessary (Crisscross managed resources can be written in any language).
--	Recommended Skills: Programming REST APIs in any language. Some Go experience, or interest in learning.
--	Mentor(s): @hasheddan, @negz, @jbw976
--	Upstream Issue (URL): https://github.com/crossplane/crossplane/issues/2109
+- Description: Crossplane provides a broad library of Kubernetes custom resources that let you orchestrate systems external to Kubernetes. These include AWS S3 buckets, GCP CloudSQL instances, Azure Cosmos tables, plain old SQL databases, Helm releases, and Dominos pizzas. We call these 'managed resources'. Crossplane's goal is to allow platform teams to build their own custom resources that are in turn composed of these primitives without needing to write Kubernetes controllers in Go. [Crisscross](https://github.com/hasheddan/crisscross) is an experimental project that lets folks add new managed resources to Crossplane without writing Go code. We would love help fleshing out the Crisscross proof of concept. This will likely take the form of writing a web service with endpoints that accept CRUD verbs from Crossplane and uses them to orchstrate an external system - for example CRUDing a DigitalOcean Droplet or an OpenStack Server. Familiarity with Go is a bonus (Crisscross itself is written in Go), but not necessary (Crisscross managed resources can be written in any language).
+- Recommended Skills: Programming REST APIs in any language. Some Go experience, or interest in learning.
+- Mentor(s): @hasheddan, @negz, @jbw976
+- Upstream Issue (URL): https://github.com/crossplane/crossplane/issues/2109
 
 ##### Import cloud resources into Crossplane
 
--	Description: Crossplane provides a broad library of Kubernetes custom resources that let you orchestrate systems external to Kubernetes. These include AWS S3 buckets, GCP CloudSQL instances, Azure Cosmos tables, plain old SQL databases, Helm releases, and Dominos pizzas. We call these 'managed resources'. Crossplane's goal is to allow platform teams to build their own custom resources that are in turn composed of these primitives without needing to write Kubernetes controllers in Go. Crossplane currently supports 'importing' your existing cloud infrastructure (databases etc) into Crossplane management, but doing so is onerous. You need to write Crossplane YAML that exactly matches the current state of your infrastructure. Ideally Crossplane would provide an import tool that our users could point at an existing RDS instance (for example) in order to generate the Crossplane YAML that represented that instance.
--	Recommended Skills: Ideally Go programming, though we'd consider prototyping this tool in another language.
--	Mentor(s): @negz, @hasheddan, @jbw976
--	Upstream Issue (URL): https://github.com/crossplane/crossplane/issues/1243
+- Description: Crossplane provides a broad library of Kubernetes custom resources that let you orchestrate systems external to Kubernetes. These include AWS S3 buckets, GCP CloudSQL instances, Azure Cosmos tables, plain old SQL databases, Helm releases, and Dominos pizzas. We call these 'managed resources'. Crossplane's goal is to allow platform teams to build their own custom resources that are in turn composed of these primitives without needing to write Kubernetes controllers in Go. Crossplane currently supports 'importing' your existing cloud infrastructure (databases etc) into Crossplane management, but doing so is onerous. You need to write Crossplane YAML that exactly matches the current state of your infrastructure. Ideally Crossplane would provide an import tool that our users could point at an existing RDS instance (for example) in order to generate the Crossplane YAML that represented that instance.
+- Recommended Skills: Ideally Go programming, though we'd consider prototyping this tool in another language.
+- Mentor(s): @negz, @hasheddan, @jbw976
+- Upstream Issue (URL): https://github.com/crossplane/crossplane/issues/1243
 
 ##### Automated end-to-end testing infrastructure
 
--	Description: Crossplane provides a broad library of Kubernetes custom resources that let you orchestrate systems external to Kubernetes. These include AWS S3 buckets, GCP CloudSQL instances, Azure Cosmos tables, plain old SQL databases, Helm releases, and Dominos pizzas. We call these 'managed resources'. Crossplane's goal is to allow platform teams to build their own custom resources that are in turn composed of these primitives without needing to write Kubernetes controllers in Go. Crossplane currently has extensive unit testing, but not much in the way of automated integration/e2e tests. We have a very broad surface area to test (we have around a hundred controllers that interact with cloud providers) and would like to establish some integration testing best practices so that the community can easily contribute integration tests when they work on Crossplane.
--	Recommended Skills: Go programming, testing best practices.
--	Mentor(s): @hasheddan, @negz, @jbw976
--	Upstream Issue (URL): https://github.com/crossplane/crossplane/issues/1033
+- Description: Crossplane provides a broad library of Kubernetes custom resources that let you orchestrate systems external to Kubernetes. These include AWS S3 buckets, GCP CloudSQL instances, Azure Cosmos tables, plain old SQL databases, Helm releases, and Dominos pizzas. We call these 'managed resources'. Crossplane's goal is to allow platform teams to build their own custom resources that are in turn composed of these primitives without needing to write Kubernetes controllers in Go. Crossplane currently has extensive unit testing, but not much in the way of automated integration/e2e tests. We have a very broad surface area to test (we have around a hundred controllers that interact with cloud providers) and would like to establish some integration testing best practices so that the community can easily contribute integration tests when they work on Crossplane.
+- Recommended Skills: Go programming, testing best practices.
+- Mentor(s): @hasheddan, @negz, @jbw976
+- Upstream Issue (URL): https://github.com/crossplane/crossplane/issues/1033
 
 #### Project Rekor
 
 ##### CNCF release signing security
 
--	Description: [Rekor](https://rekor.dev) is a new project that provides a secure supply chain transparency log / ledger. The proposed work is to research how CNCF projects could implement cryptographic signing of releases and store those signatures into rekors transparency log. Following this, simple steps and methods should be outlined for how users can gain security guarantees on releases available for download.
--	Recommended Skills: Scripting, Github, information security (understand basic application of crypto signing, for example GPG).
--	Mentor(s): @lukehinds, @dlorenc, @bobcallaway
--	Upstream Issue (URL): https://github.com/projectrekor/rekor/issues/144
+- Description: [Rekor](https://rekor.dev) is a new project that provides a secure supply chain transparency log / ledger. The proposed work is to research how CNCF projects could implement cryptographic signing of releases and store those signatures into rekors transparency log. Following this, simple steps and methods should be outlined for how users can gain security guarantees on releases available for download.
+- Recommended Skills: Scripting, Github, information security (understand basic application of crypto signing, for example GPG).
+- Mentor(s): @lukehinds, @dlorenc, @bobcallaway
+- Upstream Issue (URL): https://github.com/projectrekor/rekor/issues/144
 
 #### LitmusChaos
 
 ##### Add event & alerts infrastructure to the litmus portal
 
--	Description: [LitmusChaos](https://litmuschaos.io) is a Kubernetes native chaos engineering framework that helps SREs & developers find weaknesses in their deployments, with the chaos intent being defined via custom resources. The Litmus portal is a dashboard focused on simplifying the chaos-engineering experience for users and allows execution of complex "chaos workflows" that comprise one or more chaos experiments. This portal dashboard needs to be improved to hold more observability information, primarily in the form of an event log & alerts to help users gather important information about the state of the chaos experiments & cluster in general. 
+- Description: [LitmusChaos](https://litmuschaos.io) is a Kubernetes native chaos engineering framework that helps SREs & developers find weaknesses in their deployments, with the chaos intent being defined via custom resources. The Litmus portal is a dashboard focused on simplifying the chaos-engineering experience for users and allows execution of complex "chaos workflows" that comprise one or more chaos experiments. This portal dashboard needs to be improved to hold more observability information, primarily in the form of an event log & alerts to help users gather important information about the state of the chaos experiments & cluster in general.
 
--	Recommended Skills: Golang, Typescript
--	Mentor(s): @gdsoumya, @ksatchit
--	Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/2429 
+- Recommended Skills: Golang, Typescript
+- Mentor(s): @gdsoumya, @ksatchit
+- Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/2429
 
 #### SPIFFE/SPIRE
 
 ##### Design and implement a health/status subsystem in SPIRE
 
 -       Description: [SPIRE](https://spiffe.io), the SPIFFE Runtime Environment, is an extensible system that implements the principles embodied in the SPIFFE standards. SPIRE manages platform and workload attestation, provides an API for controlling attestation policies, and coordinates certificate issuance and rotation. Being a critical system, it is important that operators be able to monitor (and respond to) the current health/state of their SPIRE deployments. To do this, SPIRE needs to grow a full-featured health subsystem that is capable of collecting the status of other subsystems and reporting on it. In this project, you will design and implement this new subsystem with the help and guidance of the SPIRE maintainers.
--	Recommended Skills: Go
--	Mentor(s): Andrew Harding (@azdagron), Evan Gilman (@evan2645)
--	Upstream Issue (URL): https://github.com/spiffe/spire/issues/2047
-
-
+- Recommended Skills: Go
+- Mentor(s): Andrew Harding (@azdagron), Evan Gilman (@evan2645)
+- Upstream Issue (URL): https://github.com/spiffe/spire/issues/2047
