@@ -327,6 +327,16 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 -	Mentor(s): @lukehinds, @dlorenc, @bobcallaway
 -	Upstream Issue (URL): https://github.com/projectrekor/rekor/issues/144
 
+#### LitmusChaos
+
+##### Add event & alerts infrastructure to the litmus portal
+
+-	Description: [LitmusChaos](https://litmuschaos.io) is a Kubernetes native chaos engineering framework that helps SREs & developers find weaknesses in their deployments, with the chaos intent being defined via custom resources. The Litmus portal is a dashboard focused on simplifying the chaos-engineering experience for users and allows execution of complex "chaos workflows" that comprise one or more chaos experiments. This portal dashboard needs to be improved to hold more observability information, primarily in the form of an event log & alerts to help users gather important information about the state of the chaos experiments & cluster in general. 
+
+-	Recommended Skills: Golang, Typescript
+-	Mentor(s): @gdsoumya, @ksatchit
+-	Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/2429 
+
 #### SPIFFE/SPIRE
 
 ##### Design and implement a health/status subsystem in SPIRE
@@ -335,4 +345,5 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 -	Recommended Skills: Go
 -	Mentor(s): @azdagron, @evan2645
 -	Upstream Issue (URL): https://github.com/spiffe/spire/issues/2047
+
 
