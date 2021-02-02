@@ -241,6 +241,60 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 - Mentor(s): [@squat](https://github.com/squat), [@prmsrswt](https://github.com/prmsrswt)
 - Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/3435
 
+
+#### OpenEBS
+
+##### A easy to use command-line interface (CLI) for OpenEBS.
+
+- Description: OpenEBS is completely Kubernetes native and is implemented using microservices. OpenEBS can be installed via kubectl or helm chart and managed via Kubernetes custom resources. To improve the usability of OpenEBS, the proposal is to have a easy to use OpenEBS CLI (similar to `kubectl`) to perform operations like:
+  - upgrade  => Upgrade OpenEBS pools and volumes
+  - status   => Print the readiness of various components, verify prerequisites are met to run openebs pools and volumes.
+  - version  => Print the OpenEBS version and associated images
+  - describe => Describe OpenEBS component status like component/control plane, pools and volumes.
+  - create   => Create OpenEBS resources
+  - delete   => Delete OpenEBS resources
+
+- Recommended Skills: Go, Kubernetes
+- Mentor(s): Kiran Mova (@kmova)
+- Upstream Issues (URL): https://github.com/openebs/openebs/issues/2946
+
+##### Grafana Dashboards for monitoring OpenEBS.
+
+- Description: OpenEBS is completely Kubernetes native and is implemented using microservices. OpenEBS can be installed via kubectl or helm chart and managed via Kubernetes custom resources. Each of the OpenEBS components/services expose prometheus metrics. This proposal is to provide Grafana dashboards for monitoring the OpenEBS services.
+
+- Recommended Skills: Go, Kubernetes, Grafana, Prometheus
+- Mentor(s): Kiran Mova (@kmova)
+- Upstream Issues (URL): https://github.com/openebs/openebs/issues/3333
+
+ 
+=======
+
+#### Volcano
+
+##### Enhanced Support to GPU
+
+- Description: Volcano has supported GPU sharing, but not enough. It's a lack of supporting multiple GPUs used for one container in device plugin. Your task is to complete related features about GPU support. 
+- Recommended Skills: Go(basic), Kubernetes(basic), Volcano
+- Mentor(s): [@William-Wang](https://github.com/william-wang)
+- Upstream Issue (URL):
+  - https://github.com/volcano-sh/devices/issues/12
+  
+##### System Stability Enhancement 
+
+- Description: Add more UT/E2E to cover more classical scenarios. Conduct complete stress testing and regression testing, Offer test report, give the improvement plan and put it into practice.
+- Recommended Skills: Go, Test
+- Mentor(s): [@Thor-wl](https://github.com/Thor-wl), [@William-Wang](https://github.com/william-wang)
+- Upstream Issue (URL):
+  - https://github.com/volcano-sh/volcano/issues/1284
+
+##### Reading Materials Update And Supplement
+
+- Description: In order to make volcano easy to use and understand, you task is to improve reading materials.
+- Recommended Skills: English, Volcano
+- Mentor(s): [@Thor-wl](https://github.com/Thor-wl)
+- Upstream Issue (URL):
+  - https://github.com/volcano-sh/volcano/issues/1285
+
 #### Crossplane
 
 ##### Crisscross - Write controllers in your language of choice
@@ -272,3 +326,4 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 -	Recommended Skills: Scripting, Github, information security (understand basic application of crypto signing, for example GPG).
 -	Mentor(s): @lukehinds, @dlorenc, @bobcallaway
 -	Upstream Issue (URL): https://github.com/projectrekor/rekor/issues/144
+
