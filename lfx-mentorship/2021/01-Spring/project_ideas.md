@@ -343,7 +343,7 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 
 -       Description: [SPIRE](https://spiffe.io), the SPIFFE Runtime Environment, is an extensible system that implements the principles embodied in the SPIFFE standards. SPIRE manages platform and workload attestation, provides an API for controlling attestation policies, and coordinates certificate issuance and rotation. Being a critical system, it is important that operators be able to monitor (and respond to) the current health/state of their SPIRE deployments. To do this, SPIRE needs to grow a full-featured health subsystem that is capable of collecting the status of other subsystems and reporting on it. In this project, you will design and implement this new subsystem with the help and guidance of the SPIRE maintainers.
 -	Recommended Skills: Go
--	Mentor(s): @azdagron, @evan2645
+-	Mentor(s): Andrew Harding (@azdagron), Evan Gilman (@evan2645)
 -	Upstream Issue (URL): https://github.com/spiffe/spire/issues/2047
 
 
