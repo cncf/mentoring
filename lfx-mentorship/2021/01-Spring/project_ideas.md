@@ -242,6 +242,33 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 - Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/3435
 
 
+#### OpenEBS
+
+##### A easy to use command-line interface (CLI) for OpenEBS.
+
+- Description: OpenEBS is completely Kubernetes native and is implemented using microservices. OpenEBS can be installed via kubectl or helm chart and managed via Kubernetes custom resources. To improve the usability of OpenEBS, the proposal is to have a easy to use OpenEBS CLI (similar to `kubectl`) to perform operations like:
+  - upgrade  => Upgrade OpenEBS pools and volumes
+  - status   => Print the readiness of various components, verify prerequisites are met to run openebs pools and volumes.
+  - version  => Print the OpenEBS version and associated images
+  - describe => Describe OpenEBS component status like component/control plane, pools and volumes.
+  - create   => Create OpenEBS resources
+  - delete   => Delete OpenEBS resources
+
+- Recommended Skills: Go, Kubernetes
+- Mentor(s): Kiran Mova (@kmova)
+- Upstream Issues (URL): https://github.com/openebs/openebs/issues/2946
+
+##### Grafana Dashboards for monitoring OpenEBS.
+
+- Description: OpenEBS is completely Kubernetes native and is implemented using microservices. OpenEBS can be installed via kubectl or helm chart and managed via Kubernetes custom resources. Each of the OpenEBS components/services expose prometheus metrics. This proposal is to provide Grafana dashboards for monitoring the OpenEBS services.
+
+- Recommended Skills: Go, Kubernetes, Grafana, Prometheus
+- Mentor(s): Kiran Mova (@kmova)
+- Upstream Issues (URL): https://github.com/openebs/openebs/issues/3333
+
+ 
+=======
+
 #### Volcano
 
 ##### Enhanced Support to GPU
