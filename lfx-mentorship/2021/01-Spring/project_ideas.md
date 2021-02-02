@@ -53,8 +53,8 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 
 ###### Develop tools for evaluating dependency updates to Kubernetes
 
-- Description: Implement command line utilities that can help Kubernetes developers evaluate new dependencies by capturing statistics/metrics and estimating cost of adding something new. This will 
-  involve diving deep into golang dependency chains (transitive/shared dependencies) and coming up with new metrics to estimate how burdensome something new can be or how much we will save by getting 
+- Description: Implement command line utilities that can help Kubernetes developers evaluate new dependencies by capturing statistics/metrics and estimating cost of adding something new. This will
+  involve diving deep into golang dependency chains (transitive/shared dependencies) and coming up with new metrics to estimate how burdensome something new can be or how much we will save by getting
   rid of something so we can prioritize work and get more efficient from a developer workflow perspective.
 - Recommended Skills: Golang, CLI
 - Mentor(s): Davanum Srinivas (@dims)
@@ -214,7 +214,7 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 - Description: Thanos can store and serve the data for multiple tenants at once. However, currently, Thanos does not always provide the needed introspective information about actions related to the tenant (e.g external labels). Allowing admins to obtain tenants’ information on per tenant queries, operations and ingestion would give actionable insight and answer questions such as: What data is used/queried the most for a tenant X? During this mentorship, you will implement logic that will enormously improve the experience of running multi-tenant Thanos on the scale. You will learn more about Go, instrumentation, multitenancy, APIs, and SRE concepts like SLOs.
 - Recommended Skills: Go, Prometheus (basic), Instrumentation (basic)
 - Mentor(s): [@yashrsharma44](https://github.com/yashrsharma44), [@kakkoyun](https://github.com/kakkoyun)
-- Upstream Issue (URL): 
+- Upstream Issue (URL):
   - https://github.com/thanos-io/thanos/issues/3572
 
 
@@ -263,3 +263,12 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 -	Recommended Skills: Go programming, testing best practices.
 -	Mentor(s): @hasheddan, @negz, @jbw976
 -	Upstream Issue (URL): https://github.com/crossplane/crossplane/issues/1033
+
+#### Project Rekor
+
+##### CNCF release signing security
+
+-	Description: [Rekor](https://rekor.dev) is a new project that provides a secure supply chain transparency log / ledger. The proposed work is to research how CNCF projects could implement cryptographic signing of releases and store those signatures into rekors transparency log. Following this, simple steps and methods should be outlined for how users can gain security guarantees on releases available for download.
+-	Recommended Skills: Scripting, Github, information security (understand basic application of crypto signing, for example GPG).
+-	Mentor(s): @lukehinds, @dlorenc, @bobcallaway
+-	Upstream Issue (URL): https://github.com/projectrekor/rekor/issues/144
