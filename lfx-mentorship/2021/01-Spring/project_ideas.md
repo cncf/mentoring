@@ -240,3 +240,29 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 - Recommended Skills: Go, gRPC
 - Mentor(s): [@squat](https://github.com/squat), [@prmsrswt](https://github.com/prmsrswt)
 - Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/3435
+
+#### Volcano
+
+##### Enhanced Support to GPU
+
+- Description: Volcano has supported GPU sharing, but not enough. It's a lack of supporting multiple GPUs used for one container in device plugin. Your task is to complete related features about GPU support. 
+- Recommended Skills: Go(basic), Kubernetes(basic), Volcano
+- Mentor(s): [@William-Wang](https://github.com/william-wang)
+- Upstream Issue (URL):
+  - https://github.com/volcano-sh/devices/issues/12
+  
+##### System Stability Enhancement 
+
+- Description: Add more UT/E2E to cover more classical scenarios. Conduct complete stress testing and regression testing, Offer test report, give the improvement plan and put it into practice.
+- Recommended Skills: Go, Test
+- Mentor(s): [@Thor-wl](https://github.com/Thor-wl), [@William-Wang](https://github.com/william-wang)
+- Upstream Issue (URL):
+  - https://github.com/volcano-sh/volcano/issues/1284
+
+##### Reading Materials Update And Supplement
+
+- Description: In order to make volcano easy to use and understand, you task is to improve reading materials.
+- Recommended Skills: English, Volcano
+- Mentor(s): [@Thor-wl](https://github.com/Thor-wl)
+- Upstream Issue (URL):
+  - https://github.com/volcano-sh/volcano/issues/1285
