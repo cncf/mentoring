@@ -22,6 +22,17 @@ Mentorship duration - three months \(12 weeks - full-time schedule\)
 
 #### Kubernetes
 
+##### SIG Storage
+
+###### [Kubernetes working group for CSI driver](https://mentorship.lfx.linuxfoundation.org/project/2d438b9a-c539-46d0-9eed-c6ee4404c88a)
+
+- Description: SContainer Storage Interface (CSI) is a standard for exposing storage systems to containerized workloads on Kubernetes. The idea is to enhance a few CSI features(e.g. NFS, SMB) and also add e2e, sanity tests to cover those features, e.g. inline volume support, Windows support etc.
+- Recommended Skills: golang, Kubernetes
+- Mentors: Andy Zhang (@andyzhangx)
+- Upstream Issue (URL): 
+	- https://github.com/kubernetes-csi/csi-driver-nfs/issues
+	- https://github.com/kubernetes-csi/csi-driver-smb/issues
+
 ##### WG Policy
 
 ###### [CIS Benchmarks Policy Report](https://mentorship.lfx.linuxfoundation.org/project/0fd19dde-0990-4987-9ab3-2fe9b2ce26b2)
