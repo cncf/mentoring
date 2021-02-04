@@ -24,7 +24,7 @@ Mentorship duration - three months \(12 weeks - full-time schedule\)
 
 ##### SIG Storage
 
-###### [Kubernetes working group for CSI driver](https://mentorship.lfx.linuxfoundation.org/project/2d438b9a-c539-46d0-9eed-c6ee4404c88a)
+###### [Kubernetes working group for CSI driver](https://mentorship.lfx.linuxfoundation.org/project/51cb21c9-62eb-4e1c-9897-08e554a78b32)
 
 - Description: SContainer Storage Interface (CSI) is a standard for exposing storage systems to containerized workloads on Kubernetes. The idea is to enhance a few CSI features(e.g. NFS, SMB) and also add e2e, sanity tests to cover those features, e.g. inline volume support, Windows support etc.
 - Recommended Skills: golang, Kubernetes
