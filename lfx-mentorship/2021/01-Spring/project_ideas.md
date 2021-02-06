@@ -340,3 +340,11 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 - Recommended Skills: Go
 - Mentor(s): Andrew Harding (@azdagron), Evan Gilman (@evan2645)
 - Upstream Issue (URL): https://github.com/spiffe/spire/issues/2047
+
+#### Cloud Native Buildpacks
+##### Design and implement Buildpack Registry Search
+
+- Description: The [Buildpack Registry](https://github.com/buildpacks/rfcs/blob/main/text/0022-client-side-buildpack-registry.md) is a place to publish, store, and discover buildpacks. It will provide a centralized service that platforms can use to resolve a buildpack ID and version into a concrete buildpack that can be downloaded and used. The search service will extend the existing [registry index stored in git](https://github.com/buildpacks/registry-index) in a way that can be consumed on the web as defined in this [RFC](https://github.com/buildpacks/rfcs/blob/main/text/0068-buildpack-registry-search-api.md).
+- Recommended Skills: React, CSS, Ruby, Rails, Github
+- Mentor(s): Joe Kutner (@jkutner), Travis Longoria (@elbandito)
+- Upstream Issue (URL): https://github.com/buildpacks/registry-api/issues/21
