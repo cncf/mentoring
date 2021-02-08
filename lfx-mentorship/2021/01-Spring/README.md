@@ -29,9 +29,9 @@ Mentorship duration - three months \(12 weeks - full-time schedule\)
 - Description: SContainer Storage Interface (CSI) is a standard for exposing storage systems to containerized workloads on Kubernetes. The idea is to enhance a few CSI features(e.g. NFS, SMB) and also add e2e, sanity tests to cover those features, e.g. inline volume support, Windows support etc.
 - Recommended Skills: golang, Kubernetes
 - Mentors: Andy Zhang (@andyzhangx)
-- Upstream Issue (URL): 
-	- https://github.com/kubernetes-csi/csi-driver-nfs/issues
-	- https://github.com/kubernetes-csi/csi-driver-smb/issues
+- Upstream Issue (URL):
+  - https://github.com/kubernetes-csi/csi-driver-nfs/issues
+  - https://github.com/kubernetes-csi/csi-driver-smb/issues
 
 ##### WG Policy
 
@@ -335,3 +335,12 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 - Recommended Skills: Go
 - Mentor(s): Andrew Harding (@azdagron), Evan Gilman (@evan2645)
 - Upstream Issue (URL): https://github.com/spiffe/spire/issues/2047
+
+#### Cloud Native Buildpacks
+
+##### [Design and implement Buildpack Registry Search](https://mentorship.lfx.linuxfoundation.org/project/4b711f9e-90f8-486a-90fc-d832e1c852ca)
+
+- Description: The [Buildpack Registry](https://github.com/buildpacks/rfcs/blob/main/text/0022-client-side-buildpack-registry.md) is a place to publish, store, and discover buildpacks. It will provide a centralized service that platforms can use to resolve a buildpack ID and version into a concrete buildpack that can be downloaded and used. The search service will extend the existing [registry index stored in git](https://github.com/buildpacks/registry-index) in a way that can be consumed on the web as defined in this [RFC](https://github.com/buildpacks/rfcs/blob/main/text/0068-buildpack-registry-search-api.md).
+- Recommended Skills: React, CSS, Ruby, Rails, Github
+- Mentor(s): Joe Kutner (@jkutner), Travis Longoria (@elbandito)
+- Upstream Issue (URL): https://github.com/buildpacks/registry-api/issues/21
