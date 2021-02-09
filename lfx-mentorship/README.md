@@ -25,7 +25,7 @@ The LFX Mentorship program is ongoing. The current cycle is Spring'2021, and mor
 
 ## Communication
 
-In the case of any questions or issues with the LFX Mentorship platform/website itself, please reach out to the [LFX Mentorship support team](https://support.linuxfoundation.org/) directly.
+LFX Platfrom-specific documentation is available [here](https://docs.linuxfoundation.org/lfx/mentorship). In the case of any questions or issues with the LFX Mentorship platform/website itself, please reach out to the [LFX Mentorship support team](https://support.linuxfoundation.org/) directly.
 
 For the CNCF-specific questions, please use the dedicated [#mentoring](https://cloud-native.slack.com/archives/CPV83DB51) channel on the [CNCF Slack](https://slack.cncf.io/) (or email us to mentoring@cncf.io if you have any questions you don't want to raise up publicly).
 
