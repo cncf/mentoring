@@ -348,3 +348,12 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 - Recommended Skills: React, CSS, Ruby, Rails, Github
 - Mentor(s): Joe Kutner (@jkutner), Travis Longoria (@elbandito)
 - Upstream Issue (URL): https://github.com/buildpacks/registry-api/issues/21
+
+#### Integrate LitmusChaos with Kyevrno
+
+##### Integration of Kyverno with Litmus for chaos testing
+
+- Description: Integrate Litmus Chaos testing with Kyevrno.
+- Recommended Skills: Golang, LitmusChaos
+- Mentor(s): Shuting Zhao (@realshuting), Jim Bugwadia (@JimBugwadia)
+- Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/1622
