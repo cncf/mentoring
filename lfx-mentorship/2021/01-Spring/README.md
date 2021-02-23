@@ -96,7 +96,7 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 - Mentor(s): Shuting Zhao (@realshuting)
 - Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/256
 
-##### Integration of Kyverno with Litmus for chaos testing
+##### [Integration of Kyverno with Litmus for chaos testing](https://mentorship.lfx.linuxfoundation.org/project/523735c3-9cb9-466f-977b-5719635a5ce7)
 
 - Description: Integrate Litmus Chaos testing with Kyevrno.
 - Recommended Skills: Golang, LitmusChaos
