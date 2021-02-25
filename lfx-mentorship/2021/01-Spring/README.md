@@ -251,21 +251,21 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 
 - Description: Crossplane provides a broad library of Kubernetes custom resources that let you orchestrate systems external to Kubernetes. These include AWS S3 buckets, GCP CloudSQL instances, Azure Cosmos tables, plain old SQL databases, Helm releases, and Dominos pizzas. We call these 'managed resources'. Crossplane's goal is to allow platform teams to build their own custom resources that are in turn composed of these primitives without needing to write Kubernetes controllers in Go. [Crisscross](https://github.com/hasheddan/crisscross) is an experimental project that lets folks add new managed resources to Crossplane without writing Go code. We would love help fleshing out the Crisscross proof of concept. This will likely take the form of writing a web service with endpoints that accept CRUD verbs from Crossplane and uses them to orchstrate an external system - for example CRUDing a DigitalOcean Droplet or an OpenStack Server. Familiarity with Go is a bonus (Crisscross itself is written in Go), but not necessary (Crisscross managed resources can be written in any language).
 - Recommended Skills: Programming REST APIs in any language. Some Go experience, or interest in learning.
-- Mentor(s): @hasheddan, @negz, @jbw976
+- Mentor(s): @hasheddan, @muvaf, @jbw976
 - Upstream Issue (URL): https://github.com/crossplane/crossplane/issues/2109
 
 ##### [Import cloud resources into Crossplane](https://mentorship.lfx.linuxfoundation.org/project/c63704b7-7199-486a-b715-4f17e4cf64ef)
 
 - Description: Crossplane provides a broad library of Kubernetes custom resources that let you orchestrate systems external to Kubernetes. These include AWS S3 buckets, GCP CloudSQL instances, Azure Cosmos tables, plain old SQL databases, Helm releases, and Dominos pizzas. We call these 'managed resources'. Crossplane's goal is to allow platform teams to build their own custom resources that are in turn composed of these primitives without needing to write Kubernetes controllers in Go. Crossplane currently supports 'importing' your existing cloud infrastructure (databases etc) into Crossplane management, but doing so is onerous. You need to write Crossplane YAML that exactly matches the current state of your infrastructure. Ideally Crossplane would provide an import tool that our users could point at an existing RDS instance (for example) in order to generate the Crossplane YAML that represented that instance.
 - Recommended Skills: Ideally Go programming, though we'd consider prototyping this tool in another language.
-- Mentor(s): @negz, @hasheddan, @jbw976
+- Mentor(s): @muvaf, @hasheddan, @jbw976
 - Upstream Issue (URL): https://github.com/crossplane/crossplane/issues/1243
 
 ##### [Automated end-to-end testing infrastructure](https://mentorship.lfx.linuxfoundation.org/project/2e2239cf-2964-434f-a5c9-676b857fc29a)
 
 - Description: Crossplane provides a broad library of Kubernetes custom resources that let you orchestrate systems external to Kubernetes. These include AWS S3 buckets, GCP CloudSQL instances, Azure Cosmos tables, plain old SQL databases, Helm releases, and Dominos pizzas. We call these 'managed resources'. Crossplane's goal is to allow platform teams to build their own custom resources that are in turn composed of these primitives without needing to write Kubernetes controllers in Go. Crossplane currently has extensive unit testing, but not much in the way of automated integration/e2e tests. We have a very broad surface area to test (we have around a hundred controllers that interact with cloud providers) and would like to establish some integration testing best practices so that the community can easily contribute integration tests when they work on Crossplane.
 - Recommended Skills: Go programming, testing best practices.
-- Mentor(s): @hasheddan, @negz, @jbw976
+- Mentor(s): @hasheddan, @muvaf, @jbw976
 - Upstream Issue (URL): https://github.com/crossplane/crossplane/issues/1033
 
 #### OpenEBS
