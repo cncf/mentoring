@@ -16,3 +16,4 @@ https://github.com/kubernetes/community/blob/master/mentoring/programs/outreachy
 | May'18 - Aug'18 | [Prakriti Bansal](https://www.twitter.com/PikkiBot)     | Jaeger     |
 | Dec'18 - Mar'19 | [Gaby Soria](https://www.twitter.com/gabrielasoriag)    | Jaeger     |
 | 2019            | Vishakha Nihore                                         | Kubernetes |
+| Dec'20 - Mar'21 | Ashmita Bohara                                          | Jaeger     |
