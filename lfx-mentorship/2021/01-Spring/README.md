@@ -8,15 +8,15 @@ _Status: Ongoing_
 
 - project applications open: Jan 20th - Jan 31st \(1.5 weeks\)
 - mentees applications open: Feb 1st - Feb 12th \(2 weeks\)
-- application review/admission decisions/HR paperwork: Feb 15th - Feb 26th
+- application review by the mentors/admission decisions/HR paperwork: Feb 15th - Feb 26th
 
 Mentorship duration - three months \(12 weeks - full-time schedule\)
 
-- Week 1: Mentorship program begins with the initial work assignments
-- End of Week 3: First mentee evaluations due
-- End of Week 6: Midterm mentee evaluations due and first stipend payment approvals
-- End of Week 9: Third mentee evaluations due
-- End of Week 12: Final mentee evaluations and mentee feedback/blog submission due, second and final stipend payment approvals
+- March 1 (Week 1): Mentorship program begins with the initial work assignments
+- March 22 (End of Week 3): First mentee evaluations due
+- April 12 (End of Week 6): Midterm mentee evaluations due and first stipend payment approvals
+- May 3 (End of Week 9): Third mentee evaluations due
+- May 31 (End of Week 12): Final mentee evaluations and mentee feedback/blog submission due, second and final stipend payment approvals
 
 ## Participating Projects
 
