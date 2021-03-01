@@ -355,3 +355,10 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 - Recommended Skills: React, CSS, Ruby, Rails, Github
 - Mentor(s): Joe Kutner (@jkutner), Travis Longoria (@elbandito)
 - Upstream Issue (URL): https://github.com/buildpacks/registry-api/issues/21
+### Envoy
+#### Adaptive Load Control and Distributed Load Testing of Envoy Data Planes
+
+- Description: Users configuring their Envoy-based data planes don't know how to find the optimal Envoy configuration given their workload's resiliency and performance requirements. Nighthawk, Envoy's load generator, supports adaptive load control and horizontally distributed scaling of itself. Using distributed load testing and the creation of a set of adaptive load controllers, Envoy users can be empowered with repeatable tooling to automate identification of an optimal Envoy data plane configuration.
+- Recommended Skill(s): Golang, C++, Rust
+- Issue(s): https://github.com/envoyproxy/envoy-perf/issues/72
+- Mentor(s): Lee Calcote (@lcalcote), Otto van der Schaaf (@oschaaf)
