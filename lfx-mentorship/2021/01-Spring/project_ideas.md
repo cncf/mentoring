@@ -355,3 +355,11 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 - Recommended Skills: React, CSS, Ruby, Rails, Github
 - Mentor(s): Joe Kutner (@jkutner), Travis Longoria (@elbandito)
 - Upstream Issue (URL): https://github.com/buildpacks/registry-api/issues/21
+
+#### Open Service Mesh
+##### Support for WebAssembly filters
+
+-	Description: Bring OSM on par with other service meshes that support WASM filters in their data plane. OSM's Envoy proxies can be extended at runtime with filters that are running in a WebAssembly sandbox (https://github.com/envoyproxy/envoy-wasm). Provide ability to dynamically load and unload Envoy WASM filters.
+-	Recommended Skills: golang, rust
+-	Mentor(s): Lee Calcote (@leecalcote), Dev Kalra (@kalradev)
+-	Upstream Issue (URL): https://github.com/openservicemesh/osm/issues/1671
