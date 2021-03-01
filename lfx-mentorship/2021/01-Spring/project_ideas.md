@@ -355,6 +355,7 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 - Recommended Skills: React, CSS, Ruby, Rails, Github
 - Mentor(s): Joe Kutner (@jkutner), Travis Longoria (@elbandito)
 - Upstream Issue (URL): https://github.com/buildpacks/registry-api/issues/21
+
 ### Envoy
 #### Adaptive Load Control and Distributed Load Testing of Envoy Data Planes
 
@@ -362,3 +363,21 @@ Qualitative analysis of user interview recordings for Jobs-to-Be-done study
 - Recommended Skill(s): Golang, C++, Rust
 - Issue(s): https://github.com/envoyproxy/envoy-perf/issues/72
 - Mentor(s): Lee Calcote (@lcalcote), Otto van der Schaaf (@oschaaf)
+
+#### Open Service Mesh
+
+##### Support for WebAssembly filters
+
+-	Description: Bring OSM on par with other service meshes that support WASM filters in their data plane. OSM's Envoy proxies can be extended at runtime with filters that are running in a WebAssembly sandbox (https://github.com/envoyproxy/envoy-wasm). Provide ability to dynamically load and unload Envoy WASM filters. Provide general purpose filtering of application infrastrcuture logic, tying business logic closer to the mesh.
+-	Recommended Skills: golang, rust
+-	Mentor(s): Lee Calcote (@leecalcote), Abishek Kumar (@kumarabd)
+-	Upstream Issue (URL): https://github.com/openservicemesh/osm/issues/1671
+
+#### Service Mesh Interface
+##### Support for Multi-Cluster Operations
+
+- Description: Facilitate federation service mesh deployments across Kubernetes clusters, considering for service catalog federation and 
+identity federation. Account for 1) multiple Kubernetes clusters using the same service mesh, 2) hetrogenius workloads (Kubernetes, VMs, Bare metal) using the same service mesh, 3) multiple Kubernetes clusters using different service meshes (e.g. Istio and Linkerd), 4) heterogeneous workloads using different service meshes (e.g. Istio, Consul).
+-	Recommended Skills: golang, kubernetes, meshery, smi
+-	Mentor(s): Lee Calcote (@leecalcote), Abishek Kumar (@kumarabd)
+-	Upstream Issue (URL): https://github.com/servicemeshinterface/smi-spec/issues/212
