@@ -75,7 +75,8 @@ This event was hosted in Nicaragua, as an online event, to promote CNCF technolo
  
 ## How to promote this toolkit
 This toolkit or students movement should be promoted using the hashtag:
-- #CNCFStudents
+- #CNCFStudents  
+  
 Please share all students events with this hashtag to grow as a CNCF Students movement
  
 ## Contact
