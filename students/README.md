@@ -68,8 +68,8 @@ This repository is an initiative to develop an open content and resources for st
 - [Operating System Syllabus and Projects](https://github.com/sergioarmgpl/operating-systems-usac-course)
  
 ### CNCF Students Day
-Ven y únete a nuestro primer evento promoviendo la participación de estudiantes en CNCF, en este evento tendremos charlas introductorias para que puedan utilizar tecnologías como Docker y Kubernetes, y conceptos relacionados al mundo Cloud Native y Tecnologías para CI/CD, nos acompañaran varios estudiantes dando charlas, y nuestros speakers invitados de otros países. No te lo pierdas.
- 
+This event was hosted in Nicaragua, as an online event, to promote CNCF technologies. The students from Guatemala and some other speakers that are organizers of CNCF Community Groups participated giving workshops, and talks focused on containers, kubernetes and cloud native in general, and most of the attendees were students.
+
 - [Cloud Native Students Day URACCAN
 ](https://community.cncf.io/events/details/cncf-cloud-nativegt-presents-cloud-native-students-day-uraccan/)
  
