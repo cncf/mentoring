@@ -32,8 +32,8 @@ This section describes the different roles that can help get students involved i
 A professor is one of the primary roles to promote the students into the CNCF Ecosystem, leading students across projects, workshops, community groups, and other activities to get involved the students into the CNCF Ecosystem.
  
 ## Mentor
-A mentor that can be an ambassador or some active contributor of a CNCF of election. This CNCF Mentor here plays a vital role in helping the students work on topics of their interest related to these tasks, developing in that way their skills for the industry.  These mentors help universities or students to lead the research.
- ## University
+A mentor that can be an ambassador or another active contributor to a CNCF project. This CNCF Mentor here plays a vital role in helping the students work on topics of their interest related to these projects and developing their skills for the industry.  These mentors help universities or students lead their research.
+## University
 Universities can promote these activities with their professors and students, doing the previous described activities, with the help of mentors to lead these activities in the best way possible.
  
 ## Community
