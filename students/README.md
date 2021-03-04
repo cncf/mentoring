@@ -10,11 +10,11 @@ College students (primarily engineering students) have the task of working on is
 A college student can work on a research topic for their own thesis that involves the implementation, or a test drive of cloud native technologies that solve real life problems, or shows different use cases for cloud native technologies.
  
 ### Class projects
-A Professor can design a project that resolves a real work problem and show how to uses cloud native technologies, the professor can explore ideas as:
+A Professor can design a project that solves a real work problem and show how to uses cloud native technologies, the professor can explore ideas such as:
 - Test new features for an specific CNCF project
 - Implement a solution that solves a real life problem
 - Develop new features for a CNCF project
- At the end the best projects of the class can be presented to CNCF projects or into CNCF Community Groups. In addition these projects develop skills in order that a student can apply to the Google Summer of Code.
+ At the end, the best projects of the class can be presented to CNCF projects or into CNCF Community Groups. In addition, these projects develop skills that student need to apply to the Google Summer of Code.
  
 ### Speakers and other contributions
 This initiative should not be only focused on coding. Could be speakers or social media contributors in the same way like the CNCF Ambassador Program https://github.com/cncf/ambassadors.
