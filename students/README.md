@@ -17,7 +17,7 @@ A Professor can design a project that solves a real work problem and show how to
  At the end, the best projects of the class can be presented to CNCF projects or into CNCF Community Groups. In addition, these projects develop skills that student need to apply to the Google Summer of Code.
  
 ### Speakers and other contributions
-This initiative should not be only focused on coding. Could be speakers or social media contributors in the same way like the CNCF Ambassador Program https://github.com/cncf/ambassadors.
+These initiatives should not be only focused on coding. Students can also be speakers or social media contributors, like the [CNCF Ambassador Program](https://github.com/cncf/ambassadors).
  
 ### Open Syllabus
 Professors can work on open content of their courses and start to include CNCF technologies in their classes and projects, generating content as workshops, tutorials, etc., created by professors or students.
