@@ -1,7 +1,7 @@
 # CNCF Students toolkit
-Is a group of resources, meeting ideas and groups to get involved seniors students into the CNCF ecosystem, in the way that they can get experience using cloud native technologies for their future jobs and develop skills to contribute in open source projects. It also creates a space for students and universities in the CNCF ecosystem.
+Is a group of resources, meeting ideas, and groups to get students involved in the CNCF ecosystem. They will be able to gain experience using cloud native technologies for their future jobs and develop skills to contribute in open source projects. It also creates a space for students and universities in the CNCF ecosystem.
  ## How it works
-There are different options that a student can choose to work or learn about CNCF projects, the following sections describe the different options that can be suggested to work on.
+There are many different options that a student can choose to work with or learn about CNCF projects, the following sections describe a few of the different options.
  
 ### Working on issues
 The College students(primarily engineering students) have the task of working on issues of their interest.
