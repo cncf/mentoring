@@ -64,14 +64,13 @@ The students of USAC, university of Guatemala presented a project about a high c
 - [Realtime COVID-19 Display System Using Linkerd](https://www.youtube.com/watch?v=XWlpS78wRks)
  
 ### Open Syllabus and project
-This repository is an initiative to develop an open content and resources for students to learn cloud native technologies.
+This repository is an initiative to develop an open content and resources for students to learn about cloud native technologies.
 - [Operating System Syllabus and Projects](https://github.com/sergioarmgpl/operating-systems-usac-course)
  
 ### CNCF Students Day
-This event was hosted in Nicaragua, as an online event, to promote CNCF technologies. The students from Guatemala and some other speakers that are organizers of CNCF Community Groups participated giving workshops, and talks focused on containers, kubernetes and cloud native in general, and most of the attendees were students.
+This event was hosted in Nicaragua, as an online event, to promote CNCF technologies. The students from Guatemala and some other speakers that are organizers of CNCF Community Groups participated giving workshops, and talks focused on containers, Kubernetes, and cloud native in general. Most of the attendees were students.
 
-- [Cloud Native Students Day URACCAN
-](https://community.cncf.io/events/details/cncf-cloud-nativegt-presents-cloud-native-students-day-uraccan/)
+- [Cloud Native Students Day URACCAN](https://community.cncf.io/events/details/cncf-cloud-nativegt-presents-cloud-native-students-day-uraccan/)
  
 ## How to promote this toolkit
 This toolkit or students movement should be promoted using the hashtag:
