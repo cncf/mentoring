@@ -23,7 +23,7 @@ This initiative should not be only focused on coding. Could be speakers or socia
 Professors can work on open content of their courses and start to include CNCF technologies in their classes and projects, generating content as workshops, tutorials, etc., created by professors or students.
  
 ### CNCF Students Day
-Professors and Universities can organize events to introduce students into CNCF technologies, including basic content as how to use containers, Kubernetes and complementary cloud native technologies.
+Professors and Universities can organize events to introduce students into CNCF technologies, including basic content as how to use containers, Kubernetes and complementary cloud native technologies. They can also attend [Cloud Native Community Groups](https://community.cncf.io/) or [Kubernetes Community Days](https://kubernetescommunitydays.org/) in their region. Many of these events have free or discounted tickets.
  
 # Involved roles
 This section describes the different roles that can help to get involved students into the CNCF Ecosystem.
