@@ -26,10 +26,10 @@ Professors can work on open content of their courses and start to include CNCF t
 Professors and Universities can organize events to introduce students into CNCF technologies, including basic content as how to use containers, Kubernetes and complementary cloud native technologies. They can also attend [Cloud Native Community Groups](https://community.cncf.io/) or [Kubernetes Community Days](https://kubernetescommunitydays.org/) in their region. Many of these events have free or discounted tickets.
  
 # Involved roles
-This section describes the different roles that can help to get involved students into the CNCF Ecosystem.
+This section describes the different roles that can help get students involved into the CNCF Ecosystem.
  
 ## Professors
-A professor is one of the primary roles to promote the students into the CNCF Ecosystem, leading students across projects, workshops, community groups and other activities to get involved the students into the CNCF Ecosystem.
+A professor is one of the primary roles to promote the students into the CNCF Ecosystem, leading students across projects, workshops, community groups, and other activities to get involved the students into the CNCF Ecosystem.
  
 ## Mentor
 A mentor that can be an ambassador or some active contributor of a CNCF of election. This CNCF Mentor here plays a vital role in helping the students work on topics of their interest related to these tasks, developing in that way their skills for the industry.  These mentors help universities or students to lead the research.
