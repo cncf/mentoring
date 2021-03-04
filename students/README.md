@@ -4,10 +4,10 @@ Is a group of resources, meeting ideas, and groups to get students involved in t
 There are many different options that a student can choose to work with or learn about CNCF projects, the following sections describe a few of the different options.
  
 ### Working on issues
-The College students(primarily engineering students) have the task of working on issues of their interest.
+College students (primarily engineering students) have the task of working on issues of their interest.
  
 ### Working on thesis
-A collage student can work on a research topic for its own thesis that involves the implementation, or a test drive of cloud native technologies that solve real life problems, or shows different use cases for cloud native technologies.
+A college student can work on a research topic for their own thesis that involves the implementation, or a test drive of cloud native technologies that solve real life problems, or shows different use cases for cloud native technologies.
  
 ### Class projects
 A Professor can design a project that resolves a real work problem and show how to uses cloud native technologies, the professor can explore ideas as:
