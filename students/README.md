@@ -37,15 +37,15 @@ A mentor that can be an ambassador or some active contributor of a CNCF of elect
 Universities can promote these activities with their professors and students, doing the previous described activities, with the help of mentors to lead these activities in the best way possible.
  
 ## Community
-CNCF Community Groups can be a safe place for students to present how they are using technologies, present projects, do workshops, etc.
- ## Benefits of this toolkit
+CNCF Community Groups can be a safe place for students to present how they are using technologies, present projects, do workshops, and learn from others in the community.
+## Benefits of this toolkit
 - Helps CNCF in attracting college students to contribute to their projects.
 - Helps CNCF in attracting college students to use cloud native technologies.
 - Helps CNCF projects to test new features to speed their release and testing times.
-- Involve Students in programs like Community Bridge or Google Summer of Code to contribute with CNCF projects.
+- Involve Students in programs like Community Bridge or Google Summer of Code to contribute to CNCF projects.
 - Open a space for students to get jobs related to cloud native technologies.
 - Create a space for Universities' contribution by doing research with their students using CNCF projects.
-- Create a space for innovation and new ideas where universities, students and CNCF can get involved.
+- Create a space for innovation and new ideas where universities, students, and CNCF  projects can get involved.
 - Promote diversity and inclusion in the way that universities and students in other countries can contribute.
  ## To be done
 - List CNCF projects that could be interesting in this student toolkit
