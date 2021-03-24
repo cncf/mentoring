@@ -13,9 +13,7 @@ _Status: Ongoing_
 Mentorship duration - three months \(12 weeks - full-time schedule\)
 
 - March 1 (Week 1): Mentorship program begins with the initial work assignments
-- March 22 (End of Week 3): First mentee evaluations due
 - April 12 (End of Week 6): Midterm mentee evaluations due and first stipend payment approvals
-- May 3 (End of Week 9): Third mentee evaluations due
 - May 31 (End of Week 12): Final mentee evaluations and mentee feedback/blog submission due, second and final stipend payment approvals
 
 ## Participating Projects
