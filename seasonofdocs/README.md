@@ -40,7 +40,14 @@ Reorganize Contour’s documentation
 
 ### What's the problem?
 
-The information architecture for [Contour](https://projectcontour.io) needs help. Headings focus on functionality rather than user tasks; there’s an abundance of familiar terms overloaded with new definitions; information is organized haphazardly and inconsistently; and the new user experience is confusing, with artificially high barriers to entry. 
+The information architecture for [Contour](https://projectcontour.io) needs help: 
+
+- Headings focus on functionality rather than user tasks 
+- There’s an abundance of familiar terms overloaded with new definitions
+- Information is organized haphazardly and inconsistently
+- The new user experience is confusing, with artificially high barriers to entry
+
+Help Project Contour reorganize its documentation around a user's task flow and improve documentation navigability.
 
 ### How would we measure success?
 
