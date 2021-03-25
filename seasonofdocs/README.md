@@ -53,7 +53,7 @@ Help Project Contour reorganize its documentation around a user's task flow and 
 
 - Shorter onramp time for new users
 - Increased support deflections by using docs 
-- Docs provide effective 1:many support, measured in fewer requests for 1:1 support from project team
+- Docs provide effective 1 to many support, measured in fewer requests for 1:1 support from project team
 - Create a getting started guide for new Contour users
 - Optimize content for actual developer and user workflows
 - Provide consistent presentation: adhere to style guide, headings are consistent, and language is grammatically correct
