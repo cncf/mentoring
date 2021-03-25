@@ -68,9 +68,9 @@ Nice to have:
 
 ### Volunteers
 
-@celestehorgan – happy to bounce information architecture ideas off of, approver for work
-@jonasrosland – main point of contact in Contour and approver for work
-@stevesloka, @krisss, @youngnick – technical experts and PR approvers
+- @celestehorgan – Lead for technical writing mentorship; approver for work
+- @jonasrosland – Main point of contact for Contour and approver for work
+- @stevesloka, @krisss, @youngnick – Technical experts and PR approvers
 
 ### Budget
 
