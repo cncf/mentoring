@@ -83,7 +83,7 @@ T-shirts: $150
 
 ### Contact info
 
-Technical writers interested in working on this project should send an email to mentoring@cncf.io. Be sure to include links to examples of your technical writing portfolio and résumé or CV.
+If interested, send an email to mentoring@cncf.io. Include links to examples of your technical writing portfolio and résumé/CV.
 
 ## Previous years
 
