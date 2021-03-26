@@ -14,33 +14,76 @@ The CNCF is applying to participate in GSoD 2021!
 
 ## 2021 Timeline
 
-In 2021 GSoD starts earlier and runs longer! Projects begin in April/May and run until November.
+Google Season of Docs 2021 makes numerous change to the program from previous years:
 
-Project proposals include a new requirement for budgeting. For more information, see the [proposal template](https://developers.google.com/season-of-docs/docs/org-proposal-template). 
+1. GSoD 2021 permits only one project proposal per organization. 
 
-### Project proposals
+   This marks a significant change from the multiple proposals allowed in previous years. 
 
-CNCF project maintainers interested in mentoring a technical writer have until **March 14th, 2021** to submit a [documentation proposal](https://developers.google.com/season-of-docs/docs/org-proposal-template) for your CNCF project.
+1. GSoD 2021 starts earlier and runs longer! Projects begin in April/May and run until November.
 
-Well-scoped projects have:
-- Clear scope: what will and won't a writer work on?
-- Clear goals: when does the writer's work end?
-- Clear metrics: how will you and the writer know you've succeeded?
-- Clear budgeting: what are your project costs for a writer?
+1. Project proposals include a new requirement for budgeting.
 
-Complete your proposal by **March 14th, 2021.** Due to anticipated volume, projects submitted after March 14th may not be considered.
-
-Please let the CNCF docs team know you're working on a proposal as soon as possible: 
-- In the [#techdocs channel of CNCF Slack](https://app.slack.com/client/T08PSQ7BQ/CUJ6W5TLM?cdn_fallback=2)
-- By email at [mentoring@cncf.io](mailto:mentoring@cncf.io)
+   For more information, see the [proposal template](https://developers.google.com/season-of-docs/docs/org-proposal-template).
 
 ### What's happening right now?
 
 Date | Activity
 ---|---
-March 1, 2021 | The CNCF is [creating organization proposals](https://developers.google.com/season-of-docs/docs/org-proposal-template).
+March 26, 2021 | The CNCF has submitted a [project proposal](#project-proposal) for consideration.
 
 All steps are based on the [GSoD 2021 timeline](https://developers.google.com/season-of-docs/docs/timeline).
+
+## Project Proposal
+
+Reorganize Contour’s documentation
+
+### What's the problem?
+
+The information architecture for [Contour](https://projectcontour.io) needs help: 
+
+- Headings focus on functionality rather than user tasks 
+- There’s an abundance of familiar terms overloaded with new definitions
+- Information is organized haphazardly and inconsistently
+- The new user experience is confusing, with artificially high barriers to entry
+
+Help Project Contour reorganize its documentation around a user's task flow and improve documentation navigability.
+
+### How would we measure success?
+
+- Shorter onramp time for new users
+- Increased support deflections by using docs 
+- Docs provide effective 1 to many support, measured in fewer requests for 1:1 support from project team
+- Create a getting started guide for new Contour users
+- Optimize content for actual developer and user workflows
+- Provide consistent presentation: adhere to style guide, headings are consistent, and language is grammatically correct
+
+### What skills does a writer need?
+
+Required:
+- Familiarity with Git, Markdown and Hugo 
+
+Nice to have:
+- Distributed systems experience: networking, containers, Kubernetes and Envoy in particular
+
+### Volunteers
+
+- @celestehorgan – Lead for technical writing mentorship; approver for work
+- @jonasrosland – Main point of contact for Contour and approver for work
+- @stevesloka, @krisss, @youngnick – Technical experts and PR approvers
+
+### Budget
+
+Total budget: $15,000 USD
+
+Writer: $14,350
+Volunteers: 4 @ $100
+Stickers: $100
+T-shirts: $150
+
+### Contact info
+
+If interested, send an email to mentoring@cncf.io. Include links to examples of your technical writing portfolio and résumé/CV.
 
 ## Previous years
 
