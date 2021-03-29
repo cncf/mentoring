@@ -83,7 +83,13 @@ T-shirts: $150
 
 ### Contact info
 
-If interested, send an email to mentoring@cncf.io. Include links to examples of your technical writing portfolio and résumé/CV.
+**Before applying**, please note:
+
+- Email is the only acceptable channel for contact about GSoD. 
+- Do not contact admins about GSoD via chat apps or in any other channel.
+- The program page for [Google Season of Docs](https://developers.google.com/season-of-docs/docs) is the best source of information for questions about the program, including [relevant dates](https://developers.google.com/season-of-docs/docs/timeline). 
+
+To apply, send an email to [mentoring@cncf.io](mailto:mentoring@cncf.io). Include links to examples of your technical writing portfolio and résumé/CV.
 
 ## Previous years
 
