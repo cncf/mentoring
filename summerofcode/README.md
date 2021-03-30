@@ -23,6 +23,4 @@ It's best if you use a public communication channel whenever possible; however, 
 Current Year
 ------------
 
-CNCF was participating in GSoC 2020! Blog post - https://www.cncf.io/blog/2020/09/17/16-cncf-interns-graduate-from-summer-of-code-gsoc-2020/
-
-Application are already closed, stay tuned for our announcements in 2021.
+Details about the 2021 program are available [here](https://github.com/cncf/mentoring/blob/master/summerofcode/2021.md).
