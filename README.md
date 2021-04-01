@@ -2,6 +2,25 @@
 
 The Cloud Native Computing Foundation (CNCF) participates in a variety of mentoring programs. CNCF is a great place to spend a summer learning, coding, participating and contributing. We are an exciting open source foundation with a vibrant community of projects, and we look forward to your application and your project ideas!
 
+- [CNCF Mentoring Initiatives](#cncf-mentoring-initiatives)
+  - [Organization Admins](#organization-admins)
+  - [Communication](#communication)
+  - [Mentoring Programs](#mentoring-programs)
+  - [Program Statistics](#program-statistics)
+    - [Community Bridge](#community-bridge)
+      - [2020](#2020)
+        - [Q3-Q4](#q3-q4)
+        - [Q2](#q2)
+        - [Q1](#q1)
+      - [2019](#2019)
+        - [Pilot](#pilot)
+    - [GSoC](#gsoc)
+      - [2020](#2020-1)
+      - [2019](#2019-1)
+      - [2018](#2018)
+      - [2017](#2017)
+
+
 ## Organization Admins
 
 If you need help with anything mentoring at CNCF, you can file an issue at this repo or reach out to us at the #mentoring channel on [CNCF Slack](https://slack.cncf.io/).
@@ -13,6 +32,8 @@ Organization admins for specific mentorship programs are listed on the programs 
 Please reach out to us on the #mentoring channel on the [CNCF slack](https://slack.cncf.io/). Please don't use DMs unless strictly necessary as doing so both has the potential of overwhelming project maintainers and others with similar questions lose the benefit of public discussion.
 
 It's best if you use a public communication channel whenever possible; however, if you need to communicate in private, please feel free to send the admins a note via mentoring@cncf.io (please use the public channels for any project-related discussion).
+
+## Mentoring Programs
 
 | Program                                                                           | Purpose                                                                         | Details and historical data                |
 | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------ |
@@ -43,27 +64,27 @@ It's best if you use a public communication channel whenever possible; however, 
 
 ##### Q3-Q4
 
-| CNCF Projects          | Community Bridge Project                                              | Mentor Name(s)                                             | Mentee Name        | Blog post |
-| ---------------------- | --------------------------------------------------------------------- | ---------------------------------------------------------- | ------------------ | --------- |
-| Chaos Mesh             | Create a debug information collector for Chaos Mesh                   | Keao Yang, Cwen Yin                                        | Shuyang Wu         |           |
-| Keptn                  | Keptn CLI to support multiple contexts like KUBECONFIG                | Jürgen Etzlstorfer, Christian Kreuzberger, Andreas Grimmer | Ankit Jain         |  [CommunityBridge Mentee with Keptn](https://ankitjain28.me/communitybridge-mentee-with-keptn/)         |
-| KubeEdge               | Support list-watch from edgecore for applications on the edge         | Kevin Wang, Fei Xu                                         | Rachel Shao        |           |
-| KubeEdge               | Use device API both on cloud and edge                                 | Kevin Wang, Fei Xu                                         | Jinyong Mao        |           |
-| KubeEdge               | Add EdgeGateway as the ingress gateway on Edge                        | Kevin Wang, Fei Xu                                         | Zhiling Feng       |           |
-| Kubernetes             | Create Application for Elections Authenticated by External Oauth      | Josh Berkus, Marky Jackson                                 | Manish Sahani      |           |
-| Kubernetes             | Kubernetes working group for CSI driver                               | Andy Zhang                                                 | Mayank Shah        |           |
-| Open Service Mesh      | Support for WebAssembly filters                                       | Lee Calcote, Dev Kalra                                     | Kush Trivedi       |           |
-| OpenTelemetry          | ETW exporter                                                          | Max Golovanov                                              | Mishal Shah        |           |
-| OpenTelemetry          | OpenTelemetry to FluentBit exporter                                   | Sergey Kanzhelev                                           | Aditya Prajapati   |           |
-| Prometheus             | Add various post processing steps in query API after PromQL execution | Bartek Plotka, Ganesh Vernekar                             | Gayathri Venkatesh |           |
-| Service Mesh Interface | Standards validation for OSM and Kuma                                 | Lee Calcote, Abishek Kumar                                 | Dhruv Patel        |           |
-| Thanos                 | Receive: Hashring Update Improvements                                 | Lucas Servén Marín, Frederic Branczyk                      | T.S.S. Chandana    |           |
-| Thanos                 | UI Enhancements                                                       | Kemal Akkoyun, Bartek Plotka                               | Raphael Noriode    |           |
-| TiKV                   | Support ENUM / SET push down for TiKV Coprocessor                     | Chi Zhang                                                  | Hao Ding           |           |
-| TiKV                   | Support rbac control for data accessing in TiKV                       | Song Gao, Yutong Liang                                     | Yanning Chen       |           |
-| Volcano                | Implement hierarchy queue to better support fair-share                | Lei Wu                                                     | Wangqian Qian      |           |
-| Volcano                | Customize scheduling algorithms per queue                             | Leibo Wang                                                 | Srestha Srivastava |           |
-| Volcano                | Implement specific job types to improve usability                     | Leibo Wang                                                 | Liang Tang         |           |
+| CNCF Projects          | Community Bridge Project                                              | Mentor Name(s)                                             | Mentee Name        | Blog post                                                                                      |
+| ---------------------- | --------------------------------------------------------------------- | ---------------------------------------------------------- | ------------------ | ---------------------------------------------------------------------------------------------- |
+| Chaos Mesh             | Create a debug information collector for Chaos Mesh                   | Keao Yang, Cwen Yin                                        | Shuyang Wu         |                                                                                                |
+| Keptn                  | Keptn CLI to support multiple contexts like KUBECONFIG                | Jürgen Etzlstorfer, Christian Kreuzberger, Andreas Grimmer | Ankit Jain         | [CommunityBridge Mentee with Keptn](https://ankitjain28.me/communitybridge-mentee-with-keptn/) |
+| KubeEdge               | Support list-watch from edgecore for applications on the edge         | Kevin Wang, Fei Xu                                         | Rachel Shao        |                                                                                                |
+| KubeEdge               | Use device API both on cloud and edge                                 | Kevin Wang, Fei Xu                                         | Jinyong Mao        |                                                                                                |
+| KubeEdge               | Add EdgeGateway as the ingress gateway on Edge                        | Kevin Wang, Fei Xu                                         | Zhiling Feng       |                                                                                                |
+| Kubernetes             | Create Application for Elections Authenticated by External Oauth      | Josh Berkus, Marky Jackson                                 | Manish Sahani      |                                                                                                |
+| Kubernetes             | Kubernetes working group for CSI driver                               | Andy Zhang                                                 | Mayank Shah        |                                                                                                |
+| Open Service Mesh      | Support for WebAssembly filters                                       | Lee Calcote, Dev Kalra                                     | Kush Trivedi       |                                                                                                |
+| OpenTelemetry          | ETW exporter                                                          | Max Golovanov                                              | Mishal Shah        |                                                                                                |
+| OpenTelemetry          | OpenTelemetry to FluentBit exporter                                   | Sergey Kanzhelev                                           | Aditya Prajapati   |                                                                                                |
+| Prometheus             | Add various post processing steps in query API after PromQL execution | Bartek Plotka, Ganesh Vernekar                             | Gayathri Venkatesh |                                                                                                |
+| Service Mesh Interface | Standards validation for OSM and Kuma                                 | Lee Calcote, Abishek Kumar                                 | Dhruv Patel        |                                                                                                |
+| Thanos                 | Receive: Hashring Update Improvements                                 | Lucas Servén Marín, Frederic Branczyk                      | T.S.S. Chandana    |                                                                                                |
+| Thanos                 | UI Enhancements                                                       | Kemal Akkoyun, Bartek Plotka                               | Raphael Noriode    |                                                                                                |
+| TiKV                   | Support ENUM / SET push down for TiKV Coprocessor                     | Chi Zhang                                                  | Hao Ding           |                                                                                                |
+| TiKV                   | Support rbac control for data accessing in TiKV                       | Song Gao, Yutong Liang                                     | Yanning Chen       |                                                                                                |
+| Volcano                | Implement hierarchy queue to better support fair-share                | Lei Wu                                                     | Wangqian Qian      |                                                                                                |
+| Volcano                | Customize scheduling algorithms per queue                             | Leibo Wang                                                 | Srestha Srivastava |                                                                                                |
+| Volcano                | Implement specific job types to improve usability                     | Leibo Wang                                                 | Liang Tang         |                                                                                                |
 
 ##### Q2
 
@@ -86,7 +107,7 @@ It's best if you use a public communication channel whenever possible; however, 
 | Prometheus             | Persist Retroactive Rule Reevaluations                                              | Callum Styan, Bartlomiej Plotka                     | [Jessica Grebenschikov](https://people.communitybridge.org/mentee/aceb6a84-ce89-4e4d-8a2d-4a4dd8eb2f46,9595fbe7-6a8d-43d4-aebb-a54d57f33fdd) |                                                                                                                                        |
 | Prometheus             | Remote Write WAL Pointer + Other Improvements                                       | Callum Styan, Bartlomiej Plotka                     | [Nicole Jingco](https://people.communitybridge.org/mentee/f63d546c-b38b-42fe-9d78-24b077c7a21a,9595fbe7-6a8d-43d4-aebb-a54d57f33fdd)         |                                                                                                                                        |
 | Service Mesh Interface | SMI Conformance with Meshery                                                        | Lee Calcote, Vinayak Shinde                         | [Kanishkar J](https://people.communitybridge.org/mentee/2733c465-9ea8-4889-a3a3-e1b9215393ee,359dda52-7fb7-4fa8-82cd-a27216757a57)           |                                                                                                                                        |
-| Thanos                 | Per Request Query Tracking and Limiting                                             | Povilas Versockas, Bartlomiej Plotka, Kemal Akkoyun | [Yash Sharma](https://mentorship.lfx.linuxfoundation.org/mentee/9deb66ad-7c34-466f-bc1e-c4a177326c6f,f51284ab-f652-47b1-9819-cd4135e75c00)           |                                                                                                                                        |
+| Thanos                 | Per Request Query Tracking and Limiting                                             | Povilas Versockas, Bartlomiej Plotka, Kemal Akkoyun | [Yash Sharma](https://mentorship.lfx.linuxfoundation.org/mentee/9deb66ad-7c34-466f-bc1e-c4a177326c6f,f51284ab-f652-47b1-9819-cd4135e75c00)   |                                                                                                                                        |
 | Thanos                 | Complete Katacoda tutorials                                                         | Povilas Versockas, Bartlomiej Plotka, Kemal Akkoyun | [Sonia Singla](https://people.communitybridge.org/mentee/4966d917-9539-47ae-b335-7ef92f59f6c7,f51284ab-f652-47b1-9819-cd4135e75c00)          | [Get the most out of Community Bridge Program](https://soniasingla.com/most-cb-program/)                                               |
 | Thanos                 | Versioned Website Docs                                                              | Povilas Versockas, Bartlomiej Plotka, Kemal Akkoyun | [Uchechukwu Obasi](https://people.communitybridge.org/mentee/365bfa7f-ce76-4300-85ce-f5611ebc74af,f51284ab-f652-47b1-9819-cd4135e75c00)      |                                                                                                                                        |
 | TiKV                   | Full Chunk-based Computing                                                          | Tianyi Zhuang, Wish Shi                             | [Chi Zhang](https://people.communitybridge.org/mentee/4a9369ba-d561-4849-99cb-3544aff51294,c6a0326c-b053-41a3-9bf2-1e7e78481ca6)             | [My CommunityBridge Mentorship with TiKV Project](https://tikv.org/blog/communitybridge-mentorship/)                                   |
