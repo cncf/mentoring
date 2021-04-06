@@ -19,6 +19,7 @@ The Cloud Native Computing Foundation (CNCF) participates in a variety of mentor
       - [2019](#2019-1)
       - [2018](#2018)
       - [2017](#2017)
+  - [Code of Conduct](#code-of-conduct)
 
 
 ## Organization Admins
@@ -198,3 +199,7 @@ It's best if you use a public communication channel whenever possible; however, 
 | CoreDNS       | [dnstap Middleware](https://summerofcode.withgoogle.com/archive/2017/projects/5269744752001024/)                                                                                     | Miek Gieben, John Belamaric | Antoine D.         |
 | Kubernetes    | [Improve Third Party Resources](https://summerofcode.withgoogle.com/archive/2017/projects/5736684469616640/)                                                                         | Stefan Schimanski           | Nikhita Raghunath  |
 | OpenTracing   | [instrument OpenTracing with go-restful web framework](https://summerofcode.withgoogle.com/archive/2017/projects/5449224187543552/)                                                  | Wu Sheng, Ted Young         | MINGQIANG LIANG    |
+
+## Code of Conduct
+
+CNCF Mentoring programs follow the [CNCF Code of Conduct](https://github.com/cncf/foundation/blob/master/code-of-conduct.md).
