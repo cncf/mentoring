@@ -17,6 +17,10 @@ Mentorship duration - three months \(12 weeks - full-time schedule\)
 - July 11 (End of Week 6): Midterm mentee evaluations and first stipend payments
 - August 31 (End of Week 12): Final mentee evaluations and mentee feedback/blog submission due, second and final stipend payment approvals
 
+## Proposed projects
+
+See the [project ideas](./project_ideas.md) list.
+
 ## Participating Projects
 
 TBA
