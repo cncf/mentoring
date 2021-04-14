@@ -21,7 +21,6 @@ The Cloud Native Computing Foundation (CNCF) participates in a variety of mentor
       - [2017](#2017)
   - [Code of Conduct](#code-of-conduct)
 
-
 ## Organization Admins
 
 If you need help with anything mentoring at CNCF, you can file an issue at this repo or reach out to us at the #mentoring channel on [CNCF Slack](https://slack.cncf.io/).
@@ -36,12 +35,13 @@ It's best if you use a public communication channel whenever possible; however, 
 
 ## Mentoring Programs
 
-| Program                                                                           | Purpose                                                                         | Details and historical data                |
-| --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------ |
-| [LFX Mentorship (ex-CommunityBridge)](https://mentorship.lfx.linuxfoundation.org) | Mentoring initiative by the Linux Foundation                                    | [lfx-mentorship](lfx-mentorship/README.md) |
-| [Google Summer of Code](https://summerofcode.withgoogle.com/)                     | Mentoring program for the students                                              | [summerofcode](summerofcode/README.md)     |
-| [Google Season of Docs](https://developers.google.com/season-of-docs)             | Mentoring initiative for the technical writers                                  | [seasonofdocs](seasonofdocs/README.md)     |
-| [Outreachy](https://www.outreachy.org)                                            | Mentoring initiative for the communities traditionally underrepresented in tech | [outreachy](outreachy/README.md)           |
+| Program                                                                           | Purpose                                                                                                                                   | Details and historical data                |
+| --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| [LFX Mentorship (ex-CommunityBridge)](https://mentorship.lfx.linuxfoundation.org) | Mentoring initiative by the Linux Foundation                                                                                              | [lfx-mentorship](lfx-mentorship/README.md) |
+| [Google Summer of Code](https://summerofcode.withgoogle.com/)                     | Mentoring program for the students                                                                                                        | [summerofcode](summerofcode/README.md)     |
+| [Google Season of Docs](https://developers.google.com/season-of-docs)             | Mentoring initiative for the technical writers                                                                                            | [seasonofdocs](seasonofdocs/README.md)     |
+| [Outreachy](https://www.outreachy.org)                                            | Mentoring initiative for the communities traditionally underrepresented in tech                                                           | [outreachy](outreachy/README.md)           |
+| [CROSS](https://cross.ucsc.edu/programs/osre2021.html)                            | The CROSS Research Experiences program provides support for undergraduate and graduate students contributing to CROSS incubator projects. | [CROSS](cross/README.md)                   |
 
 ## Program Statistics
 
