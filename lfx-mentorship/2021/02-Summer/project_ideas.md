@@ -59,3 +59,12 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 -	Recommended Skills: Go, Rust, Kubernetes, Linux, Raspberry Pi, API and library design, Security, Documentation, GitOps, Embedded Systems, Electronics, Continuous Integration, Virtualization
 -	Mentor(s): Davanum Srinivas ([@dims](https://github.com/dims))
 -	Request For Comments (RFC) Description (URL): https://docs.racklet.io/rfcs/0001-high-level-architecture.html
+
+#### Kyverno
+
+##### Extend the "kyverno test" command and add test suites
+
+- Description: Extend Kyverno CLI "test" command to handle mutate and generate policies. Add more E2E/Unit Tests and offer test report based on the results.
+- Recommended Skills: golang, testing best practices.
+- Mentor(s): Shuting Zhao (@realshuting), Jim Bugwadia (@JimBugwadia)
+- Issue: https://github.com/kyverno/kyverno/issues/1821
