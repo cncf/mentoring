@@ -59,3 +59,43 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 -	Recommended Skills: Go, Rust, Kubernetes, Linux, Raspberry Pi, API and library design, Security, Documentation, GitOps, Embedded Systems, Electronics, Continuous Integration, Virtualization
 -	Mentor(s): Davanum Srinivas ([@dims](https://github.com/dims))
 -	Request For Comments (RFC) Description (URL): https://docs.racklet.io/rfcs/0001-high-level-architecture.html
+
+#### Tremor
+
+##### Modular sub-queries in tremor-query
+
+-	Description:
+  Currently tremor supports composition through composing pipelines together, through function composition and through allowing references to query operator definitions and constants in externalizable modules that can be loaded via a module path.
+
+  It would be excellent if the modularity in tremor extended fully to the query language so that distinct subgraphs could be modularized and consumed by multiple queries to optimise for reuse of flow oriented logic in tremor.
+
+  This would require extending module support in the tremor query language to support sub-graph definitions with parameters that can be declared and used as part of a higher level query.
+
+  Modules in tremor-query in their current state: https://docs.tremor.rs/tremor-query/modules/ 
+
+  This project idea involves designing the sub-graph module syntax and semantics and implementing changes to the lexer, grammar, optimizers and runtime. It is most suited to candidates who are interested in programming language evolution and design.
+-	Recommended Skills: Rust, Parsers, Programming Language Design/Implementation (Interest)
+-	Mentor(s): Darach Ennis (@darach), Heinz N. Gies (@Licenser), Matthias Wahl (@mfelsche)
+-	Upstream Issue (URL): https://github.com/tremor-rs/tremor-runtime/issues/940
+
+##### Tremor Web Redesign - Make tremor’s web presence awesome
+
+-	Description:
+  As an early stage project we’ve biased in favour of documenting the essentials and getting content in place as fast as possible. This has worked well but a side-effect is 3 or 4 different sources of content ( www, docs, rfcs and courseware ).
+
+  In concert with CNCF technical writing and learning best practices use your UX/web design and technical writing expertise for tremor where we as a team are unskilled - make our content awesome and the user experience exceptional.
+
+  These are some improvements we did think of, but these are neither complete nor required, more suggestions are welcome:
+
+  - Unify the different content forms under a single consolidated theme and design
+  - Ease of navigation ( breadcrumbs )
+  - Preserve markdown for data entry ( we’re programmers ) and keep design separate ( we’re not designers and find this stuff super hard )
+  - A clean, easy to navigate theme with a focus on user experience
+  - Well integrated with our CI and doc generation tooling ( think gitops for docs and content )
+
+  This task would suit a candidate who is interested in `full stack` engineering and the complete software development lifecycle with a specific focus or interest in engineering documentation, web design and communicating well designed content to others with a good user experience - exploiting principles of good technical writing and web design of content management systems for technical content consumers.
+  
+-	Recommended Skills: UX/UI, technical writing, web design, documentation
+-	Mentor(s): Darach Ennis (@darach), Heinz N. Gies (@Licenser), Matthias Wahl (@mfelsche)
+-	Upstream Issue (URL): https://github.com/tremor-rs/tremor-www-docs/issues/121
+
