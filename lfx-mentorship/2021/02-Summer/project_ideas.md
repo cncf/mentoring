@@ -36,6 +36,15 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Mentor(s): Yong Tang (@yongtang), Paul Greenberg (@greenpau)
 - Issue: https://github.com/coredns/coredns/issues/3460
 
+#### Keptn
+
+##### Support for generic webhook execution
+
+- Description: As a user, I want to be able to call arbitrary URLs via webhooks that are registered on Keptn events to interact with systems outside of Keptn. Therefore, I would like to use a templating mechanism to define payloads to be able to interact with external systems.
+- Recommended Skills: golang
+- Mentor(s): Jürgen Etzlstorfer (@jetzlstorfer)
+- Issue: https://github.com/keptn/keptn/issues/3822 
+
 #### Racklet
 
 ##### Open source scale-model of Data Centers using commodity compute like Raspberry Pis
