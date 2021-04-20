@@ -112,10 +112,12 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Upstream Issue (URL): <https://github.com/tremor-rs/tremor-www-docs/issues/121>
 
 
-##### WG Policy
+#### Kubernetes Policy Working Group (WG)
+
+##### Falco Adapter
 
 - Description:
-  Develop an adapter to run Falco in a Kubernetes cluster and periodically generate or update a [Policy Report custom resource](https://github.com/kubernetes-sigs/wg-policy-prototypes/blob/master/policy-report/README.md).
+  The Kubernetes policy working group focuses on developing tools and solutions that make Kubernetes secure and easiser to use. This project will develop an adapter to run Falco in any Kubernetes cluster and periodically generate or update a [Policy Report custom resource](https://github.com/kubernetes-sigs/wg-policy-prototypes/blob/master/policy-report/README.md). The candidate will learn about Kubernetes controllers and various security topics.
 - Recommended Skills: Linux, Golang, CLI, Kubernetes
 - Mentor(s): Jim Bugwadia (@JimBugwadia)
 - Upstream Issue (URL): https://github.com/kubernetes-sigs/wg-policy-prototypes/issues/51
