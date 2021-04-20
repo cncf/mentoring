@@ -27,6 +27,16 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 ### Proposed Project ideas
 
+
+#### Buildpacks
+
+##### Embed source metadata in OCI image
+
+- Description: As a buildpack user using `pack`, I would like to be able to inspect the final app image and determine where the source of the code is located as well as what version (keeping in consideration SCM systems) was used.
+- Recommended Skills: Golang, Docker (Containers)
+- Mentor(s): Javier Romero (@jromero)
+- Issue: <https://github.com/buildpacks/pack/issues/1139>
+
 #### CoreDNS
 
 ##### Add ACME protocol support for certificate management with DNS
