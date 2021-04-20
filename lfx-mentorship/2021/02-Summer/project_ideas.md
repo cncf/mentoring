@@ -121,3 +121,12 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Recommended Skills: Linux, Golang, CLI, Kubernetes
 - Mentor(s): Jim Bugwadia (@JimBugwadia)
 - Upstream Issue (URL): https://github.com/kubernetes-sigs/wg-policy-prototypes/issues/51
+
+#### Vitess
+
+##### Add testing framework for Django to ensure compatibility with Vitess
+
+- Description: Vitess is a database clustering system for horizontal scaling of MySQL. One of the key goals of Vitess is to emulate MySQL behavior even while running multiple MySQL instances so that ORMs and frameworks work seamlessly. To this end, we would like to add a comprehensive test suite to ensure compatibility with [Django](https://www.djangoproject.com/) framework. The mentee would be introduced to the world of distributed databases and how everything comes together without the user realizing the difference. They would learn how to run Vitess and about comprehensive testing techniques.
+- Recommended Skills: python, django, bash
+- Mentor(s): Manan Gupta (@GuptaManan100)
+- Issue: <https://github.com/vitessio/vitess/issues/7905>
