@@ -110,3 +110,12 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Recommended Skills: UX/UI, technical writing, web design, documentation
 - Mentor(s): Darach Ennis (@darach), Heinz N. Gies (@Licenser), Matthias Wahl (@mfelsche)
 - Upstream Issue (URL): <https://github.com/tremor-rs/tremor-www-docs/issues/121>
+
+
+##### WG Policy
+
+- Description:
+  Develop an adapter to run Falco in a Kubernetes cluster and periodically generate or update a [Policy Report custom resource](https://github.com/kubernetes-sigs/wg-policy-prototypes/blob/master/policy-report/README.md).
+- Recommended Skills: Linux, Golang, CLI, Kubernetes
+- Mentor(s): Jim Bugwadia (@JimBugwadia)
+- Upstream Issue (URL): https://github.com/kubernetes-sigs/wg-policy-prototypes/issues/51
