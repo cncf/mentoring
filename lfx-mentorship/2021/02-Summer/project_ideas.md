@@ -27,6 +27,16 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 ### Proposed Project ideas
 
+
+#### Buildpacks
+
+##### Embed source metadata in OCI image
+
+- Description: As a buildpack user using `pack`, I would like to be able to inspect the final app image and determine where the source of the code is located as well as what version (keeping in consideration SCM systems) was used.
+- Recommended Skills: Golang, Docker (Containers)
+- Mentor(s): Javier Romero (@jromero)
+- Issue: <https://github.com/buildpacks/pack/issues/1139>
+
 #### CoreDNS
 
 ##### Add ACME protocol support for certificate management with DNS
@@ -35,6 +45,25 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Recommended Skills: Golang, DNS, TLS, Certificate Management
 - Mentor(s): Yong Tang (@yongtang), Paul Greenberg (@greenpau)
 - Issue: <https://github.com/coredns/coredns/issues/3460>
+
+#### Cortex
+
+##### Cue support and validation for the Cortex config.
+
+- Description: [Cortex](https://github.com/cortexproject/cortex) is a
+  cloud-native Prometheus compatible monitoring system. It is made up of a set
+  of microservices that can be composed into an architecture that fits multiple
+  use cases. However, this level of flexibility can lead to complexity in the
+  configuration file. One way to handle this complexity is first-class
+  validation support for the config. This is where [Cue](https://cuelang.org/)
+  comes in. Cue provides data validation as a language feature and has solid
+  support for Go. We think enabling Cortex to be configured using Cue and
+  creating a Cue specification for the Cortex configuration file and other file
+  types specific to Cortex would be a good step forward in improving the
+  usability of the project.
+- Recommended Skills: Golang
+- Mentor(s): Jacob Lisi (@jtlisi)
+- Issue: <https://github.com/cortexproject/cortex/issues/4095>
 
 #### Keptn
 
@@ -118,3 +147,22 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Recommended Skills: Golang, unit and feature testing.
 - Mentor(s): Shuting Zhao (@realshuting), Jim Bugwadia (@JimBugwadia)
 - Issue: https://github.com/kyverno/kyverno/issues/1821
+
+#### Kubernetes Policy Working Group (WG)
+
+##### Falco Adapter
+
+- Description:
+  The Kubernetes policy working group focuses on developing tools and solutions that make Kubernetes secure and easiser to use. This project will develop an adapter to run Falco in any Kubernetes cluster and periodically generate or update a [Policy Report custom resource](https://github.com/kubernetes-sigs/wg-policy-prototypes/blob/master/policy-report/README.md). The candidate will learn about Kubernetes controllers and various security topics.
+- Recommended Skills: Linux, Golang, CLI, Kubernetes
+- Mentor(s): Jim Bugwadia (@JimBugwadia)
+- Upstream Issue (URL): https://github.com/kubernetes-sigs/wg-policy-prototypes/issues/51
+
+#### Vitess
+
+##### Add testing framework for Django to ensure compatibility with Vitess
+
+- Description: Vitess is a database clustering system for horizontal scaling of MySQL. One of the key goals of Vitess is to emulate MySQL behavior even while running multiple MySQL instances so that ORMs and frameworks work seamlessly. To this end, we would like to add a comprehensive test suite to ensure compatibility with [Django](https://www.djangoproject.com/) framework. The mentee would be introduced to the world of distributed databases and how everything comes together without the user realizing the difference. They would learn how to run Vitess and about comprehensive testing techniques.
+- Recommended Skills: python, django, bash
+- Mentor(s): Manan Gupta (@GuptaManan100)
+- Issue: <https://github.com/vitessio/vitess/issues/7905>
