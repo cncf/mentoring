@@ -27,7 +27,6 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 ### Proposed Project ideas
 
-
 #### Buildpacks
 
 ##### Embed source metadata in OCI image
@@ -135,14 +134,15 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Well integrated with our CI and doc generation tooling ( think gitops for docs and content )
 
   This task would suit a candidate who is interested in `full stack` engineering and the complete software development lifecycle with a specific focus or interest in engineering documentation, web design and communicating well designed content to others with a good user experience - exploiting principles of good technical writing and web design of content management systems for technical content consumers.
-  
+
 - Recommended Skills: UX/UI, technical writing, web design, documentation
 - Mentor(s): Darach Ennis (@darach), Heinz N. Gies (@Licenser), Matthias Wahl (@mfelsche)
 - Upstream Issue (URL): <https://github.com/tremor-rs/tremor-www-docs/issues/121>
 
 #### Kyverno
 
-##### Test mutate and generate policies via the Kyverno CLI 
+##### Test mutate and generate policies via the Kyverno CLI
+
 - Description: Kyverno is a Kubernetes native policy manager that also can be used in a CI/CD pipeline. This project will extend the Kyverno command line tool to support mutate and generate rules and add more E2E/Unit Tests and offer test report based on the results.
 - Recommended Skills: Golang, unit and feature testing.
 - Mentor(s): Shuting Zhao (@realshuting), Jim Bugwadia (@JimBugwadia)
@@ -166,7 +166,6 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Recommended Skills: python, django, bash
 - Mentor(s): Manan Gupta (@GuptaManan100)
 - Issue: <https://github.com/vitessio/vitess/issues/7905>
-
 
 #### TiKV
 
