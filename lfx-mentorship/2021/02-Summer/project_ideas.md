@@ -140,6 +140,13 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Mentor(s): Darach Ennis (@darach), Heinz N. Gies (@Licenser), Matthias Wahl (@mfelsche)
 - Upstream Issue (URL): <https://github.com/tremor-rs/tremor-www-docs/issues/121>
 
+#### Kyverno
+
+##### Test mutate and generate policies via the Kyverno CLI 
+- Description: Kyverno is a Kubernetes native policy manager that also can be used in a CI/CD pipeline. This project will extend the Kyverno command line tool to support mutate and generate rules and add more E2E/Unit Tests and offer test report based on the results.
+- Recommended Skills: Golang, unit and feature testing.
+- Mentor(s): Shuting Zhao (@realshuting), Jim Bugwadia (@JimBugwadia)
+- Issue: https://github.com/kyverno/kyverno/issues/1821
 
 #### Kubernetes Policy Working Group (WG)
 
