@@ -46,6 +46,25 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Mentor(s): Yong Tang (@yongtang), Paul Greenberg (@greenpau)
 - Issue: <https://github.com/coredns/coredns/issues/3460>
 
+#### Cortex
+
+##### Cue support and validation for the Cortex config.
+
+- Description: [Cortex](https://github.com/cortexproject/cortex) is a
+  cloud-native Prometheus compatible monitoring system. It is made up of a set
+  of microservices that can be composed into an architecture that fits multiple
+  use cases. However, this level of flexibility can lead to complexity in the
+  configuration file. One way to handle this complexity is first-class
+  validation support for the config. This is where [Cue](https://cuelang.org/)
+  comes in. Cue provides data validation as a language feature and has solid
+  support for Go. We think enabling Cortex to be configured using Cue and
+  creating a Cue specification for the Cortex configuration file and other file
+  types specific to Cortex would be a good step forward in improving the
+  usability of the project.
+- Recommended Skills: Golang
+- Mentor(s): Jacob Lisi (@jtlisi)
+- Issue: <https://github.com/cortexproject/cortex/issues/4095>
+
 #### Keptn
 
 ##### Support for generic webhook execution
