@@ -166,3 +166,13 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Recommended Skills: python, django, bash
 - Mentor(s): Manan Gupta (@GuptaManan100)
 - Issue: <https://github.com/vitessio/vitess/issues/7905>
+
+
+#### TiKV
+
+##### Implement Node client
+
+- Description: TiKV is a distributed KV database. It support using clients in Rust, Golang, Java, C++ and Python, and the Node client is the last missing piece. This program is going to implement Node client on top of Rust client just like Python client and C++ client.
+- Recommended Skills: JavaScript, TypeScript, Rust
+- Mentor(s): Liming Deng (@iosmanthus), Andy Lok (@andylokandy)
+- Issue: <https://github.com/tikv/tikv/issues/10054>
