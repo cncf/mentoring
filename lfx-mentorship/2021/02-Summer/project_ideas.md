@@ -2,6 +2,37 @@
 
 Project maintainers and mentors, please submit the ideas below (under the Proposed Project Ideas section) section using the [template](/PROJECT_IDEA_TEMPLATE.md).
 
+- [Projects ideas](#projects-ideas)
+  - [Template](#template)
+  - [Sample](#sample)
+    - [Prometheus (sample)](#prometheus-sample)
+      - [Refactor the APIs for better readability and less maintenance overhead](#refactor-the-apis-for-better-readability-and-less-maintenance-overhead)
+  - [Proposed Project ideas](#proposed-project-ideas)
+    - [Buildpacks](#buildpacks)
+      - [Embed source metadata in OCI image](#embed-source-metadata-in-oci-image)
+    - [CoreDNS](#coredns)
+      - [Add ACME protocol support for certificate management with DNS](#add-acme-protocol-support-for-certificate-management-with-dns)
+    - [Cortex](#cortex)
+      - [Cue support and validation for the Cortex config.](#cue-support-and-validation-for-the-cortex-config)
+    - [Keptn](#keptn)
+      - [Support for generic webhook execution](#support-for-generic-webhook-execution)
+    - [Racklet](#racklet)
+      - [Open source scale-model of Data Centers using commodity compute like Raspberry Pis](#open-source-scale-model-of-data-centers-using-commodity-compute-like-raspberry-pis)
+    - [Tremor](#tremor)
+      - [Modular sub-queries in tremor-query](#modular-sub-queries-in-tremor-query)
+      - [Tremor Web Redesign - Make tremor’s web presence awesome](#tremor-web-redesign---make-tremors-web-presence-awesome)
+    - [Kyverno](#kyverno)
+      - [Test mutate and generate policies via the Kyverno CLI](#test-mutate-and-generate-policies-via-the-kyverno-cli)
+    - [Kubernetes Policy Working Group (WG)](#kubernetes-policy-working-group-wg)
+      - [Falco Adapter](#falco-adapter)
+    - [Vitess](#vitess)
+      - [Add testing framework for Django to ensure compatibility with Vitess](#add-testing-framework-for-django-to-ensure-compatibility-with-vitess)
+    - [TiKV](#tikv)
+      - [Implement Node client](#implement-node-client)
+    - [KubeEdge](#kubeedge)
+      - [Refactor the cloudStream to pass-through the request instead of parsing the web path](#refactor-the-cloudstream-to-pass-through-the-request-instead-of-parsing-the-web-path)
+      - [Improve the KubeEdge website](#improve-the-kubeedge-website)
+
 ### Template
 
 ```
