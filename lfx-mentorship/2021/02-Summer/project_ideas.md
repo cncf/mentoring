@@ -176,3 +176,20 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Recommended Skills: JavaScript, TypeScript, Rust
 - Mentor(s): Liming Deng (@iosmanthus), Andy Lok (@andylokandy)
 - Issue: <https://github.com/tikv/tikv/issues/10054>
+
+
+#### KubeEdge
+
+##### Refactor the cloudStream to pass-through the request instead of parsing the web path
+
+- Description: Edgestream is used to handle the request from apiserver, then forward the request to edged through tunnel. We will find a way to pass-through the request, through the hijack stuff, instead of parsing the web path manually.
+- Recommended Skills: Golang, Kubernetes, KubeEdge
+- Mentor(s): Fei Xu (@fisherxu)
+- Issue: <https://github.com/kubeedge/kubeedge/issues/2756>
+
+##### Improve the KubeEdge website
+
+- Description: Improve the design and content of the kubeedge website.
+- Recommended Skills: JavaScript, KubeEdge
+- Mentor(s): Kevin Wang (@kevin-wangzefeng)
+- Issue: <https://github.com/kubeedge/website/issues/70>
