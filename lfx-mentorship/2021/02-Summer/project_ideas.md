@@ -207,7 +207,6 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Mentor(s): Liming Deng (@iosmanthus), Andy Lok (@andylokandy)
 - Issue: <https://github.com/tikv/tikv/issues/10054>
 
-
 #### KubeEdge
 
 ##### Refactor the cloudStream to pass-through the request instead of parsing the web path
@@ -223,3 +222,19 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Recommended Skills: JavaScript, KubeEdge
 - Mentor(s): Kevin Wang (@kevin-wangzefeng)
 - Issue: <https://github.com/kubeedge/website/issues/70>
+
+#### Thanos
+
+##### Enhanced Block Viewer UI
+
+- Description: The Thanos BlockViewer UI has proven to be an essential part of the debuggability story for the Thanos project. It allows administrators to see the exact state of data in Object Storage in a provider-agnostic way. This project is about extending this UI with richer features, context, and actions to improve observability and increase control.
+- Recommended Skills: React, TypeScript, Golang, ObjectStorage
+- Mentor(s): Prem Saraswat (@onprem), Lucas Servén Marín (@squat)
+- Issue: https://github.com/thanos-io/thanos/issues/3112, https://github.com/thanos-io/thanos/issues/3220, https://github.com/thanos-io/thanos/issues/3221, https://github.com/thanos-io/thanos/issues/3308 
+
+##### Descriptive API definitions using OpenAPI and Protobuf
+
+- Description: In order to improve Thanos usage for users, we would like to define our APIs, both HTTP and gRPC, in protobuf/OpenAPI and expose the automatically generated documentation in the website. We also want to define the configuration of our components in protobuf. This would allow users to use tools for documentation, validation, type checking and even code generation to use our APIs efficiently. During this project we also expect collaboration with the Prometheus project to implement similar improvements on Prometheus' side. https://github.com/cncf/mentoring/blob/master/summerofcode/2021.md#port-the-prometheus-api-to-openapi. Optionally we would like to work on the index page on every Thanos component server that will expose those resources for easier debug.
+- Recommended Skills: Golang, Protocol Buffers, Yaml (: 
+- Mentor(s): Bartlomiej Plotka (@bwplotka), Prem Saraswat (@onprem)
+- Issue: https://github.com/thanos-io/thanos/issues/4102
