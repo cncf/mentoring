@@ -25,6 +25,7 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
       - [Test mutate and generate policies via the Kyverno CLI](#test-mutate-and-generate-policies-via-the-kyverno-cli)
     - [Kubernetes Policy Working Group (WG)](#kubernetes-policy-working-group-wg)
       - [Falco Adapter](#falco-adapter)
+      - [Falco Adapter](#image-scanner-adapter)
     - [Vitess](#vitess)
       - [Add testing framework for Django to ensure compatibility with Vitess](#add-testing-framework-for-django-to-ensure-compatibility-with-vitess)
     - [TiKV](#tikv)
@@ -181,13 +182,24 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 #### Kubernetes Policy Working Group (WG)
 
+The Kubernetes policy working group focuses on developing tools and solutions that make Kubernetes secure and easiser to use.
+
 ##### Falco Adapter
 
 - Description:
-  The Kubernetes policy working group focuses on developing tools and solutions that make Kubernetes secure and easiser to use. This project will develop an adapter to run Falco in any Kubernetes cluster and periodically generate or update a [Policy Report custom resource](https://github.com/kubernetes-sigs/wg-policy-prototypes/blob/master/policy-report/README.md). The candidate will learn about Kubernetes controllers and various security topics.
+  This project will develop an adapter to run Falco in any Kubernetes cluster and periodically generate or update a [Policy Report custom resource](https://github.com/kubernetes-sigs/wg-policy-prototypes/blob/master/policy-report/README.md). The candidate will learn about Kubernetes controllers and various security topics.
 - Recommended Skills: Linux, Golang, CLI, Kubernetes
 - Mentor(s): Jim Bugwadia (@JimBugwadia)
 - Upstream Issue (URL): https://github.com/kubernetes-sigs/wg-policy-prototypes/issues/51
+
+##### Image Scanner Adapter
+
+- Description:
+  This project will develop an adapter to run an image scanning tool (like Clair or Trivy) in any Kubernetes cluster and periodically generate or update a [Policy Report custom resource](https://github.com/kubernetes-sigs/wg-policy-prototypes/blob/master/policy-report/README.md). The candidate will learn about Kubernetes controllers, image security and management, and Kubernetes custom resources.
+- Recommended Skills: Linux, Golang, CLI, Kubernetes
+- Mentor(s): Jim Bugwadia (@JimBugwadia)
+- Upstream Issue (URL): https://github.com/kubernetes-sigs/wg-policy-prototypes/issues/54
+
 
 #### Vitess
 
