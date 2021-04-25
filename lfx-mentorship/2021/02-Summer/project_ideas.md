@@ -25,7 +25,7 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
       - [Test mutate and generate policies via the Kyverno CLI](#test-mutate-and-generate-policies-via-the-kyverno-cli)
     - [Kubernetes Policy Working Group (WG)](#kubernetes-policy-working-group-wg)
       - [Falco Adapter](#falco-adapter)
-      - [Falco Adapter](#image-scanner-adapter)
+      - [Image Scanner Adapter](#image-scanner-adapter)
     - [Vitess](#vitess)
       - [Add testing framework for Django to ensure compatibility with Vitess](#add-testing-framework-for-django-to-ensure-compatibility-with-vitess)
     - [TiKV](#tikv)
