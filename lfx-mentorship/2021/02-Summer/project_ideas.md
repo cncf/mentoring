@@ -250,3 +250,20 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Recommended Skills: Golang, Protocol Buffers, Yaml (: 
 - Mentor(s): Bartlomiej Plotka (@bwplotka), Prem Saraswat (@onprem)
 - Issue: https://github.com/thanos-io/thanos/issues/4102
+
+
+#### OpenEBS
+
+##### Default Kyverno policies for OpenEBS
+
+- Description: Kyverno is a Kubernetes native policy manager that can be used in place of PodSecurityPolicies. OpenEBS helm charts currently set up PSPs for many of its Storage engines. This project is to convert PSPs into corresponding Kyverno policies. The OpenEBS storage engines also uses a custom admission webhook validator. The scope of the project can extend to replacing the custom validators with Kyverno policies. 
+- Recommended Skills: Golang, unit and feature testing.
+- Mentor(s): Kiran Mova(@kmova), Prateek Pandey (@prateekpandey14)
+- Issue: https://github.com/openebs/openebs/issues/3385
+
+##### Enforcing XFS quotas on OpenEBS hostpath Local PV
+
+- Description: OpenEBS Local PV hostpath is the most simple to use Local PV option available for Kubernetes today. Many of the applications use XFS filesystem to create Local PVs. This project is to implement XFS project quota on the OpenEBS Local PV subdirectory to restrict pods from exceeding the Quota assigned to them via the PVC request.   
+- Recommended Skills: Golang, XFS, unit and feature testing.
+- Mentor(s): Kiran Mova(@kmova), Harsh Thakur (@realHarshThakur)
+- Issue: https://github.com/openebs/dynamic-localpv-provisioner/issues/13
