@@ -16,6 +16,7 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
       - [Cue support and validation for the Cortex config.](#cue-support-and-validation-for-the-cortex-config)
     - [Keptn](#keptn)
       - [Support for generic webhook execution](#support-for-generic-webhook-execution)
+      - [Provide a hub for Keptn integrations](#provide-a-hub-for-keptn-integrations)
     - [Racklet](#racklet)
       - [Open source scale-model of Data Centers using commodity compute like Raspberry Pis](#open-source-scale-model-of-data-centers-using-commodity-compute-like-raspberry-pis)
     - [Tremor](#tremor)
@@ -104,6 +105,13 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Recommended Skills: golang
 - Mentor(s): Jürgen Etzlstorfer (@jetzlstorfer)
 - Issue: <https://github.com/keptn/keptn/issues/3822>
+
+##### Provide a hub for Keptn integrations
+
+- Description: Currently, Keptn services and integrations can be found on an overview page at https://keptn.sh/docs/integrations/ While this served fine as a central overview of all currently supported integrations, a more sophisticated "integrations hub" is desired. The hub should list all available integrations including their name, status, install numbers/github stars, description, and installation instructions. The project includes a research task of other hubs and how they are built.  
+- Recommended Skills: UX/UI, JavaScript, GoLang (a plus but not mandatory) 
+- Mentor(s): Jürgen Etzlstorfer (@jetzlstorfer)
+- Issue: <https://github.com/keptn/keptn/issues/3406>
 
 #### Racklet
 
