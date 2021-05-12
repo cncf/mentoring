@@ -70,6 +70,13 @@ See the [project ideas](./project_ideas.md) list.
 - Mentor(s): Jürgen Etzlstorfer (@jetzlstorfer)
 - Issue: <https://github.com/keptn/keptn/issues/3822>
 
+##### [Provide a hub for Keptn integrations](https://mentorship.lfx.linuxfoundation.org/project/e978885c-fe45-48b1-9a67-9cc9ffd68e82)
+
+- Description: Currently, Keptn services and integrations can be found on an overview page at https://keptn.sh/docs/integrations/ While this served fine as a central overview of all currently supported integrations, a more sophisticated "integrations hub" is desired. The hub should list all available integrations including their name, status, install numbers/github stars, description, and installation instructions. The project includes a research task of other hubs and how they are built.  
+- Recommended Skills: UX/UI, JavaScript, GoLang (a plus but not mandatory) 
+- Mentor(s): Jürgen Etzlstorfer (@jetzlstorfer)
+- Issue: <https://github.com/keptn/keptn/issues/3406>
+
 #### Racklet
 
 ##### [Open source scale-model of Data Centers using commodity compute like Raspberry Pis](https://mentorship.lfx.linuxfoundation.org/project/622bbf07-b001-470c-8da8-b714bb127183)
