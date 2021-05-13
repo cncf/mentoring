@@ -136,7 +136,7 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
   ```
 
 - Recommended Skills: Go, Rust, Kubernetes, Linux, Raspberry Pi, API and library design, Security, Documentation, GitOps, Embedded Systems, Electronics, Continuous Integration, Virtualization
-- Mentor(s): Davanum Srinivas ([@dims](https://github.com/dims))
+- Mentor(s): Davanum Srinivas ([@dims](https://github.com/dims)), Ron Minnich (https://github.com/rminnich)
 - Request For Comments (RFC) Description (URL): <https://docs.racklet.io/rfcs/0001-high-level-architecture.html>
 
 #### Tremor
