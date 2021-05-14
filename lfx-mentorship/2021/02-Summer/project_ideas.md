@@ -17,6 +17,8 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
     - [Keptn](#keptn)
       - [Support for generic webhook execution](#support-for-generic-webhook-execution)
       - [Provide a hub for Keptn integrations](#provide-a-hub-for-keptn-integrations)
+    - [Meshery](#meshery)
+      - [Service mesh playground](#service-mesh-playground)
     - [Racklet](#racklet)
       - [Open source scale-model of Data Centers using commodity compute like Raspberry Pis](#open-source-scale-model-of-data-centers-using-commodity-compute-like-raspberry-pis)
     - [Tremor](#tremor)
@@ -108,10 +110,28 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 ##### Provide a hub for Keptn integrations
 
-- Description: Currently, Keptn services and integrations can be found on an overview page at https://keptn.sh/docs/integrations/ While this served fine as a central overview of all currently supported integrations, a more sophisticated "integrations hub" is desired. The hub should list all available integrations including their name, status, install numbers/github stars, description, and installation instructions. The project includes a research task of other hubs and how they are built.  
-- Recommended Skills: UX/UI, JavaScript, GoLang (a plus but not mandatory) 
+- Description: Currently, Keptn services and integrations can be found on an overview page at https://keptn.sh/docs/integrations/ While this served fine as a central overview of all currently supported integrations, a more sophisticated "integrations hub" is desired. The hub should list all available integrations including their name, status, install numbers/github stars, description, and installation instructions. The project includes a research task of other hubs and how they are built.
+- Recommended Skills: UX/UI, JavaScript, GoLang (a plus but not mandatory)
 - Mentor(s): Jürgen Etzlstorfer (@jetzlstorfer)
 - Issue: <https://github.com/keptn/keptn/issues/3406>
+
+#### Meshery
+
+##### Service mesh playground
+
+- Description: Create the world’s service mesh playground. Meshery’s genesis is that of helping teach people about service mesh technology and enabling to operate this type of cloud native infrastructure confidently. The proposed project is aimed at furthering this mission with interactive API documentation connected to a service mesh learning playground (a running instance of Meshery).
+- Recommended Skills: Golang, ReactJS
+- Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)),  Utkarsh Srivastava ([@utkarshdev23](https://twitter.com/utkarshdev23))
+- Issue: <https://github.com/layer5io/meshery/issues/2931>
+
+#### Service Mesh Interface
+
+##### Conformance Program
+
+- Description: Ensure that a service mesh is properly configured and that its behavior conforms to official SMI specifications. Advance the definition of conformance tests and the test framework, Meshery (see [design specification](https://docs.google.com/document/d/1HL8Sk7NSLLj-9PRqoHYVIGyU6fZxUQFotrxbmfFtjwc/edit)).
+- Recommended Skills**: Golang, ReactJS, GitHub Actions 
+- Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)), 
+- Issue: [https://github.com/servicemeshinterface/smi-spec/issues/70](https://github.com/servicemeshinterface/smi-spec/issues/70)
 
 #### Racklet
 
@@ -208,7 +228,6 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Mentor(s): Jim Bugwadia (@JimBugwadia)
 - Upstream Issue (URL): https://github.com/kubernetes-sigs/wg-policy-prototypes/issues/54
 
-
 #### Vitess
 
 ##### Add testing framework for Django to ensure compatibility with Vitess
@@ -250,28 +269,27 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Description: The Thanos BlockViewer UI has proven to be an essential part of the debuggability story for the Thanos project. It allows administrators to see the exact state of data in Object Storage in a provider-agnostic way. This project is about extending this UI with richer features, context, and actions to improve observability and increase control.
 - Recommended Skills: React, TypeScript, Golang, ObjectStorage
 - Mentor(s): Prem Saraswat (@onprem), Lucas Servén Marín (@squat)
-- Issue: https://github.com/thanos-io/thanos/issues/3112, https://github.com/thanos-io/thanos/issues/3220, https://github.com/thanos-io/thanos/issues/3221, https://github.com/thanos-io/thanos/issues/3308 
+- Issue: https://github.com/thanos-io/thanos/issues/3112, https://github.com/thanos-io/thanos/issues/3220, https://github.com/thanos-io/thanos/issues/3221, https://github.com/thanos-io/thanos/issues/3308
 
 ##### Descriptive API definitions using OpenAPI and Protobuf
 
 - Description: In order to improve Thanos usage for users, we would like to define our APIs, both HTTP and gRPC, in protobuf/OpenAPI and expose the automatically generated documentation in the website. We also want to define the configuration of our components in protobuf. This would allow users to use tools for documentation, validation, type checking and even code generation to use our APIs efficiently. During this project we also expect collaboration with the Prometheus project to implement similar improvements on Prometheus' side. https://github.com/cncf/mentoring/blob/master/summerofcode/2021.md#port-the-prometheus-api-to-openapi. Optionally we would like to work on the index page on every Thanos component server that will expose those resources for easier debug.
-- Recommended Skills: Golang, Protocol Buffers, Yaml (: 
+- Recommended Skills: Golang, Protocol Buffers, Yaml (:
 - Mentor(s): Bartlomiej Plotka (@bwplotka), Prem Saraswat (@onprem)
 - Issue: https://github.com/thanos-io/thanos/issues/4102
-
 
 #### OpenEBS
 
 ##### Default Kyverno policies for OpenEBS
 
-- Description: Kyverno is a Kubernetes native policy manager that can be used in place of PodSecurityPolicies. OpenEBS helm charts currently set up PSPs for many of its Storage engines. This project is to convert PSPs into corresponding Kyverno policies. The OpenEBS storage engines also uses a custom admission webhook validator. The scope of the project can extend to replacing the custom validators with Kyverno policies. 
+- Description: Kyverno is a Kubernetes native policy manager that can be used in place of PodSecurityPolicies. OpenEBS helm charts currently set up PSPs for many of its Storage engines. This project is to convert PSPs into corresponding Kyverno policies. The OpenEBS storage engines also uses a custom admission webhook validator. The scope of the project can extend to replacing the custom validators with Kyverno policies.
 - Recommended Skills: Golang, unit and feature testing.
 - Mentor(s): Kiran Mova(@kmova), Prateek Pandey (@prateekpandey14)
 - Issue: https://github.com/openebs/openebs/issues/3385
 
 ##### Enforcing XFS quotas on OpenEBS hostpath Local PV
 
-- Description: OpenEBS Local PV hostpath is the most simple to use Local PV option available for Kubernetes today. Many of the applications use XFS filesystem to create Local PVs. This project is to implement XFS project quota on the OpenEBS Local PV subdirectory to restrict pods from exceeding the Quota assigned to them via the PVC request.   
+- Description: OpenEBS Local PV hostpath is the most simple to use Local PV option available for Kubernetes today. Many of the applications use XFS filesystem to create Local PVs. This project is to implement XFS project quota on the OpenEBS Local PV subdirectory to restrict pods from exceeding the Quota assigned to them via the PVC request.
 - Recommended Skills: Golang, XFS, unit and feature testing.
 - Mentor(s): Kiran Mova(@kmova), Harsh Thakur (@realHarshThakur)
 - Issue: https://github.com/openebs/dynamic-localpv-provisioner/issues/13
