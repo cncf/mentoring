@@ -208,6 +208,15 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Mentor(s): Shuting Zhao (@realshuting), Jim Bugwadia (@JimBugwadia)
 - Issue: https://github.com/kyverno/kyverno/issues/1821
 
+#### Kubernetes
+
+##### Improvements to Cluster API provider for GCP (CAPG)
+
+- Description: The Cluster API is a Kubernetes project to bring declarative, Kubernetes-style APIs to cluster creation, configuration, and management. CAPG provides this Kubernetes-native declarative infrastructure for GCP. The project would start with some help wanted issues around quick start and documentation, this will help with understanding mentee with CAPI/CAPG concepts and current implementation. Then we will move on to some long pending improvements documented in the issues link below.
+- Recommended Skills: Golang, unit and feature testing.
+- Mentor(s): Davanum Srinivas (@dims), Carlos Tadeu Panato Junior (@cpanato)
+- Issue: https://github.com/kubernetes-sigs/cluster-api-provider-gcp/issues
+
 #### Kubernetes Policy Working Group (WG)
 
 The Kubernetes policy working group focuses on developing tools and solutions that make Kubernetes secure and easiser to use.
