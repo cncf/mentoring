@@ -225,3 +225,21 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Recommended Skills: Golang, XFS, unit and feature testing.
 - Mentor(s): Kiran Mova(@kmova), Harsh Thakur (@realHarshThakur)
 - Issue: https://github.com/openebs/dynamic-localpv-provisioner/issues/13
+
+#### Meshery
+
+##### [Service mesh playground](https://mentorship.lfx.linuxfoundation.org/project/57571877-84ec-415a-ad0b-b076e20f3ad0)
+
+- Description: Create the world’s service mesh playground. Meshery’s genesis is that of helping teach people about service mesh technology and enabling to operate this type of cloud native infrastructure confidently. The proposed project is aimed at furthering this mission with interactive API documentation connected to a service mesh learning playground (a running instance of Meshery).
+- Recommended Skills: Golang, ReactJS
+- Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)),  Utkarsh Srivastava ([@utkarshdev23](https://twitter.com/utkarshdev23))
+- Issue: <https://github.com/layer5io/meshery/issues/2931>
+
+#### Kubernetes
+
+##### Improvements to Cluster API provider for GCP (CAPG)
+
+- Description: The Cluster API is a Kubernetes project to bring declarative, Kubernetes-style APIs to cluster creation, configuration, and management. CAPG provides this Kubernetes-native declarative infrastructure for GCP. The project would start with some help wanted issues around quick start and documentation, this will help with understanding mentee with CAPI/CAPG concepts and current implementation. Then we will move on to some long pending improvements documented in the issues link below.
+- Recommended Skills: Golang, unit and feature testing.
+- Mentor(s): Davanum Srinivas (@dims), Carlos Tadeu Panato Junior (@cpanato)
+- Issue: https://github.com/kubernetes-sigs/cluster-api-provider-gcp/issues
