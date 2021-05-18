@@ -235,11 +235,3 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)),  Utkarsh Srivastava ([@utkarshdev23](https://twitter.com/utkarshdev23))
 - Issue: <https://github.com/layer5io/meshery/issues/2931>
 
-#### Kubernetes
-
-##### Improvements to Cluster API provider for GCP (CAPG)
-
-- Description: The Cluster API is a Kubernetes project to bring declarative, Kubernetes-style APIs to cluster creation, configuration, and management. CAPG provides this Kubernetes-native declarative infrastructure for GCP. The project would start with some help wanted issues around quick start and documentation, this will help with understanding mentee with CAPI/CAPG concepts and current implementation. Then we will move on to some long pending improvements documented in the issues link below.
-- Recommended Skills: Golang, unit and feature testing.
-- Mentor(s): Davanum Srinivas (@dims), Carlos Tadeu Panato Junior (@cpanato)
-- Issue: https://github.com/kubernetes-sigs/cluster-api-provider-gcp/issues
