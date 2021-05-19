@@ -36,7 +36,7 @@ It's best if you use a public communication channel whenever possible; however, 
 
 ## Success Stories
 
-[![Cleo](http://example.com/exampl.png)](content/cleo.mp4 "Cleo")
+[![Cleo](http://example.com/exampl.png)](/content/Cleo.mp4 "Cleo")
 
 
 ## Mentoring Programs
