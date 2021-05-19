@@ -5,6 +5,7 @@ The Cloud Native Computing Foundation (CNCF) participates in a variety of mentor
 - [CNCF Mentoring Initiatives](#cncf-mentoring-initiatives)
   - [Organization Admins](#organization-admins)
   - [Communication](#communication)
+  - [Success Stories](#success-stories)
   - [Mentoring Programs](#mentoring-programs)
   - [Program Statistics](#program-statistics)
     - [Community Bridge](#community-bridge)
@@ -32,6 +33,11 @@ Organization admins for specific mentorship programs are listed on the programs 
 Please reach out to us on the #mentoring channel on the [CNCF slack](https://slack.cncf.io/). Please don't use DMs unless strictly necessary as doing so both has the potential of overwhelming project maintainers and others with similar questions lose the benefit of public discussion.
 
 It's best if you use a public communication channel whenever possible; however, if you need to communicate in private, please feel free to send the admins a note via mentoring@cncf.io (please use the public channels for any project-related discussion).
+
+## Success Stories
+
+[![Cleo](http://example.com/exampl.png)](content/cleo.mp4 "Cleo")
+
 
 ## Mentoring Programs
 
