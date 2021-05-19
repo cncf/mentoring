@@ -36,6 +36,8 @@ It's best if you use a public communication channel whenever possible; however, 
 
 ## Success Stories
 
+[Matei David](https://www.cncf.io/spotlights/matei-david/)
+
 [![Cleo mentorship](http://img.youtube.com/vi/WGvppQhGejQ/0.jpg)](http://www.youtube.com/watch?v=WGvppQhGejQ "Cleo")
 
 [![Arsh mentorship](http://img.youtube.com/vi/u6BQzqgykww/0.jpg)](http://www.youtube.com/watch?v=u6BQzqgykww "Arsh")
