@@ -57,10 +57,10 @@ It's best if you use a public communication channel whenever possible; however, 
 
 | Year | Program                          | Internships | Total (per year) |
 | ---- | -------------------------------- | ----------- | ---------------- |
-| 2021 | LFX Mentorship (CommunityBridge) | TBA         | TBA              |
-|      | GSoC                             |             |                  |
-|      | GSoD                             |             |                  |
-|      | Outreachy                        |             |                  |
+| 2021 | LFX Mentorship (CommunityBridge) | 17          | 35 (in progress) |
+|      | GSoC                             | 17          |                  |
+|      | GSoD                             | TBA         |                  |
+|      | Outreachy                        | 1           |                  |
 | 2020 | LFX Mentorship (CommunityBridge) | 50          | 71               |
 |      | GSoC                             | 16          |                  |
 |      | GSoD                             | 4           |                  |
