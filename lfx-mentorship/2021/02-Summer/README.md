@@ -1,6 +1,6 @@
 ## Q2
 
-_Status: Planned_
+_Status: Completed_
 
 - [Q2](#q2)
   - [Timeline](#timeline)
