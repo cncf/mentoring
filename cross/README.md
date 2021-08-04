@@ -8,6 +8,6 @@ CNCF is participating in the CROSS program in 2021 for the first time.
 
 You can find more details about the program on the [CROSS website](https://cross.ucsc.edu/programs/osre2021.html).
 
-### Mentoring opportunity
+### Mentoring project
 
 - [Write Helm charts for easy deployment of the SkyhookDM, Dask , ServiceX stack on Kubernetes](https://uccross.github.io/projects#write-helm-charts-for-easy-deployment-of-the-skyhookdm-dask--servicex-stack-on-kubernetes)
