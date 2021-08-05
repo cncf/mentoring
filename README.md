@@ -8,7 +8,9 @@ The Cloud Native Computing Foundation (CNCF) participates in a variety of mentor
   - [Success Stories](#success-stories)
   - [Mentoring Programs](#mentoring-programs)
   - [Program Statistics](#program-statistics)
-    - [Community Bridge](#community-bridge)
+    - [LFX (ex-Community Bridge)](#lfx-ex-community-bridge)
+      - [2021](#2021)
+        - [Spring](#spring)
       - [2020](#2020)
         - [Q3-Q4](#q3-q4)
         - [Q2](#q2)
@@ -78,7 +80,42 @@ It's best if you use a public communication channel whenever possible; however, 
 | 2017 | GSoC                             | 6           | 8                |
 |      | Outreachy                        | 2           |                  |
 
-### Community Bridge
+### LFX (ex-Community Bridge)
+
+#### 2021
+
+##### Spring
+
+| Mentoring Project                                                                                    | Mentor Name(s)                        | Mentee Name            |
+| ---------------------------------------------------------------------------------------------------- | ------------------------------------- | ---------------------- |
+| CNCF - Kubernetes SIG Storage: Kubernetes working group for CSI driver                               | Andy Zhang                            | Manohar Reddy          |
+| CNCF - Kubernetes WG Policy: CIS Benchmarks Policy Report                                            | Jim Bugwadia                          | Mritunjay Sharma       |
+| CNCF - Kubernetes SIG Architecture: Develop tools for evaluating dependency updates to Kubernetes    | Davanum Srinivas                      | Arsh Sharma            |
+| CNCF - Keptn: Improve Prometheus integration and exposure of Prometheus metrics                      | Jürgen Etzlstorfer                    | Raj Babu Das           |
+| CNCF - Keptn: Generate service skeleton via CLI                                                      | Hemanth Krishna                       | Hemanth Krishna        |
+| CNCF - Kyverno: Monitor Kyverno with Prometheus                                                      | Yashvardhan Kukreja                   | Yashvardhan Kukreja    |
+| CNCF - Kyverno: Integration of Kyverno with Litmus for chaos testing                                 | Shuting Zhao, Jim Bugwadia            | Mahfuza Mohona         |
+| CNCF - OpenTelemetry: Work through OpenTelemetry User Research Documentation and Implement Fixes     | Bob Strecansky                        | Ndubuisi Onyemenam     |
+| CNCF - TiKV: Coprocessor plugin                                                                      | Andy Lok                              | Andreas Zimmerer       |
+| CNCF - Tremor: Support for Syslog Protocol                                                           | Anup Dhamala, Matthias Wahl           | Nupur Agrawal          |
+| CNCF - Tremor: Continuous benchmarking and benchmarking infrastructure                               | Darach Ennis, Anup Dhamala            | Akshat Agarwal         |
+| CNCF - Tremor: Property-based tests for tremor-script                                                | Heinz Gies, Matthias Wahl             | Rohit Dandamudi        |
+| CNCF - Tremor: Google Cloud Connector                                                                | Heinz Gies, Darach Ennis              | Jigyasa Khaneja        |
+| CNCF - Chaos Mesh: Chaos Engineering as a Service                                                    | Xiang Wang                            | Shivansh Saini         |
+| CNCF - Chaos Mesh: Enriching AWS chaos                                                               | Xiang Wang, Zhiqiang Zhou             | Debabrata Panigrahi    |
+| CNCF - KubeEdge: Design more tests for specific scenarios of edge computing                          | Fisher Xu                             | Shubham Gupta          |
+| CNCF - KubeEdge: Integration and verification of third-party CNI/CSI based on the edge side list-wat | Fisher Xu                             | Avinash Mutham         |
+| CNCF - Thanos: Multi-Tenant Instrumentation for Thanos operations                                    | Yash Sharma, Kemal Akkoyun            | Abhishek Singh Chauhan |
+| CNCF - Thanos: Stateless Ruler                                                                       | Lucas Servén Marín, Bartlomiej Płotka | Michael Okoko          |
+| CNCF - Thanos: Vertical Block Sharding                                                               | Bartlomiej Płotka, Kemal Akkoyun      | Biswajit Ghosh         |
+| CNCF - Thanos: gRPC Exemplars API                                                                    | Prem Saraswat, Lucas Servén Marín     | Hitanshu Mehta         |
+| CNCF - Crossplane: Automated end-to-end testing infrastructure                                       | Jared Watts, Daniel Mangum            | Rahul Grover           |
+| CNCF - OpenEBS: An easy to use command-line interface (CLI) for OpenEBS                              | Kiran Mova                            | Parth Shandilya        |
+| CNCF - OpenEBS: Grafana Dashboards for monitoring OpenEBS                                            | Kiran Mova                            | Rahul Agrawal          |
+| CNCF - Volcano: System Stability Enhancement                                                         | Lei Wu                                | Yuchen Cheng           |
+| CNCF - LitmusChaos: Add event & alerts infrastructure to the litmus portal                           | Soumya Ghosh Dastidar                 | Shubham Kumar          |
+| CNCF - SPIFFE/SPIRE: Design and implement a health/status subsystem in SPIRE                         | Evan Gilman, Andrew Harding           | Sachin Singh           |
+| CNCF - Cloud Native Buildpacks: Design and implement Buildpack Registry Search                       | Joe Kutner                            | Aswin Timalsina        |
 
 #### 2020
 
