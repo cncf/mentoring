@@ -6,7 +6,7 @@ Status: Planned
 
 Fall Term: September 1st - November 31st
 
-- mentorships available on LFX Mentorship: August 12th, 2021
+- mentorships available on LFX Mentorship: August 12th, 2021 (by EOD)
 - applications open: August 13th - August 20th
 - application review/admission decisions/HR paperwork: August 23rd - August 31st
 
