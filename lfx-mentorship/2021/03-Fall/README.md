@@ -12,6 +12,6 @@ Fall Term: September 1st - November 31st
 
 Mentorship duration - three months \(12 weeks - full-time schedule\)
 
-### Project Ideas
+### Project Instructions
 
-The project ideas list is available here - https://github.com/cncf/mentoring/blob/main/lfx-mentorship/2021/03-Fall/project_ideas.md
+Project maintainers and potential mentors are welcome to propose their mentoring project ideas via submitting a PR to GitHub here (https://github.com/cncf/mentoring/blob/main/lfx-mentorship/2021/03-Fall/project_ideas.md), by August 11th.
