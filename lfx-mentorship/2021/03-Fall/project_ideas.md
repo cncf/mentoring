@@ -36,7 +36,7 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Mentor(s): Manan Gupta (@GuptaManan100)
 - Issue: <https://github.com/vitessio/vitess/issues/8604>
 
-##### Add complete parsing support for MySQL constructs
+##### Add support for comparing strings using collations and character-sets
 
 - Description: Vitess does not yet have support for collations and character-sets. So, to compare varchar strings Vitess needs to rely on [WEIGHT_STRING](https://dev.mysql.com/doc/refman/5.7/en/string-functions.html#function_weight-string) function for now. As per MySQL documentation, WEIGHT_STRING is a debugging function, meant only for internal use. Having the ability to compare strings using collation and character set support we will be able to better implement ORDER BY, GROUP BY, JOIN. It will also allow us to leverage more advanced join techniques than what we currently implement.
 - Recommended Skills: go, SQL
