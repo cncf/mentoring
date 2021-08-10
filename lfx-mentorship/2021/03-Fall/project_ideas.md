@@ -25,6 +25,7 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Mentor(s): [@Krasi Georgiev](https://github.com/krasi-georgiev)
 - Issue: <https://github.com/prometheus/prometheus/issues/3416>
 
+
 ## Participating Projects
 
 #### Kubernetes
@@ -88,3 +89,12 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Recommended Skills: Golang, Test
 - Mentor(s): Shuting Zhao (@realshuting), Jim Bugwadia (@JimBugwadia)
 - Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/2249
+
+#### Chaos Mesh
+
+##### Monitoring Metrics about Chaos Mesh
+
+- Description: Observability is very important for each application, we want to monitor more things of Chaos Mesh components, enrich the metrics for both logic patterns and performance data. We want to let users could watch the status of Chaos Mesh on grafana dashboard, and developers could using time-series metrics for debugging and profiling.
+- Recommended Skills: golang, prometheus, grafana
+- Mentor(s): [@ZhiqiangZhou](https://github.com/strrl)
+- Issue: <https://github.com/chaos-mesh/chaos-mesh/issues/2198>
