@@ -108,12 +108,12 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Mentor(s): Jianbo Sun (@wonderflow)
 - Upstream Issue (URL): https://github.com/oam-dev/kubevela/issues/795
 
-##### Building Machine Learning Platform on KubeVela
+##### Building An Machine Learning Platform on KubeVela
 
 - Description: Data scientists need a ML platform to develop, test, and deploy ML models easily. In this project, we will design and build a self-service ML platform on top of KubeVela. We will use KubeVela to provide high level workflow and APIs to glue and simplify deployment pipelines. We will also use Cloud resources to support deployment and operations tasks like domain routing, monitoring, health checking, etc.
 - Recommended Skills: Golang, Kubernetes
 - Mentor(s): Hongchao Deng (@hongchaodeng)
-- Upstream Issue (URL): https://github.com/oam-dev/kubevela/blob/master/design/platform/ml-platform-design.md
+- Upstream Issue (URL): https://github.com/oam-dev/kubevela/issues/2061
 
 
 #### WasmEdge
