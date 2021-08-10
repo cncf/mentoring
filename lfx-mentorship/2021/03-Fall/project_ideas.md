@@ -74,21 +74,30 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 
 #### Kyverno
 
-##### Scaled testing for Kyverno
+##### Scalability testing for Kyverno
 
 - Description:
-  This Project is to perform scaled testing for Kyverno. The candidate has to propose the test plan for performance testing and optimize memory usage of Kyverno for different loads of Kubernetes clusters.
-- Recommended Skills: Golang, Test
+  Define and execute scalability tests for Kyverno on large Kubernetes clusters with several namespaces and resources. The candidate has to propose and execute a performance test plan and help optimize resource usage of Kyverno for different loads for large Kubernetes clusters.
+- Recommended Skills: Kubernetes, Golang, Test
 - Mentor(s): Shuting Zhao (@realshuting)
 - Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/2248
 
-##### Extend Kyverno test command to cover generate policies & Improve test coverage
+##### Extend Kyverno test command to cover generate policies & improve test coverage
 
 - Description:
-  This Project is to extend the Kyverno CLI to cover generate policies and improve tests coverage for Kyverno. Based on the test results, the candidate has to add more unit/E2E tests.
+  Extend the Kyverno CLI to cover generate policies and improve tests coverage for Kyverno. Based on the test results, the candidate has to add more unit/E2E tests.
 - Recommended Skills: Golang, Test
 - Mentor(s): Shuting Zhao (@realshuting), Jim Bugwadia (@JimBugwadia)
 - Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/2249
+
+##### Security model and processes for Kyverno
+
+- Description:
+  Improve security model and processes for Kyverno. Document security processes, help define a threat model with risks and mitagation, and add best practice processes like publishing signed images.
+- Recommended Skills: Kubernetes, Security, Documentation
+- Mentor(s): Jim Bugwadia (@JimBugwadia)
+- Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/2250
+
 
 #### Chaos Mesh
 
@@ -115,6 +124,7 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Mentor(s): Hongchao Deng (@hongchaodeng)
 - Upstream Issue (URL): https://github.com/oam-dev/kubevela/issues/2061
 
+
 #### Support remote Terraform HCL (Git repo or ConfigMap) in Terraform Controller
 
 - Description: Currently Terraform Controller supports inline HCL, but community users normally already stored Terraform
@@ -122,6 +132,14 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Recommended Skills: Golang, Terraform
 - Mentor(s): ZhengXi Zhou (@zzxwill)
 - Upstream Issue (URL): https://github.com/oam-dev/terraform-controller/issues/46
+
+##### Build Gitops continuous deployment tools on kubevela
+
+- Description: Kubevela is like Lego, you can build any platform you need based on kubevela. And GitOps is very popular and user friendly. In this project, we will build Gitops continuous deployment tools on kubevela.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s): Jian Li (@leejanee)
+- Upstream Issue (URL): https://github.com/oam-dev/kubevela/issues/2062
+
 
 #### WasmEdge
 
@@ -153,3 +171,20 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Mentor(s): Hung-Ying Tai (@hydai), Yi-Ying He (@q82419)
 - Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/306
 
+#### LitmusChaos
+
+##### Develop E2E dashboard with CI/CD pipeline details and enhance litmus e2e website
+
+- Description: This project aims to build an E2E Web dashboard that will display the CI/CD pipeline details of [scheduled](https://litmuschaos.github.io/litmus-e2e/generic-pipeline/pipeline-runs/pod-level-run.html) and [manual](https://github.com/litmuschaos/litmus-e2e/tree/master/.github/workflows) runs. It should contain all the litmus backend and portal pipelines and can be easily switched or add more pipelines. Currently, [these](https://github.com/litmuschaos/litmus-e2e/tree/master/.github/workflows) are the pipeline present in the e2e.
+
+- Recommended Skills: Golang, ReactJS
+- Mentor(s): Udit Gaurav (@uditgaurav)
+- Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/3112
+
+##### Develop/Enhance E2E test-cases for ChaosCenter
+
+- Description: This project aims to develop/enhance the E2E test cases for ChaosCenter. The ChaosCenter is a single source of truth to control all the different Chaos Activities happening around Litmus. From the ChaosCenter you get the freedom to manage every single part of Litmus and shape your workflows exactly the way you want them.
+
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s): Vedant Shrotria (@Jonsy13), Raj Babu Das (@rajdas98)
+- Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/3114
