@@ -115,6 +115,13 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Mentor(s): Hongchao Deng (@hongchaodeng)
 - Upstream Issue (URL): https://github.com/oam-dev/kubevela/issues/2061
 
+#### Support remote Terraform HCL (Git repo or ConfigMap) in Terraform Controller
+
+- Description: Currently Terraform Controller supports inline HCL, but community users normally already stored Terraform
+  HCLs remotely (in Git repo or ConfigMap). Terraform Controller should support remote HCLs.
+- Recommended Skills: Golang, Terraform
+- Mentor(s): ZhengXi Zhou (@zzxwill)
+- Upstream Issue (URL): https://github.com/oam-dev/terraform-controller/issues/46
 
 #### WasmEdge
 
