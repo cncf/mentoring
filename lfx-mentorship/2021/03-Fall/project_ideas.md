@@ -25,7 +25,51 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Mentor(s): [@Krasi Georgiev](https://github.com/krasi-georgiev)
 - Issue: <https://github.com/prometheus/prometheus/issues/3416>
 
+## Participating Projects
 
+#### Kubernetes
+
+##### Improvements to Cluster API provider for GCP (CAPG)
+
+- Description: The Cluster API is a Kubernetes project to bring declarative, Kubernetes-style APIs to cluster creation, configuration, and management. CAPG provides this Kubernetes-native declarative infrastructure for GCP. The project would start with some help wanted issues around quick start and documentation, this will help with understanding mentee with CAPI/CAPG concepts and current implementation. Then we will move on to some long pending improvements documented in the issues link below.
+- Recommended Skills: Golang, unit and feature testing.
+- Mentor(s): Davanum Srinivas (@dims), Carlos Tadeu Panato Junior (@cpanato)
+- Issue: https://github.com/kubernetes-sigs/cluster-api-provider-gcp/issues
+
+##### Improve SIG-Node testing using Kubetest2
+
+- Description: Kubernetes currently uses Kubetest as the interface for launching and running e2e tests. There is a new [kubetest2](https://github.com/kubernetes-sigs/kubetest2) that is in the process of being developed and will need to be rolled out to various CI harnesses and jobs. As part of this project we will focus on SIG-Node related CI jobs. Here's how we currently test SIG-Node related code - [e2e-node-tests.md](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-node/e2e-node-tests.md). There will be a lot of interesting problems to solve and this work is critical to how we test kubernetes not just in GCP, but also across all the other cloud providers going forward.
+- Recommended Skills: Golang, python, bash, unit and feature testing.
+- Mentor(s): Davanum Srinivas (@dims), Amit Watve (@amwat)
+- Enhancement : https://github.com/kubernetes/enhancements/tree/master/keps/sig-testing/2464-kubetest2-ci-migration
+
+#### Kubernetes Policy Working Group (WG)
+
+The Kubernetes policy working group focuses on developing tools and solutions that make Kubernetes secure and easiser to use.
+
+##### KubeArmor support for Policy Report CRD
+
+- Description:
+  This project will periodically generate or update a [Policy Report Custom Resource (CR)](https://github.com/kubernetes-sigs/wg-policy-prototypes/blob/master/policy-report/README.md) based on events collected from KubeArmor. This could be implemented as a feature in KubeArmor or developed as an external adapter. The candidate will learn about Kubernetes controllers and various security topics.
+- Recommended Skills: Linux, Golang, CLI, Kubernetes
+- Mentor(s): Jim Bugwadia (@JimBugwadia)
+- Upstream Issue (URL): https://github.com/kubernetes-sigs/wg-policy-prototypes/issues/59
+
+#### Vitess
+
+##### Add complete parsing support for MySQL constructs
+
+- Description: Vitess is a database clustering system for horizontal scaling of MySQL. One of the key goals of Vitess is to emulate MySQL behavior even while running multiple MySQL instances so that ORMs and frameworks work seamlessly. Vitess has its own in-built SQL-parser which it uses to understand the query and represent as structs for further processing. As of now, a lot of MySQL constructs are not parsed and result in syntax errors. For example, we do not have complete support to parse [partition constructs](https://dev.mysql.com/doc/refman/5.7/en/partitioning-overview.html). Parsing for a lot of the newer features in MySQL 8.0 is also missing. The task of the mentee would be to add parsing support for such constructs. 
+- Recommended Skills: go, SQL, yacc, compilers and lexers
+- Mentor(s): Manan Gupta (@GuptaManan100)
+- Issue: <https://github.com/vitessio/vitess/issues/8604>
+
+##### Add support for comparing strings using collations and character-sets
+
+- Description: Vitess does not yet have support for collations and character-sets. So, to compare varchar strings Vitess needs to rely on [WEIGHT_STRING](https://dev.mysql.com/doc/refman/5.7/en/string-functions.html#function_weight-string) function for now. As per MySQL documentation, WEIGHT_STRING is a debugging function, meant only for internal use. Having the ability to compare strings using collation and character set support we will be able to better implement ORDER BY, GROUP BY, JOIN. It will also allow us to leverage more advanced join techniques than what we currently implement.
+- Recommended Skills: go, SQL
+- Mentor(s): Vicent Marti (@vmg)
+- Issue: <https://github.com/vitessio/vitess/issues/8606>
 
 #### Kyverno
 
