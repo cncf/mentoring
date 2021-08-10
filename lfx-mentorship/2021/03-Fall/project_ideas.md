@@ -98,3 +98,33 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Recommended Skills: golang, prometheus, grafana
 - Mentor(s): [@ZhiqiangZhou](https://github.com/strrl)
 - Issue: <https://github.com/chaos-mesh/chaos-mesh/issues/2198>
+
+#### WasmEdge
+
+##### Support WASI-Crypto proposal
+
+- Description: After WasmEdge provides an experimental API, WASI Socket, for supporting Berkeley Sockets API in Wasm. WasmEdge enabled a new way to open a new socket, listen to an existed socket, and send and receive data. Moreover, it will be nice if we can do more things in the related features such as SSL support. To achieve this feature, one possible way is to compile the OpenSSL library to Wasm and link it as a library. However, the performance may be not good, because all the computation jobs are done at the wasm level. Here is an alternative way, instead of the previous one, we can wrap the OpenSSL library to Wasm external functions. For example, binding `ssl_connect` to `(import "openssl" "ssl_connect" ... )`. Unfortunately, this is not an easy way to do it. To simply the workload, we decide to implement the WASI-crypto proposal first, and then use this proposal to make the above things happen.
+- Recommended Skills: C++, Rust
+- Mentor(s): Hung-Ying Tai (@hydai), Shen-Ta Hsieh (@ibmibmibm)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/345
+
+##### Support Wasm-Signature proposal
+
+- Description: The wasm-Signature proposal is specifically about embedded digital signatures in WebAssembly modules, not about package/OCI signatures. When distributing WebAssembly modules, it will be nice if we can have a way to verify. To achieve this target, we choose a Wasm-Signature proposal as our implementation standard. With this proposal, WasmEdge can provide `sign` and `verify` features.
+- Recommended Skills: C++, Rust
+- Mentor(s): Hung-Ying Tai (@hydai), Shen-Ta Hsieh (@ibmibmibm)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/344
+
+##### Support WASI-NN proposal
+
+- Description: Machine Learning is a big topic nowadays. WasmEdge already provides [a set of TensorFlow host functions](https://github.com/second-state/wasmedge_tensorflow_interface) to enable the ML inference in WebAssembly. However, these TensorFlow host functions are defined by us and they are just a Wasm function binding from the [TensorFlow C API](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/c/c_api.h). Here comes a standard, the [WASI-NN proposal](https://github.com/WebAssembly/wasi-nn) provides a new way to perform neural network inferencing by using a runtime-provided implementation that can leverage host native optimizations, CPU multi-threading, or powerful hardware devices such as GPUs or TPUs.
+- Recommended Skills: C++, Rust
+- Mentor(s): Hung-Ying Tai (@hydai), Yi-Ying He (@q82419)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/343
+
+##### Support Wasm-C-API proposal
+
+- Description: The wasm-c-api proposal provides the C and C++ API for WASM runtimes. Even though WasmEdge already provided the C API, it's proper to implement the wasm-c-API proposal for the general C/C++ API. In the current status, we've already implemented the non-runtime data structures on the branch. Then, we need to finish the runtime implementation.
+- Recommended Skills: C++
+- Mentor(s): Hung-Ying Tai (@hydai), Yi-Ying He (@q82419)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/306
