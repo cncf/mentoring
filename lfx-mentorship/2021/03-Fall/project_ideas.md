@@ -25,3 +25,14 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Mentor(s): [@Krasi Georgiev](https://github.com/krasi-georgiev)
 - Issue: <https://github.com/prometheus/prometheus/issues/3416>
 
+
+
+#### Kyverno
+
+##### Automate tests and perform scaled testing for Kyverno
+
+- Description:
+  This Project is to improve tests coverage and perform scaled testing for Kyverno. Based on the test results, the candidate has to add more unit/E2E tests and optimize memory usage of Kyverno for different loads of Kubernetes clusters.
+- Recommended Skills: Golang, Test
+- Mentor(s): Shuting Zhao (@realshuting)
+- Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/2248
