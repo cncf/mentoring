@@ -99,6 +99,15 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Mentor(s): [@ZhiqiangZhou](https://github.com/strrl)
 - Issue: <https://github.com/chaos-mesh/chaos-mesh/issues/2198>
 
+#### KubeVela
+
+##### Integration with developing time to provide consistent experience
+
+- Description: Users can use KubeVela to do application delivery and management. In this project, we hope to integrate KubeVela with developing time. So developers can have a consitent experience between local development and production deploy. There're multiple developing tools such as Tilt or Nocalhost, both of them can integrate with KubeVela by supporting KubeVela Application YAML.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s): Jianbo Sun (@wonderflow)
+- Upstream Issue (URL): https://github.com/oam-dev/kubevela/issues/795
+
 #### WasmEdge
 
 ##### Support WASI-Crypto proposal
@@ -128,3 +137,4 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Recommended Skills: C++
 - Mentor(s): Hung-Ying Tai (@hydai), Yi-Ying He (@q82419)
 - Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/306
+
