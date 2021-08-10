@@ -152,3 +152,20 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Mentor(s): Hung-Ying Tai (@hydai), Yi-Ying He (@q82419)
 - Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/306
 
+#### LitmusChaos
+
+##### Develop E2E dashboard with CI/CD pipeline details and enhance litmus e2e website
+
+- Description: This project aims to build an E2E Web dashboard that will display the CI/CD pipeline details of [scheduled](https://litmuschaos.github.io/litmus-e2e/generic-pipeline/pipeline-runs/pod-level-run.html) and [manual](https://github.com/litmuschaos/litmus-e2e/tree/master/.github/workflows) runs. It should contain all the litmus backend and portal pipelines and can be easily switched or add more pipelines. Currently, [these](https://github.com/litmuschaos/litmus-e2e/tree/master/.github/workflows) are the pipeline present in the e2e.
+
+- Recommended Skills: Golang, ReactJS
+- Mentor(s): Udit Gaurav (@uditgaurav)
+- Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/3112
+
+##### Develop/Enhance E2E test-cases for ChaosCenter
+
+- Description: This project aims to develop/enhance the E2E test cases for ChaosCenter. The ChaosCenter is a single source of truth to control all the different Chaos Activities happening around Litmus. From the ChaosCenter you get the freedom to manage every single part of Litmus and shape your workflows exactly the way you want them.
+
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s): Vedant Shrotria (@Jonsy13), Raj Babu Das (@rajdas98)
+- Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/3114
