@@ -115,6 +115,12 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Mentor(s): Hongchao Deng (@hongchaodeng)
 - Upstream Issue (URL): https://github.com/oam-dev/kubevela/issues/2061
 
+##### Build Gitops continuous deployment tools on kubevela
+
+- Description: Kubevela is like Lego, you can build any platform you need based on kubevela. And GitOps is very popular and user friendly. In this project, we will build Gitops continuous deployment tools on kubevela.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s): Jian Li (@leejanee)
+- Upstream Issue (URL): https://github.com/oam-dev/kubevela/issues/2062
 
 #### WasmEdge
 
