@@ -74,21 +74,30 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 
 #### Kyverno
 
-##### Scaled testing for Kyverno
+##### Scalability testing for Kyverno
 
 - Description:
-  This Project is to perform scaled testing for Kyverno. The candidate has to propose the test plan for performance testing and optimize memory usage of Kyverno for different loads of Kubernetes clusters.
-- Recommended Skills: Golang, Test
+  Define and execute scalability tests for Kyverno on large Kubernetes clusters with several namespaces and resources. The candidate has to propose and execute a performance test plan and help optimize resource usage of Kyverno for different loads for large Kubernetes clusters.
+- Recommended Skills: Kubernetes, Golang, Test
 - Mentor(s): Shuting Zhao (@realshuting)
 - Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/2248
 
-##### Extend Kyverno test command to cover generate policies & Improve test coverage
+##### Extend Kyverno test command to cover generate policies & improve test coverage
 
 - Description:
-  This Project is to extend the Kyverno CLI to cover generate policies and improve tests coverage for Kyverno. Based on the test results, the candidate has to add more unit/E2E tests.
+  Extend the Kyverno CLI to cover generate policies and improve tests coverage for Kyverno. Based on the test results, the candidate has to add more unit/E2E tests.
 - Recommended Skills: Golang, Test
 - Mentor(s): Shuting Zhao (@realshuting), Jim Bugwadia (@JimBugwadia)
 - Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/2249
+
+##### Security model and processes for Kyverno
+
+- Description:
+  Improve security model and processes for Kyverno. Document security processes, help define a threat model with risks and mitagation, and add best practice processes like publishing signed images.
+- Recommended Skills: Kubernetes, Security, Documentation
+- Mentor(s): Jim Bugwadia (@JimBugwadia)
+- Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/2250
+
 
 #### Chaos Mesh
 
