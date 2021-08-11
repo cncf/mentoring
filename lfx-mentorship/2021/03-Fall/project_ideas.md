@@ -188,3 +188,20 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Recommended Skills: Golang, JavaScript, Kubernetes
 - Mentor(s): Vedant Shrotria (@Jonsy13), Raj Babu Das (@rajdas98)
 - Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/3114
+
+
+#### Tremor
+
+##### Solidify and generalize error handling code in the runtime
+
+- Description: The runtimes error handling code stems from ancient times where rust was younger, and we were more naive. As such, it is more grown than designed in many places. With the knowledge of the past three years and stabilization of the codebase, now is a good time to polish it and make errors an exciting user experience.
+- Recommended Skills: rust
+- Mentor(s): [@Matthias Wahl](https://github.com/mfelsche), [@Heinz Gies](https://github.com/Licenser), [@Darach Ennis](https://github.com/darach)
+- Issue: <https://github.com/tremor-rs/tremor-runtime/issues/1175>
+
+##### AWS (s3) connectors
+
+- Description: Tremor supports a number of other systems to connect one, yet one of the most wide spread API's in the cloud world (S3) isn't yet supported. This is a chance to shine and build something many users will enjoy.
+- Recommended Skills: rust
+- Mentor(s): [@Matthias Wahl](https://github.com/mfelsche), [@Heinz Gies](https://github.com/Licenser), [@Darach Ennis](https://github.com/darach)
+- Issue: <https://github.com/tremor-rs/tremor-runtime/issues/1176>
