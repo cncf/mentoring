@@ -214,3 +214,27 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Recommended Skills: Go
 - Mentor(s): Giedrius Statkevičius (@GiedriusS), Prem Saraswat (@onprem)
 - Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/2962
+
+#### etcd
+
+##### Etcd.io Docs/SEO Improvement Plan Continuation
+
+- Description:
+  This project is the continuation of the [etcd.io website](https://etcd.io) docs improvement work. While the relocation of the primary documentation, SEO, and site look and feel work has already been done, there is still more work to be done to implement the new information architecture that has been proposed. This includes working with the mentors and project maintainers to write new pages, adapt existing ones, and write blog posts.
+- Recommended Skills:
+  - Technical writing
+  - Documentation
+  - English
+  - git/GitHub
+  - Some web design & coding skills may be helpful, but are not required.
+- Mentor(s):
+  - Primary
+    - [Nate Waddington](https://github.com/nate-double-u)
+    - [Celeste Horgan](https://github.com/celestehorgan)
+  - Adjunct
+    - [Josh Berkus](https://github.com/jberkus)
+    - [Sahdev Zala](https://github.com/spzala)
+- Upstream Issue (URL):
+  - [Etcd.io Docs/SEO Improvement Plan](https://github.com/etcd-io/website/issues/65)
+  - [New IA implementation](https://github.com/etcd-io/website/issues/267)
+
