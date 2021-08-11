@@ -205,3 +205,12 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Recommended Skills: rust
 - Mentor(s): [@Matthias Wahl](https://github.com/mfelsche), [@Heinz Gies](https://github.com/Licenser), [@Darach Ennis](https://github.com/darach)
 - Issue: <https://github.com/tremor-rs/tremor-runtime/issues/1176>
+
+#### Thanos
+
+##### Add groupcache (and improve) backend for the caching bucket in Thanos Store
+
+- Description: This project is about implementing the [groupcache](https://github.com/golang/groupcache) back-end for the caching bucket. Caching bucket is a generic mechanism for caching requests to remote object storage. All of the other caching mechanisms currently suffer from the [cache stampede](https://en.wikipedia.org/wiki/Cache_stampede) problem and it is impossible to "properly" solve this problem with them. This is where `groupcache` comes in. Some work has already been [done](https://github.com/GiedriusS/thanos/commit/d269ce25b744b02c6d4d99f0e2e72af812e45f37) so you will have to something work off of. `Groupcache` also needs some improvements with regards to fetching multiple keys at once to improve the performance even more. In the end your work will make not just Thanos faster but also cheaper because less requests will need to be made to the remote object storage.
+- Recommended Skills: Go
+- Mentor(s): Giedrius Statkevičius (@GiedriusS), Prem Saraswat (@onprem)
+- Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/2962
