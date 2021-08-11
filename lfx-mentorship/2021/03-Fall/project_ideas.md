@@ -178,7 +178,7 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Description: This project aims to build an E2E Web dashboard that will display the CI/CD pipeline details of [scheduled](https://litmuschaos.github.io/litmus-e2e/generic-pipeline/pipeline-runs/pod-level-run.html) and [manual](https://github.com/litmuschaos/litmus-e2e/tree/master/.github/workflows) runs. It should contain all the litmus backend and portal pipelines and can be easily switched or add more pipelines. Currently, [these](https://github.com/litmuschaos/litmus-e2e/tree/master/.github/workflows) are the pipeline present in the e2e.
 
 - Recommended Skills: Golang, ReactJS
-- Mentor(s): Udit Gaurav (@uditgaurav)
+- Mentor(s): Udit Gaurav (@uditgaurav), Soumya Ghosh Dastidar (@gdsoumya)
 - Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/3112
 
 ##### Develop/Enhance E2E test-cases for ChaosCenter
