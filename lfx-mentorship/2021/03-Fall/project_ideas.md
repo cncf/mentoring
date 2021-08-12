@@ -72,6 +72,15 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Mentor(s): Vicent Marti (@vmg)
 - Issue: <https://github.com/vitessio/vitess/issues/8606>
 
+##### Add support for Upgrade/Downgrade Testing
+
+- Description: Currently Vitess has a rich set of functional tests that are run as part of every commit to catch regressions early. However, they are not sufficient to assess the quality of the product for production rollout. We currently do not test for incompatibilities introduced via upgrade, and ensuring that users can downgrade one level if they need to backout of a failed upgrade. The scenarios will need to be written down, and then tests can be written using GitHub actions:
+    - Document Supported Upgrade/Downgrade Scenario
+    - Author GitHub actions tests to checkout 2 versions, test scenarios.
+- Recommended Skills: go, GitHub Actions, docker
+- Mentor(s): Harshit Gangal (@harshit-gangal)
+- Issue: <https://github.com/vitessio/vitess/issues/4989>
+
 #### Kyverno
 
 ##### Scalability testing for Kyverno
