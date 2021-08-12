@@ -224,6 +224,13 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Mentor(s): Giedrius Statkevičius (@GiedriusS), Prem Saraswat (@onprem)
 - Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/2962
 
+##### Migrate Thanos to the New Protocol Buffers v2 API
+
+- Description: This project is about updating and optimizing the [protocol buffers](https://developers.google.com/protocol-buffers) implementation used for communication throughout the Thanos project. Thanos relies heavily on gRPC and protocol buffers for communication between its many components, and now with the release of the [new Golang API for protocol buffers](https://blog.golang.org/protobuf-apiv2) and the deprecation of the old API, Thanos should be updated to benefit from the improvements in the ecosystem. As part of this project, the protocol buffers generator used in Thanos will be migrated to one that supports the new API and brings other improvements, such as reducing memory allocations. This project will help make Thanos faster and ensure that we stay up to date with the latest libraries.
+- Recommended Skills: Go, protocol buffers
+- Mentor(s): Lucas Servén Marín (@squat), Kemal Akkoyun (@kakkoyun), Giedrius Statkevičius (@GiedriusS)
+- Upstream Issue (URL): <https://github.com/thanos-io/thanos/issues/4557>
+
 #### etcd
 
 ##### Etcd.io Docs/SEO Improvement Plan Continuation
@@ -247,9 +254,3 @@ The Kubernetes policy working group focuses on developing tools and solutions th
   - [Etcd.io Docs/SEO Improvement Plan](https://github.com/etcd-io/website/issues/65)
   - [New IA implementation](https://github.com/etcd-io/website/issues/267)
 
-##### Migrate Thanos to the New Protocol Buffers v2 API
-
-- Description: This project is about updating and optimizing the [protocol buffers](https://developers.google.com/protocol-buffers) implementation used for communication throughout the Thanos project. Thanos relies heavily on gRPC and protocol buffers for communication between its many components, and now with the release of the [new Golang API for protocol buffers](https://blog.golang.org/protobuf-apiv2) and the deprecation of the old API, Thanos should be updated to benefit from the improvements in the ecosystem. As part of this project, the protocol buffers generator used in Thanos will be migrated to one that supports the new API and brings other improvements, such as reducing memory allocations. This project will help make Thanos faster and ensure that we stay up to date with the latest libraries.
-- Recommended Skills: Go, protocol buffers
-- Mentor(s): Lucas Servén Marín (@squat), Kemal Akkoyun (@kakkoyun), Giedrius Statkevičius (@GiedriusS)
-- Upstream Issue (URL): <https://github.com/thanos-io/thanos/issues/4557>
