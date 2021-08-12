@@ -53,7 +53,7 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Description:
   This project will periodically generate or update a [Policy Report Custom Resource (CR)](https://github.com/kubernetes-sigs/wg-policy-prototypes/blob/master/policy-report/README.md) based on events collected from KubeArmor. This could be implemented as a feature in KubeArmor or developed as an external adapter. The candidate will learn about Kubernetes controllers and various security topics.
 - Recommended Skills: Linux, Golang, CLI, Kubernetes
-- Mentor(s): Jim Bugwadia (@JimBugwadia)
+- Mentor(s): Jim Bugwadia (@JimBugwadia), Mritunjay Kumar Sharma (@mritunjaysharma394)
 - Upstream Issue (URL): https://github.com/kubernetes-sigs/wg-policy-prototypes/issues/59
 
 #### Vitess
