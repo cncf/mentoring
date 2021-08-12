@@ -53,7 +53,7 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Description:
   This project will periodically generate or update a [Policy Report Custom Resource (CR)](https://github.com/kubernetes-sigs/wg-policy-prototypes/blob/master/policy-report/README.md) based on events collected from KubeArmor. This could be implemented as a feature in KubeArmor or developed as an external adapter. The candidate will learn about Kubernetes controllers and various security topics.
 - Recommended Skills: Linux, Golang, CLI, Kubernetes
-- Mentor(s): Jim Bugwadia (@JimBugwadia)
+- Mentor(s): Jim Bugwadia (@JimBugwadia), Mritunjay Kumar Sharma (@mritunjaysharma394)
 - Upstream Issue (URL): https://github.com/kubernetes-sigs/wg-policy-prototypes/issues/59
 
 #### Vitess
@@ -71,6 +71,15 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Recommended Skills: go, SQL
 - Mentor(s): Vicent Marti (@vmg)
 - Issue: <https://github.com/vitessio/vitess/issues/8606>
+
+##### Add support for Upgrade/Downgrade Testing
+
+- Description: Currently Vitess has a rich set of functional tests that are run as part of every commit to catch regressions early. However, they are not sufficient to assess the quality of the product for production rollout. We currently do not test for incompatibilities introduced via upgrade, and ensuring that users can downgrade one level if they need to backout of a failed upgrade. The scenarios will need to be written down, and then tests can be written using GitHub actions:
+    - Document Supported Upgrade/Downgrade Scenario
+    - Author GitHub actions tests to checkout 2 versions, test scenarios.
+- Recommended Skills: go, GitHub Actions, docker
+- Mentor(s): Harshit Gangal (@harshit-gangal)
+- Issue: <https://github.com/vitessio/vitess/issues/4989>
 
 #### Kyverno
 
@@ -238,3 +247,9 @@ The Kubernetes policy working group focuses on developing tools and solutions th
   - [Etcd.io Docs/SEO Improvement Plan](https://github.com/etcd-io/website/issues/65)
   - [New IA implementation](https://github.com/etcd-io/website/issues/267)
 
+##### Migrate Thanos to the New Protocol Buffers v2 API
+
+- Description: This project is about updating and optimizing the [protocol buffers](https://developers.google.com/protocol-buffers) implementation used for communication throughout the Thanos project. Thanos relies heavily on gRPC and protocol buffers for communication between its many components, and now with the release of the [new Golang API for protocol buffers](https://blog.golang.org/protobuf-apiv2) and the deprecation of the old API, Thanos should be updated to benefit from the improvements in the ecosystem. As part of this project, the protocol buffers generator used in Thanos will be migrated to one that supports the new API and brings other improvements, such as reducing memory allocations. This project will help make Thanos faster and ensure that we stay up to date with the latest libraries.
+- Recommended Skills: Go, protocol buffers
+- Mentor(s): Lucas Servén Marín (@squat), Kemal Akkoyun (@kakkoyun), Giedrius Statkevičius (@GiedriusS)
+- Upstream Issue (URL): <https://github.com/thanos-io/thanos/issues/4557>
