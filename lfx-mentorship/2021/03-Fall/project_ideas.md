@@ -253,3 +253,13 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Recommended Skills: Go, protocol buffers
 - Mentor(s): Lucas Servén Marín (@squat), Kemal Akkoyun (@kakkoyun), Giedrius Statkevičius (@GiedriusS)
 - Upstream Issue (URL): <https://github.com/thanos-io/thanos/issues/4557>
+
+
+#### Buildpacks
+
+##### Update Builder implementation to 0.1 Builder Spec
+
+- Description: In Cloud Native Buildpacks, [Builders](https://buildpacks.io/docs/concepts/components/builder/) are distributed OCI images that act as the complete context for the building of an application. They came into existance by necessity and have risen to be an essential concept that now needs a specification. As part of this project, you will help us make the necessary changes to [pack](https://github.com/buildpacks/pack) to adhere to the specification as well as  _finalize_ the specification itself. This will have to be done with consideration to existing implementations in efforts to prevent unintentionally breaking anyone's existing workflow.
+- Recommended Skills: Go, OCI Containers
+- Mentor(s): Javier Romero (@jromero)
+- Upstream Issue (URL): <https://github.com/buildpacks/pack/issues/945>
