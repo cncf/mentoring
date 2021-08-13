@@ -231,6 +231,15 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Mentor(s): Lucas Servén Marín (@squat), Kemal Akkoyun (@kakkoyun), Giedrius Statkevičius (@GiedriusS)
 - Upstream Issue (URL): <https://github.com/thanos-io/thanos/issues/4557>
 
+##### Add metrics to track the progress for compaction and downsampling 
+
+- Description: This project is about improving the observability of the Thanos compactor component to help user track the current progress. Thanos compactor usually has to deal with large TSDB blocks for compaction and downsampling. When the data are large, it takes a long time to finish the compaction or downsampling. Now users have to check the bucket UI manually to see whether the work is done. It would be better to have a more fine-grained way to tell the progress of compaction and downsampling. We can have some metrics to track the work and even integrate the stats into the UI.
+- Recommended Skills: Go
+- Mentor(s): Ben Ye (@yeya24)
+- Upstream Issue (URL): 
+  - <https://github.com/thanos-io/thanos/issues/3985>
+  - <https://github.com/thanos-io/thanos/issues/3478>
+
 #### etcd
 
 ##### Etcd.io Docs/SEO Improvement Plan Continuation
