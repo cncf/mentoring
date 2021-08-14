@@ -273,3 +273,10 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Recommended Skills: Go, OCI Containers
 - Mentor(s): Javier Romero (@jromero)
 - Upstream Issue (URL): <https://github.com/buildpacks/pack/issues/945>
+
+##### Web Redesign of Feature Comparison
+
+- Description: Cloud Native Buildpacks is a specification and set of tools that help you take source code and convert them into OCI images. Sound familiar? Maybe you've heard of Docker, Source-2-Image, Kaniko, etc. Well you are not alone. The goal of this project is to refactor our existing ["features" page](https://buildpacks.io/features/#comparison) to provide an easier to comprehend comparison across other similar solutions. Through this project, you'll research each alternative, learn how they compare and aim to provide that information to the users in an easy to digest format. This will include designing and implementing a better format to compare projects and their features side-by-side.
+- Recommended Skills: OCI Containers, JavaScript, CSS, HTML, Design
+- Mentor(s): Javier Romero (@jromero)
+- Upstream Issue (URL): <https://github.com/buildpacks/docs/issues/389>
