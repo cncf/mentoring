@@ -280,3 +280,12 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Recommended Skills: OCI Containers, JavaScript, CSS, HTML, Design
 - Mentor(s): Javier Romero (@jromero)
 - Upstream Issue (URL): <https://github.com/buildpacks/docs/issues/389>
+
+#### OpenEBS
+
+##### An operator to remove stale PVs of failed statefulset replicas
+
+- Description: When using StatefulSets with Local Volumes on Ephemeral Nodes - the StatefulSet Pods will get stuck in pending state when the Node is taken out of the cluster. In such cases, manual steps are required to verify that Node is out of the cluster, remove the PV and PVC and delete the failed StatefulSet replica to trigger the re-creation of a new replica with a new PVC/PV on a new node. This enhancement request is to build a generic operator that is driven by a configuration to automate the manual steps. 
+- Recommended Skills: Go, Kubernetes, Statefulsets, Local Volumes, OpenEBS
+- Mentor(s): Kiran Mova (@kmova), Amit Kumar Das (@AmitKumarDas)
+- Upstream Issue (URL): <https://github.com/openebs/dynamic-localpv-provisioner/issues/87>
