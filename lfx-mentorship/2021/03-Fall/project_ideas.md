@@ -297,4 +297,19 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Mentor(s): Kiran Mova (@kmova), Harsh Vardhan (@vharsh)
 - Upstream Issue (URL): <https://github.com/openebs/openebsctl/issues/81>
 
+#### Meshery
 
+##### Service mesh playground
+
+- Description: Create the world’s service mesh playground. Meshery’s genesis is that of helping teach people about service mesh technology and enabling to operate this type of cloud native infrastructure confidently. The proposed project is aimed at furthering this mission with interactive API documentation connected to a service mesh learning playground (a running instance of Meshery).
+- Recommended Skills: Golang, ReactJS
+- Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)),  Rudraksh Pareek [@delusionaloptimist](https://github.com/delusionaloptimist)
+- Issue: <https://github.com/layer5io/meshery/issues/2931>
+
+
+##### Workflow engine
+
+- Description: Integrate a new architectural component into Meshery: a workflow engine. This project involves shifting Meshery off of bitcask and off of sqlite over to postgres using gorm (golang). Interns will familiarize with concepts of orchestration engines, including chaining workflows, and content lifecycle management.
+- Recommended Skills: Golang, Temporal, ReactJS
+- Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)),  Utkarsh Srivastava ([@utkarshdev23](https://twitter.com/utkarshdev23))
+- Issue: <https://github.com/meshery/meshery/issues/3934>
