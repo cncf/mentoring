@@ -313,3 +313,12 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Recommended Skills: Golang, Temporal, ReactJS
 - Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)),  Utkarsh Srivastava ([@utkarshdev23](https://twitter.com/utkarshdev23))
 - Issue: <https://github.com/meshery/meshery/issues/3934>
+
+#### Service Mesh Interface
+
+##### Conformance Program
+
+- Description: Ensure that a service mesh is properly configured and that its behavior conforms to official SMI specifications. Advance the definition of conformance tests and the test framework, Meshery (see [design specification](https://docs.google.com/document/d/1HL8Sk7NSLLj-9PRqoHYVIGyU6fZxUQFotrxbmfFtjwc/edit)).
+- Recommended Skills**: Golang, ReactJS, GitHub Actions 
+- Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)), Navendu Pottekkat [@navendu-pottekkat](https://github.com/navendu-pottekkat)
+- Issue: [https://github.com/servicemeshinterface/smi-spec/issues/70](https://github.com/servicemeshinterface/smi-spec/issues/70)
