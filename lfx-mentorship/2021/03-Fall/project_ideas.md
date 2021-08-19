@@ -297,6 +297,15 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Mentor(s): Kiran Mova (@kmova), Harsh Vardhan (@vharsh)
 - Upstream Issue (URL): <https://github.com/openebs/openebsctl/issues/81>
 
+#### Service Mesh Performance
+
+##### Definition of MeshMark
+
+- Description: Create MeshMark provides a universal performance index to gauge your mesh’s efficiency against deployments in other organizations’ environments. MeshMark functions as a service mesh performance index (a scale) to provide people the ability to weigh the value of their service mesh versus the overhead of their service mesh and assess whether they are getting out of the mesh what they are “paying” for in it. Work with maintainers from Layer5, Intel, Red Hat, and HashiCorp on researching cloud native infrastructure performance. Internship involves: machine learning, adaptive algorithms, running and analyzing performance statistics.
+- Recommended Skills: Analytics, Algorithms, Data Science, (Golang and/or C++ helpful, but not necessary)
+- Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)),  Navendu Pottekkat ([@navendu-pottekkat](https://github.com/navendu-pottekkat))
+- Issue: <https://github.com/service-mesh-performance/service-mesh-performance/issues/227>
+
 #### Meshery
 
 ##### Service mesh playground
@@ -305,7 +314,6 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Recommended Skills: Golang, ReactJS
 - Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)),  Rudraksh Pareek [@delusionaloptimist](https://github.com/delusionaloptimist)
 - Issue: <https://github.com/layer5io/meshery/issues/2931>
-
 
 ##### Workflow engine
 
