@@ -251,7 +251,6 @@ The Kubernetes policy working group focuses on developing tools and solutions th
   - <https://github.com/thanos-io/thanos/issues/3478>
 - Apply: <https://mentorship.lfx.linuxfoundation.org/project/4c06915e-8e72-4321-95c5-ed0ee9428a32>
 
-
 #### etcd
 
 ##### Etcd.io Docs/SEO Improvement Plan Continuation
@@ -311,3 +310,41 @@ The Kubernetes policy working group focuses on developing tools and solutions th
 - Mentor(s): Kiran Mova (@kmova), Harsh Vardhan (@vharsh)
 - Upstream Issue (URL): <https://github.com/openebs/openebsctl/issues/81>
 - Apply: <https://mentorship.lfx.linuxfoundation.org/project/64e3add3-060b-4ffa-9408-1289e2f2fdc5>
+
+#### Service Mesh Performance
+
+##### Definition of MeshMark
+
+- Description: Create MeshMark provides a universal performance index to gauge your mesh’s efficiency against deployments in other organizations’ environments. MeshMark functions as a service mesh performance index (a scale) to provide people the ability to weigh the value of their service mesh versus the overhead of their service mesh and assess whether they are getting out of the mesh what they are “paying” for in it. Work with maintainers from Layer5, Intel, Red Hat, and HashiCorp on researching cloud native infrastructure performance. Internship involves: machine learning, adaptive algorithms, running and analyzing performance statistics.
+- Recommended Skills: Analytics, Algorithms, Data Science, (Golang and/or C++ helpful, but not necessary)
+- Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)), Navendu Pottekkat ([@navendu-pottekkat](https://github.com/navendu-pottekkat))
+- Issue: <https://github.com/service-mesh-performance/service-mesh-performance/issues/227>
+- Apply: <https://mentorship.lfx.linuxfoundation.org/project/278ad0b0-ec8a-474a-863b-a8a01956d99c>
+
+#### Meshery
+
+##### Service mesh playground
+
+- Description: Create the world’s service mesh playground. Meshery’s genesis is that of helping teach people about service mesh technology and enabling to operate this type of cloud native infrastructure confidently. The proposed project is aimed at furthering this mission with interactive API documentation connected to a service mesh learning playground (a running instance of Meshery).
+- Recommended Skills: Golang, ReactJS
+- Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)), Rudraksh Pareek [@delusionaloptimist](https://github.com/delusionaloptimist)
+- Issue: <https://github.com/layer5io/meshery/issues/2931>
+- Apply: <https://mentorship.lfx.linuxfoundation.org/project/c035515b-cf76-4225-8f28-da16b0a832e5>
+
+##### Workflow engine
+
+- Description: Integrate a new architectural component into Meshery: a workflow engine. This project involves shifting Meshery off of bitcask and off of sqlite over to postgres using gorm (golang). Interns will familiarize with concepts of orchestration engines, including chaining workflows, and content lifecycle management.
+- Recommended Skills: Golang, Temporal, ReactJS
+- Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)), Utkarsh Srivastava ([@utkarshdev23](https://twitter.com/utkarshdev23))
+- Issue: <https://github.com/meshery/meshery/issues/3934>
+- Apply: <https://mentorship.lfx.linuxfoundation.org/project/1d6304a1-12a5-449a-8fd3-436be9756b09>
+
+#### Service Mesh Interface
+
+##### Conformance Program
+
+- Description: Ensure that a service mesh is properly configured and that its behavior conforms to official SMI specifications. Advance the definition of conformance tests and the test framework, Meshery (see [design specification](https://docs.google.com/document/d/1HL8Sk7NSLLj-9PRqoHYVIGyU6fZxUQFotrxbmfFtjwc/edit)).
+- Recommended Skills\*\*: Golang, ReactJS, GitHub Actions
+- Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)), Navendu Pottekkat [@navendu-pottekkat](https://github.com/navendu-pottekkat)
+- Issue: [https://github.com/servicemeshinterface/smi-spec/issues/70](https://github.com/servicemeshinterface/smi-spec/issues/70)
+- Apply: <https://mentorship.lfx.linuxfoundation.org/project/8b542e66-e8e7-44fa-bb64-4ef88f815eb1>
