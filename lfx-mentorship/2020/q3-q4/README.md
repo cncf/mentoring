@@ -4,7 +4,7 @@
 Q3-Q4
 -----
 
-*Status: ongoing*
+*Status: Completed*
 
 ### Timeline
 

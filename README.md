@@ -10,6 +10,8 @@ The Cloud Native Computing Foundation (CNCF) participates in a variety of mentor
   - [Program Statistics](#program-statistics)
     - [LFX (ex-Community Bridge)](#lfx-ex-community-bridge)
       - [2021](#2021)
+        - [Fall](#fall)
+        - [Summer](#summer)
         - [Spring](#spring)
       - [2020](#2020)
         - [Q3-Q4](#q3-q4)
