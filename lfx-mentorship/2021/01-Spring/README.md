@@ -1,6 +1,6 @@
 ## Q1
 
-_Status: Ongoing_
+_Status: Completed_
 
 ### Timeline
 

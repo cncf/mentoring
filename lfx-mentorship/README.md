@@ -32,7 +32,7 @@ LFX Mentorship is actively used by the Cloud Native Computing Foundation as a me
 
 ### Current cycle
 
-The LFX Mentorship program is ongoing. The current cycle is Spring'2021, and more details are available on the [dedicated page](2021/01-Spring/README.md).
+The LFX Mentorship program is ongoing. The current cycle is Fall 2021, and more details are available on the [dedicated page](2021/03-Fall/README.md).
 
 ## Program Maintainers
 

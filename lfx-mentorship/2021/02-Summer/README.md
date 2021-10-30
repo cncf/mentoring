@@ -43,9 +43,7 @@ _Status: Completed_
 
 ### Timeline
 
-**Spring Term: June 1st - August 31st**
-
-Summer Term: June 1st - August 31st
+**Summer Term: June 1st - August 31st**
 
 - mentorships available on LFX Mentorship: May 3rd, 2021
 - applications open: May 3rd - May 17th (3 weeks)
