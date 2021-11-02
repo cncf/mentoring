@@ -1,11 +1,11 @@
-## Outreachy
+# Outreachy
 
 CNCF supports participating in the [Outreachy](https://www.outreachy.org/) program for the
 hosted projects. For example, Kubernetes has been participating in the
 Outreachy program for a few years in a row -
-https://github.com/kubernetes/community/blob/master/mentoring/programs/outreachy.md.
+<https://github.com/kubernetes/community/blob/master/mentoring/programs/outreachy.md>.
 
-### Mentees
+## Mentees
 
 | Year            | Mentee                                                | Project       |
 | --------------- | ----------------------------------------------------- | ------------- |
