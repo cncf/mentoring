@@ -20,19 +20,19 @@ LFX Mentorship is actively used by the Cloud Native Computing Foundation as a me
 
 ## Program Cycles and Archive data
 
-| Year | Term   | Status      | Announcement                                                                                                                                                         | Details                                 |
-| ---- | ------ | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
-| 2021 | Fall   | In Progress |                                                                                                                                                                      | [Fall'2021](2021/03-Fall/README.md)     |
-|      | Summer | Completed   |                                                                                                                                                                      | [Summer'2021](2021/02-Summer/README.md) |
-|      | Spring | Completed   | [CNCF Blog](https://www.cncf.io/blog/2021/02/03/cncf-lfx-projects-are-open-for-spring-term-2021-apply-now-for-a-mentorship-opportunity/)                             | [Spring'2021](2021/01-Spring/README.md) |
-| 2020 | Q3-Q4  | Completed   | [CNCF Blog](https://www.cncf.io/blog/2020/09/04/cncf-will-participate-in-communitybridge-mentorships-for-q3-and-q4-2020/)                                            | [Q3-Q4'2020](2020/q3-q4/README.md)      |
-|      | Q2     | Completed   | [CNCF Blog](https://www.cncf.io/blog/2020/08/13/21-cncf-interns-graduate-from-the-q2-2020-linux-foundation-communitybridge-program/)                                 | [Q2'2020](2020/q2/README.md)            |
-|      | Q1     | Completed   | [CNCF Blog](https://www.cncf.io/blog/2020/04/15/seven-cncf-interns-graduate-from-the-2020-linux-foundation-communitybridge-program/)                                 | [Q1'2020](2020/q1/README.md)            |
-| 2019 | Pilot  | Completed   | [CNCF Blog](https://www.cncf.io/blog/2019/08/22/cncf-hosts-three-student-internships-for-kubernetes-and-coredns-projects-through-linux-foundations-communitybridge/) | [2019](2019/README.md)                  |
+| Year | Term   | Status    | Announcement                                                                                                                                                         | Details                                 |
+| ---- | ------ | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| 2021 | Fall   | Completed | [CNCF Blog](https://www.cncf.io/blog/2021/08/16/cncf-lfx-projects-are-open-for-fall-2021-apply-by-august-22nd)                                                       | [Fall'2021](2021/03-Fall/README.md)     |
+|      | Summer | Completed | [CNCF Blog](https://www.cncf.io/blog/2021/05/04/cncf-lfx-projects-are-open-for-summer-2021-apply-by-may-17th)                                                        | [Summer'2021](2021/02-Summer/README.md) |
+|      | Spring | Completed | [CNCF Blog](https://www.cncf.io/blog/2021/02/03/cncf-lfx-projects-are-open-for-spring-term-2021-apply-now-for-a-mentorship-opportunity/)                             | [Spring'2021](2021/01-Spring/README.md) |
+| 2020 | Q3-Q4  | Completed | [CNCF Blog](https://www.cncf.io/blog/2020/09/04/cncf-will-participate-in-communitybridge-mentorships-for-q3-and-q4-2020/)                                            | [Q3-Q4'2020](2020/q3-q4/README.md)      |
+|      | Q2     | Completed | [CNCF Blog](https://www.cncf.io/blog/2020/08/13/21-cncf-interns-graduate-from-the-q2-2020-linux-foundation-communitybridge-program/)                                 | [Q2'2020](2020/q2/README.md)            |
+|      | Q1     | Completed | [CNCF Blog](https://www.cncf.io/blog/2020/04/15/seven-cncf-interns-graduate-from-the-2020-linux-foundation-communitybridge-program/)                                 | [Q1'2020](2020/q1/README.md)            |
+| 2019 | Pilot  | Completed | [CNCF Blog](https://www.cncf.io/blog/2019/08/22/cncf-hosts-three-student-internships-for-kubernetes-and-coredns-projects-through-linux-foundations-communitybridge/) | [2019](2019/README.md)                  |
 
 ### Current cycle
 
-The LFX Mentorship program is ongoing. The current cycle is Fall 2021, and more details are available on the [dedicated page](2021/03-Fall/README.md).
+The LFX Mentorship program is completed for 2021. The current cycle is Spring 2022, and more details are coming in Q1'2022.
 
 ## Program Maintainers
 
@@ -41,7 +41,7 @@ The LFX Mentorship program is ongoing. The current cycle is Fall 2021, and more 
 
 ## Communication
 
-LFX Platfrom-specific documentation is available [here](https://docs.linuxfoundation.org/lfx/mentorship). In the case of any questions or issues with the LFX Mentorship platform/website itself, please reach out to the [LFX Mentorship support team](https://support.linuxfoundation.org/) directly.
+LFX Platfrom-specific documentation is available [here](https://docs.linuxfoundation.org/lfx/mentorship). In the case of any questions or issues with the LFX Mentorship platform/website itself, payments, etc., please reach out to the [LFX Mentorship support team](https://support.linuxfoundation.org/) directly.
 
 For the CNCF-specific questions, please use the dedicated [#mentoring](https://cloud-native.slack.com/archives/CPV83DB51) channel on the [CNCF Slack](https://slack.cncf.io/) (or email us to mentoring@cncf.io if you have any questions you don't want to raise up publicly).
 

@@ -66,8 +66,8 @@ It's best if you use a public communication channel whenever possible; however, 
 
 | Year | Program                          | Internships | Total (per year) |
 | ---- | -------------------------------- | ----------- | ---------------- |
-| 2021 | LFX Mentorship (CommunityBridge) | 80          | 99 (in progress) |
-|      | GSoC                             | 17          |                  |
+| 2021 | LFX Mentorship (CommunityBridge) | 86          | 104              |
+|      | GSoC                             | 16          |                  |
 |      | GSoD                             | 1           |                  |
 |      | Outreachy                        | 1           |                  |
 | 2020 | LFX Mentorship (CommunityBridge) | 50          | 71               |
@@ -85,6 +85,74 @@ It's best if you use a public communication channel whenever possible; however, 
 ### LFX (ex-Community Bridge)
 
 #### 2021
+
+##### Fall
+
+| Mentoring Project                                                                                    | Mentor Name(s)        | Mentee Name       |
+| ---------------------------------------------------------------------------------------------------- | --------------------- | ----------------- |
+| CNCF - Kyverno: Scalability testing for Kyverno                                                      | Shuting Zhao          | Siddharth Lal     |
+| CNCF - Kyverno: Security model and processes for Kyverno                                             | Jim Bugwadia          | Shubham Palriwala |
+| CNCF - Buildpacks: Update Builder implementation to 0.1 Builder Spec                                 | Javier Romero         | Jimil Desai       |
+| CNCF - Kubernetes Policy WG: KubeArmor support for Policy Report CRD                                 | Jim Bugwadia          | Haardik Dharma    |
+| CNCF - Vitess: Add complete parsing support for MySQL constructs                                     | Manan Gupta           | Ritwiz Sinha      |
+| CNCF - Kubevela: Building An Machine Learning Platform on KubeVela                                   | Hongchao Deng         | Yantong Cai       |
+| CNCF - Service Mesh Performance: Definition of MeshMark                                              | Lee Calcote           | Bariq Nurlis      |
+| CNCF - Meshery: Service mesh playground                                                              | Lee Calcote           | Nitihish Karthik  |
+| CNCF - Service Mesh Interface: Conformance Program                                                   | Lee Calcote           | Rudraksh Pareek   |
+| CNCF - Meshery: Workflow engine                                                                      | Lee Calcote           | Ashish Tiwari     |
+| CNCF - Buildpacks: Web Redesign of Feature Comparison                                                | Javier Romero         | Harshita Kanal    |
+| CNCF - Tremor: AWS (S3) connectors                                                                   | Matthias Wahl         | Daksh Chauhan     |
+| CNCF - Tremor: Solidify and generalize error handling code in the runtime                            | Matthias Wahl         | Rishabh Singh     |
+| CNCF - Vitess: Add support for comparing strings using collations and character-sets                 | Vicent Marti          | Lakshya Singh     |
+| CNCF - Kubernetes: Improve SIG-Node testing using Kubetest2                                          | Davanum Srinivas      | Naman Lakhwani    |
+| CNCF - etcd: Etcd.io Docs/SEO Improvement Plan Continuation                                          | Nate Waddington       | Somoshree Datta   |
+| CNCF - Kubernetes: Improvements to Cluster API provider for GCP (CAPG)                               | Davanum Srinivas      | Sayantani Saha    |
+| CNCF - Chaos Mesh: Monitoring Metrics about Chaos Mesh                                               | Zhiqiang Zhou         | Chunxu Zhang      |
+| CNCF - OpenEBS: Enhance OpenEBS CLI with a sub-command to upgrade Jiva Volumes                       | Kiran Mova            | Abhishek Kumar    |
+| CNCF - OpenEBS: A Kubernetes operator to remove stale PVs of failed statefulset replicas             | Kiran Mova            | Kumar Raj         |
+| CNCF - WasmEdge: Support Wasm-Signature proposal                                                     | Hung-Ying Tai         | Xingzi Yu         |
+| CNCF - WasmEdge: Support WASI-NN proposal                                                            | Hung-Ying Tai         | 郭泰佑 Kuo        |
+| CNCF - WasmEdge: Support WASI-Crypto proposal                                                        | Hung-Ying Tai         | Yang WenShuo      |
+| CNCF - WasmEdge: Support Wasm-C-API proposal                                                         | Hung-Ying Tai         | 牟展佑 牟展佑     |
+| CNCF - Vitess: Add support for Upgrade/Downgrade Testing                                             | Harshit Gangal        | Arib Alam         |
+| CNCF - Kubernetes: Improvements to Cluster API provider for GCP (CAPG)                               | Davanum Srinivas      | Jayesh Srivastava |
+| CNCF - LitmusChaos: Develop/Enhance E2E test-cases for ChaosCenter                                   | Vedant Shrotria       | Dhananjay Purohit |
+| CNCF - Thanos: Add metrics to track the progress for compaction and downsampling                     | Giedrius Statkevičius | Aditi Ahuja       |
+| CNCF - Thanos: Add groupcache (and improve) backend for the caching bucket in Thanos Store           | Giedrius Statkevičius | Akansha Tiwari    |
+| CNCF - Thanos: Migrate Thanos to the New Protocol Buffers v2 API                                     | Giedrius Statkevičius | Rahul Sawra       |
+| CNCF - Thanos: Migrate Thanos to the New Protocol Buffers v2 API                                     | Giedrius Statkevičius | Rahul Sawra       |
+| CNCF - Thanos: Add groupcache (and improve) backend for the caching bucket in Thanos Store           | Giedrius Statkevičius | Akansha Tiwari    |
+| CNCF - Thanos: Migrate Thanos to the New Protocol Buffers v2 API                                     | Giedrius Statkevičius | Rahul Sawra       |
+| CNCF - Thanos: Add metrics to track the progress for compaction and downsampling                     | Giedrius Statkevičius | Aditi Ahuja       |
+| CNCF - Kubernetes: Improve SIG-Node testing using Kubetest2                                          | Davanum Srinivas      | Naman Lakhwani    |
+| CNCF - LitmusChaos: Develop E2E dashboard with CI/CD pipeline details and enhance litmus e2e website | Soumya Ghosh Dastidar | Aman Dwivedi      |
+| CNCF - Kyverno: Extend Kyverno test command to cover generate policies & improve test coverage       | Shuting Zhao          | Pritish Samal     |
+
+##### Summer
+
+| Mentoring Project Name                                                                               | Mentor Name         | Mentee Name        |
+| ---------------------------------------------------------------------------------------------------- | ------------------- | ------------------ |
+| CNCF - OpenEBS: Default Kyverno policies for OpenEBS                                                 | Kiran Mova          | Nivedita Prasad    |
+| CNCF - Vitess: Add testing framework for Django to ensure compatibility with Vitess                  | Manan Gupta         | Abhay Katheria     |
+| CNCF - Kubernetes Policy WG: Image Scanner Adapter                                                   | Jim Bugwadia        | Stephen Adeniyi    |
+| CNCF - Kubernetes Policy WG: Falco Adapter                                                           | Jim Bugwadia        | Anushka Mittal     |
+| CNCF - CoreDNS: Add ACME protocol support for certificate management with DNS                        | Yong Tang           | Zhi Chin           |
+| CNCF- Tremor: Modular sub-queries in tremor-query                                                    | Heinz Gies          | Yatin Maan         |
+| CNCF - Tremor: Tremor Web Redesign - Make tremor’s web presence awesome                              | Heinz Gies          | Sharon Koech       |
+| CNCF - KubeEdge: Refactor the cloudStream to pass-through the request instead of parsing the web pat | fisher xu           | Zhe Gong           |
+| CNCF - KubeEdge: Improve the KubeEdge website                                                        | Kevin Wang (zefeng) | Sh Ning            |
+| CNCF - Buildpacks: Embed source metadata in OCI image                                                | Javier Romero       | Haimantika Mitra   |
+| CNCF - Racklet: Open source scale-model of Data Centers using commodity compute like Raspberry Pis   | Davanum Srinivas    | Lucas Käldström    |
+| CNCF - Racklet: Open source scale-model of Data Centers using commodity compute like Raspberry Pis   | Davanum Srinivas    | Dennis Marttinen   |
+| CNCF - Racklet: Open source scale-model of Data Centers using commodity compute like Raspberry Pis   | Davanum Srinivas    | Jakko Ilmari Siren |
+| CNCF - Racklet: Open source scale-model of Data Centers using commodity compute like Raspberry Pis   | Davanum Srinivas    | Verneri Hirvonen   |
+| CNCF - OpenEBS: Enforcing XFS quotas on OpenEBS hostpath Local PV                                    | Kiran Mova          | Almas Ahmad        |
+| CNCF - Meshery/SMI: Service mesh playground                                                          | Lee Calcote         | Soham Sonawane     |
+| CNCF - TiKV: Implement Node client                                                                   | Andy Lok            | Jiaxiao Zhou       |
+| CNCF - Thanos: Enhanced Block Viewer UI                                                              | Lucas Servén Marín  | Shafiya Adzhani    |
+| CNCF - Thanos: Descriptive API definitions using OpenAPI and Protobuf                                | Bartlomiej Płotka   | Yiwei Dai          |
+| CNCF - Cortex: Cue support and validation for the Cortex config                                      | Jacob Lisi          | Cong Ding          |
+| CNCF - Kyverno: Test mutate and generate policies via the Kyverno CLI                                | Shuting Zhao        | Vivek Sahu         |
 
 ##### Spring
 
