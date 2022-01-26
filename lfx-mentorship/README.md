@@ -22,6 +22,7 @@ LFX Mentorship is actively used by the Cloud Native Computing Foundation as a me
 
 | Year | Term   | Status    | Announcement                                                                                                                                                         | Details                                 |
 | ---- | ------ | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| 2022 | Spring | Planned   |                                                                                                                                                                      | [Spring'2022](2022/01-Spring/README.md) |
 | 2021 | Fall   | Completed | [CNCF Blog](https://www.cncf.io/blog/2021/08/16/cncf-lfx-projects-are-open-for-fall-2021-apply-by-august-22nd)                                                       | [Fall'2021](2021/03-Fall/README.md)     |
 |      | Summer | Completed | [CNCF Blog](https://www.cncf.io/blog/2021/05/04/cncf-lfx-projects-are-open-for-summer-2021-apply-by-may-17th)                                                        | [Summer'2021](2021/02-Summer/README.md) |
 |      | Spring | Completed | [CNCF Blog](https://www.cncf.io/blog/2021/02/03/cncf-lfx-projects-are-open-for-spring-term-2021-apply-now-for-a-mentorship-opportunity/)                             | [Spring'2021](2021/01-Spring/README.md) |
