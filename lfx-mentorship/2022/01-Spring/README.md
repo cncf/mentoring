@@ -1,6 +1,6 @@
 # Q1
 
-\_Status: Planned
+Status: Planned
 
 ## Timeline
 
