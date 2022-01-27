@@ -28,7 +28,7 @@ The Cloud Native Computing Foundation (CNCF) participates in a variety of mentor
 
 ## Organization Admins
 
-If you need help with anything mentoring at CNCF, you can file an issue at this repo or reach out to us at the #mentoring channel on [CNCF Slack](https://slack.cncf.io/).
+If you need help with anything mentoring at CNCF, you can file an issue at this repo or reach out to us at the #mentoring channel on [CNCF Slack](https://slack.cncf.io/). In addition, please use the Discussions boards [here](https://github.com/cncf/mentoring/discussions).
 
 Organization admins for specific mentorship programs are listed on the programs respective pages.
 
