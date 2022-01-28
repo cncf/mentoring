@@ -76,3 +76,19 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Recommended Skills: golang, k8s
 - Mentor(s): Jianbo Sun (@wonderflow), Da Yin (@somefive)
 - Upstream Issue (URL): https://github.com/oam-dev/kubevela/issues/3178
+
+#### Kuma
+
+##### Active monitoring of Cross Zone communication
+
+- Description: [Kuma](https://github.com/kumahq/kuma) is a modern Envoy-based service mesh that can run on every cloud, in a single or multi-zone capacity, across both Kubernetes and VMs. It is currently a CNCF Sandbox project. Because Kuma is heavily built with multi zones in mind it is needed for Kuma to provide a good level of observability of connectivity between these zones. This project aims to provide active monitoring of connections between each zone and create new apis to bubble up this information in the GUI and in our Grafana dashboards. This project goes from design to complete implementation, documentation and demonstration.
+- Recommended Skills: golang, k8s
+- Mentor(s): Jakub Dyszkiewicz (@jakubdyszkiewicz), Bart Smykla (@bartsmykla), Charly Molter (@lahabana)
+- Upstream Issue (URL): https://github.com/kumahq/kuma/issues/1907
+
+##### Add status infos in Kubernetes CRDs
+
+- Description: [Kuma](https://github.com/kumahq/kuma) is a modern Envoy-based service mesh that can run on every cloud, in a single or multi-zone capacity, across both Kubernetes and VMs. It is currently a CNCF Sandbox project. While Kuma currently exposes information about status in its [api](https://kuma.io/docs/1.4.x/documentation/http-api/#mesh-insights) Kubernetes users usualy expect these to be also present in the Status fields of their resources. This project aims in adding status to all Kuma CRD and to improve our controllers to set these as cluster state changes.
+- Recommended Skills: golang, k8s
+- Mentor(s): Jakub Dyszkiewicz (@jakubdyszkiewicz), Bart Smykla (@bartsmykla), Charly Molter (@lahabana)
+- Upstream Issue (URL): https://github.com/kumahq/kuma/issues/3734
