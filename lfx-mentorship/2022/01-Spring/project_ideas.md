@@ -51,3 +51,12 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Recommended Skills: golang, k8s
 - Mentor(s): Jaehyun Nam (@nam-jaehyun), Rahul Jadhav (@nyrahul), Barun Acharya (@daemon1024)
 - Upstream Issue (URL): https://github.com/kubearmor/KubeArmor/issues/360
+
+### Chaos Mesh
+
+#### Interactive Katacoda Playground for Chaos Experiment Examples
+
+- Description: [Chaos Mesh](https://chaos-mesh.org/) is a powerful chaos engineering platform for Kubernetes. There is a Katacoda playground as [interactive tutorial](https://chaos-mesh.org/interactive-tutorial/), and we want to build more Katacoda scenarios as the minimum examples for each certain type of chaos experiment. The basic work would be to create new katacoda scenarios as referred to by https://github.com/chaos-mesh/chaos-mesh/tree/master/examples, and build small applications (with well-built observability) as the target of chaos experiment if required. This project will not require you to dive deep into the hard-core parts of Chaos Mesh, instead, it would be a tour of learning and exploring Chaos Mesh.
+- Recommended Skills: golang, Kubernetes, Shell scripts
+- Mentor(s): Zhiqiang Zhou (@STRRL)
+- Upstream Issue: <https://github.com/chaos-mesh/chaos-mesh/issues/2842>
