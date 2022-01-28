@@ -60,3 +60,19 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Recommended Skills: golang, Kubernetes, Shell scripts
 - Mentor(s): Zhiqiang Zhou (@STRRL)
 - Upstream Issue: <https://github.com/chaos-mesh/chaos-mesh/issues/2842>
+
+#### KubeVela
+
+##### Enhance multi-cluster observability
+
+- Description: [KubeVela](https://github.com/oam-dev/kubevela) is a modern application delivery platform based on Kubernetes. It is currently a CNCF Sandbox project. KubeVela supports managing application delivery in multi-clusters. One of the basic problem is to validate the health status of managed clusters. Besides, it is also useful to integrate other metrics like CPU core usage or number of available graphical cards. This project aims to establish a mechanism to support these features.
+- Recommended Skills: golang, k8s
+- Mentor(s): Jianbo Sun (@wonderflow), Da Yin (@somefive)
+- Upstream Issue (URL): https://github.com/oam-dev/kubevela/issues/3177
+
+##### Extend monitoring through VelaQL
+
+- Description: [KubeVela](https://github.com/oam-dev/kubevela) is a modern application delivery platform based on Kubernetes. It is currently a CNCF Sandbox project. In KubeVela, a CUE-based query mechanism is developed to satisfy the demands of advanced queries behind Kubernetes resources, which is called VelaQL. This project aims to make extensions to this mechanism and support monitoring Kubernetes resources through VelaQL. For example, monitoring the logs of pods in KubeVela Application behind Grafana.
+- Recommended Skills: golang, k8s
+- Mentor(s): Jianbo Sun (@wonderflow), Da Yin (@somefive)
+- Upstream Issue (URL): https://github.com/oam-dev/kubevela/issues/3178
