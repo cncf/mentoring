@@ -76,3 +76,33 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Recommended Skills: golang, k8s
 - Mentor(s): Jianbo Sun (@wonderflow), Da Yin (@somefive)
 - Upstream Issue (URL): https://github.com/oam-dev/kubevela/issues/3178
+
+#### WasmEdge
+
+##### Improving the performance of running miniruby
+
+- Description: [WasmEdge](https://github.com/WasmEdge/WasmEdge) is a lightweight, high-performance, and extensible WebAssembly runtime for cloud native, edge, and decentralized applications. WasmEdge is an official sandbox project hosted by the CNCF. WasmEdge is designed for the general purpose wasm runtime. However, when running miniruby, we found the performance is worse than other runtimes such as wasmtime, even after using the ahead-of-time compilation.
+- Recommended Skills: profiling tools, c++
+- Mentor(s): Hung-Ying Tai (@hydai), Shen-Ta Hsieh (@ibmibmibm)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/1062
+
+##### Improving the performance of running rustpython
+
+- Description: [WasmEdge](https://github.com/WasmEdge/WasmEdge) is a lightweight, high-performance, and extensible WebAssembly runtime for cloud native, edge, and decentralized applications. WasmEdge is an official sandbox project hosted by the CNCF. WasmEdge is designed for the general purpose wasm runtime. However, when running rustpython, we found the performance is worse than other runtimes such as wasmtime, even after using the ahead-of-time compilation.
+- Recommended Skills: profiling tools, c++
+- Mentor(s): Hung-Ying Tai (@hydai), Shen-Ta Hsieh (@ibmibmibm)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/1061
+
+##### Enable OpenVINO backend for WASI-NN
+
+- Description: [WasmEdge](https://github.com/WasmEdge/WasmEdge) is a lightweight, high-performance, and extensible WebAssembly runtime for cloud native, edge, and decentralized applications. WasmEdge is an official sandbox project hosted by the CNCF. WasmEdge has implemented some features of WASI-NN. However, the backend is using ONNX. In this ticket, we would like to have both ONNX and OpenVINO backend.
+- Recommended Skills: c++, OpenVINO
+- Mentor(s): Hung-Ying Tai (@hydai), Yi-Ying He (@q82419)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/1063
+
+##### Implement typed function references proposal
+
+- Description: [WasmEdge](https://github.com/WasmEdge/WasmEdge) is a lightweight, high-performance, and extensible WebAssembly runtime for cloud native, edge, and decentralized applications. WasmEdge is an official sandbox project hosted by the CNCF. This proposal is one of the requirements for GC proposal. Typed function references proposal adds function references that are typed and can be called directly.
+- Recommended Skills: c++
+- Mentor(s): Hung-Ying Tai (@hydai), Yi-Ying He (@q82419)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/1123
