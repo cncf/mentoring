@@ -80,9 +80,9 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 #### Kyverno
 
-##### Extend Kyverno CLI test command for Generate policy ru;es
+##### Extend Kyverno CLI test command for Generate policy rules
 
-- **Description**: [Kyverno](https://kyverno.io) is a Kubernetes native policy engine that secures and automates Kubernetes configurations. This project extends the Kyverno CLI to cover generate policies and improve tests coverage for Kyverno. Based on the test results. The enhancement will involve extending the test command for generate policy rules, adding more test cases for the samples, and automating execution of tests.
+- **Description**: [Kyverno](https://kyverno.io) is a Kubernetes native policy engine that secures and automates Kubernetes configurations. This project extends the Kyverno CLI to cover generate policies and improve tests coverage for Kyverno, based on the test results. The enhancement will involve extending the test command for generate policy rules, adding more test cases for the samples, and automating execution of tests.
 - **Recommended Skills**: Golang, Kubernetes, Test, Automation
 - **Mentor(s)**: Prateek Pandey (@prateekpandey14)
 - **Upstream Issue (URL)**: https://github.com/kyverno/kyverno/issues/3114
@@ -90,14 +90,14 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 ##### e2e tests and CLI tests to cover sample policies
 
-- **Description**: [Kyverno](https://kyverno.io) is a Kubernetes native policy engine that secures and automates Kubernetes configurations. This project is to create automated test cases for the samples policies which are missing, and automating execution of tests.The enhancement will involve adding more unit/E2E tests.
+- **Description**: [Kyverno](https://kyverno.io) is a Kubernetes native policy engine that secures and automates Kubernetes configurations. This project will create automated test cases for the samples policies which are missing, and automating execution of tests.The enhancement will involve adding more unit/E2E tests.
 - **Recommended Skills**: Golang, Kubernetes, Test, Automation
 - **Mentor(s)**: Vyankatesh Kudtarkar (@vyankyGH), Prateek Pandey (@prateekpandey14)
 - **Upstream Issue (URL)**: https://github.com/kyverno/kyverno/issues/3121
 
 ##### Automate Performance Testing
 
-- **Description**:  [Kyverno](https://kyverno.io) is a Kubernetes native policy engine that secures and automates Kubernetes configurations. This project automates scalability tests for Kyverno on large Kubernetes clusters with several namespaces and resources. The candidate has to propose an automation plan and help optimize resource usage of Kyverno for different loads for large Kubernetes clusters.
+- **Description**:  [Kyverno](https://kyverno.io) is a Kubernetes native policy engine that secures and automates Kubernetes configurations. This project automates scalability tests for Kyverno on large Kubernetes clusters with several namespaces and resources. The candidate has to propose an automation plan to create clusters and resources and help optimize resource usage of Kyverno for different loads for large Kubernetes clusters.
 - **Recommended Skills**: Golang, Kubernetes, Test, Automation
 - **Mentor(s)**: Shuting Zhao (@realshuting)
 - **Upstream Issue (URL)**: https://github.com/kyverno/kyverno/issues/3113
@@ -112,7 +112,7 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 ##### OpenTelemetry exporter for Kyverno
 
-- **Description**: [Kyverno](https://kyverno.io) is a Kubernetes native policy engine that secures and automates Kubernetes configurations. This project will instrument Kyverno to export OpenTelemetry data for metrics, logs, flows, and policy reports.
+- **Description**: [Kyverno](https://kyverno.io) is a Kubernetes native policy engine that secures and automates Kubernetes configurations. This project will instrument Kyverno to export OpenTelemetry data for metrics, logs, flows, and policy reports. The project will include testing with OpenTelemetry collectors and documenting the integration steps.
 - **Recommended Skills**: Observability, Prometheus, OpenTelemetry, Golang
 - **Mentor(s)**: Shuting Zhao (@realshuting), Jim Bugwadia (@JimBugwadia)
 - **Upstream Issue (URL)**: https://github.com/kyverno/kyverno/issues/3120
