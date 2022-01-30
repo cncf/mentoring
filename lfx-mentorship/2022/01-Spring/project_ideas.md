@@ -76,3 +76,21 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Recommended Skills: golang, k8s
 - Mentor(s): Jianbo Sun (@wonderflow), Da Yin (@somefive)
 - Upstream Issue (URL): https://github.com/oam-dev/kubevela/issues/3178
+
+
+#### Kubernetes SIG-Network Gateway API
+
+##### Docuemntation assessment
+
+- Description: [Gateway API](https://gateway-api.sigs.k8s.io/) is an evolution of Kubernetes Ingress and Service networking that aims to upgrade and improve these APIs. This project is to have a [docs assessment](https://github.com/cncf/techdocs/blob/main/assessments/howto.md) performed, to help us come with a plan for improving our documentaion. In particular, we're looking for someone to look at the content organization, the clarity of the language and concepts, and to make sure it's as readable as possible for both implementors and end users. You'll be working with the mentors and maintainers of the project, with a stretch goal being to make the changes you produce in the initial assessment.
+- Please provide a writing sample with the application.
+- Recommended Skills:
+  - Technical Writing
+  - Documentation
+  - English
+  - git/GitHub
+    - Familiarity with Kubernetes and Ingress may also be helpful, but are not required.
+- Mentor(s):
+  - Primary: [Nick Young](https://github.com/youngnick)
+  - Adjunct: [Nate Waddington](https://github.com/nate-double-u)
+- Upstream Issue (URL): https://github.com/kubernetes-sigs/gateway-api/issues/1003
