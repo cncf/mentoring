@@ -76,3 +76,12 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Recommended Skills: golang, k8s
 - Mentor(s): Jianbo Sun (@wonderflow), Da Yin (@somefive)
 - Upstream Issue (URL): https://github.com/oam-dev/kubevela/issues/3178
+
+#### Vitess
+
+##### Add complete parsing support for MySQL functions
+
+ - Description: Vitess is a database clustering system for horizontal scaling of MySQL. One of the key goals of Vitess is to emulate MySQL behavior even while running multiple MySQL instances so that ORMs and frameworks work seamlessly. Vitess has its own in-built SQL-parser which it uses to understand the query and represent as structs for further processing. As of now, a lot of MySQL functions are not parsed correctly and result in syntax errors. Parsing for a lot of the newer features in MySQL 8.0 is also missing. The task of the mentee would be to add parsing support for such functions and features. 
+ - Recommended Skills: go, SQL, yacc, compilers and lexers
+ - Mentor(s): Manan Gupta (@GuptaManan100)
+ - Issue: <https://github.com/vitessio/vitess/issues/8604>
