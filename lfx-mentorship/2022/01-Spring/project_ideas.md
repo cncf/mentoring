@@ -215,3 +215,14 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Recommended Skills: go, SQL, yacc, compilers and lexers
 - Mentor(s): Manan Gupta (@GuptaManan100)
 - Issue: <https://github.com/vitessio/vitess/issues/8604>
+
+#### Elekto and Kubernetes SIG-ContribEx Elections Security Improvements
+
+- **Description**: [Elekto](https://elekto.dev) is a project for running preference elections for open source projects hosted by the CNCF.  It is used for elections for the Kubernetes and Knative projects, and will soon be used by others.  During the 2021 elections, a security audit identified several areas of improvement in both in the security and privacy of Elekto, and in the security of the Kubernetes deployment.  The mentee for this project would be implementing those recommendations in order to make Elekto and Kubernetes elections more secure.
+- **Recommended Skills**:
+  - Python/Flask programming
+  - Understand basic HTML/CSS
+  - Moderate knowledge of SQL and database migrations
+  - How to use basic cryptographic functions available in existing libraries
+- **Mentor(s)**: Josh Berkus (@jberkus)
+- **Issue**: [Implement Security Recommendations](https://github.com/elekto-io/elekto/issues/51)
