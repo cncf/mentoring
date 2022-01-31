@@ -52,9 +52,9 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Mentor(s): Jaehyun Nam (@nam-jaehyun), Rahul Jadhav (@nyrahul), Barun Acharya (@daemon1024)
 - Upstream Issue (URL): https://github.com/kubearmor/KubeArmor/issues/360
 
-### Chaos Mesh
+#### Chaos Mesh
 
-#### Interactive Katacoda Playground for Chaos Experiment Examples
+##### Interactive Katacoda Playground for Chaos Experiment Examples
 
 - Description: [Chaos Mesh](https://chaos-mesh.org/) is a powerful chaos engineering platform for Kubernetes. There is a Katacoda playground as [interactive tutorial](https://chaos-mesh.org/interactive-tutorial/), and we want to build more Katacoda scenarios as the minimum examples for each certain type of chaos experiment. The basic work would be to create new katacoda scenarios as referred to by https://github.com/chaos-mesh/chaos-mesh/tree/master/examples, and build small applications (with well-built observability) as the target of chaos experiment if required. This project will not require you to dive deep into the hard-core parts of Chaos Mesh, instead, it would be a tour of learning and exploring Chaos Mesh.
 - Recommended Skills: golang, Kubernetes, Shell scripts
@@ -107,9 +107,9 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Mentor(s): Hung-Ying Tai (@hydai), Yi-Ying He (@q82419)
 - Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/1123
 
-### Kyverno
+#### Kyverno
 
-#### Extend Kyverno CLI test command for Generate policy rules
+##### Extend Kyverno CLI test command for Generate policy rules
 
 - **Description**: [Kyverno](https://kyverno.io) is a Kubernetes native policy engine that secures and automates Kubernetes configurations. This project extends the Kyverno CLI to cover generate policies and improve tests coverage for Kyverno, based on the test results. The enhancement will involve extending the test command for generate policy rules, adding more test cases for the samples, and automating execution of tests.
 - **Recommended Skills**: Golang, Kubernetes, Test, Automation
@@ -117,14 +117,14 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - **Upstream Issue (URL)**: https://github.com/kyverno/kyverno/issues/3114
 
 
-#### e2e tests and CLI tests to cover sample policies
+##### e2e tests and CLI tests to cover sample policies
 
 - **Description**: [Kyverno](https://kyverno.io) is a Kubernetes native policy engine that secures and automates Kubernetes configurations. This project will create automated test cases for the samples policies which are missing, and automating execution of tests.The enhancement will involve adding more unit/E2E tests.
 - **Recommended Skills**: Golang, Kubernetes, Test, Automation
 - **Mentor(s)**: Vyankatesh Kudtarkar (@vyankyGH), Prateek Pandey (@prateekpandey14)
 - **Upstream Issue (URL)**: https://github.com/kyverno/kyverno/issues/3121
 
-#### Automate Performance Testing
+##### Automate Performance Testing
 
 - **Description**:  [Kyverno](https://kyverno.io) is a Kubernetes native policy engine that secures and automates Kubernetes configurations. This project automates scalability tests for Kyverno on large Kubernetes clusters with several namespaces and resources. The candidate has to propose an automation plan to create clusters and resources and help optimize resource usage of Kyverno for different loads for large Kubernetes clusters.
 - **Recommended Skills**: Golang, Kubernetes, Test, Automation
@@ -132,7 +132,7 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - **Upstream Issue (URL)**: https://github.com/kyverno/kyverno/issues/3113
 
 
-#### Security enhancements
+##### Security enhancements
 
 - **Description**: [Kyverno](https://kyverno.io) is a Kubernetes native policy engine that secures and automates Kubernetes configurations. This project improves security posture and processes for Kyverno. Improve OSSF Security Scorecard results, define security processes, and add best practice processes like publishing signed images and build attestations for SLSA compliance.
 - **Recommended Skills**: Security, Golang
