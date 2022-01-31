@@ -106,3 +106,88 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Recommended Skills: c++
 - Mentor(s): Hung-Ying Tai (@hydai), Yi-Ying He (@q82419)
 - Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/1123
+
+### Kyverno
+
+#### Extend Kyverno CLI test command for Generate policy rules
+
+- **Description**: [Kyverno](https://kyverno.io) is a Kubernetes native policy engine that secures and automates Kubernetes configurations. This project extends the Kyverno CLI to cover generate policies and improve tests coverage for Kyverno, based on the test results. The enhancement will involve extending the test command for generate policy rules, adding more test cases for the samples, and automating execution of tests.
+- **Recommended Skills**: Golang, Kubernetes, Test, Automation
+- **Mentor(s)**: Prateek Pandey (@prateekpandey14)
+- **Upstream Issue (URL)**: https://github.com/kyverno/kyverno/issues/3114
+
+
+#### e2e tests and CLI tests to cover sample policies
+
+- **Description**: [Kyverno](https://kyverno.io) is a Kubernetes native policy engine that secures and automates Kubernetes configurations. This project will create automated test cases for the samples policies which are missing, and automating execution of tests.The enhancement will involve adding more unit/E2E tests.
+- **Recommended Skills**: Golang, Kubernetes, Test, Automation
+- **Mentor(s)**: Vyankatesh Kudtarkar (@vyankyGH), Prateek Pandey (@prateekpandey14)
+- **Upstream Issue (URL)**: https://github.com/kyverno/kyverno/issues/3121
+
+#### Automate Performance Testing
+
+- **Description**:  [Kyverno](https://kyverno.io) is a Kubernetes native policy engine that secures and automates Kubernetes configurations. This project automates scalability tests for Kyverno on large Kubernetes clusters with several namespaces and resources. The candidate has to propose an automation plan to create clusters and resources and help optimize resource usage of Kyverno for different loads for large Kubernetes clusters.
+- **Recommended Skills**: Golang, Kubernetes, Test, Automation
+- **Mentor(s)**: Shuting Zhao (@realshuting)
+- **Upstream Issue (URL)**: https://github.com/kyverno/kyverno/issues/3113
+
+
+#### Security enhancements
+
+- **Description**: [Kyverno](https://kyverno.io) is a Kubernetes native policy engine that secures and automates Kubernetes configurations. This project improves security posture and processes for Kyverno. Improve OSSF Security Scorecard results, define security processes, and add best practice processes like publishing signed images and build attestations for SLSA compliance.
+- **Recommended Skills**: Security, Golang
+- **Mentor(s)**: Jim Bugwadia (@JimBugwadia)
+- **Upstream Issue (URL)**: https://github.com/kyverno/kyverno/issues/2250
+
+#### OpenTelemetry exporter for Kyverno
+
+- **Description**: [Kyverno](https://kyverno.io) is a Kubernetes native policy engine that secures and automates Kubernetes configurations. This project will instrument Kyverno to export OpenTelemetry data for metrics, logs, flows, and policy reports. The project will include testing with OpenTelemetry collectors and documenting the integration steps.
+- **Recommended Skills**: Observability, Prometheus, OpenTelemetry, Golang
+- **Mentor(s)**: Shuting Zhao (@realshuting), Jim Bugwadia (@JimBugwadia)
+- **Upstream Issue (URL)**: https://github.com/kyverno/kyverno/issues/3120
+
+#### Kuma
+
+##### Active monitoring of Cross Zone communication
+
+- Description: [Kuma](https://github.com/kumahq/kuma) is a modern Envoy-based service mesh that can run on every cloud, in a single or multi-zone capacity, across both Kubernetes and VMs. It is currently a CNCF Sandbox project. Because Kuma is heavily built with multi zones in mind it is needed for Kuma to provide a good level of observability of connectivity between these zones. This project aims to provide active monitoring of connections between each zone and create new apis to bubble up this information in the GUI and in our Grafana dashboards. This project goes from design to complete implementation, documentation and demonstration.
+- Recommended Skills: golang, k8s
+- Mentor(s): Jakub Dyszkiewicz (@jakubdyszkiewicz), Bart Smykla (@bartsmykla), Charly Molter (@lahabana)
+- Upstream Issue (URL): https://github.com/kumahq/kuma/issues/1907
+
+##### Add status infos in Kubernetes CRDs
+
+- Description: [Kuma](https://github.com/kumahq/kuma) is a modern Envoy-based service mesh that can run on every cloud, in a single or multi-zone capacity, across both Kubernetes and VMs. It is currently a CNCF Sandbox project. While Kuma currently exposes information about status in its [api](https://kuma.io/docs/1.4.x/documentation/http-api/#mesh-insights) Kubernetes users usualy expect these to be also present in the Status fields of their resources. This project aims in adding status to all Kuma CRD and to improve our controllers to set these as cluster state changes.
+- Recommended Skills: golang, k8s
+- Mentor(s): Jakub Dyszkiewicz (@jakubdyszkiewicz), Bart Smykla (@bartsmykla), Charly Molter (@lahabana)
+- Upstream Issue (URL): https://github.com/kumahq/kuma/issues/3734
+
+#### Karmada
+
+##### Refactor get command to leverage aggregated API
+
+- Description: Now karmadactl get command retrieves resources by Cluster token stored in Cluster object, we want to refactor it to leverage the Aggregated API.
+- Recommended Skills: golang, k8s
+- Mentor(s): Hongcai Ren (@RainbowMango)
+- Upstream Issue (URL): https://github.com/karmada-io/karmada/issues/1329
+
+##### Refactor the scheduler framework
+
+- Description: Refactor the framework of karmada-scheduler to make it easier to extend and adopt more scheduling policies.
+- Recommended Skills: golang, k8s
+- Mentor(s): Kevin Wang (@kevin-wangzefeng)
+- Upstream Issue (URL): https://github.com/karmada-io/karmada/issues/1330
+
+##### Enhancement for controllers scalability
+
+- Description: Ensures the controllers are suitable for large-scale deployment in production cases.
+- Recommended Skills: golang, k8s
+- Mentor(s): Hongcai Ren (@RainbowMango)
+- Upstream Issue (URL): https://github.com/karmada-io/karmada/issues/1331
+
+##### Dashboard development
+
+- Description: The initial version of karmada-dashboard just getting on board, and more pages waiting for development.
+- Recommended Skills: golang, k8s
+- Mentor(s): Hongcai Ren (@RainbowMango)
+- Upstream Issue (URL): https://github.com/karmada-io/dashboard/issues/10
