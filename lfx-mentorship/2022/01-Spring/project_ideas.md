@@ -76,3 +76,33 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Recommended Skills: golang, k8s
 - Mentor(s): Jianbo Sun (@wonderflow), Da Yin (@somefive)
 - Upstream Issue (URL): https://github.com/oam-dev/kubevela/issues/3178
+
+#### Karmada
+
+##### Refactor get command to leverage aggregated API
+
+- Description: Now karmadactl get command retrieves resources by Cluster token stored in Cluster object, we want to refactor it to leverage the Aggregated API.
+- Recommended Skills: golang, k8s
+- Mentor(s): Hongcai Ren (@RainbowMango)
+- Upstream Issue (URL): https://github.com/karmada-io/karmada/issues/1329
+
+##### Refactor the scheduler framework
+
+- Description: Refactor the framework of karmada-scheduler to make it easier to extend and adopt more scheduling policies.
+- Recommended Skills: golang, k8s
+- Mentor(s): Kevin Wang (@kevin-wangzefeng)
+- Upstream Issue (URL): https://github.com/karmada-io/karmada/issues/1330
+
+##### Enhancement for controllers scalability
+
+- Description: Ensures the controllers are suitable for large-scale deployment in production cases.
+- Recommended Skills: golang, k8s
+- Mentor(s): Hongcai Ren (@RainbowMango)
+- Upstream Issue (URL): https://github.com/karmada-io/karmada/issues/1331
+
+##### Dashboard development
+
+- Description: The initial version of karmada-dashboard just getting on board, and more pages waiting for development.
+- Recommended Skills: golang, k8s
+- Mentor(s): Hongcai Ren (@RainbowMango)
+- Upstream Issue (URL): https://github.com/karmada-io/dashboard/issues/10
