@@ -77,7 +77,6 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Mentor(s): Jianbo Sun (@wonderflow), Da Yin (@somefive)
 - Upstream Issue (URL): https://github.com/oam-dev/kubevela/issues/3178
 
-
 ### Kyverno
 
 #### Extend Kyverno CLI test command for Generate policy rules
@@ -117,3 +116,48 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - **Mentor(s)**: Shuting Zhao (@realshuting), Jim Bugwadia (@JimBugwadia)
 - **Upstream Issue (URL)**: https://github.com/kyverno/kyverno/issues/3120
 
+#### Kuma
+
+##### Active monitoring of Cross Zone communication
+
+- Description: [Kuma](https://github.com/kumahq/kuma) is a modern Envoy-based service mesh that can run on every cloud, in a single or multi-zone capacity, across both Kubernetes and VMs. It is currently a CNCF Sandbox project. Because Kuma is heavily built with multi zones in mind it is needed for Kuma to provide a good level of observability of connectivity between these zones. This project aims to provide active monitoring of connections between each zone and create new apis to bubble up this information in the GUI and in our Grafana dashboards. This project goes from design to complete implementation, documentation and demonstration.
+- Recommended Skills: golang, k8s
+- Mentor(s): Jakub Dyszkiewicz (@jakubdyszkiewicz), Bart Smykla (@bartsmykla), Charly Molter (@lahabana)
+- Upstream Issue (URL): https://github.com/kumahq/kuma/issues/1907
+
+##### Add status infos in Kubernetes CRDs
+
+- Description: [Kuma](https://github.com/kumahq/kuma) is a modern Envoy-based service mesh that can run on every cloud, in a single or multi-zone capacity, across both Kubernetes and VMs. It is currently a CNCF Sandbox project. While Kuma currently exposes information about status in its [api](https://kuma.io/docs/1.4.x/documentation/http-api/#mesh-insights) Kubernetes users usualy expect these to be also present in the Status fields of their resources. This project aims in adding status to all Kuma CRD and to improve our controllers to set these as cluster state changes.
+- Recommended Skills: golang, k8s
+- Mentor(s): Jakub Dyszkiewicz (@jakubdyszkiewicz), Bart Smykla (@bartsmykla), Charly Molter (@lahabana)
+- Upstream Issue (URL): https://github.com/kumahq/kuma/issues/3734
+
+#### Karmada
+
+##### Refactor get command to leverage aggregated API
+
+- Description: Now karmadactl get command retrieves resources by Cluster token stored in Cluster object, we want to refactor it to leverage the Aggregated API.
+- Recommended Skills: golang, k8s
+- Mentor(s): Hongcai Ren (@RainbowMango)
+- Upstream Issue (URL): https://github.com/karmada-io/karmada/issues/1329
+
+##### Refactor the scheduler framework
+
+- Description: Refactor the framework of karmada-scheduler to make it easier to extend and adopt more scheduling policies.
+- Recommended Skills: golang, k8s
+- Mentor(s): Kevin Wang (@kevin-wangzefeng)
+- Upstream Issue (URL): https://github.com/karmada-io/karmada/issues/1330
+
+##### Enhancement for controllers scalability
+
+- Description: Ensures the controllers are suitable for large-scale deployment in production cases.
+- Recommended Skills: golang, k8s
+- Mentor(s): Hongcai Ren (@RainbowMango)
+- Upstream Issue (URL): https://github.com/karmada-io/karmada/issues/1331
+
+##### Dashboard development
+
+- Description: The initial version of karmada-dashboard just getting on board, and more pages waiting for development.
+- Recommended Skills: golang, k8s
+- Mentor(s): Hongcai Ren (@RainbowMango)
+- Upstream Issue (URL): https://github.com/karmada-io/dashboard/issues/10
