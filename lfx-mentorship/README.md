@@ -39,6 +39,7 @@ The LFX Mentorship program is completed for 2021. The current cycle is Spring 20
 
 - Chris Aniszczyk ([@caniszczyk](https://github.com/caniszczyk)\): <https://twitter.com/cra>
 - Ihor Dvoretskyi ([@idvoretskyi](https://github.com/idvoretskyi)\): <https://twitter.com/idvoretskyi>
+- Nate Waddington ([@nate-double-u](https://github.com/nate-double-u)\): <https://twitter.com/hackabletype>
 
 ## Communication
 
