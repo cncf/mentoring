@@ -301,3 +301,12 @@ This internship involves improving the existing Katacoda scenario and adding new
 - Recommended Skills: Kubernetes, KubeEdge
 - Mentor(s): Fisher Xu(@fisherxu)
 - Upstream Issue (URL): https://github.com/kubeedge/website/issues/189
+
+#### Thanos
+
+##### Run a community Thanos demo instance
+
+- Description: Thanos is a distributed system that has a user interface written in React. Let's create a community instance with continuous integration for easy testing of how Thanos works. Also, it could serve as a testing ground for new React components. A server is provided by CNCF (https://github.com/cncf/cluster/issues/190).
+- Recommended Skills: Linux, Ansible, Python, Shell Scripting
+- Mentor(-s): Giedrius Statkevičius (@GiedriusS)
+- Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/4606
