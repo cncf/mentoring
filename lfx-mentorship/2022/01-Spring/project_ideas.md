@@ -229,6 +229,17 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - **Mentor(s)**: Josh Berkus (@jberkus)
 - **Issue**: [Implement Security Recommendations](https://github.com/elekto-io/elekto/issues/51)
 
+#### Kubernetes (SIG Contribex: Mentoring Subproject)
+
+##### Creating Katacoda Scenarios To Help New Contributors
+
+- **Description**: There are various Katacoda scenarios available for diverse aspects of Kubernetes, but they focus on an end-user perspective. There is a need to create interactive tutorials to help folks interested in contributing to the project. As a first step, a Katacoda scenario to set up Kubernetes and run tests locally was created that can be found [here](https://github.com/kubernetes-sigs/contributor-katacoda).
+
+This internship involves improving the existing Katacoda scenario and adding new scenarios to further include aspects of contributing such as spinning up a `kind` cluster with the changes made and testing those changes out. Through the course of this internship, you will also learn how one can contribute to other projects of the Kubernetes community such as the Kubernetes website, and document these processes as Katacoda scenarios to help new contributors get started in their contribution journey.
+- **Recommended Skills**: Technical Writing, Kubernetes, Golang (preferred but not required)
+- **Mentor(s)**: Debabrata Panigrahi (@Debanitrkl), Madhav Jivrajani (@MadhavJivrajani)
+- **Upstream Issue (URL)**: https://github.com/kubernetes/community/issues/5576
+
 #### Kubernetes (SIG Cluster Lifecycle)
 
 ##### Automation of AMI build/test/publish pipelines for Cluster API Provider AWS (CAPA)
