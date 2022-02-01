@@ -324,3 +324,15 @@ This internship involves improving the existing Katacoda scenario and adding new
 - Recommended Skills: Linux, Ansible, Python, Shell Scripting
 - Mentor(-s): Giedrius Statkevičius (@GiedriusS)
 - Upstream Issue (URL): <https://github.com/thanos-io/thanos/issues/4606>
+
+
+#### OpenTelemetry PHP
+##### Help drive OpenTelemetry PHP to Beta
+
+- Description: Help to drive our [project board](https://github.com/open-telemetry/opentelemetry-php/projects/1) for OpenTelemetry PHP.  This includes validating spec compliance and writing PHP code to implement some of these features
+- Recommended Skills: PHP
+- Mentor(s): @bobstrecansky, @tidal, @brettmc
+- Upstream Issue (URL): https://github.com/open-telemetry/opentelemetry-php/projects/1
+```
+
+
