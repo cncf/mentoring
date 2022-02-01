@@ -237,3 +237,21 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - **Recommended Skills**: Golang, GitHub, Test, Automation, CI/CD pipelines
 - **Mentor(s)**: Sedef Savas (@sedefsavas)
 - **Upstream Issue (URL)**: https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/1982
+
+
+
+#### Tremor
+
+##### Database Connectors
+
+- Description: Connectors are tremors interface to the outside world, they allow us to integrate with third-party systems. Currently, tremor only has a limited set of connectors for databases, we support s3 and google cloud storage for object stores, and have a k/v connector that offers a simple integrated key-value store. While this is a good starting point interfacing with more databases will make tremor easier to use for our end users. The primary target will be integrating with Yandex Clickhouse.
+- Recommended Skills: Rust, Databases, Testing
+- Mentor(s): Matthias Wahl, Darach Ennis
+- Upstream Issue (URL):https://github.com/tremor-rs/tremor-runtime/issues/1453
+
+##### CI and Release process improvements
+
+- Description: Tremor has a lot of headroom when it comes to improving the CI and the build process. Those improvements will make the day-to-day life of contributors better and gives end-users more frequent and up-to-date builds allowing them to be used in a more cloud-native fashion. The goal is to make the general developer and user experience around contributing and releasing better. This project is well suited for someone interested in the DevOps/SRE world but offer stretch goals to reach into other topics.
+- Recommended Skills: Make, Git/GitHub, CI/GitHub Actions, GitOps, DevOps, Packaging
+- Mentor(s): Heinz Gies, Darach Ennis
+- Upstream Issue (URL): https://github.com/tremor-rs/tremor-runtime/issues/1452
