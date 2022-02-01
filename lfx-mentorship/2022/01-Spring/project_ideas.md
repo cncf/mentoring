@@ -194,9 +194,9 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Mentor(s): Hongcai Ren (@RainbowMango)
 - Upstream Issue (URL): <https://github.com/karmada-io/dashboard/issues/10>
 
-#### Kubernetes SIG-Network Gateway API
+#### Kubernetes
 
-##### Docuemntation assessment
+##### Documentation assessment (SIG-Network Gateway API)
 
 - Description: [Gateway API](https://gateway-api.sigs.k8s.io/) is an evolution of Kubernetes Ingress and Service networking that aims to upgrade and improve these APIs. This project is to have a [docs assessment](https://github.com/cncf/techdocs/blob/main/assessments/howto.md) performed, to help us come with a plan for improving our documentaion. In particular, we're looking for someone to look at the content organization, the clarity of the language and concepts, and to make sure it's as readable as possible for both implementors and end users. You'll be working with the mentors and maintainers of the project, with a stretch goal being to make the changes you produce in the initial assessment.
 - Please provide a writing sample with the application.
@@ -210,6 +210,22 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
   - Primary: [Nick Young](https://github.com/youngnick)
   - Adjunct: [Nate Waddington](https://github.com/nate-double-u)
 - Upstream Issue (URL): <https://github.com/kubernetes-sigs/gateway-api/issues/1003>
+
+##### Automation of AMI build/test/publish pipelines for Cluster API Provider AWS (CAPA)
+
+- **Description**: Cluster API (CAPI) is a Kubernetes sub-project focused on providing declarative APIs and tooling to simplify lifecycle management of Kubernetes clusters. CAPA is the infrastructure provider that extends Cluster API to manage Kubernetes clusters on AWS. As a mentee, you will start with learning CAPI/CAPA concepts and then, will work on the main project which is to automate AMI build, test, and publish workflows using Prow, Github, and other Kubernetes automation tools.
+- **Recommended Skills**: Golang, GitHub, Test, Automation, CI/CD pipelines
+- **Mentor(s)**: Sedef Savas (@sedefsavas)
+- **Upstream Issue (URL)**: https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/1982
+
+##### Improvements to Kubernetes maintainers-related automation (SIG Contributor Experience)
+
+- **Description**: Kubernetes uses OWNERS files to delegate responsibility over different parts of the codebase. These files are also used in the code review process. Unfortunately, over time, there are lots of OWNERS files which have languished and have stale information. Since the velocity of a project is also determined by the number of people reviewing code, it is essential to keep the OWNERS files up-to-date. To ensure this, the `maintainers` project was created.
+This internship involves improving `maintainers` through adding new features and integrating the tool in suitable automation so that it is actively used by the community to signal out-of-date OWNERS files. A stretch goal would also be to improve similar automation tools used to handle github membership for the community.
+
+- **Recommended Skills**: golang (required), experience with GitHub APIs (preferred but not required)
+- **Mentor(s)**: Nikhita Raghunath (@nikhita), Nabarun Pal (@palnabarun)
+- **Upstream Issue (URL)**: https://github.com/kubernetes/org/issues/3208
 
 #### Vitess
 
@@ -314,3 +330,4 @@ This internship involves improving the existing Katacoda scenario and adding new
 - Recommended Skills: Linux, Ansible, Python, Shell Scripting
 - Mentor(-s): Giedrius Statkevičius (@GiedriusS)
 - Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/4606
+
