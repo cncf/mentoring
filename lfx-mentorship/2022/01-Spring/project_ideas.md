@@ -216,16 +216,16 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - **Description**: Cluster API (CAPI) is a Kubernetes sub-project focused on providing declarative APIs and tooling to simplify lifecycle management of Kubernetes clusters. CAPA is the infrastructure provider that extends Cluster API to manage Kubernetes clusters on AWS. As a mentee, you will start with learning CAPI/CAPA concepts and then, will work on the main project which is to automate AMI build, test, and publish workflows using Prow, Github, and other Kubernetes automation tools.
 - **Recommended Skills**: Golang, GitHub, Test, Automation, CI/CD pipelines
 - **Mentor(s)**: Sedef Savas (@sedefsavas)
-- **Upstream Issue (URL)**: https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/1982
+- **Upstream Issue (URL)**: <https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/1982>
 
 ##### Improvements to Kubernetes maintainers-related automation (SIG Contributor Experience)
 
 - **Description**: Kubernetes uses OWNERS files to delegate responsibility over different parts of the codebase. These files are also used in the code review process. Unfortunately, over time, there are lots of OWNERS files which have languished and have stale information. Since the velocity of a project is also determined by the number of people reviewing code, it is essential to keep the OWNERS files up-to-date. To ensure this, the `maintainers` project was created.
-This internship involves improving `maintainers` through adding new features and integrating the tool in suitable automation so that it is actively used by the community to signal out-of-date OWNERS files. A stretch goal would also be to improve similar automation tools used to handle github membership for the community.
+  This internship involves improving `maintainers` through adding new features and integrating the tool in suitable automation so that it is actively used by the community to signal out-of-date OWNERS files. A stretch goal would also be to improve similar automation tools used to handle github membership for the community.
 
 - **Recommended Skills**: golang (required), experience with GitHub APIs (preferred but not required)
 - **Mentor(s)**: Nikhita Raghunath (@nikhita), Nabarun Pal (@palnabarun)
-- **Upstream Issue (URL)**: https://github.com/kubernetes/org/issues/3208
+- **Upstream Issue (URL)**: <https://github.com/kubernetes/org/issues/3208>
 
 #### Vitess
 
@@ -240,7 +240,7 @@ This internship involves improving `maintainers` through adding new features and
 
 ##### Elections Security Improvements
 
-- **Description**: [Elekto](https://elekto.dev) is a project for running preference elections for open source projects hosted by the CNCF.  It is used for elections for the Kubernetes and Knative projects, and will soon be used by others.  During the 2021 elections, a security audit identified several areas of improvement in both in the security and privacy of Elekto, and in the security of the Kubernetes deployment.  The mentee for this project would be implementing those recommendations in order to make Elekto and Kubernetes elections more secure.
+- **Description**: [Elekto](https://elekto.dev) is a project for running preference elections for open source projects hosted by the CNCF. It is used for elections for the Kubernetes and Knative projects, and will soon be used by others. During the 2021 elections, a security audit identified several areas of improvement in both in the security and privacy of Elekto, and in the security of the Kubernetes deployment. The mentee for this project would be implementing those recommendations in order to make Elekto and Kubernetes elections more secure.
 - **Recommended Skills**:
   - Python/Flask programming
   - Understand basic HTML/CSS
@@ -256,25 +256,19 @@ This internship involves improving `maintainers` through adding new features and
 - **Description**: There are various Katacoda scenarios available for diverse aspects of Kubernetes, but they focus on an end-user perspective. There is a need to create interactive tutorials to help folks interested in contributing to the project. As a first step, a Katacoda scenario to set up Kubernetes and run tests locally was created that can be found [here](https://github.com/kubernetes-sigs/contributor-katacoda).
 
 This internship involves improving the existing Katacoda scenario and adding new scenarios to further include aspects of contributing such as spinning up a `kind` cluster with the changes made and testing those changes out. Through the course of this internship, you will also learn how one can contribute to other projects of the Kubernetes community such as the Kubernetes website, and document these processes as Katacoda scenarios to help new contributors get started in their contribution journey.
+
 - **Recommended Skills**: Technical Writing, Kubernetes, Golang (preferred but not required)
 - **Mentor(s)**: Debabrata Panigrahi (@Debanitrkl), Madhav Jivrajani (@MadhavJivrajani)
-- **Upstream Issue (URL)**: https://github.com/kubernetes/community/issues/5576
+- **Upstream Issue (URL)**: <https://github.com/kubernetes/community/issues/5576>
 
 #### Kubernetes (SIG Cluster Lifecycle)
-
-##### Automation of AMI build/test/publish pipelines for Cluster API Provider AWS (CAPA)
-
-- **Description**: Cluster API (CAPI) is a Kubernetes sub-project focused on providing declarative APIs and tooling to simplify lifecycle management of Kubernetes clusters. CAPA is the infrastructure provider that extends Cluster API to manage Kubernetes clusters on AWS. As a mentee, you will start with learning CAPI/CAPA concepts and then, will work on the main project which is to automate AMI build, test, and publish workflows using Prow, Github, and other Kubernetes automation tools.
-- **Recommended Skills**: Golang, GitHub, Test, Automation, CI/CD pipelines
-- **Mentor(s)**: Sedef Savas (@sedefsavas)
-- **Upstream Issue (URL)**: https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/1982
 
 ##### Improvising unit test coverage(CAPV)
 
 - **Description**: Cluster API (CAPI) is a Kubernetes sub-project focused on providing declarative APIs and tooling to simplify lifecycle management of Kubernetes clusters. CAPV is the infrastructure provider that extends Cluster API to manage Kubernetes clusters on vSphere. As a mentee, you will start with learning CAPI/CAPV concepts and then, will work on the main project which is to improve unit test coverage. The ideal percentage is 70%. This project aims to either achieve that or come close to it.
 - **Recommended Skills**: Golang, GitHub, Test, Automation, CI/CD pipelines
 - **Mentor(s)**: Ankita Swamy(@Ankitasw),Geetika Batra(@geetikabatra)
-- **Upstream Issue (URL)**: https://github.com/kubernetes-sigs/cluster-api-provider-vsphere/issues/1392
+- **Upstream Issue (URL)**: <https://github.com/kubernetes-sigs/cluster-api-provider-vsphere/issues/1392>
 
 #### Tremor
 
@@ -283,51 +277,50 @@ This internship involves improving the existing Katacoda scenario and adding new
 - Description: Connectors are tremors interface to the outside world, they allow us to integrate with third-party systems. Currently, tremor only has a limited set of connectors for databases, we support s3 and google cloud storage for object stores, and have a k/v connector that offers a simple integrated key-value store. While this is a good starting point interfacing with more databases will make tremor easier to use for our end users. The primary target will be integrating with Yandex Clickhouse.
 - Recommended Skills: Rust, Databases, Testing
 - Mentor(s): Matthias Wahl, Darach Ennis
-- Upstream Issue (URL):https://github.com/tremor-rs/tremor-runtime/issues/1453
+- Upstream Issue (URL):<https://github.com/tremor-rs/tremor-runtime/issues/1453>
 
 ##### CI and Release process improvements
 
 - Description: Tremor has a lot of headroom when it comes to improving the CI and the build process. Those improvements will make the day-to-day life of contributors better and gives end-users more frequent and up-to-date builds allowing them to be used in a more cloud-native fashion. The goal is to make the general developer and user experience around contributing and releasing better. This project is well suited for someone interested in the DevOps/SRE world but offer stretch goals to reach into other topics.
 - Recommended Skills: Make, Git/GitHub, CI/GitHub Actions, GitOps, DevOps, Packaging
 - Mentor(s): Heinz Gies, Darach Ennis
-- Upstream Issue (URL): https://github.com/tremor-rs/tremor-runtime/issues/1452
+- Upstream Issue (URL): <https://github.com/tremor-rs/tremor-runtime/issues/1452>
 
 #### KubeEdge
 
 ##### Plans for Node Group Management
 
-- Description: In edge computing scenarios, nodes are geographically distributed. The same application may be deployed on nodes at different locations. We have plans for achieving the feature of Pod Scheduling among node groups. 
+- Description: In edge computing scenarios, nodes are geographically distributed. The same application may be deployed on nodes at different locations. We have plans for achieving the feature of Pod Scheduling among node groups.
 - Recommended Skills: Kubernetes, KubeEdge
 - Mentor(s): Vincent Lin(@vincentgoat), Kevin Wang(@kevin-wangzefeng)
-- Upstream Issue (URL):https://github.com/kubeedge/kubeedge/issues/3582
+- Upstream Issue (URL):<https://github.com/kubeedge/kubeedge/issues/3582>
 
-##### Move edge native k8s api interface GA 
+##### Move edge native k8s api interface GA
 
 - Description: Now we have add the edge native k8s api interface, apps like operator running in edgeside can access the apiserver and obtain resources. We still need to fix bug and improve the stability.
 - Recommended Skills: Kubernetes, KubeEdge
 - Mentor(s): Shelley Bao(@Shelley-BaoYue), Fisher Xu(@fisherxu)
-- Upstream Issue (URL): https://github.com/kubeedge/kubeedge/issues/3596
+- Upstream Issue (URL): <https://github.com/kubeedge/kubeedge/issues/3596>
 
 ##### Design and add more e2e tests especially for edge scenarios
 
 - Description: We have many features for edge scenarios, as edge autonomy, reliable message transmission, etc. We need to add e2e tests for them.
 - Recommended Skills: Kubernetes, KubeEdge
 - Mentor(s): Wack Xu(@wackxu), Fisher Xu(@fisherxu)
-- Upstream Issue (URL): https://github.com/kubeedge/kubeedge/issues/3595
+- Upstream Issue (URL): <https://github.com/kubeedge/kubeedge/issues/3595>
 
 ##### Updating the kubeedge docs
 
 - Description: Now we have lots of new features, we need add more docs for them.
 - Recommended Skills: Kubernetes, KubeEdge
 - Mentor(s): Fisher Xu(@fisherxu)
-- Upstream Issue (URL): https://github.com/kubeedge/website/issues/189
+- Upstream Issue (URL): <https://github.com/kubeedge/website/issues/189>
 
 #### Thanos
 
 ##### Run a community Thanos demo instance
 
-- Description: Thanos is a distributed system that has a user interface written in React. Let's create a community instance with continuous integration for easy testing of how Thanos works. Also, it could serve as a testing ground for new React components. A server is provided by CNCF (https://github.com/cncf/cluster/issues/190).
+- Description: Thanos is a distributed system that has a user interface written in React. Let's create a community instance with continuous integration for easy testing of how Thanos works. Also, it could serve as a testing ground for new React components. A server is provided by CNCF (<https://github.com/cncf/cluster/issues/190>).
 - Recommended Skills: Linux, Ansible, Python, Shell Scripting
 - Mentor(-s): Giedrius Statkevičius (@GiedriusS)
-- Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/4606
-
+- Upstream Issue (URL): <https://github.com/thanos-io/thanos/issues/4606>
