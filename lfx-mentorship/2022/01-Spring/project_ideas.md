@@ -228,3 +228,12 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
   - How to use basic cryptographic functions available in existing libraries
 - **Mentor(s)**: Josh Berkus (@jberkus)
 - **Issue**: [Implement Security Recommendations](https://github.com/elekto-io/elekto/issues/51)
+
+#### Kubernetes (SIG Cluster Lifecycle)
+
+##### Automation of AMI build/test/publish pipelines for Cluster API Provider AWS (CAPA)
+
+- **Description**: Cluster API (CAPI) is a Kubernetes sub-project focused on providing declarative APIs and tooling to simplify lifecycle management of Kubernetes clusters. CAPA is the infrastructure provider that extends Cluster API to manage Kubernetes clusters on AWS. As a mentee, you will start with learning CAPI/CAPA concepts and then, will work on the main project which is to automate AMI build, test, and publish workflows using Prow, Github, and other Kubernetes automation tools.
+- **Recommended Skills**: Golang, GitHub, Test, Automation, CI/CD pipelines
+- **Mentor(s)**: Sedef Savas (@sedefsavas)
+- **Upstream Issue (URL)**: https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/1982
