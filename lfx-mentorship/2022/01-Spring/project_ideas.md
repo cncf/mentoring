@@ -214,6 +214,15 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - **Mentor(s)**: Sedef Savas (@sedefsavas)
 - **Upstream Issue (URL)**: https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/1982
 
+##### Improvements to Kubernetes maintainers-related automation (SIG Contributor Experience)
+
+- **Description**: Kubernetes uses OWNERS files to delegate responsibility over different parts of the codebase. These files are also used in the code review process. Unfortunately, over time, there are lots of OWNERS files which have languished and have stale information. Since the velocity of a project is also determined by the number of people reviewing code, it is essential to keep the OWNERS files up-to-date. To ensure this, the `maintainers` project was created.
+This internship involves improving `maintainers` through adding new features and integrating the tool in suitable automation so that it is actively used by the community to signal out-of-date OWNERS files. A stretch goal would also be to improve similar automation tools used to handle github membership for the community.
+
+- **Recommended Skills**: golang (required), experience with GitHub APIs (preferred but not required)
+- **Mentor(s)**: Nikhita Raghunath (@nikhita), Nabarun Pal (@palnabarun)
+- **Upstream Issue (URL)**: https://github.com/kubernetes/org/issues/3208
+
 #### Vitess
 
 ##### Add complete parsing support for MySQL functions
