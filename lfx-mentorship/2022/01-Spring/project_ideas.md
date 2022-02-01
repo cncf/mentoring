@@ -190,9 +190,9 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Mentor(s): Hongcai Ren (@RainbowMango)
 - Upstream Issue (URL): <https://github.com/karmada-io/dashboard/issues/10>
 
-#### Kubernetes SIG-Network Gateway API
+#### Kubernetes
 
-##### Docuemntation assessment
+##### Docuemntation assessment (SIG-Network Gateway API)
 
 - Description: [Gateway API](https://gateway-api.sigs.k8s.io/) is an evolution of Kubernetes Ingress and Service networking that aims to upgrade and improve these APIs. This project is to have a [docs assessment](https://github.com/cncf/techdocs/blob/main/assessments/howto.md) performed, to help us come with a plan for improving our documentaion. In particular, we're looking for someone to look at the content organization, the clarity of the language and concepts, and to make sure it's as readable as possible for both implementors and end users. You'll be working with the mentors and maintainers of the project, with a stretch goal being to make the changes you produce in the initial assessment.
 - Please provide a writing sample with the application.
@@ -206,6 +206,13 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
   - Primary: [Nick Young](https://github.com/youngnick)
   - Adjunct: [Nate Waddington](https://github.com/nate-double-u)
 - Upstream Issue (URL): <https://github.com/kubernetes-sigs/gateway-api/issues/1003>
+
+##### Automation of AMI build/test/publish pipelines for Cluster API Provider AWS (CAPA)
+
+- **Description**: Cluster API (CAPI) is a Kubernetes sub-project focused on providing declarative APIs and tooling to simplify lifecycle management of Kubernetes clusters. CAPA is the infrastructure provider that extends Cluster API to manage Kubernetes clusters on AWS. As a mentee, you will start with learning CAPI/CAPA concepts and then, will work on the main project which is to automate AMI build, test, and publish workflows using Prow, Github, and other Kubernetes automation tools.
+- **Recommended Skills**: Golang, GitHub, Test, Automation, CI/CD pipelines
+- **Mentor(s)**: Sedef Savas (@sedefsavas)
+- **Upstream Issue (URL)**: https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/1982
 
 #### Vitess
 
@@ -228,12 +235,3 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
   - How to use basic cryptographic functions available in existing libraries
 - **Mentor(s)**: Josh Berkus (@jberkus)
 - **Issue**: [Implement Security Recommendations](https://github.com/elekto-io/elekto/issues/51)
-
-#### Kubernetes (SIG Cluster Lifecycle)
-
-##### Automation of AMI build/test/publish pipelines for Cluster API Provider AWS (CAPA)
-
-- **Description**: Cluster API (CAPI) is a Kubernetes sub-project focused on providing declarative APIs and tooling to simplify lifecycle management of Kubernetes clusters. CAPA is the infrastructure provider that extends Cluster API to manage Kubernetes clusters on AWS. As a mentee, you will start with learning CAPI/CAPA concepts and then, will work on the main project which is to automate AMI build, test, and publish workflows using Prow, Github, and other Kubernetes automation tools.
-- **Recommended Skills**: Golang, GitHub, Test, Automation, CI/CD pipelines
-- **Mentor(s)**: Sedef Savas (@sedefsavas)
-- **Upstream Issue (URL)**: https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/1982
