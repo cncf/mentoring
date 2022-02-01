@@ -271,3 +271,33 @@ This internship involves improving the existing Katacoda scenario and adding new
 - Recommended Skills: Make, Git/GitHub, CI/GitHub Actions, GitOps, DevOps, Packaging
 - Mentor(s): Heinz Gies, Darach Ennis
 - Upstream Issue (URL): https://github.com/tremor-rs/tremor-runtime/issues/1452
+
+#### KubeEdge
+
+##### Plans for Node Group Management
+
+- Description: In edge computing scenarios, nodes are geographically distributed. The same application may be deployed on nodes at different locations. We have plans for achieving the feature of Pod Scheduling among node groups. 
+- Recommended Skills: Kubernetes, KubeEdge
+- Mentor(s): Vincent Lin(@vincentgoat), Kevin Wang(@kevin-wangzefeng)
+- Upstream Issue (URL):https://github.com/kubeedge/kubeedge/issues/3582
+
+##### Move edge native k8s api interface GA 
+
+- Description: Now we have add the edge native k8s api interface, apps like operator running in edgeside can access the apiserver and obtain resources. We still need to fix bug and improve the stability.
+- Recommended Skills: Kubernetes, KubeEdge
+- Mentor(s): Shelley Bao(@Shelley-BaoYue), Fisher Xu(@fisherxu)
+- Upstream Issue (URL): https://github.com/kubeedge/kubeedge/issues/3596
+
+##### Design and add more e2e tests especially for edge scenarios
+
+- Description: We have many features for edge scenarios, as edge autonomy, reliable message transmission, etc. We need to add e2e tests for them.
+- Recommended Skills: Kubernetes, KubeEdge
+- Mentor(s): Wack Xu(@wackxu), Fisher Xu(@fisherxu)
+- Upstream Issue (URL): https://github.com/kubeedge/kubeedge/issues/3595
+
+##### Updating the kubeedge docs
+
+- Description: Now we have lots of new features, we need add more docs for them.
+- Recommended Skills: Kubernetes, KubeEdge
+- Mentor(s): Fisher Xu(@fisherxu)
+- Upstream Issue (URL): https://github.com/kubeedge/website/issues/189
