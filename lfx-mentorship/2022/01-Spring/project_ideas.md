@@ -229,6 +229,17 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - **Mentor(s)**: Josh Berkus (@jberkus)
 - **Issue**: [Implement Security Recommendations](https://github.com/elekto-io/elekto/issues/51)
 
+#### Kubernetes (SIG Contribex: Mentoring Subproject)
+
+##### Creating Katacoda Scenarios To Help New Contributors
+
+- **Description**: There are various Katacoda scenarios available for diverse aspects of Kubernetes, but they focus on an end-user perspective. There is a need to create interactive tutorials to help folks interested in contributing to the project. As a first step, a Katacoda scenario to set up Kubernetes and run tests locally was created that can be found [here](https://github.com/kubernetes-sigs/contributor-katacoda).
+
+This internship involves improving the existing Katacoda scenario and adding new scenarios to further include aspects of contributing such as spinning up a `kind` cluster with the changes made and testing those changes out. Through the course of this internship, you will also learn how one can contribute to other projects of the Kubernetes community such as the Kubernetes website, and document these processes as Katacoda scenarios to help new contributors get started in their contribution journey.
+- **Recommended Skills**: Technical Writing, Kubernetes, Golang (preferred but not required)
+- **Mentor(s)**: Debabrata Panigrahi (@Debanitrkl), Madhav Jivrajani (@MadhavJivrajani)
+- **Upstream Issue (URL)**: https://github.com/kubernetes/community/issues/5576
+
 #### Kubernetes (SIG Cluster Lifecycle)
 
 ##### Automation of AMI build/test/publish pipelines for Cluster API Provider AWS (CAPA)
@@ -238,7 +249,12 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - **Mentor(s)**: Sedef Savas (@sedefsavas)
 - **Upstream Issue (URL)**: https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/1982
 
+##### Improvising unit test coverage(CAPV)
 
+- **Description**: Cluster API (CAPI) is a Kubernetes sub-project focused on providing declarative APIs and tooling to simplify lifecycle management of Kubernetes clusters. CAPV is the infrastructure provider that extends Cluster API to manage Kubernetes clusters on vSphere. As a mentee, you will start with learning CAPI/CAPV concepts and then, will work on the main project which is to improve unit test coverage. The ideal percentage is 70%. This project aims to either achieve that or come close to it.
+- **Recommended Skills**: Golang, GitHub, Test, Automation, CI/CD pipelines
+- **Mentor(s)**: Ankita Swamy(@Ankitasw),Geetika Batra(@geetikabatra)
+- **Upstream Issue (URL)**: https://github.com/kubernetes-sigs/cluster-api-provider-vsphere/issues/1392
 
 #### Tremor
 
