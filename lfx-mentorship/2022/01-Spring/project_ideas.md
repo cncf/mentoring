@@ -334,12 +334,23 @@ This internship involves improving the existing Katacoda scenario and adding new
 
 
 #### OpenTelemetry PHP
+
 ##### Help drive OpenTelemetry PHP to Beta
 
 - Description: Help to drive our [project board](https://github.com/open-telemetry/opentelemetry-php/projects/1) for OpenTelemetry PHP.  This includes validating spec compliance and writing PHP code to implement some of these features
 - Recommended Skills: PHP
 - Mentor(s): @bobstrecansky, @tidal, @brettmc
 - Upstream Issue (URL): https://github.com/open-telemetry/opentelemetry-php/projects/1
+
+
+#### Pixie
+
+##### Add support for new protocols in protocol tracer
+
+- Description: [Pixie](https://github.com/pixie-io/pixie) performs automatic tracing and parsing of various protocols (e.g. HTTP, MySQL, Kafka), but there are many others that still need to be added. You can help add protocol parsers for technologies such as Mongo, AMQP (used by RabbitMQ and other message queues), or another protocol of your choice.
+- Recommended Skills: C++
+- Mentor(s): Omid Azizi (@oazizi000)
+- Upstream Issue (URL): <https://github.com/pixie-io/pixie/issues/332>, <https://github.com/pixie-io/pixie/issues/341>
 ```
 
 
