@@ -1,6 +1,6 @@
 # CNCF Mentoring Initiatives
 
-The Cloud Native Computing Foundation (CNCF) participates in a variety of mentoring programs. CNCF is a great place to spend a summer learning, coding, participating and contributing. We are an exciting open source foundation with a vibrant community of projects, and we look forward to your application and your project ideas!
+The Cloud Native Computing Foundation (CNCF) participates in a variety of mentoring programs. CNCF is a great place to spend a summer learning, coding, participating, and contributing. We are an exciting open source foundation with a vibrant community of projects, and we look forward to your application and your project ideas!
 
 - [CNCF Mentoring Initiatives](#cncf-mentoring-initiatives)
   - [Organization Admins](#organization-admins)
@@ -28,13 +28,15 @@ The Cloud Native Computing Foundation (CNCF) participates in a variety of mentor
 
 ## Organization Admins
 
-If you need help with anything mentoring at CNCF, you can file an issue at this repo or reach out to us at the #mentoring channel on [CNCF Slack](https://slack.cncf.io/). In addition, please use the Discussions boards [here](https://github.com/cncf/mentoring/discussions).
+If you need help with anything mentoring at CNCF, you can file an issue at this repo or reach out to us using the [Discussions boards](https://github.com/cncf/mentoring/discussions).
 
-Organization admins for specific mentorship programs are listed on the programs respective pages.
+Organization admins for specific mentorship programs are listed on the program's respective pages.
 
 ## Communication
 
-Please reach out to us on the #mentoring channel on the [CNCF slack](https://slack.cncf.io/). Please don't use DMs unless strictly necessary as doing so both has the potential of overwhelming project maintainers and others with similar questions lose the benefit of public discussion.
+Please reach out to us using the [Discussions boards](https://github.com/cncf/mentoring/discussions).
+
+We are also available on the [CNCF slack](https://slack.cncf.io/). Please don't use DMs unless strictly necessary as doing so both has the potential of overwhelming project maintainers and others with similar questions lose the benefit of public discussion.
 
 It's best if you use a public communication channel whenever possible; however, if you need to communicate in private, please feel free to send the admins a note via mentoring@cncf.io (please use the public channels for any project-related discussion).
 

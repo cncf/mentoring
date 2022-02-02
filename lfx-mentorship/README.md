@@ -1,6 +1,6 @@
 # LFX Mentorship (ex-Community Bridge) by The Linux Foundation
 
-[LFX Mentorship](https://lfx.linuxfoundation.org/tools/mentorship/) (previously known as Community Bridge) is a platform Developed by the Linux Foundation, which accelerates the adoption, innovation, and sustainability of open source software.
+[LFX Mentorship](https://lfx.linuxfoundation.org/tools/mentorship/) (previously known as Community Bridge) is a platform developed by the Linux Foundation, which accelerates the adoption, innovation, and sustainability of open source software.
 
 LFX Mentorship is actively used by the Cloud Native Computing Foundation as a mentorship platform across the CNCF projects.
 
@@ -43,21 +43,21 @@ The LFX Mentorship program is completed for 2021. The current cycle is Spring 20
 
 ## Communication
 
-LFX Platfrom-specific documentation is available [here](https://docs.linuxfoundation.org/lfx/mentorship). In the case of any questions or issues with the LFX Mentorship platform/website itself, payments, etc., please reach out to the [LFX Mentorship support team](https://support.linuxfoundation.org/) directly.
+LFX Platform-specific documentation is available [here](https://docs.linuxfoundation.org/lfx/mentorship). In the case of any questions or issues with the LFX Mentorship platform/website itself, payments, etc., please reach out to the [LFX Mentorship support team](https://support.linuxfoundation.org/) directly.
 
-For the CNCF-specific questions, please use the dedicated [#mentoring](https://cloud-native.slack.com/archives/CPV83DB51) channel on the [CNCF Slack](https://slack.cncf.io/) (or email us to mentoring@cncf.io if you have any questions you don't want to raise up publicly).
+For CNCF-specific questions, please use the use the [Discussions boards](https://github.com/cncf/mentoring/discussions) (or you can email us at mentoring@cncf.io if you have any questions you don't want to raise publicly).
 
-Please to avoid using DM's to contact the program maintainers.
+Please avoid using DM's to contact the program maintainers.
 
 ## Program Guidelines
 
-Please see the program-wide guidelines at the [LFX Mentorship website](https://docs.linuxfoundation.org/lfx/mentorship).
+Please see the program-wide guidelines on the [LFX Mentorship website](https://docs.linuxfoundation.org/lfx/mentorship).
 
 ### How to apply?
 
 #### Projects
 
-Project maintainers and mentors, are requested to submit the ideas below (under the Project Ideas section) section using the [template](/PROJECT_IDEA_TEMPLATE.md).
+Project maintainers and mentors are requested to submit the ideas below (under the Project Ideas section) section using the [template](/PROJECT_IDEA_TEMPLATE.md).
 
 CNCF will select the projects that will participate in the Community Bridge mentorship round and they will appear on the Community Bridge website after the selection.
 
