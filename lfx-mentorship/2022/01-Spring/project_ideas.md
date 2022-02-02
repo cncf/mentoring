@@ -81,6 +81,13 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Mentor(s): Jianbo Sun (@wonderflow), Da Yin (@somefive)
 - Upstream Issue (URL): <https://github.com/oam-dev/kubevela/issues/3178>
 
+#### Management of Terraform state
+
+- Description: To some extent, Terraform state is the most essential component for cloud resources provisioned by Terraform Controller. We need to better manage the state.
+- Recommended Skills: Golang, Terraform
+- Mentor(s): ZhengXi Zhou (@zzxwill)
+- Upstream Issue (URL): https://github.com/oam-dev/terraform-controller/issues/239
+
 #### WasmEdge
 
 ##### Improving the performance of running miniruby
