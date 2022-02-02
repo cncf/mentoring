@@ -2,6 +2,69 @@
 
 Project maintainers and mentors, please submit the ideas below (under the Proposed Project Ideas section) section using the [template](/PROJECT_IDEA_TEMPLATE.md).
 
+- [Projects ideas](#projects-ideas)
+  - [Template](#template)
+  - [Sample](#sample)
+    - [Prometheus (sample)](#prometheus-sample)
+      - [Refactor the APIs for better readability and less maintenance overhead](#refactor-the-apis-for-better-readability-and-less-maintenance-overhead)
+  - [Proposed Project ideas](#proposed-project-ideas)
+      - [LitmusChaos](#litmuschaos)
+        - [Develop new feature and add integration tests for LitmusCTL](#develop-new-feature-and-add-integration-tests-for-litmusctl)
+      - [KubeArmor](#kubearmor)
+        - [Extending kubearmor-cli-tool filtering options](#extending-kubearmor-cli-tool-filtering-options)
+        - [Using mutating webhooks for applying pod/container kubearmor annotations](#using-mutating-webhooks-for-applying-podcontainer-kubearmor-annotations)
+      - [Chaos Mesh](#chaos-mesh)
+        - [Interactive Katacoda Playground for Chaos Experiment Examples](#interactive-katacoda-playground-for-chaos-experiment-examples)
+      - [KubeVela](#kubevela)
+        - [Enhance multi-cluster observability](#enhance-multi-cluster-observability)
+        - [Extend monitoring through VelaQL](#extend-monitoring-through-velaql)
+        - [Management of Terraform state](#management-of-terraform-state)
+      - [WasmEdge](#wasmedge)
+        - [Improving the performance of running miniruby](#improving-the-performance-of-running-miniruby)
+        - [Improving the performance of running rustpython](#improving-the-performance-of-running-rustpython)
+        - [Enable OpenVINO backend for WASI-NN](#enable-openvino-backend-for-wasi-nn)
+        - [Implement typed function references proposal](#implement-typed-function-references-proposal)
+      - [Kyverno](#kyverno)
+        - [Extend Kyverno CLI test command for Generate policy rules](#extend-kyverno-cli-test-command-for-generate-policy-rules)
+        - [e2e tests and CLI tests to cover sample policies](#e2e-tests-and-cli-tests-to-cover-sample-policies)
+        - [Automate Performance Testing](#automate-performance-testing)
+        - [Security enhancements](#security-enhancements)
+        - [OpenTelemetry exporter for Kyverno](#opentelemetry-exporter-for-kyverno)
+      - [Kuma](#kuma)
+        - [Active monitoring of Cross Zone communication](#active-monitoring-of-cross-zone-communication)
+        - [Add status infos in Kubernetes CRDs](#add-status-infos-in-kubernetes-crds)
+      - [Karmada](#karmada)
+        - [Refactor get command to leverage aggregated API](#refactor-get-command-to-leverage-aggregated-api)
+        - [Refactor the scheduler framework](#refactor-the-scheduler-framework)
+        - [Enhancement for controllers scalability](#enhancement-for-controllers-scalability)
+        - [Dashboard development](#dashboard-development)
+      - [Kubernetes](#kubernetes)
+        - [Documentation assessment (SIG-Network Gateway API)](#documentation-assessment-sig-network-gateway-api)
+        - [Automation of AMI build/test/publish pipelines for Cluster API Provider AWS (CAPA)](#automation-of-ami-buildtestpublish-pipelines-for-cluster-api-provider-aws-capa)
+        - [Improvements to Kubernetes maintainers-related automation (SIG Contributor Experience)](#improvements-to-kubernetes-maintainers-related-automation-sig-contributor-experience)
+        - [Kubernetes (SIG Contribex: Mentoring Subproject)](#kubernetes-sig-contribex-mentoring-subproject)
+          - [Creating Katacoda Scenarios To Help New Contributors](#creating-katacoda-scenarios-to-help-new-contributors)
+        - [Kubernetes (SIG Cluster Lifecycle)](#kubernetes-sig-cluster-lifecycle)
+          - [Improvising unit test coverage(CAPV)](#improvising-unit-test-coveragecapv)
+      - [Elekto and Kubernetes SIG-ContribEx](#elekto-and-kubernetes-sig-contribex)
+        - [Elections Security Improvements](#elections-security-improvements)
+      - [Vitess](#vitess)
+        - [Add complete parsing support for MySQL functions](#add-complete-parsing-support-for-mysql-functions)
+      - [Tremor](#tremor)
+        - [Database Connectors](#database-connectors)
+        - [CI and Release process improvements](#ci-and-release-process-improvements)
+      - [KubeEdge](#kubeedge)
+        - [Plans for Node Group Management](#plans-for-node-group-management)
+        - [Move edge native k8s api interface GA](#move-edge-native-k8s-api-interface-ga)
+        - [Design and add more e2e tests especially for edge scenarios](#design-and-add-more-e2e-tests-especially-for-edge-scenarios)
+        - [Updating the kubeedge docs](#updating-the-kubeedge-docs)
+      - [Thanos](#thanos)
+        - [Run a community Thanos demo instance](#run-a-community-thanos-demo-instance)
+      - [OpenTelemetry PHP](#opentelemetry-php)
+        - [Help drive OpenTelemetry PHP to Beta](#help-drive-opentelemetry-php-to-beta)
+      - [Pixie](#pixie)
+        - [Add support for new protocols in protocol tracer](#add-support-for-new-protocols-in-protocol-tracer)
+
 ---
 
 ## Template
@@ -81,12 +144,12 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Mentor(s): Jianbo Sun (@wonderflow), Da Yin (@somefive)
 - Upstream Issue (URL): <https://github.com/oam-dev/kubevela/issues/3178>
 
-#### Management of Terraform state
+##### Management of Terraform state
 
 - Description: To some extent, Terraform state is the most essential component for cloud resources provisioned by Terraform Controller. We need to better manage the state.
 - Recommended Skills: Golang, Terraform
 - Mentor(s): ZhengXi Zhou (@zzxwill)
-- Upstream Issue (URL): https://github.com/oam-dev/terraform-controller/issues/239
+- Upstream Issue (URL): <https://github.com/oam-dev/terraform-controller/issues/239>
 
 #### WasmEdge
 
@@ -148,7 +211,7 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - **Mentor(s)**: Jim Bugwadia (@JimBugwadia)
 - **Upstream Issue (URL)**: <https://github.com/kyverno/kyverno/issues/2250>
 
-#### OpenTelemetry exporter for Kyverno
+##### OpenTelemetry exporter for Kyverno
 
 - **Description**: [Kyverno](https://kyverno.io) is a Kubernetes native policy engine that secures and automates Kubernetes configurations. This project will instrument Kyverno to export OpenTelemetry data for metrics, logs, flows, and policy reports. The project will include testing with OpenTelemetry collectors and documenting the integration steps.
 - **Recommended Skills**: Observability, Prometheus, OpenTelemetry, Golang
@@ -234,14 +297,26 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - **Mentor(s)**: Nikhita Raghunath (@nikhita), Nabarun Pal (@palnabarun)
 - **Upstream Issue (URL)**: <https://github.com/kubernetes/org/issues/3208>
 
-#### Vitess
+##### Kubernetes (SIG Contribex: Mentoring Subproject)
 
-##### Add complete parsing support for MySQL functions
+###### Creating Katacoda Scenarios To Help New Contributors
 
-- Description: Vitess is a database clustering system for horizontal scaling of MySQL. One of the key goals of Vitess is to emulate MySQL behavior even while running multiple MySQL instances so that ORMs and frameworks work seamlessly. Vitess has its own in-built SQL-parser which it uses to understand the query and represent as structs for further processing. As of now, a lot of MySQL functions are not parsed correctly and result in syntax errors. Parsing for a lot of the newer features in MySQL 8.0 is also missing. The task of the mentee would be to add parsing support for such functions and features.
-- Recommended Skills: go, SQL, yacc, compilers and lexers
-- Mentor(s): Manan Gupta (@GuptaManan100)
-- Issue: <https://github.com/vitessio/vitess/issues/8604>
+- **Description**: There are various Katacoda scenarios available for diverse aspects of Kubernetes, but they focus on an end-user perspective. There is a need to create interactive tutorials to help folks interested in contributing to the project. As a first step, a Katacoda scenario to set up Kubernetes and run tests locally was created that can be found [here](https://github.com/kubernetes-sigs/contributor-katacoda).
+
+This internship involves improving the existing Katacoda scenario and adding new scenarios to further include aspects of contributing such as spinning up a `kind` cluster with the changes made and testing those changes out. Through the course of this internship, you will also learn how one can contribute to other projects of the Kubernetes community such as the Kubernetes website, and document these processes as Katacoda scenarios to help new contributors get started in their contribution journey.
+
+- **Recommended Skills**: Technical Writing, Kubernetes, Golang (preferred but not required)
+- **Mentor(s)**: Debabrata Panigrahi (@Debanitrkl), Madhav Jivrajani (@MadhavJivrajani)
+- **Upstream Issue (URL)**: <https://github.com/kubernetes/community/issues/5576>
+
+##### Kubernetes (SIG Cluster Lifecycle)
+
+###### Improvising unit test coverage(CAPV)
+
+- **Description**: Cluster API (CAPI) is a Kubernetes sub-project focused on providing declarative APIs and tooling to simplify lifecycle management of Kubernetes clusters. CAPV is the infrastructure provider that extends Cluster API to manage Kubernetes clusters on vSphere. As a mentee, you will start with learning CAPI/CAPV concepts and then, will work on the main project which is to improve unit test coverage. The ideal percentage is 70%. This project aims to either achieve that or come close to it.
+- **Recommended Skills**: Golang, GitHub, Test, Automation, CI/CD pipelines
+- **Mentor(s)**: Ankita Swamy(@Ankitasw),Geetika Batra(@geetikabatra)
+- **Upstream Issue (URL)**: <https://github.com/kubernetes-sigs/cluster-api-provider-vsphere/issues/1392>
 
 #### Elekto and Kubernetes SIG-ContribEx
 
@@ -256,26 +331,14 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - **Mentor(s)**: Josh Berkus (@jberkus)
 - **Issue**: [Implement Security Recommendations](https://github.com/elekto-io/elekto/issues/51)
 
-#### Kubernetes (SIG Contribex: Mentoring Subproject)
+#### Vitess
 
-##### Creating Katacoda Scenarios To Help New Contributors
+##### Add complete parsing support for MySQL functions
 
-- **Description**: There are various Katacoda scenarios available for diverse aspects of Kubernetes, but they focus on an end-user perspective. There is a need to create interactive tutorials to help folks interested in contributing to the project. As a first step, a Katacoda scenario to set up Kubernetes and run tests locally was created that can be found [here](https://github.com/kubernetes-sigs/contributor-katacoda).
-
-This internship involves improving the existing Katacoda scenario and adding new scenarios to further include aspects of contributing such as spinning up a `kind` cluster with the changes made and testing those changes out. Through the course of this internship, you will also learn how one can contribute to other projects of the Kubernetes community such as the Kubernetes website, and document these processes as Katacoda scenarios to help new contributors get started in their contribution journey.
-
-- **Recommended Skills**: Technical Writing, Kubernetes, Golang (preferred but not required)
-- **Mentor(s)**: Debabrata Panigrahi (@Debanitrkl), Madhav Jivrajani (@MadhavJivrajani)
-- **Upstream Issue (URL)**: <https://github.com/kubernetes/community/issues/5576>
-
-#### Kubernetes (SIG Cluster Lifecycle)
-
-##### Improvising unit test coverage(CAPV)
-
-- **Description**: Cluster API (CAPI) is a Kubernetes sub-project focused on providing declarative APIs and tooling to simplify lifecycle management of Kubernetes clusters. CAPV is the infrastructure provider that extends Cluster API to manage Kubernetes clusters on vSphere. As a mentee, you will start with learning CAPI/CAPV concepts and then, will work on the main project which is to improve unit test coverage. The ideal percentage is 70%. This project aims to either achieve that or come close to it.
-- **Recommended Skills**: Golang, GitHub, Test, Automation, CI/CD pipelines
-- **Mentor(s)**: Ankita Swamy(@Ankitasw),Geetika Batra(@geetikabatra)
-- **Upstream Issue (URL)**: <https://github.com/kubernetes-sigs/cluster-api-provider-vsphere/issues/1392>
+- Description: Vitess is a database clustering system for horizontal scaling of MySQL. One of the key goals of Vitess is to emulate MySQL behavior even while running multiple MySQL instances so that ORMs and frameworks work seamlessly. Vitess has its own in-built SQL-parser which it uses to understand the query and represent as structs for further processing. As of now, a lot of MySQL functions are not parsed correctly and result in syntax errors. Parsing for a lot of the newer features in MySQL 8.0 is also missing. The task of the mentee would be to add parsing support for such functions and features.
+- Recommended Skills: go, SQL, yacc, compilers and lexers
+- Mentor(s): Manan Gupta (@GuptaManan100)
+- Issue: <https://github.com/vitessio/vitess/issues/8604>
 
 #### Tremor
 
@@ -332,16 +395,14 @@ This internship involves improving the existing Katacoda scenario and adding new
 - Mentor(-s): Giedrius Statkevičius (@GiedriusS)
 - Upstream Issue (URL): <https://github.com/thanos-io/thanos/issues/4606>
 
-
 #### OpenTelemetry PHP
 
 ##### Help drive OpenTelemetry PHP to Beta
 
-- Description: Help to drive our [project board](https://github.com/open-telemetry/opentelemetry-php/projects/1) for OpenTelemetry PHP.  This includes validating spec compliance and writing PHP code to implement some of these features
+- Description: Help to drive our [project board](https://github.com/open-telemetry/opentelemetry-php/projects/1) for OpenTelemetry PHP. This includes validating spec compliance and writing PHP code to implement some of these features
 - Recommended Skills: PHP
 - Mentor(s): @bobstrecansky, @tidal, @brettmc
-- Upstream Issue (URL): https://github.com/open-telemetry/opentelemetry-php/projects/1
-
+- Upstream Issue (URL): <https://github.com/open-telemetry/opentelemetry-php/projects/1>
 
 #### Pixie
 
@@ -351,6 +412,3 @@ This internship involves improving the existing Katacoda scenario and adding new
 - Recommended Skills: C++
 - Mentor(s): Omid Azizi (@oazizi000)
 - Upstream Issue (URL): <https://github.com/pixie-io/pixie/issues/332>, <https://github.com/pixie-io/pixie/issues/341>
-```
-
-
