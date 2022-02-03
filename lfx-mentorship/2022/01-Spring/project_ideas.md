@@ -64,8 +64,13 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
         - [Help drive OpenTelemetry PHP to Beta](#help-drive-opentelemetry-php-to-beta)
       - [Pixie](#pixie)
         - [Add support for new protocols in protocol tracer](#add-support-for-new-protocols-in-protocol-tracer)
-
----
+      - [Meshery](#meshery)
+        - [Workflow engine](#workflow-engine)
+        - [Service mesh playground](#service-mesh-playground)
+      - [Service Mesh Performance](#service-mesh-performance)
+        - [Definition of MeshMark](#definition-of-meshmark)
+      - [Service Mesh Interface](#service-mesh-interface)
+        - [Conformance Program](#conformance-program)
 
 ## Template
 
@@ -412,3 +417,37 @@ This internship involves improving the existing Katacoda scenario and adding new
 - Recommended Skills: C++
 - Mentor(s): Omid Azizi (@oazizi000)
 - Upstream Issue (URL): <https://github.com/pixie-io/pixie/issues/332>, <https://github.com/pixie-io/pixie/issues/341>
+
+#### Service Mesh Performance
+
+##### Definition of MeshMark
+
+- Description: Create MeshMark provides a universal performance index to gauge your mesh’s efficiency against deployments in other organizations’ environments. MeshMark functions as a service mesh performance index (a scale) to provide people the ability to weigh the value of their service mesh versus the overhead of their service mesh and assess whether they are getting out of the mesh what they are “paying” for in it. Work with maintainers from Layer5, Intel, Red Hat, and HashiCorp on researching cloud native infrastructure performance. Internship involves: machine learning, adaptive algorithms, running and analyzing performance statistics.
+- Recommended Skills: Analytics, Algorithms, Data Science, (Golang and/or C++ helpful, but not necessary)
+- Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)), [Aditya Chatterjee](http://github.com/warunicorn19)
+- Issue: <https://github.com/service-mesh-performance/service-mesh-performance/issues/227>
+
+#### Meshery
+
+##### Service mesh playground
+
+- Description: Create the world’s service mesh playground. Meshery’s genesis is that of helping teach people about service mesh technology and enabling to operate this type of cloud native infrastructure confidently. The proposed project is aimed at furthering this mission with interactive API documentation connected to a service mesh learning playground (a running instance of Meshery).
+- Recommended Skills: Golang, ReactJS
+- Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)), [Debopriya Bhattacharjee](https://github.com/debo19)
+- Issue: <https://github.com/layer5io/meshery/issues/2931>
+
+##### Workflow engine
+
+- Description: Integrate a new architectural component into Meshery: a workflow engine. This project involves shifting Meshery off of bitcask and off of sqlite over to postgres using gorm (golang). Interns will familiarize with concepts of orchestration engines, including chaining workflows, and content lifecycle management.
+- Recommended Skills: Golang, Temporal, ReactJS
+- Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)), [Ashish Tiwari](https://github.com/revolyssup)
+- Issue: <https://github.com/meshery/meshery/issues/3934>
+
+#### Service Mesh Interface
+
+##### Conformance Program
+
+- Description: Ensure that a service mesh is properly configured and that its behavior conforms to official SMI specifications. Advance the definition of conformance tests and the test framework, Meshery (see [design specification](https://docs.google.com/document/d/1HL8Sk7NSLLj-9PRqoHYVIGyU6fZxUQFotrxbmfFtjwc/edit)).
+- Recommended Skills**: Golang, ReactJS, GitHub Actions 
+- Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)), [Abhishek Kumar](https://github.com/Abhishek-kumar09)
+- Issue: [https://github.com/servicemeshinterface/smi-spec/issues/70](https://github.com/servicemeshinterface/smi-spec/issues/70)
