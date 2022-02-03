@@ -64,8 +64,13 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
         - [Help drive OpenTelemetry PHP to Beta](#help-drive-opentelemetry-php-to-beta)
       - [Pixie](#pixie)
         - [Add support for new protocols in protocol tracer](#add-support-for-new-protocols-in-protocol-tracer)
-
----
+      - [Meshery](#meshery)
+        - [Workflow engine](#workflow-engine)
+        - [Service mesh playground](#service-mesh-playground)
+      - [Service Mesh Performance](#service-mesh-performance)
+        - [Definition of MeshMark](#definition-of-meshmark)
+      - [Service Mesh Interface](#service-mesh-interface)
+        - [Conformance Program](#conformance-program)
 
 ## Template
 
