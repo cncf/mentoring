@@ -316,9 +316,9 @@ This internship involves improving the existing Katacoda scenario and adding new
 
 ##### Kubernetes (SIG Cluster Lifecycle)
 
-###### Improvising unit test coverage(CAPV)
+###### Improving unit test coverage(CAPV)
 
-- **Description**: Cluster API (CAPI) is a Kubernetes sub-project focused on providing declarative APIs and tooling to simplify lifecycle management of Kubernetes clusters. CAPV is the infrastructure provider that extends Cluster API to manage Kubernetes clusters on vSphere. As a mentee, you will start with learning CAPI/CAPV concepts and then, will work on the main project which is to improve unit test coverage. This project aims to either achieve that or come close to it.
+- **Description**: Cluster API (CAPI) is a Kubernetes sub-project focused on providing declarative APIs and tooling to simplify lifecycle management of Kubernetes clusters. CAPV is the infrastructure provider that extends Cluster API to manage Kubernetes clusters on vSphere. As a mentee, you will start with learning CAPI/CAPV concepts and then, will work on the main project which is to improve unit test coverage.
 - **Recommended Skills**: Golang, GitHub, Test, Automation, CI/CD pipelines
 - **Mentor(s)**: Ankita Swamy(@Ankitasw),Geetika Batra(@geetikabatra)
 - **Upstream Issue (URL)**: <https://github.com/kubernetes-sigs/cluster-api-provider-vsphere/issues/1392>
