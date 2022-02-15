@@ -414,7 +414,7 @@ This internship involves improving the existing Katacoda scenario and adding new
 
 - Description: Thanos is a distributed system that has a user interface written in React. Let's create a community instance with continuous integration for easy testing of how Thanos works. Also, it could serve as a testing ground for new React components. A server is provided by CNCF (<https://github.com/cncf/cluster/issues/190>).
 - Recommended Skills: Linux, Ansible, Python, Shell Scripting
-- Mentor(-s): Giedrius Statkevičius (@GiedriusS), Wiard van Rji (@wiardvanrij)
+- Mentor(-s): Giedrius Statkevičius (@GiedriusS), Wiard van Rij (@wiardvanrij)
 - Upstream Issue (URL): <https://github.com/thanos-io/thanos/issues/4606>
 - LFX URL: <https://mentorship.lfx.linuxfoundation.org/project/e49f92f3-4cca-4f10-a0c2-806df1ea63b5>
 
