@@ -88,7 +88,7 @@ Mentorship duration - three months \(12 weeks - full-time schedule\)
 
 ##### Develop new feature and add integration tests for LitmusCTL
 
-- Description: [LitmusChaos]("https://litmuschaos.io") is an open source Chaos Engineering platform that enables teams to identify weaknesses & potential outages in infrastructures by inducing chaos tests in a controlled way. This project aims to develop new commands/features for litmusctl along with integration tests for it.
+- Description: [LitmusChaos](https://litmuschaos.io) is an open source Chaos Engineering platform that enables teams to identify weaknesses & potential outages in infrastructures by inducing chaos tests in a controlled way. This project aims to develop new commands/features for litmusctl along with integration tests for it.
 - Recommended Skills: Golang, Kubernetes, CLI
 - Mentor(s): Raj Babu Das (@rajdas98), Sarthak Jain (@SarthakJain26), Saranya Jena (@Saranya-jena)
 - Upstream Issue (URL): <https://github.com/litmuschaos/litmus/issues/3440>
