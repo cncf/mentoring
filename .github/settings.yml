@@ -40,3 +40,6 @@ labels:
     color: f4af97
   - name: summer of code
     color: 00ffff
+  - name: spring
+  - name: summer
+  - name: fall
