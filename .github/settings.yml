@@ -46,7 +46,7 @@ labels:
     color: FBCA04
   - name: fall
     color: C5DEF5
-  - name: 2022
+  - name: "2022"
     color: 0052CC
-  - name: 2023
+  - name: "2023"
     color: 5319E7
