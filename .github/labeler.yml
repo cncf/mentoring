@@ -1,17 +1,16 @@
 
 # Add '2022' to any change to 2022 project files
 2022:
-  - 'summerofcode/2022.md'
-  - 'lfx-mentorship/2022/*'
-  - 'lfx-mentorship/2022/**/*'
+  - summerofcode/2022.md
+  - lfx-mentorship/2022/*
+  - lfx-mentorship/2022/**/*
 
 # Add 'summer of code' label to any files in the Summer of Code project
-summer of code:
-  - 'summerofcode/*'
-  - 'summerofcode/**/*'
+'summer of code':
+  - 'summerofcode/*
+  - 'summerofcode/**/*
 
 # Add 'lfx mentorship' label to any files in the lfx mentorship project
-lfx mentorship:
-  - 'lfx-mentorship/*'
-  - 'lfx-mentorship/**/*'
-
+'lfx mentorship':
+  - lfx-mentorship/*
+  - lfx-mentorship/**/*
