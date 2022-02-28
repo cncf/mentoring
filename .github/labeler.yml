@@ -7,8 +7,8 @@
 
 # Add 'summer of code' label to any files in the Summer of Code project
 'summer of code':
-  - 'summerofcode/*
-  - 'summerofcode/**/*
+  - summerofcode/*
+  - summerofcode/**/*
 
 # Add 'lfx mentorship' label to any files in the lfx mentorship project
 'lfx mentorship':
