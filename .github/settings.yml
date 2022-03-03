@@ -24,6 +24,9 @@ collaborators:
 
   - username: nate-double-u
     permission: admin
+    
+  - username: jeefy
+    permission: admin
 
 labels:
   - name: lfx mentorship
