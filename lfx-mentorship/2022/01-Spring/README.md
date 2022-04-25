@@ -1,6 +1,6 @@
 # Q1
 
-Status: Planned
+Status: In Progress
 
 - [Q1](#q1)
   - [Timeline](#timeline)
