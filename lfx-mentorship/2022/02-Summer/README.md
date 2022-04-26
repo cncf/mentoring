@@ -7,7 +7,7 @@ Status: planning
 
 **Summer Term: June 1st - August 31st**
 
-- mentorships available on LFX Mentorship: May 8th, 2021
+- mentorships available on LFX Mentorship: May 8th, 2022
 - applications open: May 9th - May 24th (2 weeks)
 - application review/admission decisions/HR paperwork: May 25th - May 31st
 
