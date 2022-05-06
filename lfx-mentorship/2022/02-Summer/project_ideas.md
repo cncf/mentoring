@@ -58,3 +58,19 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Recommended Skills: Rust, Programming Language Design
 - Mentor(s): Matthias Wahl (@mfelsche), Heinz N. Gies (@Licenser)
 - Upstream Issue: https://github.com/tremor-rs/tremor-runtime/issues/1358
+
+### Volcano
+
+#### Official Website Docs Enhancement
+
+- Description: Official website docs has not been updated for a long time including technology docs, talks, best practice and so on, which bothers users and developers a lot.  
+- Recommended Skills: Kubernetes, golang, English, Chinese
+- Mentor(s): Lei Wu (@Thor-wl)
+- Upstream Issue: <https://github.com/volcano-sh/website/issues/209>
+
+#### Volcano scalability enhancement
+
+- Description: In order to have a better support of other AI/HPC platforms and GPU, it is necessary to enhance the integration with third-party operators and GPU support.
+- Recommended Skills: Kubernetes, golang
+- Mentor(s): Liang Tang (@shinytang6)
+- Upstream Issue: <https://github.com/volcano-sh/volcano/issues/2211>
