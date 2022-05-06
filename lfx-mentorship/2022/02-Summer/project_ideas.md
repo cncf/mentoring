@@ -44,3 +44,17 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Recommended Skills: golang
 - Mentor(s): Daniel Mangum (@hasheddan), Jared Watts (@jbw976)
 - Upstream Issue (URL): https://github.com/crossplane/crossplane/issues/2913
+
+### Tremor
+
+#### Pluggable logging
+- Description:  Tremor is an event processing system that can - among other things - process logs and metrics. Currently, Tremor uses log4rs to handle its own logging. We would like tremor to have a facility to handle its logs through its own pipelines (similar to the pluggable metrics experience). A starting point could be a sink for log4rs, which could then be replaced completely, making log4rs an optional output.
+- Recommended Skills: Rust, Testing
+- Mentor(s): Ramona Łuczkiewicz (@agares), Darach Ennis (@darach)
+- Upstream Issue: https://github.com/tremor-rs/tremor-runtime/issues/1621   
+
+#### Hygenic error handling and validation for pipelines
+- Description: Tremor uses its own language for pluggable user defined functionality. The language interconnects internal operators via the `connect` statement and the `select` statement. Currently, neither `select` nor `connect` verifies that the operator port of the receiving or the sending part is correct ( exists, and is an expected type ) - this can lead to silent or confusing errors. User experience is super important to tremor, so that is a solution state we’re not happy with. The goal of this mentorship is to add validation and provide targeted hygienic errors to users that are trivial to diagnose and resolve as this will massively improve user experience.
+- Recommended Skills: Rust, Programming Language Design
+- Mentor(s): Matthias Wahl (@mfelsche), Heinz N. Gies (@Licenser)
+- Upstream Issue: https://github.com/tremor-rs/tremor-runtime/issues/1358
