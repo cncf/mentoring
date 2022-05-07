@@ -54,6 +54,28 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Mentor(s): Hongcai Ren (@RainbowMango)
 - Upstream Issue (URL): https://github.com/karmada-io/karmada/issues/772
 
+##### Develop Override policy, Resource Binding, Work Page
+
+- Description: These pages on the web dashboard will help to perform different operations for Override policies, Resource Binding in karmada.
+- Recommended Skills: Front-end development, Reactjs, Redux, Figma
+- Mentor(s): Hongcai Ren (@RainbowMango), Chinmay Mehta (@chinmaym07)
+- Upstream Issue (URL): https://github.com/karmada-io/dashboard/issues/15
+
+##### Develop Propagation policy, Settings, About Pages
+
+- Description: Propogation Policy page on the web dashboard will help to perform different operations for Propagation policies in karmada, Settings page will help the user to modify the dashboard according to their needs.
+- Recommended Skills: Front-end development, Reactjs, Redux, Figma
+- Mentor(s): Hongcai Ren (@RainbowMango), Chinmay Mehta (@chinmaym07)
+- Upstream Issue (URL): https://github.com/karmada-io/dashboard/issues/16
+
+##### Design & Develop FederatedResourceQuota, SearchRegistry & MultiClusterIngress page
+
+- Description: 
+More pages need to be designed & added to the dashboard which are required to make great use of the functionalities of the karmada project using the web ui client.
+- Recommended Skills: Front-end development, Reactjs, Redux, Figma
+- Mentor(s): Hongcai Ren (@RainbowMango), Chinmay Mehta (@chinmaym07)
+- Upstream Issue (URL): https://github.com/karmada-io/dashboard/issues/17
+
 ### Tremor
 
 #### Pluggable logging
