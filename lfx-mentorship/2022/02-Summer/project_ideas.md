@@ -83,3 +83,29 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Recommended Skills: Kubernetes, golang
 - Mentor(s): Liang Tang (@shinytang6)
 - Upstream Issue: <https://github.com/volcano-sh/volcano/issues/2211>
+
+
+### KubeArmor
+
+#### Supporting KubeArmor on ARM platforms
+
+-   Description: KubeArmor has garnered interests from edge computing platforms (such as LF Edge OpenHorizon) that leverages k8s control plane for workload orchestration. The primary requirement is to support ARM platforms that are prevalent on the edge devices (especially Raspberry PI). KubeArmor leverages eBPF for observability and Linux Security Modules (such as AppArmor) for policy enforcement. One of the challenges is to check if the eBPF primitives such as observing kprobe, kretprobe, tracepoints that are typically available on the x86 platform are also available on the ARM platform and check if the parameter list fulfills the requirement. Post this analysis, the KubeArmor code might have to be changed to accommodate any differences in the eBPF behavior.
+-   Recommended Skills: golang, raspberry-pi, ebpf, k8s
+-   Mentor(s): Ankur Kothiwal (@Ankurk99), Barun Acharya (@daemon1024), Rahul Jadhav (@nyrahul)
+-   Upstream Issue (URL):[  kubearmor/KubeArmor#614](https://github.com/kubearmor/KubeArmor/issues/614)
+
+#### Support for OpenShift
+
+-   Description: KubeArmor is a cloud-native runtime security enforcement system that restricts the behavior (such as process execution, file access, and networking operation) of containers and nodes (VMs) at the system level.
+This project aims to support KubeArmor on OpenShift. The work will include compatibility analysis of KubeArmor on OpenShift, finding limitations (if any), and eventually testing it on OpenShift.
+-   Recommended Skills: OpenShift, k8s
+-   Mentor(s): Ankur Kothiwal (@Ankurk99), Barun Acharya (@daemon1024), Rahul Jadhav (@nyrahul)
+-   Upstream Issue (URL): [kubearmor/KubeArmor/#221](https://github.com/kubearmor/KubeArmor/issues/221)
+
+#### Extend kArmor to include KubeArmor configuration
+
+-   Description: KubeArmor is a cloud-native runtime security enforcement system that restricts the behavior (such as process execution, file access, and networking operation) of containers and nodes (VMs) at the system level. kArmor is a KubeArmor CLI tool that connects to the kubearmor-relay service to provide command-line telemetry and observability data. 
+The project aims to extend KubeArmor CLI-tool kArmor to check KubeArmor configurations in the running environment. This feature will provide various information about KubeArmor like the current running mode (audit or enforcement), the enforcer used by KubeArmor (SELinux or AppArmor or BPF-LSM), whether it's running in systemd mode or on k8s, etc. 
+-   Recommended Skills: go, k8s
+-   Mentor(s): Ankur Kothiwal (@Ankurk99), Barun Acharya (@daemon1024), Rahul Jadhav (@nyrahul)
+-   Upstream Issue (URL): [kubearmor/kubearmor-client/#19](https://github.com/kubearmor/kubearmor-client/issues/19#issue-1048413733)
