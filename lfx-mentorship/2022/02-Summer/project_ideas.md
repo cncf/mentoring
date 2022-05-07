@@ -54,6 +54,13 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Mentor(s): Hongcai Ren (@RainbowMango)
 - Upstream Issue (URL): https://github.com/karmada-io/karmada/issues/772
 
+##### Design & Develop Dashboard
+
+- Description: More pages need to be designed & added to the dashboard which are required to make great use of the functionalities of the karmada project using the web ui client.
+- Recommended Skills: Front-end development, Reactjs, Redux, Figma
+- Mentor(s): Hongcai Ren (@RainbowMango), Chinmay Mehta (@chinmaym07)
+- Upstream Issue (URL): https://github.com/karmada-io/dashboard/issues/18
+
 ### Tremor
 
 #### Pluggable logging
