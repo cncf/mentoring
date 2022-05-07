@@ -45,6 +45,15 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Mentor(s): Daniel Mangum (@hasheddan), Jared Watts (@jbw976)
 - Upstream Issue (URL): https://github.com/crossplane/crossplane/issues/2913
 
+#### Karmada
+
+##### Cluster Resource modeling
+
+- Description: In the scheduling progress, the `karmada-scheduler` makes decisions as per a bunch of factors, one of the factors is the resource details of the cluster. We don't want to collect and store each node's resources in detail(That's a burden for Karmada to maintain the information), but we want to build a resource model for each cluster.
+- Recommended Skills: golang, k8s, algorithm
+- Mentor(s): Hongcai Ren (@RainbowMango)
+- Upstream Issue (URL): https://github.com/karmada-io/karmada/issues/772
+
 ### Tremor
 
 #### Pluggable logging
