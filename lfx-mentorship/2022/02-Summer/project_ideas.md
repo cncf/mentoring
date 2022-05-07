@@ -64,7 +64,7 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 #### Official Website Docs Enhancement
 
 - Description: Official website docs has not been updated for a long time including technology docs, talks, best practice and so on, which bothers users and developers a lot.  
-- Recommended Skills: Kubernetes, golang, English, Chinese
+- Recommended Skills: Kubernetes, golang, technical writing, English, Chinese
 - Mentor(s): Lei Wu (@Thor-wl)
 - Upstream Issue: <https://github.com/volcano-sh/website/issues/209>
 
