@@ -131,3 +131,32 @@ The project aims to extend KubeArmor CLI-tool kArmor to check KubeArmor configur
 -   Recommended Skills: go, k8s
 -   Mentor(s): Ankur Kothiwal (@Ankurk99), Barun Acharya (@daemon1024), Rahul Jadhav (@nyrahul)
 -   Upstream Issue (URL): [kubearmor/kubearmor-client/#19](https://github.com/kubearmor/kubearmor-client/issues/19#issue-1048413733)
+
+### Kyverno
+
+#### Integrate Kubernetes Pod Security with Kyverno
+
+- Description: Integrate Kubernetes Pod Security with Kyverno for finer grained controls.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s): Shuting Zhao (@realshuting)
+- Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/3830
+
+#### Kyverno SLSA 3
+
+- Description: Implement software supply chain security best practices to achieve SLSA Level 3 compliance (https://slsa.dev/). This includes generation of build provenance data for Kyverno.   [Kyverno - SLSA](https://docs.google.com/presentation/d/1jWbSVyQkMn1VdXfg7kW1dYmk8fgcvzBfZ-4ZCAaVOLs/edit#slide=id.g35f391192_00).
+- Recommended Skills: Security, CI/CD, Golang
+- Mentor(s): Jim Bugwadia
+- Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/3119 
+
+#### CLI test schema and enhancements
+
+- Description: The Kyverno CLI does not have a formalized schema with proper validation for its `test` command. Create a formal schema which is documented allowing for full validation and related other capabilities which enhance its usage.
+- Recommended Skills: Golang
+- Mentor(s): Vyankatesh Kudtarkar, Chip Zoller, 
+- Upstream Issue (URL):
+  - https://github.com/kyverno/kyverno/issues/2323
+  - https://github.com/kyverno/kyverno/issues/2315
+  - https://github.com/kyverno/kyverno/issues/2302
+  - https://github.com/kyverno/kyverno/issues/2857
+  - https://github.com/kyverno/kyverno/issues/2945
+  - https://github.com/kyverno/kyverno/issues/3271
