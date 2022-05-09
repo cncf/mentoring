@@ -141,3 +141,60 @@ Recommended Skills: Go, DNS
 Mentor(s): Bartlomiej Plotka (@bwplotka), Saswata Mukherjee (@saswatamcode)
 Upstream Issue: https://github.com/thanos-io/thanos/issues/5340
 
+### WasmEdge
+#### Create a Tokio-like async runtime in WasmEdge
+
+- Description: One of the most important features of WasmEdge is its support for [non-blocking network sockets](https://wasmedge.org/book/en/dev/rust/networking-nonblocking.html). However, the current WasmEdge API for async networking is still cumbersome. Rust developers would prefer to use a Tokio-like async / await API for such tasks. But Tokio is multi-threaded and cannot run correctly in standard single-threaded WebAssembly. Yet, it is possible to [provide a single-threaded Tokio runtime](https://stackoverflow.com/questions/61763072/is-there-a-way-to-use-tokiomain-with-a-single-threaded-runtime-in-tokio-0-2). Our goal is to create a WebAssembly compatible Tokio scheduler.
+- Recommended Skills: Rust, tokio, wasm
+- Mentor(s): juntao(@juntao)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/1429
+
+#### Provide a wasm-compatible Rust TLS implementation
+
+- Description: The WasmEdge networking socket API provides support for TCP and HTTP connections. But many web services today require HTTPS connections. That means we need to support TLS in WasmEdge. The [Rustls](https://github.com/rustls/rustls) crate is the most popular TLS implementation in Rust. However, Rustls is based on the Ring library, which cannot be compiled into WebAssembly. In WasmEdge, we now [support](https://github.com/WasmEdge/WasmEdge/issues/345) the [wasi-crypto spec](https://github.com/WebAssembly/wasi-crypto). That allows us to compile the [rust-crypto](https://crates.io/crates/crypto) library into WebAssembly and run on WasmEdge. The goal of this project is to create a Rust TLS implementation based on rust-crypto.
+- Recommended Skills: Rust, wasm, crypto
+- Mentor(s): juntao(@juntao), WenShuo Yang(@sonder-joker)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/1430
+
+#### Support Durable Objects (DO) in WasmEdge
+
+- Description: Durable Objects (DO) are persistent data objects available to applications at runtime. They can be stored in a persistent KV store or a data cache. [DOs are important for stateful serverless functions](https://blog.cloudflare.com/introducing-workers-durable-objects/). The [Anna KVS](https://github.com/hydro-project/anna) project developed by UC Berkeley is an autoscaling KVS ideally suited for edge nodes. It is a good match for WasmEdge to support stateful serverless functions on the edge cloud. The goal of this task is to create Rust and JavaScript clients for Anna KVS using the WasmEdge socket API. It allows Rust-based WasmEdge applications to connect to Anna KVS, and store or retrieve DOs in the KVS. _Note_: A new Rust-based version of Anna KVS is going to be released soon. We will likely use the new version for this task. The network socket API for accessing the KVS will remain largely unchanged from the old version.
+- Recommended Skills: Anna KVS, Rust, wasm, JavaScript, Database
+- Mentor(s): juntao(@juntao)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/1431
+
+#### Implement component-model proposal in WasmEdge
+
+- Description: The [component-model](https://github.com/WebAssembly/component-model) proposal merges and supersedes the [Module Linking](https://github.com/WebAssembly/module-linking/) and [Interface Types](https://github.com/WebAssembly/interface-types) proposals. With this feature, WasmEdge can execute multiple modules wasm with Module Linking and and more flexible types with Interface Type.
+- Recommended Skills: C++, wasm
+- Mentor(s): Hung-Ying Tai(@hydai), Yi-Ying He (@q82419)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/1433
+
+### Kyverno
+
+#### Integrate Kubernetes Pod Security with Kyverno
+
+- Description: Integrate Kubernetes Pod Security with Kyverno for finer grained controls.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s): Shuting Zhao (@realshuting)
+- Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/3830
+
+#### Kyverno SLSA 3
+
+- Description: Implement software supply chain security best practices to achieve SLSA Level 3 compliance (https://slsa.dev/). This includes generation of build provenance data for Kyverno.   [Kyverno - SLSA](https://docs.google.com/presentation/d/1jWbSVyQkMn1VdXfg7kW1dYmk8fgcvzBfZ-4ZCAaVOLs/edit#slide=id.g35f391192_00).
+- Recommended Skills: Security, CI/CD, Golang
+- Mentor(s): Jim Bugwadia
+- Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/3119 
+
+#### CLI test schema and enhancements
+
+- Description: The Kyverno CLI does not have a formalized schema with proper validation for its `test` command. Create a formal schema which is documented allowing for full validation and related other capabilities which enhance its usage.
+- Recommended Skills: Golang
+- Mentor(s): Vyankatesh Kudtarkar, Chip Zoller, 
+- Upstream Issue (URL):
+  - https://github.com/kyverno/kyverno/issues/2323
+  - https://github.com/kyverno/kyverno/issues/2315
+  - https://github.com/kyverno/kyverno/issues/2302
+  - https://github.com/kyverno/kyverno/issues/2857
+  - https://github.com/kyverno/kyverno/issues/2945
+  - https://github.com/kyverno/kyverno/issues/3271
