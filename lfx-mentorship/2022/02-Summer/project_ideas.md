@@ -142,6 +142,22 @@ The project aims to extend KubeArmor CLI-tool kArmor to check KubeArmor configur
 - Mentor(s): [Kehui Li](https://github.com/kehuili), [Haili Zhang](https://github.com/webup), [Feynman Zhou](https://github.com/feynmanzhou)
 - Upstream Issue: https://github.com/OpenFunction/functions-framework/issues/18
 
+### OpenELB
+
+#### Support BGP policy in OpenELB
+
+- Description: OpenELB is an open-source load balancer implementation designed for exposing the LoadBalancer type of Kubernetes services in bare metal, edge, and virtualization environments. Currently, OpenELB supports the BGP protocol. However, the BGP policy is not fully supported in OpenELB. Therefore, based on the BGP protocol, OpenELB is supposed to support the BGP policy to enable leveraging the GoBGP policy feature for controlling the route advertisement.
+- Recommended Skills: Golang, Kubernetes, Helm, Docker
+- Mentor(s): [Chauncey Jiang](https://github.com/chaunceyjiang/)，[Yunkang Ren](https://github.com/renyunkang), [Feynman Zhou](https://github.com/feynmanzhou)
+- Upstream Issue: https://github.com/openelb/openelb/issues/267
+
+#### Provide the OpenELB Web UI for managing EIP and IP pool
+
+- Description: OpenELB is an open-source load balancer implementation designed for exposing the LoadBalancer type of Kubernetes services in bare metal, edge, and virtualization environments. Currently, Currently, the allocation of OpenELB EIP pool and EIP can only be viewed and managed using command in the terminal. We hope to provide a simple web console to make OpenELB much developer-friendly. Users could manage EIP pool and EIP resources using web UI.
+- Recommended Skills: Javascript, HTML, Docker, Kubernetes
+- Mentor(s): [Yunkang Ren](https://github.com/renyunkang), [Changjiang Li](https://github.com/weili520), [Feynman Zhou](https://github.com/feynmanzhou)
+- Upstream Issue: https://github.com/openelb/openelb/issues/244
+
 ### Thanos
 
 #### Implement Unified Endpoint Discovery
