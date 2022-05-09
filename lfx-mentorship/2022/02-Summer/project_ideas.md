@@ -131,3 +131,12 @@ The project aims to extend KubeArmor CLI-tool kArmor to check KubeArmor configur
 -   Recommended Skills: go, k8s
 -   Mentor(s): Ankur Kothiwal (@Ankurk99), Barun Acharya (@daemon1024), Rahul Jadhav (@nyrahul)
 -   Upstream Issue (URL): [kubearmor/kubearmor-client/#19](https://github.com/kubearmor/kubearmor-client/issues/19#issue-1048413733)
+
+
+### OpenFunction
+#### Support and update the Python Functions Framework
+
+- Description: [OpenFunction](https://github.com/OpenFunction/OpenFunction) is a cloud-native open source FaaS (Function as a Service) platform. [OpenFunction 0.6.0](https://openfunction.dev/blog/2022/03/25/announcing-openfunction-0.6.0-faas-observability-http-trigger-and-more/) brings notable features including function plugin, distributed tracing for functions, control autoscaling behavior, HTTP trigger to async function, etc. Meanwhile, the asynchronous runtime definition has also been refactored. The core API has been upgraded from `v1alpha1` to `v1beta1`. So far, the Go Function Framework fully supports the latest features of OpenFunction 0.6.0. We hope the Python Functions Framework could also be applicable in OpenFunction 0.6.0.
+- Recommended Skills: Python, Kubernetes, OpenFunction
+- Mentor(s): [Kehui Li](https://github.com/kehuili), [Haili Zhang](https://github.com/webup), [Feynman Zhou](https://github.com/feynmanzhou)
+- Upstream Issue: https://github.com/OpenFunction/functions-framework/issues/18
