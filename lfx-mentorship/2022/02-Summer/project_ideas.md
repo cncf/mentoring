@@ -134,9 +134,78 @@ The project aims to extend KubeArmor CLI-tool kArmor to check KubeArmor configur
 
 
 ### OpenFunction
+
 #### Support and update the Python Functions Framework
 
 - Description: [OpenFunction](https://github.com/OpenFunction/OpenFunction) is a cloud-native open source FaaS (Function as a Service) platform. [OpenFunction 0.6.0](https://openfunction.dev/blog/2022/03/25/announcing-openfunction-0.6.0-faas-observability-http-trigger-and-more/) brings notable features including function plugin, distributed tracing for functions, control autoscaling behavior, HTTP trigger to async function, etc. Meanwhile, the asynchronous runtime definition has also been refactored. The core API has been upgraded from `v1alpha1` to `v1beta1`. So far, the Go Function Framework fully supports the latest features of OpenFunction 0.6.0. We hope the Python Functions Framework could also be applicable in OpenFunction 0.6.0.
 - Recommended Skills: Python, Kubernetes, OpenFunction
 - Mentor(s): [Kehui Li](https://github.com/kehuili), [Haili Zhang](https://github.com/webup), [Feynman Zhou](https://github.com/feynmanzhou)
 - Upstream Issue: https://github.com/OpenFunction/functions-framework/issues/18
+
+### Thanos
+
+#### Implement Unified Endpoint Discovery
+
+Description: Thanos Querier microservice is one of the core component of the Thanos system responsible for asking relevent data stores for metrics, labels, metadata, exemplars, targets, alerts and more and merging their results. One of the key challenges to Querier configuration is telling which endpoints it should talk to and what APIs it should expect. For this we proposed the [Unified Endoint Discovery](https://thanos.io/tip/proposals-accepted/202101-endpoint-discovery.md/) idea, which allows consistency and easy to use configuration across all APIs. This project is meant to continue the implementation of this proposal and make sure it works well for all the edge cases using our e2e testing framework.
+Recommended Skills: Go, DNS
+Mentor(s): Bartlomiej Plotka (@bwplotka), Saswata Mukherjee (@saswatamcode)
+Upstream Issue: https://github.com/thanos-io/thanos/issues/5340
+
+### WasmEdge
+
+#### Create a Tokio-like async runtime in WasmEdge
+
+- Description: One of the most important features of WasmEdge is its support for [non-blocking network sockets](https://wasmedge.org/book/en/dev/rust/networking-nonblocking.html). However, the current WasmEdge API for async networking is still cumbersome. Rust developers would prefer to use a Tokio-like async / await API for such tasks. But Tokio is multi-threaded and cannot run correctly in standard single-threaded WebAssembly. Yet, it is possible to [provide a single-threaded Tokio runtime](https://stackoverflow.com/questions/61763072/is-there-a-way-to-use-tokiomain-with-a-single-threaded-runtime-in-tokio-0-2). Our goal is to create a WebAssembly compatible Tokio scheduler.
+- Recommended Skills: Rust, tokio, wasm
+- Mentor(s): juntao(@juntao)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/1429
+
+#### Provide a wasm-compatible Rust TLS implementation
+
+- Description: The WasmEdge networking socket API provides support for TCP and HTTP connections. But many web services today require HTTPS connections. That means we need to support TLS in WasmEdge. The [Rustls](https://github.com/rustls/rustls) crate is the most popular TLS implementation in Rust. However, Rustls is based on the Ring library, which cannot be compiled into WebAssembly. In WasmEdge, we now [support](https://github.com/WasmEdge/WasmEdge/issues/345) the [wasi-crypto spec](https://github.com/WebAssembly/wasi-crypto). That allows us to compile the [rust-crypto](https://crates.io/crates/crypto) library into WebAssembly and run on WasmEdge. The goal of this project is to create a Rust TLS implementation based on rust-crypto.
+- Recommended Skills: Rust, wasm, crypto
+- Mentor(s): juntao(@juntao), WenShuo Yang(@sonder-joker)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/1430
+
+#### Support Durable Objects (DO) in WasmEdge
+
+- Description: Durable Objects (DO) are persistent data objects available to applications at runtime. They can be stored in a persistent KV store or a data cache. [DOs are important for stateful serverless functions](https://blog.cloudflare.com/introducing-workers-durable-objects/). The [Anna KVS](https://github.com/hydro-project/anna) project developed by UC Berkeley is an autoscaling KVS ideally suited for edge nodes. It is a good match for WasmEdge to support stateful serverless functions on the edge cloud. The goal of this task is to create Rust and JavaScript clients for Anna KVS using the WasmEdge socket API. It allows Rust-based WasmEdge applications to connect to Anna KVS, and store or retrieve DOs in the KVS. _Note_: A new Rust-based version of Anna KVS is going to be released soon. We will likely use the new version for this task. The network socket API for accessing the KVS will remain largely unchanged from the old version.
+- Recommended Skills: Anna KVS, Rust, wasm, JavaScript, Database
+- Mentor(s): juntao(@juntao)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/1431
+
+#### Implement component-model proposal in WasmEdge
+
+- Description: The [component-model](https://github.com/WebAssembly/component-model) proposal merges and supersedes the [Module Linking](https://github.com/WebAssembly/module-linking/) and [Interface Types](https://github.com/WebAssembly/interface-types) proposals. With this feature, WasmEdge can execute multiple modules wasm with Module Linking and and more flexible types with Interface Type.
+- Recommended Skills: C++, wasm
+- Mentor(s): Hung-Ying Tai(@hydai), Yi-Ying He (@q82419)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/1433
+
+### Kyverno
+
+#### Integrate Kubernetes Pod Security with Kyverno
+
+- Description: Integrate Kubernetes Pod Security with Kyverno for finer grained controls.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s): Shuting Zhao (@realshuting)
+- Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/3830
+
+#### Kyverno SLSA 3
+
+- Description: Implement software supply chain security best practices to achieve SLSA Level 3 compliance (https://slsa.dev/). This includes generation of build provenance data for Kyverno.   [Kyverno - SLSA](https://docs.google.com/presentation/d/1jWbSVyQkMn1VdXfg7kW1dYmk8fgcvzBfZ-4ZCAaVOLs/edit#slide=id.g35f391192_00).
+- Recommended Skills: Security, CI/CD, Golang
+- Mentor(s): Jim Bugwadia
+- Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/3119 
+
+#### CLI test schema and enhancements
+
+- Description: The Kyverno CLI does not have a formalized schema with proper validation for its `test` command. Create a formal schema which is documented allowing for full validation and related other capabilities which enhance its usage.
+- Recommended Skills: Golang
+- Mentor(s): Vyankatesh Kudtarkar, Chip Zoller, 
+- Upstream Issue (URL):
+  - https://github.com/kyverno/kyverno/issues/2323
+  - https://github.com/kyverno/kyverno/issues/2315
+  - https://github.com/kyverno/kyverno/issues/2302
+  - https://github.com/kyverno/kyverno/issues/2857
+  - https://github.com/kyverno/kyverno/issues/2945
+  - https://github.com/kyverno/kyverno/issues/3271
