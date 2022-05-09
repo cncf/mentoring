@@ -131,3 +131,13 @@ The project aims to extend KubeArmor CLI-tool kArmor to check KubeArmor configur
 -   Recommended Skills: go, k8s
 -   Mentor(s): Ankur Kothiwal (@Ankurk99), Barun Acharya (@daemon1024), Rahul Jadhav (@nyrahul)
 -   Upstream Issue (URL): [kubearmor/kubearmor-client/#19](https://github.com/kubearmor/kubearmor-client/issues/19#issue-1048413733)
+
+### Thanos
+
+#### Implement Unified Endpoint Discovery
+
+Description: Thanos Querier microservice is one of the core component of the Thanos system responsible for asking relevent data stores for metrics, labels, metadata, exemplars, targets, alerts and more and merging their results. One of the key challenges to Querier configuration is telling which endpoints it should talk to and what APIs it should expect. For this we proposed the [Unified Endoint Discovery](https://thanos.io/tip/proposals-accepted/202101-endpoint-discovery.md/) idea, which allows consistency and easy to use configuration across all APIs. This project is meant to continue the implementation of this proposal and make sure it works well for all the edge cases using our e2e testing framework.
+Recommended Skills: Go, DNS
+Mentor(s): Bartlomiej Plotka (@bwplotka), Saswata Mukherjee (@saswatamcode)
+Upstream Issue: https://github.com/thanos-io/thanos/issues/5340
+
