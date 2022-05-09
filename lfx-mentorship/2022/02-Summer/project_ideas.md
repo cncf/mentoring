@@ -132,6 +132,16 @@ The project aims to extend KubeArmor CLI-tool kArmor to check KubeArmor configur
 -   Mentor(s): Ankur Kothiwal (@Ankurk99), Barun Acharya (@daemon1024), Rahul Jadhav (@nyrahul)
 -   Upstream Issue (URL): [kubearmor/kubearmor-client/#19](https://github.com/kubearmor/kubearmor-client/issues/19#issue-1048413733)
 
+
+### OpenFunction
+
+#### Support and update the Python Functions Framework
+
+- Description: [OpenFunction](https://github.com/OpenFunction/OpenFunction) is a cloud-native open source FaaS (Function as a Service) platform. [OpenFunction 0.6.0](https://openfunction.dev/blog/2022/03/25/announcing-openfunction-0.6.0-faas-observability-http-trigger-and-more/) brings notable features including function plugin, distributed tracing for functions, control autoscaling behavior, HTTP trigger to async function, etc. Meanwhile, the asynchronous runtime definition has also been refactored. The core API has been upgraded from `v1alpha1` to `v1beta1`. So far, the Go Function Framework fully supports the latest features of OpenFunction 0.6.0. We hope the Python Functions Framework could also be applicable in OpenFunction 0.6.0.
+- Recommended Skills: Python, Kubernetes, OpenFunction
+- Mentor(s): [Kehui Li](https://github.com/kehuili), [Haili Zhang](https://github.com/webup), [Feynman Zhou](https://github.com/feynmanzhou)
+- Upstream Issue: https://github.com/OpenFunction/functions-framework/issues/18
+
 ### Thanos
 
 #### Implement Unified Endpoint Discovery
@@ -142,6 +152,7 @@ Mentor(s): Bartlomiej Plotka (@bwplotka), Saswata Mukherjee (@saswatamcode)
 Upstream Issue: https://github.com/thanos-io/thanos/issues/5340
 
 ### WasmEdge
+
 #### Create a Tokio-like async runtime in WasmEdge
 
 - Description: One of the most important features of WasmEdge is its support for [non-blocking network sockets](https://wasmedge.org/book/en/dev/rust/networking-nonblocking.html). However, the current WasmEdge API for async networking is still cumbersome. Rust developers would prefer to use a Tokio-like async / await API for such tasks. But Tokio is multi-threaded and cannot run correctly in standard single-threaded WebAssembly. Yet, it is possible to [provide a single-threaded Tokio runtime](https://stackoverflow.com/questions/61763072/is-there-a-way-to-use-tokiomain-with-a-single-threaded-runtime-in-tokio-0-2). Our goal is to create a WebAssembly compatible Tokio scheduler.
