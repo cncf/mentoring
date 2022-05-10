@@ -1,3 +1,5 @@
+# Table of contents
+
 - [Q2](#q2)
   - [Timeline](#timeline)
   - [Accepted Projects](#accepted-projects)
@@ -7,7 +9,7 @@
     - [Karmada](#karmada)
       - [Cluster Resource modeling](#cluster-resource-modeling)
       - [Develop Override policy, Resource Binding, Work Page](#develop-override-policy-resource-binding-work-page)
-      - [Develop Propagation policy, Settings, About Pages](#develop-propagation-policy-settings-about-pages)
+      - [Develop Propagation policy, Settings, About Pages](#develop-propagationpolicy-settings-about-pages)
       - [Design & Develop FederatedResourceQuota, SearchRegistry & MultiClusterIngress page](#design--develop-federatedresourcequota-searchregistry--multiclusteringress-page)
     - [Tremor](#tremor)
       - [Pluggable logging](#pluggable-logging)
@@ -30,6 +32,11 @@
       - [Integrate Kubernetes Pod Security with Kyverno](#integrate-kubernetes-pod-security-with-kyverno)
       - [Kyverno SLSA 3](#kyverno-slsa-3)
       - [CLI test schema and enhancements](#cli-test-schema-and-enhancements)
+    - [OpenFunction](#openfunction)
+      - [Support and update the Python Functions Framework](#support-and-update-the-python-functions-framework)
+    - [OpenELB](#openelb)
+      - [Support BGP policy in OpenELB](#support-bgp-policy-in-openelb)
+      - [Provide the OpenELB Web UI for managing EIP and IP pool](#provide-the-openelb-web-ui-for-managing-eip-and-ip-pool)-
 
 # Q2
 

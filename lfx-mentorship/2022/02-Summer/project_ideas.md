@@ -29,4 +29,4 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 ## Proposed Project ideas
 
-Accepted ideas have been moved to [README.md](./README) 
+Accepted ideas have been moved to [README.md](README.md) 
