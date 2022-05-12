@@ -9,7 +9,7 @@
     - [Karmada](#karmada)
       - [Cluster Resource modeling](#cluster-resource-modeling)
       - [Develop Override policy, Resource Binding, Work Page](#develop-override-policy-resource-binding-work-page)
-      - [Develop Propagation policy, Settings, About Pages](#develop-propagationpolicy-settings-about-pages)
+      - [Develop Propagation policy, Settings, About Pages](#develop-propagation-policy-settings-about-pages)
       - [Design & Develop FederatedResourceQuota, SearchRegistry & MultiClusterIngress page](#design--develop-federatedresourcequota-searchregistry--multiclusteringress-page)
     - [Tremor](#tremor)
       - [Pluggable logging](#pluggable-logging)
@@ -36,7 +36,12 @@
       - [Support and update the Python Functions Framework](#support-and-update-the-python-functions-framework)
     - [OpenELB](#openelb)
       - [Support BGP policy in OpenELB](#support-bgp-policy-in-openelb)
-      - [Provide the OpenELB Web UI for managing EIP and IP pool](#provide-the-openelb-web-ui-for-managing-eip-and-ip-pool)-
+      - [Provide the OpenELB Web UI for managing EIP and IP pool](#provide-the-openelb-web-ui-for-managing-eip-and-ip-pool)
+    - [Meshery](#meshery)
+      - [Cloud Native Playground](#cloud-native-playground)
+      - [Design Configurator](#design-configurator)
+    - [Service Mesh Performance](#service-mesh-performance)
+      - [Implementation of MeshMark](#implementation-of-meshmark)
 
 # Q2
 
@@ -280,3 +285,30 @@ Upstream Issue: https://github.com/thanos-io/thanos/issues/5340
 - Upstream Issue: https://github.com/openelb/openelb/issues/244
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/947885e1-6b32-4b3c-85cb-955cb617237e
 
+### Meshery
+
+#### Cloud Native Playground
+
+- Description: Hosted at play.meshery.io, build a unique learning environment for learning modern application networking through Meshery's support of every service mesh, orchestration of Kubernetes, and integration with many other CNCF projects. Meshery's genesis is that of helping teach people about service mesh technology and enabling to operate this type of cloud native infrastructure confidently. The proposed project is aimed at furthering this mission with interactive API documentation connected to a cloud native playground (a running instance of Meshery).
+- Recommended Skills: Golang, ReactJS
+- Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)), [Aditya Chatterjee](https://github.com/warunicorn19)
+- Issue: <https://github.com/meshery/play/issues/16>
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/bb6cf95e-bbdc-4b50-8446-45507c9e5a6a
+
+#### Design Configurator
+
+- Description: Integrate a new user experience into Meshery: a cloud native design configurator. This project involves presentation of Kuberenetes core resources and any custom resource (CRD) as a configurable component in a React-based user interface in which users design (in great detail) and deploy their cloud native infrastructure. Interns will familiarize with concepts of content lifecycle management.
+- Recommended Skills: ReactJS, OpenAPI, JSON Schema.
+- Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)), [Ashish Tiwari](https://github.com/revolyssup)
+- Issue: <https://github.com/meshery/meshery/issues/5504>
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/cf4de999-41a9-4769-a298-d7d4b208ab3d
+
+### Service Mesh Performance
+
+#### Implementation of MeshMark
+
+- Description: MeshMark functions as a service mesh performance index (a scale) to provide people the ability to weigh the value of their service mesh versus the overhead of their service mesh and assess whether they are getting out of the mesh what they are “paying” for in it. Implementation of this new performance index involves integration with Meshery, Prometheus, and more.
+- Recommended Skills\*\*: Golang, ReactJS, GitHub Actions
+- Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)), [Abhishek Kumar](https://github.com/Abhishek-kumar09)
+- Issue: https://github.com/service-mesh-performance/service-mesh-performance/issues/325
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/cf992af8-6102-4c2d-8394-c3462112e39f
