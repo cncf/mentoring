@@ -49,17 +49,20 @@ Status: Accepting applications
 
 ## Timeline
 
-**Summer Term: June 1st - August 31st**
+**Note, this has been updated**
 
-- mentorships available on LFX Mentorship: May 8th, 2022
-- applications open: May 9th - May 24th (2 weeks)
-- application review/admission decisions/HR paperwork: May 25th - May 31st
+### Summer Term: June 6th - August 31st
 
-Mentorship duration - three months \(12 weeks - full-time schedule\)
+- mentorships available on LFX Mentorship: May 8th, 2021 (no change, existing proposals still available for application)
+- **proposals cutoff May 24th**
+- applications open: May 9th - **May 29th**
+- application review/admission decisions/HR paperwork: **May 31st - June 3rd**
 
-- June 1 (Week 1): Mentorship program begins with the initial work assignments
-- July 15 (End of Week 6): Midterm mentee evaluations and first stipend payments
-- August 31 (End of Week 12): Final mentee evaluations and mentee feedback/blog submission due, second and final stipend payment approvals
+### Mentorship duration - three months (**11 weeks** - full-time schedule)
+
+- **June 6 (Week 1)**: Mentorship program begins with the initial work assignments
+- July 15 (**End of Week 5**): Midterm mentee evaluations and first stipend payments
+- August 31 (**End of Week 11**): Final mentee evaluations and mentee feedback/blog submission due, second and final stipend payment approvals
 
 ---
 
