@@ -42,6 +42,10 @@
       - [Design Configurator](#design-configurator)
     - [Service Mesh Performance](#service-mesh-performance)
       - [Implementation of MeshMark](#implementation-of-meshmark)
+    - [Devfile](#devfile)
+      - [Add Compose file support in the spec API](#add-compose-file-support-in-the-spec-API)
+      - [Add some syntax sugar to speficy the components that are deployed at startup and those that are not](#add-some-syntax-sugar-to-speficy-the-components-that-are-deployed-at-startup-and-those-that-are-not)
+
 
 # Q2
 
@@ -315,3 +319,25 @@ Upstream Issue: https://github.com/thanos-io/thanos/issues/5340
 - Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)), [Abhishek Kumar](https://github.com/Abhishek-kumar09)
 - Issue: https://github.com/service-mesh-performance/service-mesh-performance/issues/325
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/cf992af8-6102-4c2d-8394-c3462112e39f
+
+### Devfile
+
+#### Add Compose file support in the spec API
+
+- Description: Devfiles are YAML files that define development environment running in the cloud. The main part of a Devfile is the components section and specify the containers required to code, build and test an application. The Devfile can either include those containers defintions or reference external files such as Dockerfiles or Kubernetes manifests. [The Compose file](https://github.com/compose-spec/compose-spec/blob/master/spec.md) is a popular format in open source development projects to define runtime environments for testing the application but those cannot be referenced by a Devfile yet. The goal is to update the API specification to allow referencing a Compose file from a Devfile and to implement the support in the Devfile library.
+- Expected outcome: Create a PR against https://github.com/devfile/api to update the spec with the support for Compose files and a PR against https://github.com/devfile/libary to implement it using (the use of an external library such as [kompose](https://github.com/kubernetes/kompose) is recommended). As a stretch goal, implement Compose file support for the DevWorkspace Kubernetes operator too.
+- Expected size of the project: 350h
+- Difficulty rating: Medium
+- Recommended Skills: Golang, Compose, Kubernetes
+- Mentor(s): Mario Loriedo (@l0rd)
+- Upstream Issue (URL): https://github.com/devfile/api/issues/501
+
+#### Add some syntax sugar to speficy the components that are deployed at startup and those that are not
+
+- Description: Devfiles are YAML files that define development environment running in the cloud. The main part of a Devfile is the components section and specify the containers required to code, build and test an application. Some components, such as those to code and build the application, need to be deployed as soon as development environment is provisioned. Others instead are supposed to be started later, usually when a command is triggered by the developer to test the applicaiton she is working on (a database for example). The current definition of the latter type of coponents is complicated and not self explanatory. The goal of this project is to add a new component field to specify if the component should be included at startup or not.
+- Expected outcome: Create a PR against https://github.com/devfile/api to update the component spec and a PR against https://github.com/devfile/libary to implement it using. As a stretch goal, implement the support for the new field for the DevWorkspace Kubernetes operator too.
+- Expected size of the project: 350h
+- Difficulty rating: Medium
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s): Mario Loriedo (@l0rd)
+- Upstream Issue (URL): https://github.com/devfile/api/issues/852
