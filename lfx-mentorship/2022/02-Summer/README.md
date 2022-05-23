@@ -331,6 +331,7 @@ Upstream Issue: https://github.com/thanos-io/thanos/issues/5340
 - Recommended Skills: Golang, Compose, Kubernetes
 - Mentor(s): Mario Loriedo (@l0rd)
 - Upstream Issue (URL): https://github.com/devfile/api/issues/501
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ef552046-cf54-4fe1-ac31-0a1014210e15
 
 #### Add some syntax sugar to speficy the components that are deployed at startup and those that are not
 
@@ -341,3 +342,4 @@ Upstream Issue: https://github.com/thanos-io/thanos/issues/5340
 - Recommended Skills: Golang, Kubernetes
 - Mentor(s): Mario Loriedo (@l0rd)
 - Upstream Issue (URL): https://github.com/devfile/api/issues/852
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/3feec75a-3d80-476a-83ab-89ee90f48aad
