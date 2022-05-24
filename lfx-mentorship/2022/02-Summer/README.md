@@ -1,7 +1,10 @@
 # Table of contents
 
+- [Table of contents](#table-of-contents)
 - [Q2](#q2)
   - [Timeline](#timeline)
+    - [Summer Term: June 6th - August 31st](#summer-term-june-6th---august-31st)
+    - [Mentorship duration - three months (**11 weeks** - full-time schedule)](#mentorship-duration---three-months-11-weeks---full-time-schedule)
   - [Accepted Projects](#accepted-projects)
     - [Crossplane](#crossplane)
       - [Report breaking changes in CustomResourceDefinition schemas for Pull Requests](#report-breaking-changes-in-customresourcedefinition-schemas-for-pull-requests)
@@ -43,9 +46,10 @@
     - [Service Mesh Performance](#service-mesh-performance)
       - [Implementation of MeshMark](#implementation-of-meshmark)
     - [Devfile](#devfile)
-      - [Add Compose file support in the spec API](#add-compose-file-support-in-the-spec-API)
+      - [Add Compose file support in the spec API](#add-compose-file-support-in-the-spec-api)
       - [Add some syntax sugar to speficy the components that are deployed at startup and those that are not](#add-some-syntax-sugar-to-speficy-the-components-that-are-deployed-at-startup-and-those-that-are-not)
-
+    - [Cluster API Provider GCP](#cluster-api-provider-gcp)
+      - [Add GPU Support](#add-gpu-support)
 
 # Q2
 
@@ -118,7 +122,7 @@ Status: Accepting applications
 
 #### Design & Develop FederatedResourceQuota, SearchRegistry & MultiClusterIngress page
 
-- Description: 
+- Description:
 More pages need to be designed & added to the dashboard which are required to make great use of the functionalities of the karmada project using the web ui client.
 - Recommended Skills: Front-end development, Reactjs, Redux, Figma
 - Mentor(s): Hongcai Ren (@RainbowMango), Chinmay Mehta (@chinmaym07)
@@ -131,7 +135,7 @@ More pages need to be designed & added to the dashboard which are required to ma
 - Description:  Tremor is an event processing system that can - among other things - process logs and metrics. Currently, Tremor uses log4rs to handle its own logging. We would like tremor to have a facility to handle its logs through its own pipelines (similar to the pluggable metrics experience). A starting point could be a sink for log4rs, which could then be replaced completely, making log4rs an optional output.
 - Recommended Skills: Rust, Testing
 - Mentor(s): Ramona Łuczkiewicz (@agares), Darach Ennis (@darach)
-- Upstream Issue: https://github.com/tremor-rs/tremor-runtime/issues/1621   
+- Upstream Issue: https://github.com/tremor-rs/tremor-runtime/issues/1621
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/1218d516-45af-46a3-977b-e5a9de818cec
 
 #### Hygenic error handling and validation for pipelines
@@ -145,7 +149,7 @@ More pages need to be designed & added to the dashboard which are required to ma
 
 #### Official Website Docs Enhancement
 
-- Description: Official website docs has not been updated for a long time including technology docs, talks, best practice and so on, which bothers users and developers a lot.  
+- Description: Official website docs has not been updated for a long time including technology docs, talks, best practice and so on, which bothers users and developers a lot.
 - Recommended Skills: Kubernetes, golang, technical writing, English, Chinese
 - Mentor(s): Lei Wu (@Thor-wl)
 - Upstream Issue: <https://github.com/volcano-sh/website/issues/209>
@@ -181,8 +185,8 @@ This project aims to support KubeArmor on OpenShift. The work will include compa
 
 #### Extend kArmor to include KubeArmor configuration
 
--   Description: KubeArmor is a cloud-native runtime security enforcement system that restricts the behavior (such as process execution, file access, and networking operation) of containers and nodes (VMs) at the system level. kArmor is a KubeArmor CLI tool that connects to the kubearmor-relay service to provide command-line telemetry and observability data. 
-The project aims to extend KubeArmor CLI-tool kArmor to check KubeArmor configurations in the running environment. This feature will provide various information about KubeArmor like the current running mode (audit or enforcement), the enforcer used by KubeArmor (SELinux or AppArmor or BPF-LSM), whether it's running in systemd mode or on k8s, etc. 
+-   Description: KubeArmor is a cloud-native runtime security enforcement system that restricts the behavior (such as process execution, file access, and networking operation) of containers and nodes (VMs) at the system level. kArmor is a KubeArmor CLI tool that connects to the kubearmor-relay service to provide command-line telemetry and observability data.
+The project aims to extend KubeArmor CLI-tool kArmor to check KubeArmor configurations in the running environment. This feature will provide various information about KubeArmor like the current running mode (audit or enforcement), the enforcer used by KubeArmor (SELinux or AppArmor or BPF-LSM), whether it's running in systemd mode or on k8s, etc.
 -   Recommended Skills: go, k8s
 -   Mentor(s): Ankur Kothiwal (@Ankurk99), Barun Acharya (@daemon1024), Rahul Jadhav (@nyrahul)
 -   Upstream Issue (URL): [kubearmor/kubearmor-client/#19](https://github.com/kubearmor/kubearmor-client/issues/19#issue-1048413733)
@@ -247,14 +251,14 @@ Upstream Issue: https://github.com/thanos-io/thanos/issues/5340
 - Description: Implement software supply chain security best practices to achieve SLSA Level 3 compliance (https://slsa.dev/). This includes generation of build provenance data for Kyverno.   [Kyverno - SLSA](https://docs.google.com/presentation/d/1jWbSVyQkMn1VdXfg7kW1dYmk8fgcvzBfZ-4ZCAaVOLs/edit#slide=id.g35f391192_00).
 - Recommended Skills: Security, CI/CD, Golang
 - Mentor(s): Jim Bugwadia
-- Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/3119 
+- Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/3119
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/457cabc9-90d3-4519-bfad-92966501dbd4
 
 #### CLI test schema and enhancements
 
 - Description: The Kyverno CLI does not have a formalized schema with proper validation for its `test` command. Create a formal schema which is documented allowing for full validation and related other capabilities which enhance its usage.
 - Recommended Skills: Golang
-- Mentor(s): Vyankatesh Kudtarkar, Chip Zoller, 
+- Mentor(s): Vyankatesh Kudtarkar, Chip Zoller,
 - Upstream Issue (URL):
   - https://github.com/kyverno/kyverno/issues/2323
   - https://github.com/kyverno/kyverno/issues/2315
@@ -343,3 +347,15 @@ Upstream Issue: https://github.com/thanos-io/thanos/issues/5340
 - Mentor(s): Mario Loriedo (@l0rd)
 - Upstream Issue (URL): https://github.com/devfile/api/issues/852
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/3feec75a-3d80-476a-83ab-89ee90f48aad
+
+### Cluster API Provider GCP
+
+#### Add GPU Support
+
+- Description: Cluster API Provider GCP (a.k.a. CAPG) enables the creation of Kubernetes clusters in GCP with Cluster API. Currently the clusters it creates do not support running workloads in them that take advantage of GPUs and so this rules out things like highly performant machine learning and computational heavy work workloads. We want to enhance CAPG so that it supports GPUs so that users can run these type of workloads. This will require creating a proposal for the change (i.e. design work) and then implementing the propsal which may include changes to the api/controllers, base images and driver installation.
+- Expected outcome: This work will enable CAPG to support the creation of Kubernetes clusters where workfloads can take advantage of GPUs.
+- Difficulty rating: Medium
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s): Carlos Panato (@cpanato), Davanum Srinivas (@dims), Richard Case (@richardcase)
+- Upstream Issue (URL): https://github.com/kubernetes-sigs/cluster-api-provider-gcp/issues/289
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/f65481a3-a745-4230-a0cf-61ffdc00876d
