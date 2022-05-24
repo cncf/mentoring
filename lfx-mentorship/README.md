@@ -45,7 +45,7 @@ The LFX Mentorship program is completed for 2021. The current cycle is Spring 20
 
 LFX Platform-specific documentation is available [here](https://docs.linuxfoundation.org/lfx/mentorship). In the case of any questions or issues with the LFX Mentorship platform/website itself, payments, etc., please reach out to the [LFX Mentorship support team](https://support.linuxfoundation.org/) directly.
 
-For CNCF-specific questions, please use the use the [Discussions boards](https://github.com/cncf/mentoring/discussions) (or you can email us at mentoring@cncf.io if you have any questions you don't want to raise publicly).
+For CNCF-specific questions, please use the [Discussions boards](https://github.com/cncf/mentoring/discussions) (or you can email us at mentoring@cncf.io if you have any questions you don't want to raise publicly).
 
 Please avoid using DM's to contact the program maintainers.
 
