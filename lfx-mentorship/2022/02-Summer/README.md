@@ -336,7 +336,7 @@ Upstream Issue: https://github.com/thanos-io/thanos/issues/5340
 #### Add some syntax sugar to speficy the components that are deployed at startup and those that are not
 
 - Description: Devfiles are YAML files that define development environment running in the cloud. The main part of a Devfile is the components section and specify the containers required to code, build and test an application. Some components, such as those to code and build the application, need to be deployed as soon as development environment is provisioned. Others instead are supposed to be started later, usually when a command is triggered by the developer to test the applicaiton she is working on (a database for example). The current definition of the latter type of coponents is complicated and not self explanatory. The goal of this project is to add a new component field to specify if the component should be included at startup or not.
-- Expected outcome: Create a PR against https://github.com/devfile/api to update the component spec and a PR against https://github.com/devfile/libary to implement it using. As a stretch goal, implement the support for the new field for the DevWorkspace Kubernetes operator too.
+- Expected outcome: Create a PR against https://github.com/devfile/api to update the component spec and a PR against https://github.com/devfile/library to implement it using. As a stretch goal, implement the support for the new field for the DevWorkspace Kubernetes operator too.
 - Expected size of the project: 350h
 - Difficulty rating: Medium
 - Recommended Skills: Golang, Kubernetes
