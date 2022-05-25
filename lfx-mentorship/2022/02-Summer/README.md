@@ -50,6 +50,8 @@
       - [Add some syntax sugar to speficy the components that are deployed at startup and those that are not](#add-some-syntax-sugar-to-speficy-the-components-that-are-deployed-at-startup-and-those-that-are-not)
     - [Cluster API Provider GCP](#cluster-api-provider-gcp)
       - [Add GPU Support](#add-gpu-support)
+    - [Vitess](#vitess)
+      - [Add complete parsing support for Spatial MySQL functions](#add-complete-parsing-support-for-spatial-mysql-functions)
 
 # Q2
 
@@ -359,3 +361,13 @@ Upstream Issue: https://github.com/thanos-io/thanos/issues/5340
 - Mentor(s): Carlos Panato (@cpanato), Davanum Srinivas (@dims), Richard Case (@richardcase)
 - Upstream Issue (URL): https://github.com/kubernetes-sigs/cluster-api-provider-gcp/issues/289
 - LFX URL: [https://mentorship.lfx.linuxfoundation.org/project/f65481a3-a745-4230-a0cf-61ffdc00876d](https://mentorship.lfx.linuxfoundation.org/project/e799bb33-a695-420b-af32-e596938c6960)
+
+### Vitess
+
+#### Add complete parsing support for Spatial MySQL functions
+
+- Description: Vitess is a database clustering system for horizontal scaling of MySQL. One of the key goals of Vitess is to emulate MySQL behavior even while running multiple MySQL instances so that ORMs and frameworks work seamlessly. Vitess has its own in-built SQL-parser which it uses to understand the query and represent as structs for further processing. As of now, a lot of spatial MySQL functions are not parsed correctly and result in syntax errors. The task of the mentee would be to add parsing support for such functions and features which can be found at https://dev.mysql.com/doc/refman/8.0/en/spatial-analysis-functions.html
+- Recommended Skills: go, SQL, yacc, compilers and lexers
+- Mentor(s): Manan Gupta (@GuptaManan100)
+- Issue: <https://github.com/vitessio/vitess/issues/8604>
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/75533c12-1487-40b0-858c-42babeabf782
