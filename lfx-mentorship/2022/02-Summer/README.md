@@ -360,7 +360,7 @@ Upstream Issue: https://github.com/thanos-io/thanos/issues/5340
 - Recommended Skills: Golang, Kubernetes
 - Mentor(s): Carlos Panato (@cpanato), Davanum Srinivas (@dims), Richard Case (@richardcase)
 - Upstream Issue (URL): https://github.com/kubernetes-sigs/cluster-api-provider-gcp/issues/289
-- LFX URL: [https://mentorship.lfx.linuxfoundation.org/project/f65481a3-a745-4230-a0cf-61ffdc00876d](https://mentorship.lfx.linuxfoundation.org/project/e799bb33-a695-420b-af32-e596938c6960)
+- LFX URL: [https://mentorship.lfx.linuxfoundation.org/project/e799bb33-a695-420b-af32-e596938c6960](https://mentorship.lfx.linuxfoundation.org/project/e799bb33-a695-420b-af32-e596938c6960)
 
 ### Vitess
 
