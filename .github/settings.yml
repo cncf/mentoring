@@ -28,6 +28,9 @@ collaborators:
   - username: jeefy
     permission: admin
 
+  - username: jaytiaki
+    permission: maintain
+
 labels:
   - name: lfx mentorship
     color: a2dcf2
