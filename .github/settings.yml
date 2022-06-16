@@ -31,6 +31,9 @@ collaborators:
   - username: jaytiaki
     permission: maintain
 
+  - username: thisisobate
+    permission: admin
+
 labels:
   - name: lfx mentorship
     color: a2dcf2
