@@ -32,7 +32,7 @@ collaborators:
     permission: maintain
 
   - username: thisisobate
-    permission: admin
+    permission: maintain
 
 labels:
   - name: lfx mentorship
