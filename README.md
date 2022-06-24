@@ -9,6 +9,8 @@ The Cloud Native Computing Foundation (CNCF) participates in a variety of mentor
   - [Mentoring Programs](#mentoring-programs)
   - [Program Statistics](#program-statistics)
     - [LFX (ex-Community Bridge)](#lfx-ex-community-bridge)
+      - [2022](#2022)
+        - [Spring](#spring)
       - [2021](#2021)
         - [Fall](#fall)
         - [Summer](#summer)
@@ -87,6 +89,48 @@ It's best if you use a public communication channel whenever possible; however, 
 |      | Outreachy                        | 2           |                  |
 
 ### LFX (ex-Community Bridge)
+
+#### 2022
+
+##### Spring
+
+| Mentoring Project                                                                              | Mentor(s)             | Mentee                  |
+| ---                                                                                            | ---                   | ---                     |
+| CNCF - Chaos Mesh: Interactive Katacoda Playground for Chaos Experiment Examples               | Zhiqiang Zhou         | Chengwei Guo            |
+| CNCF - Karmada: Dashboard development                                                          | Hongcai Ren           | Chinmay Mehta           |
+| CNCF - Karmada: Enhancement for controllers scalability                                        | Hongcai Ren           | WenQing Dai             |
+| CNCF - Karmada: Refactor get command to leverage aggregated API                                | Hongcai Ren           | Zhe Cheng               |
+| CNCF - Karmada: Refactor the scheduler framework                                               | Kevin Wang            | Fei Gao                 |
+| CNCF - KubeArmor: Extending kubearmor-cli-tool filtering options                               | Rahul Jadhav          | Sachin Maurya           |
+| CNCF - KubeArmor: Using mutating webhooks for applying pod/container kubearmor annotations     | Rahul Jadhav          | Achref BEN SAAD         |
+| CNCF - KubeEdge: Plans for Node Group Management                                               | Kevin Wang            | (zefeng)	Yifei Zhang |
+| CNCF - Kubernetes and Elekto: Elections Security Improvements                                  | Josh Berkus           | Vedant Raghuwanshi      |
+| CNCF - Kubernetes SIG ContribEx: Creating Katacoda Scenarios To Help New Contributors          | Debabrata Panigrahi   | Harshita Verma          |
+| CNCF - Kubernetes SIG ContribEx: Improvements to Kubernetes maintainers-related automation     | Nikhita Raghunath     | Raghav Roy              |
+| CNCF - Kubernetes SIG Network: Documentation assessment                                        | Nick Young            | Meha Bhalodyia          |
+| CNCF - Kubernetes: Automation of AMI build/test/publish pipelines for Cluster API Provider AWS | Sedef Savas           | Abhinav Sinha           |
+| CNCF - Kubernetes: Improving unit test coverage(CAPV)                                          | Geetika Batra         | Tushar Malik            |
+| CNCF - Kubevela: Enhance multi-cluster observability                                           | Jianbo Sun            | Kunshuai Zhu            |
+| CNCF - Kubevela: Management of Terraform state                                                 | ZhengXi Zhou          | Nan Li                  |
+| CNCF - Kyverno: Automate Performance Testing                                                   | Shuting Zhao          | Husni Alhamdani         |
+| CNCF - Kyverno: e2e tests and CLI tests to cover sample policies                               | Prateek Pandey        | Oshi Gupta              |
+| CNCF - Kyverno: Extend Kyverno CLI test command for Generate policy rules                      | Prateek Pandey        | Shubham Nazare          |
+| CNCF - Kyverno: OpenTelemetry exporter for Kyverno                                             | Shuting Zhao          | Tathagata Paul          |
+| CNCF - Kyverno: Security enhancements                                                          | Jim Bugwadia          | Shubham Gupta           |
+| CNCF - LitmusChaos: Develop new feature and add integration tests for LitmusCTL                | Raj Babu Das          | Prayag Savsani          |
+| CNCF - Meshery: Service mesh playground (extended)                                             | Lee Calcote           | Aditya Chatterjee       |
+| CNCF - Meshery: Workflow engine (extended)                                                     | Lee Calcote           | Aadhitya Amarendiran    |
+| CNCF - Pixie: Add support for new protocols in protocol tracer                                 | Omid Azizi            | Anubhav Choudhary       |
+| CNCF - Service Mesh Interface: Conformance Program (extended)                                  | Lee Calcote           | Pranav Singh            |
+| CNCF - Service Mesh Performance: Definition of MeshMark (extended)                             | Lee Calcote           | Nikhil Sharma           |
+| CNCF - Thanos: Run a community Thanos demo instance                                            | Giedrius Statkevičius | Soumya Singh            |
+| CNCF - Tremor                                                                                  | Heinz Gies            | Prashant Mishra         |
+| CNCF - Tremor: Database Connectors                                                             | Matthias Wahl         | Sasha Pourcelot         |
+| CNCF - Updating the kubeedge docs                                                              | Fei Xu                | Nilisha Jaiswal         |
+| CNCF - Vitess: Add complete parsing support for MySQL functions                                | Manan Gupta           | Kushal Kumar            |
+| CNCF - WasmEdge: Enable OpenVINO backend for WASI-NN                                           | Hung-Ying Tai         | Jianbai Ye              |
+| CNCF - WasmEdge: Improving the performance of running miniruby                                 | Hung-Ying Tai         | yao bing                |
+| CNCF - WasmEdge: Improving the performance of running rustpython                               | Hung-Ying Tai         | Yiming WenJ             |
 
 #### 2021
 
