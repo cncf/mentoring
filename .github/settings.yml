@@ -53,6 +53,8 @@ labels:
     color: 1ED626
   - name: summer
     color: FBCA04
+  - name: "Term 3: Sept-Nov"
+    color: FBCA04
   - name: fall
     color: C5DEF5
   - name: '2022'
