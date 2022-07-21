@@ -10,7 +10,7 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 - Description:
 - Recommended Skills:
-- Mentor(s):
+- Mentor(s): (please include email info, either here, or contact @nate-double-u on the CNCF slack)
 - Upstream Issue (URL):
 ```
 
