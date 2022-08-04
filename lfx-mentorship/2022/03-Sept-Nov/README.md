@@ -10,7 +10,7 @@ Mentorship duration - three months (12 weeks - full-time schedule)
 
 | activity | date |
 | --- | --- |   
-| project proposals | August 1 - August 10, 5:00 PM PDT |
+| project proposals | August 1 - August 12, 5:00 PM PDT |
 | mentee applications open | August 15 - August 24, 5:00 PM PDT |
 | application review/admission decisions/HR paperwork | August 25 - September 1, 5:00 PM PDT |
 | Mentorship program begins with the initial work assignments | September 5 (Week 1) | 
