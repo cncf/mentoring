@@ -12,7 +12,7 @@ repository:
 
   # Collaborators: give specific users access to this repository.
 collaborators:
-  # Admins
+  # CNCF repo admins
   - username: caniszczyk
     permission: admin
 
@@ -28,10 +28,20 @@ collaborators:
   - username: jeefy
     permission: admin
 
+  - username: thisisobate
+    permission: maintain
+
+  # CNCF TAG Contributor Strategy & Mentoring WG chairs, leads
   - username: jaytiaki
     permission: maintain
 
-  - username: thisisobate
+  - username: geekygirldawn
+    permission: maintain
+
+  - username: jberkus
+    permission: maintain
+
+  - username: carolynvs
     permission: maintain
 
 labels:
