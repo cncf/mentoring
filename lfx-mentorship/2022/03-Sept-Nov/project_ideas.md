@@ -24,3 +24,14 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Recommended Skills: golang
 - Mentor(s): [@Krasi Georgiev](https://github.com/krasi-georgiev)
 - Issue: <https://github.com/prometheus/prometheus/issues/3416>
+
+
+#### Cilium
+
+##### Improving Security posture of the Cilium/Hubble/Tetragon release process
+
+- Description: To be able to improve the Security posture of the Cilium family’s open source projects, we would need signed SBOMs and release artifacts. The main goal of this project is to create signed artifacts as well as SBOMs for each open source project under the Cilium family: Cilium, Hubble, Tetragon as well as sign release artifacts for these projects. 
+
+- Recommended Skills: golang
+- Mentor(s): [André Martins](https://github.com/aanm)  [Natália Réka Ivánkó](https://github.com/sharlns) [Jed Salazar](https://github.com/jedsalazar)
+- Issues: <https://github.com/cilium/cilium/issues/19282> <https://github.com/cilium/cilium/issues/20712>
