@@ -45,3 +45,27 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Mentor(s): [Manan Gupta](https://github.com/GuptaManan100)
 - Issue: <https://github.com/vitessio/vitess/issues/8604>
 
+
+#### KubeArmor
+
+##### Add BTF and BPF CO-RE Support to KubeArmor
+
+- Description: Currently KubeArmor depends on kernel headers to use various kernel structures. This creates difficulty in having portability.
+Linux Kernel versions with BTF (BPF Type Format) information available allows us to write portable BPF CO-RE (or Compile Once - Run Everywhere) applications that can run on multiple kernel versions and configurations without any modification or runtime compilation on the target machine.  
+But there is a restriction that CO-RE requires to have the BTF information of the target kernel, which is provided by the kernel itself when it's compiled with CONFIG_DEBUG_INFO_BTF=y. This option was introduced in Linux 5.2.  
+For kernels < 5.2 we can use BTFGen to ship BTF information with KubeArmor code or use pahole to generate BTF information from the vmlinux image (with DWARF information) at runtime.  
+The project aims to make KubeArmor truly portable across all kernel versions by reducing host environment dependencies.
+
+- Recommended Skills: Kernel, go, C 
+- Mentor(s): Ankur Kothiwal (@Ankurk99), Barun Acharya (@daemon1024), Rahul Jadhav (@nyrahul)
+- Issue: <https://github.com/kubearmor/KubeArmor/issues/789>
+
+##### Use non-privileged containers for KubeArmor daemonset
+
+- Description: KubeArmor currently uses privileged mode for its daemonset containers. But it is not a good practice. Privileged containers are usually frowned upon. In many cases, specific admission controllers are deployed to not allow containers to be installed in privileged mode.
+It is best to not use privileged mode but to define specific capabilities for KubeArmor.  
+The aim of the project is to analyse and reduce the system privileges required by KubeArmor, thereby reducing the potential attack surface.
+
+- Recommended Skills: go, Kernel, k8s
+- Mentor(s): Ankur Kothiwal (@Ankurk99), Barun Acharya (@daemon1024), Rahul Jadhav (@nyrahul)
+- Issue: <https://github.com/kubearmor/KubeArmor/issues/781>
