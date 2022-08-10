@@ -36,6 +36,7 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Mentor(s): [André Martins](https://github.com/aanm)  [Natália Réka Ivánkó](https://github.com/sharlns) [Jed Salazar](https://github.com/jedsalazar)
 - Issues: <https://github.com/cilium/cilium/issues/19282> <https://github.com/cilium/cilium/issues/20712> <https://github.com/cilium/cilium/issues/20850>
 
+
 #### Vitess
 
 ##### Add complete parsing support for Spatial MySQL functions
@@ -69,6 +70,26 @@ The aim of the project is to analyse and reduce the system privileges required b
 - Recommended Skills: go, Kernel, k8s
 - Mentor(s): Ankur Kothiwal (@Ankurk99), Barun Acharya (@daemon1024), Rahul Jadhav (@nyrahul)
 - Issue: <https://github.com/kubearmor/KubeArmor/issues/781>
+
+
+#### WasmEdge
+
+##### Support serialize and deserialize in WasmEdge
+
+- Description: WasmEdge can load the WASM binary and instantiate into WASM module instances for execution. In an use case, we need to serialize the loaded WASM data structure back into the encoded WASM binary, or deserialize the serialized one into the WASM data structure in WasmEdge. With the serializing mechanism, WasmEdge can control the WASM binary wisely such as caching or snapshotting.
+
+- Recommended Skills: C++, WebAssembly
+- Mentor(s): [Hung-Ying Tai](https://github.com/hydai) (hydai[at]secondstate.io), [Yi-Ying He](https://github.com/q82419) (yiying[at]secondstate.io)
+- Issue: <https://github.com/WasmEdge/WasmEdge/issues/1741>
+
+##### Porting OpenVINO on multiple platforms for the WASI-NN proposal in WasmEdge
+
+- Description: The [OpenVINO](https://www.intel.com/content/www/us/en/developer/tools/openvino-toolkit/download.html) official release supports various platforms. WasmEdge supports the WASI-NN proposal with OpenVINO backend now, but only in Ubuntu 20.04. In this project, we want to porting and integrating the OpenVINO installation for the multiple platforms such as MacOS, Windows, or manylinux with the WasmEdge WASI-NN plugin.
+
+- Recommended Skills: C++, WebAssembly
+- Mentor(s): [Hung-Ying Tai](https://github.com/hydai) (hydai[at]secondstate.io), [Yi-Ying He](https://github.com/q82419) (yiying[at]secondstate.io)
+- Issue: <https://github.com/WasmEdge/WasmEdge/issues/1742>
+
 
 #### CNCF Tag Contributor Strategy - ii
 
