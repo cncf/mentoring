@@ -30,11 +30,12 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 
 ##### Improving Security posture of the Cilium/Hubble/Tetragon release process
 
-- Description: To be able to improve the Security posture of the Cilium family’s open source projects, we would need signed SBOMs and release artifacts. The main goal of this project is to create signed artifacts as well as SBOMs for each open source project under the Cilium family: Cilium, Hubble, Tetragon as well as sign release artifacts for these projects. 
+- Description: To be able to improve the Security posture of the Cilium family’s open source projects (Cilium, Hubble, Tetragon), we would need to create signed SBOMs, signed release artifacts for each open source project and automate all of these steps.
 
-- Recommended Skills: golang
+- Recommended Skills: Golang, GitHub Actions, Kubernetes, Docker, Security
 - Mentor(s): [André Martins](https://github.com/aanm)  [Natália Réka Ivánkó](https://github.com/sharlns) [Jed Salazar](https://github.com/jedsalazar)
-- Issues: <https://github.com/cilium/cilium/issues/19282> <https://github.com/cilium/cilium/issues/20712>
+- Issues: <https://github.com/cilium/cilium/issues/19282> <https://github.com/cilium/cilium/issues/20712> <https://github.com/cilium/cilium/issues/20850>
+
 
 #### Vitess
 
@@ -89,3 +90,13 @@ The aim of the project is to analyse and reduce the system privileges required b
 - Mentor(s): [Hung-Ying Tai](https://github.com/hydai) (hydai[at]secondstate.io), [Yi-Ying He](https://github.com/q82419) (yiying[at]secondstate.io)
 - Issue: <https://github.com/WasmEdge/WasmEdge/issues/1742>
 
+
+#### CNCF Tag Contributor Strategy - ii
+
+##### Mentoring Workspaces - GITHUBUSER.PROJECT.cncf.io (w/ VSCode)
+
+- Description: pair.sharing.io is a mentoring / pair environment used by ii.nz that brings up clusters to co-learn and co-author via tmate+emacs and a live cluster with many features useful to cloud native development. However, while many folks find the ideas useful, it would be good to reach a wider audience by bringing up workspaces w/ VSCode as an alternative to emacs. The request is for a PoC deploying coder.com to CNCF Infrastructure (likely Packet) and bringing over some of the methods of collaboration learned by ii on pair to a wider audience.
+  "If you want to go fast, go by yourself. If you want to go far, go together." African Proverb – Martha Goedert
+- Recommended Skills: shell, terminals, VSCode, k8s, System Administration
+- Mentor(s): Hippie Hacker (@hh), Caleb Woodbine (@BobyMCBobs)
+- Issue: <https://github.com/sharingio/pair/issues/173>
