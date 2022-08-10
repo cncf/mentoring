@@ -72,6 +72,52 @@ The aim of the project is to analyse and reduce the system privileges required b
 - Issue: <https://github.com/kubearmor/KubeArmor/issues/781>
 
 
+#### Kyverno
+
+##### Policy Exceptions
+
+- Description: Enable flexible management of policy exceptions without requiring changes to the policy definitions.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s): Jim Bugwadia
+- Upstream Issue (URL):
+  - https://github.com/kyverno/kyverno/issues/2627 
+
+##### Enable resource clean-up
+
+- Description: Support a new type of Kyverno rule to delete resources based on various criterias, such as the type, age, metadata and status.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s): Shuting Zhao (@realshuting)
+- Upstream Issue (URL):
+  - https://github.com/kyverno/kyverno/issues/3483
+  - https://github.com/kyverno/KDP/pull/25 
+
+##### Implement new custom JMESPath filters
+
+- Description: Kyverno uses JMESPath to perform filtering and selection of JSON content in a flexible and advanced way. Many custom filters have been implemented specifically for Kyverno to date. Implement two more filters which fill needed gaps in Kyverno today: a random string generator and an index locator.
+- Recommended Skills: Golang
+- Mentor(s): Chip Zoller, Shuting Zhao
+- Upstream Issue (URL):
+  - https://github.com/kyverno/kyverno/issues/3598 
+  - https://github.com/kyverno/kyverno/issues/3981
+
+##### Logging in JSON plus other enhancements
+
+- Description: Add an ability allowing a user to tell Kyverno to log in JSON format rather than klog.
+- Recommended Skills: Golang
+- Mentor(s): Jim Bugwadia
+- Upstream Issue (URL): 
+  - https://github.com/kyverno/kyverno/issues/3411
+
+##### More support for subresources
+
+- Description: Kyverno lacks the ability to operate on some important subresources like /scale and /status in areas such as validation and mutation.
+- Recommended Skills: Golang
+- Mentor(s): Shuting Zhao
+- Upstream Issue (URL): 
+  - https://github.com/kyverno/kyverno/issues/3118
+  - https://github.com/kyverno/kyverno/issues/2843
+  - https://github.com/kyverno/kyverno/issues/4313 
+
 #### WasmEdge
 
 ##### Support serialize and deserialize in WasmEdge
