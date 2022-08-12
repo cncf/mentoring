@@ -156,6 +156,14 @@ The aim of the project is to analyse and reduce the system privileges required b
 - Mentor(s): [Michael Yuan](https://github.com/juntao) (michael@secondstate.io)
 - Issue: <https://github.com/WasmEdge/WasmEdge/issues/1745>
 
+##### OpenCV SDKs for Wasm in WasmEdge
+
+- Description: WasmEdge is a leading WebAssembly runtime for AI inference. It supports AI frameworks such as Tensorflow, OpenVINO and PyTorch. A compelling use case is computer vision applications on the edge. Computer vision applications need to pre-process images and videos into tensor formats before applying the AI model. They then often need to overlay the tensor results onto the original image. In our existing demos, we use the Rust [image crate](https://crates.io/crates/image) to process images. However, the crate only has limited features and is inadequate for many computer vision applications. In the Python-based computer vision applications, the image pre-processing is often done with the Python wrapper for OpenCV library. The OpenCV library itself is written in C and can be compiled into WebAssembly. We would like to create an OpenCV SDK that allows WebAssembly applications to call OpenCV functions.
+
+- Recommended Skills: C++, WebAssembly, Rust
+- Mentor(s): [Michael Yuan](https://github.com/juntao) (michael@secondstate.io)
+- Issue: <https://github.com/WasmEdge/WasmEdge/issues/1747>
+
 
 #### CNCF Tag Contributor Strategy - ii
 
