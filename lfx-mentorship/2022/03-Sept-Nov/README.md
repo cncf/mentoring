@@ -2,6 +2,8 @@
 
 Status: planning
 
+## Table of Contents
+
 ### Timeline
 
 #### Term 3: September 5th - November 30th
@@ -18,9 +20,16 @@ Mentorship duration - three months (12 weeks - full-time schedule)
 | Final mentee evaluations and mentee feedback/blog submission due, second and final stipend payment approvals | November 16, 5:00 PM PST (End of Week 11) |
 | Last day of term | November 30 |
 
-## Project Instructions
+### Project Instructions
 
 Project proposals open August 1st, 2022.
 
 Once opened, Project maintainers and potential mentors are welcome to propose their mentoring project ideas via submitting a PR to GitHub here https://github.com/cncf/mentoring/blob/main/lfx-mentorship/2022/03-Sept-Nov/project_ideas.md, by August 12th, 2022.
+
+### Applciation instructions
+
+Mentee application instructions can be found on the [Program Guidelines](https://github.com/cncf/mentoring/blob/main/lfx-mentorship/README.md#program-guidelines) page.
+
+## Accepted Projects
+
 
