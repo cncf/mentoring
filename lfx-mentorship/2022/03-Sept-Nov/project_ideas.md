@@ -118,6 +118,7 @@ The aim of the project is to analyse and reduce the system privileges required b
   - https://github.com/kyverno/kyverno/issues/2843
   - https://github.com/kyverno/kyverno/issues/4313 
 
+
 #### WasmEdge
 
 ##### Support serialize and deserialize in WasmEdge
@@ -135,6 +136,14 @@ The aim of the project is to analyse and reduce the system privileges required b
 - Recommended Skills: C++, WebAssembly
 - Mentor(s): [Hung-Ying Tai](https://github.com/hydai) (hydai[at]secondstate.io), [Yi-Ying He](https://github.com/q82419) (yiying[at]secondstate.io)
 - Issue: <https://github.com/WasmEdge/WasmEdge/issues/1742>
+
+##### Node API support for WasmEdge QuickJS
+
+- Description: The [WasmEdge QuickJS runtime](https://wasmedge.org/book/en/dev/js.html) is a secure, fast, and lightweight JavaScript runtime for cloud-native applications. Compared with more established JavaScript runtimes like Nodejs and Deno, the WasmEdge QuickJS runtime provides runtime isolation and security at a very low overhead. In order for WasmEdge QuickJS to be more widely adopted, it needs to support [nodejs](https://wasmedge.org/book/en/dev/js/nodejs.html) applications. WasmEdge QuickJS already supports [NPM and CJS modules](https://wasmedge.org/book/en/dev/js/npm.html).
+
+- Recommended Skills: Javascript, Rust
+- Mentor(s): [Michael Yuan](https://github.com/juntao) (michael@secondstate.io)
+- Issue: <https://github.com/WasmEdge/WasmEdge/issues/1745>
 
 
 #### CNCF Tag Contributor Strategy - ii
