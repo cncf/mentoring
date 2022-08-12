@@ -46,6 +46,17 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Mentor(s): [Manan Gupta](https://github.com/GuptaManan100)
 - Issue: <https://github.com/vitessio/vitess/issues/8604>
 
+#### Improve evaluation engine
+
+- Description: Improve the compatbility of Vitess' evaluation engine against MySQL by adding support for more built-in SQL functions.
+- Detailed description: The evaluation engine in Vitess is one of the most critical parts of our query serving infrastructure. This engine is capable of evaluating arbitrary SQL expressions directly inside Vitess' process, without reaching out to a live MySQL instance, and this allows us to plan and execute complex user queries (e.g. queries that contain WHERE and similar filter clauses) between Vitess shards much more efficiently. If you're interested in this GSoC project, your task for the summer will involve continuing the work on this evaluation engine by implementing support for as many built-in SQL functions as possible, using the behavior of MySQL as a reference.
+- Expected outcomes: We expect the Evaluation Engine in Vitess to be close to 100% compatible with MySQL after all the leftover SQL built-ins have been implemented.
+- Recommended Skills: Golang, MySQL
+- Mentor(s): Vicent Marti (@vmg)
+- Expected size of the project: 350h
+- Difficulty rating: Medium
+- Upstream Issue (URL): https://github.com/vitessio/vitess/issues/9647
+
 
 #### KubeArmor
 
