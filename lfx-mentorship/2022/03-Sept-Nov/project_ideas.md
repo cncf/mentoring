@@ -46,6 +46,17 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Mentor(s): [Manan Gupta](https://github.com/GuptaManan100)
 - Issue: <https://github.com/vitessio/vitess/issues/8604>
 
+#### Improve evaluation engine
+
+- Description: Improve the compatbility of Vitess' evaluation engine against MySQL by adding support for more built-in SQL functions.
+- Detailed description: The evaluation engine in Vitess is one of the most critical parts of our query serving infrastructure. This engine is capable of evaluating arbitrary SQL expressions directly inside Vitess' process, without reaching out to a live MySQL instance, and this allows us to plan and execute complex user queries (e.g. queries that contain WHERE and similar filter clauses) between Vitess shards much more efficiently. If you're interested in this GSoC project, your task for the summer will involve continuing the work on this evaluation engine by implementing support for as many built-in SQL functions as possible, using the behavior of MySQL as a reference.
+- Expected outcomes: We expect the Evaluation Engine in Vitess to be close to 100% compatible with MySQL after all the leftover SQL built-ins have been implemented.
+- Recommended Skills: Golang, MySQL
+- Mentor(s): Vicent Marti (@vmg)
+- Expected size of the project: 350h
+- Difficulty rating: Medium
+- Upstream Issue (URL): https://github.com/vitessio/vitess/issues/9647
+
 
 #### KubeArmor
 
@@ -118,6 +129,7 @@ The aim of the project is to analyse and reduce the system privileges required b
   - https://github.com/kyverno/kyverno/issues/2843
   - https://github.com/kyverno/kyverno/issues/4313 
 
+
 #### WasmEdge
 
 ##### Support serialize and deserialize in WasmEdge
@@ -136,6 +148,14 @@ The aim of the project is to analyse and reduce the system privileges required b
 - Mentor(s): [Hung-Ying Tai](https://github.com/hydai) (hydai[at]secondstate.io), [Yi-Ying He](https://github.com/q82419) (yiying[at]secondstate.io)
 - Issue: <https://github.com/WasmEdge/WasmEdge/issues/1742>
 
+##### Node API support for WasmEdge QuickJS
+
+- Description: The [WasmEdge QuickJS runtime](https://wasmedge.org/book/en/dev/js.html) is a secure, fast, and lightweight JavaScript runtime for cloud-native applications. Compared with more established JavaScript runtimes like Nodejs and Deno, the WasmEdge QuickJS runtime provides runtime isolation and security at a very low overhead. In order for WasmEdge QuickJS to be more widely adopted, it needs to support [nodejs](https://wasmedge.org/book/en/dev/js/nodejs.html) applications. WasmEdge QuickJS already supports [NPM and CJS modules](https://wasmedge.org/book/en/dev/js/npm.html).
+
+- Recommended Skills: Javascript, Rust
+- Mentor(s): [Michael Yuan](https://github.com/juntao) (michael@secondstate.io)
+- Issue: <https://github.com/WasmEdge/WasmEdge/issues/1745>
+
 
 #### CNCF Tag Contributor Strategy - ii
 
@@ -146,6 +166,15 @@ The aim of the project is to analyse and reduce the system privileges required b
 - Recommended Skills: shell, terminals, VSCode, k8s, System Administration
 - Mentor(s): Hippie Hacker (@hh), Caleb Woodbine (@BobyMCBobs)
 - Issue: <https://github.com/sharingio/pair/issues/173>
+
+#### Karmada
+
+##### Enable configurable resource interpreter
+
+- Description: Now Resource Interpreter framework enabled both built-in and customized interpreter, we are going to provide a way for people customize the interpreter by applying a configuration.
+- Recommended Skills: golang, k8s, lua
+- Mentor(s): Hongcai Ren (@RainbowMango)
+- Upstream Issue (URL): <https://github.com/karmada-io/karmada/issues/2371>
 
 
 #### Volcano
@@ -188,6 +217,7 @@ a new and popular computing platform, Volcano should integrate with it.
 task is to achieve it.
 - Mentor(s): [william-wang](https://github.com/william-wang)
 - Issue: <https://github.com/volcano-sh/volcano/issues/2430>
+
 
 #### Thanos
 
