@@ -156,6 +156,14 @@ The aim of the project is to analyse and reduce the system privileges required b
 - Mentor(s): [Michael Yuan](https://github.com/juntao) (michael@secondstate.io)
 - Issue: <https://github.com/WasmEdge/WasmEdge/issues/1745>
 
+##### OpenCV SDKs for Wasm in WasmEdge
+
+- Description: WasmEdge is a leading WebAssembly runtime for AI inference. It supports AI frameworks such as Tensorflow, OpenVINO and PyTorch. A compelling use case is computer vision applications on the edge. Computer vision applications need to pre-process images and videos into tensor formats before applying the AI model. They then often need to overlay the tensor results onto the original image. In our existing demos, we use the Rust [image crate](https://crates.io/crates/image) to process images. However, the crate only has limited features and is inadequate for many computer vision applications. In the Python-based computer vision applications, the image pre-processing is often done with the Python wrapper for OpenCV library. The OpenCV library itself is written in C and can be compiled into WebAssembly. We would like to create an OpenCV SDK that allows WebAssembly applications to call OpenCV functions.
+
+- Recommended Skills: C++, WebAssembly, Rust
+- Mentor(s): [Michael Yuan](https://github.com/juntao) (michael@secondstate.io)
+- Issue: <https://github.com/WasmEdge/WasmEdge/issues/1747>
+
 
 #### CNCF Tag Contributor Strategy - ii
 
@@ -226,3 +234,9 @@ task is to achieve it.
 - Recommended Skills: Golang
 - Mentor(s): [Filip Petkovski](https://github.com/fpetkovski), [Saswata Mukherjee](https://github.com/saswatamcode)
 - Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/5434
+
+##### Load balancing of API communication in Thanos 
+- Description: Thanos uses gRPC for the majority of network communication. It performs fanouts and sharding of different queries to multiple nodes in a distributed system. Unfortunately, due to the nature of the gRPC, a conventional TCP-based load balancer (e.g. K8s Service) is not enough to distribute requests equally to multiple replicas of the same stateless node. As a result, there is a need to figure out the pragmatic way for Thanos users to load balance requests to multiple backends either by gRPC client load balancing or by guides and integration with popular load balancing proxies like nginx, caddy or envoy.
+- Recommended Skills: Golang, HTTP, gRPC
+- Mentor(s): [Bartłomiej Plotka](https://github.com/bwplotka), [Aditi Ahuja](https://github.com/metonymic-smokey)
+- Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/3016 + https://github.com/thanos-io/thanos/issues/1083
