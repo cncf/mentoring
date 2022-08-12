@@ -217,3 +217,12 @@ a new and popular computing platform, Volcano should integrate with it.
 task is to achieve it.
 - Mentor(s): [william-wang](https://github.com/william-wang)
 - Issue: <https://github.com/volcano-sh/volcano/issues/2430>
+
+
+#### Thanos
+
+##### Receive: Support for tenant-specific external labels
+- Description: Tenants in Thanos Receivers currently get one external label which indicates their tenant ID. We would like to implement attaching arbitrary external labels to each Thanos Tenant. This functionality is useful for various different use cases, such as improving performance when querying data for tenants which share the same labels.
+- Recommended Skills: Golang
+- Mentor(s): [Filip Petkovski](https://github.com/fpetkovski), [Saswata Mukherjee](https://github.com/saswatamcode)
+- Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/5434
