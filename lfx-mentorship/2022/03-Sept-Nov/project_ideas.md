@@ -191,8 +191,7 @@ task is to achieve it.
 
 #### Thanos
 
-##### Support for tenant-specific external labels in Thanos Receiver
-##### Receive: Allow specifying tenant-specific external labels
+##### Receive: Support for tenant-specific external labels
 - Description: Tenants in Thanos Receivers currently get one external label which indicates their tenant ID. We would like to implement attaching arbitrary external labels to each Thanos Tenant. This functionality is useful for various different use cases, such as improving performance when querying data for tenants which share the same labels.
 - Recommended Skills: Golang
 - Mentor(s): [Filip Petkovski](https://github.com/fpetkovski), [Saswata Mukherjee](https://github.com/saswatamcode)
