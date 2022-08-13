@@ -93,7 +93,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Mentor(s): [André Martins](https://github.com/aanm)  [Natália Réka Ivánkó](https://github.com/sharlns) [Jed Salazar](https://github.com/jedsalazar)
 - Issues: <https://github.com/cilium/cilium/issues/19282> <https://github.com/cilium/cilium/issues/20712> <https://github.com/cilium/cilium/issues/20850>
 
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/680e32e5-d056-46fa-a94d-4af453d4e81d
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/680e32e5-d056-46fa-a94d-4af453d4e81d
 
 
 ### CNCF TAG Contributor Strategy
@@ -106,7 +106,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Mentor(s): Hippie Hacker (@hh), Caleb Woodbine (@BobyMCBobs)
 - Issue: <https://github.com/sharingio/pair/issues/173>
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2f5582f4-6cfa-41af-88d2-2bfdd8768756
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/2f5582f4-6cfa-41af-88d2-2bfdd8768756
 
 ### CNCF TAG Network and Observability
 
@@ -121,7 +121,7 @@ Recommended Skills: cuelang, golang, neo4j
 Mentor(s): [Lee Calcote](https://github.com/leecalcote), [Matt Young](https://github.com/halcyondude)
 Issue: https://github.com/cncf/tag-network/issues/21
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/df449a23-ac20-4ee9-8a2c-e0e5d08ba727
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/df449a23-ac20-4ee9-8a2c-e0e5d08ba727
 
 
 ### Devfile
@@ -133,7 +133,7 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/df449a23-ac20-4ee9-8
 - Mentor(s): Mario Loriedo (@l0rd)
 - Upstream Issue (URL): https://github.com/devfile/api/issues/501
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8b4aeab0-f891-4a67-a510-61393ca38520
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/8b4aeab0-f891-4a67-a510-61393ca38520
 
 
 ### Karmada
@@ -145,7 +145,7 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8b4aeab0-f891-4a67-a
 - Mentor(s): Hongcai Ren (@RainbowMango)
 - Upstream Issue (URL): <https://github.com/karmada-io/karmada/issues/2371>
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/40b17a86-e470-4406-b7f0-731e689a39f4
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/40b17a86-e470-4406-b7f0-731e689a39f4
 
 
 ### KubeArmor
@@ -162,7 +162,7 @@ The project aims to make KubeArmor truly portable across all kernel versions by 
 - Mentor(s): Ankur Kothiwal (@Ankurk99), Barun Acharya (@daemon1024), Rahul Jadhav (@nyrahul)
 - Issue: <https://github.com/kubearmor/KubeArmor/issues/789>
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/d61e1b05-2a4f-432d-b715-57c818b3e120
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/d61e1b05-2a4f-432d-b715-57c818b3e120
 
 #### Use non-privileged containers for KubeArmor daemonset
 
@@ -174,7 +174,7 @@ The aim of the project is to analyse and reduce the system privileges required b
 - Mentor(s): Ankur Kothiwal (@Ankurk99), Barun Acharya (@daemon1024), Rahul Jadhav (@nyrahul)
 - Issue: <https://github.com/kubearmor/KubeArmor/issues/781>
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/3cc962b4-cd8b-46ea-9c77-83304145fd51
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/3cc962b4-cd8b-46ea-9c77-83304145fd51
 
 
 ### Kyverno
@@ -187,7 +187,7 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/3cc962b4-cd8b-46ea-9
 - Upstream Issue (URL):
   - https://github.com/kyverno/kyverno/issues/2627 
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/0eb98f34-bfd8-4ba1-b9e5-47fc67b6fd41
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/0eb98f34-bfd8-4ba1-b9e5-47fc67b6fd41
 
 #### Enable resource clean-up
 
@@ -198,7 +198,7 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/0eb98f34-bfd8-4ba1-b
   - https://github.com/kyverno/kyverno/issues/3483
   - https://github.com/kyverno/KDP/pull/25 
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/25e0fa72-8260-4c6f-819b-d87b865e58f2
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/25e0fa72-8260-4c6f-819b-d87b865e58f2
 
 #### Implement new custom JMESPath filters
 
@@ -209,7 +209,7 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/25e0fa72-8260-4c6f-8
   - https://github.com/kyverno/kyverno/issues/3598 
   - https://github.com/kyverno/kyverno/issues/3981
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/bb0ff695-3d54-4ce2-b93c-3ab92842b3ee
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/bb0ff695-3d54-4ce2-b93c-3ab92842b3ee
 
 #### Logging in JSON plus other enhancements
 
@@ -219,7 +219,7 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/bb0ff695-3d54-4ce2-b
 - Upstream Issue (URL): 
   - https://github.com/kyverno/kyverno/issues/3411
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/e5ef8032-3dd3-44c3-8746-620f4f678d60
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/e5ef8032-3dd3-44c3-8746-620f4f678d60
 
 #### More support for subresources
 
@@ -231,7 +231,7 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/e5ef8032-3dd3-44c3-8
   - https://github.com/kyverno/kyverno/issues/2843
   - https://github.com/kyverno/kyverno/issues/4313 
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/9ac41a72-62f4-48e9-8630-5f9be261e2bf
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/9ac41a72-62f4-48e9-8630-5f9be261e2bf
 
 
 ### Meshery
@@ -243,7 +243,7 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/9ac41a72-62f4-48e9-8
 - Mentor(s): [Lee Calcote](https://github.com/leecalcote), [Ashish Tiwari](https://github.com/revolyssup)
 - Upstream Issue (URL): https://github.com/meshery/meshery/issues/544
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ea439582-8c63-498d-9066-dc563ce1172e
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/ea439582-8c63-498d-9066-dc563ce1172e
 
 #### User Interface Overhaul: State Management w/Apollo/GraphQL
 
@@ -256,7 +256,7 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ea439582-8c63-498d-9
 - Mentor(s): [Lee Calcote](https://github.com/leecalcote), [Nithish Karthik](https://github.com/sudo-NithishKarthik)
 - Upstream Issue (URL): https://github.com/meshery/meshery/issues/5094
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/7592d7db-5517-445b-95e8-14144c49e9b1
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/7592d7db-5517-445b-95e8-14144c49e9b1
 
 
 ### Service Mesh Performance
@@ -271,7 +271,7 @@ A use-case that fits very well is be the ability to use it to run performance te
 - Mentor(s): [Lee Calcote](https://github.com/leecalcote), [Xin Huang](https://github.com/gyohuangxin)
 - Upstream Issue (URL): https://github.com/service-mesh-performance/service-mesh-performance/issues/350
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/9959277e-eefc-4c88-83b6-e8c4b011d557
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/9959277e-eefc-4c88-83b6-e8c4b011d557
 
 #### Convergence of Network and Graph topologies
 
@@ -280,7 +280,7 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/9959277e-eefc-4c88-8
 - Mentor(s): [Lee Calcote](https://github.com/leecalcote), [Nic Jackson](https://github.com/nicholasjackson)
 - Upstream Issue (URL): https://github.com/service-mesh-performance/service-mesh-performance/issues/351
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2c4510d6-7b73-4082-a3f4-209f61767263
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/2c4510d6-7b73-4082-a3f4-209f61767263
 
 
 ### Thanos
@@ -292,7 +292,7 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2c4510d6-7b73-4082-a
 - Mentor(s): [Filip Petkovski](https://github.com/fpetkovski), [Saswata Mukherjee](https://github.com/saswatamcode)
 - Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/5434
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/7a13b009-0365-4910-8fbf-9088294870fd
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/7a13b009-0365-4910-8fbf-9088294870fd
 
 #### Load balancing of API communication in Thanos 
 
@@ -301,7 +301,7 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/7a13b009-0365-4910-8
 - Mentor(s): [Bartłomiej Plotka](https://github.com/bwplotka), [Aditi Ahuja](https://github.com/metonymic-smokey)
 - Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/3016 + https://github.com/thanos-io/thanos/issues/1083
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/de2d206e-32cc-45da-bc5a-1fbc7bc1f5c8
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/de2d206e-32cc-45da-bc5a-1fbc7bc1f5c8
 
 
 ### Vitess
@@ -313,7 +313,7 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/de2d206e-32cc-45da-b
 - Mentor(s): [Manan Gupta](https://github.com/GuptaManan100)
 - Issue: <https://github.com/vitessio/vitess/issues/8604>
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/845ccf34-d7aa-45cf-abc2-1b3064e96af1
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/845ccf34-d7aa-45cf-abc2-1b3064e96af1
 
 #### Improve evaluation engine
 
@@ -326,7 +326,7 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/845ccf34-d7aa-45cf-a
 - Difficulty rating: Medium
 - Upstream Issue (URL): https://github.com/vitessio/vitess/issues/9647
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/29ec853c-3ab9-4457-ac91-d273fa073d49
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/29ec853c-3ab9-4457-ac91-d273fa073d49
 
 
 ### Volcano
@@ -338,7 +338,7 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/29ec853c-3ab9-4457-a
 - Mentor(s): [Thor-wl](https://github.com/Thor-wl)
 - Issue: <https://github.com/volcano-sh/volcano/issues/2425>
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/9f0d56c0-9781-4912-988f-86443b0dd161
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/9f0d56c0-9781-4912-988f-86443b0dd161
 
 #### Implement pod filter chain for rescheduling
 
@@ -347,7 +347,7 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/9f0d56c0-9781-4912-9
 - Mentor(s): [Thor-wl](https://github.com/Thor-wl)
 - Issue: <https://github.com/volcano-sh/volcano/issues/2428>
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/4dc62372-c04f-432f-847c-2cddd2cf786a
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/4dc62372-c04f-432f-847c-2cddd2cf786a
 
 #### Avoid hot node in dynamic scheduling based on real workload
 
@@ -356,7 +356,7 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/4dc62372-c04f-432f-8
 - Mentor(s): [william-wang](https://github.com/william-wang)
 - Issue: <https://github.com/volcano-sh/volcano/issues/2426>
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2ceeee35-a85d-4768-9f22-d22838e27cd5
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/2ceeee35-a85d-4768-9f22-d22838e27cd5
 
 #### Integrate Volcano with Ray
 
@@ -364,7 +364,7 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2ceeee35-a85d-4768-9
 - Mentor(s): [william-wang](https://github.com/william-wang)
 - Issue: <https://github.com/volcano-sh/volcano/issues/2429>
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/c6dff087-9b4d-4ff5-865d-abd876974534
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/c6dff087-9b4d-4ff5-865d-abd876974534
 
 #### Support hot update daemon log level
 
@@ -372,7 +372,7 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/c6dff087-9b4d-4ff5-8
 - Mentor(s): [william-wang](https://github.com/william-wang)
 - Issue: <https://github.com/volcano-sh/volcano/issues/2430>
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/02972292-469d-431a-96be-149a04ea2746
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/02972292-469d-431a-96be-149a04ea2746
 
 
 ### WasmEdge
@@ -385,7 +385,7 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/02972292-469d-431a-9
 - Mentor(s): [Hung-Ying Tai](https://github.com/hydai) (hydai[at]secondstate.io), [Yi-Ying He](https://github.com/q82419) (yiying[at]secondstate.io)
 - Issue: <https://github.com/WasmEdge/WasmEdge/issues/1741>
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/da1162c6-2aaf-496f-9f23-a96a3e52c277
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/da1162c6-2aaf-496f-9f23-a96a3e52c277
 
 #### Porting OpenVINO on multiple platforms for the WASI-NN proposal in WasmEdge
 
@@ -395,7 +395,7 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/da1162c6-2aaf-496f-9
 - Mentor(s): [Hung-Ying Tai](https://github.com/hydai) (hydai[at]secondstate.io), [Yi-Ying He](https://github.com/q82419) (yiying[at]secondstate.io)
 - Issue: <https://github.com/WasmEdge/WasmEdge/issues/1742>
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/d01efa41-87a7-4f34-adfe-63c7bab7c1ca
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/d01efa41-87a7-4f34-adfe-63c7bab7c1ca
 
 #### Node API support for WasmEdge QuickJS
 
@@ -405,7 +405,7 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/d01efa41-87a7-4f34-a
 - Mentor(s): [Michael Yuan](https://github.com/juntao) (michael@secondstate.io)
 - Issue: <https://github.com/WasmEdge/WasmEdge/issues/1745>
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/4853174a-267d-4cd4-a62d-6e68d0c338b1
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/4853174a-267d-4cd4-a62d-6e68d0c338b1
 
 #### OpenCV SDKs for Wasm in WasmEdge
 
@@ -415,5 +415,5 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/4853174a-267d-4cd4-a
 - Mentor(s): [Michael Yuan](https://github.com/juntao) (michael@secondstate.io)
 - Issue: <https://github.com/WasmEdge/WasmEdge/issues/1747>
 
-LFX URL: https://mentorship.lfx.linuxfoundation.org/project/17fc622c-5674-4381-b597-2f49409fda01
+**LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/17fc622c-5674-4381-b597-2f49409fda01
 
