@@ -4,6 +4,55 @@ Status: planning
 
 ## Table of Contents
 
+    - [Timeline](#timeline)
+    - [Term 3 September 5th November 30th](#term-3-september-5th-november-30th)
+    - [Project Instructions](#project-instructions)
+    - [Application instructions](#application-instructions)
+  - [Accepted Projects](#accepted-projects)
+    - [Cilium](#cilium)
+      - [Improving Security posture of the Cilium/Hubble/Tetragon release process](#improving-security-posture-of-the-ciliumhubbletetragon-release-process)
+    - [CNCF TAG Contributor Strategy](#cncf-tag-contributor-strategy)
+      - [Mentoring Workspaces - GITHUBUSER.PROJECT.cncf.io (w/ VSCode)](#mentoring-workspaces---githubuserprojectcncfio-w-vscode)
+    - [CNCF TAG Network and Observability](#cncf-tag-network-and-observability)
+      - [Kubernetes ontology and subgraph module design](#kubernetes-ontology-and-subgraph-module-design)
+    - [Devfile](#devfile)
+      - [Add Compose file support in the spec API II](#add-compose-file-support-in-the-spec-api-ii)
+    - [Karmada](#karmada)
+      - [Enable configurable resource interpreter](#enable-configurable-resource-interpreter)
+    - [KubeArmor](#kubearmor)
+      - [Add BTF and BPF CO-RE Support to KubeArmor](#add-btf-and-bpf-co-re-support-to-kubearmor)
+      - [Use non-privileged containers for KubeArmor daemonset](#use-non-privileged-containers-for-kubearmor-daemonset)
+    - [Kyverno](#kyverno)
+      - [Policy Exceptions](#policy-exceptions)
+      - [Enable resource clean-up](#enable-resource-clean-up)
+      - [Implement new custom JMESPath filters](#implement-new-custom-jmespath-filters)
+      - [Logging in JSON plus other enhancements](#logging-in-json-plus-other-enhancements)
+      - [More support for subresources](#more-support-for-subresources)
+    - [Meshery](#meshery)
+      - [Integration of Open Policy Agent (OPA) and Meshery](#integration-of-open-policy-agent-opa-and-meshery)
+      - [User Interface Overhaul: State Management w/Apollo/GraphQL](#user-interface-overhaul-state-management-wapollographql)
+    - [Service Mesh Performance](#service-mesh-performance)
+      - [Adaptive Load Controller](#adaptive-load-controller)
+      - [Convergence of Network and Graph topologies](#convergence-of-network-and-graph-topologies)
+    - [Thanos](#thanos)
+      - [Receive: Support for tenant-specific external labels](#receive-support-for-tenant-specific-external-labels)
+      - [Load balancing of API communication in Thanos](#load-balancing-of-api-communication-in-thanos)
+    - [Vitess](#vitess)
+      - [Add complete parsing support for Spatial MySQL functions II](#add-complete-parsing-support-for-spatial-mysql-functions-ii)
+    - [Improve evaluation engine](#improve-evaluation-engine)
+    - [Volcano](#volcano)
+      - [Pick out reasonable victim pods for rescheduling plugin](#pick-out-reasonable-victim-pods-for-rescheduling-plugin)
+      - [Implement pod filter chain for rescheduling](#implement-pod-filter-chain-for-rescheduling)
+      - [Avoid hot node in dynamic scheduling based on real workload](#avoid-hot-node-in-dynamic-scheduling-based-on-real-workload)
+      - [Integrate Volcano with Ray](#integrate-volcano-with-ray)
+      - [Support hot update daemon log level](#support-hot-update-daemon-log-level)
+    - [WasmEdge](#wasmedge)
+      - [Support serialize and deserialize in WasmEdge](#support-serialize-and-deserialize-in-wasmedge)
+      - [Porting OpenVINO on multiple platforms for the WASI-NN proposal in WasmEdge](#porting-openvino-on-multiple-platforms-for-the-wasi-nn-proposal-in-wasmedge)
+      - [Node API support for WasmEdge QuickJS](#node-api-support-for-wasmedge-quickjs)
+      - [OpenCV SDKs for Wasm in WasmEdge](#opencv-sdks-for-wasm-in-wasmedge)
+
+
 ### Timeline
 
 #### Term 3: September 5th - November 30th
@@ -20,15 +69,17 @@ Mentorship duration - three months (12 weeks - full-time schedule)
 | Final mentee evaluations and mentee feedback/blog submission due, second and final stipend payment approvals | November 16, 5:00 PM PST (End of Week 11) |
 | Last day of term | November 30 |
 
+
 ### Project Instructions
 
 Project proposals open August 1st, 2022.
 
 Once opened, Project maintainers and potential mentors are welcome to propose their mentoring project ideas via submitting a PR to GitHub here https://github.com/cncf/mentoring/blob/main/lfx-mentorship/2022/03-Sept-Nov/project_ideas.md, by August 12th, 2022.
 
-### Applciation instructions
+### Application instructions
 
 Mentee application instructions can be found on the [Program Guidelines](https://github.com/cncf/mentoring/blob/main/lfx-mentorship/README.md#program-guidelines) page.
+
 
 ## Accepted Projects
 
