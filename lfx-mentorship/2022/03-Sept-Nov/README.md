@@ -39,7 +39,7 @@ Status: planning
       - [Load balancing of API communication in Thanos](#load-balancing-of-api-communication-in-thanos)
     - [Vitess](#vitess)
       - [Add complete parsing support for Spatial MySQL functions II](#add-complete-parsing-support-for-spatial-mysql-functions-ii)
-    - [Improve evaluation engine](#improve-evaluation-engine)
+      - [Improve evaluation engine](#improve-evaluation-engine)
     - [Volcano](#volcano)
       - [Pick out reasonable victim pods for rescheduling plugin](#pick-out-reasonable-victim-pods-for-rescheduling-plugin)
       - [Implement pod filter chain for rescheduling](#implement-pod-filter-chain-for-rescheduling)
@@ -315,7 +315,7 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/de2d206e-32cc-45da-b
 
 LFX URL: https://mentorship.lfx.linuxfoundation.org/project/845ccf34-d7aa-45cf-abc2-1b3064e96af1
 
-### Improve evaluation engine
+#### Improve evaluation engine
 
 - Description: Improve the compatbility of Vitess' evaluation engine against MySQL by adding support for more built-in SQL functions.
 - Detailed description: The evaluation engine in Vitess is one of the most critical parts of our query serving infrastructure. This engine is capable of evaluating arbitrary SQL expressions directly inside Vitess' process, without reaching out to a live MySQL instance, and this allows us to plan and execute complex user queries (e.g. queries that contain WHERE and similar filter clauses) between Vitess shards much more efficiently. If you're interested in this GSoC project, your task for the summer will involve continuing the work on this evaluation engine by implementing support for as many built-in SQL functions as possible, using the behavior of MySQL as a reference.
