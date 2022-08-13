@@ -15,41 +15,6 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 ```
 
 
-#### WasmEdge
-
-##### Support serialize and deserialize in WasmEdge
-
-- Description: WasmEdge can load the WASM binary and instantiate into WASM module instances for execution. In an use case, we need to serialize the loaded WASM data structure back into the encoded WASM binary, or deserialize the serialized one into the WASM data structure in WasmEdge. With the serializing mechanism, WasmEdge can control the WASM binary wisely such as caching or snapshotting.
-
-- Recommended Skills: C++, WebAssembly
-- Mentor(s): [Hung-Ying Tai](https://github.com/hydai) (hydai[at]secondstate.io), [Yi-Ying He](https://github.com/q82419) (yiying[at]secondstate.io)
-- Issue: <https://github.com/WasmEdge/WasmEdge/issues/1741>
-
-##### Porting OpenVINO on multiple platforms for the WASI-NN proposal in WasmEdge
-
-- Description: The [OpenVINO](https://www.intel.com/content/www/us/en/developer/tools/openvino-toolkit/download.html) official release supports various platforms. WasmEdge supports the WASI-NN proposal with OpenVINO backend now, but only in Ubuntu 20.04. In this project, we want to porting and integrating the OpenVINO installation for the multiple platforms such as MacOS, Windows, or manylinux with the WasmEdge WASI-NN plugin.
-
-- Recommended Skills: C++, WebAssembly
-- Mentor(s): [Hung-Ying Tai](https://github.com/hydai) (hydai[at]secondstate.io), [Yi-Ying He](https://github.com/q82419) (yiying[at]secondstate.io)
-- Issue: <https://github.com/WasmEdge/WasmEdge/issues/1742>
-
-##### Node API support for WasmEdge QuickJS
-
-- Description: The [WasmEdge QuickJS runtime](https://wasmedge.org/book/en/dev/js.html) is a secure, fast, and lightweight JavaScript runtime for cloud-native applications. Compared with more established JavaScript runtimes like Nodejs and Deno, the WasmEdge QuickJS runtime provides runtime isolation and security at a very low overhead. In order for WasmEdge QuickJS to be more widely adopted, it needs to support [nodejs](https://wasmedge.org/book/en/dev/js/nodejs.html) applications. WasmEdge QuickJS already supports [NPM and CJS modules](https://wasmedge.org/book/en/dev/js/npm.html).
-
-- Recommended Skills: Javascript, Rust
-- Mentor(s): [Michael Yuan](https://github.com/juntao) (michael@secondstate.io)
-- Issue: <https://github.com/WasmEdge/WasmEdge/issues/1745>
-
-##### OpenCV SDKs for Wasm in WasmEdge
-
-- Description: WasmEdge is a leading WebAssembly runtime for AI inference. It supports AI frameworks such as Tensorflow, OpenVINO and PyTorch. A compelling use case is computer vision applications on the edge. Computer vision applications need to pre-process images and videos into tensor formats before applying the AI model. They then often need to overlay the tensor results onto the original image. In our existing demos, we use the Rust [image crate](https://crates.io/crates/image) to process images. However, the crate only has limited features and is inadequate for many computer vision applications. In the Python-based computer vision applications, the image pre-processing is often done with the Python wrapper for OpenCV library. The OpenCV library itself is written in C and can be compiled into WebAssembly. We would like to create an OpenCV SDK that allows WebAssembly applications to call OpenCV functions.
-
-- Recommended Skills: C++, WebAssembly, Rust
-- Mentor(s): [Michael Yuan](https://github.com/juntao) (michael@secondstate.io)
-- Issue: <https://github.com/WasmEdge/WasmEdge/issues/1747>
-
-
 #### Karmada
 
 ##### Enable configurable resource interpreter
