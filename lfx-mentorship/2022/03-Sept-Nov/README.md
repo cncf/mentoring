@@ -4,7 +4,7 @@ Status: planning
 
 ## Table of Contents
 
-    - [Timeline](#timeline)
+  - [Timeline](#timeline)
     - [Term 3 September 5th November 30th](#term-3-september-5th-november-30th)
     - [Project Instructions](#project-instructions)
     - [Application instructions](#application-instructions)
