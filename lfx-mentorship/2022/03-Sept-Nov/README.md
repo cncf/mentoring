@@ -85,6 +85,18 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/df449a23-ac20-4ee9-8
 LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8b4aeab0-f891-4a67-a510-61393ca38520
 
 
+### Karmada
+
+#### Enable configurable resource interpreter
+
+- Description: Now Resource Interpreter framework enabled both built-in and customized interpreter, we are going to provide a way for people customize the interpreter by applying a configuration.
+- Recommended Skills: golang, k8s, lua
+- Mentor(s): Hongcai Ren (@RainbowMango)
+- Upstream Issue (URL): <https://github.com/karmada-io/karmada/issues/2371>
+
+LFX URL: https://mentorship.lfx.linuxfoundation.org/project/40b17a86-e470-4406-b7f0-731e689a39f4
+
+
 ### KubeArmor
 
 #### Add BTF and BPF CO-RE Support to KubeArmor
