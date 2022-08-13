@@ -45,6 +45,19 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/680e32e5-d056-46fa-a94d-4af453d4e81d
 
 
+### CNCF Tag Contributor Strategy
+
+#### Mentoring Workspaces - GITHUBUSER.PROJECT.cncf.io (w/ VSCode)
+
+- Description: pair.sharing.io is a mentoring / pair environment used by ii.nz that brings up clusters to co-learn and co-author via tmate+emacs and a live cluster with many features useful to cloud native development. However, while many folks find the ideas useful, it would be good to reach a wider audience by bringing up workspaces w/ VSCode as an alternative to emacs. The request is for a PoC deploying coder.com to CNCF Infrastructure (likely Packet) and bringing over some of the methods of collaboration learned by ii on pair to a wider audience.
+  "If you want to go fast, go by yourself. If you want to go far, go together." African Proverb – Martha Goedert
+- Recommended Skills: shell, terminals, VSCode, k8s, System Administration
+- Mentor(s): Hippie Hacker (@hh), Caleb Woodbine (@BobyMCBobs)
+- Issue: <https://github.com/sharingio/pair/issues/173>
+
+LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2f5582f4-6cfa-41af-88d2-2bfdd8768756
+
+
 ### KubeArmor
 
 #### Add BTF and BPF CO-RE Support to KubeArmor
