@@ -208,6 +208,27 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/9959277e-eefc-4c88-8
 LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2c4510d6-7b73-4082-a3f4-209f61767263
 
 
+### Thanos
+
+#### Receive: Support for tenant-specific external labels
+
+- Description: Tenants in Thanos Receivers currently get one external label which indicates their tenant ID. We would like to implement attaching arbitrary external labels to each Thanos Tenant. This functionality is useful for various different use cases, such as improving performance when querying data for tenants which share the same labels.
+- Recommended Skills: Golang
+- Mentor(s): [Filip Petkovski](https://github.com/fpetkovski), [Saswata Mukherjee](https://github.com/saswatamcode)
+- Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/5434
+
+LFX URL: https://mentorship.lfx.linuxfoundation.org/project/7a13b009-0365-4910-8fbf-9088294870fd
+
+#### Load balancing of API communication in Thanos 
+
+- Description: Thanos uses gRPC for the majority of network communication. It performs fanouts and sharding of different queries to multiple nodes in a distributed system. Unfortunately, due to the nature of the gRPC, a conventional TCP-based load balancer (e.g. K8s Service) is not enough to distribute requests equally to multiple replicas of the same stateless node. As a result, there is a need to figure out the pragmatic way for Thanos users to load balance requests to multiple backends either by gRPC client load balancing or by guides and integration with popular load balancing proxies like nginx, caddy or envoy.
+- Recommended Skills: Golang, HTTP, gRPC
+- Mentor(s): [Bartłomiej Plotka](https://github.com/bwplotka), [Aditi Ahuja](https://github.com/metonymic-smokey)
+- Upstream Issue (URL): https://github.com/thanos-io/thanos/issues/3016 + https://github.com/thanos-io/thanos/issues/1083
+
+LFX URL: https://mentorship.lfx.linuxfoundation.org/project/de2d206e-32cc-45da-bc5a-1fbc7bc1f5c8
+
+
 ### Vitess
 
 #### Add complete parsing support for Spatial MySQL functions II
