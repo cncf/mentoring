@@ -233,6 +233,52 @@ LFX URL: https://mentorship.lfx.linuxfoundation.org/project/845ccf34-d7aa-45cf-a
 LFX URL: https://mentorship.lfx.linuxfoundation.org/project/29ec853c-3ab9-4457-ac91-d273fa073d49
 
 
+### Volcano
+
+#### Pick out reasonable victim pods for rescheduling plugin
+
+- Description: Currently, rescheduling is a little rough to evict victim pods without difference. It should distinguish pods with more consideration such as pod priority, namespace and so on. Your task is to take a full consideration about all the scenarios, provide a design documentation, implement your idea and give a full test.
+- Recommended Skills: golang, Volcano
+- Mentor(s): [Thor-wl](https://github.com/Thor-wl)
+- Issue: <https://github.com/volcano-sh/volcano/issues/2425>
+
+LFX URL: https://mentorship.lfx.linuxfoundation.org/project/9f0d56c0-9781-4912-988f-86443b0dd161
+
+#### Implement pod filter chain for rescheduling
+
+- Description: Currently, Volcano will regard all pods as potential victims in rescheduling, which is not so reasonable in some scenarios. Your task is to implement a pod filter chain to support custom configurations.
+- Recommended Skills: golang, Volcano
+- Mentor(s): [Thor-wl](https://github.com/Thor-wl)
+- Issue: <https://github.com/volcano-sh/volcano/issues/2428>
+
+LFX URL: https://mentorship.lfx.linuxfoundation.org/project/4dc62372-c04f-432f-847c-2cddd2cf786a
+
+#### Avoid hot node in dynamic scheduling based on real workload
+
+- Description: In v1.6.0, Volcano has supported dynamic scheduling based on real workload. However, the scheduler cannot be aware of hot nodes which may receive too many bound pods. Your task is to design an algorithm to avoid hot nodes and balance node pressure.
+- Recommended Skills: golang, Volcano
+- Mentor(s): [william-wang](https://github.com/william-wang)
+- Issue: <https://github.com/volcano-sh/volcano/issues/2426>
+
+LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2ceeee35-a85d-4768-9f22-d22838e27cd5
+
+#### Integrate Volcano with Ray
+
+- Description: Volcano has supported a lot of mainstream computing platforms such as Spark and TensorFlow. As [Ray](https://github.com/ray-project/ray) is a new and popular computing platform, Volcano should integrate with it.
+- Mentor(s): [william-wang](https://github.com/william-wang)
+- Issue: <https://github.com/volcano-sh/volcano/issues/2429>
+
+LFX URL: https://mentorship.lfx.linuxfoundation.org/project/c6dff087-9b4d-4ff5-865d-abd876974534
+
+#### Support hot update daemon log level
+
+- Description: Users have no ways to update log level of Volcano components now, which is difficult to track bugs especially in the production environment. Your task is to achieve it.
+- Mentor(s): [william-wang](https://github.com/william-wang)
+- Issue: <https://github.com/volcano-sh/volcano/issues/2430>
+
+LFX URL: https://mentorship.lfx.linuxfoundation.org/project/02972292-469d-431a-96be-149a04ea2746
+
+
 ### WasmEdge
 
 #### Support serialize and deserialize in WasmEdge
