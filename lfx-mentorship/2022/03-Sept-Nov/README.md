@@ -74,6 +74,63 @@ The aim of the project is to analyse and reduce the system privileges required b
 LFX URL: https://mentorship.lfx.linuxfoundation.org/project/3cc962b4-cd8b-46ea-9c77-83304145fd51
 
 
+### Kyverno
+
+#### Policy Exceptions
+
+- Description: Enable flexible management of policy exceptions without requiring changes to the policy definitions.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s): Jim Bugwadia
+- Upstream Issue (URL):
+  - https://github.com/kyverno/kyverno/issues/2627 
+
+LFX URL: https://mentorship.lfx.linuxfoundation.org/project/0eb98f34-bfd8-4ba1-b9e5-47fc67b6fd41
+
+#### Enable resource clean-up
+
+- Description: Support a new type of Kyverno rule to delete resources based on various criterias, such as the type, age, metadata and status.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s): Shuting Zhao (@realshuting)
+- Upstream Issue (URL):
+  - https://github.com/kyverno/kyverno/issues/3483
+  - https://github.com/kyverno/KDP/pull/25 
+
+LFX URL: https://mentorship.lfx.linuxfoundation.org/project/25e0fa72-8260-4c6f-819b-d87b865e58f2
+
+#### Implement new custom JMESPath filters
+
+- Description: Kyverno uses JMESPath to perform filtering and selection of JSON content in a flexible and advanced way. Many custom filters have been implemented specifically for Kyverno to date. Implement two more filters which fill needed gaps in Kyverno today: a random string generator and an index locator.
+- Recommended Skills: Golang
+- Mentor(s): Chip Zoller, Shuting Zhao
+- Upstream Issue (URL):
+  - https://github.com/kyverno/kyverno/issues/3598 
+  - https://github.com/kyverno/kyverno/issues/3981
+
+LFX URL: https://mentorship.lfx.linuxfoundation.org/project/bb0ff695-3d54-4ce2-b93c-3ab92842b3ee
+
+#### Logging in JSON plus other enhancements
+
+- Description: Add an ability allowing a user to tell Kyverno to log in JSON format rather than klog.
+- Recommended Skills: Golang
+- Mentor(s): Jim Bugwadia
+- Upstream Issue (URL): 
+  - https://github.com/kyverno/kyverno/issues/3411
+
+LFX URL: https://mentorship.lfx.linuxfoundation.org/project/e5ef8032-3dd3-44c3-8746-620f4f678d60
+
+#### More support for subresources
+
+- Description: Kyverno lacks the ability to operate on some important subresources like /scale and /status in areas such as validation and mutation.
+- Recommended Skills: Golang
+- Mentor(s): Shuting Zhao
+- Upstream Issue (URL): 
+  - https://github.com/kyverno/kyverno/issues/3118
+  - https://github.com/kyverno/kyverno/issues/2843
+  - https://github.com/kyverno/kyverno/issues/4313 
+
+LFX URL: https://mentorship.lfx.linuxfoundation.org/project/9ac41a72-62f4-48e9-8630-5f9be261e2bf
+
+
 ### Vitess
 
 #### Add complete parsing support for Spatial MySQL functions II
