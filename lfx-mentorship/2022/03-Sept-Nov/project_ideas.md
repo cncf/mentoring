@@ -26,17 +26,6 @@ Project maintainers and mentors, please submit the ideas below (under the Propos
 - Issue: <https://github.com/prometheus/prometheus/issues/3416>
 
 
-#### Cilium
-
-##### Improving Security posture of the Cilium/Hubble/Tetragon release process
-
-- Description: To be able to improve the Security posture of the Cilium family’s open source projects (Cilium, Hubble, Tetragon), we would need to create signed SBOMs, signed release artifacts for each open source project and automate all of these steps.
-
-- Recommended Skills: Golang, GitHub Actions, Kubernetes, Docker, Security
-- Mentor(s): [André Martins](https://github.com/aanm)  [Natália Réka Ivánkó](https://github.com/sharlns) [Jed Salazar](https://github.com/jedsalazar)
-- Issues: <https://github.com/cilium/cilium/issues/19282> <https://github.com/cilium/cilium/issues/20712> <https://github.com/cilium/cilium/issues/20850>
-
-
 #### Vitess
 
 ##### Add complete parsing support for Spatial MySQL functions
