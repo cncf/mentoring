@@ -108,7 +108,7 @@ The aim of the project is to analyse and reduce the system privileges required b
 - Recommended Skills: Golang
 - Mentor(s): Chip Zoller, Shuting Zhao
 - Upstream Issue (URL):
-  - https://github.com/kyverno/kyverno/issues/3598 
+  - https://github.com/kyverno/kyverno/issues/4336
   - https://github.com/kyverno/kyverno/issues/3981
 
 ##### Logging in JSON plus other enhancements
