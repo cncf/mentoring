@@ -207,7 +207,7 @@ The aim of the project is to analyse and reduce the system privileges required b
 - Mentor(s): Chip Zoller, Shuting Zhao
 - Upstream Issue (URL):
   - https://github.com/kyverno/kyverno/issues/3598 
-  - https://github.com/kyverno/kyverno/issues/3981
+  - https://github.com/kyverno/kyverno/issues/4336
 
 - **LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/bb0ff695-3d54-4ce2-b93c-3ab92842b3ee
 
