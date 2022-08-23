@@ -250,7 +250,6 @@ The aim of the project is to analyse and reduce the system privileges required b
 - Description: Overcome current architectural issues of:
 1) No Caching - In Meshery UI, List of adapters is a state that is being used in multiple components i.e Settings , Dashboard , Connection Wizard and Performance. Refetching the data on every mount of each of these components degrades the user experience. The same goes for all the other data that are being used across multiple components.
 2) Multiple Sources of Truth - There is no single source of truth in Meshery UI as all react components manage their own state. Since Meshery UI has to deal with data that frequently changes, like Control Plane Data, Meshsync data etc. it will become hard to keep them in sync if they all manage their own copy of them  in their local state.
-3) Maintainability of Code - Since we don't have any restrictions on how the code should be structured in Meshery UI, we can't expect every contributor to write efficient and bug free (relative term) code, which also makes it difficult to maintain.
 
 - Recommended Skills: reactjs, apollo, graphql, redux
 - Mentor(s): [Lee Calcote](https://github.com/leecalcote), [Nithish Karthik](https://github.com/sudo-NithishKarthik)
