@@ -112,14 +112,16 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 #### Kubernetes ontology and subgraph module design
 
-Description: Network topologies and graph databases go hand-in-hand. The OpenAPI specifications for Kubernetes provides taxonomy, but augmenting a graph data model with formalized ontologies enables any number of capabilities, one of the more straightforward is the inferencing requisite for natural language processing, and consequently, a human-centric query / response interaction becomes becomes possible. More importantly, more advanced systems can be built when a graph data model of connected systems is upgraded to be a knowledge semantic graph. Deliverables (among other items):
+- Description: Network topologies and graph databases go hand-in-hand. The OpenAPI specifications for Kubernetes provides taxonomy, but augmenting a graph data model with formalized ontologies enables any number of capabilities, one of the more straightforward is the inferencing requisite for natural language processing, and consequently, a human-centric query / response interaction becomes becomes possible. More importantly, more advanced systems can be built when a graph data model of connected systems is upgraded to be a knowledge semantic graph. Deliverables (among other items):
+
+
 
 - a Kubernetes ontology using OWL as a popular (and mature) way of doing this.
 - a cuelang-based component generator
 
-Recommended Skills: cuelang, golang, neo4j
-Mentor(s): [Lee Calcote](https://github.com/leecalcote), [Matt Young](https://github.com/halcyondude)
-Issue: https://github.com/cncf/tag-network/issues/21
+- Recommended Skills: cuelang, golang, neo4j
+- Mentor(s): [Lee Calcote](https://github.com/leecalcote), [Matt Young](https://github.com/halcyondude)
+- Issue: https://github.com/cncf/tag-network/issues/21
 
 - **LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/df449a23-ac20-4ee9-8a2c-e0e5d08ba727
 
