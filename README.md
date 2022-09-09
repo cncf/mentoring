@@ -10,6 +10,7 @@ The Cloud Native Computing Foundation (CNCF) participates in a variety of mentor
   - [Program Statistics](#program-statistics)
     - [LFX (ex-Community Bridge)](#lfx-ex-community-bridge)
       - [2022](#2022)
+        - [Summer](#summer)
         - [Spring](#spring)
       - [2021](#2021)
         - [Fall](#fall)
@@ -91,6 +92,38 @@ It's best if you use a public communication channel whenever possible; however, 
 ### LFX (ex-Community Bridge)
 
 #### 2022
+
+##### Summer
+
+| Mentoring Project                                                                                  | Mentor(s)                                     | Mentee                    |
+| ---                                                                                                | ---                                           | ---                       |
+| CNCF - Crossplane: Document and add automated testing for pulling packages from private registries | Daniel Mangum, Jared Watts                    | Parul Sahoo               |
+| CNCF - Crossplane: Report breaking changes in CustomResourceDefinition schemas for Pull Requests   | Jared Watts,	Muvaffak Onuş                 | Ruhika Bulani             |
+| CNCF - Devfile: Add Compose file support in the spec API                                           | Mario Loriedo                                 | Ishan Shanware            |
+| CNCF - Devfile: Add some syntax sugar to speficy the components that are deployed at startup       | Mario Loriedo                                 | Rajib Mitra               |
+| CNCF - Karmada: Cluster Resource modeling                                                          | Ren Hongcai                                   | Dezhi Yu                  |
+| CNCF - Karmada: Design & Develop FederatedResourceQuota, SearchRegistry & MultiClusterIngress      | Ren Hongcai, Chinmay Mehta                    | Shwet Khatri              |
+| CNCF - Karmada: Develop Override policy, Resource Binding, Work Page                               | Ren Hongcai, Chinmay Mehta                    | Jun Xiang                 |
+| CNCF - Karmada: Develop Propagation policy, Settings, About Pages                                  | Ren Hongcai, Chinmay Mehta                    | Rupesh Gelal              |
+| CNCF - KubeArmor: Extend kArmor to include KubeArmor configuration                                 | Rahul Jadhav, Ankur Kothiwal, Barun Acharya   | Esther Oluwatomi Adenekan |
+| CNCF - KubeArmor: Support for OpenShift                                                            | Rahul Jadhav, Ankur Kothiwal, Barun Acharya   | Vikas Verma               |
+| CNCF - Kubernetes: Add GPU support to Cluster API Provider GCP (CAPG)                              | Richard Case, Carlos Panato, Davanum Srinivas | Aniruddha Basak           |
+| CNCF - Kubernetes: Cluster API Provider GCP                                                        | Richard Case, Carlos Panato, Davanum Srinivas | Subhasmita Swain          |
+| CNCF - Kyverno: CLI test schema and enhancements                                                   | Chip Zoller, Vyankatesh Kudtarkar             | Prateek Nandle            |
+| CNCF - Kyverno: Integrate Kubernetes Pod Security with Kyverno                                     | Shuting Zhao                                  | Hyokil Kim                |
+| CNCF - Kyverno: Kyverno SLSA 3                                                                     | Jim Bugwadia                                  | Zahid Ur Rehman           |
+| CNCF - Meshery: Cloud Native Playground                                                            | Lee Calcote, Aditya Chatterjee                | Debopriya Bhattacharjee   |
+| CNCF - Meshery: Design Configurator                                                                | Lee Calcote, Ashish Tiwari                    | Aritra Sur                |
+| CNCF - OpenELB: Provide the OpenELB Web UI for managing EIP and IP pool                            | Feynman Zhou, Changjiang Li, Yunkang Ren      | Anurag Pathak             |
+| CNCF - OpenELB: Support BGP policy in OpenELB                                                      | Feynman Zhou, Chauncey Jiang, Yunkang Ren     | Amal Thundiyil            |
+| CNCF - Service Mesh Performance: Implementation of MeshMark                                        | Lee Calcote, Abhishek Kumar                   | Gaurav Chadha             |
+| CNCF - Thanos: Implement Unified Endpoint Discovery                                                | Bartlomiej Płotka, Saswata Mukherjee          | Srushti Sapkale           |
+| CNCF - Tremor: Hygenic error handling and validation for pipelines                                 | Heinz Gies, Matthias Wahl                     | Carol Geng                |
+| CNCF - Tremor: Pluggable logging                                                                   | Darach Ennis, Ramona Łuczkiewicz              | Rebecca Abli              |
+| CNCF - Volcano: Official Website Docs Enhancement                                                  | Lei Wu, Liang Tang                            | Jiaojiao Wu               |
+| CNCF - Volcano: Volcano scalability enhancement                                                    | Lei Wu, Liang Tang                            | Jiahuan Chen              |
+| CNCF - WasmEdge: Create a Tokio-like async runtime in WasmEdge                                     | Michael Yuan                                  | Heng Zhang                |
+| CNCF - WasmEdge: Support Durable Objects (DO) in WasmEdge                                          | Michael Yuan                                  | Richard Chien             |
 
 ##### Spring
 
