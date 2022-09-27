@@ -65,6 +65,8 @@ labels:
     color: f4af97
   - name: summer of code
     color: 00ffff
+  - name: getting started
+    color: 3B8924
   - name: spring
     color: 1ED626
   - name: summer
