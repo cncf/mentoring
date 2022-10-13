@@ -19,7 +19,7 @@ Mentorship duration - three months (12 weeks - full-time schedule)
 
 Project proposals open Jan 16th, 2023.
 
-Once opened, Project maintainers and potential mentors are welcome to propose their mentoring project ideas via submitting a PR to GitHub here https://github.com/cncf/mentoring/blob/main/lfx-mentorship/2023/01-March-May/project_ideas.md, by January 31, 2023.
+Once opened, Project maintainers and potential mentors are welcome to propose their mentoring project ideas via submitting a PR to GitHub here https://github.com/cncf/mentoring/blob/main/lfx-mentorship/2023/01-Mar-May/project_ideas.md, by January 31, 2023.
 
 ### Application instructions
 
