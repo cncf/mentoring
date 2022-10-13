@@ -3,6 +3,9 @@ title: TAGCS Mentoring Working Group Monthly Meeting
 tags: "meeting minutes"
 ---
 
+[![hackmd-github-sync-badge](https://hackmd.io/7vA7fKNrRG6KrGbA01oupw/badge)](https://hackmd.io/7vA7fKNrRG6KrGbA01oupw)
+
+
 CNCF TAG Contributor Strategy
 # Mentoring Working Group
 
