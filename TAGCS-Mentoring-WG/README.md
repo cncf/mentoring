@@ -28,6 +28,6 @@ Passcode: 77777
 
 # Meeting Minutes
 
-* [2022](/2022-meeting-minutes.md) (current)
+* [2022](./2022-meeting-minutes.md) (current)
 * [June 30, July 12, July 26, 2022](https://docs.google.com/document/d/1ZVFf_GRB5yrcTQieudtk3W-gWL6KuwHn1QG8XKdrARo/edit?usp=sharing)
 
