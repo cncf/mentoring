@@ -69,6 +69,8 @@ labels:
     color: 00ffff
   - name: spring
     color: 1ED626
+  - name: "Term 1: March-May"
+    color: 1ED626
   - name: summer
     color: FBCA04
   - name: "Term 3: Sept-Nov"
