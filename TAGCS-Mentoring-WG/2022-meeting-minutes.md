@@ -1,6 +1,6 @@
 ---
-title: TAGCS Mentoring Working Group Monthly Meeting
-tags: "meeting minutes"
+title: TAGCS Mentoring Working Group Monthly Meeting (2022)
+tags: meeting minutes, 2022
 ---
 
 [![hackmd-github-sync-badge](https://hackmd.io/7vA7fKNrRG6KrGbA01oupw/badge)](https://hackmd.io/7vA7fKNrRG6KrGbA01oupw)
@@ -35,7 +35,24 @@ Passcode: 77777
 
 # Upcoming Meetings
 
-## October 25 - Be at KubeCon (either in person or online)
+## October 25 - at KubeCon (either in person or online)
+
+20:00 UTC (1:00 PM PDT on 2022-10-25; 8:00 AM NZST on 2022-10-26)
+
+### Attendance
+
+* Nate W.
+* Jay Tihema
+* Riaan Kleinhans
+
+### Updates/reminders
+
+* KubeCon this week
+
+### Agenda
+
+* Repo chat
+* Talk tomorrow
 
 
 # Past Meetings
