@@ -7,22 +7,21 @@ The Cloud Native Computing Foundation (CNCF) participates in a variety of mentor
   - [Communication](#communication)
   - [Success Stories](#success-stories)
   - [Mentoring Programs](#mentoring-programs)
-  - [Program Statistics](#program-statistics)
-    - [LFX (ex-Community Bridge)](#lfx-ex-community-bridge)
-      - [2022](#2022)
-        - [Summer](#summer)
-        - [Spring](#spring)
-      - [2021](#2021)
-        - [Fall](#fall)
-        - [Summer](#summer)
-        - [Spring](#spring)
-      - [2020](#2020)
-        - [Q3-Q4](#q3-q4)
-        - [Q2](#q2)
-        - [Q1](#q1)
-      - [2019](#2019)
-        - [Pilot](#pilot)
-    - [GSoC](#gsoc)
+  - [LFX (ex-Community Bridge)](#lfx-ex-community-bridge)
+     - [2022](#2022)
+      - [Summer](#summer)
+      - [Spring](#spring)
+    - [2021](#2021)
+      - [Fall](#fall)
+      - [Summer](#summer)
+      - [Spring](#spring)
+    - [2020](#2020)
+      - [Q3-Q4](#q3-q4)
+      - [Q2](#q2)
+      - [Q1](#q1)
+    - [2019](#2019)
+      - [Pilot](#pilot)
+  - [GSoC](#gsoc)
       - [2020](#2020-1)
       - [2019](#2019-1)
       - [2018](#2018)
@@ -67,27 +66,6 @@ It's best if you use a public communication channel whenever possible; however, 
 | [Outreachy](https://www.outreachy.org)                                            | Mentoring initiative for the communities traditionally underrepresented in tech                                                           | [outreachy](outreachy/README.md)           |
 | [CROSS](https://cross.ucsc.edu/programs/osre2021.html)                            | The CROSS Research Experiences program provides support for undergraduate and graduate students contributing to CROSS incubator projects. | [CROSS](cross/README.md)                   |
 
-## Program Statistics
-
-| Year | Program                          | Internships | Total (per year) |
-| ---- | -------------------------------- | ----------- | ---------------- |
-| 2022 | LFX Mentorship (CommunityBridge) | TBD         | TBD              |
-|      | GSoC                             | TBD         |                  |
-| 2021 | LFX Mentorship (CommunityBridge) | 86          | 104              |
-|      | GSoC                             | 16          |                  |
-|      | GSoD                             | 1           |                  |
-|      | Outreachy                        | 1           |                  |
-| 2020 | LFX Mentorship (CommunityBridge) | 50          | 71               |
-|      | GSoC                             | 16          |                  |
-|      | GSoD                             | 4           |                  |
-|      | Outreachy                        | 1           |                  |
-| 2019 | CommunityBridge                  | 4           | 20               |
-|      | GSoC                             | 15          |                  |
-|      | Outreachy                        | 1           |                  |
-| 2018 | GSoC                             | 7           | 8                |
-|      | Outreachy                        | 1           |                  |
-| 2017 | GSoC                             | 6           | 8                |
-|      | Outreachy                        | 2           |                  |
 
 ### LFX (ex-Community Bridge)
 
