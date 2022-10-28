@@ -3,9 +3,6 @@
 The Cloud Native Computing Foundation (CNCF) participates in a variety of mentoring programs. CNCF is a great place to spend a summer learning, coding, participating, and contributing. We are an exciting open source foundation with a vibrant community of projects, and we look forward to your application and your project ideas!
 
 - [CNCF Mentoring Initiatives](#cncf-mentoring-initiatives)
-  - [Organization Admins](#organization-admins)
-  - [Communication](#communication)
-  - [Success Stories](#success-stories)
   - [Mentoring Programs](#mentoring-programs)
   - [LFX (ex-Community Bridge)](#lfx-ex-community-bridge)
      - [2022](#2022)
@@ -27,34 +24,6 @@ The Cloud Native Computing Foundation (CNCF) participates in a variety of mentor
       - [2018](#2018)
       - [2017](#2017)
   - [Code of Conduct](#code-of-conduct)
-
-## Organization Admins
-
-If you need help with anything mentoring at CNCF, you can file an issue at this repo or reach out to us using the [Discussions boards](https://github.com/cncf/mentoring/discussions).
-
-Organization admins for specific mentorship programs are listed on the program's respective pages.
-
-## Communication
-
-Please reach out to us using the [Discussions boards](https://github.com/cncf/mentoring/discussions).
-
-We are also available on the [CNCF slack](https://slack.cncf.io/). Please don't use DMs unless strictly necessary as doing so both has the potential of overwhelming project maintainers and others with similar questions lose the benefit of public discussion.
-
-It's best if you use a public communication channel whenever possible; however, if you need to communicate in private, please feel free to send the admins a note via mentoring@cncf.io (please use the public channels for any project-related discussion).
-
-## Success Stories
-
-[Matei David](https://www.cncf.io/spotlights/matei-david/)
-
-[Goutham Veeramachaneni](https://www.cncf.io/spotlights/cncf-maintainer-spotlight-goutham-veeramachaneni/)
-
-[My journey to becoming a TiKV contributor](https://www.cncf.io/blog/2021/07/26/mentorship-spotlight-looking-back-at-the-lfx-mentorship-program-spring-21-my-journey-to-becoming-a-tikv-contributor/)
-
-[Largest graduating class with 28 successful CNCF interns!](https://www.cncf.io/blog/2021/07/13/spring-term-lfx-program-largest-graduating-class-with-28-successful-cncf-interns/)
-
-[![Cleo mentorship](http://img.youtube.com/vi/WGvppQhGejQ/0.jpg)](http://www.youtube.com/watch?v=WGvppQhGejQ "Cleo")
-
-[![Arsh mentorship](http://img.youtube.com/vi/u6BQzqgykww/0.jpg)](http://www.youtube.com/watch?v=u6BQzqgykww "Arsh")
 
 ## Mentoring Programs
 

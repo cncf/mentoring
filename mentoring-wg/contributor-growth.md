@@ -10,24 +10,3 @@ CNCF TAG Contributor Strategy
 * [Discussion boards](https://github.com/cncf/mentoring/discussions)
 * [Email list](https://lists.cncf.io/g/tag-cs-mentoring-wg/)
 
-
-## Meeting details
-
-### Recurring monthly
-* 2nd Tuesday of the month at 8PM UTC
-* 4th Tuesday of the month at 8PM UTC (during the setup phase)
-
-[CNCF Public Events - TAG CS Mentoring WG](https://tockify.com/cncf.public.events/monthly?search=CNCF%20TAG%20Contributor%20Strategy%20Mentoring%20WG)
-
-### Zoom
-
-Zoom Meeting  
-https://zoom.us/my/cncftagcontributorstrategy?pwd=TnI0WU9Eb2I1RlRWdkl1R0k1WkZXUT09
-
-Passcode: 77777
-
-# Meeting Minutes
-
-* [2022](./2022-meeting-minutes.md) (current)
-* [June 30, July 12, July 26, 2022](https://docs.google.com/document/d/1ZVFf_GRB5yrcTQieudtk3W-gWL6KuwHn1QG8XKdrARo/edit?usp=sharing)
-
