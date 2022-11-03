@@ -3,59 +3,27 @@
 The Cloud Native Computing Foundation (CNCF) participates in a variety of mentoring programs. CNCF is a great place to spend a summer learning, coding, participating, and contributing. We are an exciting open source foundation with a vibrant community of projects, and we look forward to your application and your project ideas!
 
 - [CNCF Mentoring Initiatives](#cncf-mentoring-initiatives)
-  - [Organization Admins](#organization-admins)
-  - [Communication](#communication)
-  - [Success Stories](#success-stories)
   - [Mentoring Programs](#mentoring-programs)
-  - [Program Statistics](#program-statistics)
-    - [LFX (ex-Community Bridge)](#lfx-ex-community-bridge)
-      - [2022](#2022)
-        - [Summer](#summer)
-        - [Spring](#spring)
-      - [2021](#2021)
-        - [Fall](#fall)
-        - [Summer](#summer)
-        - [Spring](#spring)
-      - [2020](#2020)
-        - [Q3-Q4](#q3-q4)
-        - [Q2](#q2)
-        - [Q1](#q1)
-      - [2019](#2019)
-        - [Pilot](#pilot)
-    - [GSoC](#gsoc)
+  - [LFX (ex-Community Bridge)](#lfx-ex-community-bridge)
+     - [2022](#2022)
+      - [Summer](#summer)
+      - [Spring](#spring)
+    - [2021](#2021)
+      - [Fall](#fall)
+      - [Summer](#summer)
+      - [Spring](#spring)
+    - [2020](#2020)
+      - [Q3-Q4](#q3-q4)
+      - [Q2](#q2)
+      - [Q1](#q1)
+    - [2019](#2019)
+      - [Pilot](#pilot)
+  - [GSoC](#gsoc)
       - [2020](#2020-1)
       - [2019](#2019-1)
       - [2018](#2018)
       - [2017](#2017)
   - [Code of Conduct](#code-of-conduct)
-
-## Organization Admins
-
-If you need help with anything mentoring at CNCF, you can file an issue at this repo or reach out to us using the [Discussions boards](https://github.com/cncf/mentoring/discussions).
-
-Organization admins for specific mentorship programs are listed on the program's respective pages.
-
-## Communication
-
-Please reach out to us using the [Discussions boards](https://github.com/cncf/mentoring/discussions).
-
-We are also available on the [CNCF slack](https://slack.cncf.io/). Please don't use DMs unless strictly necessary as doing so both has the potential of overwhelming project maintainers and others with similar questions lose the benefit of public discussion.
-
-It's best if you use a public communication channel whenever possible; however, if you need to communicate in private, please feel free to send the admins a note via mentoring@cncf.io (please use the public channels for any project-related discussion).
-
-## Success Stories
-
-[Matei David](https://www.cncf.io/spotlights/matei-david/)
-
-[Goutham Veeramachaneni](https://www.cncf.io/spotlights/cncf-maintainer-spotlight-goutham-veeramachaneni/)
-
-[My journey to becoming a TiKV contributor](https://www.cncf.io/blog/2021/07/26/mentorship-spotlight-looking-back-at-the-lfx-mentorship-program-spring-21-my-journey-to-becoming-a-tikv-contributor/)
-
-[Largest graduating class with 28 successful CNCF interns!](https://www.cncf.io/blog/2021/07/13/spring-term-lfx-program-largest-graduating-class-with-28-successful-cncf-interns/)
-
-[![Cleo mentorship](http://img.youtube.com/vi/WGvppQhGejQ/0.jpg)](http://www.youtube.com/watch?v=WGvppQhGejQ "Cleo")
-
-[![Arsh mentorship](http://img.youtube.com/vi/u6BQzqgykww/0.jpg)](http://www.youtube.com/watch?v=u6BQzqgykww "Arsh")
 
 ## Mentoring Programs
 
@@ -67,27 +35,6 @@ It's best if you use a public communication channel whenever possible; however, 
 | [Outreachy](https://www.outreachy.org)                                            | Mentoring initiative for the communities traditionally underrepresented in tech                                                           | [outreachy](outreachy/README.md)           |
 | [CROSS](https://cross.ucsc.edu/programs/osre2021.html)                            | The CROSS Research Experiences program provides support for undergraduate and graduate students contributing to CROSS incubator projects. | [CROSS](cross/README.md)                   |
 
-## Program Statistics
-
-| Year | Program                          | Internships | Total (per year) |
-| ---- | -------------------------------- | ----------- | ---------------- |
-| 2022 | LFX Mentorship (CommunityBridge) | TBD         | TBD              |
-|      | GSoC                             | TBD         |                  |
-| 2021 | LFX Mentorship (CommunityBridge) | 86          | 104              |
-|      | GSoC                             | 16          |                  |
-|      | GSoD                             | 1           |                  |
-|      | Outreachy                        | 1           |                  |
-| 2020 | LFX Mentorship (CommunityBridge) | 50          | 71               |
-|      | GSoC                             | 16          |                  |
-|      | GSoD                             | 4           |                  |
-|      | Outreachy                        | 1           |                  |
-| 2019 | CommunityBridge                  | 4           | 20               |
-|      | GSoC                             | 15          |                  |
-|      | Outreachy                        | 1           |                  |
-| 2018 | GSoC                             | 7           | 8                |
-|      | Outreachy                        | 1           |                  |
-| 2017 | GSoC                             | 6           | 8                |
-|      | Outreachy                        | 2           |                  |
 
 ### LFX (ex-Community Bridge)
 
