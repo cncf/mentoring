@@ -1,6 +1,6 @@
 ---
 title: TAGCS Mentoring Working Group Monthly Meeting (2022)
-tags: meeting minutes, 2022
+tags: Meeting Minutes, 2022
 ---
 
 [![hackmd-github-sync-badge](https://hackmd.io/7vA7fKNrRG6KrGbA01oupw/badge)](https://hackmd.io/7vA7fKNrRG6KrGbA01oupw)
@@ -21,8 +21,8 @@ CNCF TAG Contributor Strategy
 ## Meeting details
 
 ### Recurring monthly
-* 2nd Tuesday of the month at 8PM UTC
-* 4th Tuesday of the month at 8PM UTC (during the setup phase)
+* 2nd Tuesday of the month at 9PM UTC
+* 4th Tuesday of the month at 9PM UTC (during the setup phase)
 
 [CNCF Public Events - TAG CS Mentoring WG](https://tockify.com/cncf.public.events/monthly?search=CNCF%20TAG%20Contributor%20Strategy%20Mentoring%20WG)
 
@@ -34,6 +34,60 @@ https://zoom.us/my/cncftagcontributorstrategy?pwd=TnI0WU9Eb2I1RlRWdkl1R0k1WkZXUT
 Passcode: 77777
 
 # Upcoming Meetings
+
+## Nov 8, 2022
+
+21:00 UTC (1:00 PM PDT on 2022-11-08; 10:00 AM NZST on 2022-11-09)  
+**Note**, the end of Daylight Saving Time in NA has affected the time of this meeting.
+
+### Attendance
+
+* Nate W.
+* Jay Tihema
+* Alexandre N.
+* Riaan Kleinhans
+
+### Updates/reminders
+
+* 
+
+### Agenda
+
+* [KubeCon 2023 EU CFP](https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/program/cfp/)
+  * Deadline for CFP is Nov 18. Do we want to have a mentoring talk?
+
+* Repo Refactor
+
+**Notes:**
+
+**Kubecon EU Talk CFP**
+* Possible workshop on how to put together a proposal, how to select a good scope of work - invite others to discuss potential projects e.g. mentorship proposal 'how to'
+* CFP required only - Repo refactor possible; not expected to "do the work before doing the work"
+* 'Speed Mentoring' - mentoring 'in general' e.g. how does it work vs. specific projects
+    * Mentoring information session to educate on the detail of 'what?'
+    * 2nd phase - connect with the mentor directly to learn more about processes etc. 
+    * Mentee information session - receiving more students; provide support for newcomers
+
+*Volunteer to provide individual career guidance as an extension of this.*
+
+**To-do:** CNCF Events team (?) and figure out who runs speed mentoring , maybe not be a CFP-level decision. Also gives others a chance to start notifying mentees/tors. 
+
+**Mentoring Repo Refactor**
+
+Current refactor underway; general content/focus includes:
+
+**Mentors:** How do I make a proposal?
+**Mentees:** how do I get involved etc.?
+
+V2 branch and several issues in development. 
+
+*Can promote/update this work in Slack for others to contribute/provide feedback on.*
+
+***
+
+
+# Past Meetings
+
 
 ## October 25 - at KubeCon (either in person or online)
 
@@ -54,8 +108,6 @@ Passcode: 77777
 * Repo chat
 * Talk tomorrow
 
-
-# Past Meetings
 
 ## Oct 11, 2022
 
