@@ -4,7 +4,7 @@ The Cloud Native Computing Foundation (CNCF) participates in a variety of mentor
 
 - [CNCF Mentoring Initiatives](#cncf-mentoring-initiatives)
   - [Mentoring Programs](#mentoring-programs)
- 
+ - [Code of Conduct](#code-of-conduct) 
 
 ## Mentoring Programs
 
