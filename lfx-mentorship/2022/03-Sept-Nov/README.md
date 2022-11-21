@@ -1,4 +1,4 @@
-# Term 03 - 2022 November - September
+# Term 03 - 2022 September - November 
 
 Status: In progress
 
