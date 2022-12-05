@@ -1,6 +1,6 @@
 # Term 03 - 2022 September - November 
 
-Status: In progress
+Status: Completed
 
 ## Table of Contents
 

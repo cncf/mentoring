@@ -8,8 +8,9 @@ The Cloud Native Computing Foundation (CNCF) participates in a variety of mentor
   - [Success Stories](#success-stories)
   - [Mentoring Programs](#mentoring-programs)
   - [Program Statistics](#program-statistics)
-    - [LFX (ex-Community Bridge)](#lfx-ex-community-bridge)
+    - [LFX Mentorship](#lfx-mentorship)
       - [2022](#2022)
+        - [Term 3: Sept-Nov](#term-3-sept-nov)
         - [Summer](#summer)
         - [Spring](#spring)
       - [2021](#2021)
@@ -61,7 +62,7 @@ It's best if you use a public communication channel whenever possible; however, 
 
 | Program                                                                           | Purpose                                                                                                                                   | Details and historical data                |
 | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
-| [LFX Mentorship (ex-CommunityBridge)](https://mentorship.lfx.linuxfoundation.org) | Mentoring initiative by the Linux Foundation                                                                                              | [lfx-mentorship](lfx-mentorship/README.md) |
+| [LFX Mentorship](https://mentorship.lfx.linuxfoundation.org) | Mentoring initiative by the Linux Foundation                                                                                              | [lfx-mentorship](lfx-mentorship/README.md) |
 | [Google Summer of Code](https://summerofcode.withgoogle.com/)                     | Mentoring program for the students                                                                                                        | [summerofcode](summerofcode/README.md)     |
 | [Google Season of Docs](https://developers.google.com/season-of-docs)             | Mentoring initiative for the technical writers                                                                                            | [seasonofdocs](seasonofdocs/README.md)     |
 | [Outreachy](https://www.outreachy.org)                                            | Mentoring initiative for the communities traditionally underrepresented in tech                                                           | [outreachy](outreachy/README.md)           |
@@ -71,8 +72,9 @@ It's best if you use a public communication channel whenever possible; however, 
 
 | Year | Program                          | Internships | Total (per year) |
 | ---- | -------------------------------- | ----------- | ---------------- |
-| 2022 | LFX Mentorship (CommunityBridge) | TBD         | TBD              |
-|      | GSoC                             | TBD         |                  |
+| 2022 | LFX Mentorship                   | 87          | 106              |
+|      | GSoC                             | 16          |                  |
+|      | GSoD                             | 3           |                  |
 | 2021 | LFX Mentorship (CommunityBridge) | 86          | 104              |
 |      | GSoC                             | 16          |                  |
 |      | GSoD                             | 1           |                  |
@@ -89,9 +91,39 @@ It's best if you use a public communication channel whenever possible; however, 
 | 2017 | GSoC                             | 6           | 8                |
 |      | Outreachy                        | 2           |                  |
 
-### LFX (ex-Community Bridge)
+### LFX Mentorship
 
 #### 2022
+
+##### Term 3: Sept-Nov
+
+| Mentoring Project                                                                                                                                                                                  | Mentor(s)                                             | Mentee            |
+| ---                                                                                                                                                                                                | ---                                                   | ---               |
+| [CNCF - KubeArmor: Use non-privileged containers for KubeArmor daemonset](https://mentorship.lfx.linuxfoundation.org/project/3cc962b4-cd8b-46ea-9c77-83304145fd51)                                 | Rahul Jadhav, Ankur Kothiwal, Barun Acharya           | Anurag Kumar      |
+| [CNCF - Service Mesh Performance: Convergence of Network and Graph topologies](https://mentorship.lfx.linuxfoundation.org/project/2c4510d6-7b73-4082-a3f4-209f61767263)                            | Lee Calcote, Nic Jackson                              | Cyrine Gamoudi    |
+| [CNCF - Kyverno: Logging in JSON plus other enhancements](https://mentorship.lfx.linuxfoundation.org/project/e5ef8032-3dd3-44c3-8746-620f4f678d60)                                                 | Jim Bugwadia                                          | Damilola Olayinka |
+| [CNCF - Thanos: Receive Support for tenant-specific external labels](https://mentorship.lfx.linuxfoundation.org/project/7a13b009-0365-4910-8fbf-9088294870fd)                                      | Bartłomiej Płotka, Filip Petkovski, Saswata Mukherjee | Ha Anh Vu         |
+| [CNCF - Meshery: User Interface Overhaul: State Management w/Apollo/GraphQL](https://mentorship.lfx.linuxfoundation.org/project/7592d7db-5517-445b-95e8-14144c49e9b1)                              | Lee Calcote, Nithish Karthik                          | Harshit Dandriyal |
+| [CNCF - WasmEdge: Node API support for WasmEdge QuickJS](https://mentorship.lfx.linuxfoundation.org/project/4853174a-267d-4cd4-a62d-6e68d0c338b1)                                                  | Michael Yuan                                          | Keqin Shentu      |
+| [CNCF - Kyverno: Policy Exceptions](https://mentorship.lfx.linuxfoundation.org/project/0eb98f34-bfd8-4ba1-b9e5-47fc67b6fd41)                                                                       | Jim Bugwadia                                          | Lijun Yu          |
+| [CNCF - Volcano: Implement pod filter chain for rescheduling](https://mentorship.lfx.linuxfoundation.org/project/4dc62372-c04f-432f-847c-2cddd2cf786a)                                             | Thor-wl                                               | Lily Pei          |
+| [CNCF - Meshery: Integration of Open Policy Agent (OPA) and Meshery](https://mentorship.lfx.linuxfoundation.org/project/ea439582-8c63-498d-9066-dc563ce1172e)                                      | Lee Calcote, Ashish Tiwari                            | Mohd Uzair        |
+| [CNCF - Kyverno: Enable resource clean-up](https://mentorship.lfx.linuxfoundation.org/project/25e0fa72-8260-4c6f-819b-d87b865e58f2)                                                                | Shuting Zhao                                          | Nikhil Sharma     |
+| [CNCF - Service Mesh Performance: Adaptive Load Controller](https://mentorship.lfx.linuxfoundation.org/project/9959277e-eefc-4c88-83b6-e8c4b011d557)                                               | Lee Calcote, Xin Huang                                | Nishant Mittal    |
+| [CNCF - KubeArmor: Add BTF and BPF CO-RE Support to KubeArmor](https://mentorship.lfx.linuxfoundation.org/project/d61e1b05-2a4f-432d-b715-57c818b3e120)                                            | Rahul Jadhav, Ankur Kothiwal, Barun Acharya           | Nishanth R        |
+| [CNCF - WasmEdge: Support serialize and deserialize in WasmEdge](https://mentorship.lfx.linuxfoundation.org/project/da1162c6-2aaf-496f-9f23-a96a3e52c277)                                          | Hung-Ying Tai, Yi-Ying He                             | Omkar Acharekar   |
+| [CNCF - WasmEdge: OpenCV SDKs for Wasm in WasmEdge](https://mentorship.lfx.linuxfoundation.org/project/17fc622c-5674-4381-b597-2f49409fda01)                                                       | Michael Yuan                                          | Omkar Mohanty     |
+| [CNCF - WasmEdge: Porting OpenVINO on multiple platforms for the WASI-NN proposal in WasmEdge](https://mentorship.lfx.linuxfoundation.org/project/d01efa41-87a7-4f34-adfe-63c7bab7c1ca)                                                       | Hung-Ying Tai, Yi-Ying He                             | Ran Piao          |
+| [CNCF - Volcano: Pick out reasonable victim pods for rescheduling plugin](https://mentorship.lfx.linuxfoundation.org/project/9f0d56c0-9781-4912-988f-86443b0dd161)                                                                                       | Thor-wl                                               | Rose Zhen         |
+| [CNCF - TAG Network and Observability: Kubernetes ontology and subgraph module design](https://mentorship.lfx.linuxfoundation.org/project/df449a23-ac20-4ee9-8a2c-e0e5d08ba727)                                                                                                          | Lee Calcote, Matt Young                               | Ruturaj Mohite    |
+| [CNCF - Cilium: Improving Security posture of the Cilium/Hubble/Tetragon release process](https://mentorship.lfx.linuxfoundation.org/project/680e32e5-d056-46fa-a94d-4af453d4e81d)                                                                                                                          | André Martins                                         | Sandipan Panda    |
+| [CNCF - TAG Contributor Strategy: Mentoring Workspaces](https://mentorship.lfx.linuxfoundation.org/project/2f5582f4-6cfa-41af-88d2-2bfdd8768756)                                                                                                                                                                            | Hippie Hacker , Caleb Woodbine                        | Sanskar Bhushan   |
+| [CNCF - Thanos: Load balancing of API communication in Thanos](https://mentorship.lfx.linuxfoundation.org/project/de2d206e-32cc-45da-bc5a-1fbc7bc1f5c8)                                                                                                                                                                                                                       | Bartłomiej Płotka, Aditi Ahuja                        | Uwakmfon Utuk     |
+| [CNCF - Devfile: Add Compose file support in the spec API II](https://mentorship.lfx.linuxfoundation.org/project/8b4aeab0-f891-4a67-a510-61393ca38520)                                                                                                                                                                                                                                                                   | Mario Loriedo                                         | Vedant Kakde      |
+| [CNCF - Kyverno: More support for subresources](https://mentorship.lfx.linuxfoundation.org/project/9ac41a72-62f4-48e9-8630-5f9be261e2bf)                                                                                                                                                                                                                                                                                                                             | Shuting Zhao                                          | Vyom Yadav        |
+| [CNCF - Vitess: Improve evaluation engine](https://mentorship.lfx.linuxfoundation.org/project/29ec853c-3ab9-4457-ac91-d273fa073d49)                                                                                                                                                                                                                                                                                                                                                                                            | Vincent Marti                                         | Weijun Huang      |
+| [CNCF - Karmada: Enable configurable resource interpreter](https://mentorship.lfx.linuxfoundation.org/project/40b17a86-e470-4406-b7f0-731e689a39f4)                                                                                                                                                                                                                                                                                                                                                                            | Ren Hongcai                                           | Yukun Zhang       |
+
 
 ##### Summer
 
