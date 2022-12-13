@@ -34,6 +34,131 @@ https://zoom.us/my/cncftagcontributorstrategy?pwd=TnI0WU9Eb2I1RlRWdkl1R0k1WkZXUT
 Passcode: 77777
 
 # Upcoming Meetings
+## Dec 13, 2022
+
+21:00 UTC (1:00 PM PDT on 2022-11-22; 10:00 AM NZST on 2022-11-23)  
+
+### Attendance
+
+* Nate W.
+* Jay Tihema
+* Riaan Kleinhans
+* Josh Berkus
+* Victor Lu
+* 
+
+
+### Updates/reminders
+
+* 
+
+### Agenda
+* General Progress report
+    * Mentoring programs
+      * 2022 diversity data: https://github.com/cncf/workflow/issues/332 (please reach out to Nate W. if you don't have access to the document).
+    * Mentoring repo
+      * Outreachy engagement
+      * Possible alignment w/ Contributor.io
+* Plans for 2023
+  * Goals
+    * What are our specific goals around diversity?
+      * do we want more folks from different places?
+      * do we want more non-male mentees?
+      * do we want a wider range of ages represented?
+    * reach out to LF Research team to participate and help us design 
+    * discuss with LF privacy
+  
+### Notes
+* Shared location previously, DE&I data has now been collated as well, meaning we can now potentially see patterns in engagement from past years
+* Possible split between mechanical and informational content for Repo
+* We can help develop Contributor-specific content for the site
+* Mentoring stuff under 'Maintainer' or mentoring-specific; 
+    * Where would the most beneficial place to host this; should be intertwined w/ Contributor focus in general
+* Maintainers link - joining a program
+
+Mentoring Uptake 2022
+* General improvement in participation; unsure of what to attribute this increase to directly
+* How to encourage more diversity in applications and selections?
+    * Specific goals/targets needed - more global reach, non-male mentees, career-changers vs. early students etc. 
+    * Would be beneficial to gauge feedback from the community, LF research team etc.
+    * Should also be exposed to Mentors; navigate privacy etc. to help determine applicant diversity
+General project numbers increasing
+* Challenge to increase to 150 mentees in 2023
+* Maintainers need to be considered throughout to avoid burnout; support health & wellbeing
+Current LFX doesn't filter effectively
+* More applications per project might be 'fatal'; grow from projects first to support maintainer evaluations
+**What might be other good goals for 2023?**
+* website alignment
+* increasing diversity
+* mentee numbers
+* organised effort around CLOtributor including mentor availability - develop a template of what that could look like
+
+
+---
+
+
+## Nov 22, 2022
+
+21:00 UTC (1:00 PM PDT on 2022-11-22; 10:00 AM NZST on 2022-11-23)  
+
+### Attendance
+
+* Nate W.
+* Jay Tihema
+* Riaan Kleinhans
+* Alexandre N.
+
+### Updates/reminders
+
+* n/a
+
+### Agenda
+
+* LFX Mentoring Term 3: Sept-Nov completing this week
+  * stipends are getting paid out
+  * mentee survey sent out (no responses yet)
+  * TODO:
+    * Update repo with new statistics/results
+    * reach out to CNCF marketing (Jesse) 
+* [GSoC 2023 Timeline](https://developers.google.com/open-source/gsoc/timeline)
+* Outreachy
+  * Looks like OTel will be doing 2 projects (CNCF funding one), starts Jan 2023
+  * We should contact Outreachy and see if there is an org option for participation
+* GSoD - still showing 2022 timeline, but we should keep an eye out for when they start their 2023 program.
+* Mentoring Repo review
+    * [Moved archive info form readme to the archive file #744](https://github.com/cncf/mentoring/pull/744)
+    * [Next steps for Mentee section #737](https://github.com/cncf/mentoring/issues/737)
+    * [Next steps for Mentor section #736](https://github.com/cncf/mentoring/issues/736)
+    * https://hackmd.io/80wBLa5WSx6pTOUGXXleTg - draft mentee section
+
+**Notes**
+* GSoC deadlines critical - steps to be taken to meet these. 
+* **TODO** - Create a calendar for CNCF Mentoring; collect dates for mentoring Programs where timeline can be developed
+* Nate may be able to action; will check w/ Amye - CNCF permission needed
+    * [Public Mentoring Calendar #741
+](https://github.com/cncf/mentoring/issues/741)
+* **Outreachy update** - Otel will be doing two projects; one is CNCF funded - volunteers from team should contact their team to learn more about the program.
+    * 'Research Round' needed prior to learn more about programme then reach out to request meeting
+* **Repo:** 
+    * Key notes first then look at refactoring ReadMe etc. 
+    * Keep 2022 as a live file, as opposed to an archived file; keep a year's worth of content oepn for access/review
+    * Add a ticket to create a proper Readme for the front page once all links are finalised
+    * Archives should rigidly stay as they are to retain integrity of history e.g. program seasons; unless it becomes/is a security risk
+        * Establish some standard of record of changes to track/monitor analytics e.g. stats etc. for new work incoming. 
+        * e.g. some sub-folders assigned 'per year' under project folders
+        * May be difficult with each Program running at its own cadence 
+    * Detail to be re-populated in ReadMe (currently empty)
+    * Repo to be refactored to include new statistics e.g. project numbers
+    * Repo reorganised to downsize number of folders, key info outlined in ReadMe
+    * Nate to support with high-level detail 
+        * Can this be used as a documentation framework - part of this purpose is to align with (likely) the Contributor.io website 
+        * Once ready and approved by team we can contact w/ Chris Abrams to assess linking w/ site
+* KubeCon Maintainer Track talks should still be available for submissions
+* Alexandre to start Contributor Board match-making (C-S initiative); connect people wanting to contrib and build experience towards a system that links projects, maintainers etc. (not Mentoring-specific) - research, feedback etc.
+
+
+# Past Meetings
+
 
 ## Nov 8, 2022
 
@@ -84,9 +209,6 @@ V2 branch and several issues in development.
 *Can promote/update this work in Slack for others to contribute/provide feedback on.*
 
 ***
-
-
-# Past Meetings
 
 
 ## October 25 - at KubeCon (either in person or online)
