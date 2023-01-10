@@ -3,7 +3,7 @@ title: TAGCS Mentoring Working Group Monthly Meeting (2022)
 tags: Meeting Minutes, 2022
 ---
 
-This file has been archived. Please find the [2023 meeting minutes here](https://hackmd.io/@tag-cs-mentoring-wg/monthly-meeting-2023) or in the [cncf/mentoring github repo](https://github.com/cncf/mentoring/blob/main/TAGCS-Mentoring-WG/2022-meeting-minutes.md).
+This file has been archived. Please find the [2023 meeting minutes here](https://hackmd.io/@tag-cs-mentoring-wg/monthly-meeting-2023).
 
 [![hackmd-github-sync-badge](https://hackmd.io/7vA7fKNrRG6KrGbA01oupw/badge)](https://hackmd.io/7vA7fKNrRG6KrGbA01oupw)
 
