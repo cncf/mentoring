@@ -43,16 +43,44 @@ Passcode: 77777
 
 ### Attendance
 
-* 
+* Nate W.
+* Riaan K.
+* Asare N.
+* Josh Berkus
+* Alexandre N.
 
 ### Updates/reminders
 
-* 
+* [2022 Meeting Minutes](https://hackmd.io/@tag-cs-mentoring-wg/monthly-meeting) file has been set to read only for most users and [is being archived](https://github.com/cncf/mentoring/pull/756).
 
 ### Agenda
 
-* 
-
+* Mentoring WG Calendar https://calendar.google.com/calendar/u/0?cid=Y18wNTMzNWEwNDhjYjMyNTk3NTRmZjAzYzgwM2MyN2FjMDhmMjFkZTc4OTYyMDhkMmI1NWFjMmM1MTIzNDlhZDFiQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20
+* LFX Mentorship Project proposals open Jan 16
+  * https://github.com/cncf/mentoring/tree/main/lfx-mentorship/2023/01-Mar-May
+  * email toc mailing list
+* Repo revisions - to create a work session to discuss/rework.
+* [Nate W.] Do we still need the temp 2nd monthly meeting? (We should defer this question to a meeting that Jay can attend)
+* KubeCon Amsterdam
+    * workshop re: how to be a good mentor (proposal writing, selecitng mentees, etc.)
+    * Speed mentoring co-operation
+      * find out who to chat with about this
+* 2023 Mentorship goals
+  * Increase diversiy of participants
+      * How do we increase awareness in  geographical diverse places?
+      * Students in academic communities in new locations
+          * LM
+          * Africa
+  * 150 mentees participating across all programs
+  * work with LF research team to better understand trends
+  * work with LF training to create a training course for mentors
+  * work with LF mentoring admins to reach out to universities to work with co-op programs
+  * increase number of programs we participate in
+      * ex. Outreachy
+      * recruit community members to help manage/run the program
+  * others?
+  * Organize projects (and SIGs and TAGs) to supply an ongoing list of mentorship opportunities based on the job
+*  https://clotributor.dev/
 
 # Past Meetings
 
