@@ -3,7 +3,7 @@
 ```
 ### CNCF Project Name
 
-#### Mentorsip project Title
+#### Mentorship project Title
 
 - Description: 
 - Expected Outcome:
