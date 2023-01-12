@@ -5,6 +5,7 @@
 ##### Title
 
 - Description:
+- Expected Outcome:
 - Recommended Skills:
 - Mentor(s):
 - Upstream Issue (URL):
