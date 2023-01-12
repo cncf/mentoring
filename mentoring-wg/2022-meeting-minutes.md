@@ -3,6 +3,8 @@ title: TAGCS Mentoring Working Group Monthly Meeting (2022)
 tags: Meeting Minutes, 2022
 ---
 
+This file has been archived. Please find the [2023 meeting minutes here](https://hackmd.io/@tag-cs-mentoring-wg/monthly-meeting-2023).
+
 [![hackmd-github-sync-badge](https://hackmd.io/7vA7fKNrRG6KrGbA01oupw/badge)](https://hackmd.io/7vA7fKNrRG6KrGbA01oupw)
 
 
@@ -33,10 +35,12 @@ https://zoom.us/my/cncftagcontributorstrategy?pwd=TnI0WU9Eb2I1RlRWdkl1R0k1WkZXUT
 
 Passcode: 77777
 
-# Upcoming Meetings
+
+# Past Meetings
+
 ## Dec 13, 2022
 
-21:00 UTC (1:00 PM PDT on 2022-11-22; 10:00 AM NZST on 2022-11-23)  
+21:00 UTC (1:00 PM PDT on 2022-12-13; 10:00 AM NZST on 2022-12-14)  
 
 ### Attendance
 
@@ -155,9 +159,6 @@ Current LFX doesn't filter effectively
         * Once ready and approved by team we can contact w/ Chris Abrams to assess linking w/ site
 * KubeCon Maintainer Track talks should still be available for submissions
 * Alexandre to start Contributor Board match-making (C-S initiative); connect people wanting to contrib and build experience towards a system that links projects, maintainers etc. (not Mentoring-specific) - research, feedback etc.
-
-
-# Past Meetings
 
 
 ## Nov 8, 2022
