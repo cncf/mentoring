@@ -2,7 +2,11 @@
 
 The historical information of completed mentorship programs are listed in this document for future reference.
 
- - [LFX (ex-Community Bridge)](#lfx-ex-community-bridge)
+  - [LFX Mentorship](#lfx-mentorship)
+    - [2022](#2022)
+      - [Term 3: Sept-Nov](#term-3-sept-nov)
+      - [Summer](#summer)
+      - [Spring](#spring)
     - [2021](#2021)
       - [Fall](#fall)
       - [Summer](#summer)
@@ -18,9 +22,135 @@ The historical information of completed mentorship programs are listed in this d
       - [2019](#2019-1)
       - [2018](#2018)
       - [2017](#2017)
- 
 
-  ### LFX (ex-Community Bridge)
+## Program Statistics
+
+| Year | Program                          | Internships | Total (per year) |
+| ---- | -------------------------------- | ----------- | ---------------- |
+| 2022 | LFX Mentorship                   | 87          | 106              |
+|      | GSoC                             | 16          |                  |
+|      | GSoD                             | 3           |                  |
+| 2021 | LFX Mentorship (CommunityBridge) | 86          | 104              |
+|      | GSoC                             | 16          |                  |
+|      | GSoD                             | 1           |                  |
+|      | Outreachy                        | 1           |                  |
+| 2020 | LFX Mentorship (CommunityBridge) | 50          | 71               |
+|      | GSoC                             | 16          |                  |
+|      | GSoD                             | 4           |                  |
+|      | Outreachy                        | 1           |                  |
+| 2019 | CommunityBridge                  | 4           | 20               |
+|      | GSoC                             | 15          |                  |
+|      | Outreachy                        | 1           |                  |
+| 2018 | GSoC                             | 7           | 8                |
+|      | Outreachy                        | 1           |                  |
+| 2017 | GSoC                             | 6           | 8                |
+|      | Outreachy                        | 2           |                  |
+
+### LFX Mentorship
+
+#### 2022
+
+##### Term 3: Sept-Nov
+
+| Mentoring Project                                                                                                                                                                                  | Mentor(s)                                             | Mentee            |
+| ---                                                                                                                                                                                                | ---                                                   | ---               |
+| [CNCF - KubeArmor: Use non-privileged containers for KubeArmor daemonset](https://mentorship.lfx.linuxfoundation.org/project/3cc962b4-cd8b-46ea-9c77-83304145fd51)                                 | Rahul Jadhav, Ankur Kothiwal, Barun Acharya           | Anurag Kumar      |
+| [CNCF - Service Mesh Performance: Convergence of Network and Graph topologies](https://mentorship.lfx.linuxfoundation.org/project/2c4510d6-7b73-4082-a3f4-209f61767263)                            | Lee Calcote, Nic Jackson                              | Cyrine Gamoudi    |
+| [CNCF - Kyverno: Logging in JSON plus other enhancements](https://mentorship.lfx.linuxfoundation.org/project/e5ef8032-3dd3-44c3-8746-620f4f678d60)                                                 | Jim Bugwadia                                          | Damilola Olayinka |
+| [CNCF - Thanos: Receive Support for tenant-specific external labels](https://mentorship.lfx.linuxfoundation.org/project/7a13b009-0365-4910-8fbf-9088294870fd)                                      | Bartłomiej Płotka, Filip Petkovski, Saswata Mukherjee | Ha Anh Vu         |
+| [CNCF - Meshery: User Interface Overhaul: State Management w/Apollo/GraphQL](https://mentorship.lfx.linuxfoundation.org/project/7592d7db-5517-445b-95e8-14144c49e9b1)                              | Lee Calcote, Nithish Karthik                          | Harshit Dandriyal |
+| [CNCF - WasmEdge: Node API support for WasmEdge QuickJS](https://mentorship.lfx.linuxfoundation.org/project/4853174a-267d-4cd4-a62d-6e68d0c338b1)                                                  | Michael Yuan                                          | Keqin Shentu      |
+| [CNCF - Kyverno: Policy Exceptions](https://mentorship.lfx.linuxfoundation.org/project/0eb98f34-bfd8-4ba1-b9e5-47fc67b6fd41)                                                                       | Jim Bugwadia                                          | Lijun Yu          |
+| [CNCF - Volcano: Implement pod filter chain for rescheduling](https://mentorship.lfx.linuxfoundation.org/project/4dc62372-c04f-432f-847c-2cddd2cf786a)                                             | Thor-wl                                               | Lily Pei          |
+| [CNCF - Meshery: Integration of Open Policy Agent (OPA) and Meshery](https://mentorship.lfx.linuxfoundation.org/project/ea439582-8c63-498d-9066-dc563ce1172e)                                      | Lee Calcote, Ashish Tiwari                            | Mohd Uzair        |
+| [CNCF - Kyverno: Enable resource clean-up](https://mentorship.lfx.linuxfoundation.org/project/25e0fa72-8260-4c6f-819b-d87b865e58f2)                                                                | Shuting Zhao                                          | Nikhil Sharma     |
+| [CNCF - Service Mesh Performance: Adaptive Load Controller](https://mentorship.lfx.linuxfoundation.org/project/9959277e-eefc-4c88-83b6-e8c4b011d557)                                               | Lee Calcote, Xin Huang                                | Nishant Mittal    |
+| [CNCF - KubeArmor: Add BTF and BPF CO-RE Support to KubeArmor](https://mentorship.lfx.linuxfoundation.org/project/d61e1b05-2a4f-432d-b715-57c818b3e120)                                            | Rahul Jadhav, Ankur Kothiwal, Barun Acharya           | Nishanth R        |
+| [CNCF - WasmEdge: Support serialize and deserialize in WasmEdge](https://mentorship.lfx.linuxfoundation.org/project/da1162c6-2aaf-496f-9f23-a96a3e52c277)                                          | Hung-Ying Tai, Yi-Ying He                             | Omkar Acharekar   |
+| [CNCF - WasmEdge: OpenCV SDKs for Wasm in WasmEdge](https://mentorship.lfx.linuxfoundation.org/project/17fc622c-5674-4381-b597-2f49409fda01)                                                       | Michael Yuan                                          | Omkar Mohanty     |
+| [CNCF - WasmEdge: Porting OpenVINO on multiple platforms for the WASI-NN proposal in WasmEdge](https://mentorship.lfx.linuxfoundation.org/project/d01efa41-87a7-4f34-adfe-63c7bab7c1ca)                                                       | Hung-Ying Tai, Yi-Ying He                             | Ran Piao          |
+| [CNCF - Volcano: Pick out reasonable victim pods for rescheduling plugin](https://mentorship.lfx.linuxfoundation.org/project/9f0d56c0-9781-4912-988f-86443b0dd161)                                                                                       | Thor-wl                                               | Rose Zhen         |
+| [CNCF - TAG Network and Observability: Kubernetes ontology and subgraph module design](https://mentorship.lfx.linuxfoundation.org/project/df449a23-ac20-4ee9-8a2c-e0e5d08ba727)                                                                                                          | Lee Calcote, Matt Young                               | Ruturaj Mohite    |
+| [CNCF - Cilium: Improving Security posture of the Cilium/Hubble/Tetragon release process](https://mentorship.lfx.linuxfoundation.org/project/680e32e5-d056-46fa-a94d-4af453d4e81d)                                                                                                                          | André Martins, Natalia Reka Ivanko, Jed Salazar       | Sandipan Panda    |
+| [CNCF - TAG Contributor Strategy: Mentoring Workspaces](https://mentorship.lfx.linuxfoundation.org/project/2f5582f4-6cfa-41af-88d2-2bfdd8768756)                                                                                                                                                                            | Hippie Hacker , Caleb Woodbine                        | Sanskar Bhushan   |
+| [CNCF - Thanos: Load balancing of API communication in Thanos](https://mentorship.lfx.linuxfoundation.org/project/de2d206e-32cc-45da-bc5a-1fbc7bc1f5c8)                                                                                                                                                                                                                       | Bartłomiej Płotka, Aditi Ahuja                        | Uwakmfon Utuk     |
+| [CNCF - Devfile: Add Compose file support in the spec API II](https://mentorship.lfx.linuxfoundation.org/project/8b4aeab0-f891-4a67-a510-61393ca38520)                                                                                                                                                                                                                                                                   | Mario Loriedo                                         | Vedant Kakde      |
+| [CNCF - Kyverno: More support for subresources](https://mentorship.lfx.linuxfoundation.org/project/9ac41a72-62f4-48e9-8630-5f9be261e2bf)                                                                                                                                                                                                                                                                                                                             | Shuting Zhao                                          | Vyom Yadav        |
+| [CNCF - Vitess: Improve evaluation engine](https://mentorship.lfx.linuxfoundation.org/project/29ec853c-3ab9-4457-ac91-d273fa073d49)                                                                                                                                                                                                                                                                                                                                                                                            | Vincent Marti                                         | Weijun Huang      |
+| [CNCF - Karmada: Enable configurable resource interpreter](https://mentorship.lfx.linuxfoundation.org/project/40b17a86-e470-4406-b7f0-731e689a39f4)                                                                                                                                                                                                                                                                                                                                                                            | Ren Hongcai                                           | Yukun Zhang       |
+
+
+##### Summer
+
+| Mentoring Project                                                                                  | Mentor(s)                                     | Mentee                    |
+| ---                                                                                                | ---                                           | ---                       |
+| CNCF - Crossplane: Document and add automated testing for pulling packages from private registries | Daniel Mangum, Jared Watts                    | Parul Sahoo               |
+| CNCF - Crossplane: Report breaking changes in CustomResourceDefinition schemas for Pull Requests   | Jared Watts,	Muvaffak Onuş                 | Ruhika Bulani             |
+| CNCF - Devfile: Add Compose file support in the spec API                                           | Mario Loriedo                                 | Ishan Shanware            |
+| CNCF - Devfile: Add some syntax sugar to speficy the components that are deployed at startup       | Mario Loriedo                                 | Rajib Mitra               |
+| CNCF - Karmada: Cluster Resource modeling                                                          | Ren Hongcai                                   | Dezhi Yu                  |
+| CNCF - Karmada: Design & Develop FederatedResourceQuota, SearchRegistry & MultiClusterIngress      | Ren Hongcai, Chinmay Mehta                    | Shwet Khatri              |
+| CNCF - Karmada: Develop Override policy, Resource Binding, Work Page                               | Ren Hongcai, Chinmay Mehta                    | Jun Xiang                 |
+| CNCF - Karmada: Develop Propagation policy, Settings, About Pages                                  | Ren Hongcai, Chinmay Mehta                    | Rupesh Gelal              |
+| CNCF - KubeArmor: Extend kArmor to include KubeArmor configuration                                 | Rahul Jadhav, Ankur Kothiwal, Barun Acharya   | Esther Oluwatomi Adenekan |
+| CNCF - KubeArmor: Support for OpenShift                                                            | Rahul Jadhav, Ankur Kothiwal, Barun Acharya   | Vikas Verma               |
+| CNCF - Kubernetes: Add GPU support to Cluster API Provider GCP (CAPG)                              | Richard Case, Carlos Panato, Davanum Srinivas | Aniruddha Basak           |
+| CNCF - Kubernetes: Cluster API Provider GCP                                                        | Richard Case, Carlos Panato, Davanum Srinivas | Subhasmita Swain          |
+| CNCF - Kyverno: CLI test schema and enhancements                                                   | Chip Zoller, Vyankatesh Kudtarkar             | Prateek Nandle            |
+| CNCF - Kyverno: Integrate Kubernetes Pod Security with Kyverno                                     | Shuting Zhao                                  | Hyokil Kim                |
+| CNCF - Kyverno: Kyverno SLSA 3                                                                     | Jim Bugwadia                                  | Zahid Ur Rehman           |
+| CNCF - Meshery: Cloud Native Playground                                                            | Lee Calcote, Aditya Chatterjee                | Debopriya Bhattacharjee   |
+| CNCF - Meshery: Design Configurator                                                                | Lee Calcote, Ashish Tiwari                    | Aritra Sur                |
+| CNCF - OpenELB: Provide the OpenELB Web UI for managing EIP and IP pool                            | Feynman Zhou, Changjiang Li, Yunkang Ren      | Anurag Pathak             |
+| CNCF - OpenELB: Support BGP policy in OpenELB                                                      | Feynman Zhou, Chauncey Jiang, Yunkang Ren     | Amal Thundiyil            |
+| CNCF - Service Mesh Performance: Implementation of MeshMark                                        | Lee Calcote, Abhishek Kumar                   | Gaurav Chadha             |
+| CNCF - Thanos: Implement Unified Endpoint Discovery                                                | Bartlomiej Płotka, Saswata Mukherjee          | Srushti Sapkale           |
+| CNCF - Tremor: Hygenic error handling and validation for pipelines                                 | Heinz Gies, Matthias Wahl                     | Carol Geng                |
+| CNCF - Tremor: Pluggable logging                                                                   | Darach Ennis, Ramona Łuczkiewicz              | Rebecca Abli              |
+| CNCF - Volcano: Official Website Docs Enhancement                                                  | Lei Wu, Liang Tang                            | Jiaojiao Wu               |
+| CNCF - Volcano: Volcano scalability enhancement                                                    | Lei Wu, Liang Tang                            | Jiahuan Chen              |
+| CNCF - WasmEdge: Create a Tokio-like async runtime in WasmEdge                                     | Michael Yuan                                  | Heng Zhang                |
+| CNCF - WasmEdge: Support Durable Objects (DO) in WasmEdge                                          | Michael Yuan                                  | Richard Chien             |
+
+##### Spring
+
+| Mentoring Project                                                                              | Mentor(s)             | Mentee                  |
+| ---                                                                                            | ---                   | ---                     |
+| CNCF - Chaos Mesh: Interactive Katacoda Playground for Chaos Experiment Examples               | Zhiqiang Zhou         | Chengwei Guo            |
+| CNCF - Karmada: Dashboard development                                                          | Hongcai Ren           | Chinmay Mehta           |
+| CNCF - Karmada: Enhancement for controllers scalability                                        | Hongcai Ren           | WenQing Dai             |
+| CNCF - Karmada: Refactor get command to leverage aggregated API                                | Hongcai Ren           | Zhe Cheng               |
+| CNCF - Karmada: Refactor the scheduler framework                                               | Kevin Wang            | Fei Gao                 |
+| CNCF - KubeArmor: Extending kubearmor-cli-tool filtering options                               | Rahul Jadhav          | Sachin Maurya           |
+| CNCF - KubeArmor: Using mutating webhooks for applying pod/container kubearmor annotations     | Rahul Jadhav          | Achref BEN SAAD         |
+| CNCF - KubeEdge: Plans for Node Group Management                                               | Kevin Wang            | (zefeng)	Yifei Zhang |
+| CNCF - Kubernetes and Elekto: Elections Security Improvements                                  | Josh Berkus           | Vedant Raghuwanshi      |
+| CNCF - Kubernetes SIG ContribEx: Creating Katacoda Scenarios To Help New Contributors          | Debabrata Panigrahi   | Harshita Verma          |
+| CNCF - Kubernetes SIG ContribEx: Improvements to Kubernetes maintainers-related automation     | Nikhita Raghunath     | Raghav Roy              |
+| CNCF - Kubernetes SIG Network: Documentation assessment                                        | Nick Young            | Meha Bhalodyia          |
+| CNCF - Kubernetes: Automation of AMI build/test/publish pipelines for Cluster API Provider AWS | Sedef Savas           | Abhinav Sinha           |
+| CNCF - Kubernetes: Improving unit test coverage(CAPV)                                          | Geetika Batra         | Tushar Malik            |
+| CNCF - Kubevela: Enhance multi-cluster observability                                           | Jianbo Sun            | Kunshuai Zhu            |
+| CNCF - Kubevela: Management of Terraform state                                                 | ZhengXi Zhou          | Nan Li                  |
+| CNCF - Kyverno: Automate Performance Testing                                                   | Shuting Zhao          | Husni Alhamdani         |
+| CNCF - Kyverno: e2e tests and CLI tests to cover sample policies                               | Prateek Pandey        | Oshi Gupta              |
+| CNCF - Kyverno: Extend Kyverno CLI test command for Generate policy rules                      | Prateek Pandey        | Shubham Nazare          |
+| CNCF - Kyverno: OpenTelemetry exporter for Kyverno                                             | Shuting Zhao          | Tathagata Paul          |
+| CNCF - Kyverno: Security enhancements                                                          | Jim Bugwadia          | Shubham Gupta           |
+| CNCF - LitmusChaos: Develop new feature and add integration tests for LitmusCTL                | Raj Babu Das          | Prayag Savsani          |
+| CNCF - Meshery: Service mesh playground (extended)                                             | Lee Calcote           | Aditya Chatterjee       |
+| CNCF - Meshery: Workflow engine (extended)                                                     | Lee Calcote           | Aadhitya Amarendiran    |
+| CNCF - Pixie: Add support for new protocols in protocol tracer                                 | Omid Azizi            | Anubhav Choudhary       |
+| CNCF - Service Mesh Interface: Conformance Program (extended)                                  | Lee Calcote           | Pranav Singh            |
+| CNCF - Service Mesh Performance: Definition of MeshMark (extended)                             | Lee Calcote           | Nikhil Sharma           |
+| CNCF - Thanos: Run a community Thanos demo instance                                            | Giedrius Statkevičius | Soumya Singh            |
+| CNCF - Tremor                                                                                  | Heinz Gies            | Prashant Mishra         |
+| CNCF - Tremor: Database Connectors                                                             | Matthias Wahl         | Sasha Pourcelot         |
+| CNCF - Updating the kubeedge docs                                                              | Fei Xu                | Nilisha Jaiswal         |
+| CNCF - Vitess: Add complete parsing support for MySQL functions                                | Manan Gupta           | Kushal Kumar            |
+| CNCF - WasmEdge: Enable OpenVINO backend for WASI-NN                                           | Hung-Ying Tai         | Jianbai Ye              |
+| CNCF - WasmEdge: Improving the performance of running miniruby                                 | Hung-Ying Tai         | yao bing                |
+| CNCF - WasmEdge: Improving the performance of running rustpython                               | Hung-Ying Tai         | Yiming WenJ             |
 
 #### 2021
 
