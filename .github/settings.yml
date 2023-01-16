@@ -46,6 +46,9 @@ collaborators:
 
   - username: carolynvs
     permission: maintain
+   
+  - username: riaankl
+    permission: maintain
 
 labels:
   - name: lfx mentorship
