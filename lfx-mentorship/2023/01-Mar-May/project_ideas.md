@@ -59,6 +59,14 @@
 - Mentor(s): Jianbo Sun (@wonderflow, wonderflow.sun@gmail.com), Wong Yike (@wangyikewxgm, wangyike_wyk@163.com) 
 - Upstream Issue: https://github.com/kubevela/kubevela/issues/5358
 
+#### Support auto generation of CUE schema and docs from Go struct
+
+- Description: In KubeVela's provider system, we can use our defined Go functions in CUE schema. The Go providers usually have a parameter and return. Fields in Go providers are the same as fields in CUE schema, so it is possible and important to support automatic generation of CUE schemas and documents from Go structs.
+- Expected Outcome: Auto-generators of CUE schemas and docs from Go structs, the capabilities should be wrapped in vela cli command.
+- Recommended Skills: Go, CUE
+- Mentor(s): Fog Dong (@FogDong, wuwuglu19@gmail.com), Da Yin(@Somefive, yd219913@alibaba-inc.com)
+- Upstream Issue: https://github.com/kubevela/kubevela/issues/5364
+
 #### Support auto generation of multiple languages SDK from CUE
 
 - Description: In KubeVela, we use CUElang to code the definition. We want to support auto generation of multiple languages SDK from CUE, so that users can use KubeVela in their own language.
