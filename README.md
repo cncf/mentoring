@@ -27,7 +27,7 @@ If you have any questions or need help getting started, please reach out though 
 | [Google Summer of Code](https://summerofcode.withgoogle.com/)                     | Mentoring program for the students                                                                                                        | [summerofcode](/programs/summerofcode#readme)     |
 | [Google Season of Docs](https://developers.google.com/season-of-docs)             | Mentoring initiative for the technical writers                                                                                            | [seasonofdocs](/programs/seasonofdocs#readme)     |
 | [Outreachy](https://www.outreachy.org)                                            | Mentoring initiative for the communities traditionally underrepresented in tech                                                           | [outreachy](/programs/outreachy#readme)           |
-| [CROSS](https://cross.ucsc.edu/programs/)                            | The CROSS Research Experiences program provides support for undergraduate and graduate students contributing to CROSS incubator projects. | [CROSS](/programs/archive/cross#readme)                   |
+
 
 
 ## Code of Conduct
