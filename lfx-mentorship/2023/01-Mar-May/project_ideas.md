@@ -36,3 +36,12 @@ Upstream Issue: https://github.com/kubernetes-sigs/cluster-api-provider-gcp/issu
 - Recommended Skills: golang, kubernetes, cueLang
 - Mentor(s): Jianbo Sun (@wonderflow, wonderflow.sun@gmail.com), Wong Yike (@wangyikewxgm, wangyike_wyk@163.com) 
 - Upstream Issue: https://github.com/kubevela/kubevela/issues/5358
+
+### Vitess
+
+#### Implement a benchmarking and load testing framework for the VReplication module in Vitess
+- Description: Vitess is a distributed database system built around MySQL. VReplication is core technology built into Vitess that is used to enable many features like vertical and horizontal sharding, change data capture and materialized views. The project involves designing and implementing a customizable framework that enables us to test different VReplication workflows at scale and to obtain benchmarks that can be used to monitor performance improvements and regression from code changes. The framework will consist of a custom DSL (Domain Specific Language) which will be used to define each test case and a driver which will read the DSLs and execute the tests. The DSL will be based on the Hashicorp Configuration Language (https://github.com/hashicorp/hcl). The driver will be written in Golang and target AWS using Terraform for provisioning and Ansible for automation. The results and benchmarks will be stored in PlanetScale (https://planetscale.com/) in the existing vitess benchmark database.
+- Expected Outcome: The test framework with at least one working test and stored benchmark metrics for a MoveTables workflow.
+- Recommended Skills: golang
+- Mentor: Rohit Nayak (@rohit-nayak-ps, rohit@planetscale.com) 
+- Upstream Issue: https://github.com/vitessio/vitess/issues/12136
