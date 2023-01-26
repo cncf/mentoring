@@ -49,6 +49,14 @@
 - Mentor(s): Jianbo Sun (@wonderflow, wonderflow.sun@gmail.com), Wong Yike (@wangyikewxgm, wangyike_wyk@163.com) 
 - Upstream Issue: https://github.com/kubevela/kubevela/issues/5358
 
+#### Support auto generation of multiple languages SDK from CUE
+
+- Description: In KubeVela, we use CUElang to code the definition. We want to support auto generation of multiple languages SDK from CUE, so that users can use KubeVela in their own language.
+- Expected Outcome: Support auto generation of multiple languages SDK from CUE, including Golang, Java, Python, etc. The capabilities should be wrapped in vela cli command.
+- Recommended Skills: Go, Kubernetes, CUE
+- Mentor(s): Qiao Zhongpei (@chivalryq, chivalry.pp@gmail.com) Zeng Qingguo (@barnettZQG, barnett.zqg@gmail.com)
+- Upstream Issue: https://github.com/kubevela/kubevela/issues/5365
+ 
 ### Vitess
 
 #### Implement a benchmarking and load testing framework for the VReplication module in Vitess
