@@ -54,7 +54,7 @@
 - Description: In KubeVela, we use CUElang to code the definition. We want to support auto generation of multiple languages SDK from CUE, so that users can use KubeVela in their own language.
 - Expected Outcome: Support auto generation of multiple languages SDK from CUE, including Golang, Java, Python, etc. The capabilities should be wrapped in vela cli command.
 - Recommended Skills: Go, Kubernetes, CUE
-- Mentor(s): Qiao Zhongpei (@chivalryq, chivalry.pp@gmail.com)
+- Mentor(s): Qiao Zhongpei (@chivalryq, chivalry.pp@gmail.com) Zeng Qingguo (@barnettZQG, barnett.zqg@gmail.com)
 - Upstream Issue: https://github.com/kubevela/kubevela/issues/5365
  
 ### Vitess
