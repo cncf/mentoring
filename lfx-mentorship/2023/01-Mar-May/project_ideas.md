@@ -27,6 +27,16 @@
 - Mentor(s): Bill Mulligan (@xmulligan, bill@isovalent.com) 
 - Upstream Issue: https://github.com/cilium/cilium.io/issues/226
 
+### Cloud Native Buildpacks
+
+#### Pack Performance enhancements
+
+- Description: Pack is the reference implementation of a Cloud Native Buildpacks platform used to build application images in multiple organizations. Because all developers want their code to build and deploy as quickly as possible, small speedups in pack can have significant benefits, and slow-downs in pack are undesirable. Today, pack has no benchmark suite that would safe-guard against regressions in execution speed.
+- Expected Outcome: The mentee will create a benchmark suite around some critical path sections identified with help from maintainers. The mentee will be supported in applying profiling tools to identify possible speedups, hopefully leading to at least one user-facing performance improvement.
+- Recommended Skills: Golang, git, software development.  (Mentee does not need prior experience in profiling or performance tuning)
+- Mentor(s): Natalie Arellano (@natalieparellano, narellano@vmware.com); Joe Kimmel (@joe-kimmel-vmw, jkimmel@vmware.com) 
+- Upstream Issue: https://github.com/buildpacks/pack/issues/1610
+
 ### Kubernetes
 
 #### Cluster API Provider GCP (CAPG)
