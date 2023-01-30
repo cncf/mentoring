@@ -84,6 +84,27 @@
 - Mentor: Rohit Nayak (@rohit-nayak-ps, rohit@planetscale.com) 
 - Upstream Issue: https://github.com/vitessio/vitess/issues/12136
 
+
+### Kubewarden
+
+#### Kubewarden SDKs feature parity
+
+- Description:  Kubewarden currently allow policy writers to use 4 different programming languages. Therefore, there are 4 SDKs to be maintained. However, they lack feature parity. In other words, some SDK have feature that have features not available in other SDKs. It's necessary to map what are the features missing between the Go and Rust SDKs and implement some of them. For that, it is necessary to read and understand what is done in the Rust SDK and implement the equivalent in the Go SDK.
+- Expected Outcome: Map all the features missing between the Go and Rust SKDs and implement some of the missing features
+- Recommended Skills: Rust, Go, Kubernetes
+- Mentor(s): José Guilherme Vanz (@jvanz), Victor Cuadrado Juan (@viccuad)
+- Upstream Issue: https://github.com/kubewarden/kubewarden-controller/issues/392
+
+
+#### Kubewarden policies enhancements
+
+- Description:  Kubewarden has many policies to validate and mutate Kubernetes resources. Therefore, there are many enhancements to be made on them. However, these improvements are still to be made. Thus, it's necessary to fix the open issues in the policies repositories and implement new policies to add more value to the Kubewarden users. 
+- Expected Outcome: Fix as many open issues in the Kubewarden policies as possible and create new policies requested by the community
+- Recommended Skills: Rust, Go, Kubernetes
+- Mentor(s): José Guilherme Vanz (@jvanz), Victor Cuadrado Juan (@viccuad)
+- Upstream Issue: https://github.com/kubewarden/kubewarden-controller/issues/393
+
+
 ### OpenKruise
 
 #### Bring progressive delivery to daemon workload
