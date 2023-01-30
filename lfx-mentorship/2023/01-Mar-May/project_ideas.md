@@ -49,6 +49,16 @@
 - Mentors(s): Carlos Panato (@cpanato), Richard Case (@richardcase)
 - Upstream Issue: https://github.com/kubernetes-sigs/cluster-api-provider-gcp/issues/810
 
+#### Cluster API Provider AWS (CAPA)
+
+##### Reimagining how we handle AWS account preparation
+
+- Description: Cluster API Provider AWS (CAPA) can create and manage the lifecycle of Kubernetes clusters in AWS (with the help of Cluster API in general). For each target AWS account where a user wants to create clusters it must be prepared for usage first. This is currently done using [clusterawsadm](https://cluster-api-aws.sigs.k8s.io/topics/using-clusterawsadm-to-fulfill-prerequisites.html) which creates/updates a CloudFormation stack that in turn creates/updates IAM resources. This approach has caused issues as CloudFormation is region specific but IAM is global and users often run the tool in different regions which results in failed stacks that cannot easily be deleted. As a project we want to move away from using CloudFormation and instead use API calls (like the rest of CAPA). We also want to make the process idempotent so it doesn't matter if you run it against different regions. This account preparation is key to CAPA and with out it CAPA cannot run.
+- Expected Outcome: A new approach to handling the prerequisites required for CAPA. We need to continue to support the cli based approach (so clusterawsadm will be updated) but we can also explore a declarative approach with an operator.
+- Recommend Skills: Golang, Kubernetes
+- Mentors(s): Richard Case (@richardcase)
+- Upstream Issue: https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/3715
+
 ### KubeVela
 
 #### Extend the capability of KubeVela by making several useful addons
