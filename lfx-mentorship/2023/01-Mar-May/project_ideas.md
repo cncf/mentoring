@@ -85,6 +85,42 @@
 - Upstream Issue: https://github.com/vitessio/vitess/issues/12136
 
 
+### WasmEdge
+
+#### Streaming data processing with WasmEdge
+
+- Description: WasmEdge would like to integrate WasmEdge as an alternative runtime for Fluvio. We would like to create a compile-time feature for the [fluvio-smartengine](https://github.com/infinyon/fluvio/tree/master/crates/fluvio-smartengine) crate. Once this feature is turned on, the compiler will choose to embed WasmEdge into the binary build using the [WasmEdge Rust SDK](https://wasmedge.org/book/en/sdk/rust.html).
+- Expected Outcome: A complete PR and a demo app that uses WasmEdge to process streaming data using a Tensorflow or Pytorch model
+- Recommended Skills: working knowledge of the Rust language and WebAssembly Rust SDK
+- Mentor(s): Michael Yuan (@juntao, michael@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2231
+
+#### A Rust library crate for mediapipe models for WasmEdge NN
+
+- Description: WasmEdge would like to build a Rust library crate that enables easy integration of Mediapipe models in WasmEdge applications. Each Mediapipe model has [a description page](https://google.github.io/mediapipe/solutions/face_detection.html) that describes its input and output tensors. The [models](https://google.github.io/mediapipe/solutions/models.html) are available in Tensorflow Lite format, which is supported by the WasmEdge Tensorflow Lite plugin.
+- Expected Outcome: We need at least one set of library functions for each model in Mediapipe. Each library function takes in a media object and returns the inference result.
+- Recommended Skills: basic knowledge of Rust and experience in working with AI models and image processing.
+- Mentor(s): Michael Yuan (@juntao, michael@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2229
+
+#### Unified WasmEdge tools
+
+- Description: WasmEdge provides two tools in the release assets: `wasmedgec` and `wasmedge`. However, providing multiple tools will make it too complicated to use. That's why we want a simple entry point, `wasmedge`. As its subcommands, all the tools above should be collected into this new tool.
+- Expected Outcome: A document to explain the new WasmEdge tools, a test suite covers the implementation details, and implement `wasmedge run` and `wasmedge compile` featues.
+- Recommended Skills: C++ programming language, WebAssembly knowledge.
+- Mentor(s): Hung-ying Tai (@hydai, hydai@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2226
+
+
+#### WasmEdge C++ SDK
+
+- Description: WasmEdge provides C SDK as the based library and uses this to implement other languages SDK such as Golang, Rust, Java, and Python(developing). We would like to provide C++ SDK in this task.
+- Expected Outcome: A document to explain the C++ SDK, a test suite cover the implementation details, and the implementation of WasmEdge Basics and VM sections in the C SDK.
+- Recommended Skills: C++ programming language, WebAssembly knowledge.
+- Mentor(s): Yiying He (@q82419, yiying@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2241
+
+
 ### Kubewarden
 
 #### Kubewarden SDKs feature parity
