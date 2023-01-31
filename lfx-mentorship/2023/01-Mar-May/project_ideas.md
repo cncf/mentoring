@@ -232,6 +232,33 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Mentor(s): Anurag Kumar (@kranurag7, contact.anurag7@gmail.com), Ankur Kothiwal (@Ankurk99, ankur.kothiwal99@gmail.com), Barun Acharya (@daemon1024, barun1024@gmail.com), Rahul Jadhav (@nyrahul, nyrahul@gmail.com)
 - Issue: <https://github.com/kubearmor/KubeArmor/issues/992>
 
+
+### Karmada
+
+#### Provide interactive environments for Karmada users
+- Description: Using interactive environments(like killercoda) for users to get started quickly.
+- Expected Outcome: Implement 2 Karmada examples in killercoda, including a CLI installation example and script installation example, both contains installation and deploying workload to multi-clusters steps.
+- Recommended Skills: Kubernetes, Karmada
+- Mentor(s): Wei Jiang (@jwcesign, jiangwei115@huawei.com), Hongcai Ren(@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: https://github.com/karmada-io/karmada/issues/3085
+
+#### Enhance Karmada testing coverage
+
+- Description: Karmada would like to improve the UT coverage of the code to better maintain the quality of the code and reduce the introduction of defects.
+- Expected Outcome: Increase the UT coverage rate to 65% (currently, the UT coverage rate is [43%](https://app.codecov.io/gh/karmada-io/karmada) ), increase the code coverage rate by about 20%.
+- Recommended Skills: Golang, Git
+- Mentor(s): Zhen Chang (@XiShanYongYe-Chang, changzhen5@huawei.com), Hongcai Ren(@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: https://github.com/karmada-io/karmada/issues/3086
+
+#### Bundle third-party resources into the Resource Interpreter framework
+
+- Description: Karmada's Resource Interpreter Framework is designed for interpreting resource structure. It consists of built-in and customized interpreters. Karmada could bundle some popular and open-sourced resources so that users can save the effort to customize them.
+- Expected Outcome: The resources from projects, including Argo Workflow/Flux CD/Kyverno/OpenKurise, could be bundled in Karmada, and the corresponding documentation should also be supplemented.
+- Recommended Skills: Go, Cloud Native
+- Mentor(s): Tiecheng Shen (@Poor12, shentiecheng@huawei.com), Hongcai Ren(@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: https://github.com/karmada-io/karmada/issues/3087
+
+
 ### Linkerd
 
 #### Linkerd Dashboard Improvements
@@ -257,4 +284,3 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Upstream Issue: https://github.com/linkerd/linkerd2/issues/7566
 
 ---
-
