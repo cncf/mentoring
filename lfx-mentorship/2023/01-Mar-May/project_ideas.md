@@ -215,3 +215,36 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Recommended Skills: Rancher, Grafana stack, Javascript
 - Mentor(s): Anurag Kumar (@kranurag7, contact.anurag7@gmail.com), Ankur Kothiwal (@Ankurk99, ankur.kothiwal99@gmail.com), Barun Acharya (@daemon1024, barun1024@gmail.com), Rahul Jadhav (@nyrahul, nyrahul@gmail.com)
 - Issue: <https://github.com/kubearmor/KubeArmor/issues/992>
+
+#### Harbor
+##### Regex replication rules
+
+- Description: Add more versatile replication filters
+- Expected Outcome: Implement regex capability when defining relication rules
+- Recommended Skills: Golang
+- Mentor(s): @Vad1mo @wy65701436 @OrlinVasilev
+- Upstream Issue (URL): https://github.com/goharbor/harbor/issues/8614 
+
+##### An official Golang API client and CLI for Harbor
+
+- Description: Design, plan and implement an Golang API client for Harbor
+- Expected Outcome: to be filled
+- Recommended Skills: Golang
+- Mentor(s): @Vad1mo @wy65701436
+- Upstream Issue (URL): https://github.com/search?q=Harbor%20CLI&type=repositories
+
+##### An official Golang API client and CLI for Harbor
+
+- Description: Design, plan and implement an Golang API client for Harbor
+- Expected Outcome: to be filled
+- Recommended Skills: Golang
+- Mentor(s): @Vad1mo @wy65701436
+- Upstream Issue (URL): https://github.com/search?q=Harbor%20CLI&type=repositories
+
+##### Harbor Robot accounts with Harbor API (more of a UI thing)
+
+- Description: Robot accounts should be allowed to access the full Harbor API (more of a UI thing)
+- Expected Outcome: to be filled
+- Recommended Skills: Golang
+- Mentor(s): @Vad1mo @wy65701436
+- Upstream Issue (URL): https://github.com/goharbor/harbor/issues/8723
