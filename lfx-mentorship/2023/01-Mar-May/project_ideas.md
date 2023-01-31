@@ -84,7 +84,41 @@
 - Recommended Skills: Go, Kubernetes, CUE
 - Mentor(s): Qiao Zhongpei (@chivalryq, chivalry.pp@gmail.com) Zeng Qingguo (@barnettZQG, barnett.zqg@gmail.com)
 - Upstream Issue: https://github.com/kubevela/kubevela/issues/5365
- 
+
+### Kyverno
+
+#### Pod Security Admission Integrations
+
+- Description: Integrate Kubernetes Pod Security with Kyverno - Part II
+- Expected Outcome: PR sent to kubernetes/kubernetes containing necessary changes to implement the behavior on the Kyverno side.
+- Recommended Skills: Golang, Kubernetes, Pod Security
+- Mentor(s): Shuting Zhao
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/6144
+
+#### Kubernetes Validating Admission Policy Support
+
+- Description: Kubernetes Validating Admission Policy Support
+- Expected Outcome: Kyverno support for ValidatingAdmissionPolicy in one of the identified proposals.
+- Recommended Skills: Golang, Kubernetes, Admission Controls
+- Mentor(s): Jim Bugwadia
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/5441
+
+#### OCI references support
+
+- Description: Use OCI References in image verification
+- Expected Outcome: PR sent to kyverno/kyverno implementing support for OCI references in verifyImages rules
+- Recommended Skills: Golang, Kubernetes, OCI images
+- Mentor(s): Jim Bugwadia
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/6142
+
+#### Artifact Hub listing of Kyverno Policy Library
+
+- Description: Develop a system to reflect all Kyverno Policies in the community library on Artifact Hub
+- Expected Outcome: All Kyverno policies searchable on Artifact Hub with an extensible system for future use
+- Recommended Skills: Golang, Artifact Hub, DevOps Automation, GitHub Actions
+- Mentor(s): Chip Zoller
+- Upstream Issue: https://github.com/kyverno/policies/issues/491
+
 ### Vitess
 
 #### Implement a benchmarking and load testing framework for the VReplication module in Vitess
@@ -93,6 +127,22 @@
 - Recommended Skills: golang
 - Mentor: Rohit Nayak (@rohit-nayak-ps, rohit@planetscale.com) 
 - Upstream Issue: https://github.com/vitessio/vitess/issues/12136
+
+#### Add complete parsing support for Spatial MySQL functions
+- Description: Vitess is a database clustering system for horizontal scaling of MySQL. One of the key goals of Vitess is to emulate MySQL behavior even while running multiple MySQL instances so that ORMs and frameworks work seamlessly. Vitess has its own in-built SQL-parser which it uses to understand the query and represent as structs for further processing. As of now, a lot of spatial MySQL functions are not parsed correctly and result in syntax errors. The task of the mentee would be to add parsing support for such functions and features which can be found at https://dev.mysql.com/doc/refman/8.0/en/spatial-analysis-functions.html
+- Recommended Skills: go, SQL, yacc, compilers and lexers
+- Mentor(s): [Manan Gupta](https://github.com/GuptaManan100) (manan@planetscale.com)
+- Issue: <https://github.com/vitessio/vitess/issues/8604>
+
+
+### LitmusChaos
+
+#### Improve code quality and add unit tests of litmus chaos components
+- Description:  [LitmusChaos](https://litmuschaos.io) is an open-source Chaos Engineering platform that enables teams to identify weaknesses & potential outages in infrastructures by inducing chaos tests in a controlled way. This project aims to improve the code quality of the golang components of litmus chaos and refactor the codebase for adding the unit test cases.
+- Expected Outcome: This will help the project to improve code quality, enhance the unit test suite, and identification of weaknesses
+- Recommended Skills: Golang, Kubernetes
+- Mentor: Amit Kumar Das (@amityt, amit.das@harness.io)  Sayan Mondal (@S-ayanide, sayan.mondal@harness.io)
+- Upstream Issue: https://github.com/litmuschaos/litmus/issues/3892
 
 
 ### Thanos
@@ -248,3 +298,84 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Recommended Skills: Golang, UI/UX, Clarity 
 - Mentor(s): @Vad1mo @wy65701436
 - Upstream Issue (URL): https://github.com/goharbor/harbor/issues/8723
+
+### KubeEdge
+
+#### Design and implement the KubeEdge Dashboard
+
+- Description: Users now can use K8s API or Kubectl to talk to KubeEdge, in this project we will design and implement the KubeEdge dashboard, so users can talk to KubeEdge cluster through UI.
+- Expected Outcome: Create the KubeEdge dashboard, users can view and operate the resource through UI.
+- Recommended Skills: JS, Kubernetes, KubeEdge, Html
+- Mentors: Vincent Lin (@vincentgoat, linguohui1@huawei.com), Fisher Xu (@fisherxu, fisherxu1@gmail.com)
+- Issue: <https://github.com/kubeedge/dashboard/issues/1>
+
+
+#### Re-design and implement the KubeEdge website
+
+- Description: KubeEdge's website has been running for a few years, and now we have more customer cases and more developer courses, so this project will update KubeEdge's website, with more readable documents on the homepage, covering user cases, developer courses, etc.
+- Expected Outcome: The website has more readable documentation, covering user cases, developer courses, etc.
+- Recommended Skills: JS, KubeEdge, Html
+- Mentor(s):  Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com), Fisher Xu (@fisherxu, fisherxu1@gmail.com)
+- Issue: <https://github.com/kubeedge/website/issues/292>
+
+
+#### Cloud-Robotic AI Benchmarking for Edge-cloud Collaborative Lifelong Learning
+
+- Description: Based on real-world datasets provided by industry members of KubeEdge SIG AI, the issue aims to build a lifelong learning benchmarking on KubeEdge-Ianvs. Namely, it aims to help all Edge AI application developers to validate and select the best-matched algorithm of lifelong learning.
+- Expected Outcome: The benchmark includes: 1) Work together to release a new dataset to the public! 2) Implement critical algorithm or system metrics, e.g., BWT, FWT and thoughput; 3) (Optional) Develop a baseline algorithm for this benchmark.
+- Recommended Skills: TensorFlow/Pytorch, Python, Kubernetes
+- Mentor(s): Siqi Luo (@luosiqi, luosiqi2@huawei.com), Fisher Xu (@fisherxu, fisherxu1@gmail.com)
+- Issue: <https://github.com/kubeedge/ianvs/issues/48>
+
+
+### Karmada
+
+#### Provide interactive environments for Karmada users
+- Description: Using interactive environments(like killercoda) for users to get started quickly.
+- Expected Outcome: Implement 2 Karmada examples in killercoda, including a CLI installation example and script installation example, both contains installation and deploying workload to multi-clusters steps.
+- Recommended Skills: Kubernetes, Karmada
+- Mentor(s): Wei Jiang (@jwcesign, jiangwei115@huawei.com), Hongcai Ren(@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: https://github.com/karmada-io/karmada/issues/3085
+
+#### Enhance Karmada testing coverage
+
+- Description: Karmada would like to improve the UT coverage of the code to better maintain the quality of the code and reduce the introduction of defects.
+- Expected Outcome: Increase the UT coverage rate to 65% (currently, the UT coverage rate is [43%](https://app.codecov.io/gh/karmada-io/karmada) ), increase the code coverage rate by about 20%.
+- Recommended Skills: Golang, Git
+- Mentor(s): Zhen Chang (@XiShanYongYe-Chang, changzhen5@huawei.com), Hongcai Ren(@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: https://github.com/karmada-io/karmada/issues/3086
+
+#### Bundle third-party resources into the Resource Interpreter framework
+
+- Description: Karmada's Resource Interpreter Framework is designed for interpreting resource structure. It consists of built-in and customized interpreters. Karmada could bundle some popular and open-sourced resources so that users can save the effort to customize them.
+- Expected Outcome: The resources from projects, including Argo Workflow/Flux CD/Kyverno/OpenKurise, could be bundled in Karmada, and the corresponding documentation should also be supplemented.
+- Recommended Skills: Go, Cloud Native
+- Mentor(s): Tiecheng Shen (@Poor12, shentiecheng@huawei.com), Hongcai Ren(@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: https://github.com/karmada-io/karmada/issues/3087
+
+
+### Linkerd
+
+#### Linkerd Dashboard Improvements
+
+- Description: Improve the Linkerd web dashboard with improved topology visualization, support for Linkerd conformance to the Gateway API project, and improved multi-cluster support.
+- Expected Outcome: A period of focused investment in the Linkerd viz dashboard experience will greatly improve the experience for Linkerd users. 
+- Recommended Skills: React/JavaScript, Kubernetes
+- Mentor(s): Oliver Gould (@olixOr, ver@buoyant.io), Alex Leong (@adleong, alex@buoyant.io) 
+- Upstream Issue: https://github.com/linkerd/linkerd2/issues/7865, https://github.com/linkerd/linkerd2/issues/9243, https://github.com/linkerd/linkerd2/issues/9554
+
+#### Add dynamic profiling to Linkerd Rust controllers
+- Description: The Linkerd control plane includes controllers that are written in Rust. Enable users to dynamically profile the running application can aid significantly in debugging and diagnostics. 
+- Expected Outcome: In an upcoming release of Linkerd the policy controller would expose endpoints (leveraging [pprof](https://github.com/tikv/pprof-rs/blob/master/README.md) or another tool) for profiling controller resource consumption.
+- Recommended Skills: Rust, Kubernetes
+- Mentor(s): Oliver Gould (@olixOr, ver@buoyant.io), Alex Leong (@adleong, alex@buoyant.io) 
+- Upstream Issue: https://github.com/linkerd/linkerd2/issues/10227
+
+#### Prototype multi-cluster service discovery and operations
+- Description: When deploying a multi-cluster resource one has to perform certain contortions such as providing a list of other clusters to each cluster. This places a dependency ordering on spinning up new clusters and a requirement for application operators to coordinate with cluster operators.
+- Expected Outcome: Develop a prototype where each cluster only needs to reference a common service definition to discover peers without knowledge of the names or even number of other clusters.
+- Recommended Skills: Go, Rust, Kubernetes
+- Mentor(s): Oliver Gould (@olixOr, ver@buoyant.io), Matei David (@mateiidavid, matei@buoyant.io) 
+- Upstream Issue: https://github.com/linkerd/linkerd2/issues/7566
+
+---
