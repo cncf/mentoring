@@ -228,23 +228,23 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 ##### An official Golang API client and CLI for Harbor
 
 - Description: Design, plan and implement an Golang API client for Harbor
-- Expected Outcome: to be filled
+- Expected Outcome: to be provided
 - Recommended Skills: Golang
 - Mentor(s): @Vad1mo @wy65701436
 - Upstream Issue (URL): https://github.com/search?q=Harbor%20CLI&type=repositories
 
-##### An official Golang API client and CLI for Harbor
-
-- Description: Design, plan and implement an Golang API client for Harbor
-- Expected Outcome: to be filled
+##### Implement per project and/or for the whole instance vulnerability overview
+  
+- Description: Design, plan and implement an and UI and backend to be able to visualize per project and/or for the registry vulnerability overview which will allow better security audits and vulenrability mitigation 
+- Expected Outcome: to be provided
 - Recommended Skills: Golang
 - Mentor(s): @Vad1mo @wy65701436
-- Upstream Issue (URL): https://github.com/search?q=Harbor%20CLI&type=repositories
+- Upstream Issue (URL): https://github.com/goharbor/harbor/issues/16680 https://github.com/goharbor/harbor/issues/10496 https://dso.docker.com/explore?search=pkgs
 
 ##### Harbor Robot accounts with Harbor API (more of a UI thing)
 
 - Description: Robot accounts should be allowed to access the full Harbor API (more of a UI thing)
-- Expected Outcome: to be filled
+- Expected Outcome: to be provided
 - Recommended Skills: Golang
 - Mentor(s): @Vad1mo @wy65701436
 - Upstream Issue (URL): https://github.com/goharbor/harbor/issues/8723
