@@ -346,4 +346,14 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Mentor(s): Oliver Gould (@olixOr, ver@buoyant.io), Matei David (@mateiidavid, matei@buoyant.io) 
 - Upstream Issue: https://github.com/linkerd/linkerd2/issues/7566
 
----
+### TestGrid
+
+#### Frontend development inside Lit Component Framework
+
+- Description: [TestGrid](http://testgrid.k8s.io) is the test visualization tool attached to Prow to
+  collate and display historical test results for the k8s and k8s-adjacent
+  communities. The UI is in the process of being rewritten.
+- Expected Outcome: Create Lit-based view components for TestGrid (summary, index, etc.) that display data from the API. Implement Jasmine and Storybook testing for these components.
+- Recommended Skills: TypeScript, CSS, Golang
+- Mentor(s): Sean Chase (@chases2, slchase@google.com)
+- Upstream Issue: https://github.com/GoogleCloudPlatform/testgrid/issues/1005
