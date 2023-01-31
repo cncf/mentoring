@@ -92,7 +92,7 @@
 - Description: Integrate Kubernetes Pod Security with Kyverno - Part II
 - Expected Outcome: PR sent to kubernetes/kubernetes containing necessary changes to implement the behavior on the Kyverno side.
 - Recommended Skills: Golang, Kubernetes, Pod Security
-- Mentor(s): Shuting Zhao
+- Mentor(s): Shuting Zhao (@realshuting, shuting@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/6144
 
 #### Kubernetes Validating Admission Policy Support
@@ -100,7 +100,7 @@
 - Description: Kubernetes Validating Admission Policy Support
 - Expected Outcome: Kyverno support for ValidatingAdmissionPolicy in one of the identified proposals.
 - Recommended Skills: Golang, Kubernetes, Admission Controls
-- Mentor(s): Jim Bugwadia
+- Mentor(s): Jim Bugwadia (@jimbugwadia, jim@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/5441
 
 #### OCI references support
@@ -108,7 +108,7 @@
 - Description: Use OCI References in image verification
 - Expected Outcome: PR sent to kyverno/kyverno implementing support for OCI references in verifyImages rules
 - Recommended Skills: Golang, Kubernetes, OCI images
-- Mentor(s): Jim Bugwadia
+- Mentor(s): Jim Bugwadia (@jimbugwadia, jim@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/6142
 
 #### Artifact Hub listing of Kyverno Policy Library
@@ -116,7 +116,7 @@
 - Description: Develop a system to reflect all Kyverno Policies in the community library on Artifact Hub
 - Expected Outcome: All Kyverno policies searchable on Artifact Hub with an extensible system for future use
 - Recommended Skills: Golang, Artifact Hub, DevOps Automation, GitHub Actions
-- Mentor(s): Chip Zoller
+- Mentor(s): Chip Zoller (@chipzoller, chipzoller@gmail.com)
 - Upstream Issue: https://github.com/kyverno/policies/issues/491
 
 ### Vitess
