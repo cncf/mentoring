@@ -94,6 +94,22 @@
 - Mentor: Rohit Nayak (@rohit-nayak-ps, rohit@planetscale.com) 
 - Upstream Issue: https://github.com/vitessio/vitess/issues/12136
 
+#### Add complete parsing support for Spatial MySQL functions
+- Description: Vitess is a database clustering system for horizontal scaling of MySQL. One of the key goals of Vitess is to emulate MySQL behavior even while running multiple MySQL instances so that ORMs and frameworks work seamlessly. Vitess has its own in-built SQL-parser which it uses to understand the query and represent as structs for further processing. As of now, a lot of spatial MySQL functions are not parsed correctly and result in syntax errors. The task of the mentee would be to add parsing support for such functions and features which can be found at https://dev.mysql.com/doc/refman/8.0/en/spatial-analysis-functions.html
+- Recommended Skills: go, SQL, yacc, compilers and lexers
+- Mentor(s): [Manan Gupta](https://github.com/GuptaManan100) (manan@planetscale.com)
+- Issue: <https://github.com/vitessio/vitess/issues/8604>
+
+
+### LitmusChaos
+
+#### Improve code quality and add unit tests of litmus chaos components
+- Description:  [LitmusChaos](https://litmuschaos.io) is an open-source Chaos Engineering platform that enables teams to identify weaknesses & potential outages in infrastructures by inducing chaos tests in a controlled way. This project aims to improve the code quality of the golang components of litmus chaos and refactor the codebase for adding the unit test cases.
+- Expected Outcome: This will help the project to improve code quality, enhance the unit test suite, and identification of weaknesses
+- Recommended Skills: Golang, Kubernetes
+- Mentor: Amit Kumar Das (@amityt, amit.das@harness.io)  Sayan Mondal (@S-ayanide, sayan.mondal@harness.io)
+- Upstream Issue: https://github.com/litmuschaos/litmus/issues/3892
+
 
 ### Thanos
 
@@ -216,6 +232,7 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Mentor(s): Anurag Kumar (@kranurag7, contact.anurag7@gmail.com), Ankur Kothiwal (@Ankurk99, ankur.kothiwal99@gmail.com), Barun Acharya (@daemon1024, barun1024@gmail.com), Rahul Jadhav (@nyrahul, nyrahul@gmail.com)
 - Issue: <https://github.com/kubearmor/KubeArmor/issues/992>
 
+
 ### Karmada
 
 #### Provide interactive environments for Karmada users
@@ -240,3 +257,30 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Recommended Skills: Go, Cloud Native
 - Mentor(s): Tiecheng Shen (@Poor12, shentiecheng@huawei.com), Hongcai Ren(@RainbowMango, qdurenhongcai@gmail.com)
 - Upstream Issue: https://github.com/karmada-io/karmada/issues/3087
+
+
+### Linkerd
+
+#### Linkerd Dashboard Improvements
+
+- Description: Improve the Linkerd web dashboard with improved topology visualization, support for Linkerd conformance to the Gateway API project, and improved multi-cluster support.
+- Expected Outcome: A period of focused investment in the Linkerd viz dashboard experience will greatly improve the experience for Linkerd users. 
+- Recommended Skills: React/JavaScript, Kubernetes
+- Mentor(s): Oliver Gould (@olixOr, ver@buoyant.io), Alex Leong (@adleong, alex@buoyant.io) 
+- Upstream Issue: https://github.com/linkerd/linkerd2/issues/7865, https://github.com/linkerd/linkerd2/issues/9243, https://github.com/linkerd/linkerd2/issues/9554
+
+#### Add dynamic profiling to Linkerd Rust controllers
+- Description: The Linkerd control plane includes controllers that are written in Rust. Enable users to dynamically profile the running application can aid significantly in debugging and diagnostics. 
+- Expected Outcome: In an upcoming release of Linkerd the policy controller would expose endpoints (leveraging [pprof](https://github.com/tikv/pprof-rs/blob/master/README.md) or another tool) for profiling controller resource consumption.
+- Recommended Skills: Rust, Kubernetes
+- Mentor(s): Oliver Gould (@olixOr, ver@buoyant.io), Alex Leong (@adleong, alex@buoyant.io) 
+- Upstream Issue: https://github.com/linkerd/linkerd2/issues/10227
+
+#### Prototype multi-cluster service discovery and operations
+- Description: When deploying a multi-cluster resource one has to perform certain contortions such as providing a list of other clusters to each cluster. This places a dependency ordering on spinning up new clusters and a requirement for application operators to coordinate with cluster operators.
+- Expected Outcome: Develop a prototype where each cluster only needs to reference a common service definition to discover peers without knowledge of the names or even number of other clusters.
+- Recommended Skills: Go, Rust, Kubernetes
+- Mentor(s): Oliver Gould (@olixOr, ver@buoyant.io), Matei David (@mateiidavid, matei@buoyant.io) 
+- Upstream Issue: https://github.com/linkerd/linkerd2/issues/7566
+
+---
