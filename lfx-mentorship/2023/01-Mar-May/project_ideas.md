@@ -221,3 +221,30 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Recommended Skills: Rancher, Grafana stack, Javascript
 - Mentor(s): Anurag Kumar (@kranurag7, contact.anurag7@gmail.com), Ankur Kothiwal (@Ankurk99, ankur.kothiwal99@gmail.com), Barun Acharya (@daemon1024, barun1024@gmail.com), Rahul Jadhav (@nyrahul, nyrahul@gmail.com)
 - Issue: <https://github.com/kubearmor/KubeArmor/issues/992>
+
+### Linkerd
+
+#### Linkerd Dashboard Improvements
+
+- Description: Improve the Linkerd web dashboard with improved topology visualization, support for Linkerd conformance to the Gateway API project, and improved multi-cluster support.
+- Expected Outcome: A period of focused investment in the Linkerd viz dashboard experience will greatly improve the experience for Linkerd users. 
+- Recommended Skills: React/JavaScript, Kubernetes
+- Mentor(s): Oliver Gould (@olixOr, ver@buoyant.io), Alex Leong (@adleong, alex@buoyant.io) 
+- Upstream Issue: https://github.com/linkerd/linkerd2/issues/7865, https://github.com/linkerd/linkerd2/issues/9243, https://github.com/linkerd/linkerd2/issues/9554
+
+#### Add dynamic profiling to Linkerd Rust controllers
+- Description: The Linkerd control plane includes controllers that are written in Rust. Enable users to dynamically profile the running application can aid significantly in debugging and diagnostics. 
+- Expected Outcome: In an upcoming release of Linkerd the policy controller would expose endpoints (leveraging [pprof](https://github.com/tikv/pprof-rs/blob/master/README.md) or another tool) for profiling controller resource consumption.
+- Recommended Skills: Rust, Kubernetes
+- Mentor(s): Oliver Gould (@olixOr, ver@buoyant.io), Alex Leong (@adleong, alex@buoyant.io) 
+- Upstream Issue: https://github.com/linkerd/linkerd2/issues/10227
+
+#### Prototype multi-cluster service discovery and operations
+- Description: When deploying a multi-cluster resource one has to perform certain contortions such as providing a list of other clusters to each cluster. This places a dependency ordering on spinning up new clusters and a requirement for application operators to coordinate with cluster operators.
+- Expected Outcome: Develop a prototype where each cluster only needs to reference a common service definition to discover peers without knowledge of the names or even number of other clusters.
+- Recommended Skills: Go, Rust, Kubernetes
+- Mentor(s): Oliver Gould (@olixOr, ver@buoyant.io), Matei David (@mateiidavid, matei@buoyant.io) 
+- Upstream Issue: https://github.com/linkerd/linkerd2/issues/7566
+
+---
+
