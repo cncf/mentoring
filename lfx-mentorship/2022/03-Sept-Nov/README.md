@@ -1,6 +1,6 @@
-# Term 03 - 2022 November - September
+# Term 03 - 2022 September - November 
 
-Status: planning
+Status: Completed
 
 ## Table of Contents
 
@@ -112,14 +112,16 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 #### Kubernetes ontology and subgraph module design
 
-Description: Network topologies and graph databases go hand-in-hand. The OpenAPI specifications for Kubernetes provides taxonomy, but augmenting a graph data model with formalized ontologies enables any number of capabilities, one of the more straightforward is the inferencing requisite for natural language processing, and consequently, a human-centric query / response interaction becomes becomes possible. More importantly, more advanced systems can be built when a graph data model of connected systems is upgraded to be a knowledge semantic graph. Deliverables (among other items):
+- Description: Network topologies and graph databases go hand-in-hand. The OpenAPI specifications for Kubernetes provides taxonomy, but augmenting a graph data model with formalized ontologies enables any number of capabilities, one of the more straightforward is the inferencing requisite for natural language processing, and consequently, a human-centric query / response interaction becomes becomes possible. More importantly, more advanced systems can be built when a graph data model of connected systems is upgraded to be a knowledge semantic graph. Deliverables (among other items):
+
+
 
 - a Kubernetes ontology using OWL as a popular (and mature) way of doing this.
 - a cuelang-based component generator
 
-Recommended Skills: cuelang, golang, neo4j
-Mentor(s): [Lee Calcote](https://github.com/leecalcote), [Matt Young](https://github.com/halcyondude)
-Issue: https://github.com/cncf/tag-network/issues/21
+- Recommended Skills: cuelang, golang, neo4j
+- Mentor(s): [Lee Calcote](https://github.com/leecalcote), [Matt Young](https://github.com/halcyondude)
+- Issue: https://github.com/cncf/tag-network/issues/21
 
 - **LFX URL**: https://mentorship.lfx.linuxfoundation.org/project/df449a23-ac20-4ee9-8a2c-e0e5d08ba727
 
@@ -250,7 +252,6 @@ The aim of the project is to analyse and reduce the system privileges required b
 - Description: Overcome current architectural issues of:
 1) No Caching - In Meshery UI, List of adapters is a state that is being used in multiple components i.e Settings , Dashboard , Connection Wizard and Performance. Refetching the data on every mount of each of these components degrades the user experience. The same goes for all the other data that are being used across multiple components.
 2) Multiple Sources of Truth - There is no single source of truth in Meshery UI as all react components manage their own state. Since Meshery UI has to deal with data that frequently changes, like Control Plane Data, Meshsync data etc. it will become hard to keep them in sync if they all manage their own copy of them  in their local state.
-3) Maintainability of Code - Since we don't have any restrictions on how the code should be structured in Meshery UI, we can't expect every contributor to write efficient and bug free (relative term) code, which also makes it difficult to maintain.
 
 - Recommended Skills: reactjs, apollo, graphql, redux
 - Mentor(s): [Lee Calcote](https://github.com/leecalcote), [Nithish Karthik](https://github.com/sudo-NithishKarthik)

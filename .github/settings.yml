@@ -41,7 +41,13 @@ collaborators:
   - username: jberkus
     permission: maintain
 
+  - username: CathPag
+    permission: maintain
+
   - username: carolynvs
+    permission: maintain
+   
+  - username: riaankl
     permission: maintain
 
 labels:
@@ -56,6 +62,8 @@ labels:
   - name: time-sensitive
     description: issues or PRs that have a due date
     color: b60205
+  - name: getting started
+    color: 3B8924
   - name: outreachy
     color: 7fd811
   - name: season of docs
@@ -63,6 +71,8 @@ labels:
   - name: summer of code
     color: 00ffff
   - name: spring
+    color: 1ED626
+  - name: "Term 1: March-May"
     color: 1ED626
   - name: summer
     color: FBCA04
