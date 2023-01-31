@@ -59,6 +59,33 @@
 - Mentors(s): Richard Case (@richardcase)
 - Upstream Issue: https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/3715
 
+### Kubescape
+
+#### Implement security controls based on penetration testing best practices
+
+- Description: Kubescape covers different hardening guidelines around Kubernetes: NSA-CISA, MITRE and CIS. Detection capabilities of potential security issues could be even more enriched by researching pen-testing tools and practices regarding Kubernetes and implementing these as controls. An example pen-test writeup is https://hacktricks.boitatech.com.br/pentesting/pentesting-kubernetes. This and others could help define a set of “offensive” controls to complement the “defensive” controls we have today.
+- Expected Outcome: ~10 controls for detecting challenges that would commonly be found in a cluster penetration test. Documentation on how they were selected and how to use them.
+- Recommended Skills: Cybersecurity, Rego 
+- Mentor(s): Ben Hirschberg (@slashben, ben@armosec.io)
+- Upstream Issue: https://github.com/kubescape/kubescape/issues/1072
+
+### Build debugging capabilities for Helm
+
+- Description: The Go standard templating package (`text/template`) is the base on which Helm templates are built. We wish to be able to backtrack lines and fields in objects after rendering Helm charts. This would help users of Helm to be able to understand quickly where different security issues in the final object are coming from in the source. To do this, the `text/template` package should be extended to include debug markers that point from the output lines to the input lines. 
+- Expected Outcome: Propose and implement an extension to the Go package which solves this.
+- Recommended Skills: Go
+- Mentor(s): Ben Hirschberg (@slashben, ben@armosec.io)
+- Upstream Issue: https://github.com/helm/helm/issues/11552
+
+### Release engineering: add Kubescape to commonly-requested package managers
+
+- Description: The Kubescape client binary is built from GitHub using standard patterns. Support for homebrew and krew exists, but users have requested RPM and DEB packages. In this project you will stabilize the delivery of new builds to existing package managers, and implement support for RPM and DEB packages using GitHub Actions.
+- Expected Outcome: When a new Kubescape version is released, it is available in homebrew, krew, RPM and DEB repositories.
+- Recommended Skills: Release management, scripting
+- Mentor(s): Craig Box (@craigbox, craigb@armosec.io)
+- Upstream Issue: https://github.com/kubescape/kubescape/issues/400
+
+
 ### KubeVela
 
 #### Extend the capability of KubeVela by making several useful addons
