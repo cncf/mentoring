@@ -163,7 +163,7 @@
 
 #### Querying Apache Parquet files with PromQL
 - Description: The new [Thanos PromQL Engine](https://github.com/thanos-community/promql-engine) has a sufficient separation between the syntax tree and the execution plan to allow us to query arbitrary data sources. In this project we would like to explore ways to query data stored in Apache Parquet files.
-- Expected Outcome: The Thanos PromQL engine can querytimeseries data from Apache Parquet files.
+- Expected Outcome: The Thanos PromQL engine can query timeseries data from Apache Parquet files.
 - Recommended Skills: Golang
 - Mentor: Filip Petkovski (@fpetkovski, filip.petkovsky@gmail.com), Prem Saraswat (@onprem, prmsrswt@gmail.com)
 - Upstream Issue: https://github.com/thanos-community/promql-engine/issues/167
