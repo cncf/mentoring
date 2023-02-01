@@ -346,4 +346,18 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Mentor(s): Oliver Gould (@olixOr, ver@buoyant.io), Matei David (@mateiidavid, matei@buoyant.io) 
 - Upstream Issue: https://github.com/linkerd/linkerd2/issues/7566
 
+### NATS
+
+#### End-to-end example of a multiplayer game using NATS in Unity
+
+- Description: This project consists of developing an example Unity setup of a multiplayer game using the latest version of the NATS Server.
+
+- Expected Outcome: A well documented repository under the `nats-io` GitHub organization that contains the artifacts and sample code of the setup using the .NET NATS Client (https://github.com/nats-io/nats.net)
+
+- Recommended Skills: .NET, C#, Unity, NATS
+
+- Mentor(s): Waldemar Quevedo (@wallyqs)
+
+- Upstream Issue: https://github.com/nats-io/dot-net-nats-examples/issues/1
+
 ---
