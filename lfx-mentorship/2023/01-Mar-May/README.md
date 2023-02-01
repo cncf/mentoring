@@ -48,6 +48,8 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Recommended Skills: Golang, git, software development.  (Mentee does not need prior experience in profiling or performance tuning)
 - Mentor(s): Natalie Arellano (@natalieparellano, narellano@vmware.com); Joe Kimmel (@joe-kimmel-vmw, jkimmel@vmware.com) 
 - Upstream Issue: https://github.com/buildpacks/pack/issues/1610
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/33e0747c-4ab8-4074-aa90-3b908b3a588e
+
 
 #### Multi-Architecture Builds Support
 
@@ -58,6 +60,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Expected project size: 350 Hours
 - Difficulty: Medium
 - Upstream Issue (URL): https://github.com/buildpacks/pack/issues/1459 and https://github.com/buildpacks/pack/issues/1460
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ee387e1b-de4e-4c1e-9bef-0239a2e9ca40
 
 
 ### Kubescape
@@ -69,6 +72,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Recommended Skills: Cybersecurity, Rego 
 - Mentor(s): Ben Hirschberg (@slashben, ben@armosec.io)
 - Upstream Issue: https://github.com/kubescape/kubescape/issues/1072
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/db63c23a-2b41-40e0-a833-cf0e2c33c739
 
 #### Build debugging capabilities for Helm
 
@@ -77,6 +81,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Recommended Skills: Go
 - Mentor(s): Ben Hirschberg (@slashben, ben@armosec.io)
 - Upstream Issue: https://github.com/helm/helm/issues/11552
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/570b1bba-206d-47ac-9667-22268ff7a6d9
 
 #### Release engineering: add Kubescape to commonly-requested package managers
 
@@ -85,6 +90,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Recommended Skills: Release management, scripting
 - Mentor(s): Craig Box (@craigbox, craigb@armosec.io)
 - Upstream Issue: https://github.com/kubescape/kubescape/issues/400
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/138e9cac-ec86-43cb-a04f-c2980e3c2865
 
 
 ### KubeVela
@@ -96,6 +102,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Recommended Skills: golang, kubernetes, cueLang
 - Mentor(s): Jianbo Sun (@wonderflow, wonderflow.sun@gmail.com), Wong Yike (@wangyikewxgm, wangyike_wyk@163.com) 
 - Upstream Issue: https://github.com/kubevela/kubevela/issues/5358
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/51398c19-87c2-4b50-9dd3-760fbd820688
 
 #### Support auto generation of CUE schema and docs from Go struct
 
@@ -104,6 +111,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Recommended Skills: Go, CUE
 - Mentor(s): Fog Dong (@FogDong, wuwuglu19@gmail.com), Da Yin(@Somefive, yd219913@alibaba-inc.com)
 - Upstream Issue: https://github.com/kubevela/kubevela/issues/5364
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/85f61cae-02d7-4931-8d87-d3da3128060e
 
 #### Support auto generation of multiple languages SDK from CUE
 
@@ -112,5 +120,45 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Recommended Skills: Go, Kubernetes, CUE
 - Mentor(s): Qiao Zhongpei (@chivalryq, chivalry.pp@gmail.com) Zeng Qingguo (@barnettZQG, barnett.zqg@gmail.com)
 - Upstream Issue: https://github.com/kubevela/kubevela/issues/5365
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2981c1de-49af-4bd8-b87d-02e455a96ee1
+
+
+### Kyverno
+
+#### Pod Security Admission Integrations
+
+- Description: Integrate Kubernetes Pod Security with Kyverno - Part II
+- Expected Outcome: PR sent to kubernetes/kubernetes containing necessary changes to implement the behavior on the Kyverno side.
+- Recommended Skills: Golang, Kubernetes, Pod Security
+- Mentor(s): Shuting Zhao (@realshuting, shuting@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/6144
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/59afc794-c33e-4930-a5b8-eb3abd8d9896
+
+#### Kubernetes Validating Admission Policy Support
+
+- Description: Kubernetes Validating Admission Policy Support
+- Expected Outcome: Kyverno support for ValidatingAdmissionPolicy in one of the identified proposals.
+- Recommended Skills: Golang, Kubernetes, Admission Controls
+- Mentor(s): Jim Bugwadia (@jimbugwadia, jim@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/5441
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a00294be-06a0-4e66-a2a5-6e2dfb3a097c
+
+#### OCI references support
+
+- Description: Use OCI References in image verification
+- Expected Outcome: PR sent to kyverno/kyverno implementing support for OCI references in verifyImages rules
+- Recommended Skills: Golang, Kubernetes, OCI images
+- Mentor(s): Jim Bugwadia (@jimbugwadia, jim@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/6142
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/e5da551f-8a3d-42ec-8c00-e9ae10a86aa2
+
+#### Artifact Hub listing of Kyverno Policy Library
+
+- Description: Develop a system to reflect all Kyverno Policies in the community library on Artifact Hub
+- Expected Outcome: All Kyverno policies searchable on Artifact Hub with an extensible system for future use
+- Recommended Skills: Golang, Artifact Hub, DevOps Automation, GitHub Actions
+- Mentor(s): Chip Zoller (@chipzoller, chipzoller@gmail.com)
+- Upstream Issue: https://github.com/kyverno/policies/issues/491
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/f502b839-a804-4a6c-8da5-3985ce25883e
 
 

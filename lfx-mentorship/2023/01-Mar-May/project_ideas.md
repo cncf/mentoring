@@ -40,40 +40,6 @@
 - Upstream Issue: https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/3715
 
 
-### Kyverno
-
-#### Pod Security Admission Integrations
-
-- Description: Integrate Kubernetes Pod Security with Kyverno - Part II
-- Expected Outcome: PR sent to kubernetes/kubernetes containing necessary changes to implement the behavior on the Kyverno side.
-- Recommended Skills: Golang, Kubernetes, Pod Security
-- Mentor(s): Shuting Zhao (@realshuting, shuting@nirmata.com)
-- Upstream Issue: https://github.com/kyverno/kyverno/issues/6144
-
-#### Kubernetes Validating Admission Policy Support
-
-- Description: Kubernetes Validating Admission Policy Support
-- Expected Outcome: Kyverno support for ValidatingAdmissionPolicy in one of the identified proposals.
-- Recommended Skills: Golang, Kubernetes, Admission Controls
-- Mentor(s): Jim Bugwadia (@jimbugwadia, jim@nirmata.com)
-- Upstream Issue: https://github.com/kyverno/kyverno/issues/5441
-
-#### OCI references support
-
-- Description: Use OCI References in image verification
-- Expected Outcome: PR sent to kyverno/kyverno implementing support for OCI references in verifyImages rules
-- Recommended Skills: Golang, Kubernetes, OCI images
-- Mentor(s): Jim Bugwadia (@jimbugwadia, jim@nirmata.com)
-- Upstream Issue: https://github.com/kyverno/kyverno/issues/6142
-
-#### Artifact Hub listing of Kyverno Policy Library
-
-- Description: Develop a system to reflect all Kyverno Policies in the community library on Artifact Hub
-- Expected Outcome: All Kyverno policies searchable on Artifact Hub with an extensible system for future use
-- Recommended Skills: Golang, Artifact Hub, DevOps Automation, GitHub Actions
-- Mentor(s): Chip Zoller (@chipzoller, chipzoller@gmail.com)
-- Upstream Issue: https://github.com/kyverno/policies/issues/491
-
 ### Vitess
 
 #### Implement a benchmarking and load testing framework for the VReplication module in Vitess
@@ -82,12 +48,14 @@
 - Recommended Skills: golang
 - Mentor: Rohit Nayak (@rohit-nayak-ps, rohit@planetscale.com) 
 - Upstream Issue: https://github.com/vitessio/vitess/issues/12136
+- LFX URL: 
 
 #### Add complete parsing support for Spatial MySQL functions
 - Description: Vitess is a database clustering system for horizontal scaling of MySQL. One of the key goals of Vitess is to emulate MySQL behavior even while running multiple MySQL instances so that ORMs and frameworks work seamlessly. Vitess has its own in-built SQL-parser which it uses to understand the query and represent as structs for further processing. As of now, a lot of spatial MySQL functions are not parsed correctly and result in syntax errors. The task of the mentee would be to add parsing support for such functions and features which can be found at https://dev.mysql.com/doc/refman/8.0/en/spatial-analysis-functions.html
 - Recommended Skills: go, SQL, yacc, compilers and lexers
 - Mentor(s): [Manan Gupta](https://github.com/GuptaManan100) (manan@planetscale.com)
-- Issue: <https://github.com/vitessio/vitess/issues/8604>
+- Upstraeam Issue: https://github.com/vitessio/vitess/issues/8604
+- LFX URL: 
 
 
 ### LitmusChaos
@@ -98,6 +66,7 @@
 - Recommended Skills: Golang, Kubernetes
 - Mentor: Amit Kumar Das (@amityt, amit.das@harness.io)  Sayan Mondal (@S-ayanide, sayan.mondal@harness.io)
 - Upstream Issue: https://github.com/litmuschaos/litmus/issues/3892
+- LFX URL: 
 
 
 ### Thanos
@@ -108,6 +77,7 @@
 - Recommended Skills: Golang, React
 - Mentor: Giedrius Statkevičius (@GiedriusS, giedriuswork@gmail.com), Saswata Mukherjee (@saswatamcode, saswataminsta@yahoo.com)
 - Upstream Issue: https://github.com/thanos-community/promql-engine/issues/106
+- LFX URL: 
 
 #### Series Cardinality API
 - Description: Prometheus has a TSDB stats API https://prometheus.io/docs/prometheus/latest/querying/api/#tsdb-stats which contains information about series cardinality and the API is supported by Thanos. However, it can only return 10 results per stats, which is not flexible to track the arbitrary metrics. This project aims to design and implement APIs that expose cardinalities. Stretch goal can be to add cardinality explorer page to Thanos UI.
@@ -115,6 +85,7 @@
 - Recommended Skills: Golang, React
 - Mentor: Ben Ye (@yeya24, yb532204897@gmail.com)
 - Upstream Issue: https://github.com/thanos-io/thanos/issues/6007
+- LFX URL: 
 
 #### Querying Apache Parquet files with PromQL
 - Description: The new [Thanos PromQL Engine](https://github.com/thanos-community/promql-engine) has a sufficient separation between the syntax tree and the execution plan to allow us to query arbitrary data sources. In this project we would like to explore ways to query data stored in Apache Parquet files.
@@ -122,6 +93,7 @@
 - Recommended Skills: Golang
 - Mentor: Filip Petkovski (@fpetkovski, filip.petkovsky@gmail.com), Prem Saraswat (@onprem, prmsrswt@gmail.com)
 - Upstream Issue: https://github.com/thanos-community/promql-engine/issues/167
+- LFX URL: 
 
 
 ### Cortex
@@ -132,6 +104,7 @@
 - Recommended Skills: Golang, HTTP proxies
 - Mentor: Friedrich Gonzalez (@friedrichg, friedrichg@gmail.com)
 - Upstream Issue: https://github.com/cortexproject/cortex/issues/5106
+- LFX URL: 
 
 #### API to import Prometheus & Thanos blocks
 - Description: For users who want to migrate from Prometheus to Cortex, currently it is supported via a tool called [Thanosconvert](https://cortexmetrics.io/docs/blocks-storage/migrate-storage-from-thanos-and-prometheus/#when-migrating-from-prometheus). However, having this feature as part of the tool is limited in some usecase like SaaS because users usually don’t have permissions to access their storage layer directly. It would be nice to extend this feature into an API so that users can import their Prometheus TSDB compatible blocks for easier migration.
@@ -139,6 +112,7 @@
 - Recommended Skills: Golang, Prometheus, Thanos
 - Mentor: Alan Protasio (@alanprot, alanprot@gmail.com)
 - Upstream Issue: https://github.com/cortexproject/cortex/issues/4956
+- LFX URL: 
 
 #### Switch Cortex Ruler to query Query Frontend
 - Description: Cortex Ruler queries ingester directly for rule evaluation. This is okay but if Cortex Ruler could query Query Frontend instead for rule evaluation, it can benefit from more features in the Query Frontend like vertical sharding. This also simplifies the Cortex ruler to not embed a querier and uses less resources. For this project, we would like to switch Cortex Ruler to query Query Frontend. You are expected to work with a microservice architecture and write unit tests and end to end tests to make sure the feature works correctly.
@@ -146,6 +120,7 @@
 - Recommended Skills: Golang, distributed systems
 - Mentor: Alvin Lin (@alvinlin123, alvinlin123@gmail.com)
 - Upstream Issue: https://github.com/cortexproject/cortex/issues/5105
+- LFX URL: 
 
 #### Automated nightly benchmarks
 - Description: In order to make sure Cortex doesn’t introduce performance regressions across releases and major changes, we would like to introduce an automated way to run some nightly macro/micro benchmarks for Cortex clusters. This project could potentially involve setting up Kubernetes clusters, Cortex components, and load generators. We’d love to keep track of performance metrics for each test run and visualize them through a UI.
@@ -153,6 +128,7 @@
 - Recommended Skills: Golang, Kubernetes
 - Mentor: Ben Ye (@yeya24, yb532204897@gmail.com)
 - Upstream Issue: https://github.com/cortexproject/cortex/issues/5107
+- LFX URL: 
 
 
 ### WasmEdge
@@ -164,6 +140,7 @@
 - Recommended Skills: working knowledge of the Rust language and WebAssembly Rust SDK
 - Mentor(s): Michael Yuan (@juntao, michael@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2231
+- LFX URL: 
 
 #### A Rust library crate for mediapipe models for WasmEdge NN
 
@@ -172,6 +149,7 @@
 - Recommended Skills: basic knowledge of Rust and experience in working with AI models and image processing.
 - Mentor(s): Michael Yuan (@juntao, michael@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2229
+- LFX URL: 
 
 #### Unified WasmEdge tools
 
@@ -180,6 +158,7 @@
 - Recommended Skills: C++ programming language, WebAssembly knowledge.
 - Mentor(s): Hung-ying Tai (@hydai, hydai@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2226
+- LFX URL: 
 
 
 #### WasmEdge C++ SDK
@@ -189,6 +168,7 @@
 - Recommended Skills: C++ programming language, WebAssembly knowledge.
 - Mentor(s): Yiying He (@q82419, yiying@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2241
+- LFX URL: 
 
 
 ### Kubewarden
@@ -200,6 +180,7 @@
 - Recommended Skills: Rust, Go, Kubernetes
 - Mentor(s): José Guilherme Vanz (@jvanz), Victor Cuadrado Juan (@viccuad)
 - Upstream Issue: https://github.com/kubewarden/kubewarden-controller/issues/392
+- LFX URL: 
 
 
 #### Kubewarden policies enhancements
@@ -209,6 +190,7 @@
 - Recommended Skills: Rust, Go, Kubernetes
 - Mentor(s): José Guilherme Vanz (@jvanz), Victor Cuadrado Juan (@viccuad)
 - Upstream Issue: https://github.com/kubewarden/kubewarden-controller/issues/393
+- LFX URL: 
 
 
 ### OpenKruise
@@ -220,6 +202,7 @@
 - Recommended Skills: Go, Kubernetes
 - Mentor(s):  Zhang Zhen (@furykerry, furykerry@gmail.com), Zhang Lei(@resouer, resouer@gmail.com)
 - Upstream Issue: https://github.com/openkruise/rollouts/issues/69
+- LFX URL: 
 
 #### Support customize arbitary fields of workload subset in UnitedDeployment
 
@@ -229,6 +212,7 @@ each subset of UnitedDeployment can have different metadata, container configura
 - Recommended Skills: Go, Kubernetes
 - Mentor(s): Zhang Zhen (@furykerry, furykerry@gmail.com), Zhang Lei(@resouer, resouer@gmail.com)
 - Upstream Issue: https://github.com/openkruise/kruise/issues/811
+- LFX URL: 
 
 ### KubeArmor
 
@@ -238,7 +222,8 @@ each subset of UnitedDeployment can have different metadata, container configura
 - Expected Outcome: Create a telemetry dashboard, write setup documentation and usage guide.
 - Recommended Skills: ELK stack (Elasticsearch, Logstash & Kibana), Fluentd, Loki and Grafana
 - Mentors: Anurag Kumar (@kranurag7, contact.anurag7@gmail.com), Ankur Kothiwal (@Ankurk99, ankur.kothiwal99@gmail.com), Barun Acharya (@daemon1024, barun1024@gmail.com), Rahul Jadhav (@nyrahul, nyrahul@gmail.com)
-- Issue: <https://github.com/kubearmor/KubeArmor/issues/836>
+- Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/836
+- LFX URL: 
 
 
 #### Adding OpenTelemetry Support
@@ -247,7 +232,8 @@ each subset of UnitedDeployment can have different metadata, container configura
 - Expected Outcome: The mentee's task is to develop an OpenTelemetry adapter for KubeArmor that can receive logs, alerts, and telemetry from the kubearmor-relay-service and convert it into the OpenTelemetry format. They are also expected to create documentation and usage guides that describe how to set up and use the adapter, as well as demonstrate the integration with a backend that supports OpenTelemetry.
 - Recommended Skills: OpenTelemetry, Go
 - Mentor(s): Anurag Kumar (@kranurag7, contact.anurag7@gmail.com), Ankur Kothiwal (@Ankurk99, ankur.kothiwal99@gmail.com), Barun Acharya (@daemon1024, barun1024@gmail.com), Rahul Jadhav (@nyrahul, nyrahul@gmail.com)
-- Issue: <https://github.com/kubearmor/KubeArmor/issues/894>
+- Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/894
+- LFX URL: 
 
 
 #### Rancher Plugin Integration
@@ -257,7 +243,8 @@ each subset of UnitedDeployment can have different metadata, container configura
 Note: This item is a work in progress. The selected mentee is expected to continue the same work.
 - Recommended Skills: Rancher, Grafana stack, Javascript
 - Mentor(s): Anurag Kumar (@kranurag7, contact.anurag7@gmail.com), Ankur Kothiwal (@Ankurk99, ankur.kothiwal99@gmail.com), Barun Acharya (@daemon1024, barun1024@gmail.com), Rahul Jadhav (@nyrahul, nyrahul@gmail.com)
-- Issue: <https://github.com/kubearmor/KubeArmor/issues/992>
+- Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/992
+- LFX URL: 
 
 
 ### KubeEdge
@@ -268,7 +255,8 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Expected Outcome: Create the KubeEdge dashboard, users can view and operate the resource through UI.
 - Recommended Skills: JS, Kubernetes, KubeEdge, Html
 - Mentors: Vincent Lin (@vincentgoat, linguohui1@huawei.com), Fisher Xu (@fisherxu, fisherxu1@gmail.com)
-- Issue: <https://github.com/kubeedge/dashboard/issues/1>
+- Upstream Issue: https://github.com/kubeedge/dashboard/issues/1
+- LFX URL: 
 
 
 #### Re-design and implement the KubeEdge website
@@ -277,8 +265,8 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Expected Outcome: The website has more readable documentation, covering user cases, developer courses, etc.
 - Recommended Skills: JS, KubeEdge, Html
 - Mentor(s):  Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com), Fisher Xu (@fisherxu, fisherxu1@gmail.com)
-- Issue: <https://github.com/kubeedge/website/issues/292>
-
+- Upstream Issue: https://github.com/kubeedge/website/issues/292
+- LFX URL: 
 
 #### Cloud-Robotic AI Benchmarking for Edge-cloud Collaborative Lifelong Learning
 
@@ -286,7 +274,8 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Expected Outcome: The benchmark includes: 1) Work together to release a new dataset to the public! 2) Implement critical algorithm or system metrics, e.g., BWT, FWT and thoughput; 3) (Optional) Develop a baseline algorithm for this benchmark.
 - Recommended Skills: TensorFlow/Pytorch, Python, Kubernetes
 - Mentor(s): Siqi Luo (@luosiqi, luosiqi2@huawei.com), Fisher Xu (@fisherxu, fisherxu1@gmail.com)
-- Issue: <https://github.com/kubeedge/ianvs/issues/48>
+- Upstream Issue: https://github.com/kubeedge/ianvs/issues/48
+- LFX URL: 
 
 
 ### Karmada
@@ -297,6 +286,7 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Recommended Skills: Kubernetes, Karmada
 - Mentor(s): Wei Jiang (@jwcesign, jiangwei115@huawei.com), Hongcai Ren(@RainbowMango, qdurenhongcai@gmail.com)
 - Upstream Issue: https://github.com/karmada-io/karmada/issues/3085
+- LFX URL: 
 
 #### Enhance Karmada testing coverage
 
@@ -305,6 +295,7 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Recommended Skills: Golang, Git
 - Mentor(s): Zhen Chang (@XiShanYongYe-Chang, changzhen5@huawei.com), Hongcai Ren(@RainbowMango, qdurenhongcai@gmail.com)
 - Upstream Issue: https://github.com/karmada-io/karmada/issues/3086
+- LFX URL: 
 
 #### Bundle third-party resources into the Resource Interpreter framework
 
@@ -313,6 +304,7 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Recommended Skills: Go, Cloud Native
 - Mentor(s): Tiecheng Shen (@Poor12, shentiecheng@huawei.com), Hongcai Ren(@RainbowMango, qdurenhongcai@gmail.com)
 - Upstream Issue: https://github.com/karmada-io/karmada/issues/3087
+- LFX URL: 
 
 
 ### Linkerd
@@ -324,6 +316,7 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Recommended Skills: React/JavaScript, Kubernetes
 - Mentor(s): Oliver Gould (@olixOr, ver@buoyant.io), Alex Leong (@adleong, alex@buoyant.io) 
 - Upstream Issue: https://github.com/linkerd/linkerd2/issues/7865, https://github.com/linkerd/linkerd2/issues/9243, https://github.com/linkerd/linkerd2/issues/9554
+- LFX URL: 
 
 #### Add dynamic profiling to Linkerd Rust controllers
 - Description: The Linkerd control plane includes controllers that are written in Rust. Enable users to dynamically profile the running application can aid significantly in debugging and diagnostics. 
@@ -331,6 +324,7 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Recommended Skills: Rust, Kubernetes
 - Mentor(s): Oliver Gould (@olixOr, ver@buoyant.io), Alex Leong (@adleong, alex@buoyant.io) 
 - Upstream Issue: https://github.com/linkerd/linkerd2/issues/10227
+- LFX URL: 
 
 #### Prototype multi-cluster service discovery and operations
 - Description: When deploying a multi-cluster resource one has to perform certain contortions such as providing a list of other clusters to each cluster. This places a dependency ordering on spinning up new clusters and a requirement for application operators to coordinate with cluster operators.
@@ -338,6 +332,7 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Recommended Skills: Go, Rust, Kubernetes
 - Mentor(s): Oliver Gould (@olixOr, ver@buoyant.io), Matei David (@mateiidavid, matei@buoyant.io) 
 - Upstream Issue: https://github.com/linkerd/linkerd2/issues/7566
+- LFX URL: 
 
 
 ### TestGrid
@@ -351,6 +346,7 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Recommended Skills: TypeScript, CSS, Golang
 - Mentor(s): Sean Chase (@chases2, slchase@google.com)
 - Upstream Issue: https://github.com/GoogleCloudPlatform/testgrid/issues/1005
+- LFX URL: 
 
 
 ### NATS
@@ -358,13 +354,10 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 #### End-to-end example of a multiplayer game using NATS in Unity
 
 - Description: This project consists of developing an example Unity setup of a multiplayer game using the latest version of the NATS Server.
-
 - Expected Outcome: A well documented repository under the `nats-io` GitHub organization that contains the artifacts and sample code of the setup using the .NET NATS Client (https://github.com/nats-io/nats.net)
-
 - Recommended Skills: .NET, C#, Unity, NATS
-
 - Mentor(s): Waldemar Quevedo (@wallyqs)
-
 - Upstream Issue: https://github.com/nats-io/dot-net-nats-examples/issues/1
+- LFX URL: 
 
 ---
