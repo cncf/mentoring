@@ -293,3 +293,28 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/1d5d1fcd-b671-4367-b6db-13ef263aece1
 
 
+### Kubernetes
+
+#### Cluster API Provider GCP (CAPG)
+
+##### Add telemetry and profiling support
+
+- Description: Cluster API Provider GCP (CAPG) enables the creation of Kubernetes clusters in GCP with Cluster API. With increasing adoption of Cluster API (CAPI) in general and of CAPG we want to improve the supportability of CAPG, especially for production environments. The first part of this is to add telemetry/tracing using OpenTelemetry so that we can understand and visualize the flow of reconciliation within the provider. The next part is to add a **pprof** endpoint that can be optionally enabled to enable operations/support users to collect profiling information from a running instances of CAPG.
+- Expected Outcome: This work will enable tracing and profiling of a running instance of CAPG (along with supporting docs) to supports operations/support engineers.
+- Recommend Skills: Golang, Kubernetes
+- Mentors(s): Carlos Panato (@cpanato ctadeu@gmail.com), Richard Case (@richardcase richmcase@gmail.com)
+- Upstream Issue: https://github.com/kubernetes-sigs/cluster-api-provider-gcp/issues/810
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/55469b74-0c98-44f1-b8e1-4244a736bf82
+
+#### Cluster API Provider AWS (CAPA)
+
+##### Reimagining how we handle AWS account preparation
+
+- Description: Cluster API Provider AWS (CAPA) can create and manage the lifecycle of Kubernetes clusters in AWS (with the help of Cluster API in general). For each target AWS account where a user wants to create clusters it must be prepared for usage first. This is currently done using [clusterawsadm](https://cluster-api-aws.sigs.k8s.io/topics/using-clusterawsadm-to-fulfill-prerequisites.html) which creates/updates a CloudFormation stack that in turn creates/updates IAM resources. This approach has caused issues as CloudFormation is region specific but IAM is global and users often run the tool in different regions which results in failed stacks that cannot easily be deleted. As a project we want to move away from using CloudFormation and instead use API calls (like the rest of CAPA). We also want to make the process idempotent so it doesn't matter if you run it against different regions. This account preparation is key to CAPA and with out it CAPA cannot run.
+- Expected Outcome: A new approach to handling the prerequisites required for CAPA. We need to continue to support the cli based approach (so clusterawsadm will be updated) but we can also explore a declarative approach with an operator.
+- Recommend Skills: Golang, Kubernetes
+- Mentors(s): Richard Case (@richardcase richmcase@gmail.com)
+- Upstream Issue: https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/3715
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2d76dbe6-43eb-465e-a852-64b2e48f2c68
+
+
