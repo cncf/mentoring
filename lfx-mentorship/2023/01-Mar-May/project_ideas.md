@@ -420,6 +420,39 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Mentor(s): Oliver Gould (@olixOr, ver@buoyant.io), Matei David (@mateiidavid, matei@buoyant.io) 
 - Upstream Issue: https://github.com/linkerd/linkerd2/issues/7566
 
+#### Harbor
+##### Regex replication rules
+
+- Description: Add more versatile replication filters
+- Expected Outcome: Implement regex capability when defining relication rules, update documentation and present the functionality
+- Recommended Skills: Angular, JavaScript, Golang
+- Mentor(s): vb@container-registry.com@Vad1mo @wy65701436 @OrlinVasilev
+- Mentor(s): @Vad1mo - Vadim Bauer, vb@container-registry.com); @wy65701436 - Yan Wang(wangyan@vmware.com); @OrlinVasilev Orlin Vasilev (ovasilev@vmware.com)
+- Upstream Issue (URL): https://github.com/goharbor/harbor/issues/8614 
+
+##### An official Golang API client and CLI for Harbor
+
+- Description: Design, plan and implement an Golang API client for Harbor
+- Expected Outcome: Working golang harbor API client which can be used in the CI/CD implementations which compliments the Web UI, well documented and with the coresponding architectural diagrams under the Harbor org(not necessary to be complete functionality)
+- Recommended Skills: Golang, spf13/cobra
+- Mentor(s): Vadim Bauer, vb@container-registry.com); @wy65701436 - Yan Wang(wangyan@vmware.com);
+- Upstream Issue (URL): https://github.com/search?q=Harbor%20CLI&type=repositories
+
+##### Implement per project and/or for the whole instance vulnerability overview
+  
+- Description: Design, plan and implement an and UI and backend to be able to visualize per project and/or for the registry vulnerability overview which will allow better security audits and vulenrability mitigation 
+- Expected Outcome: Addition to the Web UI which can be used to represent in full for the whole Harbor instance or per project the vulnerability status of the images, which will allow Harbor admin or project admin to get an overview of the existing vulnerabilities on in the images, also to provide capability to export the data via the CVE exporter so it can be consumed in 3rd party tools(not necessary to be complete functionality)
+- Recommended Skills: Angular, JavaScript, Golang, UI/UX, Clarity 
+- Mentor(s): Vadim Bauer, vb@container-registry.com); @wy65701436 - Yan Wang(wangyan@vmware.com);
+- Upstream Issue (URL): https://github.com/goharbor/harbor/issues/16680 https://github.com/goharbor/harbor/issues/10496 https://dso.docker.com/explore?search=pkgs
+
+##### Harbor Robot accounts with full Harbor API access (more of a UI thing)
+
+- Description: Robot accounts should be allowed to access the full Harbor API (more of a UI thing)
+- Expected Outcome: Implement a way to configure and fully documented with examples usecase how to setup Harbor Robot accounts with full or managed access to Harbor
+- Recommended Skills: Angular, JavaScript, GolangGolang, UI/UX, Clarity 
+- Mentor(s): @wy65701436 - Yan Wang(wangyan@vmware.com); Vadim Bauer, vb@container-registry.com);
+- Upstream Issue (URL): https://github.com/goharbor/harbor/issues/8723
 
 ### TestGrid
 
