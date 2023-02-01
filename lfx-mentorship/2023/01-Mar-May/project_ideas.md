@@ -37,6 +37,15 @@
 - Mentor(s): Natalie Arellano (@natalieparellano, narellano@vmware.com); Joe Kimmel (@joe-kimmel-vmw, jkimmel@vmware.com) 
 - Upstream Issue: https://github.com/buildpacks/pack/issues/1610
 
+#### Multi-Architecture Builds Support
+- Description: The rise of ARM processors has created new binary targets for pre-compiled executables. Additionally, there are tales of widespread use of operating systems that aren't linux? In the ideal case a `pack` user could create a build for an abritrary architecture and operating system, regardless of the host system they used to run the command.
+- Expected outcome: Improved multi-architecture (including ARM) and multi-os "cross-compilation" support in [pack](https://github.com/buildpacks/pack/)
+- Recommended Skills: Golang, software development literacy. Familiarity with buildpacks will be helpful.
+- Mentor(s): Aidan Delaney (@AidanDelaney); Jerico Pena (@jpena-r7); Juan Bustamante (jbustamante@vmware.com, @jjbustamante)
+- Expected project size: 350 Hours
+- Difficulty: Medium
+- Upstream Issue (URL): https://github.com/buildpacks/pack/issues/1459 and https://github.com/buildpacks/pack/issues/1460
+
 ### Kubernetes
 
 #### Cluster API Provider GCP (CAPG)
