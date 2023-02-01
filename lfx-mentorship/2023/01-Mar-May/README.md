@@ -24,3 +24,17 @@ Once opened, Project maintainers and potential mentors are welcome to propose th
 ### Application instructions
 
 Mentee application instructions can be found on the [Program Guidelines](https://github.com/cncf/mentoring/blob/main/lfx-mentorship/README.md#program-guidelines) page.
+
+## Accepted Projects
+
+### Cilium
+
+#### Website Use Cases pages
+
+- Description: Cilium would like to have use case pages built out on its website to make it easy for people to find the information and relevant content to the problems they are trying to solve with Cilium.
+- Expected Outcome: The mentee will read through relevant docs, blogs, case studies, user stories, and labs to understand the use cases which will drive the content for each of the pages being built. The finished product will be a new use cases section on the Cilium website.
+- Recommended Skills: Content Writing, Javascript, CSS
+- Mentor(s): Bill Mulligan (@xmulligan, bill@isovalent.com) 
+- Upstream Issue: https://github.com/cilium/cilium.io/issues/226
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/81a0e506-1c05-45fa-90c4-6bde8bdc0e61
+

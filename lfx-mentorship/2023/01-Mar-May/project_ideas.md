@@ -17,16 +17,6 @@
 
 ## Proposed Project ideas
 
-### Cilium
-
-#### Website Use Cases pages
-
-- Description: Cilium would like to have use case pages built out on its website to make it easy for people to find the information and relevant content to the problems they are trying to solve with Cilium.
-- Expected Outcome: The mentee will read through relevant docs, blogs, case studies, user stories, and labs to understand the use cases which will drive the content for each of the pages being built. The finished product will be a new use cases section on the Cilium website.
-- Recommended Skills: Content Writing, Javascript, CSS
-- Mentor(s): Bill Mulligan (@xmulligan, bill@isovalent.com) 
-- Upstream Issue: https://github.com/cilium/cilium.io/issues/226
-
 ### Cloud Native Buildpacks
 
 #### Pack Performance enhancements
