@@ -40,16 +40,6 @@
 - Upstream Issue: https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/3715
 
 
-### LitmusChaos
-
-#### Improve code quality and add unit tests of litmus chaos components
-- Description:  [LitmusChaos](https://litmuschaos.io) is an open-source Chaos Engineering platform that enables teams to identify weaknesses & potential outages in infrastructures by inducing chaos tests in a controlled way. This project aims to improve the code quality of the golang components of litmus chaos and refactor the codebase for adding the unit test cases.
-- Expected Outcome: This will help the project to improve code quality, enhance the unit test suite, and identification of weaknesses
-- Recommended Skills: Golang, Kubernetes
-- Mentor: Amit Kumar Das (@amityt, amit.das@harness.io)  Sayan Mondal (@S-ayanide, sayan.mondal@harness.io)
-- Upstream Issue: https://github.com/litmuschaos/litmus/issues/3892
-- LFX URL: 
-
 
 ### Thanos
 

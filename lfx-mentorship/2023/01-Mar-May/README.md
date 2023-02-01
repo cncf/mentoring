@@ -180,3 +180,14 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/d338ee93-e767-4f44-a0ea-02dbf803a55a
 
 
+### LitmusChaos
+
+#### Improve code quality and add unit tests of litmus chaos components
+- Description:  [LitmusChaos](https://litmuschaos.io) is an open-source Chaos Engineering platform that enables teams to identify weaknesses & potential outages in infrastructures by inducing chaos tests in a controlled way. This project aims to improve the code quality of the golang components of litmus chaos and refactor the codebase for adding the unit test cases.
+- Expected Outcome: This will help the project to improve code quality, enhance the unit test suite, and identification of weaknesses
+- Recommended Skills: Golang, Kubernetes
+- Mentor: Amit Kumar Das (@amityt, amit.das@harness.io)  Sayan Mondal (@S-ayanide, sayan.mondal@harness.io)
+- Upstream Issue: https://github.com/litmuschaos/litmus/issues/3892
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a222f58a-08ee-4727-80c8-41c4d6f5a2a9
+
+
