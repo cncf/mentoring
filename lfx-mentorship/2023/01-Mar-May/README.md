@@ -87,3 +87,30 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Upstream Issue: https://github.com/kubescape/kubescape/issues/400
 
 
+### KubeVela
+
+#### Extend the capability of KubeVela by making several useful addons
+
+- Description: KubeVela currently have a variety of addons , including experimental options, that address scenarios such as Continual Delivery and observability. To further enhance the out-of-box functionality for users of KubeVela, we can offer additional useful addons.
+- Expected Outcome: 10+ eperimetal addons, clear documentation should be provided for enabling and using these addons, including examples of useful use-cases.
+- Recommended Skills: golang, kubernetes, cueLang
+- Mentor(s): Jianbo Sun (@wonderflow, wonderflow.sun@gmail.com), Wong Yike (@wangyikewxgm, wangyike_wyk@163.com) 
+- Upstream Issue: https://github.com/kubevela/kubevela/issues/5358
+
+#### Support auto generation of CUE schema and docs from Go struct
+
+- Description: In KubeVela's provider system, we can use our defined Go functions in CUE schema. The Go providers usually have a parameter and return. Fields in Go providers are the same as fields in CUE schema, so it is possible and important to support automatic generation of CUE schemas and documents from Go structs.
+- Expected Outcome: Auto-generators of CUE schemas and docs from Go structs, the capabilities should be wrapped in vela cli command.
+- Recommended Skills: Go, CUE
+- Mentor(s): Fog Dong (@FogDong, wuwuglu19@gmail.com), Da Yin(@Somefive, yd219913@alibaba-inc.com)
+- Upstream Issue: https://github.com/kubevela/kubevela/issues/5364
+
+#### Support auto generation of multiple languages SDK from CUE
+
+- Description: In KubeVela, we use CUElang to code the definition. We want to support auto generation of multiple languages SDK from CUE, so that users can use KubeVela in their own language.
+- Expected Outcome: Support auto generation of multiple languages SDK from CUE, including Golang, Java, Python, etc. The capabilities should be wrapped in vela cli command.
+- Recommended Skills: Go, Kubernetes, CUE
+- Mentor(s): Qiao Zhongpei (@chivalryq, chivalry.pp@gmail.com) Zeng Qingguo (@barnettZQG, barnett.zqg@gmail.com)
+- Upstream Issue: https://github.com/kubevela/kubevela/issues/5365
+
+
