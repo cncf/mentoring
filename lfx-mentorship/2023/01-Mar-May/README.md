@@ -403,3 +403,17 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Upstream Issue: https://github.com/nats-io/dot-net-nats-examples/issues/1
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/127da817-037b-4225-83a6-3a3eeea8b421
 
+
+### TestGrid
+
+#### Frontend development inside Lit Component Framework
+
+- Description: [TestGrid](http://testgrid.k8s.io) is the test visualization tool attached to Prow to
+  collate and display historical test results for the k8s and k8s-adjacent
+  communities. The UI is in the process of being rewritten.
+- Expected Outcome: Create Lit-based view components for TestGrid (summary, index, etc.) that display data from the API. Implement Jasmine and Storybook testing for these components.
+- Recommended Skills: TypeScript, CSS, Golang
+- Mentor(s): Sean Chase (@chases2, slchase@google.com)
+- Upstream Issue: https://github.com/GoogleCloudPlatform/testgrid/issues/1005
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ca622980-cc8c-4f18-8a74-b9a7b4b49e3a
+
