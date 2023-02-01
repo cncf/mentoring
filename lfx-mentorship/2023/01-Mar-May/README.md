@@ -338,3 +338,25 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Upstream Issue: https://github.com/kubewarden/kubewarden-controller/issues/393
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/9b8a3840-1355-4301-894b-7271c597f0cf
 
+
+### OpenKruise
+
+#### Bring progressive delivery to daemon workload
+
+- Description: Kruise Rollout enable progressive delivery of various workload ranging from stateless workload such as Deployment to stateful workload such as StatefulSet or customized operators. This project aims to bring progress delivery capability to daemon workload, which is run on each node of a k8s cluster. The project involves implementing common API of progressive delivery for OpenKruise Advance DaemonSet, and integrate with the Kruise Rollout framework. 
+- Expected Outcome: Support progressive delivery for OpenKruise Advance DaemonSet(along with supporting test cases and docs) , that is, update new version of daemon pods in batches with user defined pause strategy. Traffic scheduling is not required for this project. 
+- Recommended Skills: Go, Kubernetes
+- Mentor(s):  Zhang Zhen (@furykerry, furykerry@gmail.com), Zhang Lei(@resouer, resouer@gmail.com)
+- Upstream Issue: https://github.com/openkruise/rollouts/issues/69
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/d3a1507a-b132-4c7c-aead-dfe78fd34eb8
+
+#### Support customize arbitary fields of workload subset in UnitedDeployment
+
+- Description: UnitedDeployment in OpenKruise enable users to manage a set of k8s workloads in whole while be able to customize the topology and replicas of each workload. This project extends the customization capability to arbitary workload fields by adding common patch fields, so that 
+each subset of UnitedDeployment can have different metadata, container configuration etc. 
+- Expected Outcome: Support generate patches for new creating pods of each subset workload while the users can rollout and scale the UnitedDeployment in whole. 
+- Recommended Skills: Go, Kubernetes
+- Mentor(s): Zhang Zhen (@furykerry, furykerry@gmail.com), Zhang Lei(@resouer, resouer@gmail.com)
+- Upstream Issue: https://github.com/openkruise/kruise/issues/811
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/9e0f01ab-615f-44ed-b65b-0f1296037a48
+
