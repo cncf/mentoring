@@ -41,32 +41,6 @@
 
 
 
-### Thanos
-
-#### Add query observability for new promql engine
-- Description: The new [Thanos Promql Engine](https://github.com/thanos-community/promql-engine) lacks observability down to operator level and we don't have a way to track each operator's performance. This project aims to extend the `Explain` method of each operator, and return an operator tree with time taken recorded. Then Thanos Query UI could then visualize the operator trace.
-- Expected Outcome: Add a button in Query UI that when enabled will show query tree + how much time has been spent in each operator
-- Recommended Skills: Golang, React
-- Mentor: Giedrius Statkevičius (@GiedriusS, giedriuswork@gmail.com), Saswata Mukherjee (@saswatamcode, saswataminsta@yahoo.com)
-- Upstream Issue: https://github.com/thanos-community/promql-engine/issues/106
-- LFX URL: 
-
-#### Series Cardinality API
-- Description: Prometheus has a TSDB stats API https://prometheus.io/docs/prometheus/latest/querying/api/#tsdb-stats which contains information about series cardinality and the API is supported by Thanos. However, it can only return 10 results per stats, which is not flexible to track the arbitrary metrics. This project aims to design and implement APIs that expose cardinalities. Stretch goal can be to add cardinality explorer page to Thanos UI.
-- Expected Outcome: New Thanos APIs to expose series cardinality.
-- Recommended Skills: Golang, React
-- Mentor: Ben Ye (@yeya24, yb532204897@gmail.com)
-- Upstream Issue: https://github.com/thanos-io/thanos/issues/6007
-- LFX URL: 
-
-#### Querying Apache Parquet files with PromQL
-- Description: The new [Thanos PromQL Engine](https://github.com/thanos-community/promql-engine) has a sufficient separation between the syntax tree and the execution plan to allow us to query arbitrary data sources. In this project we would like to explore ways to query data stored in Apache Parquet files.
-- Expected Outcome: The Thanos PromQL engine can query timeseries data from Apache Parquet files.
-- Recommended Skills: Golang
-- Mentor: Filip Petkovski (@fpetkovski, filip.petkovsky@gmail.com), Prem Saraswat (@onprem, prmsrswt@gmail.com)
-- Upstream Issue: https://github.com/thanos-community/promql-engine/issues/167
-- LFX URL: 
-
 
 ### Cortex
 
