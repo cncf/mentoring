@@ -169,6 +169,37 @@
 - Upstream Issue: https://github.com/thanos-community/promql-engine/issues/167
 
 
+### Cortex
+
+#### Experimental Auth Gateway
+- Description: Cortex server has a simple authentication mechanism (X-Scope-OrgId) but users can’t use the multi tenancy features out of the box without complicated proxy configuration. It’s hard to support all the different authentication mechanisms used by different companies but plan to have a simple but opinionated auth-gateway that provides value out of the box.
+- Expected Outcome: A new experimental cortex component called auth-gateway that validates tenants requests and proxies valid requests to distributors and query-frontend.
+- Recommended Skills: Golang, HTTP proxies
+- Mentor: Friedrich Gonzalez (@friedrichg, friedrichg@gmail.com)
+- Upstream Issue: https://github.com/cortexproject/cortex/issues/5106
+
+#### API to import Prometheus & Thanos blocks
+- Description: For users who want to migrate from Prometheus to Cortex, currently it is supported via a tool called [Thanosconvert](https://cortexmetrics.io/docs/blocks-storage/migrate-storage-from-thanos-and-prometheus/#when-migrating-from-prometheus). However, having this feature as part of the tool is limited in some usecase like SaaS because users usually don’t have permissions to access their storage layer directly. It would be nice to extend this feature into an API so that users can import their Prometheus TSDB compatible blocks for easier migration.
+- Expected Outcome: An API that imports Prometheus blocks into Cortex.
+- Recommended Skills: Golang, Prometheus, Thanos
+- Mentor: Alan Protasio (@alanprot, alanprot@gmail.com)
+- Upstream Issue: https://github.com/cortexproject/cortex/issues/4956
+
+#### Switch Cortex Ruler to query Query Frontend
+- Description: Cortex Ruler queries ingester directly for rule evaluation. This is okay but if Cortex Ruler could query Query Frontend instead for rule evaluation, it can benefit from more features in the Query Frontend like vertical sharding. This also simplifies the Cortex ruler to not embed a querier and uses less resources. For this project, we would like to switch Cortex Ruler to query Query Frontend. You are expected to work with a microservice architecture and write unit tests and end to end tests to make sure the feature works correctly.
+- Expected Outcome: Cortex Ruler talks to Query Frontend for rules evaluation.
+- Recommended Skills: Golang, distributed systems
+- Mentor: Alvin Lin (@alvinlin123, alvinlin123@gmail.com)
+- Upstream Issue: https://github.com/cortexproject/cortex/issues/5105
+
+#### Automated nightly benchmarks
+- Description: In order to make sure Cortex doesn’t introduce performance regressions across releases and major changes, we would like to introduce an automated way to run some nightly macro/micro benchmarks for Cortex clusters. This project could potentially involve setting up Kubernetes clusters, Cortex components, and load generators. We’d love to keep track of performance metrics for each test run and visualize them through a UI.
+- Expected Outcome: An automated workflow that runs performance macro/micro benchmarks everyday or on demand and performance metrics can be visualized through a UI.
+- Recommended Skills: Golang, Kubernetes
+- Mentor: Ben Ye (@yeya24, yb532204897@gmail.com)
+- Upstream Issue: https://github.com/cortexproject/cortex/issues/5107
+
+
 ### WasmEdge
 
 #### Streaming data processing with WasmEdge
