@@ -417,3 +417,31 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Upstream Issue: https://github.com/GoogleCloudPlatform/testgrid/issues/1005
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ca622980-cc8c-4f18-8a74-b9a7b4b49e3a
 
+
+### Linkerd
+
+#### Linkerd Dashboard Improvements
+
+- Description: Improve the Linkerd web dashboard with improved topology visualization, support for Linkerd conformance to the Gateway API project, and improved multi-cluster support.
+- Expected Outcome: A period of focused investment in the Linkerd viz dashboard experience will greatly improve the experience for Linkerd users. 
+- Recommended Skills: React/JavaScript, Kubernetes
+- Mentor(s): Oliver Gould (@olixOr, ver@buoyant.io), Alex Leong (@adleong, alex@buoyant.io) 
+- Upstream Issue: https://github.com/linkerd/linkerd2/issues/7865, https://github.com/linkerd/linkerd2/issues/9243, https://github.com/linkerd/linkerd2/issues/9554
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/0dd36ed5-4c92-4fb3-b809-bb614261a199
+
+#### Add dynamic profiling to Linkerd Rust controllers
+- Description: The Linkerd control plane includes controllers that are written in Rust. Enable users to dynamically profile the running application can aid significantly in debugging and diagnostics. 
+- Expected Outcome: In an upcoming release of Linkerd the policy controller would expose endpoints (leveraging [pprof](https://github.com/tikv/pprof-rs/blob/master/README.md) or another tool) for profiling controller resource consumption.
+- Recommended Skills: Rust, Kubernetes
+- Mentor(s): Oliver Gould (@olixOr, ver@buoyant.io), Alex Leong (@adleong, alex@buoyant.io) 
+- Upstream Issue: https://github.com/linkerd/linkerd2/issues/10227
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/e1ff5120-32e4-44a8-a1be-4e0717ef9ad6
+
+#### Prototype multi-cluster service discovery and operations
+- Description: When deploying a multi-cluster resource one has to perform certain contortions such as providing a list of other clusters to each cluster. This places a dependency ordering on spinning up new clusters and a requirement for application operators to coordinate with cluster operators.
+- Expected Outcome: Develop a prototype where each cluster only needs to reference a common service definition to discover peers without knowledge of the names or even number of other clusters.
+- Recommended Skills: Go, Rust, Kubernetes
+- Mentor(s): Oliver Gould (@olixOr, ver@buoyant.io), Matei David (@mateiidavid, matei@buoyant.io) 
+- Upstream Issue: https://github.com/linkerd/linkerd2/issues/7566
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ce8883ce-9e32-4337-8fe0-5c51fed758e4
+
