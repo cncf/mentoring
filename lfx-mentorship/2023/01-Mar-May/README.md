@@ -14,6 +14,11 @@
       - [API to import Prometheus \& Thanos blocks](#api-to-import-prometheus--thanos-blocks)
       - [Switch Cortex Ruler to query Query Frontend](#switch-cortex-ruler-to-query-query-frontend)
       - [Automated nightly benchmarks](#automated-nightly-benchmarks)
+    - [Harbor](#harbor)
+      - [Regex replication rules](#regex-replication-rules)
+      - [An official Golang API client and CLI for Harbor](#an-official-Golang-API-client-and-CLI-for-Harbor)
+      - [Implement per project and/or for the whole instance vulnerability overview](#implement-per-project-and-or-for-the-whole-instance-vulnerability-overview)
+      - [Harbor Robot accounts with full Harbor API access](#harbor-robot-accounts-with-full-harbor-api-access) 
     - [Kubernetes](#kubernetes)
       - [Cluster API Provider GCP (CAPG)](#cluster-api-provider-gcp-capg)
         - [Add telemetry and profiling support](#add-telemetry-and-profiling-support)
@@ -182,6 +187,45 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Mentor: Ben Ye (@yeya24, yb532204897@gmail.com)
 - Upstream Issue: https://github.com/cortexproject/cortex/issues/5107
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/0071e2ff-f538-4817-978b-07b267cfcd6a
+
+#### Harbor
+
+##### Regex replication rules
+
+- Description: Add more versatile replication filters
+- Expected Outcome: Implement regex capability when defining relication rules, update documentation and present the functionality
+- Recommended Skills: Angular, JavaScript, Golang
+- Mentor(s): vb@container-registry.com@Vad1mo @wy65701436 @OrlinVasilev
+- Mentor(s): @Vad1mo - Vadim Bauer, vb@container-registry.com); @wy65701436 - Yan Wang(wangyan@vmware.com); @OrlinVasilev Orlin Vasilev (ovasilev@vmware.com)
+- Upstream Issue (URL): https://github.com/goharbor/harbor/issues/8614 
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/49749be9-5a67-4b2b-9312-7def13ae98b8
+
+##### An official Golang API client and CLI for Harbor
+
+- Description: Design, plan and implement an Golang API client for Harbor
+- Expected Outcome: Working golang harbor API client which can be used in the CI/CD implementations which compliments the Web UI, well documented and with the coresponding architectural diagrams under the Harbor org(not necessary to be complete functionality)
+- Recommended Skills: Golang, spf13/cobra
+- Mentor(s): Vadim Bauer, vb@container-registry.com); @wy65701436 - Yan Wang(wangyan@vmware.com);
+- Upstream Issue (URL): https://github.com/search?q=Harbor%20CLI&type=repositories
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/7e8cb88a-5b37-471c-8db8-e11907b5a661
+
+##### Implement per project and/or for the whole instance vulnerability overview
+  
+- Description: Design, plan and implement an and UI and backend to be able to visualize per project and/or for the registry vulnerability overview which will allow better security audits and vulenrability mitigation 
+- Expected Outcome: Addition to the Web UI which can be used to represent in full for the whole Harbor instance or per project the vulnerability status of the images, which will allow Harbor admin or project admin to get an overview of the existing vulnerabilities on in the images, also to provide capability to export the data via the CVE exporter so it can be consumed in 3rd party tools(not necessary to be complete functionality)
+- Recommended Skills: Angular, JavaScript, Golang, UI/UX, Clarity 
+- Mentor(s): Vadim Bauer, vb@container-registry.com); @wy65701436 - Yan Wang(wangyan@vmware.com);
+- Upstream Issue (URL): https://github.com/goharbor/harbor/issues/16680 https://github.com/goharbor/harbor/issues/10496 https://dso.docker.com/explore?search=pkgs
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/7ea4c506-c830-4a15-be4a-600d2dfe3f44
+
+##### Harbor Robot accounts with full Harbor API access
+
+- Description: Robot accounts should be allowed to access the full Harbor API (more of a UI thing)
+- Expected Outcome: Implement a way to configure and fully documented with examples usecase how to setup Harbor Robot accounts with full or managed access to Harbor
+- Recommended Skills: Angular, JavaScript, Golang, UI/UX, Clarity 
+- Mentor(s): @wy65701436 - Yan Wang(wangyan@vmware.com); Vadim Bauer, vb@container-registry.com);
+- Upstream Issue (URL): https://github.com/goharbor/harbor/issues/8723
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/4a96c735-6480-4464-8b33-4f9c58ba1005
 
 ### Kubernetes
 
