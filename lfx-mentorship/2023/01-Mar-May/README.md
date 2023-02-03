@@ -188,7 +188,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Upstream Issue: https://github.com/cortexproject/cortex/issues/5107
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/0071e2ff-f538-4817-978b-07b267cfcd6a
 
-#### Harbor
+### Harbor
 
 ##### Regex replication rules
 
