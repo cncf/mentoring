@@ -209,7 +209,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Upstream Issue (URL): https://github.com/search?q=Harbor%20CLI&type=repositories
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/7e8cb88a-5b37-471c-8db8-e11907b5a661
 
-##### Implement per project and/or for the whole instance vulnerability overview
+#### Implement per project and/or for the whole instance vulnerability overview
   
 - Description: Design, plan and implement an and UI and backend to be able to visualize per project and/or for the registry vulnerability overview which will allow better security audits and vulenrability mitigation 
 - Expected Outcome: Addition to the Web UI which can be used to represent in full for the whole Harbor instance or per project the vulnerability status of the images, which will allow Harbor admin or project admin to get an overview of the existing vulnerabilities on in the images, also to provide capability to export the data via the CVE exporter so it can be consumed in 3rd party tools(not necessary to be complete functionality)
