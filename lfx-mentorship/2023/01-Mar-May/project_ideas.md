@@ -17,5 +17,4 @@
 
 ## Proposed Project ideas
 
-
 ---
