@@ -190,7 +190,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 ### Harbor
 
-##### Regex replication rules
+#### Regex replication rules
 
 - Description: Add more versatile replication filters
 - Expected Outcome: Implement regex capability when defining relication rules, update documentation and present the functionality
