@@ -218,7 +218,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Upstream Issue (URL): https://github.com/goharbor/harbor/issues/16680 https://github.com/goharbor/harbor/issues/10496 https://dso.docker.com/explore?search=pkgs
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/7ea4c506-c830-4a15-be4a-600d2dfe3f44
 
-##### Harbor Robot accounts with full Harbor API access
+#### Harbor Robot accounts with full Harbor API access
 
 - Description: Robot accounts should be allowed to access the full Harbor API (more of a UI thing)
 - Expected Outcome: Implement a way to configure and fully documented with examples usecase how to setup Harbor Robot accounts with full or managed access to Harbor
