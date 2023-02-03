@@ -518,3 +518,24 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/9710c834-913d-487d-9ebf-8205cdf48ab4
 
 
+### ORAS
+
+#### Develop .NET SDK for ORAS
+
+- Description: [ORAS](https://oras.land/) is a tool for working with OCI artifacts and OCI registries. It allows users to distribute OCI artifacts across OCI Registries. Users seeking a generic registry client can benefit from the ORAS CLI, while developers can build their own clients on top of one of the ORAS client libraries. ORAS has Python and Golang SDK that allow developers to build their own clients on top of one of the library. Similarly, developing a .NET SDK will enable .Net developers to use ORAS API and enhance the ORAS ecosystem. 
+- Expected Outcome: Develop a .NET SDK in a new repository and write the examples and API document on GoDoc. Write unit test for this SDK and make sure the testing coverage is qualified.
+- Recommended Skills: C#/.NET, ORAS conceptual knowledge.
+- Mentor(s): Sylvia Lei (@Wwwsylvia, lixia.lei@microsoft.com), Shiwei Zhang (@shizhMSFT, shiwei.zhang@microsoft.com)
+- Upstream Issue: https://github.com/oras-project/oras/issues/774
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/5d331c88-fc2d-4635-a92c-5d25fb42f47d
+
+#### Develop ORAS Website
+
+- Description: [ORAS](https://oras.land/) is a tool for working with OCI artifacts and OCI registries. It allows users to distribute OCI artifacts across OCI Registries. ORAS only has a documentation site so far, the project goal is to develop a new website using Hugo framework based on the Figma layout design.
+- Expected Outcome: Develop a new website using the [Hugo framework](https://gohugo.io/) based on the Figma layout design. It will replace the existing [ORAS documentation website](https://oras.land/) and provide a better user experience with interactive design.
+- Recommended Skills: HTML, Javascript, CSS, Hugo.
+- Mentor(s): Feynman Zhou (@FeynmanZhou, feynmanzhou@microsoft.com), 
+- Upstream Issue: https://github.com/oras-project/oras-www/issues/82
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/7f633ade-64f5-477c-bcbe-7b6693329c63
+
+
