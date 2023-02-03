@@ -505,3 +505,16 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Upstream Issue: https://github.com/kubeedge/ianvs/issues/48
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/50cdbd65-e0cd-4c0f-8c63-6bd5c603ba89
 
+
+### Notary
+
+#### HashiCorp Vault plugin for Notary
+
+- Description: Notary is a CNCF incubating project that aims to provide signing and verification capabilities to ensure delivery integrity and security. It supports creating and storing signatures for container images, SBOM, vulnerability scanning results, etc. to ensure the artifacts someone produced have not been tampered by others. Notary only has an Azure Key Vault plugin for storing keys in Azure Key Vault, which is used to sign and verify artifacts in the OCI registry. [HashiCorp Vault](https://github.com/hashicorp/vault) is a popular KMS and we see more and more users rely on it in the on-premise environment.
+- Expected Outcome: Develop a Key Management System (KMS) plugin with [HashiCorp Vault](https://github.com/hashicorp/vault) for Notary CLI (Notation), which can be used to store the keys for Notation signing and verification.
+- Recommended Skills: Golang programming language, Notary knowledge.
+- Mentor(s): Patrick Zheng (@patrickzheng200, patrickzheng@microsoft.com), Shiwei Zhang (@shizhMSFT, shiwei.zhang@microsoft.com)
+- Upstream Issue: https://github.com/notaryproject/notation/issues/521
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/9710c834-913d-487d-9ebf-8205cdf48ab4
+
+
