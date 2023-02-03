@@ -16,7 +16,7 @@
       - [Automated nightly benchmarks](#automated-nightly-benchmarks)
     - [Harbor](#harbor)
       - [Regex replication rules](#regex-replication-rules)
-      - [An official Golang API client and CLI for Harbor](#an-official-Golang-API-client-and-CLI-for-Harbor)
+      - [An official Golang API client and CLI for Harbor](#an-official-golang-api-client-and-cli-for-harbor)
       - [Implement per project and/or for the whole instance vulnerability overview](#implement-per-project-andor-for-the-whole-instance-vulnerability-overview)
       - [Harbor Robot accounts with full Harbor API access](#harbor-robot-accounts-with-full-harbor-api-access) 
     - [Kubernetes](#kubernetes)
