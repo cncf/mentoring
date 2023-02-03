@@ -17,6 +17,7 @@
 
 ## Proposed Project ideas
 
+
 ### Notary
 
 #### HashiCorp Vault plugin for Notary
@@ -26,6 +27,7 @@
 - Recommended Skills: Golang programming language, Notary knowledge.
 - Mentor(s): Patrick Zheng (@patrickzheng200, patrickzheng@microsoft.com), Shiwei Zhang (@shizhMSFT, shiwei.zhang@microsoft.com)
 - Upstream Issue: https://github.com/notaryproject/notation/issues/521
+
 
 ### ORAS
 
@@ -44,5 +46,15 @@
 - Recommended Skills: HTML, Javascript, CSS, Hugo.
 - Mentor(s): Feynman Zhou (@FeynmanZhou, feynmanzhou@microsoft.com), 
 - Upstream Issue: https://github.com/oras-project/oras-www/issues/82
+
+
+### CNCF Landscape
+
+#### LFX - CNCF Landscape UX UI improvement
+- Description: In an effort to better the user experience, the CNCF Landscape is actively seeking ways to improve and enhance its features.
+- Expected outcome: The mentee will plan and execute a User Research to validate existing user personas, gain deeper insights into user needs, and perform a detailed heuristic evaluation in order to gain an in-depth understanding of user experiences. With the findings, the mentee will develop an iterative process to ideate, prototype and test 2 to 3 minimal features, with the aim of beginning a chain of continual enhancements and further development.
+- Recommended skills: Design Thinking, UX research methodology, Figma and Visual Design.
+- Mentors: Andrea Velázquez andrea@buoyant.io, Nate W. @nate-double-u natew@cncf.io, Chris Aniszczyk @caniszczyk caniszczyk@linuxfoundation.org 
+- Upstream issue: https://github.com/cncf/landscape/issues/2467
 
 ---
