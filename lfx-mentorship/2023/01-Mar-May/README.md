@@ -17,7 +17,7 @@
     - [Harbor](#harbor)
       - [Regex replication rules](#regex-replication-rules)
       - [An official Golang API client and CLI for Harbor](#an-official-Golang-API-client-and-CLI-for-Harbor)
-      - [Implement per project and/or for the whole instance vulnerability overview](#implement-per-project-and-or-for-the-whole-instance-vulnerability-overview)
+      - [Implement per project and/or for the whole instance vulnerability overview](#implement-per-project-andor-for-the-whole-instance-vulnerability-overview)
       - [Harbor Robot accounts with full Harbor API access](#harbor-robot-accounts-with-full-harbor-api-access) 
     - [Kubernetes](#kubernetes)
       - [Cluster API Provider GCP (CAPG)](#cluster-api-provider-gcp-capg)
