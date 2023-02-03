@@ -17,46 +17,35 @@
 
 ## Proposed Project ideas
 
-### Cilium
 
-#### Website Use Cases pages
+### Notary
 
-- Description: Cilium would like to have use case pages built out on its website to make it easy for people to find the information and relevant content to the problems they are trying to solve with Cilium.
-- Expected Outcome: The mentee will read through relevant docs, blogs, case studies, user stories, and labs to understand the use cases which will drive the content for each of the pages being built. The finished product will be a new use cases section on the Cilium website.
-- Recommended Skills: Content Writing, Javascript, CSS
-- Mentor(s): Bill Mulligan (@xmulligan, bill@isovalent.com) 
-- Upstream Issue: https://github.com/cilium/cilium.io/issues/226
+#### HashiCorp Vault plugin for Notary
 
-### Kubernetes
+- Description: Notary is a CNCF incubating project that aims to provide signing and verification capabilities to ensure delivery integrity and security. It supports creating and storing signatures for container images, SBOM, vulnerability scanning results, etc. to ensure the artifacts someone produced have not been tampered by others. Notary only has an Azure Key Vault plugin for storing keys in Azure Key Vault, which is used to sign and verify artifacts in the OCI registry. [HashiCorp Vault](https://github.com/hashicorp/vault) is a popular KMS and we see more and more users rely on it in the on-premise environment.
+- Expected Outcome: Develop a Key Management System (KMS) plugin with [HashiCorp Vault](https://github.com/hashicorp/vault) for Notary CLI (Notation), which can be used to store the keys for Notation signing and verification.
+- Recommended Skills: Golang programming language, Notary knowledge.
+- Mentor(s): Patrick Zheng (@patrickzheng200, patrickzheng@microsoft.com), Shiwei Zhang (@shizhMSFT, shiwei.zhang@microsoft.com)
+- Upstream Issue: https://github.com/notaryproject/notation/issues/521
 
-#### Cluster API Provider GCP (CAPG)
 
-##### Add telemetry and profiling support
+### ORAS
 
-- Description: Cluster API Provider GCP (CAPG) enables the creation of Kubernetes clusters in GCP with Cluster API. With increasing adoption of Cluster API (CAPI) in general and of CAPG we want to improve the supportability of CAPG, especially for production environments. The first part of this is to add telemetry/tracing using OpenTelemetry so that we can understand and visualize the flow of reconciliation within the provider. The next part is to add a **pprof** endpoint that can be optionally enabled to enable operations/support users to collect profiling information from a running instances of CAPG.
-- Expected Outcome: This work will enable tracing and profiling of a running instance of CAPG (along with supporting docs) to supports operations/support engineers.
-- Recommend Skills: Golang, Kubernetes
-- Mentors(s): Carlos Panato (@cpanato), Richard Case (@richardcase)
-- Upstream Issue: https://github.com/kubernetes-sigs/cluster-api-provider-gcp/issues/810
+#### Develop .NET SDK for ORAS
 
-### KubeVela
+- Description: [ORAS](https://oras.land/) is a tool for working with OCI artifacts and OCI registries. It allows users to distribute OCI artifacts across OCI Registries. Users seeking a generic registry client can benefit from the ORAS CLI, while developers can build their own clients on top of one of the ORAS client libraries. ORAS has Python and Golang SDK that allow developers to build their own clients on top of one of the library. Similarly, developing a .NET SDK will enable .Net developers to use ORAS API and enhance the ORAS ecosystem. 
+- Expected Outcome: Develop a .NET SDK in a new repository and write the examples and API document on GoDoc. Write unit test for this SDK and make sure the testing coverage is qualified.
+- Recommended Skills: C#/.NET, ORAS conceptual knowledge.
+- Mentor(s): Sylvia Lei (@Wwwsylvia, lixia.lei@microsoft.com), Shiwei Zhang (@shizhMSFT, shiwei.zhang@microsoft.com)
+- Upstream Issue: https://github.com/oras-project/oras/issues/774
 
-#### Extend the capability of KubeVela by making several useful addons
+#### Develop ORAS Website
 
-- Description: KubeVela currently have a variety of addons , including experimental options, that address scenarios such as Continual Delivery and observability. To further enhance the out-of-box functionality for users of KubeVela, we can offer additional useful addons.
-- Expected Outcome: 10+ eperimetal addons, clear documentation should be provided for enabling and using these addons, including examples of useful use-cases.
-- Recommended Skills: golang, kubernetes, cueLang
-- Mentor(s): Jianbo Sun (@wonderflow, wonderflow.sun@gmail.com), Wong Yike (@wangyikewxgm, wangyike_wyk@163.com) 
-- Upstream Issue: https://github.com/kubevela/kubevela/issues/5358
-
-### Vitess
-
-#### Implement a benchmarking and load testing framework for the VReplication module in Vitess
-- Description: Vitess is a distributed database system built around MySQL. VReplication is core technology built into Vitess that is used to enable many features like vertical and horizontal sharding, change data capture and materialized views. The project involves designing and implementing a customizable framework that enables us to test different VReplication workflows at scale and to obtain benchmarks that can be used to monitor performance improvements and regression from code changes. The framework will consist of a custom DSL (Domain Specific Language) which will be used to define each test case and a driver which will read the DSLs and execute the tests. The DSL will be based on the Hashicorp Configuration Language (https://github.com/hashicorp/hcl). The driver will be written in Golang and target AWS using Terraform for provisioning and Ansible for automation. The results and benchmarks will be stored in PlanetScale (https://planetscale.com/) in the existing vitess benchmark database.
-- Expected Outcome: The test framework with at least one working test and stored benchmark metrics for a MoveTables workflow.
-- Recommended Skills: golang
-- Mentor: Rohit Nayak (@rohit-nayak-ps, rohit@planetscale.com) 
-- Upstream Issue: https://github.com/vitessio/vitess/issues/12136
+- Description: [ORAS](https://oras.land/) is a tool for working with OCI artifacts and OCI registries. It allows users to distribute OCI artifacts across OCI Registries. ORAS only has a documentation site so far, the project goal is to develop a new website using Hugo framework based on the Figma layout design.
+- Expected Outcome: Develop a new website using the [Hugo framework](https://gohugo.io/) based on the Figma layout design. It will replace the existing [ORAS documentation website](https://oras.land/) and provide a better user experience with interactive design.
+- Recommended Skills: HTML, Javascript, CSS, Hugo.
+- Mentor(s): Feynman Zhou (@FeynmanZhou, feynmanzhou@microsoft.com), 
+- Upstream Issue: https://github.com/oras-project/oras-www/issues/82
 
 
 ### CNCF Landscape
@@ -68,4 +57,4 @@
 - Mentors: Andrea Velázquez andrea@buoyant.io, Nate W. @nate-double-u natew@cncf.io, Chris Aniszczyk @caniszczyk caniszczyk@linuxfoundation.org 
 - Upstream issue: https://github.com/cncf/landscape/issues/2467
 
-
+---
