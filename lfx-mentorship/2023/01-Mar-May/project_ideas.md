@@ -65,7 +65,7 @@
 - Description: In an effort to better the user experience, the CNCF Landscape is actively seeking ways to improve and enhance its features.
 - Expected outcome: The mentee will plan and execute a User Research to validate existing user personas, gain deeper insights into user needs, and perform a detailed heuristic evaluation in order to gain an in-depth understanding of user experiences. With the findings, the mentee will develop an iterative process to ideate, prototype and test 2 to 3 minimal features, with the aim of beginning a chain of continual enhancements and further development.
 - Recommended skills: Design Thinking, UX research methodology, Figma and Visual Design.
-- Mentors: Nate W.natew@cncf.io, Andrea Velázquez andrea@buoyant.io
+- Mentors: Andrea Velázquez andrea@buoyant.io, Nate W. @nate-double-u natew@cncf.io, Chris Aniszczyk @caniszczyk caniszczyk@linuxfoundation.org 
 - Upstream issue: https://github.com/cncf/landscape/issues/2467
 
 
