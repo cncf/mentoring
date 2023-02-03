@@ -200,7 +200,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Upstream Issue (URL): https://github.com/goharbor/harbor/issues/8614 
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/49749be9-5a67-4b2b-9312-7def13ae98b8
 
-##### An official Golang API client and CLI for Harbor
+#### An official Golang API client and CLI for Harbor
 
 - Description: Design, plan and implement an Golang API client for Harbor
 - Expected Outcome: Working golang harbor API client which can be used in the CI/CD implementations which compliments the Web UI, well documented and with the coresponding architectural diagrams under the Harbor org(not necessary to be complete functionality)
