@@ -77,6 +77,7 @@
       - [A Rust library crate for mediapipe models for WasmEdge NN](#a-rust-library-crate-for-mediapipe-models-for-wasmedge-nn)
       - [Unified WasmEdge tools](#unified-wasmedge-tools)
       - [WasmEdge C++ SDK](#wasmedge-c-sdk)
+
 # Term 01 - 2023 March - May
 
 Status: Planning
@@ -86,12 +87,12 @@ Mentorship duration - three months (12 weeks - full-time schedule)
 | activity | date |
 | --- | --- |   
 | project proposals | January 16 - 31, 5:00 PM PDT |
-| mentee applications open | February 1 - 14, 5:00 PM PDT |
-| application review/admission decisions/HR paperwork | February 15 - 28, 5:00 PM PDT |
-| Mentorship program begins with the initial work assignments | March 1 (Week 1) | 
-| Midterm mentee evaluations and first stipend payments | April 5 (Week 6) |
-| Final mentee evaluations and mentee feedback/blog submission due, second and final stipend payment approvals | May 17, 5:00 PM PST (Week 12) |
-| Last day of term | May 26 |
+| mentee applications open | February 1 - 21, 5:00 PM PDT |
+| application review/admission decisions/HR paperwork | February 22 - March 7, 5:00 PM PDT |
+| Mentorship program begins with the initial work assignments | March 8 (Week 1) | 
+| Midterm mentee evaluations and first stipend payments | April 12 (Week 6) |
+| Final mentee evaluations and mentee feedback/blog submission due, second and final stipend payment approvals | May 24, 5:00 PM PST (Week 12) |
+| Last day of term | May 31 |
 
 
 ### Project Instructions
