@@ -175,7 +175,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - augmentation of cuelang-based component generator
 
 - Recommended Skills: cuelang, golang, OCI
-- Mentor(s): [Lee Calcote](https://github.com/leecalcote)
+- Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com)
 - Issue: https://github.com/cncf/tag-network/issues/24
 
 ### Cortex
@@ -489,21 +489,21 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 
 - Description: Integrate a new architectural component into Meshery: a workflow engine. This project involves shifting Meshery off of bitcask and off of sqlite over to postgres using gorm (golang). Interns will familiarize with concepts of orchestration engines, including chaining workflows, and content lifecycle management.
 - Recommended Skills: Golang, Temporal, ReactJS
-- Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)),  Ashish Tiwari ([@revolyssup](https://twitter.com/revolyssup))
+- Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Ashish Tiwari (ashishjaitiwari15112000@gmail.com)
 - Issue: <https://github.com/meshery/meshery/issues/3934>
   
 ##### Multi-user cloud native playground
 
 - Description: Advance the cloud native playground in which any CNCF project can be explored. Meshery’s genesis is that of helping teach people about cloud native technology and enabling to operate various types of cloud native infrastructure confidently. The proposed project is aimed at furthering this mission by infusing multi-user collaboration as a pervasisve feature so that users can learn together in a running instance of Meshery.
 - Recommended Skills: ReactJS, CSS, Golang (nice-to-have)
-- Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)),  Abhishek Kumar ([@abhishek-kumar09](https://github.com/Abhishek-kumar09]))
+- Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Abhishek Kumar (@abhishek-kumar09, abhimait1909@gmail.com)
 - Issue: <https://github.com/layer5io/meshery/issues/2931>
 
 #### Distributed client-side policy evaluation in WASM and Rego
 
 - Description: Meshery's highly dynamic infrastructure configuration capabilities require real-time evaluation of complex policies. Policies of various types and with a high number of parameters need to be evaluted client-side. With policies expressed in Rego, the goal of this project is to incorporate use of the https://github.com/open-policy-agent/golang-opa-wasm project into Meshery UI, so that a powerful, real-time user experience is possible.
 - Recommended Skills: Golang, Open Policy Agent, WebAssembly
-- Mentor(s): Lee Calcote ([@lcalcote](https://twitter.com/lcalcote)),  Ashish Tiwari ([@revolyssup](https://twitter.com/revolyssup))
+- Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Ashish Tiwari (ashishjaitiwari15112000@gmail.com)
 - Issue: <https://github.com/meshery/meshery/issues/7019>
 
 ### Linkerd
@@ -618,7 +618,7 @@ each subset of UnitedDeployment can have different metadata, container configura
 A use-case that fits very well is be the ability to use it to run performance tests on a schedule and track the maximum load a system can handle over time. This could give insights to performance improvements or degradations.
 
 - Recommended Skills: golang, grpc, docker, kubernetes
-- Mentor(s): [Lee Calcote](https://github.com/leecalcote), [Xin Huang](https://github.com/gyohuangxin)
+- Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Xin Huang (@gyohuangxin, xin1.huang@intel.com)
 - Upstream Issue (URL): https://github.com/service-mesh-performance/service-mesh-performance/issues/350
 
 ### TestGrid
