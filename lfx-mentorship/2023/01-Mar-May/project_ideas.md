@@ -5,11 +5,11 @@
 
 #### Mentorship project Title
 
-- Description: 
+- Description:
 - Expected Outcome:
-- Recommended Skills: 
-- Mentor(s): Mentor Name (@mentor_github, mentor@email.addy) 
-- Upstream Issue: 
+- Recommended Skills:
+- Mentor(s): Mentor Name (@mentor_github, mentor@email.addy)
+- Upstream Issue:
 
 ---
 
@@ -18,3 +18,4 @@
 ## Proposed Project ideas
 
 ---
+

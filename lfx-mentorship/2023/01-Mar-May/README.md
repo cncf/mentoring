@@ -9,6 +9,8 @@
       - [Multi-Architecture Builds Support](#multi-architecture-builds-support)
     - [CNCF Landscape](#cncf-landscape)
       - [UX UI improvement](#ux-ui-improvement)
+    - [CNCF Tag Contributor Strategy](#cncf-tag-contributor-strategy-ii)
+      - [Mentoring Workspaces - GITHUBUSER.PROJECT.cncf.io (w/ VSCode)](mentoring-workspaces-githubuser.project.cncf.io-w-vscode)
     - [CNCF TAG Network](#cncf-tag-network)
       - [Representing Kubernetes ontology in MeshModel](#representing-kubernetes-ontology-in-meshmodel)
     - [Cortex](#cortex)
@@ -163,6 +165,16 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Upstream issue: https://github.com/cncf/landscape/issues/2467
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/df011bb8-8ce1-4092-bfc6-1e92ce40a17d
 
+### CNCF Tag Contributor Strategy - ii
+
+#### Mentoring Workspaces - GITHUBUSER.PROJECT.cncf.io (w/ VSCode)
+
+- Description: pair.sharing.io is a mentoring / pair environment used by ii.nz that brings up clusters to co-learn and co-author via tmate+emacs and a live cluster with many features useful to cloud native development. However, while many folks find the ideas useful, it would be good to reach a wider audience by bringing up workspaces w/ VSCode as an alternative to emacs. The request is for a PoC deploying coder.com to CNCF Infrastructure (likely Packet) and bringing over some of the methods of collaboration learned by ii on pair to a wider audience.
+  "If you want to go fast, go by yourself. If you want to go far, go together." African Proverb – Martha Goedert
+- Recommended Skills: shell, terminals, VSCode, k8s, System Administration
+- Mentor: Hippie Hacker (@hh, hh@cncf.io)
+- Issue: https://github.com/sharingio/pair/issues/173
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/632ab03f-a970-44ce-b451-fac0a7349f71
 
 ### CNCF TAG Network
 
