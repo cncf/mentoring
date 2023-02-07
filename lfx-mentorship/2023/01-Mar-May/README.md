@@ -150,7 +150,15 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 #### UX UI improvement
 - Description: In an effort to better the user experience, the CNCF Landscape is actively seeking ways to improve and enhance its features.
 - The aim is for the mentee to carry out a User Research to validate existing user personas, gain a deeper understanding of user needs, and conduct a thorough heuristic evaluation to gain insights into user experiences. Using the results, the mentee will establish a solid foundation to start an iterative process of ideation, prototyping, and testing possible solutions. The ultimate goal is to initiate a continuous cycle of improvement and further development of features that enhance the user experience of the CNCF Landscape.
-- Recommended skills: Design Thinking, UX research methodology. Figma and Visual Design are a plus. 
+- Recommended skills: Design Thinking, UX research methodology. 
+In this stage of the project, we are seeking candidates with a background and/or training in user research. Supporting materials, such as the following recommended deliverables, that demonstrate your understanding and experience in this area are ideal:
+
+1. Proto-Personas
+2. Validated Personas with Supporting Findings
+3. Brief Explanation of the Difference between Proto-Personas and Validated Personas
+4. List of UX Research Techniques for Kickstarting the Discovery of Landscape Users
+5. Figma and Visual Design are a plus.
+
 - Mentors: Andrea Velázquez andrea@buoyant.io, Nate W. @nate-double-u natew@cncf.io, Chris Aniszczyk @caniszczyk caniszczyk@linuxfoundation.org 
 - Upstream issue: https://github.com/cncf/landscape/issues/2467
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/df011bb8-8ce1-4092-bfc6-1e92ce40a17d
