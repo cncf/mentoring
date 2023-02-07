@@ -59,6 +59,8 @@ labels:
     color: ffff54
   - name: good first issue
     color: ff8c00
+  - name: hold
+    color: d93f0b
   - name: time-sensitive
     description: issues or PRs that have a due date
     color: b60205
