@@ -499,7 +499,8 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Description: Advance the cloud native playground in which any CNCF project can be explored. Meshery’s genesis is that of helping teach people about cloud native technology and enabling to operate various types of cloud native infrastructure confidently. The proposed project is aimed at furthering this mission by infusing multi-user collaboration as a pervasisve feature so that users can learn together in a running instance of Meshery.
 - Recommended Skills: ReactJS, CSS, Golang (nice-to-have)
 - Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Abhishek Kumar (@abhishek-kumar09, abhimait1909@gmail.com)
-- Issue: <https://github.com/meshery/meshery/issues/7020>
+- Issue: https://github.com/meshery/meshery/issues/7020
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2ee7a912-e26e-4602-9dfc-4febe3842df3
 
 #### Distributed client-side policy evaluation in WASM and Rego
 
