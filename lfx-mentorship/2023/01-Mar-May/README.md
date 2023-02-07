@@ -11,6 +11,8 @@
       - [UX UI improvement](#ux-ui-improvement)
     - [CNCF Tag Contributor Strategy](#cncf-tag-contributor-strategy-ii)
       - [Mentoring Workspaces - GITHUBUSER.PROJECT.cncf.io (w/ VSCode)](mentoring-workspaces-githubuser.project.cncf.io-w-vscode)
+    - [CNCF TAG Network](#cncf-tag-network)
+      - [Representing Kubernetes ontology in MeshModel](#representing-kubernetes-ontology-in-meshmodel)
     - [Cortex](#cortex)
       - [Experimental Auth Gateway](#experimental-auth-gateway)
       - [API to import Prometheus \& Thanos blocks](#api-to-import-prometheus--thanos-blocks)
@@ -20,7 +22,7 @@
       - [Regex replication rules](#regex-replication-rules)
       - [An official Golang API client and CLI for Harbor](#an-official-golang-api-client-and-cli-for-harbor)
       - [Implement per project and/or for the whole instance vulnerability overview](#implement-per-project-andor-for-the-whole-instance-vulnerability-overview)
-      - [Harbor Robot accounts with full Harbor API access](#harbor-robot-accounts-with-full-harbor-api-access) 
+      - [Harbor Robot accounts with full Harbor API access](#harbor-robot-accounts-with-full-harbor-api-access)
     - [Kubernetes](#kubernetes)
       - [Cluster API Provider GCP (CAPG)](#cluster-api-provider-gcp-capg)
         - [Add telemetry and profiling support](#add-telemetry-and-profiling-support)
@@ -54,6 +56,10 @@
       - [Design and implement the KubeEdge Dashboard](#design-and-implement-the-kubeedge-dashboard)
       - [Re-design and implement the KubeEdge website](#re-design-and-implement-the-kubeedge-website)
       - [Cloud-Robotic AI Benchmarking for Edge-cloud Collaborative Lifelong Learning](#cloud-robotic-ai-benchmarking-for-edge-cloud-collaborative-lifelong-learning)
+      - [Meshery](#meshery)
+        - [Distributed workflow engine](#distributed-workflow-engine)
+        - [Multi-user cloud native playground](#multi-user-cloud-native-playground)
+      - [Distributed client-side policy evaluation in WASM and Rego](#distributed-client-side-policy-evaluation-in-wasm-and-rego)
     - [Linkerd](#linkerd)
       - [Linkerd Dashboard Improvements](#linkerd-dashboard-improvements)
       - [Add dynamic profiling to Linkerd Rust controllers](#add-dynamic-profiling-to-linkerd-rust-controllers)
@@ -70,6 +76,8 @@
     - [ORAS](#oras)
       - [Develop .NET SDK for ORAS](#develop-net-sdk-for-oras)
       - [Develop ORAS Website](#develop-oras-website)
+    - [Service Mesh Performance](#service-mesh-performance)
+      - [Adaptive Load Controller](#adaptive-load-controller)
     - [TestGrid](#testgrid)
       - [Frontend development inside Lit Component Framework](#frontend-development-inside-lit-component-framework)
     - [Thanos](#thanos)
@@ -167,6 +175,21 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Mentor: Hippie Hacker (@hh, hh@cncf.io)
 - Issue: https://github.com/sharingio/pair/issues/173
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/632ab03f-a970-44ce-b451-fac0a7349f71
+
+### CNCF TAG Network
+
+#### Representing Kubernetes ontology in MeshModel
+
+- Description: Network topologies and graph databases go hand-in-hand. The OpenAPI specifications for Kubernetes provides taxonomy, but augmenting a graph data model with formalized ontologies enables any number of capabilities, one of the more straightforward is the inferencing requisite for natural language processing, and consequently, a human-centric query / response interaction becomes becomes possible. More importantly, more advanced systems can be built when a graph data model of connected systems is upgraded to be a knowledge semantic graph. Deliverables (among other items):
+
+- MeshModel capabilities browser
+- Import/export of MeshModel models and components as OCI images
+- augmentation of cuelang-based component generator
+
+- Recommended Skills: cuelang, golang, OCI
+- Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com)
+- Issue: https://github.com/cncf/tag-network/issues/24
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/96080e3d-83e2-46ed-928c-b6e7f3154bf3
 
 ### Cortex
 
@@ -473,6 +496,32 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Upstream Issue: https://github.com/kubeedge/ianvs/issues/48
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/50cdbd65-e0cd-4c0f-8c63-6bd5c603ba89
 
+#### Meshery
+
+##### Distributed workflow engine
+
+- Description: Integrate a new architectural component into Meshery: a workflow engine. This project involves shifting Meshery off of bitcask and off of sqlite over to postgres using gorm (golang). Interns will familiarize with concepts of orchestration engines, including chaining workflows, and content lifecycle management.
+- Recommended Skills: Golang, Temporal, ReactJS
+- Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Ashish Tiwari (ashishjaitiwari15112000@gmail.com)
+- Issue: https://github.com/meshery/meshery/issues/3934
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/73202d21-d4ca-4435-9a73-f326c9b3e796
+  
+##### Multi-user cloud native playground
+
+- Description: Advance the cloud native playground in which any CNCF project can be explored. Meshery’s genesis is that of helping teach people about cloud native technology and enabling to operate various types of cloud native infrastructure confidently. The proposed project is aimed at furthering this mission by infusing multi-user collaboration as a pervasisve feature so that users can learn together in a running instance of Meshery.
+- Recommended Skills: ReactJS, CSS, Golang (nice-to-have)
+- Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Abhishek Kumar (@abhishek-kumar09, abhimait1909@gmail.com)
+- Issue: https://github.com/meshery/meshery/issues/7020
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2ee7a912-e26e-4602-9dfc-4febe3842df3
+
+#### Distributed client-side policy evaluation in WASM and Rego
+
+- Description: Meshery's highly dynamic infrastructure configuration capabilities require real-time evaluation of complex policies. Policies of various types and with a high number of parameters need to be evaluted client-side. With policies expressed in Rego, the goal of this project is to incorporate use of the https://github.com/open-policy-agent/golang-opa-wasm project into Meshery UI, so that a powerful, real-time user experience is possible.
+- Recommended Skills: Golang, Open Policy Agent, WebAssembly
+- Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Ashish Tiwari (ashishjaitiwari15112000@gmail.com)
+- Issue: https://github.com/meshery/meshery/issues/7019
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/7e3382be-5d82-443e-b0bc-4dcd2194705d
+
 ### Linkerd
 
 #### Linkerd Dashboard Improvements
@@ -575,6 +624,19 @@ each subset of UnitedDeployment can have different metadata, container configura
 - Mentor(s): Feynman Zhou (@FeynmanZhou, feynmanzhou@microsoft.com), 
 - Upstream Issue: https://github.com/oras-project/oras-www/issues/82
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/7f633ade-64f5-477c-bcbe-7b6693329c63
+
+### Service Mesh Performance
+
+#### Adaptive Load Controller II
+
+- Description: The adaptive load controller is to execute optimization routines recursivley to determine the maximum load a system can sustain. The maximum load is usually defined by the maximum requests per second (rps) the system can handle. The metrics (CPU usage, latency etc) collected from the system under test are the constraints we provide to judge whether a system under test (SUT) is sustaining the load.
+
+A use-case that fits very well is be the ability to use it to run performance tests on a schedule and track the maximum load a system can handle over time. This could give insights to performance improvements or degradations.
+
+- Recommended Skills: golang, grpc, docker, kubernetes
+- Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Xin Huang (@gyohuangxin, xin1.huang@intel.com)
+- Upstream Issue (URL): https://github.com/service-mesh-performance/service-mesh-performance/issues/350
+LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2597fc3d-eb2c-411f-b02d-940c8347328d
 
 ### TestGrid
 
