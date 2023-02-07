@@ -177,6 +177,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Recommended Skills: cuelang, golang, OCI
 - Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com)
 - Issue: https://github.com/cncf/tag-network/issues/24
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/96080e3d-83e2-46ed-928c-b6e7f3154bf3
 
 ### Cortex
 
@@ -490,7 +491,8 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Description: Integrate a new architectural component into Meshery: a workflow engine. This project involves shifting Meshery off of bitcask and off of sqlite over to postgres using gorm (golang). Interns will familiarize with concepts of orchestration engines, including chaining workflows, and content lifecycle management.
 - Recommended Skills: Golang, Temporal, ReactJS
 - Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Ashish Tiwari (ashishjaitiwari15112000@gmail.com)
-- Issue: <https://github.com/meshery/meshery/issues/3934>
+- Issue: https://github.com/meshery/meshery/issues/3934
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/73202d21-d4ca-4435-9a73-f326c9b3e796
   
 ##### Multi-user cloud native playground
 
