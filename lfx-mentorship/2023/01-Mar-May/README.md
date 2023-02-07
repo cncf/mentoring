@@ -497,14 +497,15 @@ Note: This item is a work in progress. The selected mentee is expected to contin
 - Description: Advance the cloud native playground in which any CNCF project can be explored. Meshery’s genesis is that of helping teach people about cloud native technology and enabling to operate various types of cloud native infrastructure confidently. The proposed project is aimed at furthering this mission by infusing multi-user collaboration as a pervasisve feature so that users can learn together in a running instance of Meshery.
 - Recommended Skills: ReactJS, CSS, Golang (nice-to-have)
 - Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Abhishek Kumar (@abhishek-kumar09, abhimait1909@gmail.com)
-- Issue: <https://github.com/layer5io/meshery/issues/2931>
+- Issue: <https://github.com/meshery/meshery/issues/7020>
 
 #### Distributed client-side policy evaluation in WASM and Rego
 
 - Description: Meshery's highly dynamic infrastructure configuration capabilities require real-time evaluation of complex policies. Policies of various types and with a high number of parameters need to be evaluted client-side. With policies expressed in Rego, the goal of this project is to incorporate use of the https://github.com/open-policy-agent/golang-opa-wasm project into Meshery UI, so that a powerful, real-time user experience is possible.
 - Recommended Skills: Golang, Open Policy Agent, WebAssembly
 - Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Ashish Tiwari (ashishjaitiwari15112000@gmail.com)
-- Issue: <https://github.com/meshery/meshery/issues/7019>
+- Issue: https://github.com/meshery/meshery/issues/7019
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/7e3382be-5d82-443e-b0bc-4dcd2194705d
 
 ### Linkerd
 
@@ -611,7 +612,7 @@ each subset of UnitedDeployment can have different metadata, container configura
 
 ### Service Mesh Performance
 
-#### Adaptive Load Controller
+#### Adaptive Load Controller II
 
 - Description: The adaptive load controller is to execute optimization routines recursivley to determine the maximum load a system can sustain. The maximum load is usually defined by the maximum requests per second (rps) the system can handle. The metrics (CPU usage, latency etc) collected from the system under test are the constraints we provide to judge whether a system under test (SUT) is sustaining the load.
 
@@ -620,6 +621,7 @@ A use-case that fits very well is be the ability to use it to run performance te
 - Recommended Skills: golang, grpc, docker, kubernetes
 - Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Xin Huang (@gyohuangxin, xin1.huang@intel.com)
 - Upstream Issue (URL): https://github.com/service-mesh-performance/service-mesh-performance/issues/350
+LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2597fc3d-eb2c-411f-b02d-940c8347328d
 
 ### TestGrid
 
