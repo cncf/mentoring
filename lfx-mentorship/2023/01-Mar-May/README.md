@@ -1,7 +1,33 @@
-- [Term 01 - 2023 March - May](#term-01---2023-march---may)
-    - [Project Instructions](#project-instructions)
-    - [Application instructions](#application-instructions)
-  - [Accepted Projects](#accepted-projects)
+# Term 01 - 2023 March - May
+
+Status: Accepting applications
+
+Mentorship duration - three months (12 weeks - full-time schedule)
+
+| activity | date |
+| --- | --- |   
+| project proposals | January 16 - 31, 5:00 PM PDT |
+| mentee applications open | February 1 - 21, 5:00 PM PDT |
+| application review/admission decisions/HR paperwork | February 22 - March 7, 5:00 PM PDT |
+| Mentorship program begins with the initial work assignments | March 8 (Week 1) | 
+| Midterm mentee evaluations and first stipend payments | April 12 (Week 6) |
+| Final mentee evaluations and mentee feedback/blog submission due, second and final stipend payment approvals | May 24, 5:00 PM PST (Week 12) |
+| Last day of term | May 31 |
+
+
+### Project Instructions
+
+Project proposals open Jan 16th, 2023.
+
+Once opened, Project maintainers and potential mentors are welcome to propose their mentoring project ideas via submitting a PR to GitHub here https://github.com/cncf/mentoring/blob/main/lfx-mentorship/2023/01-Mar-May/project_ideas.md, by January 31, 2023.
+
+### Application instructions
+
+Mentee application instructions can be found on the [Program Guidelines](https://github.com/cncf/mentoring/blob/main/lfx-mentorship/README.md#program-guidelines) page.
+
+---
+
+ - [Accepted Projects](#accepted-projects)
     - [Cilium](#cilium)
       - [Website Use Cases pages](#website-use-cases-pages)
     - [Cloud Native Buildpacks](#cloud-native-buildpacks)
@@ -93,32 +119,7 @@
       - [Unified WasmEdge tools](#unified-wasmedge-tools)
       - [WasmEdge C++ SDK](#wasmedge-c-sdk)
 
-# Term 01 - 2023 March - May
-
-Status: Planning
-
-Mentorship duration - three months (12 weeks - full-time schedule)
-
-| activity | date |
-| --- | --- |   
-| project proposals | January 16 - 31, 5:00 PM PDT |
-| mentee applications open | February 1 - 21, 5:00 PM PDT |
-| application review/admission decisions/HR paperwork | February 22 - March 7, 5:00 PM PDT |
-| Mentorship program begins with the initial work assignments | March 8 (Week 1) | 
-| Midterm mentee evaluations and first stipend payments | April 12 (Week 6) |
-| Final mentee evaluations and mentee feedback/blog submission due, second and final stipend payment approvals | May 24, 5:00 PM PST (Week 12) |
-| Last day of term | May 31 |
-
-
-### Project Instructions
-
-Project proposals open Jan 16th, 2023.
-
-Once opened, Project maintainers and potential mentors are welcome to propose their mentoring project ideas via submitting a PR to GitHub here https://github.com/cncf/mentoring/blob/main/lfx-mentorship/2023/01-Mar-May/project_ideas.md, by January 31, 2023.
-
-### Application instructions
-
-Mentee application instructions can be found on the [Program Guidelines](https://github.com/cncf/mentoring/blob/main/lfx-mentorship/README.md#program-guidelines) page.
+---
 
 ## Accepted Projects
 
