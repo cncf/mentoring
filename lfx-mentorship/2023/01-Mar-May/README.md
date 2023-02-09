@@ -214,7 +214,7 @@ In this stage of the project, we are seeking candidates with a background and/or
 - Description: For users who want to migrate from Prometheus to Cortex, currently it is supported via a tool called [Thanosconvert](https://cortexmetrics.io/docs/blocks-storage/migrate-storage-from-thanos-and-prometheus/#when-migrating-from-prometheus). However, having this feature as part of the tool is limited in some usecase like SaaS because users usually don’t have permissions to access their storage layer directly. It would be nice to extend this feature into an API so that users can import their Prometheus TSDB compatible blocks for easier migration.
 - Expected Outcome: An API that imports Prometheus blocks into Cortex.
 - Recommended Skills: Golang, Prometheus, Thanos
-- Mentor: Alan Protasio (@alanprot, alanprot@gmail.com)
+- Mentor: Alan Protasio (@alanprot, alanprot@gmail.com), Daniel Blando (@danielblando, daniel@blando.com.br)
 - Upstream Issue: https://github.com/cortexproject/cortex/issues/4956
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/184ccb3e-6abe-4bf9-9659-b42b5c07c5a5
 
@@ -222,7 +222,7 @@ In this stage of the project, we are seeking candidates with a background and/or
 - Description: Cortex Ruler queries ingester directly for rule evaluation. This is okay but if Cortex Ruler could query Query Frontend instead for rule evaluation, it can benefit from more features in the Query Frontend like vertical sharding. This also simplifies the Cortex ruler to not embed a querier and uses less resources. For this project, we would like to switch Cortex Ruler to query Query Frontend. You are expected to work with a microservice architecture and write unit tests and end to end tests to make sure the feature works correctly.
 - Expected Outcome: Cortex Ruler talks to Query Frontend for rules evaluation.
 - Recommended Skills: Golang, distributed systems
-- Mentor: Alvin Lin (@alvinlin123, alvinlin123@gmail.com)
+- Mentor: Alvin Lin (@alvinlin123, alvinlin123@gmail.com), Yijie Qin (@qinxx108, qinyijie1994@gmail.com)
 - Upstream Issue: https://github.com/cortexproject/cortex/issues/5105
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/fe5c060e-420b-4c0f-90ae-389d893c50b6
 
