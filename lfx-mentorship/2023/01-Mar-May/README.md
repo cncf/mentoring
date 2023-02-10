@@ -27,97 +27,102 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 ---
 
- - [Accepted Projects](#accepted-projects)
-    - [Cilium](#cilium)
-      - [Website Use Cases pages](#website-use-cases-pages)
-    - [Cloud Native Buildpacks](#cloud-native-buildpacks)
-      - [Pack Performance enhancements](#pack-performance-enhancements)
-      - [Multi-Architecture Builds Support](#multi-architecture-builds-support)
-    - [CNCF Landscape](#cncf-landscape)
-      - [UX UI improvement](#ux-ui-improvement)
-    - [CNCF Tag Contributor Strategy](#cncf-tag-contributor-strategy---ii)
-      - [Mentoring Workspaces - GITHUBUSER.PROJECT.cncf.io (w/ VSCode)](#mentoring-workspaces---githubuserprojectcncfio-w-vscode)
-    - [CNCF TAG Network](#cncf-tag-network)
-      - [Representing Kubernetes ontology in MeshModel](#representing-kubernetes-ontology-in-meshmodel)
-    - [Cortex](#cortex)
-      - [Experimental Auth Gateway](#experimental-auth-gateway)
-      - [API to import Prometheus \& Thanos blocks](#api-to-import-prometheus--thanos-blocks)
-      - [Switch Cortex Ruler to query Query Frontend](#switch-cortex-ruler-to-query-query-frontend)
-      - [Automated nightly benchmarks](#automated-nightly-benchmarks)
-    - [Harbor](#harbor)
-      - [Regex replication rules](#regex-replication-rules)
-      - [An official Golang API client and CLI for Harbor](#an-official-golang-api-client-and-cli-for-harbor)
-      - [Implement per project and/or for the whole instance vulnerability overview](#implement-per-project-andor-for-the-whole-instance-vulnerability-overview)
-      - [Harbor Robot accounts with full Harbor API access](#harbor-robot-accounts-with-full-harbor-api-access)
-    - [Kubernetes](#kubernetes)
-      - [Cluster API Provider GCP (CAPG)](#cluster-api-provider-gcp-capg)
-        - [Add telemetry and profiling support](#add-telemetry-and-profiling-support)
-      - [Cluster API Provider AWS (CAPA)](#cluster-api-provider-aws-capa)
-        - [Reimagining how we handle AWS account preparation](#reimagining-how-we-handle-aws-account-preparation)
-    - [Kubescape](#kubescape)
-      - [Implement security controls based on penetration testing best practices](#implement-security-controls-based-on-penetration-testing-best-practices)
-      - [Build debugging capabilities for Helm](#build-debugging-capabilities-for-helm)
-      - [Release engineering: add Kubescape to commonly-requested package managers](#release-engineering-add-kubescape-to-commonly-requested-package-managers)
-    - [KubeVela](#kubevela)
-      - [Extend the capability of KubeVela by making several useful addons](#extend-the-capability-of-kubevela-by-making-several-useful-addons)
-      - [Support auto generation of CUE schema and docs from Go struct](#support-auto-generation-of-cue-schema-and-docs-from-go-struct)
-      - [Support auto generation of multiple languages SDK from CUE](#support-auto-generation-of-multiple-languages-sdk-from-cue)
-    - [Kyverno](#kyverno)
-      - [Pod Security Admission Integrations](#pod-security-admission-integrations)
-      - [Kubernetes Validating Admission Policy Support](#kubernetes-validating-admission-policy-support)
-      - [OCI references support](#oci-references-support)
-      - [Artifact Hub listing of Kyverno Policy Library](#artifact-hub-listing-of-kyverno-policy-library)
-    - [Karmada](#karmada)
-      - [Provide interactive environments for Karmada users](#provide-interactive-environments-for-karmada-users)
-      - [Enhance Karmada testing coverage](#enhance-karmada-testing-coverage)
-      - [Bundle third-party resources into the Resource Interpreter framework](#bundle-third-party-resources-into-the-resource-interpreter-framework)
-    - [KubeArmor](#kubearmor)
-      - [KubeArmor Telemetry Monitoring and Dashboards](#kubearmor-telemetry-monitoring-and-dashboards)
-      - [Adding OpenTelemetry Support](#adding-opentelemetry-support)
-      - [Rancher Plugin Integration](#rancher-plugin-integration)
-    - [Kubewarden](#kubewarden)
-      - [Kubewarden SDKs feature parity](#kubewarden-sdks-feature-parity)
-      - [Kubewarden policies enhancements](#kubewarden-policies-enhancements)
-    - [KubeEdge](#kubeedge)
-      - [Design and implement the KubeEdge Dashboard](#design-and-implement-the-kubeedge-dashboard)
-      - [Re-design and implement the KubeEdge website](#re-design-and-implement-the-kubeedge-website)
-      - [Cloud-Robotic AI Benchmarking for Edge-cloud Collaborative Lifelong Learning](#cloud-robotic-ai-benchmarking-for-edge-cloud-collaborative-lifelong-learning)
-      - [Meshery](#meshery)
-        - [Distributed workflow engine](#distributed-workflow-engine)
-        - [Multi-user cloud native playground](#multi-user-cloud-native-playground)
-      - [Distributed client-side policy evaluation in WASM and Rego](#distributed-client-side-policy-evaluation-in-wasm-and-rego)
-    - [Linkerd](#linkerd)
-      - [Linkerd Dashboard Improvements](#linkerd-dashboard-improvements)
-      - [Add dynamic profiling to Linkerd Rust controllers](#add-dynamic-profiling-to-linkerd-rust-controllers)
-      - [Prototype multi-cluster service discovery and operations](#prototype-multi-cluster-service-discovery-and-operations)
-    - [LitmusChaos](#litmuschaos)
-      - [Improve code quality and add unit tests of litmus chaos components](#improve-code-quality-and-add-unit-tests-of-litmus-chaos-components)
-    - [NATS](#nats)
-      - [End-to-end example of a multiplayer game using NATS in Unity](#end-to-end-example-of-a-multiplayer-game-using-nats-in-unity)
-    - [Notary](#notary)
-      - [HashiCorp Vault plugin for Notary](#hashicorp-vault-plugin-for-notary)
-    - [OpenKruise](#openkruise)
-      - [Bring progressive delivery to daemon workload](#bring-progressive-delivery-to-daemon-workload)
-      - [Support customize arbitary fields of workload subset in UnitedDeployment](#support-customize-arbitary-fields-of-workload-subset-in-uniteddeployment)
-    - [ORAS](#oras)
-      - [Develop .NET SDK for ORAS](#develop-net-sdk-for-oras)
-      - [Develop ORAS Website](#develop-oras-website)
-    - [Service Mesh Performance](#service-mesh-performance)
-      - [Adaptive Load Controller](#adaptive-load-controller)
-    - [TestGrid](#testgrid)
-      - [Frontend development inside Lit Component Framework](#frontend-development-inside-lit-component-framework)
-    - [Thanos](#thanos)
-      - [Add query observability for new promql engine](#add-query-observability-for-new-promql-engine)
-      - [Series Cardinality API](#series-cardinality-api)
-      - [Querying Apache Parquet files with PromQL](#querying-apache-parquet-files-with-promql)
-    - [Vitess](#vitess)
-      - [Implement a benchmarking and load testing framework for the VReplication module in Vitess](#implement-a-benchmarking-and-load-testing-framework-for-the-vreplication-module-in-vitess)
-      - [Add complete parsing support for Spatial MySQL functions](#add-complete-parsing-support-for-spatial-mysql-functions)
-    - [WasmEdge](#wasmedge)
-      - [Streaming data processing with WasmEdge](#streaming-data-processing-with-wasmedge)
-      - [A Rust library crate for mediapipe models for WasmEdge NN](#a-rust-library-crate-for-mediapipe-models-for-wasmedge-nn)
-      - [Unified WasmEdge tools](#unified-wasmedge-tools)
-      - [WasmEdge C++ SDK](#wasmedge-c-sdk)
+- [Accepted Projects](#accepted-projects)
+  - [Cilium](#cilium)
+    - [Website Use Cases pages](#website-use-cases-pages)
+  - [Cloud Native Buildpacks](#cloud-native-buildpacks)
+    - [Pack Performance enhancements](#pack-performance-enhancements)
+    - [Multi-Architecture Builds Support](#multi-architecture-builds-support)
+  - [CNCF Landscape](#cncf-landscape)
+    - [UX UI improvement](#ux-ui-improvement)
+  - [CNCF Tag Contributor Strategy](#cncf-tag-contributor-strategy---ii)
+    - [Mentoring Workspaces - GITHUBUSER.PROJECT.cncf.io (w/ VSCode)](#mentoring-workspaces---githubuserprojectcncfio-w-vscode)
+  - [CNCF TAG Network](#cncf-tag-network)
+    - [Representing Kubernetes ontology in MeshModel](#representing-kubernetes-ontology-in-meshmodel)
+  - [Cortex](#cortex)
+    - [Experimental Auth Gateway](#experimental-auth-gateway)
+    - [API to import Prometheus \& Thanos blocks](#api-to-import-prometheus--thanos-blocks)
+    - [Switch Cortex Ruler to query Query Frontend](#switch-cortex-ruler-to-query-query-frontend)
+    - [Automated nightly benchmarks](#automated-nightly-benchmarks)
+  - [Harbor](#harbor)
+    - [Regex replication rules](#regex-replication-rules)
+    - [An official Golang API client and CLI for Harbor](#an-official-golang-api-client-and-cli-for-harbor)
+    - [Implement per project and/or for the whole instance vulnerability overview](#implement-per-project-andor-for-the-whole-instance-vulnerability-overview)
+    - [Harbor Robot accounts with full Harbor API access](#harbor-robot-accounts-with-full-harbor-api-access)
+  - [Kubernetes](#kubernetes)
+    - [Cluster API Provider GCP (CAPG)](#cluster-api-provider-gcp-capg)
+      - [Add telemetry and profiling support](#add-telemetry-and-profiling-support)
+    - [Cluster API Provider AWS (CAPA)](#cluster-api-provider-aws-capa)
+      - [Reimagining how we handle AWS account preparation](#reimagining-how-we-handle-aws-account-preparation)
+  - [Kubescape](#kubescape)
+    - [Implement security controls based on penetration testing best practices](#implement-security-controls-based-on-penetration-testing-best-practices)
+    - [Build debugging capabilities for Helm](#build-debugging-capabilities-for-helm)
+    - [Release engineering: add Kubescape to commonly-requested package managers](#release-engineering-add-kubescape-to-commonly-requested-package-managers)
+  - [KubeVela](#kubevela)
+    - [Extend the capability of KubeVela by making several useful addons](#extend-the-capability-of-kubevela-by-making-several-useful-addons)
+    - [Support auto generation of CUE schema and docs from Go struct](#support-auto-generation-of-cue-schema-and-docs-from-go-struct)
+    - [Support auto generation of multiple languages SDK from CUE](#support-auto-generation-of-multiple-languages-sdk-from-cue)
+  - [Kyverno](#kyverno)
+    - [Pod Security Admission Integrations](#pod-security-admission-integrations)
+    - [Kubernetes Validating Admission Policy Support](#kubernetes-validating-admission-policy-support)
+    - [OCI references support](#oci-references-support)
+    - [Artifact Hub listing of Kyverno Policy Library](#artifact-hub-listing-of-kyverno-policy-library)
+  - [Karmada](#karmada)
+    - [Provide interactive environments for Karmada users](#provide-interactive-environments-for-karmada-users)
+    - [Enhance Karmada testing coverage](#enhance-karmada-testing-coverage)
+    - [Bundle third-party resources into the Resource Interpreter framework](#bundle-third-party-resources-into-the-resource-interpreter-framework)
+  - [Konveyor](#konveyor)
+    - [Move2Kube: Allow customizations be added as remote git repo path](#)
+    - [Move2Kube: Implement a test suite](#)
+    - [Move2Kube: Consume Move2Kube through a plugin on Eclipse](#)
+    - [Move2Kube: Consume Move2Kube through a plugin on VSCode](#)
+  - [KubeArmor](#kubearmor)
+    - [KubeArmor Telemetry Monitoring and Dashboards](#kubearmor-telemetry-monitoring-and-dashboards)
+    - [Adding OpenTelemetry Support](#adding-opentelemetry-support)
+    - [Rancher Plugin Integration](#rancher-plugin-integration)
+  - [Kubewarden](#kubewarden)
+    - [Kubewarden SDKs feature parity](#kubewarden-sdks-feature-parity)
+    - [Kubewarden policies enhancements](#kubewarden-policies-enhancements)
+  - [KubeEdge](#kubeedge)
+    - [Design and implement the KubeEdge Dashboard](#design-and-implement-the-kubeedge-dashboard)
+    - [Re-design and implement the KubeEdge website](#re-design-and-implement-the-kubeedge-website)
+    - [Cloud-Robotic AI Benchmarking for Edge-cloud Collaborative Lifelong Learning](#cloud-robotic-ai-benchmarking-for-edge-cloud-collaborative-lifelong-learning)
+  - [Meshery](#meshery)
+    - [Distributed workflow engine](#distributed-workflow-engine)
+    - [Multi-user cloud native playground](#multi-user-cloud-native-playground)
+    - [Distributed client-side policy evaluation in WASM and Rego](#distributed-client-side-policy-evaluation-in-wasm-and-rego)
+  - [Linkerd](#linkerd)
+    - [Linkerd Dashboard Improvements](#linkerd-dashboard-improvements)
+    - [Add dynamic profiling to Linkerd Rust controllers](#add-dynamic-profiling-to-linkerd-rust-controllers)
+    - [Prototype multi-cluster service discovery and operations](#prototype-multi-cluster-service-discovery-and-operations)
+  - [LitmusChaos](#litmuschaos)
+    - [Improve code quality and add unit tests of litmus chaos components](#improve-code-quality-and-add-unit-tests-of-litmus-chaos-components)
+  - [NATS](#nats)
+    - [End-to-end example of a multiplayer game using NATS in Unity](#end-to-end-example-of-a-multiplayer-game-using-nats-in-unity)
+  - [Notary](#notary)
+    - [HashiCorp Vault plugin for Notary](#hashicorp-vault-plugin-for-notary)
+  - [OpenKruise](#openkruise)
+    - [Bring progressive delivery to daemon workload](#bring-progressive-delivery-to-daemon-workload)
+    - [Support customize arbitary fields of workload subset in UnitedDeployment](#support-customize-arbitary-fields-of-workload-subset-in-uniteddeployment)
+  - [ORAS](#oras)
+    - [Develop .NET SDK for ORAS](#develop-net-sdk-for-oras)
+    - [Develop ORAS Website](#develop-oras-website)
+  - [Service Mesh Performance](#service-mesh-performance)
+    - [Adaptive Load Controller](#adaptive-load-controller)
+  - [TestGrid](#testgrid)
+    - [Frontend development inside Lit Component Framework](#frontend-development-inside-lit-component-framework)
+  - [Thanos](#thanos)
+    - [Add query observability for new promql engine](#add-query-observability-for-new-promql-engine)
+    - [Series Cardinality API](#series-cardinality-api)
+    - [Querying Apache Parquet files with PromQL](#querying-apache-parquet-files-with-promql)
+  - [Vitess](#vitess)
+    - [Implement a benchmarking and load testing framework for the VReplication module in Vitess](#implement-a-benchmarking-and-load-testing-framework-for-the-vreplication-module-in-vitess)
+    - [Add complete parsing support for Spatial MySQL functions](#add-complete-parsing-support-for-spatial-mysql-functions)
+  - [WasmEdge](#wasmedge)
+    - [Streaming data processing with WasmEdge](#streaming-data-processing-with-wasmedge)
+    - [A Rust library crate for mediapipe models for WasmEdge NN](#a-rust-library-crate-for-mediapipe-models-for-wasmedge-nn)
+    - [Unified WasmEdge tools](#unified-wasmedge-tools)
+    - [WasmEdge C++ SDK](#wasmedge-c-sdk)
 
 ---
 
@@ -423,6 +428,43 @@ In this stage of the project, we are seeking candidates with a background and/or
 - Upstream Issue: https://github.com/karmada-io/karmada/issues/3087
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/891b4b92-0a78-409e-8b90-dcd58d126225
 
+### Konveyor
+
+#### Move2Kube: Allow customizations be added as remote git repo path
+
+- Description: Move2Kube is a command-line tool for automating creation of Infrastructure as code (IaC) artifacts. It has inbuilt support for creating IaC artifacts for replatforming to Kubernetes/OpenShift. Currently, in the CLI we can use the -c flag to point to the folder containing customizations and in UI we could upload a zip file containing the customizatoins. It would be better to consume customizations when specified as a git repo path. The use case can also be extended to take source code input taken directory from a remote git repository.
+- Expected Outcome: Move2Kube should be able to consume git repo path as input.
+- Recommended Skills: Golang
+- Mentor(s): Mehant Kammakomati (@kmehant, mehant.kammakomati2@ibm.com), Harikrishnan Balagopal (@HarikrishnanBalagopal, harikrishnan.balagopal@ibm.com)
+- Upstream Issue: https://github.com/konveyor/move2kube/issues/604
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/fc06da19-fadd-499f-ae71-3da2caba5aea
+
+#### Move2Kube: Implement a test suite
+
+- Description: Move2Kube is a command-line tool for automating creation of Infrastructure as code (IaC) artifacts. It has inbuilt support for creating IaC artifacts for replatforming to Kubernetes/OpenShift. The project is actively developed with new features and bug fixes being added and it is being actively used by many users. There is a need for a concrete test suite to test various components of Move2Kube and integrate it to the existing CI/CD pipeline.
+- Expected Outcome: A test suite for Move2Kube
+- Recommended Skills: Golang, testing package, jest and/ react testing library.
+- Mentor(s): Harikrishnan Balagopal (@HarikrishnanBalagopal, harikrishnan.balagopal@ibm.com), Mehant Kammakomati (@kmehant, mehant.kammakomati2@ibm.com)
+- Upstream Issue: https://github.com/konveyor/move2kube/issues/957
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/6d457c37-68cb-4d52-b9d6-798b09350255
+
+#### Move2Kube: Consume Move2Kube through a plugin on Eclipse
+
+- Description: Move2Kube is a command-line tool for automating creation of Infrastructure as code (IaC) artifacts. It has inbuilt support for creating IaC artifacts for replatforming to Kubernetes/OpenShift. Users currently have to use move2kube command line tool or UI to access move2kube and use it in their replatforming workflows. Allow Move2Kube to be accessible from Eclipse as a plugin. It can start with simple functionality like right clicking on a docker-compose file, and generating all Kubernetes artifacts. An eclipse plugin for Move2kube will promote fast integration in replatforming workflows.
+- Expected Outcome: An end to end working eclipse plugin with a demo video showcasing the functionality.
+- Recommended Skills: Eclipse, Java, Golang.
+- Mentor(s): Harikrishnan Balagopal (@HarikrishnanBalagopal, harikrishnan.balagopal@ibm.com), Mehant Kammakomati (@kmehant, mehant.kammakomati2@ibm.com)
+- Upstream Issue: https://github.com/konveyor/move2kube/issues/396
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/9976a49b-0aa4-49db-ae71-6180f85218ef
+
+#### Move2Kube: Consume Move2Kube through a plugin on VSCode
+
+- Description: Move2Kube is a command-line tool for automating creation of Infrastructure as code (IaC) artifacts. It has inbuilt support for creating IaC artifacts for replatforming to Kubernetes/OpenShift. Users currently have to use move2kube command line tool or UI to access move2kube. Allow Move2Kube to be accessible from VSCode as a plugin. It can start with simple functionality like right clicking on a docker-compose file, and generating all Kubernetes artifacts. A VSCode plugin for Move2kube will promote fast integration in replatforming workflows.
+- Expected Outcome: An end to end working VSCode plugin with a demo video showcasing the functionality.
+- Recommended Skills: VSCode plugins, TypeScript, Golang.
+- Mentor(s): Harikrishnan Balagopal (@HarikrishnanBalagopal, harikrishnan.balagopal@ibm.com), Mehant Kammakomati (@kmehant, mehant.kammakomati2@ibm.com)
+- Upstream Issue: https://github.com/konveyor/move2kube/issues/395
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/d8a7022f-8c62-4776-9e7c-4cc12f306177
 
 ### KubeArmor
 
