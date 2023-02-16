@@ -82,9 +82,13 @@ labels:
     color: FBCA04
   - name: fall
     color: C5DEF5
+  - name: "Term 2: June-Aug"
+    color: C5DEF5
   - name: '2022'
     color: 0052CC
   - name: '2023'
+    color: 0052CC
+  - name: '2024'
     color: 0052CC
   # project labels
   - name: Argo
