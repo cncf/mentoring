@@ -72,6 +72,8 @@ labels:
     color: f4af97
   - name: summer of code
     color: 00ffff
+  - name: season of docs
+    color: 00ff80
   - name: spring
     color: 1ED626
   - name: "Term 1: March-May"
