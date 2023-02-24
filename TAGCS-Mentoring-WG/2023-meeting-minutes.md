@@ -34,15 +34,67 @@ https://zoom.us/my/cncftagcontributorstrategy?pwd=TnI0WU9Eb2I1RlRWdkl1R0k1WkZXUT
 Passcode: 77777
 
 
-# Upcoming Meeting
+# Past Meetings
 
 
 ## February 14, 2023
 
 21:00 UTC (1:00 PM PDT on 2023-02-14; 10:00 AM NZST on 2023-02-15)
 
+### Attendance
+* Nate W 
+* Jay Tihema
+* Ali Ok
+* Alexandre Nicastro
+* Natali Vlatko
+* Riaan Kleinhans
 
-# Past Meetings
+### Agenda
+* Google Season of Docs -- Org applications start tomorrow
+  * Next steps?
+  * Historically we only get 1-2 slots
+* Notification template - informing Mentees of preferred processes > TAG-CS template
+  * https://cloud-native.slack.com/archives/CT6CWS1JN/p1675715555437939
+* Timeline proposals for LFX Mentorship Terms 2 & 3: https://github.com/cncf/mentoring/pull/833
+* LFX promotion on available channels
+    * Social boosts for LFX Mentorship Term 1 applciations
+      * https://twitter.com/CloudNativeFdn/status/1625192237587111936
+      * https://mstdn.ca/@natew/109864484786454672
+      * https://www.linkedin.com/feed/update/urn:li:activity:7031335091217809408 
+* v2 additions, workload > PRs
+
+### Notes
+
+**GSOD** 
+* Applications starting tomorrow. Would like to apply as an org; requires doc project proposals to support application submission.
+* Not expected to have as many slots available this year, but would like to proceed regardless. Nate will create PR to set up GSOD.
+
+**Notification template for Mentees**
+* Following thread in TAG-CS Slack - response to lots of 'noise' in #mentoring w/ general questions vs. support of upstream issues.
+* Msg replies not necessarily helpful in redirecting or addressing issue. Need to create more effective responses e.g. *template as well as support/training to also foster positive engagement and retention.*
+* Need multiple fronts to 'teach' the preferred behaviour; in addition to Ambassadors supporting this, having coordinated responses
+* Matter of coaching people out of learned behaviours that might not be constructive to attaining opportunities or impacting future relationships; may be less about *contributing* than not even investigating the project to begin with.
+* Better to have template 'available', or respond to every such request/query each time - how to best manage overall 'noise'? e.g. responding to multiple instances than every single one.
+* https://hackmd.io/W-VB1zZtTnOJFBSWR3frUA (working doc)
+
+**Timeline proposals for LFX mentorships Term 2-3**
+* Open for discussion
+
+Social links boost, need support/please share!
+* Deadline is 21/2/23
+
+**V2**
+* Current layout/format ineffective in guiding mentees/mentors effectively, as well as structuring/archiving program information. 
+* User perspective vs. group view on what's needed in this Repo - to help group determine what needs to be updated first e.g. who will be engaging with this resource.
+* Can utilise mentees/mentors to review and provide feedback - previous mentees for could be more beneficial (even limited numbers)
+  * TODO: Nate to reach out to find folks, Natali to run interviews
+* Could potentially request mentees at program completion review the Repo as well. 
+* Need to confirm what is needed to produce an MVP ahead of potential merge in the next month
+* Contributions - comment PR-level discussions; link any new PRs against V2 to maintain visibility.
+* Umbrella PR: https://github.com/cncf/mentoring/pull/733
+
+**CLOTributor**
+* Being positioned as preferred 'job boards' to promote opportunities for contributors; recommended to focus here for development.
 
 
 ## January 24, 2023
