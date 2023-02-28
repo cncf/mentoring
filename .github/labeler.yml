@@ -1,0 +1,22 @@
+#Add "2023" to any change to 2023 project files
+
+2023:
+  - summerofcode/2023.md
+  - lfx-mentorship/2023/*
+  - lfx-mentorship/2023/**/*
+  - TAGCS-Mentoring-WG/2023-meeting-minutes.md
+
+# Add 'summer of code' label to any files in the Summer of Code project
+'summer of code':
+  - summerofcode/*
+  - summerofcode/**/*
+
+# Add 'season of docs' label to any files in the season of docs project
+'season of docs':
+  - seasonofdocs/*
+  - seasonofdocs/**/*
+
+# Add 'lfx mentorship' label to any files in the lfx mentorship project
+'lfx mentorship':
+  - lfx-mentorship/*
+  - lfx-mentorship/**/*
