@@ -50,6 +50,10 @@ collaborators:
   - username: riaankl
     permission: maintain
 
+  # GSoC admin
+  - username: aliok
+    permission: maintain
+
 labels:
   - name: lfx mentorship
     color: a2dcf2
