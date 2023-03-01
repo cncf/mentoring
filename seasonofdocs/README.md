@@ -22,7 +22,7 @@ Well-scoped projects have:
 - Clear metrics: how will you and the writer know you've succeeded?
 - Clear budgeting: what are your project costs for a writer?
 
-Complete your proposal by **March 14th, 2021.** Due to anticipated volume, projects submitted after March 14th may not be considered.
+Complete your proposal by **March 14th, 2023.** Due to anticipated volume, projects submitted after March 14th may not be considered.
 
 ---
 
