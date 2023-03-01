@@ -33,6 +33,61 @@ https://zoom.us/my/cncftagcontributorstrategy?pwd=TnI0WU9Eb2I1RlRWdkl1R0k1WkZXUT
 
 Passcode: 77777
 
+## February 28, 2023
+
+21:00 UTC (1:00 PM PDT on 2023-02-28; 10:00 AM NZST on 2023-03-01)
+
+### Attendance
+
+* Nate W.
+* Jay Tihema
+* Ali Ok
+* Riaan Kleinhans
+* Josh Berkus
+* Alexandre Nicastro
+* Parashar Singh
+
+### Agenda
+
+* Adding Ali Ok to GSoC CNCF administration team
+* LFX Mentorship Term 1 updates
+  * Nate W. would like to accept applicants as mentors make selections, rather than as a batch on Friday/Monday. (This also gives us more opportunity to adjust when mentors make the same selection)
+* Project Board/Management  
+  https://github.com/orgs/cncf/projects/16/views/1
+
+  
+### Notes
+
+* Ali OK accepted as GSOC admin, new process in ongoing review, operations/comms will be conducted in open and continue refinement going forward. 
+* LFX Term 1 updates - 20% all mentors have made their selections; may have missed deadline notification prior > 7 March. 
+    * Suggested acceptance process starts now to reduce admin processes w/ Nate and LFX. Nate will send an email and post to confirm
+* Contacts to go to Natali from previous meeting
+* Question about GSoD: https://github.com/cncf/mentoring/discussions/843#discussioncomment-5052374
+    * Not yet run as an org (Nate); GSOD issue last year - allowed only one project per year previously. **Reach out to Google and clarify/confirm any project submission limitations.**
+    * (Previously one project per OS project)
+    * > (b) Each Organization may submit one (1) Organization Application. https://developers.google.com/season-of-docs/terms/program-rules
+    * Timeline: https://developers.google.com/season-of-docs/docs/timeline
+* Alexandre experiencing multiple enquiries regarding getting started in Mentoring
+    * (Josh) need clarity about target audiences; persona-based responses 
+    * Queries generally broad and inconsistent - general 'guidance'-based questions
+    * Resources/guides would need to linked to support navigation; conscious of large workload to inform/build fundamental understanding
+    * Potential contributors might be cautious of needing 'permission' of getting involved to begin with
+    * This would go at: https://contribute.cncf.io/contributors/
+    * Maybe a short video can be recorded (can be asked from CNCF Ambassadors)(example) https://www.youtube.com/watch?v=msyGybzCKRs
+    * Potential personas
+      * new to open source
+      * new to cloud native
+      * folks changing careers(?)
+        * may not lead to sustained contributions (NW + JB)
+        * may be an in to opensource regardless (JT + AN)
+        * Ongoing discussion needed; to refer to TAG-CS
+        * File an issue, attach to draft doc in HackMD/Google Docs, mention on Slack - pertains to both mentoring and Contributor Growth
+      * folks assigned by their company to work on open source
+      * AN to open issue: https://github.com/cncf/tag-contributor-strategy/
+        * Previous Slack discussion https://cloud-native.slack.com/archives/CT6CWS1JN/p1675715555437939
+* 65 projects proposed for LFX, no viable candidates for all projects at this stage
+* GSOC - March 20 potential contributors to propose, expecting comms in boards re upstream issues 
+
 
 # Past Meetings
 
@@ -226,6 +281,10 @@ Links important to share with others - Mentoring tree main, LFX Mentorship 2022.
 * 
 
 ### Agenda
+
+* 
+
+### Notes
 
 * 
 
