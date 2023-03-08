@@ -15,4 +15,6 @@ If you need help with anything mentoring at CNCF, you can file an issue at this 
 
 Organization admins for specific mentorship programs are listed on the program's respective pages.
 
+## Organization admin guides
 
+* [Google Summer of Code organization admin guide](gsoc-org-admin-guide.md)
