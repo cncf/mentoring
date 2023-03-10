@@ -93,7 +93,7 @@ Tasks:
 
 ### Accepted projects announcement
 
-* [Announce](#Announcements) that accepted contributors and projects are announced.
+* [Announce](#Announcements) that accepted contributors and projects have been chosen.
 * Add selected mentors to the mailing list created earlier
 * Inform mentors and contributors about:
     * Community bonding
