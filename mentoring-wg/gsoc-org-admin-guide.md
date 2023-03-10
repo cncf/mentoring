@@ -114,7 +114,7 @@ Tasks:
 
 ### Final evaluations
 * Inform mentors and contributors about:
-    * Midterm evaluations and deadlines
+    * Final evaluations and deadlines
     * [Google's evaluation guide](https://google.github.io/gsocguides/mentor/evaluations)
 
 
