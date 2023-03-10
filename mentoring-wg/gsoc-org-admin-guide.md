@@ -25,7 +25,7 @@ In summary, responsibilities can be outlined as following:
 Following are not responsibilities of a GSoC admin:
 * Verifying the eligibilities of contributors in terms of age, country of residence and similar criteria. These are done by Google.
 * Providing technical support to mentors or contributors about the project.
-* Technically or not-techically mentoring the contributors, other than giving general guidance and replying questions by pointing at possible places to find an answer.
+* Technically mentoring the contributors (e.g. technical troubleshooting), other than giving general guidance and/or replying to questions by pointing at possible places to find an answer.
 
 ## Checklist
 
