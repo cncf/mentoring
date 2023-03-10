@@ -38,7 +38,7 @@ Tasks:
 * Create GSoC ideas page in [`cncf/mentoring`](https://github.com/cncf/mentoring/tree/main/summerofcode) repository. Ideas page will be necessary during organization application.
 * [Announce](#Announcements) the intention to participate in the program. Mention these:
     * Deadline to add ideas is the contributor application period start date.
-    * CNCF has not yet accepted to the program.
+    * CNCF has not yet been accepted into the program.
     * We are collecting ideas.
     * We are encouraging communities to add ideas earlier rather than later to give time to potential contributors more time.
 * Start monitoring PRs to ideas page review ideas added by mentors using the [proposal review guideline](#Project-idea-proposal-review-guidelines).
