@@ -40,7 +40,7 @@ Tasks:
     * Deadline to add ideas is the contributor application period start date.
     * CNCF has not yet been accepted into the program.
     * We are collecting ideas.
-    * We are encouraging communities to add ideas earlier rather than later to give time to potential contributors more time.
+    * We are encouraging communities to add ideas earlier rather than later to give potential contributors more time.
 * Start monitoring PRs to ideas page review ideas added by mentors using the [proposal review guideline](#Project-idea-proposal-review-guidelines).
 
 ### Pre- organization application period
