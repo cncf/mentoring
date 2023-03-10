@@ -75,7 +75,7 @@ Tasks:
 
 * [Announce](#Announcements) that the contributor applications started. Mention these:
     * We encourage contributors to submit proposals early to be able to get feedback from mentors and fix any issues.
-    * We are no more collecting ideas from mentors.
+    * We are no longer collecting ideas from mentors.
 * Inform member mentors (mentors who added an idea) about these:
     * They need to review proposals from contributors before they submit the final proposal.
 * As we are not collecting ideas anymore, finalize getting mentors:
