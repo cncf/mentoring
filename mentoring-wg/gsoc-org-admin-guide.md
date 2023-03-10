@@ -49,7 +49,7 @@ At this stage, there is still no guarantee from Google that CNCF will be accepte
 
 Tasks:
 
-* Send a reminder communities to add ideas as previous stage.
+* Send a reminder to CNCF project communities to add ideas as stated in the previous stage.
 
 
 ### Organization application
