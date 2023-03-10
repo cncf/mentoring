@@ -64,7 +64,7 @@ Tasks:
 * [Announce](#Announcements) the acceptance in the program. Mention these:
     * CNCF is accepted to the program.
     * It is still possible to add ideas until the contributor application period start date.
-    * We are encouraging communities to add ideas earlier rather than later to give time to potential contributors more time.
+    * We are encouraging communities to add ideas earlier rather than later to give potential contributors more time.
     * We are encouraging contributors to explore project ideas and engage with mentors and communities.
 * Create a mailing list specific to the current GSoC session as early as possible as it might take time to get this created.
 * Although there can be ideas/mentors added until contributor applications, it is encouraged to get mentors ([example Github task](https://github.com/cncf/mentoring/issues/864)):
