@@ -7,6 +7,8 @@
 
 While Google [defines](https://developers.google.com/open-source/gsoc/help/responsibilities#org_admin_responsibilities) responsibilities for organization admins and gives some [tips](https://developers.google.com/open-source/gsoc/help/oa-tips), there are variations in how organizations run the program suitable for their communities.
 
+> :ℹ️: **Term "contributor" throughout this document is used as "mentee".**: Please do not mix the term "contributor" with regular contributors and maintainers of the CNCF projects. The term "contributor" is used to follow Google's terminology for the GSoC program.
+
 ## Outline of responsibilities
 
 First of all, GSoC admins are required to read these documents from Google:
@@ -16,7 +18,7 @@ First of all, GSoC admins are required to read these documents from Google:
 
 In summary, responsibilities can be outlined as following:
 
-* Recruitment: GSoC admins are responsible for recruiting mentors from the CNCF communities and also contributors to participate in the program. They reach out to communities, promote the program, and answer questions from interested parties.
+* Recruitment: GSoC admins are responsible for recruiting mentors from among the maintainers of the CNCF projects. They also recruit new contributors to participate in the program as mentees. They reach out to communities, promote the program, and answer questions from interested parties.
 * Mentor management: GSoC admins ensure that mentors are qualified and have the necessary experience to mentor contributors effectively. They provide guidance and feedback as needed to help mentors improve their mentoring skills.
 * Contributor management: GSoC admins set up the foundation for the communication between the mentors and the contributors. They provide guidance for contributors and mentors to connect, monitor the progress of projects, and provide non-technical support as needed.
 * Program coordination: GSoC admins coordinate the program logistics. This may include applying to the program, ranking proposals, setting deadlines, communicating with involved parties, and ensuring that all contributors and mentors have the resources they need to be successful.
