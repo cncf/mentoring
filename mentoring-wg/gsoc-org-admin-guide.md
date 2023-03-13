@@ -143,7 +143,7 @@ Tasks:
 * Check if the project size in hours is one of the values provided by Google.
 * Check if the mentors have names, Github usernames and emails listed.
 * Make sure that the description provides a good sense of context and motivation for the idea to attract contributors.
-* Also make sure the expected outcome is describing something valuable.
+* Make sure the expected outcome has benefits for contributors (e.g. learning, growth) and the project (e.g. new features/functionality, bug fixes).
 * Check if the idea is a coding project. Projects such as documentation-only tasks are not accepted to GSoC per [program rules](https://summerofcode.withgoogle.com/rules).
 
 ## Contributor+proposal selection and ranking criteria
