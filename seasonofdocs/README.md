@@ -24,5 +24,6 @@ Well-scoped projects have:
 
 Complete your proposal by **March 14th, 2023.** Due to anticipated volume, projects submitted after March 14th may not be considered.
 
+[WasmEdge Proposal: Reorganzie the contributor guide](https://github.com/WasmEdge/WasmEdge/discussions/2358)
 ---
 
