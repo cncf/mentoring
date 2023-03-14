@@ -33,9 +33,59 @@ https://zoom.us/my/cncftagcontributorstrategy?pwd=TnI0WU9Eb2I1RlRWdkl1R0k1WkZXUT
 
 Passcode: 77777
 
+
+## March 14, 2023
+
+21:00 UTC (2:00 PM PDT on 2023-03-14; 10:00 AM NZST on 2023-03-15)
+
+### Attendance
+* Nate W.
+* Riaan Kleinhans
+* Hippie Hacker
+* Justin Vice
+* Alexandre Nicastro
+* Josh Berkus
+
+### Agenda
+
+* All comments have been addessed in [start contributing to open source
+#339](https://github.com/cncf/tag-contributor-strategy/pull/339)
+    - Should we merge it?
+    - Clotributor question
+    - Nate to put Riaan in touch with CNCF blog team
+    - NATE: YouTube Series : Getting Started
+      - process, downloading, finding issues
+      - how to contribute to Open Source
+      - Maybe Ambassador?
+* GSoD PRs in today -- could use some help reviewing
+    - https://github.com/cncf/mentoring/pull/877
+    - https://github.com/cncf/mentoring/pull/875 
+    - Org applicaitons due March 24, 2023 at 18:00 UTC
+* GSoC
+    - Admin guide PR: https://github.com/cncf/mentoring/pull/871
+    - March 20th, mentors can start giving feedback at that time
+    - Mentors are already in the system
+* simple coder templates
+  - https://github.com/cncf-infra/coder-templates/tree/main/simple
+  - https://github.com/cncf-infra/coder-templates/tree/main/simple-packet
+  - https://github.com/ii/emacs-coder/blob/master/templates/emacs-pod/main.tf
+* Tauranga Kids Day March 31st
+  - https://github.com/orgs/workshop-coop/projects/3
+* KubeCon EU Kids Day April 15th
+  - https://github.com/orgs/workshop-coop/projects/1
+  - workshop.coop hosted coder instance with templates for littil.org KubeCon Kids Day.
+  - https://hackmd.io/rHr0DSGpRnmlGzI1p-WzWw
+* KubeCon mentoring office hours 
+  - 2 hours, time date tbd
+  - free form discussion, have a question about CNCF Mentoring, come by and say hi 
+* V2 review
+  - https://github.com/cncf/mentoring/pull/733
+
+# Past Meetings
+
 ## February 28, 2023
 
-21:00 UTC (1:00 PM PDT on 2023-02-28; 10:00 AM NZST on 2023-03-01)
+21:00 UTC (1:00 PM PST on 2023-02-28; 10:00 AM NZST on 2023-03-01)
 
 ### Attendance
 
@@ -55,10 +105,9 @@ Passcode: 77777
 * Project Board/Management  
   https://github.com/orgs/cncf/projects/16/views/1
 
-  
 ### Notes
 
-* Ali OK accepted as GSOC admin, new process in ongoing review, operations/comms will be conducted in open and continue refinement going forward. 
+* Ali Ok accepted as GSOC admin, new process in ongoing review, operations/comms will be conducted in open and continue refinement going forward. 
 * LFX Term 1 updates - 20% all mentors have made their selections; may have missed deadline notification prior > 7 March. 
     * Suggested acceptance process starts now to reduce admin processes w/ Nate and LFX. Nate will send an email and post to confirm
 * Contacts to go to Natali from previous meeting
@@ -85,16 +134,12 @@ Passcode: 77777
       * folks assigned by their company to work on open source
       * AN to open issue: https://github.com/cncf/tag-contributor-strategy/
         * Previous Slack discussion https://cloud-native.slack.com/archives/CT6CWS1JN/p1675715555437939
-* 65 projects proposed for LFX, no viable candidates for all projects at this stage
+* 65 projects proposed for LFX, not all proposals have viable candidates at this stage
 * GSOC - March 20 potential contributors to propose, expecting comms in boards re upstream issues 
-
-
-# Past Meetings
-
 
 ## February 14, 2023
 
-21:00 UTC (1:00 PM PDT on 2023-02-14; 10:00 AM NZST on 2023-02-15)
+21:00 UTC (1:00 PM PST on 2023-02-14; 10:00 AM NZST on 2023-02-15)
 
 ### Attendance
 * Nate W 
@@ -151,10 +196,9 @@ Social links boost, need support/please share!
 **CLOTributor**
 * Being positioned as preferred 'job boards' to promote opportunities for contributors; recommended to focus here for development.
 
-
 ## January 24, 2023
 
-21:00 UTC (1:00 PM PDT on 2023-01-24; 10:00 AM NZST on 2023-01-25)
+21:00 UTC (1:00 PM PST on 2023-01-24; 10:00 AM NZST on 2023-01-25)
 
 ### Attendance
 
@@ -209,10 +253,9 @@ Edit page we would link to, highlight page move. Can hold off on this until the 
 
 Links important to share with others - Mentoring tree main, LFX Mentorship 2022... [link](https://github.com/cncf/mentoring/tree/main/lfx-mentorship/2023/01-Mar-May)
 
-
 ## January 10, 2023
 
-21:00 UTC (1:00 PM PDT on 2023-01-10; 10:00 AM NZST on 2023-01-11)
+21:00 UTC (1:00 PM PST on 2023-01-10; 10:00 AM NZST on 2023-01-11)
 
 ### Attendance
 
@@ -263,14 +306,13 @@ Links important to share with others - Mentoring tree main, LFX Mentorship 2022.
     * Nate + 1-2 project maintainers who did mentorships
 
 
-
 ---
 
 # Meeting Template
 
-## January 10, 2023
+## March 14, 2023
 
-21:00 UTC (1:00 PM PDT on 2023-01-10; 10:00 AM NZST on 2023-01-11)
+21:00 UTC (2:00 PM PDT on 2023-01-10; 10:00 AM NZST on 2023-01-11)
 
 ### Attendance
 
@@ -287,6 +329,8 @@ Links important to share with others - Mentoring tree main, LFX Mentorship 2022.
 ### Notes
 
 * 
+
+---
 
 # Archives
 
