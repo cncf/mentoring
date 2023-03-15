@@ -8,7 +8,7 @@
 While Google [defines](https://developers.google.com/open-source/gsoc/help/responsibilities#org_admin_responsibilities) responsibilities for organization admins and gives some [tips](https://developers.google.com/open-source/gsoc/help/oa-tips), there are variations in how organizations run the program suitable for their communities.
 
 > **Note** 
-> The "contributor" term throughout this document is used as "mentee". Please do not mix the term "contributor" with regular contributors and maintainers of the CNCF projects. The term "contributor" is used to follow Google's terminology for the GSoC program.
+> The "contributor" term throughout this document is used as "mentee." Please do not mix the word "contributor" with regular contributors and maintainers of the CNCF projects. Here, the term "contributor" follows Google's terminology for the GSoC program.
 
 ## Outline of responsibilities
 
