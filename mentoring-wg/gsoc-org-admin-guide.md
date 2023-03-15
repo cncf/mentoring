@@ -17,7 +17,7 @@ First of all, GSoC admins are required to read these documents from Google:
 * [GSoC admin responsibilities](https://developers.google.com/open-source/gsoc/help/responsibilities#org_admin_responsibilities)
 * [GSoC admin tips](https://developers.google.com/open-source/gsoc/help/oa-tips)
 
-In summary, responsibilities can be outlined as following:
+In summary, responsibilities can be outlined as follows:
 
 * Recruitment: GSoC admins are responsible for recruiting mentors from among the maintainers of the CNCF projects. They also recruit new contributors to participate in the program as mentees. They reach out to communities, promote the program, and answer questions from interested parties.
 * Mentor management: GSoC admins ensure that mentors are qualified and have the necessary experience to mentor contributors effectively. They provide guidance and feedback as needed to help mentors improve their mentoring skills.
