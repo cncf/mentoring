@@ -9,6 +9,7 @@ If you need help with anything CNCF + Summer of code related, you can file an is
 - Chris Aniszczyk ([@caniszczyk](https://github.com/caniszczyk)\): <https://twitter.com/cra>
 - Ihor Dvoretskyi ([@idvoretskyi](https://github.com/idvoretskyi)\): <https://twitter.com/idvoretskyi>
 - Nate Waddington ([@nate-double-u](https://github.com/nate-double-u)\): <https://twitter.com/hackabletype>
+- Nabarun Pal ([@theonlynabarun](https://github.com/palnabarun)\): <https://twitter.com/theonlynabarun>
 
 ## Communication
 
@@ -19,6 +20,5 @@ It's best if you use a public communication channel whenever possible; however, 
 
 ## Current Year
 
-Details about the 2023 program are available [here](https://github.com/cncf/mentoring/blob/main/summerofcode/2023.md).
+Details about the 2022 program are available [here](https://github.com/cncf/mentoring/blob/main/summerofcode/2022.md).
 
-[Google summer of code timeline](https://developers.google.com/open-source/gsoc/timeline).
