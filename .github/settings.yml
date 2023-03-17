@@ -50,6 +50,10 @@ collaborators:
   - username: riaankl
     permission: maintain
 
+  # GSoC admin
+  - username: aliok
+    permission: maintain
+
 labels:
   - name: lfx mentorship
     color: a2dcf2
@@ -59,6 +63,8 @@ labels:
     color: ffff54
   - name: good first issue
     color: ff8c00
+  - name: hold
+    color: d93f0b
   - name: time-sensitive
     description: issues or PRs that have a due date
     color: b60205
@@ -70,6 +76,8 @@ labels:
     color: f4af97
   - name: summer of code
     color: 00ffff
+  - name: season of docs
+    color: 00ff80
   - name: spring
     color: 1ED626
   - name: "Term 1: March-May"
@@ -80,9 +88,13 @@ labels:
     color: FBCA04
   - name: fall
     color: C5DEF5
+  - name: "Term 2: June-Aug"
+    color: C5DEF5
   - name: '2022'
     color: 0052CC
   - name: '2023'
+    color: 0052CC
+  - name: '2024'
     color: 0052CC
   # project labels
   - name: Argo
