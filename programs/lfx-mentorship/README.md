@@ -22,6 +22,7 @@ LFX Mentorship is actively used by the Cloud Native Computing Foundation as a me
 
 | Year | Term   | Status    | Announcement                                                                                                                                                         | Details                                 |
 | ---- | ------ | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| 2023 | Term 1: Sept-Nov | Planning   |                                                                                                                                                                      | [2023 Term 1: Mar-May](2023/01-Mar-May/README.md) |
 | 2022 | Term 3: Sept-Nov | Completed   |                                                                                                                                                                      | [2022 Term 3: Sept-Nov](2022/03-Sept-Nov/README.md) |
 | 2022 | Summer | Completed   |                                                                                                                                                                      | [Summer'2022](2022/02-Summer/README.md) |
 | 2022 | Spring | Completed   | [CNCF Blog](https://www.cncf.io/blog/2022/07/07/cncf-congratulates-36-successful-interns-with-spring-term-lfx-program/)                                                                                                                                                                      | [Spring'2022](2022/01-Spring/README.md) |
@@ -35,7 +36,7 @@ LFX Mentorship is actively used by the Cloud Native Computing Foundation as a me
 
 ### Current cycle
 
-The LFX Mentorship program is completed for 2021. The current cycle is Spring 2022, and more details are coming in Q1'2022.
+The LFX Mentorship program is completed for 2022. The current cycle is 01-Mar-May 2023.
 
 ## Program Maintainers
 
