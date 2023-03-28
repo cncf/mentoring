@@ -6,10 +6,9 @@ The Cloud Native Computing Foundation participates in the [Google Summer of Code
 
 If you need help with anything CNCF + Summer of code related, you can file an issue or contact one of the admins below:
 
-- Chris Aniszczyk ([@caniszczyk](https://github.com/caniszczyk)) - Twitter: [@cra](https://twitter.com/cra), CNCF Slack: [@caniszczyk](https://cloud-native.slack.com/team/U0BB4K6KD)
-- Nate Waddington ([@nate-double-u](https://github.com/nate-double-u)) - Twitter: [@hackabletype](https://twitter.com/hackabletype), CNCF Slack: [@nate-double-u](https://cloud-native.slack.com/team/U01B9CR2A3E)
-- Jay Tiaki ([@jaytiaki](https://github.com/jaytiaki))
-- Ali Ok ([@aliok](https://github.com/aliok)) - CNCF Slack: [@Ali Ok](https://cloud-native.slack.com/team/U030UQH8QNR) 
+- Chris Aniszczyk ([@caniszczyk](https://github.com/caniszczyk)\): <https://twitter.com/cra>
+- Ihor Dvoretskyi ([@idvoretskyi](https://github.com/idvoretskyi)\): <https://twitter.com/idvoretskyi>
+- Nate Waddington ([@nate-double-u](https://github.com/nate-double-u)\): <https://twitter.com/hackabletype>
 
 ## Communication
 
