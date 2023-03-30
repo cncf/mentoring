@@ -33,6 +33,87 @@ https://zoom.us/my/cncftagcontributorstrategy?pwd=TnI0WU9Eb2I1RlRWdkl1R0k1WkZXUT
 
 Passcode: 77777
 
+## March 28, 2023
+
+21:00 UTC (2:00 PM PDT on 2023-01-28; 10:00 AM NZST on 2023-01-29)
+
+### Attendance
+
+* Nate W.
+* Jay Tihema
+* Ali Ok
+* Riaan Kleinhans
+
+### Updates/reminders
+
+* 
+
+### Agenda
+
+* Nate W. goofed a sync merge, and accidentally merged it into `main` rather than `v2`
+    * Mistake was reverted
+    * Some history seems to have been lost
+    * Need to recrate the v2 PR as the original one was closed in the mistake
+    * Some issues tied to PR 773 have been closed as part of the "fixes:" automation
+    * **Lessons learned:**
+        1. Don't do complex (or even simple) merges on important projects when you're tired or otherwise disctracted
+        2. Don't bypass security measures put in place to protect the `main` branch -- especally when doing 1. above
+        3. The revert function works suprisingly well, but seems to have stripped out some of the history. Revert doesn't undo closed issues or PRs.
+        4. Don't be afraid of making changes or mistakes because there's very little that can't be undone (though, don't be afraid to ask for help if you get git in over your head)
+* **Walk through of cncf/mentoring v2 repo update**
+  - https://github.com/cncf/mentoring/pull/733 - closed accidentally. Nate to open new one.
+  - **New tracking PR**: https://github.com/cncf/mentoring/pull/899
+  - Riaan & Jay
+* **KubeCon**
+    * TAG Contributor Strategy: What We Get Out of It (and You Could Too!)  
+      Date and time: Thursday April 20, 2023 15:25 - 16:00 CEST  
+      Room: Auditorium Center | G109  
+      https://sched.co/1HzdC
+    * Mentorship Office Hours
+      Date and Time:  Wed, 19 April, 14:30 - 16:30  
+      Room: E101  
+      Seating: Boardroom 16pax  
+      https://sched.co/1KWw8
+    * Tech Docs Office Hours (if you're interested 🙂)  
+      Date and Time:  Thur, 20 April, 11:00 - 12:30  
+      Room: E101  
+      Seating: Boardroom 16pax  
+      https://sched.co/1KWw2
+* **When is the good time to merge v2?**
+
+### Notes
+**V2 merge accident**
+* Set of GitHub actions hacks that can provide some functions of PROW - Rob Kielty has done some work on these and might offer some solutions to avoid recurring/similar issues
+* Can be helpful to let people know these kind of mistakes are ok and can happen - and important they know they can seek help/support when needed to navigate the space
+
+**Walk through of cncf/mentoring v2 repo update**
+* Updated V2 repo, initial changes made, Riaan/Nate made additional updates in mentee/mentor section. 
+* New PR #899 - (initial changes shown)
+* Main branch currently shows multiple scattered files and info. V2 is a rearrangement of pre-existing information to be more accessible for various user types
+* Have created new content sitting under Mentee or Mentor-specific ReadMes with a more logical flow and consistent layout across both sections
+* Will need to be set up so things are obvious and organised in their flow moving forward; also factoring other points such as *'How to be a mentor in GSOC'* etc.
+* Project Board - mentoring issues, public calendar and CoC to be addressed
+* *Will need to double-check Nate's PR cleanup to ensure things are set out as needed*
+* May be some broken links from outside, but can be detected internally e.g. Google Analytics(?) or other automated systems, but possibly not high-priority at this stage
+* Working on this Repo can likely be a recommended 'Good First Issue' for new Contributors
+* Shouldn't need TOC approval with it not being website content, but TAG review would be appreciated with lots of changes having been made
+* Can possibly look at integrating mentee/mentor/program info into Contributor.io eventually
+* *Josh will review w/ Carolyn before approval*
+
+**KubeCon**
+* *TAG Contributor Strategy: What We Get Out of It (and You Could Too!)* - panel discussion 
+* *Mentorship Office Hours* - room booked for a couple of hours to chat w/ maintainers on how to write proposals; first come, first served
+    * More in attendance, the better (Weds 2.30pm-4.30pm)
+* *Tech Docs Office Hours*
+
+Join us at times listed!
+
+**When is the good time to merge v2?**
+* Would like to merge sooner than later; mindful of upcoming Kubecon. GSOC deadlines few weeks away so timing is good
+* Would be ideal to have set up before KC EU
+
+
+# Past Meetings
 
 ## March 14, 2023
 
@@ -80,8 +161,6 @@ Passcode: 77777
   - free form discussion, have a question about CNCF Mentoring, come by and say hi 
 * V2 review
   - https://github.com/cncf/mentoring/pull/733
-
-# Past Meetings
 
 ## February 28, 2023
 
