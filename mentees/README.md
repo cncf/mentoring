@@ -63,7 +63,7 @@ The [Google Summer of Code](https://summerofcode.withgoogle.com/), often abbrevi
 **Google Season of Docs**  
 [Google Season of Docs](https://developers.google.com/season-of-docs/docs/organization-application-hints) is the ideal opportunity for aspiring and professional technical writers interested in non-code contribution, providing support for open source projects to improve their documentation. 
 
-**Outreachy**
+**Outreachy**  
 [Outreachy](https://www.outreachy.org/apply/) has internship projects in both open source and open science, and is aimed at people subject to systemic bias or underrepresented in the technical industry where they are living. Projects may include programming, research, user experience, documentation, graphical design, data science, marketing, user advocacy and event planning.
 
 *If you're interested in applying for one of these programs, be sure to read through the application details outlined in the links provided to determine your eligibility.*
