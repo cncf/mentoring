@@ -1,28 +1,28 @@
-## **Become a Mentor -- Draft**
+## Become a Mentor
 
 
 
-## **Mentor Expectations**
+## Mentor Expectations
 
 
 
-## **Support Networks**
+## Support Networks
 
 
 
-## **Programs**
+## Programs
 
 
 
-## **Project Idea (Template)**
+## Project Idea (Template)
 
 
 
-## **Success Stories**
+## Success Stories
 
 
 
-## **FAQs**
+## FAQs
 
 
 
