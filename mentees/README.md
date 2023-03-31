@@ -1,4 +1,4 @@
-## **Become a Mentee -- Draft**
+## Become a Mentee
 
 Congratulations on choosing to take part in a mentorship program available with the CNCF and some of its valued members. Contributing as a mentee can be a rewarding and fulfilling experience that connects you with a range of experts and development opportunities unique to these programs. 
 
@@ -10,12 +10,13 @@ In addition to providing a high-quality learning experience that can help to kic
 Becoming a mentee in a CNCF mentorship program provides numerous benefits, including access to experienced professionals in the field, opportunities for personal and professional growth, and a supportive network for guidance and feedback. It can also help you to acquire new skills and knowledge, develop a deeper understanding of the industry, and increase your chances of success in your career.
 
 
-## **Mentee Expectations**
+## Mentee Expectations
+
 Participating in a mentorship program can require a lot of time, effort and dedication. In exchange for that commitment, a seasoned mentor offers their valuable time and expertise to aid your learning and development. 
 
 To ensure the experience is positive for everyone involved, there are a few key things you as a mentee can do to maximise your opportunity:
 
-* **Make sure you can devote yourself to the minimum required hours throughout the program.** This can vary between projects, but often you will be expected to invest a significant amount of time on a weekly basis to your work. This might also mean taking priority over your study or personal obligations, depending on the project. 
+* **Make sure you can devote yourself to the minimum required hours throughout the program.** This can vary between projects, but often you will be expected to invest a significant amount of time on a weekly basis to your work.
 To avoid confusion, *be realistic about how much time you can put into the program*, and communicate openly with your mentor to confirm your proposed commitment is also feasible for them.
 
 * **Be open about your skill level.** Applying for opportunities that exceed your level of skill or experience can mean more work, and possibly frustration, for those involved as the program progresses. 
@@ -23,15 +24,15 @@ Even if you are selected for a project, it's important to have a transparent and
 
 *Overall, having a positive experience in any mentorship program will be dependent on good communication, diligence and taking initiative.* Your mentors and the wider community are invested in your success, so being proactive and assuming responsibility for your progress is essential. 
 
+## Support Networks
 
-## **Support Networks**
 Having a solid support network provides a safe and productive environment for mentees to seek advice and receive guidance and feedback. It can be critical in navigating challenges and obstacles, building confidence, and feeling encouraged to continue your personal and professional growth.
 
 * **Your relationship with your mentor** will be your most important connection throughout your program. In addition to providing valuable new skills and coaching, mentors can also support your professional networking and overall guidance in your career. Communicating any barriers to your learning or commitments and working together to find solutions can go a long way to developing a good working rapport.
 * **Communication channels, groups and forums** such as Slack can be a great way to find solutions to common problems you'll likely encounter on your journey. Some popular options include:
 
 [CNCF Slack channels](https://communityinviter.com/apps/cloud-native/cncf) such as **#mentoring**; where you can engage to share your knowledge to solve specific problems. 
-***Important Note:*** *It is not recommended to request general guidance or to express interest in working on issues that might be raised on these channels. Please refer to the 'What is Contribution?' section in FAQs for the preferred process.*
+***Important Note:*** *It is not recommended to request general guidance or to express interest in working on issues that might be raised on these channels. Please refer to the '[What is Contribution?](#what-is-contribution)' section in FAQs for the preferred process.*
 
 [CNCF Community Groups and events](https://community.cncf.io/) - Conferences, workshops, and other events such as Meetups bring together individuals from the Cloud Native community to collaborate and share knowledge.
 
@@ -45,21 +46,21 @@ Mentorship programs can be highly rewarding, yet challenging commitments to unde
 
 In summary, there are multiple contacts and resources available to guide you, and a supportive network can play a crucial role in the success and fulfillment of your mentorship experience.
 
-## **Programs**
+## Programs
 
 There are numerous open source mentoring and internship programs available, with each emphasising different criteria such as specific skillsets, demographics, industries and specialisations. 
 
 Currently, the CNCF concentrates on a limited selection of such programs; featuring a range of projects to encourage interest from a broad pool of talent and backgrounds. 
 These are as follows:
 
-**LFX**
+**LFX**  
 The [Linux Foundation Mentorship program](https://docs.linuxfoundation.org/lfx/mentorship/mentee-guide/introduction), also known as '**LFX**', plays a crucial role in providing mentees, including students and both new and experienced programmers; with structured hands-on learning opportunities in open source software development. 
 Through the program, mentees are paired with mentors based on their skills and interests to gain valuable experience by participating in and contributing to open source projects, all while [getting paid for it](https://docs.linuxfoundation.org/lfx/mentorship/mentees).
  
-**Google Summer of Code**
+**Google Summer of Code**  
 The [Google Summer of Code](https://summerofcode.withgoogle.com/), often abbreviated to GSoC, is an international annual program in which Google awards stipends to contributors who successfully complete a free and open-source software coding project during the summer. 
 
-**Google Season of Docs**
+**Google Season of Docs**  
 [Google Season of Docs](https://developers.google.com/season-of-docs/docs/organization-application-hints) is the ideal opportunity for aspiring and professional technical writers interested in non-code contribution, providing support for open source projects to improve their documentation. 
 
 **Outreachy**
@@ -67,7 +68,8 @@ The [Google Summer of Code](https://summerofcode.withgoogle.com/), often abbrevi
 
 *If you're interested in applying for one of these programs, be sure to read through the application details outlined in the links provided to determine your eligibility.*
 
-### **Selecting a program**
+### Selecting a program
+
 If you're struggling to choose which program to apply for, there's a number of considerations to factor: 
 
 1. ***Goals and expectations*** 
@@ -88,7 +90,7 @@ As a final note, reach out to program graduates via the channels listed in the *
 To maximize the benefits of a mentorship program, it is important to choose one that aligns with your personal goals and objectives. Each program has its own unique strengths and benefits, so by applying and learning more about the experience as it progresses, you can ensure that you select the best program for your needs.
 
 
-## **Remuneration**
+## Remuneration
 
 > **How do people find paid work through Open Source contribution?**
 
@@ -100,7 +102,7 @@ To maximize the benefits of a mentorship program, it is important to choose one 
 
 **What can I do to increase my employability/attractiveness to potential employers?**
 
-## **Skills & Experience**
+## Skills & Experience
 
 As a contributor and potential mentee, it's important to have a diverse technical and professional skillset in order to make the most impact. CNCF projects rely on a wide range of skills to thrive, including software development, design, project management, documentation, testing, and more.
 
@@ -112,31 +114,29 @@ Selecting a project according to: *(paragraph needed)*
 * reviewing the [CNCF Landscape](https://landscape.cncf.io/) to gain an understanding of different projects and researching to determine the best match
 * reviewing graduate profiles and communications such as blogs, Tweets and **Success Stories** to learn more about individual experiences. 
 
-
 ***Developing as a professional alongside your mentor***
 Your technical experience will be critical to your work during your mentorship. Professional excellence however can only be achieved by balancing that knowledge with 
 
-
-
 Whether you are a developer, designer, or anything in between, there is a place for you in mentoring programs on offer, and your unique skills and perspectives will be valuable assets to any project you choose to contribute to.
-
 
 * Provide general overview of skills common in recent LFX projects e.g. Go (provide link to skills map or similar resource from previous intake as indication?)
 * Dependent on individual projects, subject to change over time
 * Emphasise soft skills such as communication; critical regardless of technical expertise required
 
-## **Success Stories**
+## Success Stories
 
 *(Refer to existing repo content; additions as required)*
 
 ---
 
 
-# **FAQs**
+# FAQs
 
- ### **I’m new to Open Source and CNCF. Where should I start?**
+#### I’m new to Open Source and CNCF. Where should I start?
 
 Welcome to the community! It would be good to note before diving in, that there is no singular way to become a Contributor. Like most careers, your path will be determined by your unique goals, skills, personality, commitment, and available opportunities over time. 
+
+_Article_: "[Do you want to start contributing to open source and need help figuring out where to begin?](https://contribute.cncf.io/contributors/getting-started/)"
 
 There are however a few proven areas you can check out to get the ball rolling:
 
@@ -152,8 +152,7 @@ There are however a few proven areas you can check out to get the ball rolling:
 
 ---
 
-
-### **What is 'Contribution'?**
+#### What is 'Contribution'?
 Simply put, contribution is about adding value by giving back. The open source community thrives on the efforts of its millions of members globally to help shape, develop and maintain its systems and infrastructure, one incremental step at a time.
 
 Whether you're fixing a minor typo in documentation, or your code is helping to create the next game-changing project, every (approved!) action you make towards development is a critical piece of a bigger puzzle.
@@ -161,6 +160,7 @@ Whether you're fixing a minor typo in documentation, or your code is helping to 
 Being active in GitHub, meetings, events and blogs or articles are also examples of contribution that show your commitment and consistency, and overall will help both your own journey and the wider community over time.
 
 The best way to start contributing is:
+* Learn how to use the project, read the docs, try the tutorial/quickstart, and find ways to gain experience using the project and understanding how it works
 * Read the [CONTRIBUTING](https://github.com/cncf/tag-contributor-strategy/blob/main/CONTRIBUTING.md) guide.
 * Volunteer to work on an open issue that you know how to fix.
 * Attend [meetings or join our Slack channel](https://github.com/cncf/tag-contributor-strategy#communicating-with-us).
@@ -170,8 +170,7 @@ The CNCF Contributor website is a great starting point for new contributors.
 
 ---
 
-
-### **Can I contribute if I don't have a tech background?**
+#### Can I contribute if I don't have a tech background?
 
 Absolutely. In addition to the countless code-based efforts available in the open source community, there are also numerous roles and opportunties to contribute that don't require specific technical experience.
 
@@ -183,7 +182,8 @@ Example reference(s): TBC
 
 ---
 
-### **What's the best way to communicate with the community or get support with questions?**
+#### What's the best way to communicate with the community or get support with questions?
+
 There are various communication channels/platforms the open source community uses to interact (Slack, Discussion Boards etc.); whether providing support, coordinating work or recognising contribution for instance.
 
 To ensure that any responses to your questions don’t get split across platforms, stick to one channel at a time so answers can be collected in one space and are easier for others to reference in the future.
@@ -192,7 +192,6 @@ To ensure that any responses to your questions don’t get split across platform
 OS can be jargon-heavy, getting familiar with the vocab/terminology can be helpful
 If in doubt, reach out - the community is built upon supportive relationships
 Example reference(s): (Paragraph) CNCF Glossary
-
 
 **What are the benefits to becoming a Mentee?**
 * Skills, experience and confidence
