@@ -11,7 +11,7 @@ CNCF TAG Contributor Strategy
 
 ## Organization Admins
 
-If you need help with anything mentoring at CNCF, you can file an issue at this repo or reach out to us using the [Discussions boards](https://github.com/cncf/mentoring/discussions).
+If you need help with anything mentoring at CNCF, you can file an issue in this repo or reach out to us using GitHub [Discussions](https://github.com/cncf/mentoring/discussions).
 
 Organization admins for specific mentorship programs are listed on the program's respective pages.
 

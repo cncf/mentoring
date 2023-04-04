@@ -1,6 +1,6 @@
 # CNCF Mentoring Initiatives
 
-The Cloud Native Computing Foundation (CNCF) participates in a variety of mentoring programs. CNCF is a great place to spend a season learning, coding, documenting, participating, and contributing. We look forward to your application and your project ideas!
+The Cloud Native Computing Foundation (CNCF) participates in a variety of mentoring programs. CNCF is a great place to spend time learning, coding, documenting, participating, and contributing. We look forward to your application and your project ideas!
 
 This repository contains resources and information for the CNCF Mentoring Program. The program is designed to match experienced mentors with mentees who are interested in learning about cloud native technologies and contributing to open source projects in the ecosystem.
 
