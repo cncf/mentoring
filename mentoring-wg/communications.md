@@ -12,8 +12,8 @@ CNCF TAG Contributor Strategy
 
 ## Communications
 
-Please reach out to us using the [Discussions boards](https://github.com/cncf/mentoring/discussions).
+Please reach out to us using GitHub [Discussions](https://github.com/cncf/mentoring/discussions).
 
-We are also available on the [CNCF slack](https://slack.cncf.io/). Please don't use DMs unless strictly necessary as doing so both has the potential of overwhelming project maintainers and others with similar questions lose the benefit of public discussion.
+We are also available on the [CNCF Slack Workspace](https://slack.cncf.io/). Avoid sending direct messages to organization admins and project maintainers unless strictly necessary as doing so has the potential of overwhelming project maintainers and prevents others with similar questions from benefitting from your public discussion.
 
-It's best if you use a public communication channel whenever possible; however, if you need to communicate in private, please feel free to send the admins a note via mentoring@cncf.io (please use the public channels for any project-related discussion).
+While its best to relay your inquiries in a public forum, should you need to communicate in private, please feel free to send the admins a note at mentoring@cncf.io. Be sure to use public channels for any project-related discussion.
