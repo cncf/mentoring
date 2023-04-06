@@ -39,7 +39,7 @@ At this stage, Google announces it will have GSoC in the upcoming year. There is
 
 Tasks:
 * Create GSoC ideas page in [`cncf/mentoring`](https://github.com/cncf/mentoring/tree/main/summerofcode) repository. An ideas page will be necessary during the organization application.
-* [Announce](#Announcements) the intention to participate in the program. Mention these:
+* [Announce](#Announcements) the intention to participate in the program ([example announcement](https://github.com/cncf/mentoring/discussions/777)). Mention these:
     * Deadline to add ideas is the contributor application period start date.
     * CNCF has not yet been accepted into the program.
     * We are collecting ideas.
@@ -64,7 +64,7 @@ Tasks:
 
 ### Acceptance announcement
 
-* [Announce](#Announcements) the acceptance in the program. Mention these:
+* [Announce](#Announcements) the acceptance in the program ([example announcement](https://github.com/cncf/mentoring/discussions/848)). Mention these:
     * CNCF is accepted to the program.
     * It is still possible to add ideas until the contributor application period start date.
     * We encourage communities to add ideas earlier rather than later to give potential contributors more time.
@@ -76,7 +76,8 @@ Tasks:
 
 ### Contributor applications
 
-* [Announce](#Announcements) that the contributor applications have started. Mention these:
+* [Announce](#Announcements) that the contributor applications have started ([example announcement](https://github.com/cncf/mentoring/discussions/892)). 
+* Mention these:
     * We encourage contributors to submit proposals early to be able to get feedback from mentors and fix any issues.
     * We are no longer collecting ideas from mentors.
 * Inform member mentors (mentors who added an idea) about these:
@@ -92,6 +93,7 @@ Tasks:
     * Review proposals and select contributors they want to mentor
     * Provide feedback in the GSoC system around the matters listed in the [contributor+proposal selection and ranking criteria](#Contributorproposal-selection-and-ranking-criteria), such as community interaction, proposal quality, etc.
     * Refrain from commenting on any contributor's chances of being accepted.
+    * (Example Github discussion [announcement](https://github.com/cncf/mentoring/discussions/918))
 * Run the ranking process
 
 ### Accepted projects announcement
@@ -156,7 +158,8 @@ TBA
 ## Announcements
 
 * Target channels for the public announcements:
-    * Create a Github discussion on  [`cncf/mentoring`](https://github.com/cncf/mentoring), which serves as the main announcement page
+    * Create a Github discussion on  [`cncf/mentoring`](https://github.com/cncf/mentoring), which serves as the main announcement page. Tag people when applicable with `/cc @username`.
+    * Post a link to the discussion on the CNCF Slack #mentoring channel.
     * Do the social media promotions of the announcement page.
 
 
