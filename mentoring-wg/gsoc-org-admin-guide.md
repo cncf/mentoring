@@ -158,7 +158,7 @@ TBA
 ## Announcements
 
 * Target channels for the public announcements:
-    * Create a Github discussion on  [`cncf/mentoring`](https://github.com/cncf/mentoring), which serves as the main announcement page. Tag people when applicable with `/cc @username`.
+    * Create a Github discussion on [`cncf/mentoring`](https://github.com/cncf/mentoring/discussions), which serves as the main announcement page. Tag people when applicable with `/cc @username`.
     * Post a link to the discussion on the CNCF Slack #mentoring channel.
     * Do the social media promotions of the announcement page.
 
