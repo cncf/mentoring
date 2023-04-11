@@ -1,4 +1,4 @@
-## Become a Mentee
+# Become a Mentee
 
 Congratulations on choosing to take part in a mentorship program available with the CNCF and some of its valued members. Contributing as a mentee can be a rewarding and fulfilling experience that connects you with a range of experts and development opportunities unique to these programs. 
 
