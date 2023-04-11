@@ -33,6 +33,53 @@ https://zoom.us/my/cncftagcontributorstrategy?pwd=TnI0WU9Eb2I1RlRWdkl1R0k1WkZXUT
 
 Passcode: 77777
 
+
+## April 11, 2023
+
+21:00 UTC (2:00 PM PDT on 2023-01-11; 10:00 AM NZST on 2023-01-12)  
+**Note**: this meeting may be cancelled or postponed due to its proximity to KubeCon EU.
+
+### Attendance
+
+* Riaan Kleinhans
+* Josh Berkus
+* Nate W. (briefly) 
+
+More of a conversation than a meeting, should not be posted to Youtube.
+
+### Updates/reminders
+
+* Nate W. availability updates:
+  * travelling for KubeCon EU April 13-21, 2023
+  * vacation April 24-28, 2023 (Note, Nate can be available during this time as there is a GSoC deadline this week)
+      * Move out to 5 May 2023
+
+### Agenda
+
+* LFX Term 02-Jun-Aug
+    * We should draft an email to open the next term of LFX: https://github.com/cncf/mentoring/tree/main/lfx-mentorship/2023/02-Jun-Aug
+        * issue: https://github.com/cncf/mentoring/issues/926
+        * Should note that any GSoC projects that aren't accepted would be a great project for LFX term 02
+        * previous email: https://lists.cncf.io/g/tag-cs-mentoring-wg/message/7
+            * should send to: tag-cs-mentoring, toc list, add to Maintainer newsletter, cncf/mentoring discussions board, #mentoring slack
+    * Should we push the deadline for project ideas back a week? - Move out to 5 May 2023
+    * Should we create a templates folder in the cncf/mentoring repo for common communications like this?
+        * Yes, that make sense
+        * Make sure we do not forget any info
+        * Let's make templates and review as a group
+* LFX Term 01-Mar-May
+    * Currently going through evaluations, evals due Wednesday Apr 12 @ 5:00pm pacific time
+* GSoC
+    * Currenly assessing contriubtor proposals
+    * details & dates: https://github.com/cncf/mentoring/discussions/918#discussioncomment-5548149 
+* Mentoring repo refactor:
+    * https://github.com/cncf/mentoring/pull/927 - update to call out draft pages
+    * https://github.com/cncf/mentoring/pull/899
+    * Happy day!! It is merged!!
+
+
+# Past Meetings
+
 ## March 28, 2023
 
 21:00 UTC (2:00 PM PDT on 2023-01-28; 10:00 AM NZST on 2023-01-29)
@@ -112,8 +159,6 @@ Join us at times listed!
 * Would like to merge sooner than later; mindful of upcoming Kubecon. GSOC deadlines few weeks away so timing is good
 * Would be ideal to have set up before KC EU
 
-
-# Past Meetings
 
 ## March 14, 2023
 
