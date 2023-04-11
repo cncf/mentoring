@@ -1,10 +1,10 @@
-# LFX Mentorship (ex-Community Bridge) by The Linux Foundation
+# LFX Mentorship by The Linux Foundation
 
 [LFX Mentorship](https://lfx.linuxfoundation.org/tools/mentorship/) (previously known as Community Bridge) is a platform developed by the Linux Foundation, which accelerates the adoption, innovation, and sustainability of open source software.
 
 LFX Mentorship is actively used by the Cloud Native Computing Foundation as a mentorship platform across the CNCF projects.
 
-- [LFX Mentorship (ex-Community Bridge) by The Linux Foundation](#lfx-mentorship-ex-community-bridge-by-the-linux-foundation)
+- [LFX Mentorship](#lfx-mentorship)
   - [Program Cycles and Archive data](#program-cycles-and-archive-data)
     - [Current cycle](#current-cycle)
   - [Program Maintainers](#program-maintainers)
