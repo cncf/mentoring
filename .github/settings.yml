@@ -96,31 +96,6 @@ labels:
     color: 0052CC
   - name: '2024'
     color: 0052CC
-  # project labels
-  - name: Argo
-  - name: Brigade
-  - name: Buildpacks
-  - name: cert-manager
-  - name: "Chaos Mesh"
-  - name: CoreDNS
-  - name: in-toto
-  - name: Karmada
-  - name: Keylime
-  - name: Knative
-  - name: KubeArmor
-  - name: KubeEdge
-  - name: Kubernetes
-  - name: KubeVela
-  - name: Kyverno
-  - name: LitmusChaos
-  - name: Meshery
-  - name: Pixie
-  - name: "Service Mesh Performance"
-  - name: Thanos
-  - name: "The Update Framework"
-  - name: TiKV
-  - name: Vitess
-  - name: WasmEdge
   # one "blank" line
   - name: blank
 
