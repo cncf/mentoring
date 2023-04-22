@@ -11,7 +11,7 @@ These include:
 
 The [mentors](/mentors#readme) and [mentees](mentees#readme) folders which provides guidance on how to be an effective mentor or mentee.
 The [programs](/programs#readme) folder provides a list of programs for mentees to work on with their mentors.
-This initiative is guided by the [Mentoring Wroking Group](/mentoring-wg#readme). More information about meetings, communication and aticities can be found in the  [mentoring-wg](/mentoring-wg#readme) section of this repositery
+This initiative is guided by the [Mentoring Working Group](/mentoring-wg#readme). More information about meetings, communication and aticities can be found in the  [mentoring-wg](/mentoring-wg#readme) section of this repositery
 
 ## Participation
 Participation in the CNCF Mentoring Program is open to anyone who is interested in learning about cloud native technologies and contributing to open source projects in the ecosystem.
