@@ -9,7 +9,7 @@ Mentorship duration - three months (12 weeks - full-time schedule)
 | activity | date |
 | --- | --- |   
 | project proposals due | Tue, May 9, 5:00 PM PDT |
-| mentee applications open | Fri May 10 - Tue May 23, 5:00 PM PDT |
+| mentee applications open | Wed May 10 - Tue May 23, 5:00 PM PDT |
 | application review/admission decisions | Wed May 24 - Mon May 29, 5:00 PM PDT |
 | Mentorship program begins with the initial work assignments |  Thur June 1 (Week 1) | 
 | Midterm mentee evaluations and first stipend payments | Wed July 12 (Week 6) |
