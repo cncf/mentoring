@@ -101,6 +101,54 @@ Test coverage could increase
 - Upstream Issue:
   - https://github.com/cilium/tetragon/issues/794
 
+### WasmEdge
+
+#### Serialization Completion
+
+- Description: WasmEdge is a WebAssembly runtime in both interpreter and ahead-of-time mode. However, WasmEdge only supports the binary format for the input WebAssembly file. To help the text format WebAssembly loader feature in the future, the implementation of serializing a WebAssembly module is necessary. In this mentorship, we hope the mentee should complete the serialization functions already in [the `dev/serialize` branch](https://github.com/WasmEdge/WasmEdge/tree/dev/serialize) of the `WasmEdge` repo.
+- Expected outcome: Complete the serialization functions of WebAssembly modules, such as the element segment and data segment encoding. Complete the WebAssembly instructions encoding. Generate the unit test data and pass the unit tests. >80% of code coverage for serialization.
+- Recommended Skills: C/C++, WebAssembly
+- Mentor(s): Yi-Ying He @q82419 (yiying at secondstate dot io), Hung-Ying Tai @hydai (hydai at secondstate dot io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2262
+
+#### `zlib` Plugin Support
+
+- Description: The zlib is required for compiling and running many existing C / C++ / Rust apps in Wasm. Most noticeably, it is [needed in the Python port to Wasm](https://github.com/python/cpython/issues/93819). The VMWare Wasm Labs team is using a zlib port from [Singlestore](https://github.com/singlestore-labs/python-wasi) in [their Python Wasm runtime](https://wasmlabs.dev/articles/python-wasm32-wasi/). In WasmEdge, we could support the zlib host functions through our [plugin system](https://wasmedge.org/book/en/plugin.html). This way, any existing zlib apps can be compiled to Wasm and runs inside WasmEdge.
+- Expected outcome: Create a new [WasmEdge plugin](https://wasmedge.org/book/en/plugin.html) that exports all public functions in `zlib`. Implement SDK (in C/Rust) that uses the C ABI to generate corresponding headers for the above plugin. Generate the unit tests and pass the unit tests. >80% of code coverage for verification.
+- Recommended Skills: C/C++, Rust, WebAssembly
+- Mentor(s): Yi-Ying He @q82419 (yiying at secondstate dot io), Hung-Ying Tai @hydai (hydai at secondstate dot io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2244
+
+#### Support Tensorflow and PyTorch in WasmEdge’s Python runtime
+
+- Description: In this project, you will incorporate WasmEdge’s NN (Neural Network) extensions into the Python interpreter. WasmEdge provides C and Rust APIs for guest applications to access host functions in the underlying Tensorflow and PyTorch libraries. You will make those functions accessible from the CPython-based interpreter as Python wrappers. This way, Python applications can do lightweight AI inference on the WasmEdge container.
+- Expected outcome:
+  * Investigate and list all C-based host function APIs for Tensorflow and PyTorch inference in WasmEdge NN.
+  * Create CPython wrappers for those host functions.
+  * Create high-level Python wrapper functions that are ergonomic for Python developers.
+  * Create CI and demo apps to validate the Python wrapper API.
+  * Create detailed documentation and tutorials.
+- Recommended Skills: Proficient in C programming including creating dynamic libraries; Proficient in Python and machine learning programming. Basic understanding of WebAssembly and WasmEdge.
+- Mentor(s): Michael Yuan @juntao (michael at secondstate dot io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2471
+
+#### A stream log processing framework for WasmEdge
+
+- Description: In this project, we aim to build a Rust-based log processing framework. Applications built on this framework will be compiled into WebAssembly and run in WasmEdge containers side by side with Linux containers and apps. The WasmEdge app collects logs from other containerized apps and then sends them to a streaming database or processing pipeline.
+- Expected outcome:
+  * Create a Rust framework with 3 traits similar to the [`Transformer`](https://github.com/second-state/MEGA/blob/main/mega_etl/src/lib.rs#L99) trait in the [MEGA framework](https://github.com/second-state/MEGA).
+    * The `Collector` trait abstracts operations needed for a log collector.
+    * The `Transformer` trait abstracts the transformation algorithms that can be applied to the logs.
+    * The `Destination` trait abstracts operations needed to send transformed to a streaming data pipeline or database.
+  * Implement at least two `Collector`s. One for MySQL database binlog and the other for a generic log file in a Linux container in the same Kubernetes pod.
+  * Implement at least two `Transformer` algorithms supported by [FileBeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-overview.html).
+  * Implement at least three `Destination`s. One for a Kafka queue, one for a Redis database, and the other for ElasticSearch.
+  * Provide CI and demo test cases.
+  * Provide documentation and tutorials.
+- Recommended Skills: Proficient in the Rust programming language; Familiarity with MySQL, Kafka, ElasticSearch, and FileBeat; Familiarity with Kubernetes and related container management tools; Basic understanding of WebAssembly and WasmEdge
+- Mentor(s): Michael Yuan @juntao (michael at secondstate dot io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2470
+
 ### Konveyor
 
 #### Add Integration test suite and components testing to Konveyor
@@ -118,4 +166,5 @@ The development environment is based on golang and Kubernetes. A minikube instan
   - David Zager (@djzager, dzager@redhat.com) 
 - Upstream Issue:
   - https://github.com/konveyor/tackle2-hub/issues/312
+
 ---
