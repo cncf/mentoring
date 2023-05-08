@@ -98,11 +98,12 @@ Tasks:
 
 ### Accepted projects announcement
 
-* [Announce](#Announcements) that accepted contributors and projects have been chosen.
+* [Announce](#Announcements) that accepted contributors and projects have been chosen ([example announcement](https://github.com/cncf/mentoring/discussions/954)).
 * Add selected mentors to the mailing list created earlier
 * Inform mentors and contributors about:
     * Community bonding
     * Getting up to speed to begin working on projects
+    * Other mentoring program opportunities ([example](https://github.com/cncf/mentoring/discussions/918#discussioncomment-5810110))
 
 ### Coding period
 
