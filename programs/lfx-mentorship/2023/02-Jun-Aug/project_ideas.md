@@ -124,7 +124,7 @@ Test coverage could increase
 - Recommended Skills: Golang, Kubernetes, Kyverno
 - Mentor(s):
   - Jim Bugwadia @jimbugwadia (jim AT nirmata DOT com)
-  - Mariam Fahmy @MariamFahmy98 ()
+  - Mariam Fahmy @MariamFahmy98 (mariamfahmy66 AT gmail DOT com)
 - Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/7088
 
 #### Cleanup Policies, Phase 2
