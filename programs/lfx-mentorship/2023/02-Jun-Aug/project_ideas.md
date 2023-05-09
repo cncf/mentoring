@@ -17,6 +17,19 @@
 
 ## Proposed Project ideas
 
+* [Armada](#armada)
+* [CoreDNS](#coredns)
+* [Jaeger](#jaeger)
+* [Knative](#knative)
+* [Kubescape](#kubescape)
+* [Kyverno](#kyverno)
+* [Tetragon](#tetragon)
+* [WasmEdge](#wasmedge)
+* [Konveyor](#konveyor)
+* [Thanos](#thanos)
+* [KubeArmor](#kubearmor)
+* [LitmusChaos](#litmuschaos)
+
 ### Armada
 
 #### Build interfaces around Postgres for Armada
@@ -43,7 +56,7 @@ Test coverage could increase
 
 ### Jaeger
 
-#### Upgrade Jaeger's internal telemtery to OpenTelemetry
+#### Upgrade Jaeger's internal telemetry to OpenTelemetry
 
 - Description: historically, the Jaeger backend used the OpenTracing API, with Jaeger's own Go SDK `jaeger-client-go`, for instrumenting its own internals for distributed tracing. Since Jaeger's SDKs have been deprecated, we want to upgrade the Jaeger backend to use the OpenTelemetry tracing API and SDK directly.
 - Expected Outcome:
@@ -56,6 +69,20 @@ Test coverage could increase
 - Recommended Skills: Go
 - Mentor(s): Yuri Shkuro (@yurishkuro, github@ysh.us)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/3381
+
+#### Implement Critical Path analysis
+
+- Description: Jaeger (https://jaegertracing.io) is a popular platform for distributed tracing. Critical path analysis is an important tool in the latency investigations. This project aims to add support for critical path analysis to Jaeger UI.
+- Expected outcomes:
+  - Implement critical path determination algorithm (maybe in the backend)
+  - Enhance Trace Timeline view to overlay critical path on top of the trace.
+  - Add relevant documentation to the Jaeger website
+  - Author a blog post on Jaeger blog explaining the new feature
+- Stretch goals:
+  - Add critical path visualization to other trace views (graph, table, flamechart)
+- Recommended Skills: Javascript, Typescript, Go
+- Mentor(s): Yuri Shkuro (@yurishkuro, github@ysh.us)
+- Upstream Issue (URL): https://github.com/jaegertracing/jaeger-ui/issues/1288
 
 ### Knative
 
@@ -109,6 +136,45 @@ Test coverage could increase
   - David Wertenteil (@dwertent, dwertent AT armosec.io)
 - Upstream Issue: https://github.com/kubescape/kubescape/issues/1227
 
+### Kyverno
+
+#### Kuttl tests for the Kyverno policy library
+
+- Description: Kyverno has the largest policy library of any policy tool for Kubernetes. Ensuring that policies work effectively across releases of both Kyverno and Kubernetes is important for users. Additionally, these tests can be leveraged in the CI processes ensuring that changes to the Kyverno codebase do not cause regressions which impact areas relevant to these policies. In this mentorship, you will learn how the `kuttl` tool works and write test cases using `kuttl` to cover all policies in the official Kyverno policy library.
+- Expected outcome: All policies have corresponding tests using the `kuttl` tool.
+- Recommended Skills: Kubernetes, Kyverno
+- Mentor(s): Chip Zoller @chipzoller (chipzoller AT gmail DOT com)
+- Upstream Issue (URL): https://github.com/kyverno/policies/issues/546
+
+#### Sigstore Cosign Updates
+
+- Description: Kyverno supports image signature and attestation verification using the Sigstore Cosign tooling. Re-implement the Kyverno Sigstore Cosign module to use OCI artifacts and references and remove dependencies to the Cosign CLI packages.
+- Expected outcome: Kyverno can use OCI artifacts to verify container images that are in Cosign format.
+- Recommended Skills: Golang, Kubernetes, Kyverno
+- Mentor(s):
+  - Shuting Zhao @realshuting (shuting AT nirmata DOT com)
+  - Vishal Choudhary @Vishal-Chdhry (contactvishaltech AT gmail DOT com)
+- Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/7087
+
+#### ValidatingAdmissionPolicy support, Phase 2
+
+- Description: Kyverno is working towards support of ValidatingAdmissionPolicy (CEL admission). Extend this support for other items such as CLI, reporting, and auto-generating ValidatingAdmissionPolicies from Kyverno policies.
+- Expected outcome: Extended support and integration with ValidatingAdmissionPolicies
+- Recommended Skills: Golang, Kubernetes, Kyverno
+- Mentor(s):
+  - Jim Bugwadia @jimbugwadia (jim AT nirmata DOT com)
+  - Mariam Fahmy @MariamFahmy98 (mariamfahmy66 AT gmail DOT com)
+- Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/7088
+
+#### Cleanup Policies, Phase 2
+
+- Description: Kyverno has a policy type called Cleanup Policies which allow removal of resources defined in a policy. In this second phase, we would like to extend this ability to cleanup resources based upon defining a label for even more fine-grained control.
+- Expected outcome: Extend Cleanup Policies feature by allowing per-resource removal based upon label assignment
+- Recommended Skills: Golang, Kubernetes, Kyverno
+- Mentor(s): Charles-Edouard Brétéché @eddycharly (charles.edouard AT nirmata DOT com)
+- Upstream Issue (URL):
+  - https://github.com/kyverno/kyverno/issues/5748
+  - https://github.com/kyverno/KDP/blob/main/proposals/cleanup.md#proposal
 
 ### Tetragon
 
@@ -188,17 +254,17 @@ Test coverage could increase
 
 #### Add Integration test suite and components testing to Konveyor
 
-- Description: 
+- Description:
 The Konveyor project helps modernize applications by providing open source tools to rehost, replatform, and refactor applications to Kubernetes and cloud-native technologies.We’re looking for help on building integration tests on application level as well as work on missing parts of Konveyor component tests.There is open testing work to better applications analysis, tasks coverage, more detailed Hub API tests and Hub integration with addons. All of those use the Hub API that is covered with basic tests already. Based on existing Hub API tests, it is expected to continue work to cover more Konveyor functionality with tests.
 The development environment is based on golang and Kubernetes. A minikube instance will work well for local development on Linux or Mac systems.
 - Expected Outcome:
   - Integration test suite and components testing added to existing Konveyor upstream automated test suite
 - Recommended Skills:
   - Go
-  - Basic software development skills (command line, git) 
+  - Basic software development skills (command line, git)
 - Mentor(s):
   - Marek Aufart (@aufi, maufart@redhat.com)
-  - David Zager (@djzager, dzager@redhat.com) 
+  - David Zager (@djzager, dzager@redhat.com)
 - Upstream Issue:
   - https://github.com/konveyor/tackle2-hub/issues/312
 
@@ -217,5 +283,70 @@ The development environment is based on golang and Kubernetes. A minikube instan
   - Paolo Patierno (@ppatierno, ppatiern@redhat.com)
   - Kyle Liberti (@kyguy, kliberti@redhat.com)
 - Upstream Issue (URL): https://github.com/strimzi/strimzi-kafka-operator/issues/8030
+
+### Thanos
+
+#### Continuation of add query observability for the new engine
+
+- Description: We have added solid foundation for query observability in the new engine during the previous LFX mentorship term. Let's continue the awesome work by Pradyumna by implementing other features.
+- Expected outcome: other query observability visualizations are implemented; extra observability data has been added
+- Recommended skills: Golang, React
+- Mentor(s): @saswatamcode, @GiedriusS
+- Difficulty: Medium
+- Upstream issue (URL): https://github.com/thanos-community/promql-engine/issues/106
+
+### KubeArmor
+
+#### Implement DNS visibility with KubeArmor
+
+* Description: The project aims to provide better visibility into the domains accessed from pods, with a focus on identifying and containing attacks that use techniques like Domain Generation Algorithms (DGA) to connect to remote command and control (C&C) servers. By gathering information on which domains are being accessed and applying network rules to allow only specific domains, the project aims to empower security operations (secops) teams to better prevent and respond to such attacks.
+* Expected Outcome:  
+  * KubeArmor to emit telemetry events for any DNS lookups from any pods.
+  * Ability to see egress DNS lookups done from any pods using karmor summary.
+  * Documentation
+* Recommended Skills: Go, K8s, familiarity with network security and a basic understanding of KubeArmor is a plus.
+* Mentors:
+  * Anurag Kumar (@kranurag7, contact.anurag7@gmail.com)
+  * Barun Acharya (@daemon1024, barun1024@gmail.com)
+  * Ankur Kothiwal (@Ankurk99, ankur.kothiwal99@gmail.com)
+* Upstream Issue: [Issue #1219](https://github.com/kubearmor/KubeArmor/issues/1219)
+
+#### Manage KubeArmor policies using OCI registry and use OCI hooks for container events
+
+* Description: The feature aims to manage KubeArmor policies using OCI registry and use OCI hooks to get container events. Currently, KubeArmor uses a UNIX domain socket file to watch for container events, but the proposed feature aims to use OCI hooks instead.
+* Expected Outcome: To provide a more secure and efficient way of managing KubeArmor policies by leveraging OCI registry. Storing policies in OCI registries will make it easier to distribute policies across multiple clusters and environments. Using OCI hooks will also reduce the overhead of monitoring container events and make it easier to integrate KubeArmor with other container runtimes.
+* Recommended Skills: Go, K8s, understanding of the Open Container Initiative (OCI) and container runtimes.
+* Mentors:
+  * Anurag Kumar (@kranurag7, contact.anurag7@gmail.com)
+  * Barun Acharya (@daemon1024, barun1024@gmail.com)
+  * Ankur Kothiwal (@Ankurk99, ankur.kothiwal99@gmail.com)
+* Upstream Issue: [Issue #1130](https://github.com/kubearmor/KubeArmor/issues/1130)
+
+
+### LitmusChaos
+
+#### Migrate chaos workflow api from graphql to rest and improve chaos center code base
+- Description: This project aims to improve the user experience with the chaos workflow GraphQL APIs by enhancing their functionality and addressing security vulnerabilities. The project includes converting the user-facing chaos workflow and workflow run APIs, refactoring the chaos-workflow package into interfaces and splitting it into separate packages, and resolving security vulnerabilities and golangci-lint issues in the chaos-center backend components. 
+- Expected outcome: The outcome of this project will be improved functionality, security, and usability of the chaos workflow GraphQL APIs and chaos-center backend components through the implementation of new features, refactoring of existing code, and addressing of security vulnerabilities.
+- Recommended Skills:
+  - Golang
+  - Kubernetes
+  - Backend APIs Development
+- Mentor(s):
+  - Amit Kumar Das (@amityt, amit.das@harness.io)
+  - Arkajyoti Mukherjee (@arkajyotiMukherjee, arkajyoti.mukherjee@harness.io)
+- Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/3970
+
+#### Enhance/Upgrade chaos operator and chaos exporter module
+- Description: LitmusChaos is an open source Chaos Engineering platform that enables teams to identify weaknesses & potential outages in infrastructures by inducing chaos tests in a controlled way. This project idea involves upgrading the Chaos Operator and Chaos Exporter repositories by updating their dependencies, addressing security vulnerabilities, and adding new functionality. Specifically, the project aims to upgrade the operator-sdk and Prometheus exporter versions, add new Prometheus metrics to the Chaos Exporter, and fix security vulnerabilities pointed out by trivy and golangci-lint. Furthermore, the project seeks to add unit test cases to both repositories to ensure that their functionality is robust and reliable. Overall, this project aims to improve the stability, security, and functionality of the Chaos Operator and Chaos Exporter repositories, making them better suited for use in production environments.
+- Expected outcome: The outcome of this project will be improved stability, security, and functionality of the Chaos Operator and Chaos Exporter modules through the upgrade of dependencies, addition of new metrics, and implementation of unit tests.
+- Recommended Skills:
+  - Golang
+  - Kubernetes and k8s golang client
+  - Prometheus
+- Mentor(s):
+  - Shubham Chaudhary (@ispeakc0de, shubham.chaudhary@harness.io)
+  - Vansh Bhatia (@vanshBhatia-A4k9, vansh.bhatia@harness.io)
+- Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/3970
 
 ---
