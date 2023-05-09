@@ -17,6 +17,14 @@
 
 ## Proposed Project ideas
 
+* [Armada](#armada)
+* [CoreDNS](#coredns)
+* [Jaeger](#jaeger)
+* [Knative](#knative)
+* [Tetragon](#tetragon)
+* [WasmEdge](#wasmedge)
+* [Konveyor](#konveyor)
+
 ### Armada
 
 #### Build interfaces around Postgres for Armada
@@ -43,7 +51,7 @@ Test coverage could increase
 
 ### Jaeger
 
-#### Upgrade Jaeger's internal telemtery to OpenTelemetry
+#### Upgrade Jaeger's internal telemetry to OpenTelemetry
 
 - Description: historically, the Jaeger backend used the OpenTracing API, with Jaeger's own Go SDK `jaeger-client-go`, for instrumenting its own internals for distributed tracing. Since Jaeger's SDKs have been deprecated, we want to upgrade the Jaeger backend to use the OpenTelemetry tracing API and SDK directly.
 - Expected Outcome:
@@ -56,6 +64,20 @@ Test coverage could increase
 - Recommended Skills: Go
 - Mentor(s): Yuri Shkuro (@yurishkuro, github@ysh.us)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/3381
+
+#### Implement Critical Path analysis
+
+- Description: Jaeger (https://jaegertracing.io) is a popular platform for distributed tracing. Critical path analysis is an important tool in the latency investigations. This project aims to add support for critical path analysis to Jaeger UI.
+- Expected outcomes:
+  - Implement critical path determination algorithm (maybe in the backend)
+  - Enhance Trace Timeline view to overlay critical path on top of the trace.
+  - Add relevant documentation to the Jaeger website
+  - Author a blog post on Jaeger blog explaining the new feature
+- Stretch goals:
+  - Add critical path visualization to other trace views (graph, table, flamechart)
+- Recommended Skills: Javascript, Typescript, Go
+- Mentor(s): Yuri Shkuro (@yurishkuro, github@ysh.us)
+- Upstream Issue (URL): https://github.com/jaegertracing/jaeger-ui/issues/1288
 
 ### Knative
 
@@ -153,17 +175,17 @@ Test coverage could increase
 
 #### Add Integration test suite and components testing to Konveyor
 
-- Description: 
+- Description:
 The Konveyor project helps modernize applications by providing open source tools to rehost, replatform, and refactor applications to Kubernetes and cloud-native technologies.We’re looking for help on building integration tests on application level as well as work on missing parts of Konveyor component tests.There is open testing work to better applications analysis, tasks coverage, more detailed Hub API tests and Hub integration with addons. All of those use the Hub API that is covered with basic tests already. Based on existing Hub API tests, it is expected to continue work to cover more Konveyor functionality with tests.
 The development environment is based on golang and Kubernetes. A minikube instance will work well for local development on Linux or Mac systems.
 - Expected Outcome:
   - Integration test suite and components testing added to existing Konveyor upstream automated test suite
 - Recommended Skills:
   - Go
-  - Basic software development skills (command line, git) 
+  - Basic software development skills (command line, git)
 - Mentor(s):
   - Marek Aufart (@aufi, maufart@redhat.com)
-  - David Zager (@djzager, dzager@redhat.com) 
+  - David Zager (@djzager, dzager@redhat.com)
 - Upstream Issue:
   - https://github.com/konveyor/tackle2-hub/issues/312
 
