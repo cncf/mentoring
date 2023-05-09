@@ -167,4 +167,20 @@ The development environment is based on golang and Kubernetes. A minikube instan
 - Upstream Issue:
   - https://github.com/konveyor/tackle2-hub/issues/312
 
+
+### Strimzi
+
+#### Proof of Concept of an MQTT to Apache Kafka bridge for producing messages
+
+- Description: A really common use case we have been seeing is about enabling an IoT scenario with MQTT based devices and using an Apache Kafka cluster as the events and storage platform running on Kubernetes via Strimzi. In order to do that, there is the need to map the MQTT protocol to the custom Apache Kafka one and bridge from one to the other. This project idea is about designing such a mapping and developing a pure [Netty](https://github.com/netty/netty/tree/4.1/codec-mqtt/src/main/java/io/netty/handler/codec/mqtt) based MQTT server component (not a full MQTT broker) able to accept MQTT client connections and handling the corresponding communication based on the [MQTT 3.1.1 specification](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html). Finally, developing the Kafka producer part to get messages from MQTT clients and sending them to an Apache Kafka cluster.
+- Expected outcome: POC source code for an MQTT to Apache Kafka bridge
+- Recommended Skills:
+  - Java
+  - Apache Kafka (not mandatory but to be learned)
+  - MQTT protocol (not mandatory but to be learned)
+- Mentor(s):
+  - Paolo Patierno (@ppatierno, ppatiern@redhat.com)
+  - Kyle Liberti (@kyguy, kliberti@redhat.com)
+- Upstream Issue (URL): https://github.com/strimzi/strimzi-kafka-operator/issues/8030
+
 ---
