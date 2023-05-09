@@ -24,6 +24,8 @@
 * [Tetragon](#tetragon)
 * [WasmEdge](#wasmedge)
 * [Konveyor](#konveyor)
+* [Thanos](#thanos)
+* [KubeArmor](#kubearmor)
 * [LitmusChaos](#litmuschaos)
 
 ### Armada
@@ -205,6 +207,45 @@ The development environment is based on golang and Kubernetes. A minikube instan
   - Paolo Patierno (@ppatierno, ppatiern@redhat.com)
   - Kyle Liberti (@kyguy, kliberti@redhat.com)
 - Upstream Issue (URL): https://github.com/strimzi/strimzi-kafka-operator/issues/8030
+
+### Thanos
+
+#### Continuation of add query observability for the new engine
+
+- Description: We have added solid foundation for query observability in the new engine during the previous LFX mentorship term. Let's continue the awesome work by Pradyumna by implementing other features.
+- Expected outcome: other query observability visualizations are implemented; extra observability data has been added
+- Recommended skills: Golang, React
+- Mentor(s): @saswatamcode, @GiedriusS
+- Difficulty: Medium
+- Upstream issue (URL): https://github.com/thanos-community/promql-engine/issues/106
+
+### KubeArmor
+
+#### Implement DNS visibility with KubeArmor
+
+* Description: The project aims to provide better visibility into the domains accessed from pods, with a focus on identifying and containing attacks that use techniques like Domain Generation Algorithms (DGA) to connect to remote command and control (C&C) servers. By gathering information on which domains are being accessed and applying network rules to allow only specific domains, the project aims to empower security operations (secops) teams to better prevent and respond to such attacks.
+* Expected Outcome:  
+  * KubeArmor to emit telemetry events for any DNS lookups from any pods.
+  * Ability to see egress DNS lookups done from any pods using karmor summary.
+  * Documentation
+* Recommended Skills: Go, K8s, familiarity with network security and a basic understanding of KubeArmor is a plus.
+* Mentors:
+  * Anurag Kumar (@kranurag7, contact.anurag7@gmail.com)
+  * Barun Acharya (@daemon1024, barun1024@gmail.com)
+  * Ankur Kothiwal (@Ankurk99, ankur.kothiwal99@gmail.com)
+* Upstream Issue: [Issue #1219](https://github.com/kubearmor/KubeArmor/issues/1219)
+
+#### Manage KubeArmor policies using OCI registry and use OCI hooks for container events
+
+* Description: The feature aims to manage KubeArmor policies using OCI registry and use OCI hooks to get container events. Currently, KubeArmor uses a UNIX domain socket file to watch for container events, but the proposed feature aims to use OCI hooks instead.
+* Expected Outcome: To provide a more secure and efficient way of managing KubeArmor policies by leveraging OCI registry. Storing policies in OCI registries will make it easier to distribute policies across multiple clusters and environments. Using OCI hooks will also reduce the overhead of monitoring container events and make it easier to integrate KubeArmor with other container runtimes.
+* Recommended Skills: Go, K8s, understanding of the Open Container Initiative (OCI) and container runtimes.
+* Mentors:
+  * Anurag Kumar (@kranurag7, contact.anurag7@gmail.com)
+  * Barun Acharya (@daemon1024, barun1024@gmail.com)
+  * Ankur Kothiwal (@Ankurk99, ankur.kothiwal99@gmail.com)
+* Upstream Issue: [Issue #1130](https://github.com/kubearmor/KubeArmor/issues/1130)
+
 
 ### LitmusChaos
 
