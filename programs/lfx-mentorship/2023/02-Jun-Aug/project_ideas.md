@@ -315,3 +315,14 @@ The development environment is based on golang and Kubernetes. A minikube instan
 - Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/3970
 
 ---
+
+### CNCF Landscape 
+
+#### UX / UI Improvements
+
+- Description: With your collaboration, we aim to analyze findings and meaningful information (quantitative and qualitative data) and run a series of ideation rounds. We will create user personas, empathy maps, and other UX deliverables that will be the foundation to lay out a set of solutions to improve the current way to search, navigate and find relevant information on the Landscape.
+- Expected Outcome: Creation user personas, empathy maps, and other UX deliverables.
+- Recommended Skills: UX reaserach, desighn thinking, Figma and prototyping. 
+- Mentor(s): Andrea Velázquez (@andreuxxxx)
+- Upstream Issue: https://github.com/cncf/landscape/issues/2467
+
