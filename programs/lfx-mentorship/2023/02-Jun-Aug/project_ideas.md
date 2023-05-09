@@ -51,7 +51,7 @@ Test coverage could increase
 
 ### Jaeger
 
-#### Upgrade Jaeger's internal telemtery to OpenTelemetry
+#### Upgrade Jaeger's internal telemetry to OpenTelemetry
 
 - Description: historically, the Jaeger backend used the OpenTracing API, with Jaeger's own Go SDK `jaeger-client-go`, for instrumenting its own internals for distributed tracing. Since Jaeger's SDKs have been deprecated, we want to upgrade the Jaeger backend to use the OpenTelemetry tracing API and SDK directly.
 - Expected Outcome:
