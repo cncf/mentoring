@@ -231,7 +231,7 @@ The development environment is based on golang and Kubernetes. A minikube instan
   - Marek Aufart (@aufi, maufart@redhat.com)
   - David Zager (@djzager, dzager@redhat.com)
 - Upstream Issue:
-  - https://github.com/konveyor/tackle2-hub/issues/312
+  - https://github.com/konveyor/tackle2-operator/issues/220
 
 
 ### Strimzi
