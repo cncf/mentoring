@@ -21,6 +21,7 @@
 * [CoreDNS](#coredns)
 * [Jaeger](#jaeger)
 * [Knative](#knative)
+* [Kyverno](#kyverno)
 * [Tetragon](#tetragon)
 * [WasmEdge](#wasmedge)
 * [Konveyor](#konveyor)
@@ -99,6 +100,46 @@ Test coverage could increase
 - Recommended Skills: Golang, Kubernetes, Knative, good understanding of networking, good understanding of CI/CD
 - Mentor(s): Reto Lehmann @ReToCode (rlehmann AT redhat DOT com),  Stavros Kontopoulos @skonto (skontopo AT redhat DOT com)
 - Upstream Issue (URL): https://github.com/knative/serving/issues/12718
+
+### Kyverno
+
+#### Kuttl tests for the Kyverno policy library
+
+- Description: Kyverno has the largest policy library of any policy tool for Kubernetes. Ensuring that policies work effectively across releases of both Kyverno and Kubernetes is important for users. Additionally, these tests can be leveraged in the CI processes ensuring that changes to the Kyverno codebase do not cause regressions which impact areas relevant to these policies. In this mentorship, you will learn how the `kuttl` tool works and write test cases using `kuttl` to cover all policies in the official Kyverno policy library.
+- Expected outcome: All policies have corresponding tests using the `kuttl` tool.
+- Recommended Skills: Kubernetes, Kyverno
+- Mentor(s): Chip Zoller @chipzoller (chipzoller AT gmail DOT com)
+- Upstream Issue (URL): https://github.com/kyverno/policies/issues/546
+
+#### Sigstore Cosign Updates
+
+- Description: Kyverno supports image signature and attestation verification using the Sigstore Cosign tooling. Re-implement the Kyverno Sigstore Cosign module to use OCI artifacts and references and remove dependencies to the Cosign CLI packages.
+- Expected outcome: Kyverno can use OCI artifacts to verify container images that are in Cosign format.
+- Recommended Skills: Golang, Kubernetes, Kyverno
+- Mentor(s):
+  - Shuting Zhao @realshuting (shuting AT nirmata DOT com)
+  - Vishal Choudhary @Vishal-Chdhry (contactvishaltech AT gmail DOT com)
+- Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/7087
+
+#### ValidatingAdmissionPolicy support, Phase 2
+
+- Description: Kyverno is working towards support of ValidatingAdmissionPolicy (CEL admission). Extend this support for other items such as CLI, reporting, and auto-generating ValidatingAdmissionPolicies from Kyverno policies.
+- Expected outcome: Extended support and integration with ValidatingAdmissionPolicies
+- Recommended Skills: Golang, Kubernetes, Kyverno
+- Mentor(s):
+  - Jim Bugwadia @jimbugwadia (jim AT nirmata DOT com)
+  - Mariam Fahmy @MariamFahmy98 (mariamfahmy66 AT gmail DOT com)
+- Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/7088
+
+#### Cleanup Policies, Phase 2
+
+- Description: Kyverno has a policy type called Cleanup Policies which allow removal of resources defined in a policy. In this second phase, we would like to extend this ability to cleanup resources based upon defining a label for even more fine-grained control.
+- Expected outcome: Extend Cleanup Policies feature by allowing per-resource removal based upon label assignment
+- Recommended Skills: Golang, Kubernetes, Kyverno
+- Mentor(s): Charles-Edouard Brétéché @eddycharly (charles.edouard AT nirmata DOT com)
+- Upstream Issue (URL):
+  - https://github.com/kyverno/kyverno/issues/5748
+  - https://github.com/kyverno/KDP/blob/main/proposals/cleanup.md#proposal
 
 ### Tetragon
 
