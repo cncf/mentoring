@@ -21,6 +21,7 @@
 * [CoreDNS](#coredns)
 * [Jaeger](#jaeger)
 * [Knative](#knative)
+* [Kyverno](#kyverno)
 * [Tetragon](#tetragon)
 * [WasmEdge](#wasmedge)
 * [Konveyor](#konveyor)
