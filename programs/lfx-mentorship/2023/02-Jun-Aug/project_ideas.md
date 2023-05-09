@@ -75,6 +75,41 @@ Test coverage could increase
 - Mentor(s): Reto Lehmann @ReToCode (rlehmann AT redhat DOT com),  Stavros Kontopoulos @skonto (skontopo AT redhat DOT com)
 - Upstream Issue (URL): https://github.com/knative/serving/issues/12718
 
+### Kubescape
+
+#### Store Kubescape configuration scan results as CRs
+
+- Description: Implement a mechanism in the Kubescape operator which detects changes in the cluster and triggers a scan of the cluster.
+- Expected Outcome: The results should be stored as custom resources in the same cluster.
+- Recommended Skills: Go
+- Mentors:
+  - Ben Hirschberg (@slashben, ben AT armosec.io)
+  - Craig Box (@craigbox, craigb AT armosec.io)
+  - David Wertenteil (@dwertent, dwertent AT armosec.io)
+ - Upstream Issue: https://github.com/kubescape/kubescape/issues/1225
+
+#### Prometheus exporter for image vulnerabilities
+
+- Description: Develop a Prometheus exporter for image vulnerability information produced by Kubescape.
+- Expected Outcome: The ability to alert on vulnerabilities in a cluster based on Prometheus data
+- Recommended Skills: Go, Prometheus
+- Mentors:
+  - Ben Hirschberg (@slashben, ben AT armosec.io)
+  - Craig Box (@craigbox, craigb AT armosec.io)
+  - David Wertenteil (@dwertent, dwertent AT armosec.io)
+- Upstream Issue: https://github.com/kubescape/kubescape/issues/1226
+
+#### Vulnerability-based Dockerfile generator
+
+- Description: Kubescape can detect vulnerabilities in a container image. Some can automatically be remediated by changing the base image version (or other package information) inside the Dockerfile which created the image. This project is to automate this remediation.
+- Expected Outcome: An enhancement to Kubescape to generate a Dockerfile that proposes fixes for vulnerabilities found in a container image. This may be by integration with existing open source tools or developing something new.
+- Recommended Skills: Go
+  - Ben Hirschberg (@slashben, ben AT armosec.io)
+  - Craig Box (@craigbox, craigb AT armosec.io)
+  - David Wertenteil (@dwertent, dwertent AT armosec.io)
+- Upstream Issue: https://github.com/kubescape/kubescape/issues/1227
+
+
 ### Tetragon
 
 #### Implement a Kubernetes operator to maintain pod IP to pod metadata mapping
