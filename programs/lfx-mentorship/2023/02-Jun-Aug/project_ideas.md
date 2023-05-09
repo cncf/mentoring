@@ -106,8 +106,8 @@ Test coverage could increase
 
 #### Store Kubescape configuration scan results as CRs
 
-- Description: Implement a mechanism in the Kubescape operator which detects changes in the cluster and triggers a scan of the cluster.
-- Expected Outcome: The results should be stored as custom resources in the same cluster.
+- Description: [Kubescape](http://kubescape.io/) is a utility that can scan a Kubernetes cluster and report on its security posture. There is an "operator" which can be installed in the cluster to perform scheduled scans scan, but this is largely used to send the data to an external service. In this project, you will implement a mechanism in the Kubescape operator to save scan results locally in a custom resource (CR), as well as a watch so that scans can be performed on cluster state changes.
+- Expected Outcome: Having the ability to scan a cluster when it changes, and have the results saved inside the cluster. This will allow users and automations to judge the security posture of changes that are made to the cluster (for example, deployments or rollouts.)
 - Recommended Skills: Go
 - Mentors:
   - Ben Hirschberg (@slashben, ben AT armosec.io)
@@ -117,8 +117,8 @@ Test coverage could increase
 
 #### Prometheus exporter for image vulnerabilities
 
-- Description: Develop a Prometheus exporter for image vulnerability information produced by Kubescape.
-- Expected Outcome: The ability to alert on vulnerabilities in a cluster based on Prometheus data
+- Description: Kubescape has a component that runs in-cluster which performs image scanning on all the container images deployed to a cluster. This function is largely used to send the data to an external service.  In this projet, you will develop a Prometheus exporter for the image vulnerability information produced by Kubescape.  This will allow users to access the data from within the cluster, as well as use it for alerting.
+- Expected Outcome: Access to cluster vulnerability data through Prometheus.  For example, you should have the ability to alert on number or percentage of "Critical" level vulnerabilities in containers running in the cluster.
 - Recommended Skills: Go, Prometheus
 - Mentors:
   - Ben Hirschberg (@slashben, ben AT armosec.io)
