@@ -214,7 +214,7 @@ The development environment is based on golang and Kubernetes. A minikube instan
 - Description: We have added solid foundation for query observability in the new engine during the previous LFX mentorship term. Let's continue the awesome work by Pradyumna by implementing other features.
 - Expected outcome: other query observability visualizations are implemented; extra observability data has been added
 - Recommended skills: Golang, React
-- Mentor(s): @saswatam, @GiedriusS
+- Mentor(s): @saswatamcode, @GiedriusS
 - Difficulty: Medium
 - Upstream issue (URL): https://github.com/thanos-community/promql-engine/issues/106
 
