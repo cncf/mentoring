@@ -21,6 +21,7 @@
 * [CoreDNS](#coredns)
 * [Jaeger](#jaeger)
 * [Knative](#knative)
+* [Kubescape](#kubescape)
 * [Kyverno](#kyverno)
 * [Tetragon](#tetragon)
 * [WasmEdge](#wasmedge)
@@ -100,6 +101,40 @@ Test coverage could increase
 - Recommended Skills: Golang, Kubernetes, Knative, good understanding of networking, good understanding of CI/CD
 - Mentor(s): Reto Lehmann @ReToCode (rlehmann AT redhat DOT com),  Stavros Kontopoulos @skonto (skontopo AT redhat DOT com)
 - Upstream Issue (URL): https://github.com/knative/serving/issues/12718
+
+### Kubescape
+
+#### Store Kubescape configuration scan results as CRs
+
+- Description: [Kubescape](http://kubescape.io/) is a utility that can scan a Kubernetes cluster and report on its security posture. There is an "operator" which can be installed in the cluster to perform scheduled scans scan, but this is largely used to send the data to an external service. In this project, you will implement a mechanism in the Kubescape operator to save scan results locally in a custom resource (CR), as well as a watch so that scans can be performed on cluster state changes.
+- Expected Outcome: Having the ability to scan a cluster when it changes, and have the results saved inside the cluster. This will allow users and automations to judge the security posture of changes that are made to the cluster (for example, deployments or rollouts.)
+- Recommended Skills: Go
+- Mentors:
+  - Ben Hirschberg (@slashben, ben AT armosec.io)
+  - Craig Box (@craigbox, craigb AT armosec.io)
+  - David Wertenteil (@dwertent, dwertent AT armosec.io)
+ - Upstream Issue: https://github.com/kubescape/kubescape/issues/1225
+
+#### Prometheus exporter for image vulnerabilities
+
+- Description: Kubescape has a component that runs in-cluster which performs image scanning on all the container images deployed to a cluster. This function is largely used to send the data to an external service.  In this projet, you will develop a Prometheus exporter for the image vulnerability information produced by Kubescape.  This will allow users to access the data from within the cluster, as well as use it for alerting.
+- Expected Outcome: Access to cluster vulnerability data through Prometheus.  For example, you should have the ability to alert on number or percentage of "Critical" level vulnerabilities in containers running in the cluster.
+- Recommended Skills: Go, Prometheus
+- Mentors:
+  - Ben Hirschberg (@slashben, ben AT armosec.io)
+  - Craig Box (@craigbox, craigb AT armosec.io)
+  - David Wertenteil (@dwertent, dwertent AT armosec.io)
+- Upstream Issue: https://github.com/kubescape/kubescape/issues/1226
+
+#### Vulnerability-based Dockerfile generator
+
+- Description: Kubescape can detect vulnerabilities in a container image. Some can automatically be remediated by changing the base image version (or other package information) inside the Dockerfile which created the image. This project is to automate this remediation.
+- Expected Outcome: An enhancement to Kubescape to generate a Dockerfile that proposes fixes for vulnerabilities found in a container image. This may be by integration with existing open source tools or developing something new.
+- Recommended Skills: Go
+  - Ben Hirschberg (@slashben, ben AT armosec.io)
+  - Craig Box (@craigbox, craigb AT armosec.io)
+  - David Wertenteil (@dwertent, dwertent AT armosec.io)
+- Upstream Issue: https://github.com/kubescape/kubescape/issues/1227
 
 ### Kyverno
 
