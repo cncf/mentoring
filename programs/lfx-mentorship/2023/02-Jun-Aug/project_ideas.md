@@ -411,7 +411,7 @@ The development environment is based on golang and Kubernetes. A minikube instan
 - Mentor(s):
   - Shubham Chaudhary (@ispeakc0de, shubham.chaudhary@harness.io)
   - Vansh Bhatia (@vanshBhatia-A4k9, vansh.bhatia@harness.io)
-- Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/3970
+- Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/3969
 
 ### Service Mesh Performance
 
