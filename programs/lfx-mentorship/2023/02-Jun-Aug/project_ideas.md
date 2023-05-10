@@ -17,24 +17,6 @@
 
 ## Proposed Project ideas
 
-#### A stream log processing framework for WasmEdge
-
-- Description: In this project, we aim to build a Rust-based log processing framework. Applications built on this framework will be compiled into WebAssembly and run in WasmEdge containers side by side with Linux containers and apps. The WasmEdge app collects logs from other containerized apps and then sends them to a streaming database or processing pipeline.
-- Expected outcome:
-  * Create a Rust framework with 3 traits similar to the [`Transformer`](https://github.com/second-state/MEGA/blob/main/mega_etl/src/lib.rs#L99) trait in the [MEGA framework](https://github.com/second-state/MEGA).
-    * The `Collector` trait abstracts operations needed for a log collector.
-    * The `Transformer` trait abstracts the transformation algorithms that can be applied to the logs.
-    * The `Destination` trait abstracts operations needed to send transformed to a streaming data pipeline or database.
-  * Implement at least two `Collector`s. One for MySQL database binlog and the other for a generic log file in a Linux container in the same Kubernetes pod.
-  * Implement at least two `Transformer` algorithms supported by [FileBeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-overview.html).
-  * Implement at least three `Destination`s. One for a Kafka queue, one for a Redis database, and the other for ElasticSearch.
-  * Provide CI and demo test cases.
-  * Provide documentation and tutorials.
-- Recommended Skills: Proficient in the Rust programming language; Familiarity with MySQL, Kafka, ElasticSearch, and FileBeat; Familiarity with Kubernetes and related container management tools; Basic understanding of WebAssembly and WasmEdge
-- Mentor(s): Michael Yuan @juntao (michael at secondstate dot io)
-- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2470
-- LFX URL: 
-
 ### Konveyor
 
 #### Add Integration test suite and components testing to Konveyor
