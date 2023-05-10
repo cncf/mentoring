@@ -17,19 +17,6 @@
 
 ## Proposed Project ideas
 
-#### Enhance/Upgrade chaos operator and chaos exporter module
-- Description: LitmusChaos is an open source Chaos Engineering platform that enables teams to identify weaknesses & potential outages in infrastructures by inducing chaos tests in a controlled way. This project idea involves upgrading the Chaos Operator and Chaos Exporter repositories by updating their dependencies, addressing security vulnerabilities, and adding new functionality. Specifically, the project aims to upgrade the operator-sdk and Prometheus exporter versions, add new Prometheus metrics to the Chaos Exporter, and fix security vulnerabilities pointed out by trivy and golangci-lint. Furthermore, the project seeks to add unit test cases to both repositories to ensure that their functionality is robust and reliable. Overall, this project aims to improve the stability, security, and functionality of the Chaos Operator and Chaos Exporter repositories, making them better suited for use in production environments.
-- Expected outcome: The outcome of this project will be improved stability, security, and functionality of the Chaos Operator and Chaos Exporter modules through the upgrade of dependencies, addition of new metrics, and implementation of unit tests.
-- Recommended Skills:
-  - Golang
-  - Kubernetes and k8s golang client
-  - Prometheus
-- Mentor(s):
-  - Shubham Chaudhary (@ispeakc0de, shubham.chaudhary@harness.io)
-  - Vansh Bhatia (@vanshBhatia-A4k9, vansh.bhatia@harness.io)
-- Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/3969
-- LFX URL: 
-
 ### Service Mesh Performance
 
 #### Service Mesh Performance IDE Plugin
