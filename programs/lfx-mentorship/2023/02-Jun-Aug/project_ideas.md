@@ -38,36 +38,6 @@
 * [Service Mesh Performance](#service-mesh-performance)
 
 
-### Jaeger
-
-#### Upgrade Jaeger's internal telemetry to OpenTelemetry
-
-- Description: historically, the Jaeger backend used the OpenTracing API, with Jaeger's own Go SDK `jaeger-client-go`, for instrumenting its own internals for distributed tracing. Since Jaeger's SDKs have been deprecated, we want to upgrade the Jaeger backend to use the OpenTelemetry tracing API and SDK directly.
-- Expected Outcome:
-  - Replace the use of OpenTracing API with OpenTelemetry
-  - Remove `jaeger-client-go` and `jaeger-lib` as dependencies
-  - Remove `opentracing-go` and `opentracing-contrib/*` as dependencies
-  - Switch to standard instrumentation libraries where available (e.g. for HTTP, gRPC)
-  - Rethink/rework `crossdock` integration tests to test end-to-end flow with OpenTelemetry data
-  - Publish a blog post on medium.com/jaegertracing documenting the experience
-- Recommended Skills: Go
-- Mentor(s): Yuri Shkuro (@yurishkuro, github@ysh.us)
-- Upstream Issue: https://github.com/jaegertracing/jaeger/issues/3381
-
-#### Implement Critical Path analysis
-
-- Description: Jaeger (https://jaegertracing.io) is a popular platform for distributed tracing. Critical path analysis is an important tool in the latency investigations. This project aims to add support for critical path analysis to Jaeger UI.
-- Expected outcomes:
-  - Implement critical path determination algorithm (maybe in the backend)
-  - Enhance Trace Timeline view to overlay critical path on top of the trace.
-  - Add relevant documentation to the Jaeger website
-  - Author a blog post on Jaeger blog explaining the new feature
-- Stretch goals:
-  - Add critical path visualization to other trace views (graph, table, flamechart)
-- Recommended Skills: Javascript, Typescript, Go
-- Mentor(s): Yuri Shkuro (@yurishkuro, github@ysh.us)
-- Upstream Issue (URL): https://github.com/jaegertracing/jaeger-ui/issues/1288
-
 ### Knative
 
 #### Self-Balancing Knative Kafka Broker partitions

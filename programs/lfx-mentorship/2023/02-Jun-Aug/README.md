@@ -58,4 +58,36 @@ Table of Contents
 - Upstream Issue (URL): https://github.com/coredns/coredns/issues/5583, https://github.com/coredns/coredns/issues/5539
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/dd10bf62-53d1-4a96-bea2-65bbb78bd10e
 
+### Jaeger
+
+#### Upgrade Jaeger's internal telemetry to OpenTelemetry
+
+- Description: historically, the Jaeger backend used the OpenTracing API, with Jaeger's own Go SDK `jaeger-client-go`, for instrumenting its own internals for distributed tracing. Since Jaeger's SDKs have been deprecated, we want to upgrade the Jaeger backend to use the OpenTelemetry tracing API and SDK directly.
+- Expected Outcome:
+  - Replace the use of OpenTracing API with OpenTelemetry
+  - Remove `jaeger-client-go` and `jaeger-lib` as dependencies
+  - Remove `opentracing-go` and `opentracing-contrib/*` as dependencies
+  - Switch to standard instrumentation libraries where available (e.g. for HTTP, gRPC)
+  - Rethink/rework `crossdock` integration tests to test end-to-end flow with OpenTelemetry data
+  - Publish a blog post on medium.com/jaegertracing documenting the experience
+- Recommended Skills: Go
+- Mentor(s): Yuri Shkuro (@yurishkuro, github@ysh.us)
+- Upstream Issue: https://github.com/jaegertracing/jaeger/issues/3381
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/b8009398-1252-4f63-82fe-363846ccc11d
+
+#### Implement Critical Path analysis
+
+- Description: Jaeger (https://jaegertracing.io) is a popular platform for distributed tracing. Critical path analysis is an important tool in the latency investigations. This project aims to add support for critical path analysis to Jaeger UI.
+- Expected outcomes:
+  - Implement critical path determination algorithm (maybe in the backend)
+  - Enhance Trace Timeline view to overlay critical path on top of the trace.
+  - Add relevant documentation to the Jaeger website
+  - Author a blog post on Jaeger blog explaining the new feature
+- Stretch goals:
+  - Add critical path visualization to other trace views (graph, table, flamechart)
+- Recommended Skills: Javascript, Typescript, Go
+- Mentor(s): Yuri Shkuro (@yurishkuro, github@ysh.us)
+- Upstream Issue (URL): https://github.com/jaegertracing/jaeger-ui/issues/1288
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/0fc6c44b-5ddf-467f-8016-72cc35b4e3ff
+
 
