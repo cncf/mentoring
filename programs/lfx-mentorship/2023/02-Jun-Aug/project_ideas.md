@@ -17,25 +17,6 @@
 
 ## Proposed Project ideas
 
-### Konveyor
-
-#### Add Integration test suite and components testing to Konveyor
-
-- Description:
-The Konveyor project helps modernize applications by providing open source tools to rehost, replatform, and refactor applications to Kubernetes and cloud-native technologies.We’re looking for help on building integration tests on application level as well as work on missing parts of Konveyor component tests.There is open testing work to better applications analysis, tasks coverage, more detailed Hub API tests and Hub integration with addons. All of those use the Hub API that is covered with basic tests already. Based on existing Hub API tests, it is expected to continue work to cover more Konveyor functionality with tests.
-The development environment is based on golang and Kubernetes. A minikube instance will work well for local development on Linux or Mac systems.
-- Expected Outcome:
-  - Integration test suite and components testing added to existing Konveyor upstream automated test suite
-- Recommended Skills:
-  - Go
-  - Basic software development skills (command line, git)
-- Mentor(s):
-  - Marek Aufart (@aufi, maufart@redhat.com)
-  - David Zager (@djzager, dzager@redhat.com)
-- Upstream Issue:
-  - https://github.com/konveyor/tackle2-operator/issues/220
-- LFX URL: 
-
 
 ### Strimzi
 
