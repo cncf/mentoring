@@ -48,7 +48,7 @@
 Test coverage could increase
 - Recommend Skills: Go, SQL
 - Mentor(s):
-  - Geoffrey Wilson, @suprjinx, geoff@gr-oss.com
+  - Geoffrey Wilson, @suprjinx, geoff@gr-oss.io
   - Kevin Hannon, @kannon92, kevin@gr-oss.io
 - Upstream Issue (URL): armadaproject/armada#2121
 
