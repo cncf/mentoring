@@ -17,39 +17,6 @@
 
 ## Proposed Project ideas
 
-### Meshery
-
-#### Meshery UI Permissions Framework
-
-- Description: Meshery UI lacks a permissions framework. The existing internal implementation is simple, fragile and must be completely rewritten. The approach to implemention a permmissions framework includes using React.js and CASL.js. Meshery UI's approach needs to be extensible given that this framework will be an extension point for Remote Providers to supply their own permissions.
-- Expected outcome: Definition of permissions and their enforcement in Meshery with an aim for deep granularity and extensibility with each user interface input component carrying a unique permission key id. Each key is then put into a group of keys in a keychain, keychains assigned to user roles, in turn, roles assigned to users. With users having the ability to create own custom roles, the framework will be dynamic based on the associated server-side permissions for the currently auth’ed user.
-- Recommended Skills: React.js, CASL.js
-- Mentor(s): Lee Calcote @leecalcote (leecalcote@gmail.com), Abhishek Kumar @Abhishek-kumar09 (abhimait1909@gmail.com)
-- Upstream Issue (URL): https://github.com/meshery/meshery/issues/7436, https://github.com/meshery/meshery/issues/7382
-- LFX URL: 
-
-#### OPA policy evaluation in-browser using WebAssembly and Rego
-
-- Description: Meshery's highly dynamic infrastructure configuration capabilities require real-time evaluation of complex policies. Policies of various types and with a high number of parameters need to be evaluted client-side. With policies expressed in Rego, the goal of this project is to incorporate use of the https://github.com/open-policy-agent/golang-opa-wasm project into Meshery UI.
-- Expected outcome: a powerful real-time multi-user collaboration experience.
-- Recommended Skills: Golang, Open Policy Agent, WASM
-- Mentor(s): Lee Calcote @leecalcote (leecalcote@gmail.com), Abhishek Kumar @Abhishek-kumar09 (abhimait1909@gmail.com)
-- Upstream Issue (URL): https://github.com/meshery/meshery/issues/7019
-- LFX URL: 
-
-#### Adopt OCI as the packaging and distribution format for Meshery MeshModels
-
-- Description: Meshery MeshModels represent a schema-based description of cloud native infratructure. MeshModels need to be portable between Meshery deployments as well as easily versionable in external repositories.
-- Expected outcome:
-  - Meshery clients (mesheryctl and Meshery UI) should be able to import/export MeshModels as OCI images.
-  - Meshery clients (mesheryctl and Meshery UI) should be able to push/pull from OCI-compatible registries.
-  - Stretch Goal: OCI image signing; Verify the authenticity of MeshModels using [cosign](https://github.com/sigstore/cosign).
-  - Target registries: Meshery Catalog (https://meshery.io/catalog), Artifact Hub.
-- Recommended Skills: Reactjs, Golang, GraphQL
-- Mentor(s): Lee Calcote @leecalcote (leecalcote@gmail.com)
-- Upstream Issue (URL): https://github.com/meshery/meshery/issues/6447
-- LFX URL: 
-
 ### ORAS
 
 #### Design and implement Artifact Explore web portal
