@@ -28,6 +28,7 @@
 * [Tetragon](#tetragon)
 * [WasmEdge](#wasmedge)
 * [Konveyor](#konveyor)
+* [Strimzi](#strimzi)
 * [Thanos](#thanos)
 * [KubeArmor](#kubearmor)
 * [LitmusChaos](#litmuschaos)
