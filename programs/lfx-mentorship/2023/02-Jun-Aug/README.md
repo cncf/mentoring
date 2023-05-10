@@ -418,3 +418,16 @@ The development environment is based on golang and Kubernetes. A minikube instan
 - Upstream Issue (URL): https://github.com/strimzi/strimzi-kafka-operator/issues/8030
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8d301adf-94d8-4e5d-821d-f904ed15c3f9
 
+### Thanos
+
+#### Continuation of add query observability for the new engine
+
+- Description: We have added solid foundation for query observability in the new engine during the previous LFX mentorship term. Let's continue the awesome work by Pradyumna by implementing other features.
+- Expected outcome: other query observability visualizations are implemented; extra observability data has been added
+- Recommended skills: Golang, React
+- Mentor(s): @saswatamcode, Saswata Mukherjee saswataminsta@yahoo.com, @GiedriusS Giedrius Statkevičius giedriuswork@gmail.com
+- Difficulty: Medium
+- Upstream issue (URL): https://github.com/thanos-community/promql-engine/issues/106
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/1953e512-fa8c-4f0e-9b24-0e6c81a7cd39
+
+
