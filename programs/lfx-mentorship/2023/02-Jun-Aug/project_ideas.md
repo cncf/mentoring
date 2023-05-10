@@ -17,67 +17,6 @@
 
 ## Proposed Project ideas
 
-* [Armada](#armada)
-* [CoreDNS](#coredns)
-* [Jaeger](#jaeger)
-* [Knative](#knative)
-* [Kubescape](#kubescape)
-* [Kyverno](#kyverno)
-* [Notary](#notary)
-* [Meshery](#meshery)
-* [ORAS](#oras)
-* [Tetragon](#tetragon)
-* [WasmEdge](#wasmedge)
-* [Konveyor](#konveyor)
-* [Strimzi](#strimzi)
-* [Thanos](#thanos)
-* [KubeArmor](#kubearmor)
-* [LitmusChaos](#litmuschaos)
-* [Vitess](#vitess)
-* [KubeVela](#kubevela)
-* [Service Mesh Performance](#service-mesh-performance)
-
-
-### Kyverno
-
-#### Kuttl tests for the Kyverno policy library
-
-- Description: Kyverno has the largest policy library of any policy tool for Kubernetes. Ensuring that policies work effectively across releases of both Kyverno and Kubernetes is important for users. Additionally, these tests can be leveraged in the CI processes ensuring that changes to the Kyverno codebase do not cause regressions which impact areas relevant to these policies. In this mentorship, you will learn how the `kuttl` tool works and write test cases using `kuttl` to cover all policies in the official Kyverno policy library.
-- Expected outcome: All policies have corresponding tests using the `kuttl` tool.
-- Recommended Skills: Kubernetes, Kyverno
-- Mentor(s): Chip Zoller @chipzoller (chipzoller AT gmail DOT com)
-- Upstream Issue (URL): https://github.com/kyverno/policies/issues/546
-
-#### Sigstore Cosign Updates
-
-- Description: Kyverno supports image signature and attestation verification using the Sigstore Cosign tooling. Re-implement the Kyverno Sigstore Cosign module to use OCI artifacts and references and remove dependencies to the Cosign CLI packages.
-- Expected outcome: Kyverno can use OCI artifacts to verify container images that are in Cosign format.
-- Recommended Skills: Golang, Kubernetes, Kyverno
-- Mentor(s):
-  - Shuting Zhao @realshuting (shuting AT nirmata DOT com)
-  - Vishal Choudhary @Vishal-Chdhry (contactvishaltech AT gmail DOT com)
-- Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/7087
-
-#### ValidatingAdmissionPolicy support, Phase 2
-
-- Description: Kyverno is working towards support of ValidatingAdmissionPolicy (CEL admission). Extend this support for other items such as CLI, reporting, and auto-generating ValidatingAdmissionPolicies from Kyverno policies.
-- Expected outcome: Extended support and integration with ValidatingAdmissionPolicies
-- Recommended Skills: Golang, Kubernetes, Kyverno
-- Mentor(s):
-  - Jim Bugwadia @jimbugwadia (jim AT nirmata DOT com)
-  - Mariam Fahmy @MariamFahmy98 (mariamfahmy66 AT gmail DOT com)
-- Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/7088
-
-#### Cleanup Policies, Phase 2
-
-- Description: Kyverno has a policy type called Cleanup Policies which allow removal of resources defined in a policy. In this second phase, we would like to extend this ability to cleanup resources based upon defining a label for even more fine-grained control.
-- Expected outcome: Extend Cleanup Policies feature by allowing per-resource removal based upon label assignment
-- Recommended Skills: Golang, Kubernetes, Kyverno
-- Mentor(s): Charles-Edouard Brétéché @eddycharly (charles.edouard AT nirmata DOT com)
-- Upstream Issue (URL):
-  - https://github.com/kyverno/kyverno/issues/5748
-  - https://github.com/kyverno/KDP/blob/main/proposals/cleanup.md#proposal
-
 ### Notary
 
 #### Design and implement the new Notary website
@@ -96,6 +35,7 @@
 - Recommended Skills: Figma design, HTML, CSS, JavaScript, Hugo
 - Mentor(s):  Feynman Zhou (@FeynmanZhou , feynmanzhou@microsoft.com)
 - Upstream Issue (URL): https://github.com/notaryproject/notaryproject.dev/issues/194
+- LFX URL: 
 
 #### Develop content for Notary documentation and blogs
 
@@ -107,6 +47,7 @@
 - Recommended Skills: OCI, Docker, Kubernetes, Notary, Git, Markdown, Technical writing experience
 - Mentor(s): Mentor(s):  Yi Zha, @yizha1 (yizha1@microsoft.com)
 - Upstream Issue (URL): https://github.com/notaryproject/notaryproject.dev/issues/195
+- LFX URL: 
 
 ### Meshery
 
@@ -117,6 +58,7 @@
 - Recommended Skills: React.js, CASL.js
 - Mentor(s): Lee Calcote @leecalcote (leecalcote@gmail.com), Abhishek Kumar @Abhishek-kumar09 (abhimait1909@gmail.com)
 - Upstream Issue (URL): https://github.com/meshery/meshery/issues/7436, https://github.com/meshery/meshery/issues/7382
+- LFX URL: 
 
 #### OPA policy evaluation in-browser using WebAssembly and Rego
 
@@ -125,6 +67,7 @@
 - Recommended Skills: Golang, Open Policy Agent, WASM
 - Mentor(s): Lee Calcote @leecalcote (leecalcote@gmail.com), Abhishek Kumar @Abhishek-kumar09 (abhimait1909@gmail.com)
 - Upstream Issue (URL): https://github.com/meshery/meshery/issues/7019
+- LFX URL: 
 
 #### Adopt OCI as the packaging and distribution format for Meshery MeshModels
 
@@ -137,6 +80,7 @@
 - Recommended Skills: Reactjs, Golang, GraphQL
 - Mentor(s): Lee Calcote @leecalcote (leecalcote@gmail.com)
 - Upstream Issue (URL): https://github.com/meshery/meshery/issues/6447
+- LFX URL: 
 
 ### ORAS
 
@@ -155,6 +99,7 @@
 - Recommended Skills: Figma design, HTML, CSS, JavaScript, Hugo, Docker
 - Mentor(s):  Feynman Zhou (@FeynmanZhou , feynmanzhou@microsoft.com), Billy Zha (@qweeah , jinzha1@microsoft.com) 
 - Upstream issue: https://github.com/oras-project/oras-www/issues/158
+- LFX URL: 
 
 #### Refactor the ORAS documentation structure and write new user guides
 
@@ -163,6 +108,7 @@
 - Recommended Skills: OCI, Docker, ORAS, Markdown
 - Mentor(s): Mentor(s): Terry Howe (@TerryHowe , terrylhowe@gmail.com), Asmit Malakannawar (@asmitbm , asmitbm2952002@gmail.com), Feynman Zhou (@FeynmanZhou , feynmanzhou@microsoft.com)
 - Upstream issue: https://github.com/oras-project/oras-www/issues/65
+- LFX URL: 
 
 ### Tetragon
 
@@ -189,6 +135,7 @@
   - Michi Mutsuzaki (@michi-covalent, michi@isovalent.com)
 - Upstream Issue:
   - https://github.com/cilium/tetragon/issues/794
+- LFX URL: 
 
 ### WasmEdge
 
@@ -199,6 +146,7 @@
 - Recommended Skills: C/C++, WebAssembly
 - Mentor(s): Yi-Ying He @q82419 (yiying at secondstate dot io), Hung-Ying Tai @hydai (hydai at secondstate dot io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2262
+- LFX URL: 
 
 #### `zlib` Plugin Support
 
@@ -207,6 +155,7 @@
 - Recommended Skills: C/C++, Rust, WebAssembly
 - Mentor(s): Yi-Ying He @q82419 (yiying at secondstate dot io), Hung-Ying Tai @hydai (hydai at secondstate dot io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2244
+- LFX URL: 
 
 #### Support Tensorflow and PyTorch in WasmEdge’s Python runtime
 
@@ -220,6 +169,7 @@
 - Recommended Skills: Proficient in C programming including creating dynamic libraries; Proficient in Python and machine learning programming. Basic understanding of WebAssembly and WasmEdge.
 - Mentor(s): Michael Yuan @juntao (michael at secondstate dot io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2471
+- LFX URL: 
 
 #### A stream log processing framework for WasmEdge
 
@@ -237,6 +187,7 @@
 - Recommended Skills: Proficient in the Rust programming language; Familiarity with MySQL, Kafka, ElasticSearch, and FileBeat; Familiarity with Kubernetes and related container management tools; Basic understanding of WebAssembly and WasmEdge
 - Mentor(s): Michael Yuan @juntao (michael at secondstate dot io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2470
+- LFX URL: 
 
 ### Konveyor
 
@@ -255,6 +206,7 @@ The development environment is based on golang and Kubernetes. A minikube instan
   - David Zager (@djzager, dzager@redhat.com)
 - Upstream Issue:
   - https://github.com/konveyor/tackle2-operator/issues/220
+- LFX URL: 
 
 
 ### Strimzi
@@ -271,6 +223,7 @@ The development environment is based on golang and Kubernetes. A minikube instan
   - Paolo Patierno (@ppatierno, ppatiern@redhat.com)
   - Kyle Liberti (@kyguy, kliberti@redhat.com)
 - Upstream Issue (URL): https://github.com/strimzi/strimzi-kafka-operator/issues/8030
+- LFX URL: 
 
 ### Thanos
 
@@ -282,6 +235,7 @@ The development environment is based on golang and Kubernetes. A minikube instan
 - Mentor(s): @saswatamcode, @GiedriusS
 - Difficulty: Medium
 - Upstream issue (URL): https://github.com/thanos-community/promql-engine/issues/106
+- LFX URL: 
 
 ### KubeArmor
 
@@ -298,6 +252,7 @@ The development environment is based on golang and Kubernetes. A minikube instan
   * Barun Acharya (@daemon1024, barun1024@gmail.com)
   * Ankur Kothiwal (@Ankurk99, ankur.kothiwal99@gmail.com)
 * Upstream Issue: [Issue #1219](https://github.com/kubearmor/KubeArmor/issues/1219)
+- LFX URL: 
 
 #### Manage KubeArmor policies using OCI registry and use OCI hooks for container events
 
@@ -309,6 +264,7 @@ The development environment is based on golang and Kubernetes. A minikube instan
   * Barun Acharya (@daemon1024, barun1024@gmail.com)
   * Ankur Kothiwal (@Ankurk99, ankur.kothiwal99@gmail.com)
 * Upstream Issue: [Issue #1130](https://github.com/kubearmor/KubeArmor/issues/1130)
+- LFX URL: 
 
 
 ### LitmusChaos
@@ -324,6 +280,7 @@ The development environment is based on golang and Kubernetes. A minikube instan
   - Amit Kumar Das (@amityt, amit.das@harness.io)
   - Arkajyoti Mukherjee (@arkajyotiMukherjee, arkajyoti.mukherjee@harness.io)
 - Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/3970
+- LFX URL: 
 
 #### Enhance/Upgrade chaos operator and chaos exporter module
 - Description: LitmusChaos is an open source Chaos Engineering platform that enables teams to identify weaknesses & potential outages in infrastructures by inducing chaos tests in a controlled way. This project idea involves upgrading the Chaos Operator and Chaos Exporter repositories by updating their dependencies, addressing security vulnerabilities, and adding new functionality. Specifically, the project aims to upgrade the operator-sdk and Prometheus exporter versions, add new Prometheus metrics to the Chaos Exporter, and fix security vulnerabilities pointed out by trivy and golangci-lint. Furthermore, the project seeks to add unit test cases to both repositories to ensure that their functionality is robust and reliable. Overall, this project aims to improve the stability, security, and functionality of the Chaos Operator and Chaos Exporter repositories, making them better suited for use in production environments.
@@ -336,6 +293,7 @@ The development environment is based on golang and Kubernetes. A minikube instan
   - Shubham Chaudhary (@ispeakc0de, shubham.chaudhary@harness.io)
   - Vansh Bhatia (@vanshBhatia-A4k9, vansh.bhatia@harness.io)
 - Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/3969
+- LFX URL: 
 
 ### Service Mesh Performance
 
@@ -349,6 +307,7 @@ The development environment is based on golang and Kubernetes. A minikube instan
 - Recommended Skills: Cuelang
 - Mentor(s): Lee Calcote @leecalcote (leecalcote@gmail.com), Xin Huang @gyohuangxin (xin1.huang@intel.com)
 - Upstream Issue (URL): https://github.com/service-mesh-performance/service-mesh-performance/issues/379
+- LFX URL: 
 
 ### KubeVela
 
@@ -365,6 +324,7 @@ The development environment is based on golang and Kubernetes. A minikube instan
   - Qiao Zhongpei (@chivalryq, chivalry.pp@gmail.com)
   - Zeng Qingguo (@barnettZQG, barnett.zqg@gmail.com)
 - Upstream Issue (URL): https://github.com/kubevela/kubevela/issues/5426
+- LFX URL: 
 
 ### CNCF Landscape 
 
@@ -375,21 +335,22 @@ The development environment is based on golang and Kubernetes. A minikube instan
 - Recommended Skills: UX reaserach, desighn thinking, Figma and prototyping. 
 - Mentors: Andrea Velázquez andrea@buoyant.io, Nate W. @nate-double-u natew@cncf.io, Chris Aniszczyk @caniszczyk caniszczyk@linuxfoundation.org
 - Upstream Issue: https://github.com/cncf/landscape/issues/2467
+- LFX URL: 
 
 
 ### Vitess
+
 #### Rework the frontend UI of Vitess’ benchmarking tools
 
 - Description: Vitess uses a couple of tools to benchmark its codebase and to make sure that new code doesn’t introduce performance regressions. These tools are: arewefastyet and the VReplication Benchmarking Framework. We currently have an old frontend UI that serves arewefastyet. However, this UI is slow, not optimized and not easily extensible. It uses the built-in Golang template system to serve pages. We would like to create a common frontend UI that will be used by both benchmarking tools and that will replace the current arewefastyet’s UI. The mentee will have the responsibility of creating the UI using (most likely) React/Vite on Vercel. The frontend component will connect to our already-existing backend components: a MySQL database and arewefastyet’s REST API.
 - Expected Outcome: The expected outcome is to have a working frontend UI that integrates well with our different backends (databases and benchmarking tools’ APIs).
-	
 - Recommended Skills: React, Vercel, Vite, REST API, (Optional writing APIs in Golang)
 
 - Mentor(s):
   - Florent Poinsard @fouioui
   - Rohit Nayak @rohit-nayak-ps
-
 - Upstream Issue (URL): https://github.com/vitessio/arewefastyet/issues/328 
+- LFX URL: 
 
 
 ---

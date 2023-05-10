@@ -28,13 +28,33 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 Table of Contents
 
+* [Armada](#armada)
+* [CoreDNS](#coredns)
+* [Jaeger](#jaeger)
+* [Knative](#knative)
+* [Kubescape](#kubescape)
+* [Kyverno](#kyverno)
+* [Notary](#notary)
+* [Meshery](#meshery)
+* [ORAS](#oras)
+* [Tetragon](#tetragon)
+* [WasmEdge](#wasmedge)
+* [Konveyor](#konveyor)
+* [Strimzi](#strimzi)
+* [Thanos](#thanos)
+* [KubeArmor](#kubearmor)
+* [LitmusChaos](#litmuschaos)
+* [Vitess](#vitess)
+* [KubeVela](#kubevela)
+* [Service Mesh Performance](#service-mesh-performance)
+
 ---
 
-# Accepted projects
+## Accepted projects
 
-## Armada
+### Armada
 
-### Build interfaces around Postgres for Armada
+#### Build interfaces around Postgres for Armada
 
 - Description: Open source projects should not be hard coded to a particular Database. Armada currently only allows users to use Postgres. This project is to build interfaces around our connections to Postgres so we can allow other databases.
 - Expected outcomes:
@@ -47,9 +67,9 @@ Table of Contents
 - Upstream Issue (URL): https://github.com/armadaproject/armada/issues/2121
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/73d90321-62b3-498e-bf37-d899ec99df9e
 
-## CoreDNS
+### CoreDNS
 
-### Add DNS-over-QUIC (DoQ) and/or DNS-over-HTTP/3 (DoH3) support
+#### Add DNS-over-QUIC (DoQ) and/or DNS-over-HTTP/3 (DoH3) support
 
 - Description: DNS-over-QUIC (DoQ) and DNS-over-HTTP/3 (DoH3) are relatively new protocols for transmitting DNS queries with security and privacy. Additionally, DoQ and DoH3 also offers other benefits such as improved latency and better error detection. The goal of this proposal is to add DoQ and/or DoH3 support to CoreDNS.
 - Expected Outcome: An implementation of DoQ or DoH3 for CoreDNS. A stretch goal of adding both DoQ and DoH3 is also within scope.
@@ -146,5 +166,49 @@ Table of Contents
   - David Wertenteil (@dwertent, dwertent AT armosec.io)
 - Upstream Issue: https://github.com/kubescape/kubescape/issues/1227
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/fbaf3d52-77ee-469c-8eb4-3e0378896159
+
+### Kyverno
+
+#### Kuttl tests for the Kyverno policy library
+
+- Description: Kyverno has the largest policy library of any policy tool for Kubernetes. Ensuring that policies work effectively across releases of both Kyverno and Kubernetes is important for users. Additionally, these tests can be leveraged in the CI processes ensuring that changes to the Kyverno codebase do not cause regressions which impact areas relevant to these policies. In this mentorship, you will learn how the `kuttl` tool works and write test cases using `kuttl` to cover all policies in the official Kyverno policy library.
+- Expected outcome: All policies have corresponding tests using the `kuttl` tool.
+- Recommended Skills: Kubernetes, Kyverno
+- Mentor(s): Chip Zoller @chipzoller (chipzoller AT gmail DOT com)
+- Upstream Issue (URL): https://github.com/kyverno/policies/issues/546
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/85ebe560-e9ee-42fe-9dff-f8dc6a11ef27
+
+#### Sigstore Cosign Updates
+
+- Description: Kyverno supports image signature and attestation verification using the Sigstore Cosign tooling. Re-implement the Kyverno Sigstore Cosign module to use OCI artifacts and references and remove dependencies to the Cosign CLI packages.
+- Expected outcome: Kyverno can use OCI artifacts to verify container images that are in Cosign format.
+- Recommended Skills: Golang, Kubernetes, Kyverno
+- Mentor(s):
+  - Shuting Zhao @realshuting (shuting AT nirmata DOT com)
+  - Vishal Choudhary @Vishal-Chdhry (contactvishaltech AT gmail DOT com)
+- Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/7087
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/cabb007c-5669-4b16-8778-36d995a71591
+
+#### ValidatingAdmissionPolicy support, Phase 2
+
+- Description: Kyverno is working towards support of ValidatingAdmissionPolicy (CEL admission). Extend this support for other items such as CLI, reporting, and auto-generating ValidatingAdmissionPolicies from Kyverno policies.
+- Expected outcome: Extended support and integration with ValidatingAdmissionPolicies
+- Recommended Skills: Golang, Kubernetes, Kyverno
+- Mentor(s):
+  - Jim Bugwadia @jimbugwadia (jim AT nirmata DOT com)
+  - Mariam Fahmy @MariamFahmy98 (mariamfahmy66 AT gmail DOT com)
+- Upstream Issue (URL): https://github.com/kyverno/kyverno/issues/7088
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/e4be265d-fa05-46b7-8fad-2585b6a76082
+
+#### Cleanup Policies, Phase 2
+
+- Description: Kyverno has a policy type called Cleanup Policies which allow removal of resources defined in a policy. In this second phase, we would like to extend this ability to cleanup resources based upon defining a label for even more fine-grained control.
+- Expected outcome: Extend Cleanup Policies feature by allowing per-resource removal based upon label assignment
+- Recommended Skills: Golang, Kubernetes, Kyverno
+- Mentor(s): Charles-Edouard Brétéché @eddycharly (charles.edouard AT nirmata DOT com)
+- Upstream Issue (URL):
+  - https://github.com/kyverno/kyverno/issues/5748
+  - https://github.com/kyverno/KDP/blob/main/proposals/cleanup.md#proposal
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/4689c5fa-165e-4015-ad21-951d9babcb7e
 
 
