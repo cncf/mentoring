@@ -31,6 +31,7 @@
 * [Thanos](#thanos)
 * [KubeArmor](#kubearmor)
 * [LitmusChaos](#litmuschaos)
+* [KubeVela](#kubevela)
 * [Service Mesh Performance](#service-mesh-performance)
 
 ### Armada
@@ -425,7 +426,21 @@ The development environment is based on golang and Kubernetes. A minikube instan
 - Mentor(s): Lee Calcote @leecalcote (leecalcote@gmail.com), Xin Huang @gyohuangxin (xin1.huang@intel.com)
 - Upstream Issue (URL): https://github.com/service-mesh-performance/service-mesh-performance/issues/379
 
----
+### KubeVela
+
+#### Expand multiple database drivers for the API server
+- Description: Now KubeVela's VelaUX uses two kinds of Database to store metadata: Kubernetes ConfigMap and MongoDB. As more users are expecting using different kinds of database. We proposing to expanding multiple database drivers for the VelaUX API server. 
+- Expected Outcome: The outcome of this project will be expand two more database driver for KubeVela VelaUX API server:
+  - Mysql
+  - PostgreSQL
+- Recommended Skills:
+  - Golang
+  - Kubernetes
+  - Backend APIs Development
+- Mentor(s):
+  - Qiao Zhongpei (@chivalryq, chivalry.pp@gmail.com)
+  - Zeng Qingguo (@barnettZQG, barnett.zqg@gmail.com)
+- Upstream Issue (URL): https://github.com/kubevela/kubevela/issues/5426
 
 ### CNCF Landscape 
 
@@ -437,3 +452,4 @@ The development environment is based on golang and Kubernetes. A minikube instan
 - Mentors: Andrea Velázquez andrea@buoyant.io, Nate W. @nate-double-u natew@cncf.io, Chris Aniszczyk @caniszczyk caniszczyk@linuxfoundation.org
 - Upstream Issue: https://github.com/cncf/landscape/issues/2467
 
+---
