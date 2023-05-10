@@ -30,6 +30,7 @@
 * [Thanos](#thanos)
 * [KubeArmor](#kubearmor)
 * [LitmusChaos](#litmuschaos)
+* [Service Mesh Performance](#service-mesh-performance)
 
 ### Armada
 
@@ -379,6 +380,19 @@ The development environment is based on golang and Kubernetes. A minikube instan
   - Shubham Chaudhary (@ispeakc0de, shubham.chaudhary@harness.io)
   - Vansh Bhatia (@vanshBhatia-A4k9, vansh.bhatia@harness.io)
 - Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/3970
+
+### Service Mesh Performance
+
+#### Service Mesh Performance IDE Plugin
+
+- Description: The objective of this project is to develop IDE plugins that can enhance the developer experience while working with Service Mesh Performance Performance Profiles. The proposed plugins will leverage technologies such as golang and cuelang to provide features such as syntax highlighting, auto-completion, validation, and rendering previews for Service Mesh Performance profile and model definitions.
+- Expected outcome:
+- 1. Release VS Code Extension
+- 2. Syntax Highlighting and Auto-completion: The plugin can fetch SMP Model definitions such as cloud-native components and their relationships. This information can be used to provide syntax highlighting and auto-completion for these definitions in the JSON files, making it easier for developers to write error-free code.
+- 3. Validation and Reference: For Meshery MeshModel definitions such as cloud-native components and their relationships, the plugin can use the CUE language to provide validation for the CUE input and preview the rendering result. The plugin can also fetch the SMP Model schemas and display them in the IDE for reference.
+- Recommended Skills: Cuelang
+- Mentor(s): Lee Calcote @leecalcote (leecalcote@gmail.com), Xin Huang @gyohuangxin (xin1.huang@intel.com)
+- Upstream Issue (URL): https://github.com/service-mesh-performance/service-mesh-performance/issues/379
 
 ---
 
