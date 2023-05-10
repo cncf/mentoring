@@ -17,23 +17,6 @@
 
 ## Proposed Project ideas
 
-### KubeVela
-
-#### Expand multiple database drivers for the API server
-- Description: Now KubeVela's VelaUX uses two kinds of Database to store metadata: Kubernetes ConfigMap and MongoDB. As more users are expecting using different kinds of database. We proposing to expanding multiple database drivers for the VelaUX API server. 
-- Expected Outcome: The outcome of this project will be expand two more database driver for KubeVela VelaUX API server:
-  - Mysql
-  - PostgreSQL
-- Recommended Skills:
-  - Golang
-  - Kubernetes
-  - Backend APIs Development
-- Mentor(s):
-  - Qiao Zhongpei (@chivalryq, chivalry.pp@gmail.com)
-  - Zeng Qingguo (@barnettZQG, barnett.zqg@gmail.com)
-- Upstream Issue (URL): https://github.com/kubevela/kubevela/issues/5426
-- LFX URL: 
-
 ### CNCF Landscape 
 
 #### UX / UI Improvements
