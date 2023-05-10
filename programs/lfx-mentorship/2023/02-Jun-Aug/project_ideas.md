@@ -29,19 +29,5 @@
 - LFX URL: 
 
 
-### Vitess
-
-#### Rework the frontend UI of Vitess’ benchmarking tools
-
-- Description: Vitess uses a couple of tools to benchmark its codebase and to make sure that new code doesn’t introduce performance regressions. These tools are: arewefastyet and the VReplication Benchmarking Framework. We currently have an old frontend UI that serves arewefastyet. However, this UI is slow, not optimized and not easily extensible. It uses the built-in Golang template system to serve pages. We would like to create a common frontend UI that will be used by both benchmarking tools and that will replace the current arewefastyet’s UI. The mentee will have the responsibility of creating the UI using (most likely) React/Vite on Vercel. The frontend component will connect to our already-existing backend components: a MySQL database and arewefastyet’s REST API.
-- Expected Outcome: The expected outcome is to have a working frontend UI that integrates well with our different backends (databases and benchmarking tools’ APIs).
-- Recommended Skills: React, Vercel, Vite, REST API, (Optional writing APIs in Golang)
-
-- Mentor(s):
-  - Florent Poinsard @fouioui
-  - Rohit Nayak @rohit-nayak-ps
-- Upstream Issue (URL): https://github.com/vitessio/arewefastyet/issues/328 
-- LFX URL: 
-
 
 ---

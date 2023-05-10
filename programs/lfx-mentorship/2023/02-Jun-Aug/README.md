@@ -519,4 +519,18 @@ The development environment is based on golang and Kubernetes. A minikube instan
 - Upstream Issue (URL): https://github.com/kubevela/kubevela/issues/5426
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/21c95d53-dd75-4a2f-a8fd-92374c54940d
 
+### Vitess
+
+#### Rework the frontend UI of Vitess’ benchmarking tools
+
+- Description: Vitess uses a couple of tools to benchmark its codebase and to make sure that new code doesn’t introduce performance regressions. These tools are: arewefastyet and the VReplication Benchmarking Framework. We currently have an old frontend UI that serves arewefastyet. However, this UI is slow, not optimized and not easily extensible. It uses the built-in Golang template system to serve pages. We would like to create a common frontend UI that will be used by both benchmarking tools and that will replace the current arewefastyet’s UI. The mentee will have the responsibility of creating the UI using (most likely) React/Vite on Vercel. The frontend component will connect to our already-existing backend components: a MySQL database and arewefastyet’s REST API.
+- Expected Outcome: The expected outcome is to have a working frontend UI that integrates well with our different backends (databases and benchmarking tools’ APIs).
+- Recommended Skills: React, Vercel, Vite, REST API, (Optional writing APIs in Golang)
+
+- Mentor(s):
+  - @fouioui Florent Poinsard frouioui@planetscale.com
+  - Rohit Nayak @rohit-nayak-ps rohit@planetscale.com
+- Upstream Issue (URL): https://github.com/vitessio/arewefastyet/issues/328 
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8299d27a-9e36-4de6-abbc-c9282634ee03
+
 
