@@ -17,15 +17,6 @@
 
 ## Proposed Project ideas
 
-#### Refactor the ORAS documentation structure and write new user guides
-
-- Description: Refactor the ORAS documentation structure and write new user guides based on the latest version of ORAS. The detailed ORAS documentation structure and content should be refactored according to the proposal in the [upstream issue](https://github.com/oras-project/oras-www/issues/65). 
-- Expected Outcome: Deliver a developer-friendly documentation structure for ORAS and write new user guides according to the proposed documentation structure. Publish all content at https://oras.land/
-- Recommended Skills: OCI, Docker, ORAS, Markdown
-- Mentor(s): Terry Howe (@TerryHowe , terrylhowe@gmail.com), Asmit Malakannawar (@asmitbm , asmitbm2952002@gmail.com), Feynman Zhou (@FeynmanZhou , feynmanzhou@microsoft.com)
-- Upstream issue: https://github.com/oras-project/oras-www/issues/65
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2314fcc1-f09b-4dab-90fb-d0ef092b6c0e
-
 ### Tetragon
 
 #### Implement a Kubernetes operator to maintain pod IP to pod metadata mapping
