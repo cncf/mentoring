@@ -38,20 +38,6 @@
 * [Service Mesh Performance](#service-mesh-performance)
 
 
-### Armada
-
-#### Build interfaces around Postgres for Armada
-
-- Description: Open source projects should not be hard coded to a particular Database. Armada currently only allows users to use Postgres. This project is to build interfaces around our connections to Postgres so we can allow other databases.
-- Expected outcomes:
-  - A interface is created that allows Armada to interact with any SQL database without exposing implementation details of postgres
-Test coverage could increase
-- Recommend Skills: Go, SQL
-- Mentor(s):
-  - Geoffrey Wilson, @suprjinx, geoff@gr-oss.com
-  - Kevin Hannon, @kannon92, kevin@gr-oss.io
-- Upstream Issue (URL): armadaproject/armada#2121
-
 ### CoreDNS
 
 #### Add DNS-over-QUIC (DoQ) and/or DNS-over-HTTP/3 (DoH3) support

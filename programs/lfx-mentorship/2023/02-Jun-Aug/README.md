@@ -26,4 +26,25 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 ---
 
+Table of Contents
+
+---
+
+# Accepted projects
+
+## Armada
+
+### Build interfaces around Postgres for Armada
+
+- Description: Open source projects should not be hard coded to a particular Database. Armada currently only allows users to use Postgres. This project is to build interfaces around our connections to Postgres so we can allow other databases.
+- Expected outcomes:
+  - A interface is created that allows Armada to interact with any SQL database without exposing implementation details of postgres
+  - increase Test coverage
+- Recommend Skills: Go, SQL
+- Mentor(s):
+  - Geoffrey Wilson, @suprjinx, geoff@gr-oss.com
+  - Kevin Hannon, @kannon92, kevin@gr-oss.io
+- Upstream Issue (URL): https://github.com/armadaproject/armada/issues/2121
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/73d90321-62b3-498e-bf37-d899ec99df9e
+
 
