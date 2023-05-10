@@ -459,3 +459,19 @@ The development environment is based on golang and Kubernetes. A minikube instan
 * Upstream Issue: [Issue #1130](https://github.com/kubearmor/KubeArmor/issues/1130)
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/08d245cb-001f-4292-90eb-e8895189c77a
 
+### LitmusChaos
+
+#### Migrate chaos workflow api from graphql to rest and improve chaos center code base
+- Description: This project aims to improve the user experience with the chaos workflow GraphQL APIs by enhancing their functionality and addressing security vulnerabilities. The project includes converting the user-facing chaos workflow and workflow run APIs, refactoring the chaos-workflow package into interfaces and splitting it into separate packages, and resolving security vulnerabilities and golangci-lint issues in the chaos-center backend components. 
+- Expected outcome: The outcome of this project will be improved functionality, security, and usability of the chaos workflow GraphQL APIs and chaos-center backend components through the implementation of new features, refactoring of existing code, and addressing of security vulnerabilities.
+- Recommended Skills:
+  - Golang
+  - Kubernetes
+  - Backend APIs Development
+- Mentor(s):
+  - Amit Kumar Das (@amityt, amit.das@harness.io)
+  - Arkajyoti Mukherjee (@arkajyotiMukherjee, arkajyoti.mukherjee@harness.io)
+- Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/3970
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/983193ea-9cca-405f-baa5-e6ade4df1ba2
+
+
