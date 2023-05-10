@@ -325,7 +325,7 @@ The development environment is based on golang and Kubernetes. A minikube instan
 - 2. Syntax Highlighting and Auto-completion: The plugin can fetch SMP Model definitions such as cloud-native components and their relationships. This information can be used to provide syntax highlighting and auto-completion for these definitions in the JSON files, making it easier for developers to write error-free code.
 - 3. Validation and Reference: For Meshery MeshModel definitions such as cloud-native components and their relationships, the plugin can use the CUE language to provide validation for the CUE input and preview the rendering result. The plugin can also fetch the SMP Model schemas and display them in the IDE for reference.
 - Recommended Skills: Cuelang
-- Mentor(s): Lee Calcote @leecalcote (leecalcote@gmail.com), [Xin Huang](https://github.com/gyohuangxin)
+- Mentor(s): Lee Calcote @leecalcote (leecalcote@gmail.com), Xin Huang @gyohuangxin (xin1.huang@intel.com)
 - Upstream Issue (URL): https://github.com/service-mesh-performance/service-mesh-performance/issues/379
 
 ---
