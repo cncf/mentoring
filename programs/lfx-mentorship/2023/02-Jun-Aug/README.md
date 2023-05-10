@@ -62,7 +62,7 @@ Table of Contents
   - increase Test coverage
 - Recommend Skills: Go, SQL
 - Mentor(s):
-  - Geoffrey Wilson, @suprjinx, geoff@gr-oss.com
+  - Geoffrey Wilson, @suprjinx, geoff@gr-oss.io
   - Kevin Hannon, @kannon92, kevin@gr-oss.io
 - Upstream Issue (URL): https://github.com/armadaproject/armada/issues/2121
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/73d90321-62b3-498e-bf37-d899ec99df9e
