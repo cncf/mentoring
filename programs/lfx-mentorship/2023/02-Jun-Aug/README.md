@@ -304,4 +304,32 @@ Table of Contents
 - Upstream issue: https://github.com/oras-project/oras-www/issues/65
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2314fcc1-f09b-4dab-90fb-d0ef092b6c0e
 
+### Cilium/Tetragon
+
+#### Implement a Kubernetes operator to maintain pod IP to pod metadata mapping
+
+- Description:
+
+  Tetragon currently depends on Cilium to look up pod information by their IP
+  addresses. The goal of this project is to remove this Cilium dependency by
+  implementing a Kubernetes operator that provides this information. The idea
+  is for this operator to maintain a new custom resource that provide a mapping
+  from IPs to the small subset of pod information that Tetragon needs.
+
+- Expected Outcome:
+  - A Kubernetes operator that maintains IP to pod info mapping used by Tetragon.
+  - The operator should be installable via Helm as a Kubernetes deployment.
+  - Replace Cilium dependency in the code base with this new custom resource.
+  - Some performance benchmarks in a high pod churn environment.
+- Recommended Skills:
+  - Go
+  - Kubernetes
+- Mentor(s):
+  - Kornilios Kourtis (@kkourt, kornilios@isovalent.com)
+  - Michi Mutsuzaki (@michi-covalent, michi@isovalent.com)
+- Upstream Issue:
+  - https://github.com/cilium/tetragon/issues/794
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/659fe584-68e6-46bf-bd13-12653ef60268
+
+
 
