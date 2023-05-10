@@ -331,5 +331,39 @@ Table of Contents
   - https://github.com/cilium/tetragon/issues/794
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/659fe584-68e6-46bf-bd13-12653ef60268
 
+### WasmEdge
+
+#### Serialization Completion
+
+- Description: WasmEdge is a WebAssembly runtime in both interpreter and ahead-of-time mode. However, WasmEdge only supports the binary format for the input WebAssembly file. To help the text format WebAssembly loader feature in the future, the implementation of serializing a WebAssembly module is necessary. In this mentorship, we hope the mentee should complete the serialization functions already in [the `dev/serialize` branch](https://github.com/WasmEdge/WasmEdge/tree/dev/serialize) of the `WasmEdge` repo.
+- Expected outcome: Complete the serialization functions of WebAssembly modules, such as the element segment and data segment encoding. Complete the WebAssembly instructions encoding. Generate the unit test data and pass the unit tests. >80% of code coverage for serialization.
+- Recommended Skills: C/C++, WebAssembly
+- Mentor(s): Yi-Ying He @q82419 (yiying at secondstate dot io), Hung-Ying Tai @hydai (hydai at secondstate dot io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2262
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/4a8a4f26-0ca9-4517-8cce-582c92092e33
+
+#### zlib Plugin Support
+
+- Description: The zlib is required for compiling and running many existing C / C++ / Rust apps in Wasm. Most noticeably, it is [needed in the Python port to Wasm](https://github.com/python/cpython/issues/93819). The VMWare Wasm Labs team is using a zlib port from [Singlestore](https://github.com/singlestore-labs/python-wasi) in [their Python Wasm runtime](https://wasmlabs.dev/articles/python-wasm32-wasi/). In WasmEdge, we could support the zlib host functions through our [plugin system](https://wasmedge.org/book/en/plugin.html). This way, any existing zlib apps can be compiled to Wasm and runs inside WasmEdge.
+- Expected outcome: Create a new [WasmEdge plugin](https://wasmedge.org/book/en/plugin.html) that exports all public functions in `zlib`. Implement SDK (in C/Rust) that uses the C ABI to generate corresponding headers for the above plugin. Generate the unit tests and pass the unit tests. >80% of code coverage for verification.
+- Recommended Skills: C/C++, Rust, WebAssembly
+- Mentor(s): Yi-Ying He @q82419 (yiying at secondstate dot io), Hung-Ying Tai @hydai (hydai at secondstate dot io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2244
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/74cecdf7-e886-4830-8bb0-7814f0d1aa2d
+
+#### Support Tensorflow and PyTorch in WasmEdge’s Python runtime
+
+- Description: In this project, you will incorporate WasmEdge’s NN (Neural Network) extensions into the Python interpreter. WasmEdge provides C and Rust APIs for guest applications to access host functions in the underlying Tensorflow and PyTorch libraries. You will make those functions accessible from the CPython-based interpreter as Python wrappers. This way, Python applications can do lightweight AI inference on the WasmEdge container.
+- Expected outcome:
+  * Investigate and list all C-based host function APIs for Tensorflow and PyTorch inference in WasmEdge NN.
+  * Create CPython wrappers for those host functions.
+  * Create high-level Python wrapper functions that are ergonomic for Python developers.
+  * Create CI and demo apps to validate the Python wrapper API.
+  * Create detailed documentation and tutorials.
+- Recommended Skills: Proficient in C programming including creating dynamic libraries; Proficient in Python and machine learning programming. Basic understanding of WebAssembly and WasmEdge.
+- Mentor(s): Michael Yuan @juntao (michael at secondstate dot io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2471
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/884ff3f2-3ea3-4010-8928-ca27bbae219a
+
 
 
