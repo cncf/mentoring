@@ -38,7 +38,7 @@ The following are not responsibilities of a GSoC admin:
 At this stage, Google announces it will have GSoC in the upcoming year. There is no guarantee from Google that CNCF will be accepted to GSoC.
 
 Tasks:
-* Create GSoC ideas page in [`cncf/mentoring`](https://github.com/cncf/mentoring/tree/main/summerofcode) repository. An ideas page will be necessary during the organization application.
+* Create GSoC ideas page in [`cncf/mentoring`](https://github.com/cncf/mentoring/tree/main/programs/summerofcode) repository. An ideas page will be necessary during the organization application.
 * [Announce](#Announcements) the intention to participate in the program ([example announcement](https://github.com/cncf/mentoring/discussions/777)). Mention these:
     * Deadline to add ideas is the contributor application period start date.
     * CNCF has not yet been accepted into the program.

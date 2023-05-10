@@ -21,14 +21,20 @@
 * [CoreDNS](#coredns)
 * [Jaeger](#jaeger)
 * [Knative](#knative)
+* [Kubescape](#kubescape)
 * [Kyverno](#kyverno)
+* [Notary](#notary)
+* [Meshery](#meshery)
 * [ORAS](#oras)
 * [Tetragon](#tetragon)
 * [WasmEdge](#wasmedge)
 * [Konveyor](#konveyor)
+* [Strimzi](#strimzi)
 * [Thanos](#thanos)
 * [KubeArmor](#kubearmor)
 * [LitmusChaos](#litmuschaos)
+* [KubeVela](#kubevela)
+* [Service Mesh Performance](#service-mesh-performance)
 
 
 ### Armada
@@ -103,6 +109,40 @@ Test coverage could increase
 - Mentor(s): Reto Lehmann @ReToCode (rlehmann AT redhat DOT com),  Stavros Kontopoulos @skonto (skontopo AT redhat DOT com)
 - Upstream Issue (URL): https://github.com/knative/serving/issues/12718
 
+### Kubescape
+
+#### Store Kubescape configuration scan results as CRs
+
+- Description: [Kubescape](http://kubescape.io/) is a utility that can scan a Kubernetes cluster and report on its security posture. There is an "operator" which can be installed in the cluster to perform scheduled scans scan, but this is largely used to send the data to an external service. In this project, you will implement a mechanism in the Kubescape operator to save scan results locally in a custom resource (CR), as well as a watch so that scans can be performed on cluster state changes.
+- Expected Outcome: Having the ability to scan a cluster when it changes, and have the results saved inside the cluster. This will allow users and automations to judge the security posture of changes that are made to the cluster (for example, deployments or rollouts.)
+- Recommended Skills: Go
+- Mentors:
+  - Ben Hirschberg (@slashben, ben AT armosec.io)
+  - Craig Box (@craigbox, craigb AT armosec.io)
+  - David Wertenteil (@dwertent, dwertent AT armosec.io)
+ - Upstream Issue: https://github.com/kubescape/kubescape/issues/1225
+
+#### Prometheus exporter for image vulnerabilities
+
+- Description: Kubescape has a component that runs in-cluster which performs image scanning on all the container images deployed to a cluster. This function is largely used to send the data to an external service.  In this projet, you will develop a Prometheus exporter for the image vulnerability information produced by Kubescape.  This will allow users to access the data from within the cluster, as well as use it for alerting.
+- Expected Outcome: Access to cluster vulnerability data through Prometheus.  For example, you should have the ability to alert on number or percentage of "Critical" level vulnerabilities in containers running in the cluster.
+- Recommended Skills: Go, Prometheus
+- Mentors:
+  - Ben Hirschberg (@slashben, ben AT armosec.io)
+  - Craig Box (@craigbox, craigb AT armosec.io)
+  - David Wertenteil (@dwertent, dwertent AT armosec.io)
+- Upstream Issue: https://github.com/kubescape/kubescape/issues/1226
+
+#### Vulnerability-based Dockerfile generator
+
+- Description: Kubescape can detect vulnerabilities in a container image. Some can automatically be remediated by changing the base image version (or other package information) inside the Dockerfile which created the image. This project is to automate this remediation.
+- Expected Outcome: An enhancement to Kubescape to generate a Dockerfile that proposes fixes for vulnerabilities found in a container image. This may be by integration with existing open source tools or developing something new.
+- Recommended Skills: Go
+  - Ben Hirschberg (@slashben, ben AT armosec.io)
+  - Craig Box (@craigbox, craigb AT armosec.io)
+  - David Wertenteil (@dwertent, dwertent AT armosec.io)
+- Upstream Issue: https://github.com/kubescape/kubescape/issues/1227
+
 ### Kyverno
 
 #### Kuttl tests for the Kyverno policy library
@@ -142,6 +182,66 @@ Test coverage could increase
 - Upstream Issue (URL):
   - https://github.com/kyverno/kyverno/issues/5748
   - https://github.com/kyverno/KDP/blob/main/proposals/cleanup.md#proposal
+
+### Notary
+
+#### Design and implement the new Notary website
+
+- Description: Design the new Notary website using the Figma tool and develop it based on the design layout. We redesigned the Notary website and finished the first phase development work with CNCF employee @thisisobate in [#PR 139](https://github.com/notaryproject/notaryproject.dev/pull/139). This project is to continue to design and implement the new Notary website and ensure deliver a developer-friendly experience.
+- Expected Outcome: 
+   - Design and implement the Adopters page
+   - Redesign a Community page
+   - Improve the landing page design; add an installation section with a terminal effect design
+   - Support mobile responsive design
+   - Add a pop-up window on the landing page to tell users how to join the community
+   - Add Algolia search for the website
+   - Design and implement a video page to list Youtube videos
+   - Refine the content on the website
+   - Add Broken link check to Netlify CI
+- Recommended Skills: Figma design, HTML, CSS, JavaScript, Hugo
+- Mentor(s):  Feynman Zhou (@FeynmanZhou , feynmanzhou@microsoft.com)
+- Upstream Issue (URL): https://github.com/notaryproject/notaryproject.dev/issues/194
+
+#### Develop content for Notary documentation and blogs
+
+- Description: Develop content for Notary documentation and write blog posts to educate users about the Notary use cases. Write user guides, contributing guides, and developer guides for every new Notary release and keep those content up-to-date.
+- Expected Outcome: 
+   - Write user guides with end-to-end scenarios based on given doc structure and requirement
+   - Write contributing guides and developer guides, ensure new developers can easily build and start contributing to Notary subprojects 
+   - Write blog posts to educate users to use Notation with cloud-native ecosystem tools
+- Recommended Skills: OCI, Docker, Kubernetes, Notary, Git, Markdown, Technical writing experience
+- Mentor(s): Mentor(s):  Yi Zha, @yizha1 (yizha1@microsoft.com)
+- Upstream Issue (URL): https://github.com/notaryproject/notaryproject.dev/issues/195
+
+### Meshery
+
+#### Meshery UI Permissions Framework
+
+- Description: Meshery UI lacks a permissions framework. The existing internal implementation is simple, fragile and must be completely rewritten. The approach to implemention a permmissions framework includes using React.js and CASL.js. Meshery UI's approach needs to be extensible given that this framework will be an extension point for Remote Providers to supply their own permissions.
+- Expected outcome: Definition of permissions and their enforcement in Meshery with an aim for deep granularity and extensibility with each user interface input component carrying a unique permission key id. Each key is then put into a group of keys in a keychain, keychains assigned to user roles, in turn, roles assigned to users. With users having the ability to create own custom roles, the framework will be dynamic based on the associated server-side permissions for the currently auth’ed user.
+- Recommended Skills: React.js, CASL.js
+- Mentor(s): Lee Calcote @leecalcote (leecalcote@gmail.com), Abhishek Kumar @Abhishek-kumar09 (abhimait1909@gmail.com)
+- Upstream Issue (URL): https://github.com/meshery/meshery/issues/7436, https://github.com/meshery/meshery/issues/7382
+
+#### OPA policy evaluation in-browser using WebAssembly and Rego
+
+- Description: Meshery's highly dynamic infrastructure configuration capabilities require real-time evaluation of complex policies. Policies of various types and with a high number of parameters need to be evaluted client-side. With policies expressed in Rego, the goal of this project is to incorporate use of the https://github.com/open-policy-agent/golang-opa-wasm project into Meshery UI.
+- Expected outcome: a powerful real-time multi-user collaboration experience.
+- Recommended Skills: Golang, Open Policy Agent, WASM
+- Mentor(s): Lee Calcote @leecalcote (leecalcote@gmail.com), Abhishek Kumar @Abhishek-kumar09 (abhimait1909@gmail.com)
+- Upstream Issue (URL): https://github.com/meshery/meshery/issues/7019
+
+#### Adopt OCI as the packaging and distribution format for Meshery MeshModels
+
+- Description: Meshery MeshModels represent a schema-based description of cloud native infratructure. MeshModels need to be portable between Meshery deployments as well as easily versionable in external repositories.
+- Expected outcome:
+  - Meshery clients (mesheryctl and Meshery UI) should be able to import/export MeshModels as OCI images.
+  - Meshery clients (mesheryctl and Meshery UI) should be able to push/pull from OCI-compatible registries.
+  - Stretch Goal: OCI image signing; Verify the authenticity of MeshModels using [cosign](https://github.com/sigstore/cosign).
+  - Target registries: Meshery Catalog (https://meshery.io/catalog), Artifact Hub.
+- Recommended Skills: Reactjs, Golang, GraphQL
+- Mentor(s): Lee Calcote @leecalcote (leecalcote@gmail.com)
+- Upstream Issue (URL): https://github.com/meshery/meshery/issues/6447
 
 ### ORAS
 
@@ -340,6 +440,45 @@ The development environment is based on golang and Kubernetes. A minikube instan
 - Mentor(s):
   - Shubham Chaudhary (@ispeakc0de, shubham.chaudhary@harness.io)
   - Vansh Bhatia (@vanshBhatia-A4k9, vansh.bhatia@harness.io)
-- Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/3970
+- Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/3969
+
+### Service Mesh Performance
+
+#### Service Mesh Performance IDE Plugin
+
+- Description: The objective of this project is to develop IDE plugins that can enhance the developer experience while working with Service Mesh Performance Performance Profiles. The proposed plugins will leverage technologies such as golang and cuelang to provide features such as syntax highlighting, auto-completion, validation, and rendering previews for Service Mesh Performance profile and model definitions.
+- Expected outcome:
+- 1. Release VS Code Extension
+- 2. Syntax Highlighting and Auto-completion: The plugin can fetch SMP Model definitions such as cloud-native components and their relationships. This information can be used to provide syntax highlighting and auto-completion for these definitions in the JSON files, making it easier for developers to write error-free code.
+- 3. Validation and Reference: For Meshery MeshModel definitions such as cloud-native components and their relationships, the plugin can use the CUE language to provide validation for the CUE input and preview the rendering result. The plugin can also fetch the SMP Model schemas and display them in the IDE for reference.
+- Recommended Skills: Cuelang
+- Mentor(s): Lee Calcote @leecalcote (leecalcote@gmail.com), Xin Huang @gyohuangxin (xin1.huang@intel.com)
+- Upstream Issue (URL): https://github.com/service-mesh-performance/service-mesh-performance/issues/379
+
+### KubeVela
+
+#### Expand multiple database drivers for the API server
+- Description: Now KubeVela's VelaUX uses two kinds of Database to store metadata: Kubernetes ConfigMap and MongoDB. As more users are expecting using different kinds of database. We proposing to expanding multiple database drivers for the VelaUX API server. 
+- Expected Outcome: The outcome of this project will be expand two more database driver for KubeVela VelaUX API server:
+  - Mysql
+  - PostgreSQL
+- Recommended Skills:
+  - Golang
+  - Kubernetes
+  - Backend APIs Development
+- Mentor(s):
+  - Qiao Zhongpei (@chivalryq, chivalry.pp@gmail.com)
+  - Zeng Qingguo (@barnettZQG, barnett.zqg@gmail.com)
+- Upstream Issue (URL): https://github.com/kubevela/kubevela/issues/5426
+
+### CNCF Landscape 
+
+#### UX / UI Improvements
+
+- Description: With your collaboration, we aim to analyze findings and meaningful information (quantitative and qualitative data) and run a series of ideation rounds. We will create user personas, empathy maps, and other UX deliverables that will be the foundation to lay out a set of solutions to improve the current way to search, navigate and find relevant information on the Landscape.
+- Expected Outcome: Creation user personas, empathy maps, and other UX deliverables.
+- Recommended Skills: UX reaserach, desighn thinking, Figma and prototyping. 
+- Mentors: Andrea Velázquez andrea@buoyant.io, Nate W. @nate-double-u natew@cncf.io, Chris Aniszczyk @caniszczyk caniszczyk@linuxfoundation.org
+- Upstream Issue: https://github.com/cncf/landscape/issues/2467
 
 ---
