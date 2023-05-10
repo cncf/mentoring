@@ -17,38 +17,6 @@
 
 ## Proposed Project ideas
 
-### Notary
-
-#### Design and implement the new Notary website
-
-- Description: Design the new Notary website using the Figma tool and develop it based on the design layout. We redesigned the Notary website and finished the first phase development work with CNCF employee @thisisobate in [#PR 139](https://github.com/notaryproject/notaryproject.dev/pull/139). This project is to continue to design and implement the new Notary website and ensure deliver a developer-friendly experience.
-- Expected Outcome: 
-   - Design and implement the Adopters page
-   - Redesign a Community page
-   - Improve the landing page design; add an installation section with a terminal effect design
-   - Support mobile responsive design
-   - Add a pop-up window on the landing page to tell users how to join the community
-   - Add Algolia search for the website
-   - Design and implement a video page to list Youtube videos
-   - Refine the content on the website
-   - Add Broken link check to Netlify CI
-- Recommended Skills: Figma design, HTML, CSS, JavaScript, Hugo
-- Mentor(s):  Feynman Zhou (@FeynmanZhou , feynmanzhou@microsoft.com)
-- Upstream Issue (URL): https://github.com/notaryproject/notaryproject.dev/issues/194
-- LFX URL: 
-
-#### Develop content for Notary documentation and blogs
-
-- Description: Develop content for Notary documentation and write blog posts to educate users about the Notary use cases. Write user guides, contributing guides, and developer guides for every new Notary release and keep those content up-to-date.
-- Expected Outcome: 
-   - Write user guides with end-to-end scenarios based on given doc structure and requirement
-   - Write contributing guides and developer guides, ensure new developers can easily build and start contributing to Notary subprojects 
-   - Write blog posts to educate users to use Notation with cloud-native ecosystem tools
-- Recommended Skills: OCI, Docker, Kubernetes, Notary, Git, Markdown, Technical writing experience
-- Mentor(s): Mentor(s):  Yi Zha, @yizha1 (yizha1@microsoft.com)
-- Upstream Issue (URL): https://github.com/notaryproject/notaryproject.dev/issues/195
-- LFX URL: 
-
 ### Meshery
 
 #### Meshery UI Permissions Framework
