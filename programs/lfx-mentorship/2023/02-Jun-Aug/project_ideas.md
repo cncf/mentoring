@@ -18,18 +18,6 @@
 ## Proposed Project ideas
 
 
-#### Manage KubeArmor policies using OCI registry and use OCI hooks for container events
-
-* Description: The feature aims to manage KubeArmor policies using OCI registry and use OCI hooks to get container events. Currently, KubeArmor uses a UNIX domain socket file to watch for container events, but the proposed feature aims to use OCI hooks instead.
-* Expected Outcome: To provide a more secure and efficient way of managing KubeArmor policies by leveraging OCI registry. Storing policies in OCI registries will make it easier to distribute policies across multiple clusters and environments. Using OCI hooks will also reduce the overhead of monitoring container events and make it easier to integrate KubeArmor with other container runtimes.
-* Recommended Skills: Go, K8s, understanding of the Open Container Initiative (OCI) and container runtimes.
-* Mentors:
-  * Anurag Kumar (@kranurag7, contact.anurag7@gmail.com)
-  * Barun Acharya (@daemon1024, barun1024@gmail.com)
-  * Ankur Kothiwal (@Ankurk99, ankur.kothiwal99@gmail.com)
-* Upstream Issue: [Issue #1130](https://github.com/kubearmor/KubeArmor/issues/1130)
-- LFX URL: 
-
 
 ### LitmusChaos
 
