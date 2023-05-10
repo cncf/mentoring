@@ -17,33 +17,14 @@
 
 ## Proposed Project ideas
 
-### ORAS
-
-#### Design and implement Artifact Explore web portal
-
-- Description: This project goal is to improve the efficiency of the image developers and users through the artifact explorer tool with ORAS under the hood. This tool helps users to explore and search the content of an artifact or a registry. This doc is to gather ideas for early brainstorming purposes. For users, this tool reduces CLI learning cost and improve efficiency for developers. They don’t need to memorize and type the CLI commands to explore the content of an OCI artifact and registry.
-
-- Expected Outcome:
-   - Provides a web portal to view the content of OCI artifacts from any public registries
-   - Users can drill down into the detailed content of an image manifest or a layer
-   - Users can view the artifact reference graph from the web portal
-   - Users can view and download the supply chain artifacts like the signature, SBOM, attestation 
-   - Provides search capabilities to allow users to search container images or OCI artifacts on a central web portal. We can combine it with Artifact [Search API capabilities](https://docs.google.com/document/d/1rcQROZP31q7BOjoZ977Ok7pt28z_UXfW0vAK3xC0wdI/edit#heading=h.rx512bvufn5q).
-   - Explore the image’s file system of layer (tentative)
-   
-- Recommended Skills: Figma design, HTML, CSS, JavaScript, Hugo, Docker
-- Mentor(s):  Feynman Zhou (@FeynmanZhou , feynmanzhou@microsoft.com), Billy Zha (@qweeah , jinzha1@microsoft.com) 
-- Upstream issue: https://github.com/oras-project/oras-www/issues/158
-- LFX URL: 
-
 #### Refactor the ORAS documentation structure and write new user guides
 
 - Description: Refactor the ORAS documentation structure and write new user guides based on the latest version of ORAS. The detailed ORAS documentation structure and content should be refactored according to the proposal in the [upstream issue](https://github.com/oras-project/oras-www/issues/65). 
 - Expected Outcome: Deliver a developer-friendly documentation structure for ORAS and write new user guides according to the proposed documentation structure. Publish all content at https://oras.land/
 - Recommended Skills: OCI, Docker, ORAS, Markdown
-- Mentor(s): Mentor(s): Terry Howe (@TerryHowe , terrylhowe@gmail.com), Asmit Malakannawar (@asmitbm , asmitbm2952002@gmail.com), Feynman Zhou (@FeynmanZhou , feynmanzhou@microsoft.com)
+- Mentor(s): Terry Howe (@TerryHowe , terrylhowe@gmail.com), Asmit Malakannawar (@asmitbm , asmitbm2952002@gmail.com), Feynman Zhou (@FeynmanZhou , feynmanzhou@microsoft.com)
 - Upstream issue: https://github.com/oras-project/oras-www/issues/65
-- LFX URL: 
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2314fcc1-f09b-4dab-90fb-d0ef092b6c0e
 
 ### Tetragon
 

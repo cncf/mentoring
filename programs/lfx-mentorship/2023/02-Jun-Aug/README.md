@@ -276,4 +276,23 @@ Table of Contents
 - Upstream Issue (URL): https://github.com/meshery/meshery/issues/6447
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/26377c30-9ffd-41e3-bfea-839bf126f8f6
 
+### ORAS
+
+#### Design and implement Artifact Explore web portal
+
+- Description: This project goal is to improve the efficiency of the image developers and users through the artifact explorer tool with ORAS under the hood. This tool helps users to explore and search the content of an artifact or a registry. This doc is to gather ideas for early brainstorming purposes. For users, this tool reduces CLI learning cost and improve efficiency for developers. They don’t need to memorize and type the CLI commands to explore the content of an OCI artifact and registry.
+
+- Expected Outcome:
+   - Provides a web portal to view the content of OCI artifacts from any public registries
+   - Users can drill down into the detailed content of an image manifest or a layer
+   - Users can view the artifact reference graph from the web portal
+   - Users can view and download the supply chain artifacts like the signature, SBOM, attestation 
+   - Provides search capabilities to allow users to search container images or OCI artifacts on a central web portal. We can combine it with Artifact [Search API capabilities](https://docs.google.com/document/d/1rcQROZP31q7BOjoZ977Ok7pt28z_UXfW0vAK3xC0wdI/edit#heading=h.rx512bvufn5q).
+   - Explore the image’s file system of layer (tentative)
+   
+- Recommended Skills: Figma design, HTML, CSS, JavaScript, Hugo, Docker
+- Mentor(s):  Feynman Zhou (@FeynmanZhou , feynmanzhou@microsoft.com), Billy Zha (@qweeah , jinzha1@microsoft.com) 
+- Upstream issue: https://github.com/oras-project/oras-www/issues/158
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/9749bc0a-04c9-498d-a16c-e66c0930e819
+
 
