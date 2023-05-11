@@ -205,7 +205,7 @@ Table of Contents
 - Description: Kyverno has a policy type called Cleanup Policies which allow removal of resources defined in a policy. In this second phase, we would like to extend this ability to cleanup resources based upon defining a label for even more fine-grained control.
 - Expected outcome: Extend Cleanup Policies feature by allowing per-resource removal based upon label assignment
 - Recommended Skills: Golang, Kubernetes, Kyverno
-- Mentor(s): Charles-Edouard Brétéché @eddycharly (charles.edouard AT nirmata DOT com)
+- Mentor(s): Charles-Edouard Brétéché @eddycharly (charled.breteche AT gmail DOT com)
 - Upstream Issue (URL):
   - https://github.com/kyverno/kyverno/issues/5748
   - https://github.com/kyverno/KDP/blob/main/proposals/cleanup.md#proposal
