@@ -361,7 +361,7 @@ Table of Contents
   * Create CI and demo apps to validate the Python wrapper API.
   * Create detailed documentation and tutorials.
 - Recommended Skills: Proficient in C programming including creating dynamic libraries; Proficient in Python and machine learning programming. Basic understanding of WebAssembly and WasmEdge.
-- Mentor(s): Michael Yuan @juntao (michael at secondstate dot io)
+- Mentor(s): Michael Yuan @juntao (michael at secondstate dot io), Asen Alexandrov @adalexandrov (alexandrov at vmware dot com)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2471
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/884ff3f2-3ea3-4010-8928-ca27bbae219a
 
