@@ -276,6 +276,19 @@ Table of Contents
 - Upstream Issue (URL): https://github.com/meshery/meshery/issues/6447
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/26377c30-9ffd-41e3-bfea-839bf126f8f6
 
+#### OCI compatible Kubernetes ontology
+
+- Description: Network topologies and graph databases go hand-in-hand. The OpenAPI specifications for Kubernetes provides taxonomy, but augmenting a graph data model with formalized ontologies enables any number of capabilities, one of the more straightforward is the inferencing requisite for natural language processing, and consequently, a human-centric query / response interaction becomes becomes possible. More importantly, more advanced systems can be built when a graph data model of connected systems is upgraded to be a knowledge semantic graph. Deliverables (among other items):
+
+- MeshModel capabilities browser
+- Import/export of MeshModel models and components as OCI images
+- augmentation of cuelang-based component generator
+
+- Recommended Skills: cuelang, golang, OCI
+- Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com)
+- Issue: https://github.com/cncf/tag-network/issues/24
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/bb8ddf84-31d7-4a89-9e4b-e6aa9601c0db
+
 ### ORAS
 
 #### Design and implement Artifact Explore web portal
