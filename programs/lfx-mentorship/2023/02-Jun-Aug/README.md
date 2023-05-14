@@ -28,25 +28,64 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 Table of Contents
 
-* [Armada](#armada)
-* [CoreDNS](#coredns)
-* [Jaeger](#jaeger)
-* [Knative](#knative)
-* [Kubescape](#kubescape)
-* [Kyverno](#kyverno)
-* [Notary](#notary)
-* [Meshery](#meshery)
-* [ORAS](#oras)
-* [Tetragon](#tetragon)
-* [WasmEdge](#wasmedge)
-* [Konveyor](#konveyor)
-* [Strimzi](#strimzi)
-* [Thanos](#thanos)
-* [KubeArmor](#kubearmor)
-* [LitmusChaos](#litmuschaos)
-* [Vitess](#vitess)
-* [KubeVela](#kubevela)
-* [Service Mesh Performance](#service-mesh-performance)
+- [Armada](#armada)
+  - [Build interfaces around Postgres for Armada](#build-interfaces-around-postgres-for-armada)
+- [Cilium/Tetragon](#ciliumtetragon)
+  - [Implement a Kubernetes operator to maintain pod IP to pod metadata mapping](#implement-a-kubernetes-operator-to-maintain-pod-ip-to-pod-metadata-mapping)
+- [CNCF Landscape ](#cncf-landscape)
+  - [UX / UI Improvements II](#ux--ui-improvements-ii)
+- [CoreDNS](#coredns)
+  - [Add DNS-over-QUIC (DoQ) and/or DNS-over-HTTP/3 (DoH3) support](#add-dns-over-quic-doq-andor-dns-over-http3-doh3-support)
+- [Jaeger](#jaeger)
+  - [Upgrade Jaeger's internal telemetry to OpenTelemetry](#upgrade-jaegers-internal-telemetry-to-opentelemetry)
+  - [Implement Critical Path analysis](#implement-critical-path-analysis)
+- [Knative](#knative)
+  - [Self-Balancing Knative Kafka Broker partitions](#self-balancing-knative-kafka-broker-partitions)
+  - [Porting Knative Serving to Microshift](#porting-knative-serving-to-microshift)
+- [Konveyor](#konveyor)
+  - [Add Integration test suite and components testing to Konveyor](#add-integration-test-suite-and-components-testing-to-konveyor)
+- [KubeArmor](#kubearmor)
+  - [Implement DNS visibility with KubeArmor](#implement-dns-visibility-with-kubearmor)
+  - [Manage KubeArmor policies using OCI registry and use OCI hooks for container events](#manage-kubearmor-policies-using-oci-registry-and-use-oci-hooks-for-container-events)
+- [Kubescape](#kubescape)
+  - [Store Kubescape configuration scan results as CRs](#store-kubescape-configuration-scan-results-as-crs)
+  - [Prometheus exporter for image vulnerabilities](#prometheus-exporter-for-image-vulnerabilities)
+  - [Vulnerability-based Dockerfile generator](#vulnerability-based-dockerfile-generator)
+- [KubeVela](#kubevela)
+  - [Expand multiple database drivers for the API server](#expand-multiple-database-drivers-for-the-api-server)
+  - [Auto-generate the TypeScript and Java languages API SDK](#auto-generate-the-typescript-and-java-languages-api-sdk)
+- [Kyverno](#kyverno)
+  - [Kuttl tests for the Kyverno policy library](#kuttl-tests-for-the-kyverno-policy-library)
+  - [Sigstore Cosign Updates](#sigstore-cosign-updates)
+  - [ValidatingAdmissionPolicy support, Phase 2](#validatingadmissionpolicy-support-phase-2)
+  - [Cleanup Policies, Phase 2](#cleanup-policies-phase-2)
+- [LitmusChaos](#litmuschaos)
+  - [Migrate chaos workflow api from graphql to rest and improve chaos center code base](#migrate-chaos-workflow-api-from-graphql-to-rest-and-improve-chaos-center-code-base)
+  - [Enhance/Upgrade chaos operator and chaos exporter module](#enhanceupgrade-chaos-operator-and-chaos-exporter-module)
+- [Meshery](#meshery)
+  - [Meshery UI Permissions Framework](#meshery-ui-permissions-framework)
+  - [OPA policy evaluation in-browser using WebAssembly and Rego](#opa-policy-evaluation-in-browser-using-webassembly-and-rego)
+  - [Adopt OCI as the packaging and distribution format for Meshery MeshModels](#adopt-oci-as-the-packaging-and-distribution-format-for-meshery-meshmodels)
+  - [OCI compatible Kubernetes ontology](#oci-compatible-kubernetes-ontology)
+- [Notary](#notary)
+  - [Design and implement the new Notary website](#design-and-implement-the-new-notary-website)
+  - [Develop content for Notary documentation and blogs](#develop-content-for-notary-documentation-and-blogs)
+- [ORAS](#oras)
+  - [Design and implement Artifact Explore web portal](#design-and-implement-artifact-explore-web-portal)
+  - [Refactor the ORAS documentation structure and write new user guides](#refactor-the-oras-documentation-structure-and-write-new-user-guides)
+- [Service Mesh Performance](#service-mesh-performance)
+  - [Service Mesh Performance IDE Plugin](#service-mesh-performance-ide-plugin)
+- [Strimzi](#strimzi)
+  - [Proof of Concept of an MQTT to Apache Kafka bridge for producing messages](#proof-of-concept-of-an-mqtt-to-apache-kafka-bridge-for-producing-messages)
+- [Thanos](#thanos)
+  - [Continuation of add query observability for the new engine](#continuation-of-add-query-observability-for-the-new-engine)
+- [Vitess](#vitess)
+  - [Rework the frontend UI of Vitess’ benchmarking tools](#rework-the-frontend-ui-of-vitess-benchmarking-tools)
+- [WasmEdge](#wasmedge)
+  - [Serialization Completion](#serialization-completion)
+  - [zlib Plugin Support](#zlib-plugin-support)
+  - [Support Tensorflow and PyTorch in WasmEdge’s Python runtime](#support-tensorflow-and-pytorch-in-wasmedges-python-runtime)
+  - [A stream log processing framework for WasmEdge](#a-stream-log-processing-framework-for-wasmedge)
 
 ---
 
@@ -66,6 +105,44 @@ Table of Contents
   - Kevin Hannon, @kannon92, kevin@gr-oss.io
 - Upstream Issue (URL): https://github.com/armadaproject/armada/issues/2121
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/73d90321-62b3-498e-bf37-d899ec99df9e
+
+### Cilium/Tetragon
+
+#### Implement a Kubernetes operator to maintain pod IP to pod metadata mapping
+
+- Description:
+
+  Tetragon currently depends on Cilium to look up pod information by their IP
+  addresses. The goal of this project is to remove this Cilium dependency by
+  implementing a Kubernetes operator that provides this information. The idea
+  is for this operator to maintain a new custom resource that provide a mapping
+  from IPs to the small subset of pod information that Tetragon needs.
+
+- Expected Outcome:
+  - A Kubernetes operator that maintains IP to pod info mapping used by Tetragon.
+  - The operator should be installable via Helm as a Kubernetes deployment.
+  - Replace Cilium dependency in the code base with this new custom resource.
+  - Some performance benchmarks in a high pod churn environment.
+- Recommended Skills:
+  - Goassign
+  - Kubernetes
+- Mentor(s):
+  - Kornilios Kourtis (@kkourt, kornilios@isovalent.com)
+  - Michi Mutsuzaki (@michi-covalent, michi@isovalent.com)
+- Upstream Issue:
+  - https://github.com/cilium/tetragon/issues/794
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/659fe584-68e6-46bf-bd13-12653ef60268
+
+### CNCF Landscape 
+
+#### UX / UI Improvements II
+
+- Description: With your collaboration, we aim to analyze findings and meaningful information (quantitative and qualitative data) and run a series of ideation rounds. We will create user personas, empathy maps, and other UX deliverables that will be the foundation to lay out a set of solutions to improve the current way to search, navigate and find relevant information on the Landscape.
+- Expected Outcome: Creation user personas, empathy maps, and other UX deliverables.
+- Recommended Skills: UX reaserach, desighn thinking, Figma and prototyping. 
+- Mentors: Andrea Velázquez @andreuxxxx andrea@buoyant.io, Nate W. @nate-double-u natew@cncf.io, Chris Aniszczyk @caniszczyk caniszczyk@linuxfoundation.org
+- Upstream Issue: https://github.com/cncf/landscape/issues/2467
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/c45cc842-278f-4663-9ff4-deecc3fc040d
 
 ### CoreDNS
 
@@ -130,6 +207,54 @@ Table of Contents
 - Upstream Issue (URL): https://github.com/knative/serving/issues/12718
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/830eb064-cf8a-4a8e-bba3-97d429a6ca79
 
+### Konveyor
+
+#### Add Integration test suite and components testing to Konveyor
+
+- Description:
+The Konveyor project helps modernize applications by providing open source tools to rehost, replatform, and refactor applications to Kubernetes and cloud-native technologies.We’re looking for help on building integration tests on application level as well as work on missing parts of Konveyor component tests.There is open testing work to better applications analysis, tasks coverage, more detailed Hub API tests and Hub integration with addons. All of those use the Hub API that is covered with basic tests already. Based on existing Hub API tests, it is expected to continue work to cover more Konveyor functionality with tests.
+The development environment is based on golang and Kubernetes. A minikube instance will work well for local development on Linux or Mac systems.
+- Expected Outcome:
+  - Integration test suite and components testing added to existing Konveyor upstream automated test suite
+- Recommended Skills:
+  - Go
+  - Basic software development skills (command line, git)
+- Mentor(s):
+  - Marek Aufart (@aufi, maufart@redhat.com)
+  - David Zager (@djzager, dzager@redhat.com)
+- Upstream Issue:
+  - https://github.com/konveyor/tackle2-operator/issues/220
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/78852896-9785-4156-bb9b-bc3c5cb6ed17
+
+### KubeArmor
+
+#### Implement DNS visibility with KubeArmor
+
+* Description: The project aims to provide better visibility into the domains accessed from pods, with a focus on identifying and containing attacks that use techniques like Domain Generation Algorithms (DGA) to connect to remote command and control (C&C) servers. By gathering information on which domains are being accessed and applying network rules to allow only specific domains, the project aims to empower security operations (secops) teams to better prevent and respond to such attacks.
+* Expected Outcome:  
+  * KubeArmor to emit telemetry events for any DNS lookups from any pods.
+  * Ability to see egress DNS lookups done from any pods using karmor summary.
+  * Documentation
+* Recommended Skills: Go, K8s, familiarity with network security and a basic understanding of KubeArmor is a plus.
+* Mentors:
+  * Anurag Kumar (@kranurag7, contact.anurag7@gmail.com)
+  * Barun Acharya (@daemon1024, barun1024@gmail.com)
+  * Ankur Kothiwal (@Ankurk99, ankur.kothiwal99@gmail.com)
+* Upstream Issue: [Issue #1219](https://github.com/kubearmor/KubeArmor/issues/1219)
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/cfa22331-36f3-4d20-abf0-667a31fd2ba8
+
+#### Manage KubeArmor policies using OCI registry and use OCI hooks for container events
+
+* Description: The feature aims to manage KubeArmor policies using OCI registry and use OCI hooks to get container events. Currently, KubeArmor uses a UNIX domain socket file to watch for container events, but the proposed feature aims to use OCI hooks instead.
+* Expected Outcome: To provide a more secure and efficient way of managing KubeArmor policies by leveraging OCI registry. Storing policies in OCI registries will make it easier to distribute policies across multiple clusters and environments. Using OCI hooks will also reduce the overhead of monitoring container events and make it easier to integrate KubeArmor with other container runtimes.
+* Recommended Skills: Go, K8s, understanding of the Open Container Initiative (OCI) and container runtimes.
+* Mentors:
+  * Anurag Kumar (@kranurag7, contact.anurag7@gmail.com)
+  * Barun Acharya (@daemon1024, barun1024@gmail.com)
+  * Ankur Kothiwal (@Ankurk99, ankur.kothiwal99@gmail.com)
+* Upstream Issue: [Issue #1130](https://github.com/kubearmor/KubeArmor/issues/1130)
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/08d245cb-001f-4292-90eb-e8895189c77a
+
 ### Kubescape
 
 #### Store Kubescape configuration scan results as CRs
@@ -166,6 +291,44 @@ Table of Contents
   - David Wertenteil (@dwertent, dwertent AT armosec.io)
 - Upstream Issue: https://github.com/kubescape/kubescape/issues/1227
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/fbaf3d52-77ee-469c-8eb4-3e0378896159
+
+
+### KubeVela
+
+#### Expand multiple database drivers for the API server
+- Description: Now KubeVela's VelaUX uses two kinds of Database to store metadata: Kubernetes ConfigMap and MongoDB. As more users are expecting using different kinds of database. We proposing to expanding multiple database drivers for the VelaUX API server. 
+- Expected Outcome: The outcome of this project will be expand two more database driver for KubeVela VelaUX API server:
+  - Mysql
+  - PostgreSQL
+- Recommended Skills:
+  - Golang
+  - Kubernetes
+  - Backend APIs Development
+- Mentor(s):
+  - Qiao Zhongpei (@chivalryq, chivalry.pp@gmail.com)
+  - Zeng Qingguo (@barnettZQG, barnett.zqg@gmail.com)
+- Upstream Issue (URL): https://github.com/kubevela/kubevela/issues/5426
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/21c95d53-dd75-4a2f-a8fd-92374c54940d
+
+#### Auto-generate the TypeScript and Java languages API SDK
+- Description: The VelaUX API server follows the Open API schema. It could auto-generate the swagger configs via CLI. When VelaUX frontend or other projects need to call these API, they must write the model code and request the API code. We can provide SDK for them to start faster. [OpenAPI generator](https://openapi-generator.tech/) could help to generate most codes. But there are still some special cases like:
+  - Dynamic component/trait/policy/workflowsteps properties need to be generated according to CUE.
+  - Automatically handles the user authentication process, including automatically refreshing tokens.
+  - The API definition may be incomplete accuracy, we should check it to generate high-quality code.
+- Expected Outcome: The outcome of this project will be expand two more database driver for KubeVela VelaUX API server:
+  - VelaUX APIServer TypeScript SDK
+  - VelaUX APIServer Java SDK
+- Recommended Skills:
+  - Golang
+  - Kubernetes
+  - Backend APIs Development
+  - OpenAPI schema
+  - CUE
+- Mentor(s):
+  - Qiao Zhongpei (@chivalryq, chivalry.pp@gmail.com)
+  - Yin Da (@somefive, Somefive@foxmail.com)
+- Upstream Issue (URL): https://github.com/kubevela/kubevela/issues/5428
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/b97b2f2d-4dbd-45f5-9121-0e865aa6dfd9
 
 ### Kyverno
 
@@ -211,37 +374,34 @@ Table of Contents
   - https://github.com/kyverno/KDP/blob/main/proposals/cleanup.md#proposal
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/4689c5fa-165e-4015-ad21-951d9babcb7e
 
-### Notary
+### LitmusChaos
 
-#### Design and implement the new Notary website
+#### Migrate chaos workflow api from graphql to rest and improve chaos center code base
+- Description: This project aims to improve the user experience with the chaos workflow GraphQL APIs by enhancing their functionality and addressing security vulnerabilities. The project includes converting the user-facing chaos workflow and workflow run APIs, refactoring the chaos-workflow package into interfaces and splitting it into separate packages, and resolving security vulnerabilities and golangci-lint issues in the chaos-center backend components. 
+- Expected outcome: The outcome of this project will be improved functionality, security, and usability of the chaos workflow GraphQL APIs and chaos-center backend components through the implementation of new features, refactoring of existing code, and addressing of security vulnerabilities.
+- Recommended Skills:
+  - Golang
+  - Kubernetes
+  - Backend APIs Development
+- Mentor(s):
+  - Amit Kumar Das (@amityt, amit.das@harness.io)
+  - Arkajyoti Mukherjee (@arkajyotiMukherjee, arkajyoti.mukherjee@harness.io)
+- Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/3970
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/983193ea-9cca-405f-baa5-e6ade4df1ba2
 
-- Description: Design the new Notary website using the Figma tool and develop it based on the design layout. We redesigned the Notary website and finished the first phase development work with CNCF employee @thisisobate in [#PR 139](https://github.com/notaryproject/notaryproject.dev/pull/139). This project is to continue to design and implement the new Notary website and ensure deliver a developer-friendly experience.
-- Expected Outcome: 
-   - Design and implement the Adopters page
-   - Redesign a Community page
-   - Improve the landing page design; add an installation section with a terminal effect design
-   - Support mobile responsive design
-   - Add a pop-up window on the landing page to tell users how to join the community
-   - Add Algolia search for the website
-   - Design and implement a video page to list Youtube videos
-   - Refine the content on the website
-   - Add Broken link check to Netlify CI
-- Recommended Skills: Figma design, HTML, CSS, JavaScript, Hugo
-- Mentor(s):  Feynman Zhou (@FeynmanZhou , feynmanzhou@microsoft.com)
-- Upstream Issue (URL): https://github.com/notaryproject/notaryproject.dev/issues/194
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/06774504-da91-469e-89f9-14fb18b6e0d8
+#### Enhance/Upgrade chaos operator and chaos exporter module
 
-#### Develop content for Notary documentation and blogs
-
-- Description: Develop content for Notary documentation and write blog posts to educate users about the Notary use cases. Write user guides, contributing guides, and developer guides for every new Notary release and keep those content up-to-date.
-- Expected Outcome: 
-   - Write user guides with end-to-end scenarios based on given doc structure and requirement
-   - Write contributing guides and developer guides, ensure new developers can easily build and start contributing to Notary subprojects 
-   - Write blog posts to educate users to use Notation with cloud-native ecosystem tools
-- Recommended Skills: OCI, Docker, Kubernetes, Notary, Git, Markdown, Technical writing experience
-- Mentor(s): Mentor(s):  Yi Zha, @yizha1 (yizha1@microsoft.com)
-- Upstream Issue (URL): https://github.com/notaryproject/notaryproject.dev/issues/195
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/007ca3e9-c121-4428-8e63-57bc0418e98a
+- Description: LitmusChaos is an open source Chaos Engineering platform that enables teams to identify weaknesses & potential outages in infrastructures by inducing chaos tests in a controlled way. This project idea involves upgrading the Chaos Operator and Chaos Exporter repositories by updating their dependencies, addressing security vulnerabilities, and adding new functionality. Specifically, the project aims to upgrade the operator-sdk and Prometheus exporter versions, add new Prometheus metrics to the Chaos Exporter, and fix security vulnerabilities pointed out by trivy and golangci-lint. Furthermore, the project seeks to add unit test cases to both repositories to ensure that their functionality is robust and reliable. Overall, this project aims to improve the stability, security, and functionality of the Chaos Operator and Chaos Exporter repositories, making them better suited for use in production environments.
+- Expected outcome: The outcome of this project will be improved stability, security, and functionality of the Chaos Operator and Chaos Exporter modules through the upgrade of dependencies, addition of new metrics, and implementation of unit tests.
+- Recommended Skills:
+  - Golang
+  - Kubernetes and k8s golang client
+  - Prometheus
+- Mentor(s):
+  - Shubham Chaudhary (@ispeakc0de, shubham.chaudhary@harness.io)
+  - Vansh Bhatia (@vanshBhatia-A4k9, vansh.bhatia@harness.io)
+- Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/3969
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/bd6e875a-a64c-4405-af1c-677d8c45014b
 
 ### Meshery
 
@@ -289,6 +449,38 @@ Table of Contents
 - Issue: https://github.com/cncf/tag-network/issues/24
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/bb8ddf84-31d7-4a89-9e4b-e6aa9601c0db
 
+### Notary
+
+#### Design and implement the new Notary website
+
+- Description: Design the new Notary website using the Figma tool and develop it based on the design layout. We redesigned the Notary website and finished the first phase development work with CNCF employee @thisisobate in [#PR 139](https://github.com/notaryproject/notaryproject.dev/pull/139). This project is to continue to design and implement the new Notary website and ensure deliver a developer-friendly experience.
+- Expected Outcome: 
+   - Design and implement the Adopters page
+   - Redesign a Community page
+   - Improve the landing page design; add an installation section with a terminal effect design
+   - Support mobile responsive design
+   - Add a pop-up window on the landing page to tell users how to join the community
+   - Add Algolia search for the website
+   - Design and implement a video page to list Youtube videos
+   - Refine the content on the website
+   - Add Broken link check to Netlify CI
+- Recommended Skills: Figma design, HTML, CSS, JavaScript, Hugo
+- Mentor(s):  Feynman Zhou (@FeynmanZhou , feynmanzhou@microsoft.com)
+- Upstream Issue (URL): https://github.com/notaryproject/notaryproject.dev/issues/194
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/06774504-da91-469e-89f9-14fb18b6e0d8
+
+#### Develop content for Notary documentation and blogs
+
+- Description: Develop content for Notary documentation and write blog posts to educate users about the Notary use cases. Write user guides, contributing guides, and developer guides for every new Notary release and keep those content up-to-date.
+- Expected Outcome: 
+   - Write user guides with end-to-end scenarios based on given doc structure and requirement
+   - Write contributing guides and developer guides, ensure new developers can easily build and start contributing to Notary subprojects 
+   - Write blog posts to educate users to use Notation with cloud-native ecosystem tools
+- Recommended Skills: OCI, Docker, Kubernetes, Notary, Git, Markdown, Technical writing experience
+- Mentor(s): Mentor(s):  Yi Zha, @yizha1 (yizha1@microsoft.com)
+- Upstream Issue (URL): https://github.com/notaryproject/notaryproject.dev/issues/195
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/007ca3e9-c121-4428-8e63-57bc0418e98a
+
 ### ORAS
 
 #### Design and implement Artifact Explore web portal
@@ -317,32 +509,61 @@ Table of Contents
 - Upstream issue: https://github.com/oras-project/oras-www/issues/65
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2314fcc1-f09b-4dab-90fb-d0ef092b6c0e
 
-### Cilium/Tetragon
+### Service Mesh Performance
 
-#### Implement a Kubernetes operator to maintain pod IP to pod metadata mapping
+#### Service Mesh Performance IDE Plugin
 
-- Description:
+- Description: The objective of this project is to develop IDE plugins that can enhance the developer experience while working with Service Mesh Performance Performance Profiles. The proposed plugins will leverage technologies such as golang and cuelang to provide features such as syntax highlighting, auto-completion, validation, and rendering previews for Service Mesh Performance profile and model definitions.
+- Expected outcome:
+- 1. Release VS Code Extension
+- 2. Syntax Highlighting and Auto-completion: The plugin can fetch SMP Model definitions such as cloud-native components and their relationships. This information can be used to provide syntax highlighting and auto-completion for these definitions in the JSON files, making it easier for developers to write error-free code.
+- 3. Validation and Reference: For Meshery MeshModel definitions such as cloud-native components and their relationships, the plugin can use the CUE language to provide validation for the CUE input and preview the rendering result. The plugin can also fetch the SMP Model schemas and display them in the IDE for reference.
+- Recommended Skills: Cuelang
+- Mentor(s): Lee Calcote @leecalcote (leecalcote@gmail.com), Xin Huang @gyohuangxin (xin1.huang@intel.com)
+- Upstream Issue (URL): https://github.com/service-mesh-performance/service-mesh-performance/issues/379
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/4735d0fa-229f-43e7-9415-dff9220bf687
 
-  Tetragon currently depends on Cilium to look up pod information by their IP
-  addresses. The goal of this project is to remove this Cilium dependency by
-  implementing a Kubernetes operator that provides this information. The idea
-  is for this operator to maintain a new custom resource that provide a mapping
-  from IPs to the small subset of pod information that Tetragon needs.
+### Strimzi
 
-- Expected Outcome:
-  - A Kubernetes operator that maintains IP to pod info mapping used by Tetragon.
-  - The operator should be installable via Helm as a Kubernetes deployment.
-  - Replace Cilium dependency in the code base with this new custom resource.
-  - Some performance benchmarks in a high pod churn environment.
+#### Proof of Concept of an MQTT to Apache Kafka bridge for producing messages
+
+- Description: A really common use case we have been seeing is about enabling an IoT scenario with MQTT based devices and using an Apache Kafka cluster as the events and storage platform running on Kubernetes via Strimzi. In order to do that, there is the need to map the MQTT protocol to the custom Apache Kafka one and bridge from one to the other. This project idea is about designing such a mapping and developing a pure [Netty](https://github.com/netty/netty/tree/4.1/codec-mqtt/src/main/java/io/netty/handler/codec/mqtt) based MQTT server component (not a full MQTT broker) able to accept MQTT client connections and handling the corresponding communication based on the [MQTT 3.1.1 specification](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html). Finally, developing the Kafka producer part to get messages from MQTT clients and sending them to an Apache Kafka cluster.
+- Expected outcome: POC source code for an MQTT to Apache Kafka bridge
 - Recommended Skills:
-  - Go
-  - Kubernetes
+  - Java
+  - Apache Kafka (not mandatory but to be learned)
+  - MQTT protocol (not mandatory but to be learned)
 - Mentor(s):
-  - Kornilios Kourtis (@kkourt, kornilios@isovalent.com)
-  - Michi Mutsuzaki (@michi-covalent, michi@isovalent.com)
-- Upstream Issue:
-  - https://github.com/cilium/tetragon/issues/794
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/659fe584-68e6-46bf-bd13-12653ef60268
+  - Paolo Patierno (@ppatierno, ppatiern@redhat.com)
+  - Kyle Liberti (@kyguy, kliberti@redhat.com)
+- Upstream Issue (URL): https://github.com/strimzi/strimzi-kafka-operator/issues/8030
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8d301adf-94d8-4e5d-821d-f904ed15c3f9
+
+### Thanos
+
+#### Continuation of add query observability for the new engine
+
+- Description: We have added solid foundation for query observability in the new engine during the previous LFX mentorship term. Let's continue the awesome work by Pradyumna by implementing other features.
+- Expected outcome: other query observability visualizations are implemented; extra observability data has been added
+- Recommended skills: Golang, React
+- Mentor(s): @saswatamcode, Saswata Mukherjee saswataminsta@yahoo.com, @GiedriusS Giedrius Statkevičius giedriuswork@gmail.com
+- Difficulty: Medium
+- Upstream issue (URL): https://github.com/thanos-community/promql-engine/issues/106
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/1953e512-fa8c-4f0e-9b24-0e6c81a7cd39
+
+### Vitess
+
+#### Rework the frontend UI of Vitess’ benchmarking tools
+
+- Description: Vitess uses a couple of tools to benchmark its codebase and to make sure that new code doesn’t introduce performance regressions. These tools are: arewefastyet and the VReplication Benchmarking Framework. We currently have an old frontend UI that serves arewefastyet. However, this UI is slow, not optimized and not easily extensible. It uses the built-in Golang template system to serve pages. We would like to create a common frontend UI that will be used by both benchmarking tools and that will replace the current arewefastyet’s UI. The mentee will have the responsibility of creating the UI using (most likely) React/Vite on Vercel. The frontend component will connect to our already-existing backend components: a MySQL database and arewefastyet’s REST API.
+- Expected Outcome: The expected outcome is to have a working frontend UI that integrates well with our different backends (databases and benchmarking tools’ APIs).
+- Recommended Skills: React, Vercel, Vite, REST API, (Optional writing APIs in Golang)
+
+- Mentor(s):
+  - @fouioui Florent Poinsard frouioui@planetscale.com
+  - Rohit Nayak @rohit-nayak-ps rohit@planetscale.com
+- Upstream Issue (URL): https://github.com/vitessio/arewefastyet/issues/328 
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8299d27a-9e36-4de6-abbc-c9282634ee03
 
 ### WasmEdge
 
@@ -395,186 +616,4 @@ Table of Contents
 - Mentor(s): Michael Yuan @juntao (michael at secondstate dot io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2470
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/55c226fe-d119-4b2c-aba0-e7415867f6e5
-
-### Konveyor
-
-#### Add Integration test suite and components testing to Konveyor
-
-- Description:
-The Konveyor project helps modernize applications by providing open source tools to rehost, replatform, and refactor applications to Kubernetes and cloud-native technologies.We’re looking for help on building integration tests on application level as well as work on missing parts of Konveyor component tests.There is open testing work to better applications analysis, tasks coverage, more detailed Hub API tests and Hub integration with addons. All of those use the Hub API that is covered with basic tests already. Based on existing Hub API tests, it is expected to continue work to cover more Konveyor functionality with tests.
-The development environment is based on golang and Kubernetes. A minikube instance will work well for local development on Linux or Mac systems.
-- Expected Outcome:
-  - Integration test suite and components testing added to existing Konveyor upstream automated test suite
-- Recommended Skills:
-  - Go
-  - Basic software development skills (command line, git)
-- Mentor(s):
-  - Marek Aufart (@aufi, maufart@redhat.com)
-  - David Zager (@djzager, dzager@redhat.com)
-- Upstream Issue:
-  - https://github.com/konveyor/tackle2-operator/issues/220
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/78852896-9785-4156-bb9b-bc3c5cb6ed17
-
-### Strimzi
-
-#### Proof of Concept of an MQTT to Apache Kafka bridge for producing messages
-
-- Description: A really common use case we have been seeing is about enabling an IoT scenario with MQTT based devices and using an Apache Kafka cluster as the events and storage platform running on Kubernetes via Strimzi. In order to do that, there is the need to map the MQTT protocol to the custom Apache Kafka one and bridge from one to the other. This project idea is about designing such a mapping and developing a pure [Netty](https://github.com/netty/netty/tree/4.1/codec-mqtt/src/main/java/io/netty/handler/codec/mqtt) based MQTT server component (not a full MQTT broker) able to accept MQTT client connections and handling the corresponding communication based on the [MQTT 3.1.1 specification](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html). Finally, developing the Kafka producer part to get messages from MQTT clients and sending them to an Apache Kafka cluster.
-- Expected outcome: POC source code for an MQTT to Apache Kafka bridge
-- Recommended Skills:
-  - Java
-  - Apache Kafka (not mandatory but to be learned)
-  - MQTT protocol (not mandatory but to be learned)
-- Mentor(s):
-  - Paolo Patierno (@ppatierno, ppatiern@redhat.com)
-  - Kyle Liberti (@kyguy, kliberti@redhat.com)
-- Upstream Issue (URL): https://github.com/strimzi/strimzi-kafka-operator/issues/8030
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8d301adf-94d8-4e5d-821d-f904ed15c3f9
-
-### Thanos
-
-#### Continuation of add query observability for the new engine
-
-- Description: We have added solid foundation for query observability in the new engine during the previous LFX mentorship term. Let's continue the awesome work by Pradyumna by implementing other features.
-- Expected outcome: other query observability visualizations are implemented; extra observability data has been added
-- Recommended skills: Golang, React
-- Mentor(s): @saswatamcode, Saswata Mukherjee saswataminsta@yahoo.com, @GiedriusS Giedrius Statkevičius giedriuswork@gmail.com
-- Difficulty: Medium
-- Upstream issue (URL): https://github.com/thanos-community/promql-engine/issues/106
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/1953e512-fa8c-4f0e-9b24-0e6c81a7cd39
-
-### KubeArmor
-
-#### Implement DNS visibility with KubeArmor
-
-* Description: The project aims to provide better visibility into the domains accessed from pods, with a focus on identifying and containing attacks that use techniques like Domain Generation Algorithms (DGA) to connect to remote command and control (C&C) servers. By gathering information on which domains are being accessed and applying network rules to allow only specific domains, the project aims to empower security operations (secops) teams to better prevent and respond to such attacks.
-* Expected Outcome:  
-  * KubeArmor to emit telemetry events for any DNS lookups from any pods.
-  * Ability to see egress DNS lookups done from any pods using karmor summary.
-  * Documentation
-* Recommended Skills: Go, K8s, familiarity with network security and a basic understanding of KubeArmor is a plus.
-* Mentors:
-  * Anurag Kumar (@kranurag7, contact.anurag7@gmail.com)
-  * Barun Acharya (@daemon1024, barun1024@gmail.com)
-  * Ankur Kothiwal (@Ankurk99, ankur.kothiwal99@gmail.com)
-* Upstream Issue: [Issue #1219](https://github.com/kubearmor/KubeArmor/issues/1219)
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/cfa22331-36f3-4d20-abf0-667a31fd2ba8
-
-#### Manage KubeArmor policies using OCI registry and use OCI hooks for container events
-
-* Description: The feature aims to manage KubeArmor policies using OCI registry and use OCI hooks to get container events. Currently, KubeArmor uses a UNIX domain socket file to watch for container events, but the proposed feature aims to use OCI hooks instead.
-* Expected Outcome: To provide a more secure and efficient way of managing KubeArmor policies by leveraging OCI registry. Storing policies in OCI registries will make it easier to distribute policies across multiple clusters and environments. Using OCI hooks will also reduce the overhead of monitoring container events and make it easier to integrate KubeArmor with other container runtimes.
-* Recommended Skills: Go, K8s, understanding of the Open Container Initiative (OCI) and container runtimes.
-* Mentors:
-  * Anurag Kumar (@kranurag7, contact.anurag7@gmail.com)
-  * Barun Acharya (@daemon1024, barun1024@gmail.com)
-  * Ankur Kothiwal (@Ankurk99, ankur.kothiwal99@gmail.com)
-* Upstream Issue: [Issue #1130](https://github.com/kubearmor/KubeArmor/issues/1130)
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/08d245cb-001f-4292-90eb-e8895189c77a
-
-### LitmusChaos
-
-#### Migrate chaos workflow api from graphql to rest and improve chaos center code base
-- Description: This project aims to improve the user experience with the chaos workflow GraphQL APIs by enhancing their functionality and addressing security vulnerabilities. The project includes converting the user-facing chaos workflow and workflow run APIs, refactoring the chaos-workflow package into interfaces and splitting it into separate packages, and resolving security vulnerabilities and golangci-lint issues in the chaos-center backend components. 
-- Expected outcome: The outcome of this project will be improved functionality, security, and usability of the chaos workflow GraphQL APIs and chaos-center backend components through the implementation of new features, refactoring of existing code, and addressing of security vulnerabilities.
-- Recommended Skills:
-  - Golang
-  - Kubernetes
-  - Backend APIs Development
-- Mentor(s):
-  - Amit Kumar Das (@amityt, amit.das@harness.io)
-  - Arkajyoti Mukherjee (@arkajyotiMukherjee, arkajyoti.mukherjee@harness.io)
-- Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/3970
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/983193ea-9cca-405f-baa5-e6ade4df1ba2
-
-#### Enhance/Upgrade chaos operator and chaos exporter module
-
-- Description: LitmusChaos is an open source Chaos Engineering platform that enables teams to identify weaknesses & potential outages in infrastructures by inducing chaos tests in a controlled way. This project idea involves upgrading the Chaos Operator and Chaos Exporter repositories by updating their dependencies, addressing security vulnerabilities, and adding new functionality. Specifically, the project aims to upgrade the operator-sdk and Prometheus exporter versions, add new Prometheus metrics to the Chaos Exporter, and fix security vulnerabilities pointed out by trivy and golangci-lint. Furthermore, the project seeks to add unit test cases to both repositories to ensure that their functionality is robust and reliable. Overall, this project aims to improve the stability, security, and functionality of the Chaos Operator and Chaos Exporter repositories, making them better suited for use in production environments.
-- Expected outcome: The outcome of this project will be improved stability, security, and functionality of the Chaos Operator and Chaos Exporter modules through the upgrade of dependencies, addition of new metrics, and implementation of unit tests.
-- Recommended Skills:
-  - Golang
-  - Kubernetes and k8s golang client
-  - Prometheus
-- Mentor(s):
-  - Shubham Chaudhary (@ispeakc0de, shubham.chaudhary@harness.io)
-  - Vansh Bhatia (@vanshBhatia-A4k9, vansh.bhatia@harness.io)
-- Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/3969
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/bd6e875a-a64c-4405-af1c-677d8c45014b
-
-### Service Mesh Performance
-
-#### Service Mesh Performance IDE Plugin
-
-- Description: The objective of this project is to develop IDE plugins that can enhance the developer experience while working with Service Mesh Performance Performance Profiles. The proposed plugins will leverage technologies such as golang and cuelang to provide features such as syntax highlighting, auto-completion, validation, and rendering previews for Service Mesh Performance profile and model definitions.
-- Expected outcome:
-- 1. Release VS Code Extension
-- 2. Syntax Highlighting and Auto-completion: The plugin can fetch SMP Model definitions such as cloud-native components and their relationships. This information can be used to provide syntax highlighting and auto-completion for these definitions in the JSON files, making it easier for developers to write error-free code.
-- 3. Validation and Reference: For Meshery MeshModel definitions such as cloud-native components and their relationships, the plugin can use the CUE language to provide validation for the CUE input and preview the rendering result. The plugin can also fetch the SMP Model schemas and display them in the IDE for reference.
-- Recommended Skills: Cuelang
-- Mentor(s): Lee Calcote @leecalcote (leecalcote@gmail.com), Xin Huang @gyohuangxin (xin1.huang@intel.com)
-- Upstream Issue (URL): https://github.com/service-mesh-performance/service-mesh-performance/issues/379
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/4735d0fa-229f-43e7-9415-dff9220bf687
-
-### KubeVela
-
-#### Expand multiple database drivers for the API server
-- Description: Now KubeVela's VelaUX uses two kinds of Database to store metadata: Kubernetes ConfigMap and MongoDB. As more users are expecting using different kinds of database. We proposing to expanding multiple database drivers for the VelaUX API server. 
-- Expected Outcome: The outcome of this project will be expand two more database driver for KubeVela VelaUX API server:
-  - Mysql
-  - PostgreSQL
-- Recommended Skills:
-  - Golang
-  - Kubernetes
-  - Backend APIs Development
-- Mentor(s):
-  - Qiao Zhongpei (@chivalryq, chivalry.pp@gmail.com)
-  - Zeng Qingguo (@barnettZQG, barnett.zqg@gmail.com)
-- Upstream Issue (URL): https://github.com/kubevela/kubevela/issues/5426
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/21c95d53-dd75-4a2f-a8fd-92374c54940d
-
-#### Auto-generate the TypeScript and Java languages API SDK
-- Description: The VelaUX API server follows the Open API schema. It could auto-generate the swagger configs via CLI. When VelaUX frontend or other projects need to call these API, they must write the model code and request the API code. We can provide SDK for them to start faster. [OpenAPI generator](https://openapi-generator.tech/) could help to generate most codes. But there are still some special cases like:
-  - Dynamic component/trait/policy/workflowsteps properties need to be generated according to CUE.
-  - Automatically handles the user authentication process, including automatically refreshing tokens.
-  - The API definition may be incomplete accuracy, we should check it to generate high-quality code.
-- Expected Outcome: The outcome of this project will be expand two more database driver for KubeVela VelaUX API server:
-  - VelaUX APIServer TypeScript SDK
-  - VelaUX APIServer Java SDK
-- Recommended Skills:
-  - Golang
-  - Kubernetes
-  - Backend APIs Development
-  - OpenAPI schema
-  - CUE
-- Mentor(s):
-  - Qiao Zhongpei (@chivalryq, chivalry.pp@gmail.com)
-  - Yin Da (@somefive, Somefive@foxmail.com)
-- Upstream Issue (URL): https://github.com/kubevela/kubevela/issues/5428
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/b97b2f2d-4dbd-45f5-9121-0e865aa6dfd9
-
-### Vitess
-
-#### Rework the frontend UI of Vitess’ benchmarking tools
-
-- Description: Vitess uses a couple of tools to benchmark its codebase and to make sure that new code doesn’t introduce performance regressions. These tools are: arewefastyet and the VReplication Benchmarking Framework. We currently have an old frontend UI that serves arewefastyet. However, this UI is slow, not optimized and not easily extensible. It uses the built-in Golang template system to serve pages. We would like to create a common frontend UI that will be used by both benchmarking tools and that will replace the current arewefastyet’s UI. The mentee will have the responsibility of creating the UI using (most likely) React/Vite on Vercel. The frontend component will connect to our already-existing backend components: a MySQL database and arewefastyet’s REST API.
-- Expected Outcome: The expected outcome is to have a working frontend UI that integrates well with our different backends (databases and benchmarking tools’ APIs).
-- Recommended Skills: React, Vercel, Vite, REST API, (Optional writing APIs in Golang)
-
-- Mentor(s):
-  - @fouioui Florent Poinsard frouioui@planetscale.com
-  - Rohit Nayak @rohit-nayak-ps rohit@planetscale.com
-- Upstream Issue (URL): https://github.com/vitessio/arewefastyet/issues/328 
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8299d27a-9e36-4de6-abbc-c9282634ee03
-
-### CNCF Landscape 
-
-#### UX / UI Improvements II
-
-- Description: With your collaboration, we aim to analyze findings and meaningful information (quantitative and qualitative data) and run a series of ideation rounds. We will create user personas, empathy maps, and other UX deliverables that will be the foundation to lay out a set of solutions to improve the current way to search, navigate and find relevant information on the Landscape.
-- Expected Outcome: Creation user personas, empathy maps, and other UX deliverables.
-- Recommended Skills: UX reaserach, desighn thinking, Figma and prototyping. 
-- Mentors: Andrea Velázquez @andreuxxxx andrea@buoyant.io, Nate W. @nate-double-u natew@cncf.io, Chris Aniszczyk @caniszczyk caniszczyk@linuxfoundation.org
-- Upstream Issue: https://github.com/cncf/landscape/issues/2467
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/c45cc842-278f-4663-9ff4-deecc3fc040d
-
 
