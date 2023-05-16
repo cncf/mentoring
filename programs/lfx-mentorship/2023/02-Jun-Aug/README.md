@@ -161,6 +161,7 @@ Table of Contents
 - Description: Kubescape can detect vulnerabilities in a container image. Some can automatically be remediated by changing the base image version (or other package information) inside the Dockerfile which created the image. This project is to automate this remediation.
 - Expected Outcome: An enhancement to Kubescape to generate a Dockerfile that proposes fixes for vulnerabilities found in a container image. This may be by integration with existing open source tools or developing something new.
 - Recommended Skills: Go
+- Mentors:
   - Ben Hirschberg (@slashben, ben AT armosec.io)
   - Craig Box (@craigbox, craigb AT armosec.io)
   - David Wertenteil (@dwertent, dwertent AT armosec.io)
