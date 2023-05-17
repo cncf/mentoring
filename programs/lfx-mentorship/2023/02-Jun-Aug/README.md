@@ -496,7 +496,7 @@ The development environment is based on golang and Kubernetes. A minikube instan
    - Explore the image’s file system of layer (tentative)
    
 - Recommended Skills: Figma design, HTML, CSS, JavaScript, Hugo, Docker
-- Mentor(s):  Feynman Zhou (@FeynmanZhou , feynmanzhou@microsoft.com), Billy Zha (@qweeah , jinzha1@microsoft.com) 
+- Mentor(s):  Feynman Zhou (@FeynmanZhou , feynmanzhou@microsoft.com), Billy Zha (@qweeah , jinzha1@microsoft.com), Asmit Malakannawar (@asmitbm , asmitbm2952002@gmail.com) 
 - Upstream issue: https://github.com/oras-project/oras-www/issues/158
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/9749bc0a-04c9-498d-a16c-e66c0930e819
 
