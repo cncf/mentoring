@@ -1,10 +1,14 @@
 # Program Statistics
 
+These are the number of successful internships per year for each program.
+
 | Year | Program                          | Internships | Total (per year) |
-| ---- | -------------------------------- | ----------- | ---------------- |
-| 2022 | LFX Mentorship (CommunityBridge) | TBD         | TBD              |
+|------|----------------------------------|-------------|------------------|
+| 2023 | LFX Mentorship                   | TBD         | TBD              |
 |      | GSoC                             | TBD         |                  |
-| 2021 | LFX Mentorship (CommunityBridge) | 86          | 104              |
+| 2022 | LFX Mentorship                   | TBD         | TBD              |
+|      | GSoC                             | TBD         |                  |
+| 2021 | LFX Mentorship                   | 86          | 104              |
 |      | GSoC                             | 16          |                  |
 |      | GSoD                             | 1           |                  |
 |      | Outreachy                        | 1           |                  |
