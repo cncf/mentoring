@@ -168,7 +168,7 @@ Table of Contents
   - Rethink/rework `crossdock` integration tests to test end-to-end flow with OpenTelemetry data
   - Publish a blog post on medium.com/jaegertracing documenting the experience
 - Recommended Skills: Go
-- Mentor(s): Yuri Shkuro (@yurishkuro, github@ysh.us)
+- Mentor(s): Yuri Shkuro (@yurishkuro, github@ysh.us); Albert Teoh (@albertteoh, see.kwang.teoh@gmail.com)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/3381
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/b8009398-1252-4f63-82fe-363846ccc11d
 
