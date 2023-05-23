@@ -69,7 +69,6 @@ Tasks:
     * It is still possible to add ideas until the contributor application period start date.
     * We encourage communities to add ideas earlier rather than later to give potential contributors more time.
     * We encourage contributors to explore project ideas and engage with mentors and communities.
-* Create a mailing list specific to the current GSoC session, which will be used to communicate with mentors.
 * Although there can be ideas/mentors added until contributor applications, it is encouraged to get mentors ([example Github task](https://github.com/cncf/mentoring/issues/864)):
     * Added to GSoC platform
     * Added to GSoC program for the current year in GSoC platform
@@ -99,11 +98,18 @@ Tasks:
 ### Accepted projects announcement
 
 * [Announce](#Announcements) that accepted contributors and projects have been chosen ([example announcement](https://github.com/cncf/mentoring/discussions/954)).
+* Create a mailing list specific to the current GSoC session, which will be used to communicate with accepted mentors.
 * Add selected mentors to the mailing list created earlier
 * Inform mentors and contributors about:
     * Community bonding
     * Getting up to speed to begin working on projects
     * Other mentoring program opportunities ([example](https://github.com/cncf/mentoring/discussions/918#discussioncomment-5810110))
+
+### Community bonding
+
+* Send a reminder email to mentors about (example email can be found in mailing lists of previous sessions):
+    * Reaching out to mentees to let them know how to kick-start coding
+    * Informing GSoC admins about any inactive mentees to ask Google to remove them from the program
 
 ### Coding period
 
