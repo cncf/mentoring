@@ -377,9 +377,9 @@ The development environment is based on golang and Kubernetes. A minikube instan
 
 ### LitmusChaos
 
-#### Migrate chaos workflow api from graphql to rest and improve chaos center code base
-- Description: This project aims to improve the user experience with the chaos workflow GraphQL APIs by enhancing their functionality and addressing security vulnerabilities. The project includes converting the user-facing chaos workflow and workflow run APIs, refactoring the chaos-workflow package into interfaces and splitting it into separate packages, and resolving security vulnerabilities and golangci-lint issues in the chaos-center backend components. 
-- Expected outcome: The outcome of this project will be improved functionality, security, and usability of the chaos workflow GraphQL APIs and chaos-center backend components through the implementation of new features, refactoring of existing code, and addressing of security vulnerabilities.
+#### Enhance/improve chaos center code base and redesign chaos workflow apis
+- Description: This project focuses on enhancing and improving the Chaos Center code base, specifically redesigning the Chaos Workflow APIs to provide an enhanced user experience. The main objectives include refining the functionality of the Chaos Workflow and Workflow Run APIs, modularizing the chaos-workflow package into separate packages, and addressing security vulnerabilities and golangci-lint issues in the Chaos Center backend components. The project aims to deliver a more robust and secure Chaos Center platform, offering improved usability and performance for users.
+- Expected outcome: The outcome of this project will be improved functionality, security, and usability of the chaos workflow APIs and chaos-center backend components through the implementation of new features, refactoring of existing code, and addressing of security vulnerabilities.
 - Recommended Skills:
   - Golang
   - Kubernetes
