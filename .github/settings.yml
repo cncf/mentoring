@@ -15,7 +15,7 @@ labels:
     color: a2dcf2
   - name: enhancement
     color: 84b6eb
-  - name: help-wanted
+  - name: help wanted
     color: ffff54
   - name: good first issue
     color: ff8c00
