@@ -90,7 +90,7 @@ Tasks:
 
 * Ask mentors to
     * Review proposals and select contributors they want to mentor
-    * Provide feedback in the GSoC system around the matters listed in the [contributor+proposal selection and ranking criteria](#Contributorproposal-selection-and-ranking-criteria), such as community interaction, proposal quality, etc.
+    * Provide feedback in the GSoC system around the matters listed in the [contributor+proposal selection and ranking process](#Contributorproposal-selection-and-ranking-process), such as community interaction, proposal quality, etc.
     * Refrain from commenting on any contributor's chances of being accepted.
     * (Example Github discussion [announcement](https://github.com/cncf/mentoring/discussions/918))
 * Run the ranking process
