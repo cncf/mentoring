@@ -154,9 +154,9 @@ Tasks:
 * Ensure the expected outcome benefits contributors (e.g. learning, growth) and the project (e.g. new features/functionality, bug fixes).
 * Check if the idea is a coding project. Projects such as documentation-only tasks are not accepted to GSoC per [program rules](https://summerofcode.withgoogle.com/rules).
 
-## Contributor+proposal selection and ranking criteria
+## Contributor+proposal selection and ranking process
 
-TBA
+This process is documented in the [Contributor+proposal selection and ranking process](./gsoc-selection-and-ranking-process.md) document.
 
 ## Contributor guidance
 
