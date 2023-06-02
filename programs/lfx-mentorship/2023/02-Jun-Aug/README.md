@@ -183,7 +183,7 @@ Table of Contents
 - Stretch goals:
   - Add critical path visualization to other trace views (graph, table, flamechart)
 - Recommended Skills: Javascript, Typescript, Go
-- Mentor(s): Yuri Shkuro (@yurishkuro, github@ysh.us)
+- Mentor(s): Yuri Shkuro (@yurishkuro, github@ysh.us), Yash Sharma (yashrsharma44@meta.com)
 - Upstream Issue (URL): https://github.com/jaegertracing/jaeger-ui/issues/1288
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/0fc6c44b-5ddf-467f-8016-72cc35b4e3ff
 
