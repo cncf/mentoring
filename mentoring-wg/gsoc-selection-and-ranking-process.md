@@ -15,6 +15,7 @@ The selection and ranking process of CNCF GSoC admin consists of three passes:
     - Existing community interaction of the applicant
     - Number of mentors who want to mentor the applicant
     - Proposal quality (lower weight, as GSoC admins might not know the technical details of the project)
+    - Applicant profile that shows the applicant is capable of implementing the project, such as contributions to other projects
     - Impact and alignment of the project idea
     - Number of proposals for a community (to avoid overloading a community)
 
