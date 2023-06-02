@@ -34,6 +34,209 @@ https://zoom.us/my/cncftagcontributorstrategy?pwd=TnI0WU9Eb2I1RlRWdkl1R0k1WkZXUT
 Passcode: 77777
 
 
+# Upcoming meeting
+
+## June 13, 2023
+
+21:00 UTC (2:00 PM PDT on 2023-06-13; 10:00 AM NZST on 2023-06-14)
+
+### Attendance
+
+* 
+
+### Updates/reminders
+
+* 
+
+### Agenda
+
+* [Meeting cadence](https://github.com/cncf/mentoring/issues/1015)
+
+### Notes
+
+* 
+
+
+# Past Meetings
+
+## May 23, 2023
+
+21:00 UTC (2:00 PM PDT on 2023-05-09; 10:00 AM NZST on 2023-05-10)
+
+### Attendance
+
+* Nate W.
+* Ali Ok
+* Riaan Kleinhans
+* Jay T
+* Brad McCoy
+
+### Agenda
+* [Nate W.] working with LF to get some support for LFX mentoring platform
+    * LFX Platform admin access for non-CNCF-employees?
+* [Riaan] From the last CNCF TAG Contributor Strategy Meeting’s ROADMAP topic I have created the [TAG Contributor Strategy Project Board](https://github.com/orgs/cncf/projects/25/views/1) with a specific view for [Mentoring WG](https://github.com/orgs/cncf/projects/25/views/6).
+    * This give an overview of all issues and PR’s marked with the Mentoring label
+    * Status is controlled on the main “Project Board view”
+    * I added 2 issues from the https://github.com/cncf/mentoring/issues repo. For the issue to show up on the "Mentoring view" I had to create the "Mentor label"
+    * Is this the way we want to go?
+        * If yes, I will add the rest of the mentoring repo's issues & PRs to the board (and also add the "Mentor" label to each)
+    * > [name=Ali Ok] I can't see the boards, are they public?
+        * It is set to Private - do not have owners rights. Will get someone to change that.
+* LFX '23 Term 1
+    * End of semester evaluations due May 24, 5:00 PM PST
+    * Final day of semester: May 31
+        * There has been several questions about why the end of semester and when the evals are due are on different dates
+* LFX '23 Term 2
+    * Applicications due today
+    * Mentor email list created - at 5:01 PM PDT an email is scheduled for selections. Selections are due Mon May 29, 5:00 PM PDT
+* (Ali) GSoC - coding starts next week!
+  * Should we reach out to mentors asking 
+    * if they reached out to their mentees
+    * if there are any inactive mentees (28 May is the deadline for informing Google about this)
+* (Ali) _Underground_ mentoring program video - Kube release team orientation: https://www.youtube.com/watch?v=5ZYrgQrOeHA
+* maintainers cirle
+    * Nate & Lee - Tue May 30 @ 9:00 am PDT
+* stipends process update
+* Move / surface program statistics to the top level
+    * [Resurface program statistics #1000](https://github.com/cncf/mentoring/issues/1000)
+
+### Notes
+* Be mindful in reviewing/approving PR requests - dates were overlooked in the latest LFX intake and the end date clashed with the new intake. No single person accountable but critical for future actions
+* Nate working to get support from Linux Foundation (met w/ John recently) - seeking help w/ LFX platform admin. 
+    * Most exists in Google etc. and becomes time-consuming transferring to the platform. Ali actively supporting in the meantime. 
+* (Riaan) Project boards are currently private; need to be made public. Prev. raised to create a central TAG C-S board to review ongoing workstreams; immediate focus on Mentoring efforts.
+    * Nate will action to make boards public
+    * (Nate) This board should be able to be linked to the Mentoring Repo; remove Mentoring label for ease of use/actioning. Consider reviewing alternative methods of tracking for simplicity across various mentoring-related issues.
+    * Nate to seek Admin status for the board to connect to Repo. Riaan has introduced all issues manually to date; can be optimised. 
+    * (Ali) Decide/clarify intended purpose for the project board overall. Consider enforcing labels to help keep track of issues that remain unresolved and may generate from multiple sources etc. 
+* LFX - end of semester evals due. Mentees work should be completed day before evals are due; impacting evaluations otherwise - should be explicit about these expectations. 
+* Should greater emphasis be placed on mentee blogs in last week of LFX? Would need to add to documentation if so. 
+    * Benefits/considerations:
+        * Offer training or swag to incentivise
+        * Helps to identify areas for improvement
+        * Supports current and future mentees/mentors
+        * Would create more work for admins to review blogs etc.(esp. if 30-60+!) - capacity dependent
+* LFX Term 2 applications due today. 
+* GSOC coding starts next week 29/5 - should contact mentors to identify inactive mentees to notify Google asap so as not to prolong failures etc. Due date Sun 28/5.
+* (Brad) Sharing under-grad mentoring program vid - shadow orientation for K8s mentoring program. 2 other projects adopting it including Cluster API. 
+* (Nate) Lee Calcote, Dave Sudia working on Maintainer Circle - Nate to intro WG, overview of programs and impact/successes, how CNCF supports access to programs, encourage others to contribute etc. (1hr pres). 
+* (Nate) LFX stipends process 57/60 mentees approved to be paid. Prev. approval system inefficient; working internally to seek help in improving, WIP.
+* (Nate) - Chris A couldn't find program stats page and requested 'unburying' this for easier access. Need to relocate as top-level information; at least most-recent stats. 
+    * Expected this will help raise awareness + uptake of programs
+    * Should we consider a Mentoring website alongside the Repo? Currently in Q3 so timing might not be optimal.
+        * Need to build out current Repo content beforehand
+        * Markdown content can be embedded easily
+        * If content on site; shouldn't be 'loose' in the Repo
+        * Purpose of website? Highlighting programs etc. 
+        * Repo copy etc. 2-3-fold audience/stakeholders: 
+            * CNCF, TAG, Governing Board
+            * Mentees seeking program info
+            * Mentors needing to understand specifics for those eligible. 
+* (Riaan) Re-locating program stats to front page without mess e.g. disclaimer paragraph to provide context on decision for placement vs. physically moving the page etc. 
+    * Consider adding most recent stats only to reduce/manage 'noise' vs. complete archives
+    * Nate working w/ Dawn & Josh to see whether people have contributed since end of mentorships.
+    * Nate proposes continuing this decision in the relevant Issue - consider what will be least demand on work 
+
+
+## May 9, 2023
+
+21:00 UTC (2:00 PM PDT on 2023-05-09; 10:00 AM NZST on 2023-05-10)
+
+### Attendance
+
+* Ali Ok
+* Josh Berkus
+* Jay Tihema
+* Riaan Kleinhans
+
+### Agenda
+
+* [aliok] GSoC selection and ranking is done - Google's deadline is April 27
+* [aliok] GSoD - 2 out of 13 accepted proposals is from CNCF - [announcement](https://github.com/cncf/mentoring/discussions/843#discussioncomment-5492931)
+* [aliok] LFX Mentorship date shift (?)
+    * https://github.com/cncf/mentoring/pull/943
+* [aliok] contribute.cncf.io website updates
+  * Now mentions Mentoring WG - [link](https://contribute.cncf.io/about/working-groups/)
+  * Main "I want to be a contributor" page is now up-to-date with simpler instructions - [link](https://contribute.cncf.io/contributors/)
+* [Jay] Explore alignment/overlap w/ CNCF Students (Kunal), repo content
+    * Collaborate & coordinate, but two seperate groups
+        * Like: LFX, we handle the mentors, they work with the students
+        * Also they want to do some things out of our scope (e.g. Campus Ambassadors)
+* [Jay] Establishing/coordinating Peer Mentoring Group (?) or similar initiatives (see notes for reference)
+
+
+### Notes
+
+* LFX PRs open - Nate to create in platform; offered support - might be limited to CNCF admins only
+* Kunal alignment w/ TAG.C-S - to review
+
+**What are the main goals of this WG and what do we see as barriers to achieving them?**
+•	Build sustainable growth of existing mentoring programs
+•	Support the pipeline/ladder from Contributor/Mentee > Mentor/Maintainer
+
+**What do we see as the key actions/opportunities we could take to achieve them?**
+•	Supporting/integrating existing or proposed initiatives
+•	Improving onboarding and navigation documentation 
+What are the main considerations we’d need to have moving forward?
+
+**What is most conducive to the WG and its ability to contribute?**
+•	Time commitment, compatibility, structure, guidance, coordination etc.
+•	Avoiding replication of existing efforts
+
+* Retention is an ongoing issue, expected to be low with given target audience
+* Mentoring program towards professionals - wouldn't mean being part of a paid program for instance
+* DO we fill all slots applying for programs? (Mentees)
+* Ability to track pathways post-programme completion
+* Many career-changers or newcomers; lots of experimenters to determine whether or not they want to stick around
+* Want to set efforts with different target audiences
+* Mentoring ppl who are regulare contributors into Reviewes (group mentoring, common)
+    * Would need help in setting up a structure and operating - expect a high retention rate from this
+* Front-end engagement prioritised? Managing new and professional (preferred for mentors) mentees - what systems/processes can best support this? Same 'pre-work' needed
+* *System to collect project proposals for communities, independent of any mentorship programme?*
+* 'Rejekts' idea; might be left to communities to manage those who aren't initially accepted to established programs
+* Documentation on advising next/backup steps for unsuccessful applicants 
+
+
+
+[Jay] *Current active/proposed mentoring or pathway initiatives for review/consideration*
+
+***Supporting Maintainers/Developing Mentors***
+
+* '**Buddy System**' (leonardpahlke) - 1:1 peer matching, anticipated issues with time commitment, compatibility and impact 
+* '**Maintainers Circle** *(Paris)* **'How to build shadow programs'** Guidance on how to create roles, identify roles, etc.
+* '**Group Mentoring Programs**' *(Paris)* - Structured, time-bound format towards key goals 
+https://github.com/cncf/tag-contributor-strategy/issues/393
+* '**Shadow Mentoring**' (*Hippie*)  - Operationalizing mentoring/shadowing programs that exist in K8S SIG Docs, etc.
+https://github.com/cncf/mentoring/issues/950
+
+***Supporting Newcomers***
+* **'CNCF newcomer buddy groups'** (*xinity*) - Linking newbies to potential mentors
+https://github.com/cncf/tag-contributor-strategy/issues/393
+* **'Student Pipeline'***(Kaiwalya)* - proposal in development https://docs.google.com/document/d/1oIBJmhIYDHkDYYzi8PCD8JuUMHqGNTTNtTRXIPkeQMs/edit?usp=sharing
+* **'Pathways for disabled communities**' *(Catherine, TAG)* - in discussion
+* **CNCF Students** *(Kunal)* - (full link needed,including repo) https://community.cncf.io/cloud-native-students/
+
+---
+
+## April 25, 2023 (Cancelled due to no attendance)
+
+21:00 UTC (2:00 PM PDT on 2023-04-25; 10:00 AM NZST on 2023-04-26)
+
+### Attendance
+
+* (Cancelled: no attendance)
+
+### Agenda
+
+* [aliok] GSoC selection and ranking is done - Google's deadline is April 27
+* [aliok] GSoD - 2 out of 13 accepted proposals is from CNCF - [announcement](https://github.com/cncf/mentoring/discussions/843#discussioncomment-5492931)
+* [aliok] LFX Mentorship date shift (?)
+    * https://github.com/cncf/mentoring/pull/943
+* [aliok] contribute.cncf.io website updates
+  * Now mentions Mentoring WG - [link](https://contribute.cncf.io/about/working-groups/)
+  * Main "I want to be a contributor" page is now up-to-date with simpler instructions - [link](https://contribute.cncf.io/contributors/)
+
+
 ## April 11, 2023
 
 21:00 UTC (2:00 PM PDT on 2023-01-11; 10:00 AM NZST on 2023-01-12)  
@@ -75,10 +278,8 @@ More of a conversation than a meeting, should not be posted to Youtube.
 * Mentoring repo refactor:
     * https://github.com/cncf/mentoring/pull/927 - update to call out draft pages
     * https://github.com/cncf/mentoring/pull/899
-    * Happy day!! It is merged!!
+    * Happy day!! It is merged!! :tada: 
 
-
-# Past Meetings
 
 ## March 28, 2023
 
@@ -90,10 +291,6 @@ More of a conversation than a meeting, should not be posted to Youtube.
 * Jay Tihema
 * Ali Ok
 * Riaan Kleinhans
-
-### Updates/reminders
-
-* 
 
 ### Agenda
 
