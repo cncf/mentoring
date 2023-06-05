@@ -41,9 +41,9 @@ The LFX Mentorship program is completed for 2022. The current cycle is [2-Jun-Au
 
 ## Program Maintainers
 
-- Chris Aniszczyk ([@caniszczyk](https://github.com/caniszczyk)\): <https://twitter.com/cra>
-- Ihor Dvoretskyi ([@idvoretskyi](https://github.com/idvoretskyi)\): <https://twitter.com/idvoretskyi>
-- Nate Waddington ([@nate-double-u](https://github.com/nate-double-u)\): <https://twitter.com/hackabletype>
+- Nate Waddington ([@nate-double-u](https://github.com/nate-double-u))
+- Jay Tiaki ([@jaytiaki](https://github.com/jaytiaki))
+- Ali Ok ([@aliok](https://github.com/aliok))
 
 ## Communication
 
