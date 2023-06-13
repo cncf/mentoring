@@ -22,7 +22,6 @@ CNCF TAG Contributor Strategy
 
 ### Recurring monthly
 * 2nd Tuesday of the month at 9PM UTC
-* 4th Tuesday of the month at 9PM UTC (during the setup phase)
 
 [CNCF Public Events - TAG CS Mentoring WG](https://tockify.com/cncf.public.events/monthly?search=CNCF%20TAG%20Contributor%20Strategy%20Mentoring%20WG)
 
@@ -36,9 +35,9 @@ Passcode: 77777
 
 # Upcoming meeting
 
-## June 13, 2023
+## July 11, 2023
 
-21:00 UTC (2:00 PM PDT on 2023-06-13; 10:00 AM NZST on 2023-06-14)
+21:00 UTC (2:00 PM PDT on 2023-07-11; 10:00 AM NZST on 2023-07-12)
 
 ### Attendance
 
@@ -50,7 +49,7 @@ Passcode: 77777
 
 ### Agenda
 
-* [Meeting cadence](https://github.com/cncf/mentoring/issues/1015)
+* 
 
 ### Notes
 
@@ -58,6 +57,74 @@ Passcode: 77777
 
 
 # Past Meetings
+
+## June 13, 2023
+
+21:00 UTC (2:00 PM PDT on 2023-06-13; 10:00 AM NZST on 2023-06-14)
+
+### Attendance
+
+* Nate W.
+* Catherine Paganini
+* Riaan Kleinhans
+* Ali Ok
+* Josh Berkus
+* Jay Tihema
+
+### Agenda
+
+* [Meeting cadence](https://github.com/cncf/mentoring/issues/1015)
+* [Is GSoD a good fit for the Mentoring WG?](https://github.com/cncf/mentoring/issues/1011)
+* GSoC mentor summit
+    * NW planning to attend
+    * Discussion: https://github.com/cncf/mentoring/discussions/848#discussioncomment-6149827 
+* (aliok) [Mentor guide](https://docs.google.com/document/u/1/d/1Zozg3g5qE4jkdVEdiVtCoXvc_iuuOls1hfCgW6Pf7jQ/edit?usp=sharing) - good enough to create a PR?
+* Update on the [DHH initiative](https://github.com/cncf/tag-contributor-strategy/issues/421) 
+    * Met with Gallaudet professor
+        * IT department not super deep
+        * Schedule a talk to get a sense of interest
+    * #dhh-in-cloud-native channel
+    * [4 volunteers](https://docs.google.com/document/d/18OMOIhTYSa0v6dVi9u6WMQq25dpy3fc0kxjjzE_gzEk/edit#) (two DHH, one hearing and fluent in ASL)
+* Update on NZ efforts
+
+### Notes
+
+* **Cadence** - Proposal to reduce to frequency to one-monthly meetings - special topics meetings vs. general updates 
+    * Need to review/revise our goals in terms of progress and performance. 
+    * Initial goals of obtaining more help w/ community support, working towards mentee numbers objective tracking wells
+        * Nate to add calendar note to reflect change
+* *To do: Fix calendar note for meeting link*
+* **GSOD fit** - may not be the right fit for  Mentoring WG objectives
+    * (Issue opened to discuss further if needed)
+    * Previously coordinated through Tech Docs dept.- if not through WG; may not be worth tracking through CNCF esp. if low Cloud Native project submissions
+    * Tracking - informing community of cycles; application dates, assistance, relevant comms
+    * Doesn't match the key description of focus mentoring programs e.g. LFX - what is needed for inclusion in CNCF mentorship/initiatives
+    * Consensus to remove from workstream
+* **GSOC Mentor Summit**
+    * Will fund one org person and mentor to attend (incentivised); one expression of interest so far
+    * Limited space available only
+    * Notify mentors list for feedback on next actions
+    * > Many orgs want to send more than one delegate to the Mentor Summit. If your organization has more than one delegate that wishes to attend the Mentor Summit, please have them put their name on the waitlist.
+* (Ali) **Mentor Guide**
+    * Google doc created; please review and add comments/feedback
+    * Will allow review time then create a PR
+        * Open PR to link to doc for view
+* (Catherine) **DHH initiative**
+    * Connected w/ IT dept in Gallaudet Uni; met w/ professor to discuss
+    * Primarily liberal arts college; expressed interest in collaboration - proposed talk to students about cloud native
+    * 4 volunteers to support effort; deaf or have family that are, high initial engagement
+    * Need to keep working w/ deaf community to determine key considerations as things progress
+    * How can Mentoring WG/community best support? Plan > role of TAG > decide actions to implement etc. 
+    * Identified professor who might develop an open source curriculum; current skillset doesn't exist in Gallaudet
+    * Will find the right place for it to sit if not in Mentoring e.g. TAG C-S
+        * Review possibility of all CNCF calls etc. use close-captioning etc. to support communication/participation
+* **Kubecon NA**
+    * Any CFPs for talks? e.g:
+        * Getting Started guide
+        * Ali at KCD Istanbul
+        * Nothing at TAG level yet
+        * Talk in sign language
+
 
 ## May 23, 2023
 
