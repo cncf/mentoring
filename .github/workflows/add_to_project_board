@@ -1,0 +1,17 @@
+name: Add to Project Board
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
+
+jobs:
+  add_to_project_board:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Add To GitHub projects
+        uses: actions/add-to-project@v0.5.0
+        with:
+           project-url: https://github.com/orgs/cncf/projects/25
+           github-token: ${{ secrets.GITHUB_TOKEN }}
