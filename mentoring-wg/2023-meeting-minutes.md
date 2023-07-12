@@ -35,9 +35,9 @@ Passcode: 77777
 
 # Upcoming meeting
 
-## July 11, 2023
+## August 1, 2023
 
-21:00 UTC (2:00 PM PDT on 2023-07-11; 10:00 AM NZST on 2023-07-12)
+21:00 UTC (2:00 PM PDT on 2023-08-01; 10:00 AM NZST on 2023-08-02)
 
 ### Attendance
 
@@ -57,6 +57,99 @@ Passcode: 77777
 
 
 # Past Meetings
+
+## July 11, 2023
+
+21:00 UTC (2:00 PM PDT on 2023-07-11; 10:00 AM NZST on 2023-07-12)
+
+### Attendance
+
+* Nate W.
+* Josh Berkus
+* Riaan Kleinhans
+* Catherine Paganini
+* Diane Mueller
+* Jay Tihema
+* Paris Pittman
+* Rohan Dahibhate
+
+### Agenda
+
+* Riaan - [Project board](https://github.com/orgs/cncf/projects/25/views/1) grooming
+    * Workflows have been created to auto-add issues and PRs to the “New” Column  - Thanks Nate for pointing out the way!
+    - For managing the project board we need some time in every meeting to triage and groom tickets in the “New” column. 
+        - First task is to evaluate the 8 Mentor WG issues currently in “New” for being valid or stale.
+        - If an issue is valid, let's move it to “Backlog” or another appropriate column.
+        - If it is stale, let’s close it.
+    - Let’s try and label all issues, so the board filters work
+    - Some explanations about the columns have been added at the top of each column. Please let me know if changes to the columns or descriptions are needed. 
+* Program updates
+    * **LFX** - Term 2 Midterm evals due tomorrow (July 12, 2023)
+    * **GSoC** - Midterm evals due July 14 (for most projects, one has extended and will have different dates)
+    * **Deaf/hoh**: 
+        * Updated [issue](https://github.com/cncf/tag-contributor-strategy/issues/421) with audience, mission, goals
+        * Scheduled first official meeting (with ALS interpreter, captions, gallery view recording)on the 4th Tuesday of each month at 5pm ET
+        * Focus: recruit more deaf/hoh members
+            * Kickstarted social media campaign
+                * Two new members joined after seeing the social media posts
+                * [LinkedIn](https://www.linkedin.com/posts/iansmith13_cloud-community-deaf-activity-7084214874095943680-iU_7/)
+                * [Twitter](https://twitter.com/metaforgotten/status/1678446702825721856)
+                * [Mastodon](https://mastodon.social/@Deafveloper/110690520567866407) 
+        * One deaf/hoh member to attend KubeCon (first time ever!)
+        * CNCF encouraged deaf/hoh to apply for scholarships
+            * Provided feedback on gaps in scholarship and registration form
+* Mentorship statistics & reporting - Nate, Diane, Josh & Dawn
+    * New position proposal: Mentoring WG Tech Lead
+        * Nomination: Diane Mueller 
+        * Nate W. suggests that we invite Diane Mueller to participate officially as a Tech Lead so that we can provide access to internal docs that would normally be private in order to facillitate statistics research & reporting around our programs.
+    * process question - this discussion is a start, but do we need to add something to cncf/mentoring, or cncf/tag-contributor-strategy?
+* NZ Updates
+    * KCD Sydney
+    * Shadowtech, Canvas events
+    * Training & Certs
+* [Paris] Program documentation for mentoring initiatives that are not 1:1 and/or focused on growing contributors that are already there into maintainer roles 
+    * maintainer circle
+    * documentation / templates / etc
+* Sickness policy
+    * what happens if someone falls ill and is unable to complete their menteeship duties (mentees or mentors both)
+
+### Notes
+(Riaan) 
+* Project board - workplace created, new columns with all open issues collated - label as needed
+    * Busy closing issues; seeking consensus for closure
+    * Slack discussion reference >
+
+(Nate)
+* LFX progressing well - mid-terms due tomorrow
+    * Seeking advice on policy around illness and how this affects mentees' ability to complete program
+* GSOC evals recenty opened, 1/3 submissions received
+
+(Catherine)
+* DHH - issue update w/ audience goals
+* 1st official meeting - CNCF providing ASL interpreter to support recording 
+* Focused on recruiting more DHH; ideally to be driven by the community themselves
+* 2 new members have joined, 1 new attendee for Kubecon NA; Chris A has also encouraged new scholarship applicants - has highlighted gaps in application forms/processes esp. re disability and associated factors
+
+(Nate/Diane)
+* Potential Tech Lead role in Mentoring WG for Diane - stats, recording etc would provide ability to access Google Drive, relevant resources
+    * Creating dashboards for tracking mentorship comms, progress, reflections etc. 
+    * Focus on both mentees and mentors
+    * Aim to share findings at monthly meetings to help drive potential improvements in ongoing efforts
+
+(Paris)
+* Efforts to grow contributor base, managing engagement at scale; ideally  beyond 1:1s
+* Current WG streams accommodate 'many-to-1' mentoring models primarily - open to discussing other programs and methods 
+* Focus to date has been entry-level programs, historically haven't had sufficient help to look further
+    * Explore scope for CNCF to support with a sign-up tool
+    * Reviewer cohorts, shadow programs, buddy systems, AMAs
+    * Open issue/discussion to promote the opportunity; seeking assistance
+
+(Nate)
+* Sickness policy - will be determined by duration of illness; in some cases partial payment has been issued to mentees
+    * LFX has more flexibility than GSOC by comparison; may be able to manage on case-by-case basis
+    * Can be difficult with no means of verifying illness status; to consider
+    * https://docs.linuxfoundation.org/lfx/mentorship
+
 
 ## June 13, 2023
 
