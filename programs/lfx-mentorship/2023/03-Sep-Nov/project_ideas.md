@@ -48,4 +48,33 @@
 - Upstream Issue:
   - https://github.com/konveyor/operator/issues/251
 
+### Kyverno
+
+#### Pod Security Admission Integrations
+
+- Description: Integrate Kubernetes Pod Security with Kyverno - Part Ⅲ
+- Expected Outcome: Kyverno's podSecurity "subrule" has the ability to exclude based on specific field paths and not just the control level.
+- Recommended Skills: Golang, Kubernetes, Pod Security
+- Mentor(s):
+  - Mentor Name (@realshuting, shuting@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/6144
+
+#### Policy Exceptions 2.0
+
+- Description: Enhancements for Kyverno Policy Exceptions including support for images and conditions.
+- Expected Outcome: A future version of Kyverno has enhanced support for its Policy Exception resource.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s):
+  - Mentor Name (@jimbugwadia, jim@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/7907
+
+#### Kyverno Kuttl Enhancements
+
+- Description: Add new features to the kuttl application used by the Kyverno project to aid in its end-to-end testing process.
+- Expected Outcome: Kyverno's fork of kuttl has these enhancements allowing more and better test cases to be written.
+- Recommended Skills: Golang
+- Mentor(s):
+  - Mentor Name (@eddycharly, charles.edouard@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kuttl/issues/18
+
 ---
