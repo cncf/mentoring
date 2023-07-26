@@ -56,7 +56,6 @@
 - Recommended Skills:
   - Golang
   - Kubernetes (Basic understanding of interaction with Kubernetes via kubectl)
-  - Backend Development
 - Mentor(s):
   - Saranya Jena (@Saranya-jena, saranya.jena@harness.io)
   - Sayan Mondal (@S-ayanide, sayan.mondal@harness.io)
