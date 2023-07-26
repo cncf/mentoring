@@ -48,4 +48,45 @@
 - Upstream Issue:
   - https://github.com/konveyor/operator/issues/251
 
+#### Move2Kube: Compile Move2Kube to WASM/WASI and run it in the browser
+
+- Description: Move2Kube is a command-line tool for automating creation of Infrastructure as code (IaC) artifacts. It has inbuilt support for creating IaC artifacts for replatforming to Kubernetes/OpenShift. We want to compile targetting WASM/WASI and run the resulting WASM module in the browser. This will help up showcase Move2Kube for demos and allow users to quickly try out Move2Kube without having to install it or any of its dependencies.
+- Expected Outcome:
+  - Run Move2Kube CLI in the browser using WebAssembly.
+- Recommended Skills:
+  - Golang
+  - WASM
+- Mentor(s):
+  - Harikrishnan Balagopal (@HarikrishnanBalagopal, harikrishnan.balagopal@ibm.com)
+  - Mehant Kammakomati (@kmehant, mehant.kammakomati2@ibm.com)
+- Upstream Issue: https://github.com/konveyor/move2kube/issues/1062
+
+#### Move2Kube: WASM Transformers
+
+- Description: Move2Kube is a command-line tool for automating creation of Infrastructure as code (IaC) artifacts. It has inbuilt support for creating IaC artifacts for replatforming to Kubernetes/OpenShift. Move2Kube has a very plugin friendly architecture, users can write custom logic in the form of "Transformers" that Move2Kube can integrate seamlessly into its transformation pipeline. So far we have support for both Starlark and container image based transformers. We would like to support writing transformers as WASM modules that Move2Kube can run. WASM provides extensive sandboxing for security, it allows writing transformers in different language stacks like Rust, C/C++, etc. other than Golang, and WASM is just as lightweight and fast as Starlark.
+- Expected Outcome:
+  - Implement a feature in Move2Kube CLI to allow running WASM modules as custom transformers.
+- Recommended Skills:
+  - Golang
+  - WASM
+- Mentor(s):
+  - Harikrishnan Balagopal (@HarikrishnanBalagopal, harikrishnan.balagopal@ibm.com)
+  - Mehant Kammakomati (@kmehant, mehant.kammakomati2@ibm.com)
+- Upstream Issue: https://github.com/konveyor/move2kube/issues/1061
+
+#### Move2Kube: Advanced Resources support - ArgoCD, Tekton, Stateful Set, etc.
+
+- Description: Move2Kube is a command-line tool for automating creation of Infrastructure as code (IaC) artifacts. It has inbuilt support for creating IaC artifacts for replatforming to Kubernetes/OpenShift. Currently we have rudimentary support for resources such as ArgoCD, Tekton, etc. We need to enhance this to make it useful. Example: https://github.com/konveyor/move2kube/issues/930
+- Expected Outcome:
+  - More comprehensive support for advanced K8s resources so as to support real world use cases.
+- Recommended Skills:
+  - Golang
+  - K8s
+  - ArgoCD
+  - Tekton
+- Mentor(s):
+  - Akash Nayak (@Akash-Nayak, akash.nayak1@ibm.com)
+  - Harikrishnan Balagopal (@HarikrishnanBalagopal, harikrishnan.balagopal@ibm.com)
+- Upstream Issue: https://github.com/konveyor/move2kube/issues/1063
+
 ---
