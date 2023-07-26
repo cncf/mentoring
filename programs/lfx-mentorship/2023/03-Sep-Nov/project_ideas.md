@@ -48,4 +48,29 @@
 - Upstream Issue:
   - https://github.com/konveyor/operator/issues/251
 
+### LitmusChaos
+
+#### Improve litmusctl UX and codebase and add new functionalities to litmusctl
+- Description: [LitmusChaos](https://litmuschaos.io) is an open-source chaos engineering platform for Kubernetes, enabling users to test and improve the resilience of their cloud-native applications. The project focuses on improving litmusctl by enhancing its interactive mode with promptui, and refactoring code to Go interfaces for better unit testing and code quality. Additionally, it aims to replace kubectl with client-go for more efficient Kubernetes operations, resulting in a more user-friendly and reliable command-line tool for chaos engineering and workload management.
+- Expected outcome: The expected outcome of the project includes an improved litmusctl tool with a user-friendly promptui-based interactive mode, enhanced code quality through Go interfaces, and a robust test suite. The migration to client-go for Kubernetes operations will ensure better performance and reduced external dependencies, providing users with a reliable and efficient command-line utility for chaos engineering and Kubernetes management tasks.
+- Recommended Skills:
+  - Golang
+  - Kubernetes (Basic understanding of interaction with Kubernetes via kubectl)
+- Mentor(s):
+  - Saranya Jena (@Saranya-jena, saranya.jena@harness.io)
+  - Sayan Mondal (@S-ayanide, sayan.mondal@harness.io)
+- Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/4101
+
+#### Improve Chaoscenter Web and Authentication Server: Add Unit Test Cases, Enhance GQL APIs, Update API Documentation
+
+- Description: [LitmusChaos](https://litmuschaos.io) is an open-source chaos engineering platform for Kubernetes, enabling users to test and improve the resilience of their cloud-native applications. The task is add unit tests for Chaoscenter Web and test cases for the Authentication Server. The GraphQL API documentation will be updated with the latest APIs, while the GraphQL server's APIs and handler functions will be optimized to reduce code duplicacy. Additionally, comprehensive documentation and video tutorials will be created for local development setup, promoting easier onboarding and collaboration.
+- Expected outcome: The expected outcome of this issue is an improved Chaoscenter Web and Authentication Server with added unit tests, updated GraphQL API documentation, and optimized APIs and handler functions. The enhancements will result in a more reliable, efficient, and user-friendly chaos engineering platform, promoting better collaboration within the community.
+- Recommended Skills:
+  - Golang
+  - TypeScript
+- Mentor(s):
+  - Sarthak Jain (@SarthakJain26, sarthak.jain@harness.io)
+  - Neelanjan Manna (@neelanjan00, neelanjan.manna@harness.io)
+- Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/4102
+
 ---
