@@ -30,6 +30,18 @@
   - Kevin Hannon, @kannon92, kevin@gr-oss.io
 - Upstream Issue (URL): https://github.com/armadaproject/armada/issues/2702
 
+### CRI-O
+
+#### Add additional log drivers to conmon-rs
+
+- Description: conmon-rs is a container monitor written in Rust, used by CRI-O to monitor a container's lifecycle. Part of its responsibilities is log forwarding--taking the output of the container and writing that output to various places. Currently, conmon-rs supports one format: the one required by the Kubernetes CRI. The goal of this proposal is to add new log formats from the list of standardized ones, like JSON, Splunk, Journald.
+- Expected outcome: A JSON log driver and Journald log driver are added to conmon-rs. A stretch goal of adding a Splunk log driver is also within scope.
+- Recommended Skills: Rust, familiarity with containers
+- Mentor(s):
+  - Peter Hunt, haircommander, pehunt@redhat.com
+  - Sascha Grunert, saschagrunert, sgrunert@redhat.com
+- Upstream Issue (URL): https://github.com/containers/conmon-rs/issues/1126
+
 ### Konveyor
 
 #### Extend use-case of detecting deprecated Kubernetes API usage
