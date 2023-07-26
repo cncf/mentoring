@@ -56,7 +56,7 @@
 - Expected Outcome: Kyverno's podSecurity "subrule" has the ability to exclude based on specific field paths and not just the control level.
 - Recommended Skills: Golang, Kubernetes, Pod Security
 - Mentor(s):
-  - Mentor Name (@realshuting, shuting@nirmata.com)
+  - Shuting Zhao (@realshuting, shuting@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/6144
 
 #### Policy Exceptions 2.0
@@ -65,7 +65,8 @@
 - Expected Outcome: A future version of Kyverno has enhanced support for its Policy Exception resource.
 - Recommended Skills: Golang, Kubernetes
 - Mentor(s):
-  - Mentor Name (@jimbugwadia, jim@nirmata.com)
+  - Jim Bugwadia (@jimbugwadia, jim@nirmata.com)
+  - Mariam Fahmy (@MariamFahmy98, mariam.fahmy@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/7907
 
 #### Kyverno Kuttl Enhancements
@@ -74,7 +75,7 @@
 - Expected Outcome: Kyverno's fork of kuttl has these enhancements allowing more and better test cases to be written.
 - Recommended Skills: Golang
 - Mentor(s):
-  - Mentor Name (@eddycharly, charles.edouard@nirmata.com)
+  - Charles-Edouard Brétéché (@eddycharly, charles.edouard@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/kuttl/issues/18
 
 ---
