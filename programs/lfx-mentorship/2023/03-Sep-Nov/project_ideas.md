@@ -55,7 +55,7 @@
 - Expected outcome: The expected outcome of the project includes an improved litmusctl tool with a user-friendly promptui-based interactive mode, enhanced code quality through Go interfaces, and a robust test suite. The migration to client-go for Kubernetes operations will ensure better performance and reduced external dependencies, providing users with a reliable and efficient command-line utility for chaos engineering and Kubernetes management tasks.
 - Recommended Skills:
   - Golang
-  - Kubernetes
+  - Kubernetes (Basic understanding of interaction with Kubernetes via kubectl)
   - Backend Development
 - Mentor(s):
   - Saranya Jena (@Saranya-jena, saranya.jena@harness.io)
@@ -69,7 +69,6 @@
 - Recommended Skills:
   - Golang
   - TypeScript
-  - Jest
 - Mentor(s):
   - Sarthak Jain (@SarthakJain26, sarthak.jain@harness.io)
   - Neelanjan Manna (@neelanjan00, neelanjan.manna@harness.io)
