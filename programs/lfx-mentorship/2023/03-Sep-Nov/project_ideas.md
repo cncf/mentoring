@@ -401,8 +401,6 @@
   - Hongcai Ren(@RainbowMango, qdurenhongcai@gmail.com)
 - Upstream Issue: [karmada-io/karmada#3843](https://github.com/karmada-io/karmada/issues/3843)
 
----
-
 ### KubeVela
 
 #### Support auto generation of multiple languages SDK from CUE
@@ -414,6 +412,19 @@
     - Qiao Zhongpei (@chivalryq, chivalry.pp@gmail.com) 
     - Wang YiKe (@wangyikewxgm, wangyike.wyk@gmail.com)
 - Upstream Issue: [kubevela/kubevela#5365](https://github.com/kubevela/kubevela/issues/5365)
+
+
+### Kubernetes
+
+#### Build a Go library and CLI for interacting with OpenBuildService
+
+- Description: Kubernetes is set to start using [OpenBuildService](http://openbuildservice.org) as a platform for building, publishing, and hosting Kubernetes system (Debian and RPM) packages. The current integration with the OpenBuildService platform assumes a lot of manual tasks and depending on `osc` command-line tool written in Python. At SIG Release, we're striving to automate as many tasks as possible. We want to build a library and CLI written in Go for interacting with the OpenBuildService APIs and platform that can be integrated with our existing [release tooling (`krel`)](http://github.com/kubernetes/release).
+- Expected Outcome: Library and CLI tool for interacting with OpenBuildService platform via their publicly available APIs. Both library and CLI tool should be properly tested via unit, integration, and end-to-end tests, and properly documented.
+- Recommended Skills: Golang, working with APIs
+- Mentor(s):
+  - Carlos Panato (@cpanato, ctadeu@gmail.com)
+  - Marko Mudrinić (@xmudrii, mudrinic.mare@gmail.com)
+- Upstream Issue: https://github.com/kubernetes/sig-release/issues/2295
 
 ### OpenKruise
 
@@ -428,3 +439,5 @@
     - Zhang zhen (@furykerry, furykerry@gmail.com)
     - Zhao Mingshan (@zmberg, berg.zms@gmail.com)
 - Upstream Issue: [openkruise/kruise#1345](https://github.com/openkruise/kruise/issues/1345)
+
+---
