@@ -87,6 +87,30 @@
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/4600
 
+### Istio
+
+#### Implement performance testing
+
+- Description: Up until version 1.16, [Istio](https://istio.io/) published [performance and scale testing results](https://istio.io/v1.16/docs/ops/deployment/performance-and-scalability/). These should be returned to service, and updated to support ambient mesh. Third-party benchmarking tools should be updated to support testing the performance of ambient mesh.
+- Expected Outcome: Performance testing pages are returned to istio.io, and include both sidecar and ambient mesh results.
+- Recommended Skills:
+  - Python
+  - Networking
+- Mentors:
+  - Lin Sun (@linsun, lin.sun@solo.io)
+- Upstream Issue: https://github.com/istio/istio/issues/44009
+
+#### Documentation for Ambient Mesh
+
+- Description: [Istio](https://istio.io/) is working on [a new operating mode called ambient mesh](https://istio.io/latest/blog/2022/introducing-ambient-mesh/). As this moves from experimental to the recommended method of operating a service mesh, we will need to revise our documentation to discuss the new model, explain the tradeoffs, and tell users how to choose.
+- Expected Outcome: Revisions to Istio's documentation to reflect the availability of ambient mesh.  These will be maintained in a parallel branch of istio.io that can be pulled from when Ambient is in Beta or GA.
+- Recommended Skills: 
+  - Technical writing
+  - Developer advocacy
+- Mentors:
+  - Lin Sun (lin.sun@solo.io)
+- Upstream Issue: https://github.com/istio/istio.io/issues/13481
+
 ### Konveyor
 
 #### Extend use-case of detecting deprecated Kubernetes API usage
@@ -329,6 +353,22 @@
   - Saswata Mukherjee (@saswatamcode, saswataminsta@yahoo.com)
 - Upstream Issue: https://github.com/thanos-io/thanos/issues/6517, https://github.com/thanos-community/promql-engine/issues/106
 
+#### Release the distributed query engine in Thanos
+
+- Description:
+  The Thanos engine is capable of executing queries in a distributed manner, by pushing down aggregations to other querier nodes. This querying mode is not yet integrated well in the UI and is not exposed to users.
+  The goal of this project is to add the needed integrations to the Thanos UI and officially release the feature to end users.
+- Expected Outcome:
+  The expected outcome of the project is to have a fully integrated distributed querying capability through the Thanos UI.
+- Recommended Skills:
+  - Golang
+  - React.js with TypeScript
+  - Git + GitHub
+  - Any Prometheus/PromQL/Thanos understanding is a plus
+- Mentor(s):
+  - Filip Petkovski (@fpetkovski, filip.petkovsky@gmail.com)
+- Upstream Issue: https://github.com/thanos-io/thanos/issues/6124
+
 ### Karmada
 
 #### Karmada supports promote dependent resources automatically
@@ -361,8 +401,6 @@
   - Hongcai Ren(@RainbowMango, qdurenhongcai@gmail.com)
 - Upstream Issue: [karmada-io/karmada#3843](https://github.com/karmada-io/karmada/issues/3843)
 
----
-
 ### KubeVela
 
 #### Support auto generation of multiple languages SDK from CUE
@@ -375,8 +413,8 @@
     - Wang YiKe (@wangyikewxgm, wangyike.wyk@gmail.com)
 - Upstream Issue: [kubevela/kubevela#5365](https://github.com/kubevela/kubevela/issues/5365)
 
-
 ### Carvel
+
 #### kctrl to support exporting package repository as tar
 
 - Description: While generating Package Repository kctrl to create the tar version of the Package Repository instead of pushing the OCI Image to a registry. 
@@ -389,3 +427,31 @@
     - Soumik Majumder (@100mik, carvel-mentor)
     - Renu Yarday (@renuy, ryarday@vmware.com)
 - Upstream Issue (URL): https://github.com/carvel-dev/kapp-controller/issues/1277
+
+### Kubernetes
+
+#### Build a Go library and CLI for interacting with OpenBuildService
+
+- Description: Kubernetes is set to start using [OpenBuildService](http://openbuildservice.org) as a platform for building, publishing, and hosting Kubernetes system (Debian and RPM) packages. The current integration with the OpenBuildService platform assumes a lot of manual tasks and depending on `osc` command-line tool written in Python. At SIG Release, we're striving to automate as many tasks as possible. We want to build a library and CLI written in Go for interacting with the OpenBuildService APIs and platform that can be integrated with our existing [release tooling (`krel`)](http://github.com/kubernetes/release).
+- Expected Outcome: Library and CLI tool for interacting with OpenBuildService platform via their publicly available APIs. Both library and CLI tool should be properly tested via unit, integration, and end-to-end tests, and properly documented.
+- Recommended Skills: Golang, working with APIs
+- Mentor(s):
+  - Carlos Panato (@cpanato, ctadeu@gmail.com)
+  - Marko Mudrinić (@xmudrii, mudrinic.mare@gmail.com)
+- Upstream Issue: https://github.com/kubernetes/sig-release/issues/2295
+
+### OpenKruise
+
+#### Integrate Openkruise workload with ArgoCD and Helm
+
+- Description: ArgoCD and Helm are popular tools to delivery k8s workload, yet currently only the k8s built-in workload are supported out-of-box for ArgoCD and Helm. OpenKruise provide advanced worklood that resemble with the built-in workload,  users can use OpenKruise workload with ArgoCD and Helm, yet they cannot tell ArgoCD and Helm whether Openkruise workload is ready or not. 
+- Expected Outcome:
+  - Improve ArgoCD integration by writing custom lua script to tell whether OpenKruise workload is healthy. The lua script can be submited to the Argo-CD repository.
+  - Improve Helm intergration by building a job container that can check whether OpenKruise workload is healthy during helm install/upgrade process. 
+- Recommended Skills: Lua ,Docker, Kubernetes
+- Mentor(s):
+    - Zhang zhen (@furykerry, furykerry@gmail.com)
+    - Zhao Mingshan (@zmberg, berg.zms@gmail.com)
+- Upstream Issue: [openkruise/kruise#1345](https://github.com/openkruise/kruise/issues/1345)
+
+---
