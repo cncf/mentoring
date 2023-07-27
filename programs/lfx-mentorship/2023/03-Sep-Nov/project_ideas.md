@@ -376,7 +376,7 @@
 - Upstream Issue: [kubevela/kubevela#5365](https://github.com/kubevela/kubevela/issues/5365)
 
 
-### Carvel kapp-controller
+### Carvel
 #### kctrl to support exporting package repository as tar
 
 - Description: While generating Package Repository kctrl to create the tar version of the Package Repository instead of pushing the OCI Image to a registry. 
@@ -386,6 +386,6 @@
     - Documentation changes as required 
 - Recommended Skills: Golang
 - Mentor(s): 
-    - Soumik Majumder ()
-    - Renu Yarday (@renuy, renuyarday@gmail.com)
+    - Soumik Majumder (@100mik, carvel-mentor)
+    - Renu Yarday (@renuy, ryarday@vmware.com)
 - Upstream Issue (URL): https://github.com/carvel-dev/kapp-controller/issues/1277
