@@ -195,4 +195,36 @@
   - Michael Yuan (@juntao, michael@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2689
 
+### Karmada
+
+#### Karmada supports promote dependent resources automatically
+
+- Description: Provide an automatic promotion mechanism for dependent resources in karmadactl. When promoting a resource, all the resources that it depends on will be automatically promoted as well. For example, promoting the Secret that is dependent by a Deployment.
+- Expected Outcome:
+  - Technical Documentation: design description and analysis
+  - Function Implementation: support promote the dependent resources automatically
+  - Test coverage: add test cases to cover new functions
+- Recommended Skills:
+  - Go
+  - Cloud Native
+- Mentor(s):
+  - Wei Jiang (@jwcesign, jiangwei115@huawei.com)
+  - Hongcai Ren(@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: [karmada-io/karmada#3842](https://github.com/karmada-io/karmada/issues/3842)
+
+#### Add Karmada API documentation on the website
+
+- Description: Add the Karmada API documentation on the [website](https://github.com/karmada-io/website),and complete the script for automatic document generation.
+- Expected Outcome:
+  - Technical Documentation: design description and analysis
+  - Script Complete: automatic document generation
+  - Maintaining Documentation: add maintaining document on the website
+- Recommended Skills:
+  - Go
+  - Cloud Native
+- Mentor(s):
+  - Zhen Chang (@XiShanYongYe-Chang, changzhen5@huawei.com)
+  - Hongcai Ren(@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: [karmada-io/karmada#3843](https://github.com/karmada-io/karmada/issues/3843)
+
 ---
