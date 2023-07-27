@@ -376,8 +376,8 @@
 - Upstream Issue: [kubevela/kubevela#5365](https://github.com/kubevela/kubevela/issues/5365)
 
 
-#### Carvel kapp-controller
-##### kctrl to support exporting package repository as tar
+### Carvel kapp-controller
+#### kctrl to support exporting package repository as tar
 
 - Description: While generating Package Repository kctrl to create the tar version of the Package Repository instead of pushing the OCI Image to a registry. 
 - Expected Outcome: 
