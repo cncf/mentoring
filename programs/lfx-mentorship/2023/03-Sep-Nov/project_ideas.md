@@ -353,6 +353,22 @@
   - Saswata Mukherjee (@saswatamcode, saswataminsta@yahoo.com)
 - Upstream Issue: https://github.com/thanos-io/thanos/issues/6517, https://github.com/thanos-community/promql-engine/issues/106
 
+#### Release the distributed query engine in Thanos
+
+- Description:
+  The Thanos engine is capable of executing queries in a distributed manner, by pushing down aggregations to other querier nodes. This querying mode is not yet integrated well in the UI and is not exposed to users.
+  The goal of this project is to add the needed integrations to the Thanos UI and officially release the feature to end users.
+- Expected Outcome:
+  The expected outcome of the project is to have a fully integrated distributed querying capability through the Thanos UI.
+- Recommended Skills:
+  - Golang
+  - React.js with TypeScript
+  - Git + GitHub
+  - Any Prometheus/PromQL/Thanos understanding is a plus
+- Mentor(s):
+  - Filip Petkovski (@fpetkovski, filip.petkovsky@gmail.com)
+- Upstream Issue: https://github.com/thanos-io/thanos/issues/6124
+
 ### Karmada
 
 #### Karmada supports promote dependent resources automatically
