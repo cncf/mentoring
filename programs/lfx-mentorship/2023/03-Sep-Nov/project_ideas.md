@@ -223,6 +223,26 @@
   - Michael Yuan (@juntao, michael@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2689
 
+### Thanos
+
+#### Implement fan-out query observability in Thanos
+
+- Description:
+  In the previous mentorship sessions we added the foundation required for query observability in Thanos's new [promql-engine](https://github.com/thanos-io/promql-engine) and hooked it up in the UI. We now have the foundation to record telemetry from our query engine as well such as time consumed per operator.
+  This project aims to expand on this and add more metadata to the query execution, both on the promql-engine operator tree level and Thanos Query `Select()` calls for fan-out query observability.
+  Once we have this metadata, we would like to visualize it in the Query UI.
+- Expected Outcome:
+  The end goal is to have a query execution tree decorated with the metadata, collected during execution (ideally even visualized in the Thanos UI). This will help users to understand the performance implications of their PromQL queries and the bottlenecks in their Thanos Query setups.
+- Recommended Skills:
+  - Golang
+  - React.js with TypeScript
+  - Git + GitHub
+  - Any Prometheus/PromQL/Thanos understanding is a plus
+- Mentor(s):
+  - Giedrius Statkevičius (@GiedriusS, giedriuswork@gmail.com)
+  - Saswata Mukherjee (@saswatamcode, saswataminsta@yahoo.com)
+- Upstream Issue: https://github.com/thanos-io/thanos/issues/6517, https://github.com/thanos-community/promql-engine/issues/106
+
 ### Karmada
 
 #### Karmada supports promote dependent resources automatically
