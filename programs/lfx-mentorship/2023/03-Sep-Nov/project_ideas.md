@@ -60,6 +60,34 @@
 - Upstream Issue:
   - https://github.com/konveyor/operator/issues/251
 
+### Kubescape
+
+#### Build an admission controller for Kubescape
+
+- Description: [Kubescape](http://kubescape.io/) is a utility that can scan a Kubernetes cluster and report on its security posture. It can also scan individual workloads (e.g. YAML files) before they are applied. By creating a Kubescape admission controller, we will be able to combine the two, denying workloads into a cluster where it would reduce the security posture.
+- Expected Outcome: The Kubescape application will be extended and packaged to operate as an admission controller inside a cluster. The controller will be well documented, safe to install, and instrumented with logging and telemetry data to be able to diagnose problems.
+- Recommended Skills:
+  - Go
+  - Experience using Kubernetes and understanding of its concepts
+- Mentors:
+  - Craig Box (@craigbox, craigb AT armosec.io)
+  - Ben Hirschberg (@slashben, ben AT armosec.io)
+- Upstream Issue: https://github.com/kubescape/kubescape/issues/1301
+
+
+#### Upgrade the documentation publishing pipeline for Kubescape controls
+
+- Description: [Kubescape's control library](https://github.com/kubescape/regolibrary) includes more than 200 controls, tests that codify Kubernetes best practices derived from the most prevalent security frameworks in the industry. Metadata in the controls is used to generate documentation pages in the ARMO website. This project will update this automation to make this control documentation available on kubescape.io.
+- Expected Outcome: A full set of documentation for Kubescape controls on kubescape.io. Stretch goals include better README-style documentation inside the repository, and documentation pages on how the controls, frameworks and tests relate.
+- Recommended Skills: 
+  - Python
+  - Technical writing
+  - Rego
+- Mentors:
+  - Ben Hirschberg (@slashben, ben AT armosec.io)
+  - Craig Box (@craigbox, craigb AT armosec.io)
+- Upstream Issue: https://github.com/kubescape/kubescape/issues/1302
+
 ### Kyverno
 
 #### Pod Security Admission Integrations
@@ -214,5 +242,37 @@
   - Giedrius Statkevičius (@GiedriusS, giedriuswork@gmail.com)
   - Saswata Mukherjee (@saswatamcode, saswataminsta@yahoo.com)
 - Upstream Issue: https://github.com/thanos-io/thanos/issues/6517, https://github.com/thanos-community/promql-engine/issues/106
+
+### Karmada
+
+#### Karmada supports promote dependent resources automatically
+
+- Description: Provide an automatic promotion mechanism for dependent resources in karmadactl. When promoting a resource, all the resources that it depends on will be automatically promoted as well. For example, promoting the Secret that is dependent by a Deployment.
+- Expected Outcome:
+  - Technical Documentation: design description and analysis
+  - Function Implementation: support promote the dependent resources automatically
+  - Test coverage: add test cases to cover new functions
+- Recommended Skills:
+  - Go
+  - Cloud Native
+- Mentor(s):
+  - Wei Jiang (@jwcesign, jiangwei115@huawei.com)
+  - Hongcai Ren(@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: [karmada-io/karmada#3842](https://github.com/karmada-io/karmada/issues/3842)
+
+#### Add Karmada API documentation on the website
+
+- Description: Add the Karmada API documentation on the [website](https://github.com/karmada-io/website),and complete the script for automatic document generation.
+- Expected Outcome:
+  - Technical Documentation: design description and analysis
+  - Script Complete: automatic document generation
+  - Maintaining Documentation: add maintaining document on the website
+- Recommended Skills:
+  - Go
+  - Cloud Native
+- Mentor(s):
+  - Zhen Chang (@XiShanYongYe-Chang, changzhen5@huawei.com)
+  - Hongcai Ren(@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: [karmada-io/karmada#3843](https://github.com/karmada-io/karmada/issues/3843)
 
 ---
