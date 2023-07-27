@@ -42,6 +42,16 @@
   - Sascha Grunert, saschagrunert, sgrunert@redhat.com
 - Upstream Issue (URL): https://github.com/containers/conmon-rs/issues/1126
 
+#### CRI stats KEP
+
+- Description: [CRI stats KEP](https://github.com/kubernetes/enhancements/issues/2371) is an effort to take the container stats and metrics collection from cAdvisor and move it to the CRI implementations. CRI-O will soon have support for stats and metrics collected through CRI, but work needs to be done to verify and validate these fields, and make sure their collection is performant as possible.
+- Expected outcome: A test suite verifying the correctness of CRI-O's stats and metrics collection, as well as data verifying performance regressions are minimal at worst.
+- Recommended Skills: Golang, familiarity with containers
+- Mentor(s):
+  - Peter Hunt, haircommander, pehunt@redhat.com
+  - Sohan Kunkerkar, sohankunkerkar, skunkerk@redhat.com
+- Upstream Issue (URL): https://github.com/cri-o/cri-o/issues/7175
+
 ### Jaeger
 
 #### Upgrade Jaeger UI to the latest version of React.js
@@ -77,7 +87,6 @@
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/4600
 
-
 ### Konveyor
 
 #### Extend use-case of detecting deprecated Kubernetes API usage
@@ -95,6 +104,34 @@
   - John Matthews (@jwmatthews, jwmatthews@gmail.com)
 - Upstream Issue:
   - https://github.com/konveyor/operator/issues/251
+
+### Kubescape
+
+#### Build an admission controller for Kubescape
+
+- Description: [Kubescape](http://kubescape.io/) is a utility that can scan a Kubernetes cluster and report on its security posture. It can also scan individual workloads (e.g. YAML files) before they are applied. By creating a Kubescape admission controller, we will be able to combine the two, denying workloads into a cluster where it would reduce the security posture.
+- Expected Outcome: The Kubescape application will be extended and packaged to operate as an admission controller inside a cluster. The controller will be well documented, safe to install, and instrumented with logging and telemetry data to be able to diagnose problems.
+- Recommended Skills:
+  - Go
+  - Experience using Kubernetes and understanding of its concepts
+- Mentors:
+  - Craig Box (@craigbox, craigb AT armosec.io)
+  - Ben Hirschberg (@slashben, ben AT armosec.io)
+- Upstream Issue: https://github.com/kubescape/kubescape/issues/1301
+
+
+#### Upgrade the documentation publishing pipeline for Kubescape controls
+
+- Description: [Kubescape's control library](https://github.com/kubescape/regolibrary) includes more than 200 controls, tests that codify Kubernetes best practices derived from the most prevalent security frameworks in the industry. Metadata in the controls is used to generate documentation pages in the ARMO website. This project will update this automation to make this control documentation available on kubescape.io.
+- Expected Outcome: A full set of documentation for Kubescape controls on kubescape.io. Stretch goals include better README-style documentation inside the repository, and documentation pages on how the controls, frameworks and tests relate.
+- Recommended Skills: 
+  - Python
+  - Technical writing
+  - Rego
+- Mentors:
+  - Ben Hirschberg (@slashben, ben AT armosec.io)
+  - Craig Box (@craigbox, craigb AT armosec.io)
+- Upstream Issue: https://github.com/kubescape/kubescape/issues/1302
 
 ### Kyverno
 
@@ -230,5 +267,57 @@
 - Mentor(s):
   - Michael Yuan (@juntao, michael@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2689
+
+### Thanos
+
+#### Implement fan-out query observability in Thanos
+
+- Description:
+  In the previous mentorship sessions we added the foundation required for query observability in Thanos's new [promql-engine](https://github.com/thanos-io/promql-engine) and hooked it up in the UI. We now have the foundation to record telemetry from our query engine as well such as time consumed per operator.
+  This project aims to expand on this and add more metadata to the query execution, both on the promql-engine operator tree level and Thanos Query `Select()` calls for fan-out query observability.
+  Once we have this metadata, we would like to visualize it in the Query UI.
+- Expected Outcome:
+  The end goal is to have a query execution tree decorated with the metadata, collected during execution (ideally even visualized in the Thanos UI). This will help users to understand the performance implications of their PromQL queries and the bottlenecks in their Thanos Query setups.
+- Recommended Skills:
+  - Golang
+  - React.js with TypeScript
+  - Git + GitHub
+  - Any Prometheus/PromQL/Thanos understanding is a plus
+- Mentor(s):
+  - Giedrius Statkevičius (@GiedriusS, giedriuswork@gmail.com)
+  - Saswata Mukherjee (@saswatamcode, saswataminsta@yahoo.com)
+- Upstream Issue: https://github.com/thanos-io/thanos/issues/6517, https://github.com/thanos-community/promql-engine/issues/106
+
+### Karmada
+
+#### Karmada supports promote dependent resources automatically
+
+- Description: Provide an automatic promotion mechanism for dependent resources in karmadactl. When promoting a resource, all the resources that it depends on will be automatically promoted as well. For example, promoting the Secret that is dependent by a Deployment.
+- Expected Outcome:
+  - Technical Documentation: design description and analysis
+  - Function Implementation: support promote the dependent resources automatically
+  - Test coverage: add test cases to cover new functions
+- Recommended Skills:
+  - Go
+  - Cloud Native
+- Mentor(s):
+  - Wei Jiang (@jwcesign, jiangwei115@huawei.com)
+  - Hongcai Ren(@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: [karmada-io/karmada#3842](https://github.com/karmada-io/karmada/issues/3842)
+
+#### Add Karmada API documentation on the website
+
+- Description: Add the Karmada API documentation on the [website](https://github.com/karmada-io/website),and complete the script for automatic document generation.
+- Expected Outcome:
+  - Technical Documentation: design description and analysis
+  - Script Complete: automatic document generation
+  - Maintaining Documentation: add maintaining document on the website
+- Recommended Skills:
+  - Go
+  - Cloud Native
+- Mentor(s):
+  - Zhen Chang (@XiShanYongYe-Chang, changzhen5@huawei.com)
+  - Hongcai Ren(@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: [karmada-io/karmada#3843](https://github.com/karmada-io/karmada/issues/3843)
 
 ---
