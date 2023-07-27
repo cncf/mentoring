@@ -42,6 +42,16 @@
   - Sascha Grunert, saschagrunert, sgrunert@redhat.com
 - Upstream Issue (URL): https://github.com/containers/conmon-rs/issues/1126
 
+#### CRI stats KEP
+
+- Description: [CRI stats KEP](https://github.com/kubernetes/enhancements/issues/2371) is an effort to take the container stats and metrics collection from cAdvisor and move it to the CRI implementations. CRI-O will soon have support for stats and metrics collected through CRI, but work needs to be done to verify and validate these fields, and make sure their collection is performant as possible.
+- Expected outcome: A test suite verifying the correctness of CRI-O's stats and metrics collection, as well as data verifying performance regressions are minimal at worst.
+- Recommended Skills: Golang, familiarity with containers
+- Mentor(s):
+  - Peter Hunt, haircommander, pehunt@redhat.com
+  - Sohan Kunkerkar, sohankunkerkar, skunkerk@redhat.com
+- Upstream Issue (URL): https://github.com/cri-o/cri-o/issues/7175
+
 ### Konveyor
 
 #### Extend use-case of detecting deprecated Kubernetes API usage
