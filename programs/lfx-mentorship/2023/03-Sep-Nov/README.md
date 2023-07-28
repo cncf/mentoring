@@ -370,4 +370,42 @@ Table of Contents
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2689
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/41a8bf79-a903-4c03-afb7-256fd373c0b0
 
+### Thanos
+
+#### Implement fan-out query observability in Thanos
+
+- Description:
+  In the previous mentorship sessions we added the foundation required for query observability in Thanos's new [promql-engine](https://github.com/thanos-io/promql-engine) and hooked it up in the UI. We now have the foundation to record telemetry from our query engine as well such as time consumed per operator.
+  This project aims to expand on this and add more metadata to the query execution, both on the promql-engine operator tree level and Thanos Query `Select()` calls for fan-out query observability.
+  Once we have this metadata, we would like to visualize it in the Query UI.
+- Expected Outcome:
+  The end goal is to have a query execution tree decorated with the metadata, collected during execution (ideally even visualized in the Thanos UI). This will help users to understand the performance implications of their PromQL queries and the bottlenecks in their Thanos Query setups.
+- Recommended Skills:
+  - Golang
+  - React.js with TypeScript
+  - Git + GitHub
+  - Any Prometheus/PromQL/Thanos understanding is a plus
+- Mentor(s):
+  - Giedrius Statkevičius (@GiedriusS, giedriuswork@gmail.com)
+  - Saswata Mukherjee (@saswatamcode, saswataminsta@yahoo.com)
+- Upstream Issue: https://github.com/thanos-io/thanos/issues/6517, https://github.com/thanos-community/promql-engine/issues/106
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/5a96f43c-d858-40c2-b556-2770ba6b03d4
+
+#### Release the distributed query engine in Thanos
+
+- Description:
+  The Thanos engine is capable of executing queries in a distributed manner, by pushing down aggregations to other querier nodes. This querying mode is not yet integrated well in the UI and is not exposed to users.
+  The goal of this project is to add the needed integrations to the Thanos UI and officially release the feature to end users.
+- Expected Outcome:
+  The expected outcome of the project is to have a fully integrated distributed querying capability through the Thanos UI.
+- Recommended Skills:
+  - Golang
+  - React.js with TypeScript
+  - Git + GitHub
+  - Any Prometheus/PromQL/Thanos understanding is a plus
+- Mentor(s):
+  - Filip Petkovski (@fpetkovski, filip.petkovsky@gmail.com)
+- Upstream Issue: https://github.com/thanos-io/thanos/issues/6124
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/3d6d3534-24e9-4261-9b91-7de3d78554f7
+
 
