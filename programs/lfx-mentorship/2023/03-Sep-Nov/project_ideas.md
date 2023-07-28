@@ -18,44 +18,6 @@
 
 ## Proposed Project ideas
 
-### Jaeger
-
-#### Upgrade Jaeger UI to the latest version of React.js
-
-- Description: Jaeger UI is built on React. While we are seemingly already on v18.x of React, the upgrade was not done across the board and some other dependencies are still lagging behind, e.g. `"@types/react": "16.8.7"`. It's also blocking upgrades of other dependencies. This project is likely to involve a substantial amount of code contribution, as certain upgrade require fixing the code to use the new APIs, and sometimes we may run into dependencies that are EOL and need to be replaced altogether.
-- Expected Outcome: Ideal outcome is to have _all_ dependencies upgraded to the latest versions (with the help of @dependabot) and fix all deprecation warnings during the build. But incremental progress towards that goal is also acceptable.
-- Recommended Skills: Javascript, Typescript, NPM, Yarn, Vite.js
-- Mentor(s):
-  - Yash Sharma (yashrsharma44@meta.com)
-  - Yuri Shkuro (@yurishkuro, github@ysh.us)
-- Upstream Issue: https://github.com/jaegertracing/jaeger-ui/issues/998
-- LFX URL: 
-
-#### Combine three distinct graph views in Jaeger UI into one
-
-- Description: Jaeger UI provides several views to visualize service dependencies, also known as service topology maps. However, these views are using different drawing libraries, resulting in very different look & feel and inconsistent experience. One of the views is using a `plexus` library that was purposely built as part of Jaeger UI that provides rich capabilities for displaying graphs, which may be a good candidate for the other views.
-- Expected Outcomes:
-  - Remove the dependency on react-vis library (https://github.com/jaegertracing/jaeger-ui/issues/1597).
-  - Use a single library for graph visualizations.
-  - Provide consistent look and feel of different graph views.
-- Recommended Skills: Javascript, Typescript, NPM, Yarn, Vite.js, web worker
-- Mentor(s):
-  - Yuri Shkuro (@yurishkuro, github@ysh.us)
-- Upstream Issue: https://github.com/jaegertracing/jaeger-ui/issues/1466
-- LFX URL: 
-
-#### Build official support in Jaeger for Elasticsearch 8
-
-- Description: Jaeger has always supported Elasticsearch (ES) as an official backend. Unfortunately, the Go driver we are using, `olivere/elastic`, does not support ESv8 and not planning to release any new versions. Despite the licensing changes, Elasticsearch remains a popular choice and v8 support question often comes up. In this project we want to add official support for ESv8. However, we also want to take this opportunity to do a better alignment with the OpenTelemetry Collector, which already has an [ESv8 exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/elasticsearchexporter), perhaps we can use it directly and minimize the amount of code.
-- Expected Outcomes:
-  - Use OTEL ESv8 exporter from Jaeger, if possible, otherwise build internal implementation
-  - Stretch goal: use ES data as the source for Jaeger SPM views
-- Recommended Skills: Go, Elasticsearch
-- Mentor(s):
-  - Yuri Shkuro (@yurishkuro, github@ysh.us)
-- Upstream Issue: https://github.com/jaegertracing/jaeger/issues/4600
-- LFX URL: 
-
 ### Istio
 
 #### Implement performance testing
