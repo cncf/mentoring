@@ -458,4 +458,17 @@ Table of Contents
 - Upstream Issue (URL): https://github.com/carvel-dev/kapp-controller/issues/1277
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/91398424-f095-4b85-bb0f-e7c56e777ea0
 
+### KubeVela
+
+#### Support auto generation of multiple languages SDK from CUE II
+
+- Description: In KubeVela, we use [CUElang](https://cuelang.org/) to code the X-Definition. We want to support auto generation of multiple languages SDK from CUE, so that users can buidling KubeVela Application in their own language. This helps to adoptors to build platform based on KubeVela.
+- Expected Outcome: Support auto generation of multiple languages SDK from CUE, including Java, Typescript ,Python. This capability should be part of vela CLI command.
+- Recommended Skills: Java, Typescript ,Python, Kubernetes, CUE
+- Mentor(s): 
+    - Qiao Zhongpei (@chivalryq, chivalry.pp@gmail.com) 
+    - Wang YiKe (@wangyikewxgm, wangyike.wyk@gmail.com)
+- Upstream Issue: [kubevela/kubevela#5365](https://github.com/kubevela/kubevela/issues/5365)
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/e8c0d16a-c263-4a6c-bce7-0b896c925a52
+
 

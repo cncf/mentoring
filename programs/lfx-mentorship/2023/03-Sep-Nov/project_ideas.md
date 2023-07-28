@@ -18,19 +18,6 @@
 
 ## Proposed Project ideas
 
-### KubeVela
-
-#### Support auto generation of multiple languages SDK from CUE
-
-- Description: In KubeVela, we use [CUElang](https://cuelang.org/) to code the X-Definition. We want to support auto generation of multiple languages SDK from CUE, so that users can buidling KubeVela Application in their own language. This helps to adoptors to build platform based on KubeVela.
-- Expected Outcome: Support auto generation of multiple languages SDK from CUE, including Java, Typescript ,Python. This capability should be part of vela CLI command.
-- Recommended Skills: Java, Typescript ,Python, Kubernetes, CUE
-- Mentor(s): 
-    - Qiao Zhongpei (@chivalryq, chivalry.pp@gmail.com) 
-    - Wang YiKe (@wangyikewxgm, wangyike.wyk@gmail.com)
-- Upstream Issue: [kubevela/kubevela#5365](https://github.com/kubevela/kubevela/issues/5365)
-- LFX URL: 
-
 ### Kubernetes
 
 #### Build a Go library and CLI for interacting with OpenBuildService
