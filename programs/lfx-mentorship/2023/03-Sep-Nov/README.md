@@ -26,4 +26,11 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 ---
 
+Table of Contents
 
+---
+
+## Accepted projects
+
+
+---
