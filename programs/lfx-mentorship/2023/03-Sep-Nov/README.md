@@ -471,4 +471,17 @@ Table of Contents
 - Upstream Issue: [kubevela/kubevela#5365](https://github.com/kubevela/kubevela/issues/5365)
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/e8c0d16a-c263-4a6c-bce7-0b896c925a52
 
+### Kubernetes
+
+#### Build a Go library and CLI for interacting with OpenBuildService
+
+- Description: Kubernetes is set to start using [OpenBuildService](http://openbuildservice.org) as a platform for building, publishing, and hosting Kubernetes system (Debian and RPM) packages. The current integration with the OpenBuildService platform assumes a lot of manual tasks and depending on `osc` command-line tool written in Python. At SIG Release, we're striving to automate as many tasks as possible. We want to build a library and CLI written in Go for interacting with the OpenBuildService APIs and platform that can be integrated with our existing [release tooling (`krel`)](http://github.com/kubernetes/release).
+- Expected Outcome: Library and CLI tool for interacting with OpenBuildService platform via their publicly available APIs. Both library and CLI tool should be properly tested via unit, integration, and end-to-end tests, and properly documented.
+- Recommended Skills: Golang, working with APIs
+- Mentor(s):
+  - Carlos Panato (@cpanato, ctadeu@gmail.com)
+  - Marko Mudrinić (@xmudrii, mudrinic.mare@gmail.com)
+- Upstream Issue: https://github.com/kubernetes/sig-release/issues/2295
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/47f53d22-ff5c-4479-b701-3ca3dbc7df0a
+
 
