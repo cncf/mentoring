@@ -18,36 +18,6 @@
 
 ## Proposed Project ideas
 
-### Kubescape
-
-#### Build an admission controller for Kubescape
-
-- Description: [Kubescape](http://kubescape.io/) is a utility that can scan a Kubernetes cluster and report on its security posture. It can also scan individual workloads (e.g. YAML files) before they are applied. By creating a Kubescape admission controller, we will be able to combine the two, denying workloads into a cluster where it would reduce the security posture.
-- Expected Outcome: The Kubescape application will be extended and packaged to operate as an admission controller inside a cluster. The controller will be well documented, safe to install, and instrumented with logging and telemetry data to be able to diagnose problems.
-- Recommended Skills:
-  - Go
-  - Experience using Kubernetes and understanding of its concepts
-- Mentors:
-  - Craig Box (@craigbox, craigb AT armosec.io)
-  - Ben Hirschberg (@slashben, ben AT armosec.io)
-- Upstream Issue: https://github.com/kubescape/kubescape/issues/1301
-- LFX URL: 
-
-
-#### Upgrade the documentation publishing pipeline for Kubescape controls
-
-- Description: [Kubescape's control library](https://github.com/kubescape/regolibrary) includes more than 200 controls, tests that codify Kubernetes best practices derived from the most prevalent security frameworks in the industry. Metadata in the controls is used to generate documentation pages in the ARMO website. This project will update this automation to make this control documentation available on kubescape.io.
-- Expected Outcome: A full set of documentation for Kubescape controls on kubescape.io. Stretch goals include better README-style documentation inside the repository, and documentation pages on how the controls, frameworks and tests relate.
-- Recommended Skills: 
-  - Python
-  - Technical writing
-  - Rego
-- Mentors:
-  - Ben Hirschberg (@slashben, ben AT armosec.io)
-  - Craig Box (@craigbox, craigb AT armosec.io)
-- Upstream Issue: https://github.com/kubescape/kubescape/issues/1302
-- LFX URL: 
-
 ### Kyverno
 
 #### Pod Security Admission Integrations
