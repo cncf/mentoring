@@ -226,4 +226,37 @@ Table of Contents
 - Upstream Issue: https://github.com/kubescape/kubescape/issues/1302
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ccd3fc5f-a0a9-441f-bd4c-5caae8ab6509
 
+### Kyverno
+
+#### Pod Security Admission Integrations II
+
+- Description: Integrate Kubernetes Pod Security with Kyverno - Part Ⅲ
+- Expected Outcome: Kyverno's podSecurity "subrule" has the ability to exclude based on specific field paths and not just the control level.
+- Recommended Skills: Golang, Kubernetes, Pod Security
+- Mentor(s):
+  - Shuting Zhao (@realshuting, shuting@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/6144
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a7f754b4-5c8c-48a3-8f5f-b3ff6307b0f4
+
+#### Policy Exceptions 2.0
+
+- Description: Enhancements for Kyverno Policy Exceptions including support for images and conditions.
+- Expected Outcome: A future version of Kyverno has enhanced support for its Policy Exception resource.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s):
+  - Jim Bugwadia (@jimbugwadia, jim@nirmata.com)
+  - Mariam Fahmy (@MariamFahmy98, mariam.fahmy@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/7907
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/7ffb0f63-e1e4-477b-ab0c-a69cb681f112
+
+#### Kyverno Kuttl Enhancements
+
+- Description: Add new features to the kuttl application used by the Kyverno project to aid in its end-to-end testing process.
+- Expected Outcome: Kyverno's fork of kuttl has these enhancements allowing more and better test cases to be written.
+- Recommended Skills: Golang
+- Mentor(s):
+  - Charles-Edouard Brétéché (@eddycharly, charles.edouard@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kuttl/issues/18
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/919e8b57-8fc1-4f61-8bc8-3c8b06dd5e7a
+
 
