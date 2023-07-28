@@ -45,4 +45,28 @@ Table of Contents
 - Upstream Issue (URL): https://github.com/armadaproject/armada/issues/2702
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a80908c1-c05b-46c4-a41b-32392c4822cb
 
----
+### CRI-O
+
+#### Add additional log drivers to conmon-rs
+
+- Description: conmon-rs is a container monitor written in Rust, used by CRI-O to monitor a container's lifecycle. Part of its responsibilities is log forwarding--taking the output of the container and writing that output to various places. Currently, conmon-rs supports one format: the one required by the Kubernetes CRI. The goal of this proposal is to add new log formats from the list of standardized ones, like JSON, Splunk, Journald.
+- Expected outcome: A JSON log driver and Journald log driver are added to conmon-rs. A stretch goal of adding a Splunk log driver is also within scope.
+- Recommended Skills: Rust, familiarity with containers
+- Mentor(s):
+  - Peter Hunt, haircommander, pehunt@redhat.com
+  - Sascha Grunert, saschagrunert, sgrunert@redhat.com
+- Upstream Issue (URL): https://github.com/containers/conmon-rs/issues/1126
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/99274b1a-694b-4af5-b7ca-39311f38a646
+
+#### CRI stats KEP
+
+- Description: [CRI stats KEP](https://github.com/kubernetes/enhancements/issues/2371) is an effort to take the container stats and metrics collection from cAdvisor and move it to the CRI implementations. CRI-O will soon have support for stats and metrics collected through CRI, but work needs to be done to verify and validate these fields, and make sure their collection is performant as possible.
+- Expected outcome: A test suite verifying the correctness of CRI-O's stats and metrics collection, as well as data verifying performance regressions are minimal at worst.
+- Recommended Skills: Golang, familiarity with containers
+- Mentor(s):
+  - Peter Hunt, haircommander, pehunt@redhat.com
+  - Sohan Kunkerkar, sohankunkerkar, skunkerk@redhat.com
+- Upstream Issue (URL): https://github.com/cri-o/cri-o/issues/7175
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/cb189d71-3943-450a-9d5f-d71bd66d73c9
+
+

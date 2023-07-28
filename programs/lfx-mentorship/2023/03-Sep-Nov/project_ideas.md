@@ -18,28 +18,6 @@
 
 ## Proposed Project ideas
 
-### CRI-O
-
-#### Add additional log drivers to conmon-rs
-
-- Description: conmon-rs is a container monitor written in Rust, used by CRI-O to monitor a container's lifecycle. Part of its responsibilities is log forwarding--taking the output of the container and writing that output to various places. Currently, conmon-rs supports one format: the one required by the Kubernetes CRI. The goal of this proposal is to add new log formats from the list of standardized ones, like JSON, Splunk, Journald.
-- Expected outcome: A JSON log driver and Journald log driver are added to conmon-rs. A stretch goal of adding a Splunk log driver is also within scope.
-- Recommended Skills: Rust, familiarity with containers
-- Mentor(s):
-  - Peter Hunt, haircommander, pehunt@redhat.com
-  - Sascha Grunert, saschagrunert, sgrunert@redhat.com
-- Upstream Issue (URL): https://github.com/containers/conmon-rs/issues/1126
-
-#### CRI stats KEP
-
-- Description: [CRI stats KEP](https://github.com/kubernetes/enhancements/issues/2371) is an effort to take the container stats and metrics collection from cAdvisor and move it to the CRI implementations. CRI-O will soon have support for stats and metrics collected through CRI, but work needs to be done to verify and validate these fields, and make sure their collection is performant as possible.
-- Expected outcome: A test suite verifying the correctness of CRI-O's stats and metrics collection, as well as data verifying performance regressions are minimal at worst.
-- Recommended Skills: Golang, familiarity with containers
-- Mentor(s):
-  - Peter Hunt, haircommander, pehunt@redhat.com
-  - Sohan Kunkerkar, sohankunkerkar, skunkerk@redhat.com
-- Upstream Issue (URL): https://github.com/cri-o/cri-o/issues/7175
-
 ### Jaeger
 
 #### Upgrade Jaeger UI to the latest version of React.js
@@ -51,6 +29,7 @@
   - Yash Sharma (yashrsharma44@meta.com)
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
 - Upstream Issue: https://github.com/jaegertracing/jaeger-ui/issues/998
+- LFX URL: 
 
 #### Combine three distinct graph views in Jaeger UI into one
 
@@ -63,6 +42,7 @@
 - Mentor(s):
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
 - Upstream Issue: https://github.com/jaegertracing/jaeger-ui/issues/1466
+- LFX URL: 
 
 #### Build official support in Jaeger for Elasticsearch 8
 
@@ -74,6 +54,7 @@
 - Mentor(s):
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/4600
+- LFX URL: 
 
 ### Istio
 
@@ -87,6 +68,7 @@
 - Mentors:
   - Lin Sun (@linsun, lin.sun@solo.io)
 - Upstream Issue: https://github.com/istio/istio/issues/44009
+- LFX URL: 
 
 #### Documentation for Ambient Mesh
 
@@ -98,6 +80,7 @@
 - Mentors:
   - Lin Sun (lin.sun@solo.io)
 - Upstream Issue: https://github.com/istio/istio.io/issues/13481
+- LFX URL: 
 
 ### Konveyor
 
@@ -115,6 +98,7 @@
   - Jonah Sussman (@JonahSussman, jsussman@redhat.com)
   - John Matthews (@jwmatthews, jwmatthews@gmail.com)
 - Upstream Issue:
+- LFX URL: 
   - https://github.com/konveyor/operator/issues/251
 
 #### Move2Kube: Compile Move2Kube to WASM/WASI and run it in the browser
@@ -129,6 +113,7 @@
   - Harikrishnan Balagopal (@HarikrishnanBalagopal, harikrishnan.balagopal@ibm.com)
   - Mehant Kammakomati (@kmehant, mehant.kammakomati2@ibm.com)
 - Upstream Issue: https://github.com/konveyor/move2kube/issues/1062
+- LFX URL: 
 
 #### Move2Kube: WASM Transformers
 
@@ -142,6 +127,7 @@
   - Harikrishnan Balagopal (@HarikrishnanBalagopal, harikrishnan.balagopal@ibm.com)
   - Mehant Kammakomati (@kmehant, mehant.kammakomati2@ibm.com)
 - Upstream Issue: https://github.com/konveyor/move2kube/issues/1061
+- LFX URL: 
 
 #### Move2Kube: Advanced Resources support - ArgoCD, Tekton, Stateful Set, etc.
 
@@ -157,6 +143,7 @@
   - Akash Nayak (@Akash-Nayak, akash.nayak1@ibm.com)
   - Harikrishnan Balagopal (@HarikrishnanBalagopal, harikrishnan.balagopal@ibm.com)
 - Upstream Issue: https://github.com/konveyor/move2kube/issues/1063
+- LFX URL: 
 
 ### Kubescape
 
@@ -171,6 +158,7 @@
   - Craig Box (@craigbox, craigb AT armosec.io)
   - Ben Hirschberg (@slashben, ben AT armosec.io)
 - Upstream Issue: https://github.com/kubescape/kubescape/issues/1301
+- LFX URL: 
 
 
 #### Upgrade the documentation publishing pipeline for Kubescape controls
@@ -185,6 +173,7 @@
   - Ben Hirschberg (@slashben, ben AT armosec.io)
   - Craig Box (@craigbox, craigb AT armosec.io)
 - Upstream Issue: https://github.com/kubescape/kubescape/issues/1302
+- LFX URL: 
 
 ### Kyverno
 
@@ -196,6 +185,7 @@
 - Mentor(s):
   - Shuting Zhao (@realshuting, shuting@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/6144
+- LFX URL: 
 
 #### Policy Exceptions 2.0
 
@@ -206,6 +196,7 @@
   - Jim Bugwadia (@jimbugwadia, jim@nirmata.com)
   - Mariam Fahmy (@MariamFahmy98, mariam.fahmy@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/7907
+- LFX URL: 
 
 #### Kyverno Kuttl Enhancements
 
@@ -215,6 +206,7 @@
 - Mentor(s):
   - Charles-Edouard Brétéché (@eddycharly, charles.edouard@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/kuttl/issues/18
+- LFX URL: 
 
 ### LitmusChaos
 
@@ -228,6 +220,7 @@
   - Saranya Jena (@Saranya-jena, saranya.jena@harness.io)
   - Sayan Mondal (@S-ayanide, sayan.mondal@harness.io)
 - Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/4101
+- LFX URL: 
 
 #### Improve Chaoscenter Web and Authentication Server: Add Unit Test Cases, Enhance GQL APIs, Update API Documentation
 
@@ -240,6 +233,7 @@
   - Sarthak Jain (@SarthakJain26, sarthak.jain@harness.io)
   - Neelanjan Manna (@neelanjan00, neelanjan.manna@harness.io)
 - Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/4102
+- LFX URL: 
 
 ### WasmEdge
 
@@ -262,6 +256,7 @@
   - Lîm Tsú-thuàn (@dannypsnl, dannypsnl@secondstate.io)
   - Hung-Ying Tai (@hydai, hydai@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2680
+- LFX URL: 
 
 #### Support AOT mode in proxy-wasm
 
@@ -277,6 +272,7 @@
   - Yi-Ying He (@q82419, yiying@secondstate.io)
   - Hung-Ying Tai (@hydai, hydai@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2686
+- LFX URL: 
 
 #### Create a Rust crate for YOLO model
 
@@ -299,6 +295,7 @@
 - Mentor(s):
   - Michael Yuan (@juntao, michael@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2690
+- LFX URL: 
 
 #### create a ffmpeg plugin
 
@@ -320,6 +317,7 @@
 - Mentor(s):
   - Michael Yuan (@juntao, michael@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2689
+- LFX URL: 
 
 ### Thanos
 
@@ -340,6 +338,7 @@
   - Giedrius Statkevičius (@GiedriusS, giedriuswork@gmail.com)
   - Saswata Mukherjee (@saswatamcode, saswataminsta@yahoo.com)
 - Upstream Issue: https://github.com/thanos-io/thanos/issues/6517, https://github.com/thanos-community/promql-engine/issues/106
+- LFX URL: 
 
 #### Release the distributed query engine in Thanos
 
@@ -356,6 +355,7 @@
 - Mentor(s):
   - Filip Petkovski (@fpetkovski, filip.petkovsky@gmail.com)
 - Upstream Issue: https://github.com/thanos-io/thanos/issues/6124
+- LFX URL: 
 
 ### Karmada
 
@@ -373,6 +373,7 @@
   - Wei Jiang (@jwcesign, jiangwei115@huawei.com)
   - Hongcai Ren(@RainbowMango, qdurenhongcai@gmail.com)
 - Upstream Issue: [karmada-io/karmada#3842](https://github.com/karmada-io/karmada/issues/3842)
+- LFX URL: 
 
 #### Add Karmada API documentation on the website
 
@@ -388,6 +389,7 @@
   - Zhen Chang (@XiShanYongYe-Chang, changzhen5@huawei.com)
   - Hongcai Ren(@RainbowMango, qdurenhongcai@gmail.com)
 - Upstream Issue: [karmada-io/karmada#3843](https://github.com/karmada-io/karmada/issues/3843)
+- LFX URL: 
 
 ### KubeVela
 
@@ -400,6 +402,7 @@
     - Qiao Zhongpei (@chivalryq, chivalry.pp@gmail.com) 
     - Wang YiKe (@wangyikewxgm, wangyike.wyk@gmail.com)
 - Upstream Issue: [kubevela/kubevela#5365](https://github.com/kubevela/kubevela/issues/5365)
+- LFX URL: 
 
 ### Carvel
 
@@ -415,6 +418,7 @@
     - Soumik Majumder (@100mik, carvel-mentor)
     - Renu Yarday (@renuy, ryarday@vmware.com)
 - Upstream Issue (URL): https://github.com/carvel-dev/kapp-controller/issues/1277
+- LFX URL: 
 
 ### Kubernetes
 
@@ -427,6 +431,7 @@
   - Carlos Panato (@cpanato, ctadeu@gmail.com)
   - Marko Mudrinić (@xmudrii, mudrinic.mare@gmail.com)
 - Upstream Issue: https://github.com/kubernetes/sig-release/issues/2295
+- LFX URL: 
 
 ### OpenKruise
 
@@ -441,5 +446,6 @@
     - Zhang zhen (@furykerry, furykerry@gmail.com)
     - Zhao Mingshan (@zmberg, berg.zms@gmail.com)
 - Upstream Issue: [openkruise/kruise#1345](https://github.com/openkruise/kruise/issues/1345)
+- LFX URL: 
 
 ---
