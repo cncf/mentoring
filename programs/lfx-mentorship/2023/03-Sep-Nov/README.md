@@ -26,7 +26,54 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 ---
 
-Table of Contents
+## Table of Contents
+
+- [Armada](#armada)
+  * [Build a virtual-kubelet provider for Armada](#build-a-virtual-kubelet-provider-for-armada)
+- [Carvel](#carvel)
+  * [kctrl to support exporting package repository as tar](#kctrl-to-support-exporting-package-repository-as-tar)
+- [CRI-O](#cri-o)
+  * [Add additional log drivers to conmon-rs](#add-additional-log-drivers-to-conmon-rs)
+  * [CRI stats KEP](#cri-stats-kep)
+- [Istio](#istio)
+  * [Implement performance testing](#implement-performance-testing)
+  * [Documentation for Ambient Mesh](#documentation-for-ambient-mesh)
+- [Jaeger](#jaeger)
+  * [Upgrade Jaeger UI to the latest version of React.js](#upgrade-jaeger-ui-to-the-latest-version-of-reactjs)
+  * [Combine three distinct graph views in Jaeger UI into one](#combine-three-distinct-graph-views-in-jaeger-ui-into-one)
+  * [Build official support in Jaeger for Elasticsearch 8](#build-official-support-in-jaeger-for-elasticsearch-8)
+- [Karmada](#karmada)
+  * [Karmada supports promote dependent resources automatically](#karmada-supports-promote-dependent-resources-automatically)
+  * [Add Karmada API documentation on the website](#add-karmada-api-documentation-on-the-website)
+- [Konveyor](#konveyor)
+  * [Extend use-case of detecting deprecated Kubernetes API usage](#extend-use-case-of-detecting-deprecated-kubernetes-api-usage)
+  * [Move2Kube: Compile Move2Kube to WASM/WASI and run it in the browser](#move2kube--compile-move2kube-to-wasm-wasi-and-run-it-in-the-browser)
+  * [Move2Kube: WASM Transformers](#move2kube--wasm-transformers)
+  * [Move2Kube: Advanced Resources support - ArgoCD, Tekton, Stateful Set, etc.](#move2kube--advanced-resources-support---argocd--tekton--stateful-set--etc)
+- [Kubernetes](#kubernetes)
+  * [Build a Go library and CLI for interacting with OpenBuildService](#build-a-go-library-and-cli-for-interacting-with-openbuildservice)
+- [Kubescape](#kubescape)
+  * [Build an admission controller for Kubescape](#build-an-admission-controller-for-kubescape)
+  * [Upgrade the documentation publishing pipeline for Kubescape controls](#upgrade-the-documentation-publishing-pipeline-for-kubescape-controls)
+- [KubeVela](#kubevela)
+  * [Support auto generation of multiple languages SDK from CUE II](#support-auto-generation-of-multiple-languages-sdk-from-cue-ii)
+- [Kyverno](#kyverno)
+  * [Pod Security Admission Integrations II](#pod-security-admission-integrations-ii)
+  * [Policy Exceptions 2.0](#policy-exceptions-20)
+  * [Kyverno Kuttl Enhancements](#kyverno-kuttl-enhancements)
+- [LitmusChaos](#litmuschaos)
+  * [Improve litmusctl UX and codebase and add new functionalities to litmusctl](#improve-litmusctl-ux-and-codebase-and-add-new-functionalities-to-litmusctl)
+  * [Improve Chaoscenter Web and Authentication Server: Add Unit Test Cases, Enhance GQL APIs, Update API Documentation](#improve-chaoscenter-web-and-authentication-server--add-unit-test-cases--enhance-gql-apis--update-api-documentation)
+- [Thanos](#thanos)
+  * [Implement fan-out query observability in Thanos](#implement-fan-out-query-observability-in-thanos)
+  * [Release the distributed query engine in Thanos](#release-the-distributed-query-engine-in-thanos)
+- [OpenKruise](#openkruise)
+  * [Integrate Openkruise workload with ArgoCD and Helm](#integrate-openkruise-workload-with-argocd-and-helm)
+- [WasmEdge](#wasmedge)
+  * [Add matrix operations for OpenCVMini-Wasm-Plugin](#add-matrix-operations-for-opencvmini-wasm-plugin)
+  * [Support AOT mode in proxy-wasm](#support-aot-mode-in-proxy-wasm)
+  * [Create a Rust crate for YOLO model](#create-a-rust-crate-for-yolo-model)
+  * [Create a ffmpeg plugin](#create-a-ffmpeg-plugin)
 
 ---
 
@@ -44,6 +91,22 @@ Table of Contents
   - Kevin Hannon, @kannon92, kevin@gr-oss.io
 - Upstream Issue (URL): https://github.com/armadaproject/armada/issues/2702
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a80908c1-c05b-46c4-a41b-32392c4822cb
+
+### Carvel
+
+#### kctrl to support exporting package repository as tar
+
+- Description: While generating Package Repository kctrl to create the tar version of the Package Repository instead of pushing the OCI Image to a registry. 
+- Expected Outcome: 
+    - Proposal containing design discussions and options considered.
+    - Function Implementation to support a flag which allows to export the package repo to tar
+    - Documentation changes as required 
+- Recommended Skills: Golang
+- Mentor(s): 
+    - Soumik Majumder (@100mik, soumik712@gmail.com)
+    - Renu Yarday (@renuy, ryarday@vmware.com)
+- Upstream Issue (URL): https://github.com/carvel-dev/kapp-controller/issues/1277
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/91398424-f095-4b85-bb0f-e7c56e777ea0
 
 ### CRI-O
 
@@ -68,6 +131,32 @@ Table of Contents
   - Sohan Kunkerkar, sohankunkerkar, skunkerk@redhat.com
 - Upstream Issue (URL): https://github.com/cri-o/cri-o/issues/7175
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/cb189d71-3943-450a-9d5f-d71bd66d73c9
+
+### Istio
+
+#### Implement performance testing
+
+- Description: Up until version 1.16, [Istio](https://istio.io/) published [performance and scale testing results](https://istio.io/v1.16/docs/ops/deployment/performance-and-scalability/). These should be returned to service, and updated to support ambient mesh. Third-party benchmarking tools should be updated to support testing the performance of ambient mesh.
+- Expected Outcome: Performance testing pages are returned to istio.io, and include both sidecar and ambient mesh results.
+- Recommended Skills:
+  - Python
+  - Networking
+- Mentors:
+  - Lin Sun (@linsun, lin.sun@solo.io)
+- Upstream Issue: https://github.com/istio/istio/issues/44009
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/bbebd511-1a3e-4c4f-b106-2f09690825c5
+
+#### Documentation for Ambient Mesh
+
+- Description: [Istio](https://istio.io/) is working on [a new operating mode called ambient mesh](https://istio.io/latest/blog/2022/introducing-ambient-mesh/). As this moves from experimental to the recommended method of operating a service mesh, we will need to revise our documentation to discuss the new model, explain the tradeoffs, and tell users how to choose.
+- Expected Outcome: Revisions to Istio's documentation to reflect the availability of ambient mesh.  These will be maintained in a parallel branch of istio.io that can be pulled from when Ambient is in Beta or GA.
+- Recommended Skills: 
+  - Technical writing
+  - Developer advocacy
+- Mentors:
+  - Lin Sun (lin.sun@solo.io)
+- Upstream Issue: https://github.com/istio/istio.io/issues/13481
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/89ee4357-dd58-4e15-a601-c411742a587c
 
 ### Jaeger
 
@@ -107,31 +196,39 @@ Table of Contents
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/4600
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/37cf2714-668d-4014-ac44-953f70f9dc8e
 
-### Istio
+### Karmada
 
-#### Implement performance testing
+#### Karmada supports promote dependent resources automatically
 
-- Description: Up until version 1.16, [Istio](https://istio.io/) published [performance and scale testing results](https://istio.io/v1.16/docs/ops/deployment/performance-and-scalability/). These should be returned to service, and updated to support ambient mesh. Third-party benchmarking tools should be updated to support testing the performance of ambient mesh.
-- Expected Outcome: Performance testing pages are returned to istio.io, and include both sidecar and ambient mesh results.
+- Description: Provide an automatic promotion mechanism for dependent resources in karmadactl. When promoting a resource, all the resources that it depends on will be automatically promoted as well. For example, promoting the Secret that is dependent by a Deployment.
+- Expected Outcome:
+  - Technical Documentation: design description and analysis
+  - Function Implementation: support promote the dependent resources automatically
+  - Test coverage: add test cases to cover new functions
 - Recommended Skills:
-  - Python
-  - Networking
-- Mentors:
-  - Lin Sun (@linsun, lin.sun@solo.io)
-- Upstream Issue: https://github.com/istio/istio/issues/44009
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/bbebd511-1a3e-4c4f-b106-2f09690825c5
+  - Go
+  - Cloud Native
+- Mentor(s):
+  - Wei Jiang (@jwcesign, jiangwei115@huawei.com)
+  - Hongcai Ren(@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: https://github.com/karmada-io/karmada/issues/3842
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/60b43efd-79e0-457e-989f-d4d59d55d8a6
 
-#### Documentation for Ambient Mesh
+#### Add Karmada API documentation on the website
 
-- Description: [Istio](https://istio.io/) is working on [a new operating mode called ambient mesh](https://istio.io/latest/blog/2022/introducing-ambient-mesh/). As this moves from experimental to the recommended method of operating a service mesh, we will need to revise our documentation to discuss the new model, explain the tradeoffs, and tell users how to choose.
-- Expected Outcome: Revisions to Istio's documentation to reflect the availability of ambient mesh.  These will be maintained in a parallel branch of istio.io that can be pulled from when Ambient is in Beta or GA.
-- Recommended Skills: 
-  - Technical writing
-  - Developer advocacy
-- Mentors:
-  - Lin Sun (lin.sun@solo.io)
-- Upstream Issue: https://github.com/istio/istio.io/issues/13481
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/89ee4357-dd58-4e15-a601-c411742a587c
+- Description: Add the Karmada API documentation on the [website](https://github.com/karmada-io/website),and complete the script for automatic document generation.
+- Expected Outcome:
+  - Technical Documentation: design description and analysis
+  - Script Complete: automatic document generation
+  - Maintaining Documentation: add maintaining document on the website
+- Recommended Skills:
+  - Go
+  - Cloud Native
+- Mentor(s):
+  - Zhen Chang (@XiShanYongYe-Chang, changzhen5@huawei.com)
+  - Hongcai Ren(@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: https://github.com/karmada-io/karmada/issues/3843
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/54940f04-54b8-41ee-94bf-153f977b31e7
 
 ### Konveyor
 
@@ -145,7 +242,7 @@ Table of Contents
   - Basic understanding of interaction with Kubernetes via kubectl
   - Basic software development skills (command line, git)
 - Mentor(s):
-  - Emily McMullan (@eemcmullan, emcmulla@redhat.com)
+  - Emily McMullan (@eemcmullan, eemcmullan92@gmail.com)
   - Jonah Sussman (@JonahSussman, jsussman@redhat.com)
   - John Matthews (@jwmatthews, jwmatthews@gmail.com)
 - Upstream Issue:
@@ -196,6 +293,19 @@ Table of Contents
 - Upstream Issue: https://github.com/konveyor/move2kube/issues/1063
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/b9aad4e2-d9c7-405e-8482-5aced0a4ecdb
 
+### Kubernetes
+
+#### Build a Go library and CLI for interacting with OpenBuildService
+
+- Description: Kubernetes is set to start using [OpenBuildService](http://openbuildservice.org) as a platform for building, publishing, and hosting Kubernetes system (Debian and RPM) packages. The current integration with the OpenBuildService platform assumes a lot of manual tasks and depending on `osc` command-line tool written in Python. At SIG Release, we're striving to automate as many tasks as possible. We want to build a library and CLI written in Go for interacting with the OpenBuildService APIs and platform that can be integrated with our existing [release tooling (`krel`)](http://github.com/kubernetes/release).
+- Expected Outcome: Library and CLI tool for interacting with OpenBuildService platform via their publicly available APIs. Both library and CLI tool should be properly tested via unit, integration, and end-to-end tests, and properly documented.
+- Recommended Skills: Golang, working with APIs
+- Mentor(s):
+  - Carlos Panato (@cpanato, ctadeu@gmail.com)
+  - Marko Mudrinić (@xmudrii, mudrinic.mare@gmail.com)
+- Upstream Issue: https://github.com/kubernetes/sig-release/issues/2295
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/47f53d22-ff5c-4479-b701-3ca3dbc7df0a
+
 ### Kubescape
 
 #### Build an admission controller for Kubescape
@@ -211,7 +321,6 @@ Table of Contents
 - Upstream Issue: https://github.com/kubescape/kubescape/issues/1301
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/271852c6-3348-4ec7-bf09-035913b1c86e
 
-
 #### Upgrade the documentation publishing pipeline for Kubescape controls
 
 - Description: [Kubescape's control library](https://github.com/kubescape/regolibrary) includes more than 200 controls, tests that codify Kubernetes best practices derived from the most prevalent security frameworks in the industry. Metadata in the controls is used to generate documentation pages in the ARMO website. This project will update this automation to make this control documentation available on kubescape.io.
@@ -225,6 +334,19 @@ Table of Contents
   - Craig Box (@craigbox, craigb AT armosec.io)
 - Upstream Issue: https://github.com/kubescape/kubescape/issues/1302
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ccd3fc5f-a0a9-441f-bd4c-5caae8ab6509
+
+### KubeVela
+
+#### Support auto generation of multiple languages SDK from CUE II
+
+- Description: In KubeVela, we use [CUElang](https://cuelang.org/) to code the X-Definition. We want to support auto generation of multiple languages SDK from CUE, so that users can buidling KubeVela Application in their own language. This helps to adoptors to build platform based on KubeVela.
+- Expected Outcome: Support auto generation of multiple languages SDK from CUE, including Java, Typescript ,Python. This capability should be part of vela CLI command.
+- Recommended Skills: Java, Typescript ,Python, Kubernetes, CUE
+- Mentor(s): 
+    - Qiao Zhongpei (@chivalryq, chivalry.pp@gmail.com) 
+    - Wang YiKe (@wangyikewxgm, wangyike.wyk@gmail.com)
+- Upstream Issue: [kubevela/kubevela#5365](https://github.com/kubevela/kubevela/issues/5365)
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/e8c0d16a-c263-4a6c-bce7-0b896c925a52
 
 ### Kyverno
 
@@ -285,6 +407,59 @@ Table of Contents
   - Neelanjan Manna (@neelanjan00, neelanjan.manna@harness.io)
 - Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/4102
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/237b7300-d749-4f14-bd4c-9375e5ec39b6
+
+### Thanos
+
+#### Implement fan-out query observability in Thanos
+
+- Description:
+  In the previous mentorship sessions we added the foundation required for query observability in Thanos's new [promql-engine](https://github.com/thanos-io/promql-engine) and hooked it up in the UI. We now have the foundation to record telemetry from our query engine as well such as time consumed per operator.
+  This project aims to expand on this and add more metadata to the query execution, both on the promql-engine operator tree level and Thanos Query `Select()` calls for fan-out query observability.
+  Once we have this metadata, we would like to visualize it in the Query UI.
+- Expected Outcome:
+  The end goal is to have a query execution tree decorated with the metadata, collected during execution (ideally even visualized in the Thanos UI). This will help users to understand the performance implications of their PromQL queries and the bottlenecks in their Thanos Query setups.
+- Recommended Skills:
+  - Golang
+  - React.js with TypeScript
+  - Git + GitHub
+  - Any Prometheus/PromQL/Thanos understanding is a plus
+- Mentor(s):
+  - Giedrius Statkevičius (@GiedriusS, giedriuswork@gmail.com)
+  - Saswata Mukherjee (@saswatamcode, saswataminsta@yahoo.com)
+- Upstream Issue: https://github.com/thanos-io/thanos/issues/6517, https://github.com/thanos-community/promql-engine/issues/106
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/5a96f43c-d858-40c2-b556-2770ba6b03d4
+
+#### Release the distributed query engine in Thanos
+
+- Description:
+  The Thanos engine is capable of executing queries in a distributed manner, by pushing down aggregations to other querier nodes. This querying mode is not yet integrated well in the UI and is not exposed to users.
+  The goal of this project is to add the needed integrations to the Thanos UI and officially release the feature to end users.
+- Expected Outcome:
+  The expected outcome of the project is to have a fully integrated distributed querying capability through the Thanos UI.
+- Recommended Skills:
+  - Golang
+  - React.js with TypeScript
+  - Git + GitHub
+  - Any Prometheus/PromQL/Thanos understanding is a plus
+- Mentor(s):
+  - Filip Petkovski (@fpetkovski, filip.petkovsky@gmail.com)
+- Upstream Issue: https://github.com/thanos-io/thanos/issues/6124
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/3d6d3534-24e9-4261-9b91-7de3d78554f7
+
+### OpenKruise
+
+#### Integrate Openkruise workload with ArgoCD and Helm
+
+- Description: ArgoCD and Helm are popular tools to delivery k8s workload, yet currently only the k8s built-in workload are supported out-of-box for ArgoCD and Helm. OpenKruise provide advanced worklood that resemble with the built-in workload,  users can use OpenKruise workload with ArgoCD and Helm, yet they cannot tell ArgoCD and Helm whether Openkruise workload is ready or not. 
+- Expected Outcome:
+  - Improve ArgoCD integration by writing custom lua script to tell whether OpenKruise workload is healthy. The lua script can be submited to the Argo-CD repository.
+  - Improve Helm intergration by building a job container that can check whether OpenKruise workload is healthy during helm install/upgrade process. 
+- Recommended Skills: Lua ,Docker, Kubernetes
+- Mentor(s):
+    - Zhang zhen (@furykerry, furykerry@gmail.com)
+    - Zhao Mingshan (@zmberg, berg.zms@gmail.com)
+- Upstream Issue: https://github.com/openkruise/kruise/issues/1345
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/f603a2e7-9af2-40b2-a74f-109cad843de1
 
 ### WasmEdge
 
@@ -369,134 +544,3 @@ Table of Contents
   - Michael Yuan (@juntao, michael@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/2689
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/41a8bf79-a903-4c03-afb7-256fd373c0b0
-
-### Thanos
-
-#### Implement fan-out query observability in Thanos
-
-- Description:
-  In the previous mentorship sessions we added the foundation required for query observability in Thanos's new [promql-engine](https://github.com/thanos-io/promql-engine) and hooked it up in the UI. We now have the foundation to record telemetry from our query engine as well such as time consumed per operator.
-  This project aims to expand on this and add more metadata to the query execution, both on the promql-engine operator tree level and Thanos Query `Select()` calls for fan-out query observability.
-  Once we have this metadata, we would like to visualize it in the Query UI.
-- Expected Outcome:
-  The end goal is to have a query execution tree decorated with the metadata, collected during execution (ideally even visualized in the Thanos UI). This will help users to understand the performance implications of their PromQL queries and the bottlenecks in their Thanos Query setups.
-- Recommended Skills:
-  - Golang
-  - React.js with TypeScript
-  - Git + GitHub
-  - Any Prometheus/PromQL/Thanos understanding is a plus
-- Mentor(s):
-  - Giedrius Statkevičius (@GiedriusS, giedriuswork@gmail.com)
-  - Saswata Mukherjee (@saswatamcode, saswataminsta@yahoo.com)
-- Upstream Issue: https://github.com/thanos-io/thanos/issues/6517, https://github.com/thanos-community/promql-engine/issues/106
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/5a96f43c-d858-40c2-b556-2770ba6b03d4
-
-#### Release the distributed query engine in Thanos
-
-- Description:
-  The Thanos engine is capable of executing queries in a distributed manner, by pushing down aggregations to other querier nodes. This querying mode is not yet integrated well in the UI and is not exposed to users.
-  The goal of this project is to add the needed integrations to the Thanos UI and officially release the feature to end users.
-- Expected Outcome:
-  The expected outcome of the project is to have a fully integrated distributed querying capability through the Thanos UI.
-- Recommended Skills:
-  - Golang
-  - React.js with TypeScript
-  - Git + GitHub
-  - Any Prometheus/PromQL/Thanos understanding is a plus
-- Mentor(s):
-  - Filip Petkovski (@fpetkovski, filip.petkovsky@gmail.com)
-- Upstream Issue: https://github.com/thanos-io/thanos/issues/6124
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/3d6d3534-24e9-4261-9b91-7de3d78554f7
-
-### Karmada
-
-#### Karmada supports promote dependent resources automatically
-
-- Description: Provide an automatic promotion mechanism for dependent resources in karmadactl. When promoting a resource, all the resources that it depends on will be automatically promoted as well. For example, promoting the Secret that is dependent by a Deployment.
-- Expected Outcome:
-  - Technical Documentation: design description and analysis
-  - Function Implementation: support promote the dependent resources automatically
-  - Test coverage: add test cases to cover new functions
-- Recommended Skills:
-  - Go
-  - Cloud Native
-- Mentor(s):
-  - Wei Jiang (@jwcesign, jiangwei115@huawei.com)
-  - Hongcai Ren(@RainbowMango, qdurenhongcai@gmail.com)
-- Upstream Issue: https://github.com/karmada-io/karmada/issues/3842
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/60b43efd-79e0-457e-989f-d4d59d55d8a6
-
-#### Add Karmada API documentation on the website
-
-- Description: Add the Karmada API documentation on the [website](https://github.com/karmada-io/website),and complete the script for automatic document generation.
-- Expected Outcome:
-  - Technical Documentation: design description and analysis
-  - Script Complete: automatic document generation
-  - Maintaining Documentation: add maintaining document on the website
-- Recommended Skills:
-  - Go
-  - Cloud Native
-- Mentor(s):
-  - Zhen Chang (@XiShanYongYe-Chang, changzhen5@huawei.com)
-  - Hongcai Ren(@RainbowMango, qdurenhongcai@gmail.com)
-- Upstream Issue: https://github.com/karmada-io/karmada/issues/3843
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/54940f04-54b8-41ee-94bf-153f977b31e7
-
-### Carvel
-
-#### kctrl to support exporting package repository as tar
-
-- Description: While generating Package Repository kctrl to create the tar version of the Package Repository instead of pushing the OCI Image to a registry. 
-- Expected Outcome: 
-    - Proposal containing design discussions and options considered.
-    - Function Implementation to support a flag which allows to export the package repo to tar
-    - Documentation changes as required 
-- Recommended Skills: Golang
-- Mentor(s): 
-    - Soumik Majumder (@100mik, carvel-mentor)
-    - Renu Yarday (@renuy, ryarday@vmware.com)
-- Upstream Issue (URL): https://github.com/carvel-dev/kapp-controller/issues/1277
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/91398424-f095-4b85-bb0f-e7c56e777ea0
-
-### KubeVela
-
-#### Support auto generation of multiple languages SDK from CUE II
-
-- Description: In KubeVela, we use [CUElang](https://cuelang.org/) to code the X-Definition. We want to support auto generation of multiple languages SDK from CUE, so that users can buidling KubeVela Application in their own language. This helps to adoptors to build platform based on KubeVela.
-- Expected Outcome: Support auto generation of multiple languages SDK from CUE, including Java, Typescript ,Python. This capability should be part of vela CLI command.
-- Recommended Skills: Java, Typescript ,Python, Kubernetes, CUE
-- Mentor(s): 
-    - Qiao Zhongpei (@chivalryq, chivalry.pp@gmail.com) 
-    - Wang YiKe (@wangyikewxgm, wangyike.wyk@gmail.com)
-- Upstream Issue: [kubevela/kubevela#5365](https://github.com/kubevela/kubevela/issues/5365)
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/e8c0d16a-c263-4a6c-bce7-0b896c925a52
-
-### Kubernetes
-
-#### Build a Go library and CLI for interacting with OpenBuildService
-
-- Description: Kubernetes is set to start using [OpenBuildService](http://openbuildservice.org) as a platform for building, publishing, and hosting Kubernetes system (Debian and RPM) packages. The current integration with the OpenBuildService platform assumes a lot of manual tasks and depending on `osc` command-line tool written in Python. At SIG Release, we're striving to automate as many tasks as possible. We want to build a library and CLI written in Go for interacting with the OpenBuildService APIs and platform that can be integrated with our existing [release tooling (`krel`)](http://github.com/kubernetes/release).
-- Expected Outcome: Library and CLI tool for interacting with OpenBuildService platform via their publicly available APIs. Both library and CLI tool should be properly tested via unit, integration, and end-to-end tests, and properly documented.
-- Recommended Skills: Golang, working with APIs
-- Mentor(s):
-  - Carlos Panato (@cpanato, ctadeu@gmail.com)
-  - Marko Mudrinić (@xmudrii, mudrinic.mare@gmail.com)
-- Upstream Issue: https://github.com/kubernetes/sig-release/issues/2295
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/47f53d22-ff5c-4479-b701-3ca3dbc7df0a
-
-### OpenKruise
-
-#### Integrate Openkruise workload with ArgoCD and Helm
-
-- Description: ArgoCD and Helm are popular tools to delivery k8s workload, yet currently only the k8s built-in workload are supported out-of-box for ArgoCD and Helm. OpenKruise provide advanced worklood that resemble with the built-in workload,  users can use OpenKruise workload with ArgoCD and Helm, yet they cannot tell ArgoCD and Helm whether Openkruise workload is ready or not. 
-- Expected Outcome:
-  - Improve ArgoCD integration by writing custom lua script to tell whether OpenKruise workload is healthy. The lua script can be submited to the Argo-CD repository.
-  - Improve Helm intergration by building a job container that can check whether OpenKruise workload is healthy during helm install/upgrade process. 
-- Recommended Skills: Lua ,Docker, Kubernetes
-- Mentor(s):
-    - Zhang zhen (@furykerry, furykerry@gmail.com)
-    - Zhao Mingshan (@zmberg, berg.zms@gmail.com)
-- Upstream Issue: https://github.com/openkruise/kruise/issues/1345
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/f603a2e7-9af2-40b2-a74f-109cad843de1
-
-
