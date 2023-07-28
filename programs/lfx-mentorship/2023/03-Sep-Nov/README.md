@@ -314,7 +314,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1219
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/53d7c0da-f066-486a-a9cb-c2da55e42375
 
-### Extend Support Matrix and Document Usecases
+#### Extend Support Matrix and Document Usecases
 
 - Description: The project aims to extend KubeArmor support and document how KubeArmor is relevant for securing Kubernetes on Edge in addition to generic Kubernetes based Application deployments
 - Expected Outcome:  
