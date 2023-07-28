@@ -18,32 +18,6 @@
 
 ## Proposed Project ideas
 
-### Istio
-
-#### Implement performance testing
-
-- Description: Up until version 1.16, [Istio](https://istio.io/) published [performance and scale testing results](https://istio.io/v1.16/docs/ops/deployment/performance-and-scalability/). These should be returned to service, and updated to support ambient mesh. Third-party benchmarking tools should be updated to support testing the performance of ambient mesh.
-- Expected Outcome: Performance testing pages are returned to istio.io, and include both sidecar and ambient mesh results.
-- Recommended Skills:
-  - Python
-  - Networking
-- Mentors:
-  - Lin Sun (@linsun, lin.sun@solo.io)
-- Upstream Issue: https://github.com/istio/istio/issues/44009
-- LFX URL: 
-
-#### Documentation for Ambient Mesh
-
-- Description: [Istio](https://istio.io/) is working on [a new operating mode called ambient mesh](https://istio.io/latest/blog/2022/introducing-ambient-mesh/). As this moves from experimental to the recommended method of operating a service mesh, we will need to revise our documentation to discuss the new model, explain the tradeoffs, and tell users how to choose.
-- Expected Outcome: Revisions to Istio's documentation to reflect the availability of ambient mesh.  These will be maintained in a parallel branch of istio.io that can be pulled from when Ambient is in Beta or GA.
-- Recommended Skills: 
-  - Technical writing
-  - Developer advocacy
-- Mentors:
-  - Lin Sun (lin.sun@solo.io)
-- Upstream Issue: https://github.com/istio/istio.io/issues/13481
-- LFX URL: 
-
 ### Konveyor
 
 #### Extend use-case of detecting deprecated Kubernetes API usage

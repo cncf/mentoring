@@ -107,3 +107,30 @@ Table of Contents
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/4600
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/37cf2714-668d-4014-ac44-953f70f9dc8e
 
+### Istio
+
+#### Implement performance testing
+
+- Description: Up until version 1.16, [Istio](https://istio.io/) published [performance and scale testing results](https://istio.io/v1.16/docs/ops/deployment/performance-and-scalability/). These should be returned to service, and updated to support ambient mesh. Third-party benchmarking tools should be updated to support testing the performance of ambient mesh.
+- Expected Outcome: Performance testing pages are returned to istio.io, and include both sidecar and ambient mesh results.
+- Recommended Skills:
+  - Python
+  - Networking
+- Mentors:
+  - Lin Sun (@linsun, lin.sun@solo.io)
+- Upstream Issue: https://github.com/istio/istio/issues/44009
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/bbebd511-1a3e-4c4f-b106-2f09690825c5
+
+#### Documentation for Ambient Mesh
+
+- Description: [Istio](https://istio.io/) is working on [a new operating mode called ambient mesh](https://istio.io/latest/blog/2022/introducing-ambient-mesh/). As this moves from experimental to the recommended method of operating a service mesh, we will need to revise our documentation to discuss the new model, explain the tradeoffs, and tell users how to choose.
+- Expected Outcome: Revisions to Istio's documentation to reflect the availability of ambient mesh.  These will be maintained in a parallel branch of istio.io that can be pulled from when Ambient is in Beta or GA.
+- Recommended Skills: 
+  - Technical writing
+  - Developer advocacy
+- Mentors:
+  - Lin Sun (lin.sun@solo.io)
+- Upstream Issue: https://github.com/istio/istio.io/issues/13481
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/89ee4357-dd58-4e15-a601-c411742a587c
+
+
