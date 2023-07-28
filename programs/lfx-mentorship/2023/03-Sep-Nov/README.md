@@ -408,4 +408,38 @@ Table of Contents
 - Upstream Issue: https://github.com/thanos-io/thanos/issues/6124
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/3d6d3534-24e9-4261-9b91-7de3d78554f7
 
+### Karmada
+
+#### Karmada supports promote dependent resources automatically
+
+- Description: Provide an automatic promotion mechanism for dependent resources in karmadactl. When promoting a resource, all the resources that it depends on will be automatically promoted as well. For example, promoting the Secret that is dependent by a Deployment.
+- Expected Outcome:
+  - Technical Documentation: design description and analysis
+  - Function Implementation: support promote the dependent resources automatically
+  - Test coverage: add test cases to cover new functions
+- Recommended Skills:
+  - Go
+  - Cloud Native
+- Mentor(s):
+  - Wei Jiang (@jwcesign, jiangwei115@huawei.com)
+  - Hongcai Ren(@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: https://github.com/karmada-io/karmada/issues/3842
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/60b43efd-79e0-457e-989f-d4d59d55d8a6
+
+#### Add Karmada API documentation on the website
+
+- Description: Add the Karmada API documentation on the [website](https://github.com/karmada-io/website),and complete the script for automatic document generation.
+- Expected Outcome:
+  - Technical Documentation: design description and analysis
+  - Script Complete: automatic document generation
+  - Maintaining Documentation: add maintaining document on the website
+- Recommended Skills:
+  - Go
+  - Cloud Native
+- Mentor(s):
+  - Zhen Chang (@XiShanYongYe-Chang, changzhen5@huawei.com)
+  - Hongcai Ren(@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: https://github.com/karmada-io/karmada/issues/3843
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/54940f04-54b8-41ee-94bf-153f977b31e7
+
 
