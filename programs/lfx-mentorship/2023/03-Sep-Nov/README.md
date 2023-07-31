@@ -50,6 +50,9 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   * [Move2Kube: Compile Move2Kube to WASM/WASI and run it in the browser](#move2kube--compile-move2kube-to-wasm-wasi-and-run-it-in-the-browser)
   * [Move2Kube: WASM Transformers](#move2kube--wasm-transformers)
   * [Move2Kube: Advanced Resources support - ArgoCD, Tekton, Stateful Set, etc.](#move2kube--advanced-resources-support---argocd--tekton--stateful-set--etc)
+- [KubeArmor](#kubearmor)
+  * [Implement DNS visibility with KubeArmor II](#implement-dns-visibility-with-kubearmor-ii)
+  * [Extend Support Matrix and Document Usecases](#extend-support-matrix-and-document-usecases)
 - [Kubernetes](#kubernetes)
   * [Build a Go library and CLI for interacting with OpenBuildService](#build-a-go-library-and-cli-for-interacting-with-openbuildservice)
 - [Kubescape](#kubescape)
@@ -292,6 +295,43 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - Harikrishnan Balagopal (@HarikrishnanBalagopal, harikrishnan.balagopal@ibm.com)
 - Upstream Issue: https://github.com/konveyor/move2kube/issues/1063
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/b9aad4e2-d9c7-405e-8482-5aced0a4ecdb
+
+### KubeArmor
+
+#### Implement DNS visibility with KubeArmor II
+
+- Description: The project aims to provide better visibility into the domains accessed from pods, with a focus on identifying and containing attacks that use techniques like Domain Generation Algorithms (DGA) to connect to remote command and control (C&C) servers. By gathering information on which domains are being accessed and applying network rules to allow only specific domains, the project aims to empower security operations (secops) teams to better prevent and respond to such attacks.
+- Expected Outcome:  
+  - KubeArmor to emit telemetry events for any DNS lookups from any pods.
+  - Ability to see egress DNS lookups done from any pods using karmor summary.
+  - Documentation
+- Recommended Skills: Go, K8s, eBPF. familiarity with network security and a basic understanding of KubeArmor is a plus.
+- Mentors:
+  - Anurag Kumar (@kranurag7, contact.anurag7@gmail.com)
+  - Barun Acharya (@daemon1024, barun1024@gmail.com)
+  - Ankur Kothiwal (@Ankurk99, ankur.kothiwal99@gmail.com)
+  - Rudraksh Pareek (@DelusionalOptimist, rudrakshpareek3601@gmail.com)
+- Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1219
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/53d7c0da-f066-486a-a9cb-c2da55e42375
+
+#### Extend Support Matrix and Document Usecases
+
+- Description: The project aims to extend KubeArmor support and document how KubeArmor is relevant for securing Kubernetes on Edge in addition to generic Kubernetes based Application deployments
+- Expected Outcome:  
+  - Try KubeArmor on Different Kubernetes Platforms
+      - Microshift, k0s
+      - Make fixes to deployments to make them work if needed
+  - Document Usecases on these platforms
+  - Document Usecases at a broader level for EDGE and Container Security
+  - Produce Blogs about extended support and additional usecases
+- Recommended Skills: K8s, Basic understanding of KubeArmor, Content Writing is a plus.
+- Mentors:
+  - Anurag Kumar (@kranurag7, contact.anurag7@gmail.com)
+  - Barun Acharya (@daemon1024, barun1024@gmail.com)
+  - Ankur Kothiwal (@Ankurk99, ankur.kothiwal99@gmail.com)
+  - Rudraksh Pareek (@DelusionalOptimist, rudrakshpareek3601@gmail.com)
+- Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1334
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/eba8fbf7-848b-4d69-8b0e-b6852acc7755
 
 ### Kubernetes
 
