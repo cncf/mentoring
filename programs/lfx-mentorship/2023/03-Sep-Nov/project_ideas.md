@@ -18,31 +18,46 @@
 
 ## Proposed Project ideas
 
-### KubeEdge
+### Volcano
 
-#### Add case study center in website
+#### Support NPU accelerator scheduling in Volcano
+- Description: design and implement NPU accelerator scheduling in Volcano including the vitrualized NPU resource scheduling, job controller enhancement for NPU distributed training, NPU topology scheduling and so on.
+- Expected Outcome:  
+  - design doc and feature user guide
+  - implement NPU topology scheduling
+  - implement job controller enhancement
+  - vitrualized NPU resource scheduling
+- Recommend Skills: Go, Kubernetes, Volcano
+- Mentor(s):
+  william wang(@william-wang, wang.platform@gmail.com)
+  wang yang(@wangyang0616, wangyang8126@gmail.com)
+- Upstream Issue (URL): https://github.com/volcano-sh/volcano/issues/3019
 
-- Description: Now we have had many user cases in the community. However, the KubeEdge website does not have a page to display user cases. Many users lack ways to understand and learn KubeEdge implementation cases., we hope to build a case center to display them, so that more users can consult and learn. 
-- Expected Outcome: Add user case study center to display all KubeEdge user cases. Users can upload their own cases. Also users and learners can also manage and view cases by industry tag..
-- Recommended Skills: JS , HTML, KubeEdge
-- Mentor(s): Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com), Fisher Xu (@fisherxu, fisherxu1@gmail.com)
-- Upstream Issue: https://github.com/kubeedge/website/issues/347
+#### Build a new elastic resource quota mechinism in Volcano 
+- Description: design and implement a new hierarchical elastic resource quota mechinism to support resource lending and borrowing to improve the cluster utilization for multi-tenants environment. 
+- Expected Outcome:  
+  - design doc and how to use
+  - implement a elastic resource quota mechinism to support min, max and resource sharing
+  - implement the hierarchical resource quota
+  - produce Blogs about these new cases.
+- Recommend Skills: Go, Kubernetes, Volcano
+- Mentor(s):
+  william wang(@william-wang, wang.platform@gmail.com)
+  wang yang(@wangyang0616, wangyang8126@gmail.com)
+- Upstream Issue (URL): https://github.com/volcano-sh/volcano/issues/3018
 
-#### Support latest version in keink and run demo on keink
+#### Add user guidance for jobflow
+- Description: Since jobflow is an important built-in orchestration engine for Volcano, it is still lack of user guidance. Please add more docs to demonstrate its installation, usage, tips and so on. 
+- Expected Outcome: Add docs into volcano-sh/volcano/docs/user-guide and describe the usage of jobflow.
+- Recommended Skills: Volcano, jobflow
+- Mentor(s): Thor Wu (@Thor-wl, 13164644535@163.com)
+- Upstream Issue: https://github.com/volcano-sh/volcano/issues/3013
 
-- Description: keink(represent for KubeEdge IN kind) is a project for running local KubeEdge clusters using Docker container "nodes", so developers can install a multi-node
-  edge cluster in one node. Now we need to support the latest version installation in keink. 
-- Expected Outcome: keink can install the latest version of KubeEdge and developers can quickly use keink to run kubeedge, and then develop applications on KubeEdge.
-- Recommended Skills: Kubernetes, KubeEdge, Golang
-- Mentor(s): Fisher Xu (@fisherxu, fisherxu1@gmail.com)
-- Upstream Issue: https://github.com/kubeedge/keink/issues/8
-
-#### Support latest version installation demo in killercoda
-
-- Description: We have created a tutorial in the interactive learning platform killercoda for KubeEdge deployment. This can give a hands-on experience of KubeEdge deployment. Now we need to support the latest version of KubeEdge and integrate example for developers.
-- Expected Outcome: It can install the latest version of KubeEdge example, developers can experience these cloud native edge-computing demos online.
-- Recommended Skills: Kubernetes, KubeEdge, Golang
-- Mentor(s): Fisher Xu (@fisherxu, fisherxu1@gmail.com)
-- Upstream Issue: https://github.com/kubeedge/killercoda-scenarios/issues/8
+#### Fix bugs for jobflow to enhance its stability
+- Description: As a built-in orchestration engine for Volcano, jobflow acts as an improtant role for users and it's still new-born. Many issues related to its stability are reported recently. Please help make full test for job-flow on the classical scenarios and reslove bugs reported in issues.
+- Expected Outcome: Make full test for jobflow and output the test report, fix bugs reported in recent issues.
+- Recommended Skills: Volcano, jobflow, Golang, UT, E2E
+- Mentor(s): Thor Wu (@Thor-wl, 13164644535@163.com)
+- Upstream Issue: https://github.com/volcano-sh/volcano/issues/3014
 
 ---
