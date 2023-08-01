@@ -51,6 +51,10 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - [KubeArmor](#kubearmor)
   * [Implement DNS visibility with KubeArmor II](#implement-dns-visibility-with-kubearmor-ii)
   * [Extend Support Matrix and Document Usecases](#extend-support-matrix-and-document-usecases)
+- [KubeEdge](#kubeedge)
+  * [Add case study center in website](#add-case-study-center-in-website)
+  * [Support latest version in keink and run demo on keink](#support-latest-version-in-keink-and-run-demo-on-keink)
+  * [Support latest version installation demo in killercoda](#support-latest-version-installation-demo-in-killercoda)
 - [Kubernetes](#kubernetes)
   * [Build a Go library and CLI for interacting with OpenBuildService](#build-a-go-library-and-cli-for-interacting-with-openbuildservice)
 - [Kubescape](#kubescape)
@@ -317,6 +321,40 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - Rudraksh Pareek (@DelusionalOptimist, rudrakshpareek3601@gmail.com)
 - Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1334
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/eba8fbf7-848b-4d69-8b0e-b6852acc7755
+
+### KubeEdge
+
+#### Add case study center in website
+
+- Description: Now we have had many user cases in the community. However, the KubeEdge website does not have a page to display user cases. Many users lack ways to understand and learn KubeEdge implementation cases., we hope to build a case center to display them, so that more users can consult and learn. 
+- Expected Outcome: Add user case study center to display all KubeEdge user cases. Users can upload their own cases. Also users and learners can also manage and view cases by industry tag.
+- Recommended Skills: JS , HTML, KubeEdge
+- Mentor(s): 
+  - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
+  - Fisher Xu (@fisherxu, fisherxu1@gmail.com)
+- Upstream Issue: https://github.com/kubeedge/website/issues/347
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/12dda5ae-a123-4e2a-985c-13d33f8a25f0
+
+#### Support latest version in keink and run demo on keink
+
+- Description: keink (KubeEdge IN kind) is a project for running local KubeEdge clusters using Docker container "nodes", so developers can install a multi-node
+  edge cluster in one node. Now we need to support the latest version installation in keink. 
+- Expected Outcome: keink can install the latest version of KubeEdge and developers can quickly use keink to run kubeedge, and then develop applications on KubeEdge.
+- Recommended Skills: Kubernetes, KubeEdge, Golang
+- Mentor(s):
+  - Fisher Xu (@fisherxu, fisherxu1@gmail.com)
+- Upstream Issue: https://github.com/kubeedge/keink/issues/8
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8c7c6769-edea-4ecd-8fb4-53aa1dacb070
+
+#### Support latest version installation demo in killercoda
+
+- Description: We have created a tutorial in the interactive learning platform killercoda for KubeEdge deployment. This can give a hands-on experience of KubeEdge deployment. Now we need to support the latest version of KubeEdge and integrate example for developers.
+- Expected Outcome: It can install the latest version of KubeEdge example, developers can experience these cloud native edge-computing demos online.
+- Recommended Skills: Kubernetes, KubeEdge, Golang
+- Mentor(s):
+  - Fisher Xu (@fisherxu, fisherxu1@gmail.com)
+- Upstream Issue: https://github.com/kubeedge/killercoda-scenarios/issues/8
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/36bfe273-9059-47e0-88f7-afb38b2d9ebb
 
 ### Kubernetes
 
