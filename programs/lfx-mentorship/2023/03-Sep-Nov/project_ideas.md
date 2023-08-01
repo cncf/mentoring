@@ -18,6 +18,24 @@
 
 ## Proposed Project ideas
 
+### Volcano
+
+#### Add user guidance for jobflow
+
+- Description: Since jobflow is an important built-in orchestration engine for Volcano, it is still lack of user guidance. Please add more docs to demonstrate its installation, usage, tips and so on. 
+- Expected Outcome: Add docs into volcano-sh/volcano/docs/user-guide and describe the usage of jobflow.
+- Recommended Skills: Volcano, jobflow
+- Mentor(s): Thor Wu (@Thor-wl, 13164644535@163.com)
+- Upstream Issue: https://github.com/volcano-sh/volcano/issues/3013
+
+#### Fix bugs for jobflow to enhance its stability
+
+- Description: As a built-in orchestration engine for Volcano, jobflow acts as an improtant role for users and it's still new-born. Many issues related to its stability are reported recently. Please help make full test for job-flow on the classical scenarios and reslove bugs reported in issues.
+- Expected Outcome: Make full test for jobflow and output the test report, fix bugs reported in recent issues.
+- Recommended Skills: Volcano, jobflow, Golang, UT, E2E
+- Mentor(s): Thor Wu (@Thor-wl, 13164644535@163.com)
+- Upstream Issue: https://github.com/volcano-sh/volcano/issues/3014
+
 ### KubeEdge
 
 #### Add case study center in website
