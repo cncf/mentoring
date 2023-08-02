@@ -556,6 +556,20 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Upstream Issue: https://github.com/thanos-io/thanos/issues/6124
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/3d6d3534-24e9-4261-9b91-7de3d78554f7
 
+### Vitess
+
+#### Rework the frontend UI of Vitess’ benchmarking tools
+
+- Description: Vitess uses arewefastyet to automatically benchmark its codebase and ensure no performance regression is introduced. The mentee will have the responsibility of continuing the UI that was previously created using React/Vite.
+- Expected Outcome: The expected outcome is to continue working on the Frontend UI that was developed during the 2023-summer term, that includes adding an admin UI, adding a feature to ensure the consistency of the results, and improving the overall aspect of the website.
+- Recommended Skills: React +++, Docker ++, Vite +, REST API +++, Golang ++
+
+- Mentor(s):
+  - @fouioui Florent Poinsard frouioui@planetscale.com
+- Upstream Issue (URL): https://github.com/vitessio/arewefastyet/issues/328
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8299d27a-9e36-4de6-abbc-c9282634ee03
+
+
 ### OpenKruise
 
 #### Integrate Openkruise workload with ArgoCD and Helm
