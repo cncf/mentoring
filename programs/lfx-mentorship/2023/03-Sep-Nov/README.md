@@ -76,6 +76,8 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - [Thanos](#thanos)
   * [Implement fan-out query observability in Thanos](#implement-fan-out-query-observability-in-thanos)
   * [Release the distributed query engine in Thanos](#release-the-distributed-query-engine-in-thanos)
+- [Vitess](#vitess)
+  * [Rework the frontend UI of Vitess’ benchmarking tool](#rework-the-frontend-ui-of-vitess-benchmarking-tool)
 - [OpenKruise](#openkruise)
   * [Integrate Openkruise workload with ArgoCD and Helm](#integrate-openkruise-workload-with-argocd-and-helm)
 - [WasmEdge](#wasmedge)
@@ -558,7 +560,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 ### Vitess
 
-#### Rework the frontend UI of Vitess’ benchmarking tools
+#### Rework the frontend UI of Vitess’ benchmarking tool
 
 - Description: Vitess uses arewefastyet to automatically benchmark its codebase and ensure no performance regression is introduced. The mentee will have the responsibility of continuing the UI that was previously created using React/Vite.
 - Expected Outcome: The expected outcome is to continue working on the Frontend UI that was developed during the 2023-summer term, that includes adding an admin UI, adding a feature to ensure the consistency of the results, and improving the overall aspect of the website.
@@ -567,7 +569,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Mentor(s):
   - @fouioui Florent Poinsard frouioui@planetscale.com
 - Upstream Issue (URL): https://github.com/vitessio/arewefastyet/issues/328
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8299d27a-9e36-4de6-abbc-c9282634ee03
+- LFX URL: 
 
 
 ### OpenKruise
