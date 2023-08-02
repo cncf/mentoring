@@ -69,6 +69,10 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - [LitmusChaos](#litmuschaos)
   * [Improve litmusctl UX and codebase and add new functionalities to litmusctl](#improve-litmusctl-ux-and-codebase-and-add-new-functionalities-to-litmusctl)
   * [Improve Chaoscenter Web and Authentication Server: Add Unit Test Cases, Enhance GQL APIs, Update API Documentation](#improve-chaoscenter-web-and-authentication-server--add-unit-test-cases--enhance-gql-apis--update-api-documentation)
+- [Meshery](#meshery)
+  * [Overhaul UX Design System](#overhaul-ux-design-system)
+  * [Package Meshery Catalog Artifacts as OCI Images](#package-meshery-catalog-artifact-as-oci-images)
+  * [WASM-based OPA policy evaluation with Rego](#wasm-based-opa-policy-evaluation-with-rego)
 - [Thanos](#thanos)
   * [Implement fan-out query observability in Thanos](#implement-fan-out-query-observability-in-thanos)
   * [Release the distributed query engine in Thanos](#release-the-distributed-query-engine-in-thanos)
@@ -470,6 +474,49 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - Neelanjan Manna (@neelanjan00, neelanjan.manna@harness.io)
 - Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/4102
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/237b7300-d749-4f14-bd4c-9375e5ec39b6
+
+### Meshery
+
+#### Overhaul UX Design System
+
+- Description: [Meshery](https://meshery.io) is a self-service engineering platform, Meshery enables collaborative design and operation of cloud native infrastructure. The Meshery Design System is a flexible, scalable design system built on the foundations of accessibility, beautiful design, and consistent user experience.
+- Expected outcome: Rebuild the Meshery Design System so that it provides the open source building blocks to design and implement consistent, accessible, and delightful product experiences.
+- Recommended Skills:
+  - Figma
+  - User-centered Design
+  - Visual Design
+- Mentor(s):
+  - Lee Calcote (@leecalcote, leecalcote@gmail.com)
+  - Ritik Saxena (@ritiksaxena124, ritiksaxena124@gmail.com)
+- Upstream Issue (URL): https://github.com/meshery/meshery/issues/8347
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a61f6cdb-98b4-43c9-8ca2-ea9bb5d5c470
+
+#### Package Meshery Catalog Artifacts as OCI Images
+
+- Description: [Meshery](https://meshery.io) is a self-service engineering platform, Meshery enables collaborative design and operation of cloud native infrastructure. [Meshery Catalog](https://meshery.io/catalog) content represents a schema-based description of cloud native infrastructure. Catalog content need to be portable between Meshery deployments as well as easily version-able in external repositories.
+- Expected outcome: Rebuild the Meshery Design System so that it provides the open source building blocks to design and implement consistent, accessible, and delightful product experiences.
+- Recommended Skills:
+  - Golang, GraphQL, Reactjs
+  - OCI Registries
+- Mentor(s):
+  - Lee Calcote (@leecalcote, leecalcote@gmail.com)
+  - Uzair Shaikh (@MUzairS15, muzair.shaikh810@gmail.com)
+- Upstream Issue (URL): https://github.com/meshery/meshery/issues/8348
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/aff716df-c257-4ead-8b48-39a3f9272b7f
+
+#### WASM-based OPA policy evaluation with Rego
+
+- Description: Meshery's highly dynamic infrastructure configuration capabilities require real-time evaluation of complex policies. Policies of various types and with a high number of parameters need to be evaluted client-side. With policies expressed in Rego, the goal of this project is to incorporate use of the https://github.com/open-policy-agent/golang-opa-wasm project into Meshery UI.
+- Expected outcome: a powerful real-time multi-user collaboration experience.
+- Recommended Skills:
+  - Golang
+  - Open Policy Agent, Rego
+  - WASM
+- Mentor(s):
+  - Lee Calcote (@leecalcote, leecalcote@gmail.com)
+  - Abhishek Kumar (@Abhishek-kumar09, abhimait1909@gmail.com)
+- Upstream Issue (URL): https://github.com/meshery/meshery/issues/7019
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/9faff011-1027-49c0-aa37-8d5be7208d6f
 
 ### Thanos
 
