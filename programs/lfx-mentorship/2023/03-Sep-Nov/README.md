@@ -516,7 +516,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - Lee Calcote (@leecalcote, leecalcote@gmail.com)
   - Abhishek Kumar (@Abhishek-kumar09, abhimait1909@gmail.com)
 - Upstream Issue (URL): https://github.com/meshery/meshery/issues/7019
-- LFX URL:
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/9faff011-1027-49c0-aa37-8d5be7208d6f
 
 ### Thanos
 
