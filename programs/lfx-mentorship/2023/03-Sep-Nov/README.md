@@ -486,10 +486,10 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - User-centered Design
   - Visual Design
 - Mentor(s):
-  - Lee Calcote (@leecalcote, lee.calcote@layer5.io)
+  - Lee Calcote (@leecalcote, leecalcote@gmail.com)
   - Ritik Saxena (@ritiksaxena124, ritiksaxena124@gmail.com)
 - Upstream Issue (URL): https://github.com/meshery/meshery/issues/8347
-- LFX URL:
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a61f6cdb-98b4-43c9-8ca2-ea9bb5d5c470
 
 #### Package Meshery Catalog Artifacts as OCI Images
 
