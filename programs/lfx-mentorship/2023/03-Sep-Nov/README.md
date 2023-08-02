@@ -499,7 +499,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - Golang, GraphQL, Reactjs
   - OCI Registries
 - Mentor(s):
-  - Lee Calcote (@leecalcote, lee.calcote@layer5.io)
+  - Lee Calcote (@leecalcote, leecalcote@gmail.com)
   - Uzair Shaikh (@MUzairS15, muzair.shaikh810@gmail.com)
 - Upstream Issue (URL): https://github.com/meshery/meshery/issues/8348
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/aff716df-c257-4ead-8b48-39a3f9272b7f
