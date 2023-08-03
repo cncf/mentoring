@@ -28,8 +28,6 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 ## Table of Contents
 
-- [Armada](#armada)
-  * [Build a virtual-kubelet provider for Armada](#build-a-virtual-kubelet-provider-for-armada)
 - [Carvel](#carvel)
   * [kctrl to support exporting package repository as tar](#kctrl-to-support-exporting-package-repository-as-tar)
 - [CRI-O](#cri-o)
@@ -53,6 +51,10 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - [KubeArmor](#kubearmor)
   * [Implement DNS visibility with KubeArmor II](#implement-dns-visibility-with-kubearmor-ii)
   * [Extend Support Matrix and Document Usecases](#extend-support-matrix-and-document-usecases)
+- [KubeEdge](#kubeedge)
+  * [Add case study center in website](#add-case-study-center-in-website)
+  * [Support latest version in keink and run demo on keink](#support-latest-version-in-keink-and-run-demo-on-keink)
+  * [Support latest version installation demo in killercoda](#support-latest-version-installation-demo-in-killercoda)
 - [Kubernetes](#kubernetes)
   * [Build a Go library and CLI for interacting with OpenBuildService](#build-a-go-library-and-cli-for-interacting-with-openbuildservice)
 - [Kubescape](#kubescape)
@@ -67,6 +69,10 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - [LitmusChaos](#litmuschaos)
   * [Improve litmusctl UX and codebase and add new functionalities to litmusctl](#improve-litmusctl-ux-and-codebase-and-add-new-functionalities-to-litmusctl)
   * [Improve Chaoscenter Web and Authentication Server: Add Unit Test Cases, Enhance GQL APIs, Update API Documentation](#improve-chaoscenter-web-and-authentication-server--add-unit-test-cases--enhance-gql-apis--update-api-documentation)
+- [Meshery](#meshery)
+  * [Overhaul UX Design System](#overhaul-ux-design-system)
+  * [Package Meshery Catalog Artifacts as OCI Images](#package-meshery-catalog-artifact-as-oci-images)
+  * [WASM-based OPA policy evaluation with Rego](#wasm-based-opa-policy-evaluation-with-rego)
 - [Thanos](#thanos)
   * [Implement fan-out query observability in Thanos](#implement-fan-out-query-observability-in-thanos)
   * [Release the distributed query engine in Thanos](#release-the-distributed-query-engine-in-thanos)
@@ -81,19 +87,6 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 ---
 
 ## Accepted projects
-
-### Armada
-
-#### Build a virtual-kubelet provider for Armada
-
-- Description: [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) is a way to bring a Kubernetes front end and allow for your execution environment to be something other than Kubernetes. We want to add a virtual-kubelet provider for Armada so we can allow for a k8 front end integration with Armada.
-- Expected outcomes:
-  - A provider for virtual-kubelet that allows integration of Armada with Virtual-Kubelet
-- Recommend Skills: Go
-- Mentor(s):
-  - Kevin Hannon, @kannon92, kevin@gr-oss.io
-- Upstream Issue (URL): https://github.com/armadaproject/armada/issues/2702
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a80908c1-c05b-46c4-a41b-32392c4822cb
 
 ### Carvel
 
@@ -333,6 +326,40 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1334
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/eba8fbf7-848b-4d69-8b0e-b6852acc7755
 
+### KubeEdge
+
+#### Add case study center in website
+
+- Description: Now we have had many user cases in the community. However, the KubeEdge website does not have a page to display user cases. Many users lack ways to understand and learn KubeEdge implementation cases., we hope to build a case center to display them, so that more users can consult and learn. 
+- Expected Outcome: Add user case study center to display all KubeEdge user cases. Users can upload their own cases. Also users and learners can also manage and view cases by industry tag.
+- Recommended Skills: JS , HTML, KubeEdge
+- Mentor(s): 
+  - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
+  - Fisher Xu (@fisherxu, fisherxu1@gmail.com)
+- Upstream Issue: https://github.com/kubeedge/website/issues/347
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/12dda5ae-a123-4e2a-985c-13d33f8a25f0
+
+#### Support latest version in keink and run demo on keink
+
+- Description: keink (KubeEdge IN kind) is a project for running local KubeEdge clusters using Docker container "nodes", so developers can install a multi-node
+  edge cluster in one node. Now we need to support the latest version installation in keink. 
+- Expected Outcome: keink can install the latest version of KubeEdge and developers can quickly use keink to run kubeedge, and then develop applications on KubeEdge.
+- Recommended Skills: Kubernetes, KubeEdge, Golang
+- Mentor(s):
+  - Fisher Xu (@fisherxu, fisherxu1@gmail.com)
+- Upstream Issue: https://github.com/kubeedge/keink/issues/8
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8c7c6769-edea-4ecd-8fb4-53aa1dacb070
+
+#### Support latest version installation demo in killercoda
+
+- Description: We have created a tutorial in the interactive learning platform killercoda for KubeEdge deployment. This can give a hands-on experience of KubeEdge deployment. Now we need to support the latest version of KubeEdge and integrate example for developers.
+- Expected Outcome: It can install the latest version of KubeEdge example, developers can experience these cloud native edge-computing demos online.
+- Recommended Skills: Kubernetes, KubeEdge, Golang
+- Mentor(s):
+  - Fisher Xu (@fisherxu, fisherxu1@gmail.com)
+- Upstream Issue: https://github.com/kubeedge/killercoda-scenarios/issues/8
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/36bfe273-9059-47e0-88f7-afb38b2d9ebb
+
 ### Kubernetes
 
 #### Build a Go library and CLI for interacting with OpenBuildService
@@ -447,6 +474,49 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - Neelanjan Manna (@neelanjan00, neelanjan.manna@harness.io)
 - Upstream Issue (URL): https://github.com/litmuschaos/litmus/issues/4102
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/237b7300-d749-4f14-bd4c-9375e5ec39b6
+
+### Meshery
+
+#### Overhaul UX Design System
+
+- Description: [Meshery](https://meshery.io) is a self-service engineering platform, Meshery enables collaborative design and operation of cloud native infrastructure. The Meshery Design System is a flexible, scalable design system built on the foundations of accessibility, beautiful design, and consistent user experience.
+- Expected outcome: Rebuild the Meshery Design System so that it provides the open source building blocks to design and implement consistent, accessible, and delightful product experiences.
+- Recommended Skills:
+  - Figma
+  - User-centered Design
+  - Visual Design
+- Mentor(s):
+  - Lee Calcote (@leecalcote, leecalcote@gmail.com)
+  - Ritik Saxena (@ritiksaxena124, ritiksaxena124@gmail.com)
+- Upstream Issue (URL): https://github.com/meshery/meshery/issues/8347
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a61f6cdb-98b4-43c9-8ca2-ea9bb5d5c470
+
+#### Package Meshery Catalog Artifacts as OCI Images
+
+- Description: [Meshery](https://meshery.io) is a self-service engineering platform, Meshery enables collaborative design and operation of cloud native infrastructure. [Meshery Catalog](https://meshery.io/catalog) content represents a schema-based description of cloud native infrastructure. Catalog content need to be portable between Meshery deployments as well as easily version-able in external repositories.
+- Expected outcome: Rebuild the Meshery Design System so that it provides the open source building blocks to design and implement consistent, accessible, and delightful product experiences.
+- Recommended Skills:
+  - Golang, GraphQL, Reactjs
+  - OCI Registries
+- Mentor(s):
+  - Lee Calcote (@leecalcote, leecalcote@gmail.com)
+  - Uzair Shaikh (@MUzairS15, muzair.shaikh810@gmail.com)
+- Upstream Issue (URL): https://github.com/meshery/meshery/issues/8348
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/aff716df-c257-4ead-8b48-39a3f9272b7f
+
+#### WASM-based OPA policy evaluation with Rego
+
+- Description: Meshery's highly dynamic infrastructure configuration capabilities require real-time evaluation of complex policies. Policies of various types and with a high number of parameters need to be evaluted client-side. With policies expressed in Rego, the goal of this project is to incorporate use of the https://github.com/open-policy-agent/golang-opa-wasm project into Meshery UI.
+- Expected outcome: a powerful real-time multi-user collaboration experience.
+- Recommended Skills:
+  - Golang
+  - Open Policy Agent, Rego
+  - WASM
+- Mentor(s):
+  - Lee Calcote (@leecalcote, leecalcote@gmail.com)
+  - Abhishek Kumar (@Abhishek-kumar09, abhimait1909@gmail.com)
+- Upstream Issue (URL): https://github.com/meshery/meshery/issues/7019
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/9faff011-1027-49c0-aa37-8d5be7208d6f
 
 ### Thanos
 
