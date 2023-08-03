@@ -569,7 +569,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Mentor(s):
   - Florent Poinsard @fouioui frouioui@planetscale.com
 - Upstream Issue (URL): https://github.com/vitessio/arewefastyet/issues/415
-- LFX URL: 
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/10d70edd-60ec-409b-8801-0fb752501b12
 
 
 ### OpenKruise
