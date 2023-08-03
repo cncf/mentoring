@@ -626,8 +626,6 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Upstream Issue: https://github.com/volcano-sh/volcano/issues/3014
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2fa8d7b8-01fa-4375-b3a8-1b626348fedd
 
-
-
 ### WasmEdge
 
 #### Add matrix operations for OpenCVMini-Wasm-Plugin
