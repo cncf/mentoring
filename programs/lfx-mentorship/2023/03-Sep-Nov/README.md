@@ -77,7 +77,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   * [Implement fan-out query observability in Thanos](#implement-fan-out-query-observability-in-thanos)
   * [Release the distributed query engine in Thanos](#release-the-distributed-query-engine-in-thanos)
 - [Vitess](#vitess)
-  * [Rework the frontend UI of Vitess’ benchmarking tool](#rework-the-frontend-ui-of-vitess-benchmarking-tool)
+  * [Continue the migration to React and enhance existing frontend UI](#continue-the-migration-to-react-and-enhance-existing-frontend-ui)
 - [OpenKruise](#openkruise)
   * [Integrate Openkruise workload with ArgoCD and Helm](#integrate-openkruise-workload-with-argocd-and-helm)
 - [WasmEdge](#wasmedge)
@@ -560,15 +560,15 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 ### Vitess
 
-#### Rework the frontend UI of Vitess’ benchmarking tool
+#### Continue the migration to React and enhance existing frontend UI
 
 - Description: Vitess uses arewefastyet to automatically benchmark its codebase and ensure no performance regression is introduced. The mentee will have the responsibility of continuing the UI that was previously created using React/Vite.
-- Expected Outcome: The expected outcome is to continue working on the Frontend UI that was developed during the 2023-summer term, that includes adding an admin UI, adding a feature to ensure the consistency of the results, and improving the overall aspect of the website.
+- Expected Outcome: The expected outcome is to continue working on the Frontend UI that was developed during the 2023-summer term, that includes adding an admin UI, adding a feature to ensure the consistency of the results, improving the overall UX of the website, and add new pages to improve the scope of arewefastyet. The full list of expected work can be found in the issue linked below.
 - Recommended Skills: React +++, Docker ++, Vite +, REST API +++, Golang ++
 
 - Mentor(s):
   - @fouioui Florent Poinsard frouioui@planetscale.com
-- Upstream Issue (URL): https://github.com/vitessio/arewefastyet/issues/328
+- Upstream Issue (URL): https://github.com/vitessio/arewefastyet/issues/415
 - LFX URL: 
 
 
