@@ -76,6 +76,8 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - [Thanos](#thanos)
   * [Implement fan-out query observability in Thanos](#implement-fan-out-query-observability-in-thanos)
   * [Release the distributed query engine in Thanos](#release-the-distributed-query-engine-in-thanos)
+- [Vitess](#vitess)
+  * [Continue the migration to React and enhance existing frontend UI](#continue-the-migration-to-react-and-enhance-existing-frontend-ui)
 - [OpenKruise](#openkruise)
   * [Integrate Openkruise workload with ArgoCD and Helm](#integrate-openkruise-workload-with-argocd-and-helm)
 - [WasmEdge](#wasmedge)
@@ -555,6 +557,20 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - Filip Petkovski (@fpetkovski, filip.petkovsky@gmail.com)
 - Upstream Issue: https://github.com/thanos-io/thanos/issues/6124
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/3d6d3534-24e9-4261-9b91-7de3d78554f7
+
+### Vitess
+
+#### Continue the migration to React and enhance existing frontend UI
+
+- Description: Vitess uses arewefastyet to automatically benchmark its codebase and ensure no performance regression is introduced. The mentee will have the responsibility of continuing the UI that was previously created using React/Vite.
+- Expected Outcome: The expected outcome is to continue working on the Frontend UI that was developed during the 2023-summer term, that includes adding an admin UI, adding a feature to ensure the consistency of the results, improving the overall UX of the website, and add new pages to improve the scope of arewefastyet. The full list of expected work can be found in the issue linked below.
+- Recommended Skills: React +++, Docker ++, Vite +, REST API +++, Golang ++
+
+- Mentor(s):
+  - Florent Poinsard @fouioui frouioui@planetscale.com
+- Upstream Issue (URL): https://github.com/vitessio/arewefastyet/issues/415
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/10d70edd-60ec-409b-8801-0fb752501b12
+
 
 ### OpenKruise
 
