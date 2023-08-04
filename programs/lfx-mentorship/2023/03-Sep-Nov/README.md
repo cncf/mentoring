@@ -80,6 +80,11 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   * [Continue the migration to React and enhance existing frontend UI](#continue-the-migration-to-react-and-enhance-existing-frontend-ui)
 - [OpenKruise](#openkruise)
   * [Integrate Openkruise workload with ArgoCD and Helm](#integrate-openkruise-workload-with-argocd-and-helm)
+- [Volcano](#volcano)
+  * [Support NPU accelerator scheduling in Volcano](#support-npu-accelerator-scheduling-in-volcano)
+  * [Build a new elastic resource quota mechinism in Volcano](#build-a-new-elastic-resource-quota-mechinism-in-volcano)
+  * [Add user guidance for jobflow](#add-user-guidance-for-jobflow)
+  * [Fix bugs for jobflow to enhance its stability](#fix-bugs-for-jobflow-to-enhance-its-stability)
 - [WasmEdge](#wasmedge)
   * [Add matrix operations for OpenCVMini-Wasm-Plugin](#add-matrix-operations-for-opencvmini-wasm-plugin)
   * [Support AOT mode in proxy-wasm](#support-aot-mode-in-proxy-wasm)
@@ -586,6 +591,56 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
     - Zhao Mingshan (@zmberg, berg.zms@gmail.com)
 - Upstream Issue: https://github.com/openkruise/kruise/issues/1345
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/f603a2e7-9af2-40b2-a74f-109cad843de1
+
+### Volcano
+
+#### Support NPU accelerator scheduling in Volcano
+
+- Description: design and implement NPU accelerator scheduling in Volcano including the vitrualized NPU resource scheduling, job controller enhancement for NPU distributed training, NPU topology scheduling and so on.
+- Expected Outcome:  
+  - design doc and feature user guide
+  - implement NPU topology scheduling
+  - implement job controller enhancement
+  - vitrualized NPU resource scheduling
+- Recommend Skills: Go, Kubernetes, Volcano
+- Mentor(s):
+  william wang(@william-wang, wang.platform@gmail.com)
+  wang yang(@wangyang0616, wangyang8126@gmail.com)
+- Upstream Issue (URL): https://github.com/volcano-sh/volcano/issues/3019
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2d07fac8-9206-4299-a9fe-a55f366a38f3
+
+#### Build a new elastic resource quota mechinism in Volcano 
+
+- Description: design and implement a new hierarchical elastic resource quota mechinism to support resource lending and borrowing to improve the cluster utilization for multi-tenants environment. 
+- Expected Outcome:  
+  - design doc and how to use
+  - implement a elastic resource quota mechinism to support min, max and resource sharing
+  - implement the hierarchical resource quota
+  - produce Blogs about these new cases.
+- Recommend Skills: Go, Kubernetes, Volcano
+- Mentor(s):
+  william wang(@william-wang, wang.platform@gmail.com)
+  wang yang(@wangyang0616, wangyang8126@gmail.com)
+- Upstream Issue (URL): https://github.com/volcano-sh/volcano/issues/3018
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ffbb6bb3-b9d1-4e96-9f72-4a0566f6b0c3
+
+#### Add user guidance for jobflow
+
+- Description: Since jobflow is an important built-in orchestration engine for Volcano, it is still lack of user guidance. Please add more docs to demonstrate its installation, usage, tips and so on. 
+- Expected Outcome: Add docs into volcano-sh/volcano/docs/user-guide and describe the usage of jobflow.
+- Recommended Skills: Volcano, jobflow
+- Mentor(s): Thor Wu (@Thor-wl, 13164644535@163.com)
+- Upstream Issue: https://github.com/volcano-sh/volcano/issues/3013
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/757e329b-0083-4720-bd96-8bbbd6a7aeb3
+
+#### Fix bugs for jobflow to enhance its stability
+
+- Description: As a built-in orchestration engine for Volcano, jobflow acts as an improtant role for users and it's still new-born. Many issues related to its stability are reported recently. Please help make full test for job-flow on the classical scenarios and reslove bugs reported in issues.
+- Expected Outcome: Make full test for jobflow and output the test report, fix bugs reported in recent issues.
+- Recommended Skills: Volcano, jobflow, Golang, UT, E2E
+- Mentor(s): Thor Wu (@Thor-wl, 13164644535@163.com)
+- Upstream Issue: https://github.com/volcano-sh/volcano/issues/3014
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2fa8d7b8-01fa-4375-b3a8-1b626348fedd
 
 ### WasmEdge
 
