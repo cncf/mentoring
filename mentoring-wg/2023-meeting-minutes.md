@@ -35,9 +35,10 @@ Passcode: 77777
 
 # Upcoming meeting
 
-## August 1, 2023
 
-21:00 UTC (2:00 PM PDT on 2023-08-01; 10:00 AM NZST on 2023-08-02)
+## Sept 12, 2023
+
+21:00 UTC (2:00 PM PDT on 2023-09-12; 10:00 AM NZST on 2023-09-13)
 
 ### Attendance
 
@@ -49,7 +50,7 @@ Passcode: 77777
 
 ### Agenda
 
-* 
+*  Plan LFX mentorship program 2024 Term 1: Mar-May (https://github.com/cncf/mentoring/issues/1070)
 
 ### Notes
 
@@ -57,6 +58,43 @@ Passcode: 77777
 
 
 # Past Meetings
+
+## August 8, 2023
+
+21:00 UTC (2:00 PM PDT on 2023-08-08; 10:00 AM NZST on 2023-08-09)
+
+### Attendance
+
+* Ali Ok
+* Josh Berkus
+* Riaan Kleinhans
+* Corey Leong
+* Jay Tihema
+
+### Updates/reminders
+
+* [Term 02 of LFX Mentorship](https://github.com/cncf/mentoring/tree/main/programs/lfx-mentorship/2023/02-Jun-Aug) is approaching to an end
+  * Final mentee evaluations due August 23 
+* [Term 03 of LFX Mentorship](https://github.com/cncf/mentoring/tree/main/programs/lfx-mentorship/2023/03-Sep-Nov) is starting soon
+  * 36 project proposals, 17 projects represented, 47 mentors
+  * We're in mentee application period (August 2 - 15)
+* GSoC 2023 is almost finished
+    * August 21 - 28 is the final week - [timeline](https://developers.google.com/open-source/gsoc/timeline)
+
+### Agenda
+
+* [Corey] Mentorship opportunities for the university students
+* Project board grooming - ([board1](https://github.com/orgs/cncf/projects/25/views/6)) ([board2](https://github.com/orgs/cncf/projects/25/views/9))
+* [Jay] Updates TBA
+
+### Notes
+
+* [Higher Ed initiative](https://github.com/cncf/tag-contributor-strategy/issues/460)
+* [GSoC @ CNCF](https://github.com/cncf/mentoring/tree/main/programs/summerofcode)
+* [LFX Mentorship @CNCF](https://github.com/cncf/mentoring/tree/main/programs/lfx-mentorship)
+* [Guide - Getting started to Open Source](https://contribute.cncf.io/contributors/getting-started/)
+* [#tag-contributor-strategy](https://cloud-native.slack.com/archives/CT6CWS1JN)
+
 
 ## July 11, 2023
 
