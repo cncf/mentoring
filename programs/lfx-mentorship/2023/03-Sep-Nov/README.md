@@ -120,7 +120,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Recommended Skills: Rust, familiarity with containers
 - Mentor(s):
   - Peter Hunt, haircommander, pehunt@redhat.com
-  - Sascha Grunert, saschagrunert, sgrunert@redhat.com
+  - Sascha Grunert, saschagrunert, mail@saschagrunert.de
 - Upstream Issue (URL): https://github.com/containers/conmon-rs/issues/1126
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/99274b1a-694b-4af5-b7ca-39311f38a646
 
