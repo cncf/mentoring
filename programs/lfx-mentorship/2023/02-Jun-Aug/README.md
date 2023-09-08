@@ -1,6 +1,6 @@
 # Term 02 - 2023 June - August
 
-Status: Planning
+Status: Complete
 
 Mentorship duration - three months (12 weeks - full-time schedule)
 

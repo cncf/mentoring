@@ -1,6 +1,6 @@
 # Term 01 - 2023 March - May
 
-Status: Accepting applications
+Status: Complete
 
 Mentorship duration - three months (12 weeks - full-time schedule)
 
