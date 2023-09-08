@@ -146,6 +146,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - Networking
 - Mentors:
   - Lin Sun (@linsun, lin.sun@solo.io)
+  - Andrea Y Ma	(@andream12345,	ayma@us.ibm.com)
 - Upstream Issue: https://github.com/istio/istio/issues/44009
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/bbebd511-1a3e-4c4f-b106-2f09690825c5
 
