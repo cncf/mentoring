@@ -29,10 +29,17 @@
   - programs/lfx-mentorship/2023/**/*
   - mentoring-wg/2023-meeting-minutes.md
 
+# Add '2024' to any change to 2024 project files
+2024:
+  - programs/lfx-mentorship/2024/*
+  - programs/lfx-mentorship/2024/**/*
+
 # Add 'Term 1: March-May' label to files for that term
 'Term 1: March-May':
   - programs/lfx-mentorship/2023/01-Mar-May/*
   - programs/lfx-mentorship/2023/01-Mar-May/**/*
+  - programs/lfx-mentorship/2024/01-Mar-May/*
+  - programs/lfx-mentorship/2024/01-Mar-May/**/*
 
 # Add 'Term 2: June-Aug' label to files for that term
 'Term 2: June-Aug':
