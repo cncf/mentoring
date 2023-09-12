@@ -35,10 +35,9 @@ Passcode: 77777
 
 # Upcoming meeting
 
+## October 10, 2023
 
-## Sept 12, 2023
-
-21:00 UTC (2:00 PM PDT on 2023-09-12; 10:00 AM NZST on 2023-09-13)
+21:00 UTC (2:00 PM PDT on 2023-10-10; 10:00 AM NZST on 2023-10-11)
 
 ### Attendance
 
@@ -50,14 +49,39 @@ Passcode: 77777
 
 ### Agenda
 
-*  Plan LFX mentorship program 2024 Term 1: Mar-May (https://github.com/cncf/mentoring/issues/1070)
+* 
 
 ### Notes
 
-* 
+*
 
 
 # Past Meetings
+
+## Sept 12, 2023
+
+21:00 UTC (2:00 PM PDT on 2023-09-12; 10:00 AM NZST on 2023-09-13)
+
+### Attendance
+
+* Diane Mueller (Bitergia)
+* Nate W. (CNCF)
+* Ali Ok (Red Hat)
+* Daniel Krook (CNCF)
+* Riaan Kleinhans (ii)
+
+### Agenda
+
+* Mentoring Effect research update - Nate W. & Diane M.
+* [Riaan] Ashutosh Kumar (ashutoshak5386) offered to work on issue [Update "Full List FAQs" for Mentees #1022](https://github.com/cncf/mentoring/issues/1022)
+* [Grace Hopper Celebration 2023](https://ghc.anitab.org/) - Nate W. Attending, will be working the CNCF booth with an eye to Mentorship programs.
+    *  I have given some guidance in the issue and invited him to the meeting.
+* Plan LFX mentorship program 2024 Term 1: Mar-May (https://github.com/cncf/mentoring/issues/1070)
+* Number of mentors suggestion for LFX and GSoC (https://github.com/cncf/mentoring/pull/1081#discussion_r1322633005)
+    * Action items:
+        * Ask Google if we can tell mentors that we need a co-mentor
+        * Change the org admin rules to tell mentors about being reachable and the deadlines during proposal approval
+
 
 ## August 8, 2023
 
