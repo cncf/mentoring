@@ -170,7 +170,6 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Expected Outcome: Ideal outcome is to have _all_ dependencies upgraded to the latest versions (with the help of @dependabot) and fix all deprecation warnings during the build. But incremental progress towards that goal is also acceptable.
 - Recommended Skills: Javascript, Typescript, NPM, Yarn, Vite.js
 - Mentor(s):
-  - Yash Sharma (yashrsharma44@meta.com)
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
 - Upstream Issue: https://github.com/jaegertracing/jaeger-ui/issues/998
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/83cc55fe-b97a-4195-8dd2-cc9aed7e509c
@@ -185,6 +184,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Recommended Skills: Javascript, Typescript, NPM, Yarn, Vite.js, web worker
 - Mentor(s):
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
+  - Yash Sharma (yashrsharma44@meta.com)
 - Upstream Issue: https://github.com/jaegertracing/jaeger-ui/issues/1466
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/1e67c90b-de3e-4c4e-a2be-a5583a948864
 
