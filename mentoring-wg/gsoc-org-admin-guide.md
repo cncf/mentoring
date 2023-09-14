@@ -152,9 +152,9 @@ Tasks:
 * Make sure that the description provides a good sense of context and motivation for the idea to attract contributors.
 * Ensure the expected outcome benefits contributors (e.g. learning, growth) and the project (e.g. new features/functionality, bug fixes).
 * Check if the idea is a coding project. Projects such as documentation-only tasks are not accepted to GSoC per [program rules](https://summerofcode.withgoogle.com/rules).
-* Ask the mentor to have a co-mentor.
 * Remind the mentor about the deadlines with this text, before merging their PR:
 > Please note that GSoC is a program known for its strict deadlines. In addition to responding to your mentee on time, you will be required to submit evaluations on time. Failures to meet the deadlines might affect CNCF's future participation in GSoC.
+* Make sure the proposal has at least to mentors and one is noted as the primary mentor.
 
 ## Contributor+proposal selection and ranking process
 
