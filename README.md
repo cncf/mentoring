@@ -9,15 +9,15 @@ In this repository, you will find a number of resources to help you get started 
 
 These include:
 
-The [mentors](/mentors#readme) and [mentees](mentees#readme) folders which provides guidance on how to be an effective mentor or mentee.
+The [mentors](/mentors#readme) and [mentees](mentees#readme) folders provide guidance on how to be an effective mentor or mentee.
 The [programs](/programs#readme) folder provides a list of programs for mentees to work on with their mentors.
-This initiative is guided by the [Mentoring Working Group](/mentoring-wg#readme). More information about meetings, communication and aticities can be found in the  [mentoring-wg](/mentoring-wg#readme) section of this repository.
+This initiative is guided by the [Mentoring Working Group](/mentoring-wg#readme). More information about meetings, communication and activities can be found in the  [mentoring-wg](/mentoring-wg#readme) section of this repository.
 
 ## Participation
 Participation in the CNCF Mentoring Program is open to anyone who is interested in learning about cloud native technologies and contributing to open source projects in the ecosystem.
 
 Contact
-If you have any questions or need help getting started, please reach out though our various [communication channels](/mentoring-wg/communications.md).
+If you have any questions or need help getting started, please reach out through our various [communication channels](/mentoring-wg/communications.md).
 
 ## Mentoring Programs
 
