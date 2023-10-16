@@ -35,9 +35,10 @@ Passcode: 77777
 
 # Upcoming meeting
 
-## October 10, 2023
 
-21:00 UTC (2:00 PM PDT on 2023-10-10; 10:00 AM NZST on 2023-10-11)
+## November 14, 2023
+
+21:00 UTC (1:00 PM PDT on 2023-11-14; 9:00 AM NZST on 2023-11-15)
 
 ### Attendance
 
@@ -53,15 +54,44 @@ Passcode: 77777
 
 ### Notes
 
-*
+* 
 
 
 # Past Meetings
 
+
+## October 10, 2023
+
+21:00 UTC (2:00 PM PDT on 2023-10-10; 10:00 AM NZST on 2023-10-11)
+
+### Attendance
+
+* Nate W.
+* Ali Ok
+* Diane Mueller
+* Riaan Kleinhans
+
+### Agenda
+
+* [Planning LFX 2024 Term 02: Jun-Aug](https://github.com/cncf/mentoring/pull/1094) 
+* Google Mentor Summit
+* Diane & Nate speaking at LF Member Summit 
+* Mentorship content in website: [issue](https://github.com/cncf/tag-contributor-strategy/issues/539)
+
+### Notes
+
+* GSOC Mentor Summit: Nate, see if GSoC has a site like LFX listing info about the program
+  * what are Google's plans for publishing project/mentee data after a cohort is completed
+  * https://summerofcode.withgoogle.com/
+  * https://summerofcode.withgoogle.com/organizations/cncf/projects 
+  * is there a listing? helpnig mentees share that they have been a participant
+  * Perhaps: https://summerofcode.withgoogle.com/programs/2022/projects
+  * Perghaps: https://summerofcode.withgoogle.com/programs/2022/organizations/cncf 
+
 ## Sept 12, 2023
 
 21:00 UTC (2:00 PM PDT on 2023-09-12; 10:00 AM NZST on 2023-09-13)
-
+Link to recording: https://www.youtube.com/watch?v=d1w7UmZFyic
 ### Attendance
 
 * Diane Mueller (Bitergia)
