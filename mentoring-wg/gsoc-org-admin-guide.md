@@ -116,18 +116,23 @@ Tasks:
 * Inform mentors and contributors about the following:
     * Coding starting date
     * Midterm evaluation date
+* Send periodic reminders to mentors, possibly on Slack as direct messages about:
+    * How the progress is
+    * Is there a need for extension
 
 ### Midterm evaluations
 * Inform mentors and contributors about:
     * Midterm evaluations and deadlines
     * [Google's evaluation guide](https://google.github.io/gsocguides/mentor/evaluations)
+* Send a reminder 2 weeks before the deadline and at the first day of evaluation period about the deadline.
+* During the week of evaluation, emails sent should be a personal email like "Hello Name, LastName" instead of to the mailing list. 
 
 
 ### Final evaluations
 * Inform mentors and contributors about:
     * Final evaluations and deadlines
     * [Google's evaluation guide](https://google.github.io/gsocguides/mentor/evaluations)
-
+* Follow the emailing guidelines from the [Midterm evaluations](#Midterm-evaluations) section.
 
 ### Results
 * Run a retrospective using processes such as:
