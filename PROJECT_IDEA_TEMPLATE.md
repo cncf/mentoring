@@ -7,7 +7,9 @@
 - Description:
 - Expected Outcome:
 - Recommended Skills:
-- Mentor(s): It is recommended to have at least 2 mentors, and at least one of them should be the primary mentor. For GSoC, it is **required** to have at least 2 mentors.
+- Mentor(s): # It is recommended to have at least 2 mentors, and at least one of them should be the primary mentor. For GSoC, it is **required** to have at least 2 mentors.
+  - Jane Doe (@jane-github) - primary
+  - John Doe (@john-github)
 - Upstream Issue (URL):
 ```
 
