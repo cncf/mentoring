@@ -40,7 +40,6 @@ These are the number of successful internships per year for each program.
 |      | GSoD                             | 3            |                  |
 | 2021 | LFX Mentorship                   | 86           | 104              |
 |      | GSoC                             | 16           |                  |
-|      | GSoD                             | 1            |                  |
 |      | Outreachy                        | 1            |                  |
 | 2020 | LFX Mentorship (CommunityBridge) | 50           | 71               |
 |      | GSoC                             | 16           |                  |
