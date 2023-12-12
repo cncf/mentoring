@@ -34,8 +34,10 @@ These are the number of successful internships per year for each program.
 
 | Year | Program                          | Internships | Total (per year) |
 |------|----------------------------------|-------------|------------------|
-| 2023 | LFX Mentorship                   | 93 (ongoing)| TBD              |
-|      | GSoC                             | 14 (ongoing)|                  |
+| 2023 | LFX Mentorship                   | 127         | 144              |
+|      | GSoC                             | 14          |                  |
+|      | GSoD                             | 2           |                  |
+|      | Outreachy                        | 1           |                  |
 | 2022 | LFX Mentorship                   | 87          | 106              |
 |      | GSoC                             | 16          |                  |
 |      | GSoD                             | 3           |                  |
