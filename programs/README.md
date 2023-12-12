@@ -2,6 +2,7 @@
 
 - [LFX](#lfx)
   - [2023](#2023)
+    - [Term 3: Sept-Nov](#term-3-september---november)
     - [Term 2: Jun-Aug](#term-2-june---august)
     - [Term 1: Mar-May](#term-1-march---may)
   - [2022](#2022)
@@ -12,6 +13,45 @@
 ### LFX
 
 #### 2023
+
+##### Term 3: September - November
+
+| Mentoring Project | Mentor(s) | Mentee |
+| --- | ---| ---|
+| [CNCF - Carvel: kctrl to support exporting package repository as tar](https://mentorship.lfx.linuxfoundation.org/project/91398424-f095-4b85-bb0f-e7c56e777ea0) | Soumik Majumder, Renu Yarday | Ashish Kumar | 
+| [CNCF - CRI-O: Add additional log drivers to conmon-rs](https://mentorship.lfx.linuxfoundation.org/project/99274b1a-694b-4af5-b7ca-39311f38a646) | Peter Hunt, Sascha Grunert | Yash Sharma | 
+| [CNCF - CRI-O: CRI stats KEP](https://mentorship.lfx.linuxfoundation.org/project/cb189d71-3943-450a-9d5f-d71bd66d73c9) | Peter Hunt, Sohan Kunkerkar, Sascha Grunert | Mohamed Abdelfatah | 
+| [CNCF - Istio: Documentation for Ambient Mesh](https://mentorship.lfx.linuxfoundation.org/project/89ee4357-dd58-4e15-a601-c411742a587c) | Lin Sun | Faeka Ansari | 
+| [CNCF - Istio: Implement performance testing](https://mentorship.lfx.linuxfoundation.org/project/bbebd511-1a3e-4c4f-b106-2f09690825c5) | Lin Sun, Andrea Y Ma | Shuayb popoola  | 
+| [CNCF - Jaeger: Build official support in Jaeger for Elasticsearch 8](https://mentorship.lfx.linuxfoundation.org/project/37cf2714-668d-4014-ac44-953f70f9dc8e) | Yuri Shkuro | Yashwanth Reddy | 
+| [CNCF - Jaeger: Combine three distinct graph views in Jaeger UI into one](https://mentorship.lfx.linuxfoundation.org/project/1e67c90b-de3e-4c4e-a2be-a5583a948864) | Yuri Shkuro, Yash Sharma | Prathamesh Mutkure | 
+| [CNCF - Jaeger: Upgrade Jaeger UI to the latest version of React.js](https://mentorship.lfx.linuxfoundation.org/project/83cc55fe-b97a-4195-8dd2-cc9aed7e509c) | Yuri Shkuro | Ansh Goyal | 
+| [CNCF - Karmada: Add Karmada API documentation on the website](https://mentorship.lfx.linuxfoundation.org/project/54940f04-54b8-41ee-94bf-153f977b31e7) | Zhen Chang, Hongcai Ren | Mohammed Affan | 
+| [CNCF - Karmada: Karmada supports promote dependent resources automatically](https://mentorship.lfx.linuxfoundation.org/project/60b43efd-79e0-457e-989f-d4d59d55d8a6) | Wei Jiang, Hongcai Ren | Haiyu Zuo | 
+| [CNCF - Konveyor: Compile Move2Kube to WASM/WASI and run it in the browser](https://mentorship.lfx.linuxfoundation.org/project/c2b5f721-2666-4d9e-85d6-7bedae27e144) | Harikrishnan Balagopal, Mehant Kammakomati | Prakhar Agarwal | 
+| [CNCF - Konveyor: Extend use-case of detecting deprecated Kubernetes API usage](https://mentorship.lfx.linuxfoundation.org/project/989d0ad3-976a-4514-b2fc-34e9e6081567) | Emily McMullan, Jonah Sussman, John Matthews | Parthiba Hazra | 
+| [CNCF - Konveyor: Move2Kube: Advanced Resources support - ArgoCD, Tekton, Stateful Set, etc.](https://mentorship.lfx.linuxfoundation.org/project/b9aad4e2-d9c7-405e-8482-5aced0a4ecdb) | Akash Nayak, Harikrishnan Balagopal | Soumil Paranjpay | 
+| [CNCF - Konveyor: Move2Kube: WASM Transformers](https://mentorship.lfx.linuxfoundation.org/project/ec286a9e-e48d-4c83-a991-9c79a4ec213a) | Harikrishnan Balagopal, Mehant Kammakomati | Vamsi Satyasi | 
+| [CNCF - KubeArmor: Extend Support Matrix and Document Usecases](https://mentorship.lfx.linuxfoundation.org/project/eba8fbf7-848b-4d69-8b0e-b6852acc7755) | Anurag Kumar, Barun Acharya, Ankur Kothiwal | Anurag Rajawat | 
+| [CNCF - KubeEdge: Add case study center in website](https://mentorship.lfx.linuxfoundation.org/project/12dda5ae-a123-4e2a-985c-13d33f8a25f0) | Shelley Bao, Fisher Xu | Jingning Du | 
+| [CNCF - KubeEdge: Support latest version installation demo in killercoda](https://mentorship.lfx.linuxfoundation.org/project/36bfe273-9059-47e0-88f7-afb38b2d9ebb) | Fisher Xu | sarthak negi | 
+| [CNCF - Kubernetes: Build a Go library and CLI for interacting with OpenBuildService](https://mentorship.lfx.linuxfoundation.org/project/47f53d22-ff5c-4479-b701-3ca3dbc7df0a) | Carlos Panato, Marko Mudrinić | Nitish Kumar | 
+| [CNCF - Kubescape: Build an admission controller for Kubescape](https://mentorship.lfx.linuxfoundation.org/project/271852c6-3348-4ec7-bf09-035913b1c86e) | Craig Box, Ben Hirschberg | Anant Vijay | 
+| [CNCF - Kubescape: Upgrade the documentation publishing pipeline for Kubescape controls](https://mentorship.lfx.linuxfoundation.org/project/ccd3fc5f-a0a9-441f-bd4c-5caae8ab6509) | Ben Hirschberg, Craig Box | Rohit T | 
+| [CNCF - Kyverno: Kyverno Kuttl Enhancements](https://mentorship.lfx.linuxfoundation.org/project/919e8b57-8fc1-4f61-8bc8-3c8b06dd5e7a) | Charles-Edouard Brétéché | Shubham Gupta | 
+| [CNCF - Kyverno: Pod Security Admission Integrations II](https://mentorship.lfx.linuxfoundation.org/project/a7f754b4-5c8c-48a3-8f5f-b3ff6307b0f4) | Shuting Zhao | Gurmannat Sohal | 
+| [CNCF - Kyverno: Policy Exceptions 2.0](https://mentorship.lfx.linuxfoundation.org/project/7ffb0f63-e1e4-477b-ab0c-a69cb681f112) | Jim Bugwadia, Mariam Fahmy | Rakshit Gondwal | 
+| [CNCF - LitmusChaos: Improve Chaoscenter Web and Authentication Server: Add Unit Test Cases, Enhance GQL APIs, Update API Documentation](https://mentorship.lfx.linuxfoundation.org/project/237b7300-d749-4f14-bd4c-9375e5ec39b6) | Sarthak Jain, Neelanjan Manna, Sayan Mondal | MAGNIM THIBAUT FREEDISCH BATALE | 
+| [CNCF - LitmusChaos: Improve litmusctl UX and codebase and add new functionalities to litmusctl](https://mentorship.lfx.linuxfoundation.org/project/fde90e7f-0410-4b84-ad9c-99f7139267ed) | Saranya Jena, Sayan Mondal, Neelanjan Manna | deep poharkar | 
+| [CNCF - Meshery: Overhaul UX Design System](https://mentorship.lfx.linuxfoundation.org/project/a61f6cdb-98b4-43c9-8ca2-ea9bb5d5c470) | Lee Calcote, Ritik Saxena | Milan Saxena | 
+| [CNCF - Meshery: Package Meshery Catalog Artifacts as OCI Images](https://mentorship.lfx.linuxfoundation.org/project/aff716df-c257-4ead-8b48-39a3f9272b7f) | Lee Calcote, Uzair Shaikh | Senali Dilumika | 
+| [CNCF - Meshery: WASM-based OPA policy evaluation with Rego](https://mentorship.lfx.linuxfoundation.org/project/9faff011-1027-49c0-aa37-8d5be7208d6f) | Lee Calcote, Abhishek Kumar | Aabid Sofi | 
+| [CNCF - OpenKruise: Integrate Openkruise workload with ArgoCD and Helm](https://mentorship.lfx.linuxfoundation.org/project/f603a2e7-9af2-40b2-a74f-109cad843de1) | Zhang zhen, Zhao Mingshan | Mahesh Kasbe | 
+| [CNCF - Thanos: Implement fan-out query observability in Thanos](https://mentorship.lfx.linuxfoundation.org/project/5a96f43c-d858-40c2-b556-2770ba6b03d4) | Giedrius Statkevičius, Saswata Mukherjee | A Dattatreya Varma | 
+| [CNCF - Vitess: Continue the migration to React and enhance existing frontend UI](https://mentorship.lfx.linuxfoundation.org/project/10d70edd-60ec-409b-8801-0fb752501b12) | Florent Poinsard | Spandan Barve | 
+| [CNCF - Volcano: Build a new elastic resource quota mechinism in Volcano ](https://mentorship.lfx.linuxfoundation.org/project/ffbb6bb3-b9d1-4e96-9f72-4a0566f6b0c3) | William Wang, Lei Wu (Thor Wu) | Zhuoqi Huang | 
+| [CNCF - WasmEdge: Create a ffmpeg plugin](https://mentorship.lfx.linuxfoundation.org/project/41a8bf79-a903-4c03-afb7-256fd373c0b0) | Michael Yuan | Hrushikesh Rao | 
+| [CNCF - WasmEdge: Create a Rust crate for YOLO model](https://mentorship.lfx.linuxfoundation.org/project/63adcf97-cd3e-4c96-a5fc-6076b5a5d511) | Michael Yuan | Charles Schleich | 
 
 ##### Term 2: June - August
 
