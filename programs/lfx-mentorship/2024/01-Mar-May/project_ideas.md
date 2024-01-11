@@ -26,7 +26,7 @@
 - Expected Outcome: Governance docs in community repo. All repos accounted for and with a lifecycle plan.
 - Recommended Skills: enthusiasm for governance and basic markdown experience
 - Mentor(s):
-  - Mentor Name (@mentor_github, mentor@email.addy) - please use the same email address as you use on the LFX Mentorship Platform at https://mentorship.lfx.linuxfoundation.org
+  - Bill Mulligan(@xmulligan, bill@isovalent.com)
 - Upstream Issue: https://github.com/cilium/community/issues/78 https://github.com/cilium/community/issues/27
 
 ---
