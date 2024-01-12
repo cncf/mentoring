@@ -27,6 +27,7 @@
 - Recommended Skills: Go, scripting, CI/CD
 - Mentor(s):
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
+  - Jonah Kowall (@jkowall, jkowall@kowall.net)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5084
 
 #### Jaeger-V2 Observability
@@ -36,6 +37,7 @@
 - Recommended Skills: Go, scripting, CI/CD
 - Mentor(s):
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
+  - Jonah Kowall (@jkowall, jkowall@kowall.net)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5084
 
 #### Jaeger-V2 Adaptive Sampling
@@ -45,6 +47,7 @@
 - Recommended Skills: Go, scripting, CI/CD
 - Mentor(s):
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
+  - Jonah Kowall (@jkowall, jkowall@kowall.net)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5084
 
 ---
