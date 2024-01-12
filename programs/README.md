@@ -1,6 +1,8 @@
-# CNCF Mentoring: Programs for 2022 & 2023
+# CNCF Mentoring: Programs for 2022 - 2024
 
 - [LFX](#lfx)
+  - [2024](#2024)
+    - [Term 1: Mar-May](#2024-term-1-march---may)
   - [2023](#2023)
     - [Term 3: Sept-Nov](#term-3-september---november)
     - [Term 2: Jun-Aug](#term-2-june---august)
@@ -11,6 +13,12 @@
     - [Spring](#spring)
 
 ### LFX
+
+#### 2024
+
+##### 2024 Term 1: March - May
+
+[In progress](./2024/01-Mar-May/README.md)
 
 #### 2023
 
