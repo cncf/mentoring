@@ -89,3 +89,19 @@
   - Pierangelo Di Pilato (@pierdipi, pierdipi@redhat.com)
 - Upstream Issue: https://github.com/knative/eventing/issues/7530
 
+### Prometheus
+
+#### Client_golang CI/CD improvements
+
+- Description: Prometheus' client_golang is the Prometheus SDK for metrics instrumentation for Go applications. Client_golang promises full support for the 3 latests major Go versions, and for this task a lot of manual effort is executed by the community. Client_golang could receive several improvements around its CI/CD pipelines and automation:
+  - Golang version upgrades requires autogenerating go files that Go Collector uses to collect Go runtime metrics.
+  - Unit tests need to be run for the 3 latest Go versions, and running tests locally with different Go versions is hard at the moment. We can explore locally reproducible CI/CD.
+  - The changelog of new releases still requires a lot of manual work, like going through commit history and hand-picking commits that need to be advertised. We want to explore automation around semantic conventional commits that allows Changelog/Release automation.
+- Recommended Skills: Go, Shell, CI/CD
+- Mentor(s):
+  - [Arthur Sens](https://github.com/ArthurSens) (arthursens2005@gmail.com)
+  - [Kemal Akkoyun](https://github.com/kakkoyun) (kakkoyun@gmail.com)
+- Issue: 
+  - https://github.com/prometheus/client_golang/issues/1434
+  - https://github.com/prometheus/client_golang/issues/1435
+  - https://github.com/prometheus/client_golang/issues/1436
