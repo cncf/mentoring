@@ -33,32 +33,79 @@ https://zoom.us/my/cncftagcontributorstrategy?pwd=TnI0WU9Eb2I1RlRWdkl1R0k1WkZXUT
 Passcode: 77777
 
 
-# Upcoming meeting
+# Past Meetings
 
+## December 12, 2023
 
-## November 14, 2023
-
-21:00 UTC (1:00 PM PDT on 2023-11-14; 9:00 AM NZST on 2023-11-15)
+21:00 UTC (1:00 PM PDT on 2023-12-12; 9:00 AM NZST on 2023-12-13)
 
 ### Attendance
 
-* 
+* Nate W.
+* Riaan K.
+* Josh B.
 
 ### Updates/reminders
 
-* 
+* Diane & Nate did a talk at Open Source Summit Japan (2023): [The Mentoring Effect: Measuring Effectivenes of LFX Mentoring Programs](https://www.youtube.com/watch?v=bcOowyAxfxc) 
 
 ### Agenda
 
-* 
+* LFX 2023 Term 3 (mostly) complete: https://github.com/cncf/mentoring/issues/1053
+    * Still need to post a blog entry
+    * Still need to plan LFX 2024 Term 3
+    * Mentor gift sent out :)
+* [LFX 2024 Term 1](https://github.com/cncf/mentoring/issues/1077) starting early in the new year ([CFP starts Jan 8](https://github.com/cncf/mentoring/tree/main/programs/lfx-mentorship/2024/01-Mar-May))
+    * NW would like to start doing a Mentor zoom meeting before the term to set expectations
+* LFX Mentee Summit usually happens early in January - Nate to put Shellea & Ali in touch with Shuah to help
+* Availability note: Nate will be away on vacation from Dec 15 to Jan 14.
+
+
+## November 21, 2023 (postponed from November 14, 2023)
+
+21:00 UTC (1:00 PM PDT on 2023-11-21; 9:00 AM NZST on 2023-11-22)
+
+### Attendance
+
+* Nate W.
+* Abby Crimlis
+* Jay Tihema
+* Ali Ok
+* Riaan
+
+### Agenda
+
+* [New Mentoring WG chair](https://github.com/cncf/tag-contributor-strategy/pull/554)
+* KubeCon NA 2023 debrief
+* Update org-admins guides 
+    * [NW] After attending GSoC mentor summit, KubeCon, and noting some issues we had in term 3, I'd like to suggest we create an org guide specifically for the LFX mentorship program, like we have for [GSoC](https://github.com/cncf/mentoring/blob/main/mentoring-wg/gsoc-org-admin-guide.md). We may be able to base it off of the umbrella issues we have (https://github.com/cncf/mentoring/issues/1077), but I think there is more to it than just that (and maybe the umbrella issue becomes a template)
+* End of LFX 2023 Term 3 coming up
+    * NW to open evaluation form, send mentors link. Evaluations due: Nov 22, last day of term: Nov 30
+    * [NW] Several projects have requested extensions, I've approved Nov 29 as their new date for evals
+* [Archive GSoD program](https://github.com/cncf/mentoring/issues/1098)
+  * issue: https://github.com/cncf/mentoring/issues/1027
+  * PR: https://github.com/cncf/mentoring/pull/1099
+* LFX Virtual Mentorship Showcase 2024
 
 ### Notes
 
-* 
-
-
-# Past Meetings
-
+* Rotation of chairs/responsibilities
+  * Maybe 18 months
+  * Related https://github.com/cncf/tag-contributor-strategy/issues/541
+  * Seek/create clarity around similar roles and responsibilies e.g. members, facilitators etc.
+    * Project in coming months - efforts w/ LFX, GSOC; create an org admin guide in response to mentors dropping out to date
+    * 'Impress upon folx' about the nature of mentoring - although voluntary, still critical to demonstrate commitment to uphold the overall success of the program and relationships
+        * Factor investment of time, energy, resources etc.
+        * Mentoring info session - outlining expectations, understanding the program etc.
+        * Mentees to create blog posts (weekly in other programs) to help program administration
+          * google doc?
+          * google form checkin?
+        * Greater involvement/oversight needed e.g. monitoring Github activity to identify potential sticking points
+        * (Mentors) - response to consistently late submissions; work together to create contingency plans to ensure timely submission
+        * Remind folx of benefits to companies as well
+  * Mentor guide may be useful here too
+* GSoC 24 starting - let's setup everything in January
+  
 
 ## October 10, 2023
 
