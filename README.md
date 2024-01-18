@@ -21,12 +21,11 @@ If you have any questions or need help getting started, please reach out through
 
 ## Mentoring Programs
 
-| Program                                                                | Purpose                                                                         | Details and historical data                |
-|------------------------------------------------------------------------|---------------------------------------------------------------------------------| ------------------------------------------ |
-| [LFX Mentorship](https://mentorship.lfx.linuxfoundation.org)           | Mentoring initiative by the Linux Foundation                                    | [lfx-mentorship](/programs/lfx-mentorship#readme) |
-| [Google Summer of Code](https://summerofcode.withgoogle.com/)          | Mentoring program for open source beginners                                     | [summerofcode](/programs/summerofcode#readme) |
-| [Google Season of Docs](https://developers.google.com/season-of-docs)  | Mentoring initiative for the technical writers                                  | [seasonofdocs](/programs/seasonofdocs#readme)     |
-| [Outreachy](https://www.outreachy.org)                                 | Mentoring initiative for the communities traditionally underrepresented in tech | [outreachy](/programs/outreachy#readme)           |
+| Program                                                                  | Purpose                                                                           | Details and historical data                       |
+| ------------------------------------------------------------------------ | --------------------------------------------------------------------------------- | ------------------------------------------        |
+| [LFX Mentorship](https://mentorship.lfx.linuxfoundation.org)             | Mentoring initiative by the Linux Foundation                                      | [lfx-mentorship](/programs/lfx-mentorship#readme) |
+| [Google Summer of Code](https://summerofcode.withgoogle.com/)            | Mentoring program for open source beginners                                       | [summerofcode](/programs/summerofcode#readme)     |
+| [Outreachy](https://www.outreachy.org)                                   | Mentoring initiative for the communities traditionally underrepresented in tech   | [outreachy](/programs/outreachy#readme)           |
 
 ## Program Statistics
 
@@ -58,7 +57,6 @@ These are the number of successful internships per year for each program.
 |      | Outreachy                        | 1           |                  |
 | 2017 | GSoC                             | 6           | 8                |
 |      | Outreachy                        | 2           |                  |
-
 
 ## Code of Conduct
 
