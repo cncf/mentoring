@@ -18,6 +18,17 @@
 
 ## Proposed Project ideas
 
+### Cilium
+
+#### Governance Documentation
+
+- Description: This project will focus on governance documentation for the Cilium project with two key parts. First, the governenace documentation should be moved out of the main docs and into the community repo. Second, we need to do an inventory of all of the repos under the project and come up with a lifecycle for them.
+- Expected Outcome: Governance docs in community repo. All repos accounted for and with a lifecycle plan.
+- Recommended Skills: enthusiasm for governance and basic markdown experience
+- Mentor(s):
+  - Bill Mulligan(@xmulligan, bill@isovalent.com)
+- Upstream Issue: https://github.com/cilium/community/issues/78 https://github.com/cilium/community/issues/27
+
 ### Jaeger
 
 #### Jaeger-V2 Storage Backends
@@ -50,8 +61,6 @@
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5084
 
----
-
 ### Vitess
 
 #### Improve Unit Test Coverage
@@ -64,3 +73,4 @@
   - [Harshit Gangal](https://github.com/harshit-gangal) (harshit@planetscale.com)
 - Issue: <https://github.com/vitessio/vitess/issues/14931>
 
+---
