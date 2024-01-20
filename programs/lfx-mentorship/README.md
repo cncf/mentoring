@@ -21,8 +21,9 @@ LFX Mentorship is actively used by the Cloud Native Computing Foundation as a me
 ## Program Cycles and Archive data
 
 | Year | Term             | Status      | Announcement                                                                                                                                                         | Details                                             |
-| ---- |------------------|-------------| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |-----------------------------------------------------|
-| 2023 | Term 3: Sep-Nov  | In progress |                                                                                                                                                                      | [2023 Term 3: Sep-Nov](2023/03-Sep-Nov/README.md)   |
+|------|------------------|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| 2024 | Term 1: Mar-May  | In progress |  | [2024 Term 1: Mar-May](2024/01-Mar-May/README.md)   |
+| 2023 | Term 3: Sep-Nov  | Completed   | [CNCF Blog](https://www.cncf.io/blog/2023/12/14/lfx-programs-cncf-mentees-have-successfully-finished-term-3/)                                                        | [2023 Term 3: Sep-Nov](2023/03-Sep-Nov/README.md)   |
 |  | Term 2: Jun-Aug  | Completed |[CNCF Blog](https://www.cncf.io/blog/2023/09/12/36-cncf-term-2-lfx-mentees-have-successfully-completed-the-program/)                                                | [2023 Term 2: Jun-Aug](2023/02-Jun-Aug/README.md)   |
 |  | Term 1: Mar-May  | Completed   | [CNCF Blog](https://www.cncf.io/blog/2023/06/09/congratulations-to-57-cncf-term-1-lfx-program-mentees/)                                                              | [2023 Term 1: Mar-May](2023/01-Mar-May/README.md)   |
 | 2022 | Term 3: Sept-Nov | Completed   | [CNCF Blog](https://www.cncf.io/blog/2022/12/08/congratulations-to-24-cncf-fall-term-lfx-program-mentees/)                                                           | [2022 Term 3: Sept-Nov](2022/03-Sept-Nov/README.md) |
