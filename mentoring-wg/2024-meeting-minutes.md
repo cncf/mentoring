@@ -3,9 +3,11 @@ title: TAGCS Mentoring Working Group Monthly Meeting (2024)
 tags: Meeting Minutes, 2024
 ---
 
+[![hackmd-github-sync-badge](https://hackmd.io/zNzH0LTMQ16Lkjg16FZEcw/badge)](https://hackmd.io/zNzH0LTMQ16Lkjg16FZEcw)
+
+
 CNCF TAG Contributor Strategy
 # Mentoring Working Group
-
 
 ## About TAGCS Mentorship Working Group
 
@@ -16,6 +18,7 @@ CNCF TAG Contributor Strategy
 
 
 ## Meeting details
+
 
 ### Recurring monthly
 * 2nd Tuesday of the month at 9PM UTC
