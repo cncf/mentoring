@@ -150,3 +150,51 @@
   - [Manan Gupta](https://github.com/GuptaManan100) (manan@planetscale.com)
   - [Harshit Gangal](https://github.com/harshit-gangal) (harshit@planetscale.com)
 - Issue: <https://github.com/vitessio/vitess/issues/14931>
+
+### Konveyor
+
+#### Move2Kube: Exploratory approaches to artifact manipulation.
+
+- Description: Move2Kube is a command-line tool for automating creation of Infrastructure as code (IaC) artifacts. It has built-in support for creating IaC artifacts for replatforming to Kubernetes/OpenShift. As part of replatforming, we want to allow artifact manipulation at various levels to handle complex cases of replatforming flows. Example - while re-platforming from Netflix OSS spring boot feign client + eureka setup to Kubernetes (kubedns, kube-dns, services, ingress etc.) could need some artifact changes at different levels (code, architecture etc.).
+- Expected Outcome:
+  - Identify various forms of artifact manipulation and explore approaches to support such manipulations.
+- Recommended Skills:
+  - Golang
+  - program analysis
+- Mentor(s):
+  - Akash Nayak (@akash.nayak1, akash.nayak1@ibm.com)
+  - Harikrishnan Balagopal (@HarikrishnanBalagopal, harikrishnan.balagopal@ibm.com)
+  - Mehant Kammakomati (@kmehant, mehant.kammakomati2@ibm.com)
+- Upstream Issue: https://github.com/konveyor/move2kube/issues/1130
+
+#### Move2Kube: Simplify plugin architecture of m2k
+
+- Description: Move2Kube is a command-line tool for automating creation of Infrastructure as code (IaC) artifacts. The tool has a powerful plugin based transformer architecture where developers can write their own custom transformer plugins to fulfil their re-platforming needs. However, concepts like path mappings etc could be simplified for better adoption. Example - writing a Move2Kube custom transformer needs developers to understand various concepts such as path mappings etc, can we reduce this learning overhead by simplifying the Move2Kube architecture?
+- Expected Outcome:
+  - Come up with a simplified alternative design for plugin architecture for M2K
+  - Migrate existing components to support the new design with backward compatibility (good to have).
+- Recommended Skills:
+  - Golang
+  - K8s
+- Mentor(s):
+  - Akash Nayak (@akash.nayak1, akash.nayak1@ibm.com)
+  - Harikrishnan Balagopal (@HarikrishnanBalagopal, harikrishnan.balagopal@ibm.com)
+  - Mehant Kammakomati (@kmehant, mehant.kammakomati2@ibm.com)
+- Upstream Issue: https://github.com/konveyor/move2kube/issues/1131
+
+#### Move2Kube: Advanced Resources support and enhance other Move2Kube components
+
+- Description: Move2Kube is a command-line tool for automating creation of Infrastructure as code (IaC) artifacts. It has built-in support for creating IaC artifacts for replatforming to Kubernetes/OpenShift. Currently we have support for resources such as ArgoCD, Tekton, etc. There is still a gap to be covered in the support Move2Kube provides. Example - enhance support for external transformers (GRPC, file/folder permissions, etc.).
+- Expected Outcome:
+  - More comprehensive support for Move2Kube advanced resources and other components.
+- Recommended Skills:
+  - Golang
+  - K8s
+  - ArgoCD
+  - Tekton
+- Mentor(s):
+  - Akash Nayak (@akash.nayak1, akash.nayak1@ibm.com)
+  - Harikrishnan Balagopal (@HarikrishnanBalagopal, harikrishnan.balagopal@ibm.com)
+  - Mehant Kammakomati (@kmehant, mehant.kammakomati2@ibm.com)
+- Upstream Issue: https://github.com/konveyor/move2kube/issues/1132
+
