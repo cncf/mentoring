@@ -121,9 +121,9 @@
   - Mariam Fahmy (@MariamFahmy98, mariam.fahmy@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/policies/issues/891
 
-#### Kyverno OpenVEX Integration
+#### Verify Multiple Image Attestations
 
-- Description: Currently one cannot use the payload in an attestation and use it while verifying a different signed attestation through Kyverno image verification policy.
+- Description: Currently Kyverno cannot verify data across multiple attestations e.g. an image vulnerability scan report and a OpenVEX document. This project will enhance the image verification rules to support flexible checks across multiple attestations.
 - Expected Outcome: Support condition validation across multiple image verification attestations or context entry.
 - Recommended Skills: Golang, Kubernetes, VEX, Cosign, Notary
 - Mentor(s):
