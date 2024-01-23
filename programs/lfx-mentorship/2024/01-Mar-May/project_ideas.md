@@ -89,3 +89,36 @@
   - Pierangelo Di Pilato (@pierdipi, pierdipi@redhat.com)
 - Upstream Issue: https://github.com/knative/eventing/issues/7530
 
+### Antrea
+
+#### East-west connectivity monitoring tool for Pod network
+
+- Description: As a K8s network plugin (CNI plugin), Antrea provides networking functions for K8s Pods. These Pods are located on different Nodes, which can be in different availability zones, or even different geos. We would like to provide as part of Antrea (built-in capability) a tool to monitor Pod connectivity across the cluster. This tool should be able to report the average network latency between any 2 Nodes in the cluster. The latency information could then be visualized using a heatmap representation in the Antrea web UI.
+- Expected Outcome: A new Antrea API which reports network health information and latency between K8s Nodes. If time allows, the Antrea web UI should also be extended so that latency information can be easily visualized through a heatmap.
+- Recommended Skills: familiarity with Golang, some knowledge about the K8s architecture and APIs, some basic networking knowledge (TCP/IP stack), frontend development experience (React, TypeScript) would be great but not required.
+- Mentor(s):
+  - Yang Ding (@Dyanngg, dingyany1995@outlook.com)
+  - Anlan He (@heanlan, anlan9771@gmail.com)
+  - Antonin Bas (@antoninbas, antonin.bas@gmail.com)
+- Upstream Issue: https://github.com/antrea-io/antrea/issues/5514
+
+#### Ability to install / upgrade Antrea using the CLI
+
+- Description: Currently Antrea can be installed using a K8s YAML manifest or through the provided Helm chart. We believe there is value in providing a 3rd installation method, using the "antctl" CLI. The CLI installation / upgrade method would have the following advantages: a) more user-friendly, with support for command-line options to customize the installation, b) ability to run sanity checks on the K8s cluster before comitting to the installation, c) when upgrading, the CLI will ensure that Antrea components are upgraded in the optimal order, to minimize workload disruption.
+- Expected Outcome: A new command for antctl, the Antrea CLI, which will provide support for installation and upgrade.
+- Recommended Skills: familiarity with Golang, some knowledge about the K8s architecture and APIs, UX experience would be great but not required.
+- Mentor(s):
+  - Quan Tian (@tnqn, tianquan23@gmail.com)
+  - Lan Luo (@luolanzone, luolanzone@gmail.com)
+  - Antonin Bas (@antoninbas, antonin.bas@gmail.com)
+- Upstream Issue: https://github.com/antrea-io/antrea/issues/5896
+
+#### Replace deprecated bincover with golang built-in coverage profiling tool
+
+- Description: Currently Antrea uses a third-party tool called [bincover](https://github.com/confluentinc/bincover) to measure code coverage when running end-to-end (e2e) tests. This tool has been deprecated in favor of the built-in Go coverage profiling tool (https://go.dev/testing/coverage/) starting with Go 1.20, and it is no longer maintained. We would like to remove usage of bincover from the Antrea project and start using the built-in Go tool.
+- Expected Outcome: Complete removal of the bincove dependency. Code coverage can still be measured with the same accuracy when running Antrea e2e tests and the results can still be reported to [Codecov](https://about.codecov.io/).
+- Recommended Skills: familiarity with Golang and the Golang testing framework.
+- Mentor(s):
+  - Antonin Bas (@antoninbas, antonin.bas@gmail.com)
+  - Lan Luo (@luolanzone, luolanzone@gmail.com)
+- Upstream Issue: https://github.com/antrea-io/antrea/issues/4962
