@@ -22,7 +22,7 @@
 
 #### KCL Package Version Management
 
-- Description: KCL package management tool is mainly responsible for managing three-party KCL packages for KCL project, including uploading and downloading three-party KCL packages, etc. In the process of adding three-party packages for KCL project, if different versions of the same package are selected, the version management part needs to follow the version management strategy and select the appropriate version to download and use.
+- Description: The KCL package management tool primarily handles the management of third-party KCL packages for the KCL project, which includes tasks such as uploading and downloading these packages. When adding third-party packages to the KCL project, it is important to adhere to version management strategies. This involves carefully selecting and downloading the appropriate version of a package, especially when different versions of the same package are available.
 - Expected Outcome: Add version management to the KCL package management tool.
 - Recommended Skills: golang
 - Mentor(s): # It is recommended to have at least 2 mentors, and at least one of them should be the primary mentor. For GSoC, it is **required** to have at least 2 mentors.
