@@ -89,3 +89,45 @@
   - Pierangelo Di Pilato (@pierdipi, pierdipi@redhat.com)
 - Upstream Issue: https://github.com/knative/eventing/issues/7530
 
+### Kyverno
+
+#### Kyverno for Envoy Authorization
+
+- Description: Build an Envoy plugin to support authorisation based on Kyverno policies.
+- Expected Outcome: Enable users to perform autorisation with similar concepts as kyverno and kyverno-JSON using policies.
+- Recommended Skills: Golang, Kubernetes, Envoy
+- Mentor(s):
+  - Charles-Edouard Brétéché (@eddycharly, charles.edouard@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/9488
+
+#### Kyverno VPA Recommender 
+
+- Description: A common pain-point heard from users is improper resource allocations, and if Kyverno policies can help with that. This is an exploratory project to see if Kyverno can work with Kubernetes Vertical Pod Autoscalers (VPA).
+- Expected Outcome: Kyverno policies that work with VPA recommender.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s):
+  - Jim Bugwadia (@jimbugwadia, jim@nirmata.com)
+  - Khaled Emara (@KhaledEmaraDev, khaled.emara@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/9429
+
+
+#### Convert Kubernetes Best Practices Policies to CEL 
+
+- Description: Kubernetes Best Practices policies are written using Kyverno patterns and JMESPath, which means they cannot be executed as ValidatingAdmissionPolicy resources in the API server. This project aims to convert Kubernetes Best Practices policies, and other validating policies, to CEL wherever possible.
+- Expected Outcome: Convert Kyverno policies for Kubernetes best practices to CEL.
+- Recommended Skills: Kubernetes, Kyverno policies, CEL
+- Mentor(s):
+  - Anusha Hegde (@anusha94, anusha.hegde@nirmata.com)
+  - Mariam Fahmy (@MariamFahmy98, mariam.fahmy@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/policies/issues/891
+
+#### Kyverno OpenVEX Integration
+
+- Description: Currently one cannot use the payload in an attestation and use it while verifying a different signed attestation through Kyverno image verification policy.
+- Expected Outcome: Support condition validation across multiple image verification attestations or context entry.
+- Recommended Skills: Golang, Kubernetes, VEX, Cosign, Notary
+- Mentor(s):
+  - Vishal Choudhary (@vishal-chdhry, vishal.choudhary@nirmata.com)
+  - Shuting Zhao (@realshuting, shuting@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/9456
+
