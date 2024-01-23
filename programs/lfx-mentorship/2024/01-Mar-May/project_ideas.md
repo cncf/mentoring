@@ -89,3 +89,15 @@
   - Pierangelo Di Pilato (@pierdipi, pierdipi@redhat.com)
 - Upstream Issue: https://github.com/knative/eventing/issues/7530
 
+### Chaos Mesh
+
+#### Observability for StressChaos
+
+- Description: StressChaos is a chaos experiment that injects stress to the system. The current implementation of StressChaos is lack of observability, most of observability solutions could not observe the stress at Pod level, but only at Node level. This project is to enhance observability for StressChaos.
+- Expected Outcome: Chaos Mesh end users could observe the injected stress at Pod level.
+- Recommended Skills: Golang, Kubernetes, Linux, Observability Tools(e.g. Prometheus, Grafana, etc.)
+- Mentor(s):
+  - Zhiqiang Zhou(@STRRL, im@strrl.dev)
+  - Yue Yang(@g1eny0ung, g1enyy0ung@gmail.com)
+  - Cwen Yin(@cwen0, yincwego@gmail.com)
+- Upstream Issue: https://github.com/chaos-mesh/chaos-mesh/discussions/3012, https://github.com/chaos-mesh/chaos-mesh/issues/3651
