@@ -76,6 +76,22 @@
   - Bill Mulligan(@xmulligan, bill@isovalent.com)
 - Upstream Issue: https://github.com/cilium/community/issues/78 https://github.com/cilium/community/issues/27
 
+### Istio
+
+#### Improve Test Coverage for Istio Ambient Mesh
+
+- Description: Ambient mesh is now one of the biggest features in Istio, but it is in its early stage. We are in the process of improving the test coverage for Ambient Mesh in order to move it to Beta. Ztunnel works as shared data plane within a node, it subscribes to `Workload` and `Authorization` resources, both need to be well tested.
+- Expected Outcome:
+  - Enhanced UnitTest coverage for `Workload` and `Authorization` Delta xDS/Stow interface.
+  - Enhanced integration tests for ztunnel Authorization Policy 
+- Recommended Skills: Go, Istio Test Framework
+- Mentor(s):
+  - Zhonghu Xu (@hzxuzhonghu, zhhxu2011@gmail.com) 
+  - Faseela K (@kfaseela, k.faseela@gmail.com) 
+- Upstream Issue:
+  - https://github.com/orgs/istio/projects/9
+  - https://github.com/istio/ztunnel/issues/251
+
 ### Jaeger
 
 #### Jaeger-V2 Storage Backends
@@ -237,4 +253,3 @@
   - Hung-Ying Tai (@hydai, hydai@secondstate.io)
   - dm4 (@dm4, dm4@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3172
-
