@@ -76,20 +76,6 @@
   - Bill Mulligan(@xmulligan, bill@isovalent.com)
 - Upstream Issue: https://github.com/cilium/community/issues/78 https://github.com/cilium/community/issues/27
 
-### Knative Eventing
-
-#### Cross Namespace Event Links
-
-- Description: One of the most requested features in Knative Eventing over the past few years has been for triggers in different namespaces than brokers, and for subscriptions
-  in different namespaces than channels. More information can be found in the upstream issue.
-- Expected Outcome: Knative Eventing Triggers and Subscriptions can reference Brokers or Channels in a namespace different from their own if the user possesses the necessary
-  permissions to do so.
-- Recommended Skills: Go, Kubernetes
-- Mentor(s):
-  - Calum Murray (@Cali0707, cmurray@redhat.com)
-  - Pierangelo Di Pilato (@pierdipi, pierdipi@redhat.com)
-- Upstream Issue: https://github.com/knative/eventing/issues/7530
-
 ### Jaeger
 
 #### Jaeger-V2 Storage Backends
@@ -122,17 +108,19 @@
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5084
 
-### Vitess
+### Knative Eventing
 
-#### Improve Unit Test Coverage
+#### Cross Namespace Event Links
 
-- Description: Vitess is a scalable cloud-native database system for horizontal scaling of MySQL.The project is over 10 years old and there are parts of the code that don’t have very good unit test coverage. Revamping these code files and adding unit test coverage will help with the overall project health. Having strong unit testing is also useful in preventing introducing bugs when making code changes to these files. The task of the mentee would be to add said unit tests for the given code files. At the time of writing this proposal, the unit test coverage in Vitess stands at 47.3% of all lines of code.
-- Expected Outcome: Improved unit test coverage in Vitess.
-- Recommended Skills: Go, SQL, Unit testing
-- Mentor(s): 
-  - [Manan Gupta](https://github.com/GuptaManan100) (manan@planetscale.com)
-  - [Harshit Gangal](https://github.com/harshit-gangal) (harshit@planetscale.com)
-- Issue: <https://github.com/vitessio/vitess/issues/14931>
+- Description: One of the most requested features in Knative Eventing over the past few years has been for triggers in different namespaces than brokers, and for subscriptions
+  in different namespaces than channels. More information can be found in the upstream issue.
+- Expected Outcome: Knative Eventing Triggers and Subscriptions can reference Brokers or Channels in a namespace different from their own if the user possesses the necessary
+  permissions to do so.
+- Recommended Skills: Go, Kubernetes
+- Mentor(s):
+  - Calum Murray (@Cali0707, cmurray@redhat.com)
+  - Pierangelo Di Pilato (@pierdipi, pierdipi@redhat.com)
+- Upstream Issue: https://github.com/knative/eventing/issues/7530
 
 ### Prometheus
 
@@ -150,3 +138,15 @@
   - https://github.com/prometheus/client_golang/issues/1434
   - https://github.com/prometheus/client_golang/issues/1435
   - https://github.com/prometheus/client_golang/issues/1436
+
+### Vitess
+
+#### Improve Unit Test Coverage
+
+- Description: Vitess is a scalable cloud-native database system for horizontal scaling of MySQL.The project is over 10 years old and there are parts of the code that don’t have very good unit test coverage. Revamping these code files and adding unit test coverage will help with the overall project health. Having strong unit testing is also useful in preventing introducing bugs when making code changes to these files. The task of the mentee would be to add said unit tests for the given code files. At the time of writing this proposal, the unit test coverage in Vitess stands at 47.3% of all lines of code.
+- Expected Outcome: Improved unit test coverage in Vitess.
+- Recommended Skills: Go, SQL, Unit testing
+- Mentor(s): 
+  - [Manan Gupta](https://github.com/GuptaManan100) (manan@planetscale.com)
+  - [Harshit Gangal](https://github.com/harshit-gangal) (harshit@planetscale.com)
+- Issue: <https://github.com/vitessio/vitess/issues/14931>
