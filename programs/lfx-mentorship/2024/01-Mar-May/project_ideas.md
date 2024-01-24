@@ -18,6 +18,53 @@
 
 ## Proposed Project ideas
 
+### Antrea
+
+#### East-west connectivity monitoring tool for Pod network
+
+- Description: As a K8s network plugin (CNI plugin), Antrea provides networking functions for K8s Pods. These Pods are located on different Nodes, which can be in different availability zones, or even different geos. We would like to provide as part of Antrea (built-in capability) a tool to monitor Pod connectivity across the cluster. This tool should be able to report the average network latency between any 2 Nodes in the cluster. The latency information could then be visualized using a heatmap representation in the Antrea web UI.
+- Expected Outcome: A new Antrea API which reports network health information and latency between K8s Nodes. If time allows, the Antrea web UI should also be extended so that latency information can be easily visualized through a heatmap.
+- Recommended Skills: familiarity with Golang, some knowledge about the K8s architecture and APIs, some basic networking knowledge (TCP/IP stack), frontend development experience (React, TypeScript) would be great but not required.
+- Mentor(s):
+  - Yang Ding (@Dyanngg, dingyany1995@outlook.com)
+  - Anlan He (@heanlan, anlan9771@gmail.com)
+  - Antonin Bas (@antoninbas, antonin.bas@gmail.com)
+- Upstream Issue: https://github.com/antrea-io/antrea/issues/5514
+
+#### Ability to install / upgrade Antrea using the CLI
+
+- Description: Currently Antrea can be installed using a K8s YAML manifest or through the provided Helm chart. We believe there is value in providing a 3rd installation method, using the "antctl" CLI. The CLI installation / upgrade method would have the following advantages: a) more user-friendly, with support for command-line options to customize the installation, b) ability to run sanity checks on the K8s cluster before comitting to the installation, c) when upgrading, the CLI will ensure that Antrea components are upgraded in the optimal order, to minimize workload disruption.
+- Expected Outcome: A new command for antctl, the Antrea CLI, which will provide support for installation and upgrade.
+- Recommended Skills: familiarity with Golang, some knowledge about the K8s architecture and APIs, UX experience would be great but not required.
+- Mentor(s):
+  - Quan Tian (@tnqn, tianquan23@gmail.com)
+  - Lan Luo (@luolanzone, luolanzone@gmail.com)
+  - Antonin Bas (@antoninbas, antonin.bas@gmail.com)
+- Upstream Issue: https://github.com/antrea-io/antrea/issues/5896
+
+#### Replace deprecated bincover with golang built-in coverage profiling tool
+
+- Description: Currently Antrea uses a third-party tool called [bincover](https://github.com/confluentinc/bincover) to measure code coverage when running end-to-end (e2e) tests. This tool has been deprecated in favor of the built-in Go coverage profiling tool (https://go.dev/testing/coverage/) starting with Go 1.20, and it is no longer maintained. We would like to remove usage of bincover from the Antrea project and start using the built-in Go tool.
+- Expected Outcome: Complete removal of the bincove dependency. Code coverage can still be measured with the same accuracy when running Antrea e2e tests and the results can still be reported to [Codecov](https://about.codecov.io/).
+- Recommended Skills: familiarity with Golang and the Golang testing framework.
+- Mentor(s):
+  - Antonin Bas (@antoninbas, antonin.bas@gmail.com)
+  - Lan Luo (@luolanzone, luolanzone@gmail.com)
+- Upstream Issue: https://github.com/antrea-io/antrea/issues/4962
+
+### Chaos Mesh
+
+#### Observability for StressChaos
+
+- Description: StressChaos is a chaos experiment that injects stress to the system. The current implementation of StressChaos is lack of observability, most of observability solutions could not observe the stress at Pod level, but only at Node level. This project is to enhance observability for StressChaos.
+- Expected Outcome: Chaos Mesh end users could observe the injected stress at Pod level.
+- Recommended Skills: Golang, Kubernetes, Linux, Observability Tools(e.g. Prometheus, Grafana, etc.)
+- Mentor(s):
+  - Zhiqiang Zhou(@STRRL, im@strrl.dev)
+  - Yue Yang(@g1eny0ung, g1enyy0ung@gmail.com)
+  - Cwen Yin(@cwen0, yincwego@gmail.com)
+- Upstream Issue: https://github.com/chaos-mesh/chaos-mesh/discussions/3012, https://github.com/chaos-mesh/chaos-mesh/issues/3651
+
 ### Cilium
 
 #### Governance Documentation
@@ -28,6 +75,22 @@
 - Mentor(s):
   - Bill Mulligan(@xmulligan, bill@isovalent.com)
 - Upstream Issue: https://github.com/cilium/community/issues/78 https://github.com/cilium/community/issues/27
+
+### Istio
+
+#### Improve Test Coverage for Istio Ambient Mesh
+
+- Description: Ambient mesh is now one of the biggest features in Istio, but it is in its early stage. We are in the process of improving the test coverage for Ambient Mesh in order to move it to Beta. Ztunnel works as shared data plane within a node, it subscribes to `Workload` and `Authorization` resources, both need to be well tested.
+- Expected Outcome:
+  - Enhanced UnitTest coverage for `Workload` and `Authorization` Delta xDS/Stow interface.
+  - Enhanced integration tests for ztunnel Authorization Policy 
+- Recommended Skills: Go, Istio Test Framework
+- Mentor(s):
+  - Zhonghu Xu (@hzxuzhonghu, zhhxu2011@gmail.com) 
+  - Faseela K (@kfaseela, k.faseela@gmail.com) 
+- Upstream Issue:
+  - https://github.com/orgs/istio/projects/9
+  - https://github.com/istio/ztunnel/issues/251
 
 ### Jaeger
 
@@ -61,19 +124,38 @@
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5084
 
-### Vitess
+### KCL
 
-#### Improve Unit Test Coverage
+#### KCL Package Version Management
 
-- Description: Vitess is a scalable cloud-native database system for horizontal scaling of MySQL.The project is over 10 years old and there are parts of the code that don’t have very good unit test coverage. Revamping these code files and adding unit test coverage will help with the overall project health. Having strong unit testing is also useful in preventing introducing bugs when making code changes to these files. The task of the mentee would be to add said unit tests for the given code files. At the time of writing this proposal, the unit test coverage in Vitess stands at 47.3% of all lines of code.
-- Expected Outcome: Improved unit test coverage in Vitess.
-- Recommended Skills: Go, SQL, Unit testing
-- Mentor(s): 
-  - [Manan Gupta](https://github.com/GuptaManan100) (manan@planetscale.com)
-  - [Harshit Gangal](https://github.com/harshit-gangal) (harshit@planetscale.com)
-- Issue: <https://github.com/vitessio/vitess/issues/14931>
+- Description: The KCL package management tool primarily handles the management of third-party KCL packages for the KCL project, which includes tasks such as uploading and downloading these packages. When adding third-party packages to the KCL project, it is important to adhere to version management strategies. This involves carefully selecting and downloading the appropriate version of a package, especially when different versions of the same package are available.
+- Expected Outcome: Add version management to the KCL package management tool.
+- Recommended Skills: golang
+- Mentor(s):
+  - Pengfei Xu (@Peefy, xpf6677@gmail.com)
+  - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/kpm/issues/246
 
----
+#### KCL IDE Quick Fix
+
+- Description: When the KCL IDE encounters some errors in the KCL code, it can pop up `Quick Fix` prompts to help users quickly fix the errors.
+- Expected Outcome: Added Quick Fix for some error prompts in KCL IDE.
+- Recommended Skills: rust
+- Mentor(s):
+  - Pengfei Xu (@Peefy, xpf6677@gmail.com)
+  - Zheng Zhang (@He1pa, he1pa404@gmail.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/kcl/issues/997
+
+#### KCL IDE Update KCL Dependencies
+
+- Description: When a KCL package is loaded using KCL IDE, the IDE automatically updates the dependencies of the current KCL package through kpm.
+- Expected Outcome: Add automatic updates for third-party libraries to the IDE.
+- Recommended Skills: rust, go
+- Mentor(s):
+  - Pengfei Xu (@Peefy, xpf6677@gmail.com)
+  - Zheng Zhang (@He1pa, he1pa404@gmail.com)
+  - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/kcl/issues/998
 
 ### Knative Eventing
 
@@ -89,20 +171,85 @@
   - Pierangelo Di Pilato (@pierdipi, pierdipi@redhat.com)
 - Upstream Issue: https://github.com/knative/eventing/issues/7530
 
----
+### KubeVela
 
-### Istio
+#### Support versioning for definitions
 
-#### Improve Test Coverage for Istio Ambient Mesh
-
-- Description: Ambient mesh is now one of the biggest features in Istio, but it is in its early stage. We are in the process of improving the test coverage for Ambient Mesh in order to move it to Beta. Ztunnel works as shared data plane within a node, it subscribes to `Workload` and `Authorization` resources, both need to be well tested.
-- Expected Outcome:
-  - Enhanced UnitTest coverage for `Workload` and `Authorization` Delta xDS/Stow interface.
-  - Enhanced integration tests for ztunnel Authorization Policy 
-- Recommended Skills: Go, Istio Test Framework
+- Description: In KubeVela, X-Definitions provide the foundation for users to construct their applications. Currently we will automatically upgrade the definitions' version for our users, however, we still need the capability of explicit versioning in definitions. With this feature, our users can now manage the version easily for application upgrades and migrations.
+- Expected Outcome: Support expilict versioning in definitions to help application upgrades and migrations.
+- Recommended Skills: Go, Kubernetes
 - Mentor(s):
-  - Zhonghu Xu (@hzxuzhonghu, zhhxu2011@gmail.com) 
-  - Faseela K (@kfaseela, k.faseela@gmail.com) 
-- Upstream Issue:
-  - https://github.com/orgs/istio/projects/9
-  - https://github.com/istio/ztunnel/issues/251
+  - Fog Dong (@FogDong, wuwuglu19@gmail.com)
+  - Zhongpei Qiao(@chivalryq, chivalry.pp@gmail.com)
+- Upstream Issue: https://github.com/kubevela/kubevela/issues/6435
+
+### Prometheus
+
+#### Client_golang CI/CD improvements
+
+- Description: Prometheus' client_golang is the Prometheus SDK for metrics instrumentation for Go applications. Client_golang promises full support for the 3 latests major Go versions, and for this task a lot of manual effort is executed by the community. Client_golang could receive several improvements around its CI/CD pipelines and automation:
+  - Golang version upgrades requires autogenerating go files that Go Collector uses to collect Go runtime metrics.
+  - Unit tests need to be run for the 3 latest Go versions, and running tests locally with different Go versions is hard at the moment. We can explore locally reproducible CI/CD.
+  - The changelog of new releases still requires a lot of manual work, like going through commit history and hand-picking commits that need to be advertised. We want to explore automation around semantic conventional commits that allows Changelog/Release automation.
+- Recommended Skills: Go, Shell, CI/CD
+- Mentor(s):
+  - [Arthur Sens](https://github.com/ArthurSens) (arthursens2005@gmail.com)
+  - [Kemal Akkoyun](https://github.com/kakkoyun) (kakkoyun@gmail.com)
+- Issue: 
+  - https://github.com/prometheus/client_golang/issues/1434
+  - https://github.com/prometheus/client_golang/issues/1435
+  - https://github.com/prometheus/client_golang/issues/1436
+
+### Vitess
+
+#### Improve Unit Test Coverage
+
+- Description: Vitess is a scalable cloud-native database system for horizontal scaling of MySQL.The project is over 10 years old and there are parts of the code that don’t have very good unit test coverage. Revamping these code files and adding unit test coverage will help with the overall project health. Having strong unit testing is also useful in preventing introducing bugs when making code changes to these files. The task of the mentee would be to add said unit tests for the given code files. At the time of writing this proposal, the unit test coverage in Vitess stands at 47.3% of all lines of code.
+- Expected Outcome: Improved unit test coverage in Vitess.
+- Recommended Skills: Go, SQL, Unit testing
+- Mentor(s): 
+  - [Manan Gupta](https://github.com/GuptaManan100) (manan@planetscale.com)
+  - [Harshit Gangal](https://github.com/harshit-gangal) (harshit@planetscale.com)
+- Issue: <https://github.com/vitessio/vitess/issues/14931>
+
+### WasmEdge
+
+#### Integrate MLX as a new WASI-NN backend
+
+- Description: LLM is a hot topic, there are more and more frameworks to make the execution of LLM faster. WasmEdge already integrated the [llama.cpp](https://github.com/ggerganov/llama.cpp) as one of the backend. And we want to bring more. [MLX](https://github.com/ml-explore/mlx) is an array framework on Apple silicon created by Apple machine learning research. With MLX, we believe it can have a huge improvement on macOS.
+- Expected Outcome: A new plugin provides a MLX [WASI-NN](https://github.com/second-state/wasmedge-wasi-nn) backend, a test suite for validating the plugin, documents and examples for explaining how to use the plugin.
+- Recommended Skills: C++, Wasm
+- Mentor(s):
+  - Hung-Ying Tai (@hydai, hydai@secondstate.io)
+  - dm4 (@dm4, dm4@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3168
+
+#### Integrate Intel Extension for Transformers as a new WASI-NN backend
+
+- Description: LLM is a hot topic, there are more and more frameworks to make the execution of LLM faster. WasmEdge already integrated the [llama.cpp](https://github.com/ggerganov/llama.cpp) as one of the backend. Running LLM with CPU only is huge for those users who don't have GPU. We would like to integrate [Intel Extension for Transformers](https://github.com/intel/intel-extension-for-transformers) as a new WASI-NN backend to provide a faster CPU inference performance.
+- Expected Outcome: A new plugin provides a Intel Extension for Transformers [WASI-NN](https://github.com/second-state/wasmedge-wasi-nn) backend, a test suite for validating the plugin, documents and examples for explaining how to use the plugin.
+- Recommended Skills: C++, Wasm
+- Mentor(s):
+  - Hung-Ying Tai (@hydai, hydai@secondstate.io)
+  - dm4 (@dm4, dm4@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3169
+
+#### Integrate whisper.cpp as a new WASI-NN backend
+
+- Description: WasmEdge supports PyTorch, TensorFlow Lite, llama.cpp, and more NN backend. Dealing with the Voice to Text is a big thing that we want to achieve. To make it possible, we would like to integrate [whisper.cpp](https://github.com/ggerganov/whisper.cpp), a port of OpenAI's Whisper model in C/C++ as a new [WASI-NN](https://github.com/second-state/wasmedge-wasi-nn) backend.
+- Expected Outcome: A new plugin provides a whisper.cpp [WASI-NN](https://github.com/second-state/wasmedge-wasi-nn) backend, a test suite for validating the plugin, documents and examples for explaining how to use the plugin.
+- Recommended Skills: C++, Wasm
+- Mentor(s):
+  - Hung-Ying Tai (@hydai, hydai@secondstate.io)
+  - dm4 (@dm4, dm4@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3170
+
+#### Integrate burn.rs as a new WASI-NN backend
+
+- Description: WasmEdge supports PyTorch, TensorFlow Lite, llama.cpp, and more NN backend. [Burn.rs](https://github.com/tracel-ai/burn) is a new deep learning framework built using Rust. The portability, flexibility, and compute efficiency are important to Wasm. That's why we would love to have `burn.rs` as a new [WASI-NN](https://github.com/second-state/wasmedge-wasi-nn) backend.
+- Expected Outcome: A new plugin provides a burn.rs [WASI-NN](https://github.com/second-state/wasmedge-wasi-nn) backend, a test suite for validating the plugin, documents and examples for explaining how to use the plugin.
+- Recommended Skills: Rust, Wasm
+- Mentor(s):
+  - Hung-Ying Tai (@hydai, hydai@secondstate.io)
+  - dm4 (@dm4, dm4@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3172
