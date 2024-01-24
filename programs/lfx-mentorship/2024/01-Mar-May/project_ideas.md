@@ -133,3 +133,16 @@
   - [Manan Gupta](https://github.com/GuptaManan100) (manan@planetscale.com)
   - [Harshit Gangal](https://github.com/harshit-gangal) (harshit@planetscale.com)
 - Issue: <https://github.com/vitessio/vitess/issues/14931>
+
+
+### K8sGPT  
+
+#### Enhance K8sGPT's analyzers Unit Test Coverage
+
+- Description: K8sGPT is a tool for scanning Kubernetes clusters, diagnosing and triaging issues with the help of GenAI. It has SRE experience codified into its analyzers. These analyzers are critical for K8sGPT to perform its analysis. There are a few analysers that have either limited or absent unit tests. The goal is to introduce more unit tests which will reflect mocked problematic/misconfigured K8s resources and assure K8sGPT analysers can catch and identify those test scenarios.
+- Expected Outcome: Introduce and enhance Test Coverage of K8sGPT's analyzers
+- Mentor(s):
+  - Alex Jones (@AlexsJones, alex@k8sgpt.ai)
+  - Aris Boutselis (@arbreezy, arisboutselis08@gmail.com)
+- Issue: https://github.com/k8sgpt-ai/k8sgpt/issues/889
+
