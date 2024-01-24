@@ -309,7 +309,7 @@
 - Recommended Skills: Golang, Kubernetes
 - Mentor(s):
   - Vedant Shrotria (@Jonsy13, vedant.shrotria@harness.io)
-  - Sarthak Jain (@SarthakJain26, rajbabu.das@harness.io)
+  - Sarthak Jain (@SarthakJain26, sarthak.jain@harness.io)
   - Nagesh Bansal (@Nageshbansal, nageshbansal59@gmail.com)
 - Upstream Issue: https://github.com/litmuschaos/litmus/issues/4405
 
