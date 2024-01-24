@@ -76,32 +76,6 @@
   - Bill Mulligan(@xmulligan, bill@isovalent.com)
 - Upstream Issue: https://github.com/cilium/community/issues/78 https://github.com/cilium/community/issues/27
 
-### Knative Eventing
-
-#### Cross Namespace Event Links
-
-- Description: One of the most requested features in Knative Eventing over the past few years has been for triggers in different namespaces than brokers, and for subscriptions
-  in different namespaces than channels. More information can be found in the upstream issue.
-- Expected Outcome: Knative Eventing Triggers and Subscriptions can reference Brokers or Channels in a namespace different from their own if the user possesses the necessary
-  permissions to do so.
-- Recommended Skills: Go, Kubernetes
-- Mentor(s):
-  - Calum Murray (@Cali0707, cmurray@redhat.com)
-  - Pierangelo Di Pilato (@pierdipi, pierdipi@redhat.com)
-- Upstream Issue: https://github.com/knative/eventing/issues/7530
-
-### KubeVela
-
-#### Support versioning for definitions
-
-- Description: In KubeVela, X-Definitions provide the foundation for users to construct their applications. Currently we will automatically upgrade the definitions' version for our users, however, we still need the capability of explicit versioning in definitions. With this feature, our users can now manage the version easily for application upgrades and migrations.
-- Expected Outcome: Support expilict versioning in definitions to help application upgrades and migrations.
-- Recommended Skills: Go, Kubernetes
-- Mentor(s):
-  - Fog Dong (@FogDong, wuwuglu19@gmail.com)
-  - Zhongpei Qiao(@chivalryq, chivalry.pp@gmail.com)
-- Upstream Issue: https://github.com/kubevela/kubevela/issues/6435
-
 ### Jaeger
 
 #### Jaeger-V2 Storage Backends
@@ -134,6 +108,82 @@
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5084
 
+### KCL
+
+#### KCL Package Version Management
+
+- Description: The KCL package management tool primarily handles the management of third-party KCL packages for the KCL project, which includes tasks such as uploading and downloading these packages. When adding third-party packages to the KCL project, it is important to adhere to version management strategies. This involves carefully selecting and downloading the appropriate version of a package, especially when different versions of the same package are available.
+- Expected Outcome: Add version management to the KCL package management tool.
+- Recommended Skills: golang
+- Mentor(s):
+  - Pengfei Xu (@Peefy, xpf6677@gmail.com)
+  - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/kpm/issues/246
+
+#### KCL IDE Quick Fix
+
+- Description: When the KCL IDE encounters some errors in the KCL code, it can pop up `Quick Fix` prompts to help users quickly fix the errors.
+- Expected Outcome: Added Quick Fix for some error prompts in KCL IDE.
+- Recommended Skills: rust
+- Mentor(s):
+  - Pengfei Xu (@Peefy, xpf6677@gmail.com)
+  - Zheng Zhang (@He1pa, he1pa404@gmail.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/kcl/issues/997
+
+#### KCL IDE Update KCL Dependencies
+
+- Description: When a KCL package is loaded using KCL IDE, the IDE automatically updates the dependencies of the current KCL package through kpm.
+- Expected Outcome: Add automatic updates for third-party libraries to the IDE.
+- Recommended Skills: rust, go
+- Mentor(s):
+  - Pengfei Xu (@Peefy, xpf6677@gmail.com)
+  - Zheng Zhang (@He1pa, he1pa404@gmail.com)
+  - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/kcl/issues/998
+
+### Knative Eventing
+
+#### Cross Namespace Event Links
+
+- Description: One of the most requested features in Knative Eventing over the past few years has been for triggers in different namespaces than brokers, and for subscriptions
+  in different namespaces than channels. More information can be found in the upstream issue.
+- Expected Outcome: Knative Eventing Triggers and Subscriptions can reference Brokers or Channels in a namespace different from their own if the user possesses the necessary
+  permissions to do so.
+- Recommended Skills: Go, Kubernetes
+- Mentor(s):
+  - Calum Murray (@Cali0707, cmurray@redhat.com)
+  - Pierangelo Di Pilato (@pierdipi, pierdipi@redhat.com)
+- Upstream Issue: https://github.com/knative/eventing/issues/7530
+
+### KubeVela
+
+#### Support versioning for definitions
+
+- Description: In KubeVela, X-Definitions provide the foundation for users to construct their applications. Currently we will automatically upgrade the definitions' version for our users, however, we still need the capability of explicit versioning in definitions. With this feature, our users can now manage the version easily for application upgrades and migrations.
+- Expected Outcome: Support expilict versioning in definitions to help application upgrades and migrations.
+- Recommended Skills: Go, Kubernetes
+- Mentor(s):
+  - Fog Dong (@FogDong, wuwuglu19@gmail.com)
+  - Zhongpei Qiao(@chivalryq, chivalry.pp@gmail.com)
+- Upstream Issue: https://github.com/kubevela/kubevela/issues/6435
+
+### Prometheus
+
+#### Client_golang CI/CD improvements
+
+- Description: Prometheus' client_golang is the Prometheus SDK for metrics instrumentation for Go applications. Client_golang promises full support for the 3 latests major Go versions, and for this task a lot of manual effort is executed by the community. Client_golang could receive several improvements around its CI/CD pipelines and automation:
+  - Golang version upgrades requires autogenerating go files that Go Collector uses to collect Go runtime metrics.
+  - Unit tests need to be run for the 3 latest Go versions, and running tests locally with different Go versions is hard at the moment. We can explore locally reproducible CI/CD.
+  - The changelog of new releases still requires a lot of manual work, like going through commit history and hand-picking commits that need to be advertised. We want to explore automation around semantic conventional commits that allows Changelog/Release automation.
+- Recommended Skills: Go, Shell, CI/CD
+- Mentor(s):
+  - [Arthur Sens](https://github.com/ArthurSens) (arthursens2005@gmail.com)
+  - [Kemal Akkoyun](https://github.com/kakkoyun) (kakkoyun@gmail.com)
+- Issue: 
+  - https://github.com/prometheus/client_golang/issues/1434
+  - https://github.com/prometheus/client_golang/issues/1435
+  - https://github.com/prometheus/client_golang/issues/1436
+
 ### Vitess
 
 #### Improve Unit Test Coverage
@@ -145,3 +195,46 @@
   - [Manan Gupta](https://github.com/GuptaManan100) (manan@planetscale.com)
   - [Harshit Gangal](https://github.com/harshit-gangal) (harshit@planetscale.com)
 - Issue: <https://github.com/vitessio/vitess/issues/14931>
+
+### WasmEdge
+
+#### Integrate MLX as a new WASI-NN backend
+
+- Description: LLM is a hot topic, there are more and more frameworks to make the execution of LLM faster. WasmEdge already integrated the [llama.cpp](https://github.com/ggerganov/llama.cpp) as one of the backend. And we want to bring more. [MLX](https://github.com/ml-explore/mlx) is an array framework on Apple silicon created by Apple machine learning research. With MLX, we believe it can have a huge improvement on macOS.
+- Expected Outcome: A new plugin provides a MLX [WASI-NN](https://github.com/second-state/wasmedge-wasi-nn) backend, a test suite for validating the plugin, documents and examples for explaining how to use the plugin.
+- Recommended Skills: C++, Wasm
+- Mentor(s):
+  - Hung-Ying Tai (@hydai, hydai@secondstate.io)
+  - dm4 (@dm4, dm4@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3168
+
+#### Integrate Intel Extension for Transformers as a new WASI-NN backend
+
+- Description: LLM is a hot topic, there are more and more frameworks to make the execution of LLM faster. WasmEdge already integrated the [llama.cpp](https://github.com/ggerganov/llama.cpp) as one of the backend. Running LLM with CPU only is huge for those users who don't have GPU. We would like to integrate [Intel Extension for Transformers](https://github.com/intel/intel-extension-for-transformers) as a new WASI-NN backend to provide a faster CPU inference performance.
+- Expected Outcome: A new plugin provides a Intel Extension for Transformers [WASI-NN](https://github.com/second-state/wasmedge-wasi-nn) backend, a test suite for validating the plugin, documents and examples for explaining how to use the plugin.
+- Recommended Skills: C++, Wasm
+- Mentor(s):
+  - Hung-Ying Tai (@hydai, hydai@secondstate.io)
+  - dm4 (@dm4, dm4@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3169
+
+#### Integrate whisper.cpp as a new WASI-NN backend
+
+- Description: WasmEdge supports PyTorch, TensorFlow Lite, llama.cpp, and more NN backend. Dealing with the Voice to Text is a big thing that we want to achieve. To make it possible, we would like to integrate [whisper.cpp](https://github.com/ggerganov/whisper.cpp), a port of OpenAI's Whisper model in C/C++ as a new [WASI-NN](https://github.com/second-state/wasmedge-wasi-nn) backend.
+- Expected Outcome: A new plugin provides a whisper.cpp [WASI-NN](https://github.com/second-state/wasmedge-wasi-nn) backend, a test suite for validating the plugin, documents and examples for explaining how to use the plugin.
+- Recommended Skills: C++, Wasm
+- Mentor(s):
+  - Hung-Ying Tai (@hydai, hydai@secondstate.io)
+  - dm4 (@dm4, dm4@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3170
+
+#### Integrate burn.rs as a new WASI-NN backend
+
+- Description: WasmEdge supports PyTorch, TensorFlow Lite, llama.cpp, and more NN backend. [Burn.rs](https://github.com/tracel-ai/burn) is a new deep learning framework built using Rust. The portability, flexibility, and compute efficiency are important to Wasm. That's why we would love to have `burn.rs` as a new [WASI-NN](https://github.com/second-state/wasmedge-wasi-nn) backend.
+- Expected Outcome: A new plugin provides a burn.rs [WASI-NN](https://github.com/second-state/wasmedge-wasi-nn) backend, a test suite for validating the plugin, documents and examples for explaining how to use the plugin.
+- Recommended Skills: Rust, Wasm
+- Mentor(s):
+  - Hung-Ying Tai (@hydai, hydai@secondstate.io)
+  - dm4 (@dm4, dm4@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3172
+
