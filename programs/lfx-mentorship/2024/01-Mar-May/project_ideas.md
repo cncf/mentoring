@@ -18,6 +18,39 @@
 
 ## Proposed Project ideas
 
+### KCL
+
+#### KCL Package Version Management
+
+- Description: KCL package management tool is mainly responsible for managing three-party KCL packages for KCL project, including uploading and downloading three-party KCL packages, etc. In the process of adding three-party packages for KCL project, if different versions of the same package are selected, the version management part needs to follow the version management strategy and select the appropriate version to download and use.
+- Expected Outcome: Add version management to the KCL package management tool.
+- Recommended Skills: golang
+- Mentor(s): # It is recommended to have at least 2 mentors, and at least one of them should be the primary mentor. For GSoC, it is **required** to have at least 2 mentors.
+  - Pengfei Xu (@Peefy, xpf6677@gmail.com)
+  - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/kpm/issues/246
+
+#### KCL IDE Quick Fix
+
+- Description: When the KCL IDE encounters some errors in the KCL code, it can pop up `Quick Fix` prompts to help users quickly fix the errors.
+- Expected Outcome: Added Quick Fix for some error prompts in KCL IDE.
+- Recommended Skills: rust
+- Mentor(s): # It is recommended to have at least 2 mentors, and at least one of them should be the primary mentor. For GSoC, it is **required** to have at least 2 mentors.
+  - Pengfei Xu (@Peefy, xpf6677@gmail.com)
+  - Zheng Zhang (@He1pa, he1pa404@gmail.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/kcl/issues/997
+
+#### KCL IDE Update KCL Dependencies
+
+- Description: When a KCL package is loaded using KCL IDE, the IDE automatically updates the dependencies of the current KCL package through kpm.
+- Expected Outcome: Add automatic updates for third-party libraries to the IDE.
+- Recommended Skills: rust, go
+- Mentor(s): # It is recommended to have at least 2 mentors, and at least one of them should be the primary mentor. For GSoC, it is **required** to have at least 2 mentors.
+  - Pengfei Xu (@Peefy, xpf6677@gmail.com)
+  - Zheng Zhang (@He1pa, he1pa404@gmail.com)
+  - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/kcl/issues/998
+
 ### Antrea
 
 #### East-west connectivity monitoring tool for Pod network
