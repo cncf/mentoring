@@ -76,20 +76,6 @@
   - Bill Mulligan(@xmulligan, bill@isovalent.com)
 - Upstream Issue: https://github.com/cilium/community/issues/78 https://github.com/cilium/community/issues/27
 
-### Knative Eventing
-
-#### Cross Namespace Event Links
-
-- Description: One of the most requested features in Knative Eventing over the past few years has been for triggers in different namespaces than brokers, and for subscriptions
-  in different namespaces than channels. More information can be found in the upstream issue.
-- Expected Outcome: Knative Eventing Triggers and Subscriptions can reference Brokers or Channels in a namespace different from their own if the user possesses the necessary
-  permissions to do so.
-- Recommended Skills: Go, Kubernetes
-- Mentor(s):
-  - Calum Murray (@Cali0707, cmurray@redhat.com)
-  - Pierangelo Di Pilato (@pierdipi, pierdipi@redhat.com)
-- Upstream Issue: https://github.com/knative/eventing/issues/7530
-
 ### Jaeger
 
 #### Jaeger-V2 Storage Backends
@@ -121,6 +107,37 @@
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5084
+
+### Knative Eventing
+
+#### Cross Namespace Event Links
+
+- Description: One of the most requested features in Knative Eventing over the past few years has been for triggers in different namespaces than brokers, and for subscriptions
+  in different namespaces than channels. More information can be found in the upstream issue.
+- Expected Outcome: Knative Eventing Triggers and Subscriptions can reference Brokers or Channels in a namespace different from their own if the user possesses the necessary
+  permissions to do so.
+- Recommended Skills: Go, Kubernetes
+- Mentor(s):
+  - Calum Murray (@Cali0707, cmurray@redhat.com)
+  - Pierangelo Di Pilato (@pierdipi, pierdipi@redhat.com)
+- Upstream Issue: https://github.com/knative/eventing/issues/7530
+
+### Prometheus
+
+#### Client_golang CI/CD improvements
+
+- Description: Prometheus' client_golang is the Prometheus SDK for metrics instrumentation for Go applications. Client_golang promises full support for the 3 latests major Go versions, and for this task a lot of manual effort is executed by the community. Client_golang could receive several improvements around its CI/CD pipelines and automation:
+  - Golang version upgrades requires autogenerating go files that Go Collector uses to collect Go runtime metrics.
+  - Unit tests need to be run for the 3 latest Go versions, and running tests locally with different Go versions is hard at the moment. We can explore locally reproducible CI/CD.
+  - The changelog of new releases still requires a lot of manual work, like going through commit history and hand-picking commits that need to be advertised. We want to explore automation around semantic conventional commits that allows Changelog/Release automation.
+- Recommended Skills: Go, Shell, CI/CD
+- Mentor(s):
+  - [Arthur Sens](https://github.com/ArthurSens) (arthursens2005@gmail.com)
+  - [Kemal Akkoyun](https://github.com/kakkoyun) (kakkoyun@gmail.com)
+- Issue: 
+  - https://github.com/prometheus/client_golang/issues/1434
+  - https://github.com/prometheus/client_golang/issues/1435
+  - https://github.com/prometheus/client_golang/issues/1436
 
 ### Vitess
 
