@@ -90,6 +90,18 @@
   - Pierangelo Di Pilato (@pierdipi, pierdipi@redhat.com)
 - Upstream Issue: https://github.com/knative/eventing/issues/7530
 
+### KubeVela
+
+#### Support versioning for definitions
+
+- Description: In KubeVela, X-Definitions provide the foundation for users to construct their applications. Currently we will automatically upgrade the definitions' version for our users, however, we still need the capability of explicit versioning in definitions. With this feature, our users can now manage the version easily for application upgrades and migrations.
+- Expected Outcome: Support expilict versioning in definitions to help application upgrades and migrations.
+- Recommended Skills: Go, Kubernetes
+- Mentor(s):
+  - Fog Dong (@FogDong, wuwuglu19@gmail.com)
+  - Zhongpei Qiao(@chivalryq, chivalry.pp@gmail.com)
+- Upstream Issue: https://github.com/kubevela/kubevela/issues/6435
+
 ### Jaeger
 
 #### Jaeger-V2 Storage Backends
