@@ -76,6 +76,28 @@
   - Bill Mulligan(@xmulligan, bill@isovalent.com)
 - Upstream Issue: https://github.com/cilium/community/issues/78 https://github.com/cilium/community/issues/27
 
+### Inspektor Gadget
+
+#### Support for new types of eBPF programs
+
+- Description: Inspektor Gadget is an eBPF tool and systems inspection framework for Kubernetes, containers and Linux hosts. Users can develop gadgets using different kinds of eBPF programs: kprobe, tracepoint, etc. This project will focus on adding support for more kinds of eBPF programs such as uprobes and ensuring the documentation is updated for each of them
+- Expected Outcome: Inspektor Gadget has support for additional eBPF program kinds
+- Recommended Skills: Go, containers, Linux, basics of eBPF
+- Mentor(s):
+  - Alban Crequy (@alban, albancrequy@microsoft.com)
+  - Mauricio Vásquez (@mauriciovasquezbernal, mauriciov@microsoft.com)
+- Upstream Issue: https://github.com/inspektor-gadget/inspektor-gadget/issues/1912
+
+#### Testing framework for image-based gadgets
+
+- Description: Inspektor Gadget is an eBPF tool and systems inspection framework for Kubernetes, containers and Linux hosts. Previously, Inspektor Gadget had a set of built-in gadgets. We are now moving to image-based gadgets where users can develop their own gadgets in eBPF and host them in OCI registries. But we don't have a test framework to help gadget authors to test their gadgets. This project will focus on implementing such a framework, possibly taking inspiration from the existing framework for built-in gadgets. The documentation for gadget authors should be updated. This project has the opportunity to expand beyond testing, to work on the gadget development experience over all, for example by creating a github template for gadget development.
+- Expected Outcome: Gadget authors can test their gadgets
+- Recommended Skills: Go, containers, Linux, testing
+- Mentor(s):
+  - Alban Crequy (@alban, albancrequy@microsoft.com)
+  - Mauricio Vásquez (@mauriciovasquezbernal, mauriciov@microsoft.com)
+- Upstream Issue: https://github.com/inspektor-gadget/inspektor-gadget/issues/2046
+
 ### Istio
 
 #### Improve Test Coverage for Istio Ambient Mesh
@@ -218,6 +240,44 @@
   - Mehant Kammakomati (@kmehant, mehant.kammakomati2@ibm.com)
 - Upstream Issue: https://github.com/konveyor/move2kube/issues/1132
 
+### Kubearmor
+
+#### Kubearmor Kata Container Support
+
+- Description: Kata Containers is an open source community working to build a secure container runtime with lightweight virtual machines that feel and perform like containers, but provide stronger workload isolation using hardware virtualization technology as a second layer of defense.
+- Expected Outcome: KubeArmor natively protecting Kata containers with required Integration.
+- Recommended Skills: Go, Kubernetes, Linux
+- Mentor(s): 
+  - Barun Acharya  (@daemon1024, barun1024@gmail.com)
+  - Prashant Mishra (@primalpimmy, prashant20.pm@gmail.com)
+  - Rudraksh Pareek (@DelusionalOptimist, rudrakshpareek3601@gmail.com )
+- Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1340
+
+#### Leverage OCI Hooks for Container Events
+
+- Description: Use OCI hooks and get events in context to container start/stop: Currently KubeArmor mounts docker/containerd/crio UNIX domain socket file in KubeArmor to watch for container events. The aim is to use OCI hooks for getting such container events.
+- Expected Outcome: Eliminate exposing docker/containerd/crio UNIX domain sockets inside a container.
+- Recommended Skills: Go, Kubernetes, Linux
+- Mentor(s): 
+  - Barun Acharya  (@daemon1024, barun1024@gmail.com)
+  - Akshay Gaikwad (@akshay196, akgaikwad001@gmail.com)
+  - Rudraksh Pareek (@DelusionalOptimist, rudrakshpareek3601@gmail.com )
+- Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1390
+
+#### Dashboards for application behavior and KubeArmor state
+
+- Description: For showing an application's behaviour, we'd like to have a Kibana/Grafana dashboard. We have existing integrations for
+visualizing alerts with Elastic/Loki and we can use them for creating these.
+We want to leverage the above for creating a plugin which will allow users to see an application's behavior based on visibility logs sent by KubeArmor.
+- Expected Outcome: A kubernetes dashboard setup that also has the app behaviours described.
+- Recommended Skills: Grafana, Javascript, Go, Kubernetes, Linux
+- Mentor(s): 
+  - Barun Acharya  (@daemon1024, barun1024@gmail.com)
+  - Prashant Mishra (@primalpimmy, prashant20.pm@gmail.com)
+  - Rudraksh Pareek (@DelusionalOptimist, rudrakshpareek3601@gmail.com )
+  - Anurag Kumar (@kranurag7, kranurag7@linux.com)
+- Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1390
+
 ### KubeVela
 
 #### Support versioning for definitions
@@ -229,6 +289,61 @@
   - Fog Dong (@FogDong, wuwuglu19@gmail.com)
   - Zhongpei Qiao(@chivalryq, chivalry.pp@gmail.com)
 - Upstream Issue: https://github.com/kubevela/kubevela/issues/6435
+
+### Kyverno
+
+#### Kyverno for Envoy Authorization
+
+- Description: Build an Envoy plugin to support authorisation based on Kyverno policies.
+- Expected Outcome: Enable users to perform autorisation with similar concepts as kyverno and kyverno-JSON using policies.
+- Recommended Skills: Golang, Kubernetes, Envoy
+- Mentor(s):
+  - Charles-Edouard Brétéché (@eddycharly, charles.edouard@nirmata.com)
+  - Anushka Mittal (@anushkamittal2001, anushka@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/9488
+
+#### Kyverno VPA Recommender 
+
+- Description: A common pain-point heard from users is improper resource allocations, and if Kyverno policies can help with that. This is an exploratory project to see if Kyverno can work with Kubernetes Vertical Pod Autoscalers (VPA).
+- Expected Outcome: Kyverno policies that work with VPA recommender.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s):
+  - Jim Bugwadia (@jimbugwadia, jim@nirmata.com)
+  - Khaled Emara (@KhaledEmaraDev, khaled.emara@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/9429
+
+
+#### Convert Kubernetes Best Practices Policies to CEL 
+
+- Description: Kubernetes Best Practices policies are written using Kyverno patterns and JMESPath, which means they cannot be executed as ValidatingAdmissionPolicy resources in the API server. This project aims to convert Kubernetes Best Practices policies, and other validating policies, to CEL wherever possible.
+- Expected Outcome: Convert Kyverno policies for Kubernetes best practices to CEL.
+- Recommended Skills: Kubernetes, Kyverno policies, CEL
+- Mentor(s):
+  - Anusha Hegde (@anusha94, anusha.hegde@nirmata.com)
+  - Mariam Fahmy (@MariamFahmy98, mariam.fahmy@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/policies/issues/891
+
+#### Verify Multiple Image Attestations
+
+- Description: Currently Kyverno cannot verify data across multiple attestations e.g. an image vulnerability scan report and a OpenVEX document. This project will enhance the image verification rules to support flexible checks across multiple attestations.
+- Expected Outcome: Support condition validation across multiple image verification attestations or context entry.
+- Recommended Skills: Golang, Kubernetes, VEX, Cosign, Notary
+- Mentor(s):
+  - Vishal Choudhary (@vishal-chdhry, vishal.choudhary@nirmata.com)
+  - Shuting Zhao (@realshuting, shuting@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/9456
+
+### K8sGPT
+
+#### Enhance K8sGPT's analyzers Unit Test Coverage
+
+- Description: K8sGPT is a tool for scanning Kubernetes clusters, diagnosing and triaging issues with the help of GenAI. It has SRE experience codified into its analyzers. These analyzers are critical for K8sGPT to perform its in-depth analysis. There are a few analysers that have either limited or absent unit tests. The goal is to introduce more unit tests which will reflect mocked problematic/misconfigured K8s resources and assure K8sGPT analysers can catch and identify those test scenarios.
+- Expected Outcome: Introduce and enhance Test Coverage of K8sGPT's analyzers
+- Recommended Skills: Go, Kubernetes 
+- Mentor(s):
+  - Alex Jones (@AlexsJones, alex@k8sgpt.ai)
+  - Aris Boutselis (@arbreezy, arisboutselis08@gmail.com)
+- Issue: https://github.com/k8sgpt-ai/k8sgpt/issues/889
 
 ### Litmus Chaos
 
@@ -263,6 +378,25 @@
   - Sahil Kumar (@SahilKr24, sahil.kumar@harness.io)
   - Hrishav Kumar (@hrishavjha, hrishav.kumar@harness.io)
 - Upstream Issue: https://github.com/litmuschaos/litmus/issues/4407
+
+### OpenTelemetry
+
+#### One Logging Bridge per Language
+
+- Description: One of the goals set for the OpenTelemetry project in 2024 is to have at least one logging bridge per Language SIG, so that our end-users can start using OTLP Logging natively in their applications. While some languages have such a bridge already, some have the desire to implement at least one bridge but are lacking the engineering resources to do so. This internship starts by taking a look at the current state, marking which languages have a bridge already and which are lacking. The next step is to propose and implement at least one bridge for at least one language that doesn't have such a bridge yet.
+- Expected Outcome: At least one logging bridge is implemented for at least one language.
+- Recommended Skills: One (or more!) of the missing languages supported by OpenTelemetry
+  - C++
+  - Erlang
+  - Go
+  - JavaScript
+  - PHP
+  - Ruby
+  - Swift
+- Mentor(s):
+  - Juraci Paixão Kröhling (@jpkrohling, juraci.kroehling@grafana.com)
+  - Andrzej Stencel (@astencel-sumo, andrzej@andrzejstencel.pl)
+- Upstream Issue: https://github.com/open-telemetry/community/issues/1865
 
 ### Prometheus
 
