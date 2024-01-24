@@ -160,6 +160,7 @@
 - Recommended Skills: Golang, Kubernetes, Envoy
 - Mentor(s):
   - Charles-Edouard Brétéché (@eddycharly, charles.edouard@nirmata.com)
+  - Anushka Mittal (@anushkamittal2001, anushka@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/9488
 
 #### Kyverno VPA Recommender 
