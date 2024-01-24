@@ -323,6 +323,25 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Aris Boutselis (@arbreezy, arisboutselis08@gmail.com)
 - Issue: https://github.com/k8sgpt-ai/k8sgpt/issues/889
 
+### OpenTelemetry
+
+#### One Logging Bridge per Language
+
+- Description: One of the goals set for the OpenTelemetry project in 2024 is to have at least one logging bridge per Language SIG, so that our end-users can start using OTLP Logging natively in their applications. While some languages have such a bridge already, some have the desire to implement at least one bridge but are lacking the engineering resources to do so. This internship starts by taking a look at the current state, marking which languages have a bridge already and which are lacking. The next step is to propose and implement at least one bridge for at least one language that doesn't have such a bridge yet.
+- Expected Outcome: At least one logging bridge is implemented for at least one language.
+- Recommended Skills: One (or more!) of the missing languages supported by OpenTelemetry
+  - C++
+  - Erlang
+  - Go
+  - JavaScript
+  - PHP
+  - Ruby
+  - Swift
+- Mentor(s):
+  - Juraci Paixão Kröhling (@jpkrohling, juraci.kroehling@grafana.com)
+  - Andrzej Stencel (@astencel-sumo, andrzej@andrzejstencel.pl)
+- Upstream Issue: https://github.com/open-telemetry/community/issues/1865
+
 ### Prometheus
 
 #### Client_golang CI/CD improvements
