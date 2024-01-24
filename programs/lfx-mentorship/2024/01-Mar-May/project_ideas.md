@@ -239,6 +239,7 @@
 - Recommended Skills: Go
 - Mentor(s):
   - Andrzej Stencel ([@astencel-sumo](https://github.com/astencel-sumo/), andrzej@andrzejstencel.pl)
+  - Juraci Paixão Kröhling ([@jpkrohling](https://github.com/jpkrohling), juraci.kroehling@grafana.com)
 - Upstream Issue: https://github.com/open-telemetry/opentelemetry-collector/issues/9372
 
 ### Prometheus
