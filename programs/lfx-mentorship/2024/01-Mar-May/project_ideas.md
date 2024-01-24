@@ -276,7 +276,7 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Prashant Mishra (@primalpimmy, prashant20.pm@gmail.com)
   - Rudraksh Pareek (@DelusionalOptimist, rudrakshpareek3601@gmail.com )
   - Anurag Kumar (@kranurag7, kranurag7@linux.com)
-- Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1390
+- Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1591
 
 ### KubeVela
 
