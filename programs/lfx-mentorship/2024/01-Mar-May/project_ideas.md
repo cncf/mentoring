@@ -155,6 +155,7 @@
   - Swift
 - Mentor(s):
   - Juraci Paixão Kröhling (@jpkrohling, juraci.kroehling@grafana.com)
+  - Andrzej Stencel (@astencel-sumo, andrzej@andrzejstencel.pl)
 - Upstream Issue: https://github.com/open-telemetry/community/issues/1865
 
 ### Vitess
