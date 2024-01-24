@@ -321,7 +321,7 @@
 - Mentor(s):
   - Namkyu Park (@namkyu1999, lak9348@konkuk.ac.kr)
   - Shubham Chaudhary (@ispeakc0de, shubham.chaudhary@harness.io)
-  - Raj Babu Das (@imrajdas, rajbabu.das@harness.io)
+  - Raj Babu Das (@imrajdas, mail.rajdas@gmail.com)
 - Upstream Issue: https://github.com/litmuschaos/litmus/issues/4406
 
 #### Enhancements in Chaos Center: Multiple Project Owners and Log Download API
