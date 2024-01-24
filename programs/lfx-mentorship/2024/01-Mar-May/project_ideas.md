@@ -76,19 +76,21 @@
   - Bill Mulligan(@xmulligan, bill@isovalent.com)
 - Upstream Issue: https://github.com/cilium/community/issues/78 https://github.com/cilium/community/issues/27
 
-### Knative Eventing
+### Istio
 
-#### Cross Namespace Event Links
+#### Improve Test Coverage for Istio Ambient Mesh
 
-- Description: One of the most requested features in Knative Eventing over the past few years has been for triggers in different namespaces than brokers, and for subscriptions
-  in different namespaces than channels. More information can be found in the upstream issue.
-- Expected Outcome: Knative Eventing Triggers and Subscriptions can reference Brokers or Channels in a namespace different from their own if the user possesses the necessary
-  permissions to do so.
-- Recommended Skills: Go, Kubernetes
+- Description: Ambient mesh is now one of the biggest features in Istio, but it is in its early stage. We are in the process of improving the test coverage for Ambient Mesh in order to move it to Beta. Ztunnel works as shared data plane within a node, it subscribes to `Workload` and `Authorization` resources, both need to be well tested.
+- Expected Outcome:
+  - Enhanced UnitTest coverage for `Workload` and `Authorization` Delta xDS/Stow interface.
+  - Enhanced integration tests for ztunnel Authorization Policy 
+- Recommended Skills: Go, Istio Test Framework
 - Mentor(s):
-  - Calum Murray (@Cali0707, cmurray@redhat.com)
-  - Pierangelo Di Pilato (@pierdipi, pierdipi@redhat.com)
-- Upstream Issue: https://github.com/knative/eventing/issues/7530
+  - Zhonghu Xu (@hzxuzhonghu, zhhxu2011@gmail.com) 
+  - Faseela K (@kfaseela, k.faseela@gmail.com) 
+- Upstream Issue:
+  - https://github.com/orgs/istio/projects/9
+  - https://github.com/istio/ztunnel/issues/251
 
 ### Jaeger
 
@@ -122,17 +124,99 @@
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5084
 
-### Vitess
+### KCL
 
-#### Improve Unit Test Coverage
+#### KCL Package Version Management
 
-- Description: Vitess is a scalable cloud-native database system for horizontal scaling of MySQL.The project is over 10 years old and there are parts of the code that don’t have very good unit test coverage. Revamping these code files and adding unit test coverage will help with the overall project health. Having strong unit testing is also useful in preventing introducing bugs when making code changes to these files. The task of the mentee would be to add said unit tests for the given code files. At the time of writing this proposal, the unit test coverage in Vitess stands at 47.3% of all lines of code.
-- Expected Outcome: Improved unit test coverage in Vitess.
-- Recommended Skills: Go, SQL, Unit testing
-- Mentor(s): 
-  - [Manan Gupta](https://github.com/GuptaManan100) (manan@planetscale.com)
-  - [Harshit Gangal](https://github.com/harshit-gangal) (harshit@planetscale.com)
-- Issue: <https://github.com/vitessio/vitess/issues/14931>
+- Description: The KCL package management tool primarily handles the management of third-party KCL packages for the KCL project, which includes tasks such as uploading and downloading these packages. When adding third-party packages to the KCL project, it is important to adhere to version management strategies. This involves carefully selecting and downloading the appropriate version of a package, especially when different versions of the same package are available.
+- Expected Outcome: Add version management to the KCL package management tool.
+- Recommended Skills: golang
+- Mentor(s):
+  - Pengfei Xu (@Peefy, xpf6677@gmail.com)
+  - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/kpm/issues/246
+
+#### KCL IDE Quick Fix
+
+- Description: When the KCL IDE encounters some errors in the KCL code, it can pop up `Quick Fix` prompts to help users quickly fix the errors.
+- Expected Outcome: Added Quick Fix for some error prompts in KCL IDE.
+- Recommended Skills: rust
+- Mentor(s):
+  - Pengfei Xu (@Peefy, xpf6677@gmail.com)
+  - Zheng Zhang (@He1pa, he1pa404@gmail.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/kcl/issues/997
+
+#### KCL IDE Update KCL Dependencies
+
+- Description: When a KCL package is loaded using KCL IDE, the IDE automatically updates the dependencies of the current KCL package through kpm.
+- Expected Outcome: Add automatic updates for third-party libraries to the IDE.
+- Recommended Skills: rust, go
+- Mentor(s):
+  - Pengfei Xu (@Peefy, xpf6677@gmail.com)
+  - Zheng Zhang (@He1pa, he1pa404@gmail.com)
+  - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/kcl/issues/998
+
+### Knative Eventing
+
+#### Cross Namespace Event Links
+
+- Description: One of the most requested features in Knative Eventing over the past few years has been for triggers in different namespaces than brokers, and for subscriptions
+  in different namespaces than channels. More information can be found in the upstream issue.
+- Expected Outcome: Knative Eventing Triggers and Subscriptions can reference Brokers or Channels in a namespace different from their own if the user possesses the necessary
+  permissions to do so.
+- Recommended Skills: Go, Kubernetes
+- Mentor(s):
+  - Calum Murray (@Cali0707, cmurray@redhat.com)
+  - Pierangelo Di Pilato (@pierdipi, pierdipi@redhat.com)
+- Upstream Issue: https://github.com/knative/eventing/issues/7530
+
+### Konveyor
+
+#### Move2Kube: Exploratory approaches to artifact manipulation.
+
+- Description: Move2Kube is a command-line tool for automating creation of Infrastructure as code (IaC) artifacts. It has built-in support for creating IaC artifacts for replatforming to Kubernetes/OpenShift. As part of replatforming, we want to allow artifact manipulation at various levels to handle complex cases of replatforming flows. Example - while re-platforming from Netflix OSS spring boot feign client + eureka setup to Kubernetes (kubedns, kube-dns, services, ingress etc.) could need some artifact changes at different levels (code, architecture etc.).
+- Expected Outcome:
+  - Identify various forms of artifact manipulation and explore approaches to support such manipulations.
+- Recommended Skills:
+  - Golang
+  - program analysis
+- Mentor(s):
+  - Akash Nayak (@akash.nayak1, akash.nayak1@ibm.com)
+  - Harikrishnan Balagopal (@HarikrishnanBalagopal, harikrishnan.balagopal@ibm.com)
+  - Mehant Kammakomati (@kmehant, mehant.kammakomati2@ibm.com)
+- Upstream Issue: https://github.com/konveyor/move2kube/issues/1130
+
+#### Move2Kube: Simplify plugin architecture of m2k
+
+- Description: Move2Kube is a command-line tool for automating creation of Infrastructure as code (IaC) artifacts. The tool has a powerful plugin based transformer architecture where developers can write their own custom transformer plugins to fulfil their re-platforming needs. However, concepts like path mappings etc could be simplified for better adoption. Example - writing a Move2Kube custom transformer needs developers to understand various concepts such as path mappings etc, can we reduce this learning overhead by simplifying the Move2Kube architecture?
+- Expected Outcome:
+  - Come up with a simplified alternative design for plugin architecture for M2K
+  - Migrate existing components to support the new design with backward compatibility (good to have).
+- Recommended Skills:
+  - Golang
+  - K8s
+- Mentor(s):
+  - Akash Nayak (@akash.nayak1, akash.nayak1@ibm.com)
+  - Harikrishnan Balagopal (@HarikrishnanBalagopal, harikrishnan.balagopal@ibm.com)
+  - Mehant Kammakomati (@kmehant, mehant.kammakomati2@ibm.com)
+- Upstream Issue: https://github.com/konveyor/move2kube/issues/1131
+
+#### Move2Kube: Advanced Resources support and enhance other Move2Kube components
+
+- Description: Move2Kube is a command-line tool for automating creation of Infrastructure as code (IaC) artifacts. It has built-in support for creating IaC artifacts for replatforming to Kubernetes/OpenShift. Currently we have support for resources such as ArgoCD, Tekton, etc. There is still a gap to be covered in the support Move2Kube provides. Example - enhance support for external transformers (GRPC, file/folder permissions, etc.).
+- Expected Outcome:
+  - More comprehensive support for Move2Kube advanced resources and other components.
+- Recommended Skills:
+  - Golang
+  - K8s
+  - ArgoCD
+  - Tekton
+- Mentor(s):
+  - Akash Nayak (@akash.nayak1, akash.nayak1@ibm.com)
+  - Harikrishnan Balagopal (@HarikrishnanBalagopal, harikrishnan.balagopal@ibm.com)
+  - Mehant Kammakomati (@kmehant, mehant.kammakomati2@ibm.com)
+- Upstream Issue: https://github.com/konveyor/move2kube/issues/1132
 
 ### Kubearmor
 
@@ -171,3 +255,141 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Rudraksh Pareek (@DelusionalOptimist, rudrakshpareek3601@gmail.com )
   - Anurag Kumar (@kranurag7, kranurag7@linux.com)
 - Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1390
+
+### KubeVela
+
+#### Support versioning for definitions
+
+- Description: In KubeVela, X-Definitions provide the foundation for users to construct their applications. Currently we will automatically upgrade the definitions' version for our users, however, we still need the capability of explicit versioning in definitions. With this feature, our users can now manage the version easily for application upgrades and migrations.
+- Expected Outcome: Support expilict versioning in definitions to help application upgrades and migrations.
+- Recommended Skills: Go, Kubernetes
+- Mentor(s):
+  - Fog Dong (@FogDong, wuwuglu19@gmail.com)
+  - Zhongpei Qiao(@chivalryq, chivalry.pp@gmail.com)
+- Upstream Issue: https://github.com/kubevela/kubevela/issues/6435
+
+### Kyverno
+
+#### Kyverno for Envoy Authorization
+
+- Description: Build an Envoy plugin to support authorisation based on Kyverno policies.
+- Expected Outcome: Enable users to perform autorisation with similar concepts as kyverno and kyverno-JSON using policies.
+- Recommended Skills: Golang, Kubernetes, Envoy
+- Mentor(s):
+  - Charles-Edouard Brétéché (@eddycharly, charles.edouard@nirmata.com)
+  - Anushka Mittal (@anushkamittal2001, anushka@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/9488
+
+#### Kyverno VPA Recommender 
+
+- Description: A common pain-point heard from users is improper resource allocations, and if Kyverno policies can help with that. This is an exploratory project to see if Kyverno can work with Kubernetes Vertical Pod Autoscalers (VPA).
+- Expected Outcome: Kyverno policies that work with VPA recommender.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s):
+  - Jim Bugwadia (@jimbugwadia, jim@nirmata.com)
+  - Khaled Emara (@KhaledEmaraDev, khaled.emara@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/9429
+
+
+#### Convert Kubernetes Best Practices Policies to CEL 
+
+- Description: Kubernetes Best Practices policies are written using Kyverno patterns and JMESPath, which means they cannot be executed as ValidatingAdmissionPolicy resources in the API server. This project aims to convert Kubernetes Best Practices policies, and other validating policies, to CEL wherever possible.
+- Expected Outcome: Convert Kyverno policies for Kubernetes best practices to CEL.
+- Recommended Skills: Kubernetes, Kyverno policies, CEL
+- Mentor(s):
+  - Anusha Hegde (@anusha94, anusha.hegde@nirmata.com)
+  - Mariam Fahmy (@MariamFahmy98, mariam.fahmy@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/policies/issues/891
+
+#### Verify Multiple Image Attestations
+
+- Description: Currently Kyverno cannot verify data across multiple attestations e.g. an image vulnerability scan report and a OpenVEX document. This project will enhance the image verification rules to support flexible checks across multiple attestations.
+- Expected Outcome: Support condition validation across multiple image verification attestations or context entry.
+- Recommended Skills: Golang, Kubernetes, VEX, Cosign, Notary
+- Mentor(s):
+  - Vishal Choudhary (@vishal-chdhry, vishal.choudhary@nirmata.com)
+  - Shuting Zhao (@realshuting, shuting@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/9456
+
+### K8sGPT
+
+#### Enhance K8sGPT's analyzers Unit Test Coverage
+
+- Description: K8sGPT is a tool for scanning Kubernetes clusters, diagnosing and triaging issues with the help of GenAI. It has SRE experience codified into its analyzers. These analyzers are critical for K8sGPT to perform its in-depth analysis. There are a few analysers that have either limited or absent unit tests. The goal is to introduce more unit tests which will reflect mocked problematic/misconfigured K8s resources and assure K8sGPT analysers can catch and identify those test scenarios.
+- Expected Outcome: Introduce and enhance Test Coverage of K8sGPT's analyzers
+- Recommended Skills: Go, Kubernetes 
+- Mentor(s):
+  - Alex Jones (@AlexsJones, alex@k8sgpt.ai)
+  - Aris Boutselis (@arbreezy, arisboutselis08@gmail.com)
+- Issue: https://github.com/k8sgpt-ai/k8sgpt/issues/889
+
+### Prometheus
+
+#### Client_golang CI/CD improvements
+
+- Description: Prometheus' client_golang is the Prometheus SDK for metrics instrumentation for Go applications. Client_golang promises full support for the 3 latests major Go versions, and for this task a lot of manual effort is executed by the community. Client_golang could receive several improvements around its CI/CD pipelines and automation:
+  - Golang version upgrades requires autogenerating go files that Go Collector uses to collect Go runtime metrics.
+  - Unit tests need to be run for the 3 latest Go versions, and running tests locally with different Go versions is hard at the moment. We can explore locally reproducible CI/CD.
+  - The changelog of new releases still requires a lot of manual work, like going through commit history and hand-picking commits that need to be advertised. We want to explore automation around semantic conventional commits that allows Changelog/Release automation.
+- Recommended Skills: Go, Shell, CI/CD
+- Mentor(s):
+  - [Arthur Sens](https://github.com/ArthurSens) (arthursens2005@gmail.com)
+  - [Kemal Akkoyun](https://github.com/kakkoyun) (kakkoyun@gmail.com)
+- Issue: 
+  - https://github.com/prometheus/client_golang/issues/1434
+  - https://github.com/prometheus/client_golang/issues/1435
+  - https://github.com/prometheus/client_golang/issues/1436
+
+### Vitess
+
+#### Improve Unit Test Coverage
+
+- Description: Vitess is a scalable cloud-native database system for horizontal scaling of MySQL.The project is over 10 years old and there are parts of the code that don’t have very good unit test coverage. Revamping these code files and adding unit test coverage will help with the overall project health. Having strong unit testing is also useful in preventing introducing bugs when making code changes to these files. The task of the mentee would be to add said unit tests for the given code files. At the time of writing this proposal, the unit test coverage in Vitess stands at 47.3% of all lines of code.
+- Expected Outcome: Improved unit test coverage in Vitess.
+- Recommended Skills: Go, SQL, Unit testing
+- Mentor(s): 
+  - [Manan Gupta](https://github.com/GuptaManan100) (manan@planetscale.com)
+  - [Harshit Gangal](https://github.com/harshit-gangal) (harshit@planetscale.com)
+- Issue: <https://github.com/vitessio/vitess/issues/14931>
+
+### WasmEdge
+
+#### Integrate MLX as a new WASI-NN backend
+
+- Description: LLM is a hot topic, there are more and more frameworks to make the execution of LLM faster. WasmEdge already integrated the [llama.cpp](https://github.com/ggerganov/llama.cpp) as one of the backend. And we want to bring more. [MLX](https://github.com/ml-explore/mlx) is an array framework on Apple silicon created by Apple machine learning research. With MLX, we believe it can have a huge improvement on macOS.
+- Expected Outcome: A new plugin provides a MLX [WASI-NN](https://github.com/second-state/wasmedge-wasi-nn) backend, a test suite for validating the plugin, documents and examples for explaining how to use the plugin.
+- Recommended Skills: C++, Wasm
+- Mentor(s):
+  - Hung-Ying Tai (@hydai, hydai@secondstate.io)
+  - dm4 (@dm4, dm4@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3168
+
+#### Integrate Intel Extension for Transformers as a new WASI-NN backend
+
+- Description: LLM is a hot topic, there are more and more frameworks to make the execution of LLM faster. WasmEdge already integrated the [llama.cpp](https://github.com/ggerganov/llama.cpp) as one of the backend. Running LLM with CPU only is huge for those users who don't have GPU. We would like to integrate [Intel Extension for Transformers](https://github.com/intel/intel-extension-for-transformers) as a new WASI-NN backend to provide a faster CPU inference performance.
+- Expected Outcome: A new plugin provides a Intel Extension for Transformers [WASI-NN](https://github.com/second-state/wasmedge-wasi-nn) backend, a test suite for validating the plugin, documents and examples for explaining how to use the plugin.
+- Recommended Skills: C++, Wasm
+- Mentor(s):
+  - Hung-Ying Tai (@hydai, hydai@secondstate.io)
+  - dm4 (@dm4, dm4@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3169
+
+#### Integrate whisper.cpp as a new WASI-NN backend
+
+- Description: WasmEdge supports PyTorch, TensorFlow Lite, llama.cpp, and more NN backend. Dealing with the Voice to Text is a big thing that we want to achieve. To make it possible, we would like to integrate [whisper.cpp](https://github.com/ggerganov/whisper.cpp), a port of OpenAI's Whisper model in C/C++ as a new [WASI-NN](https://github.com/second-state/wasmedge-wasi-nn) backend.
+- Expected Outcome: A new plugin provides a whisper.cpp [WASI-NN](https://github.com/second-state/wasmedge-wasi-nn) backend, a test suite for validating the plugin, documents and examples for explaining how to use the plugin.
+- Recommended Skills: C++, Wasm
+- Mentor(s):
+  - Hung-Ying Tai (@hydai, hydai@secondstate.io)
+  - dm4 (@dm4, dm4@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3170
+
+#### Integrate burn.rs as a new WASI-NN backend
+
+- Description: WasmEdge supports PyTorch, TensorFlow Lite, llama.cpp, and more NN backend. [Burn.rs](https://github.com/tracel-ai/burn) is a new deep learning framework built using Rust. The portability, flexibility, and compute efficiency are important to Wasm. That's why we would love to have `burn.rs` as a new [WASI-NN](https://github.com/second-state/wasmedge-wasi-nn) backend.
+- Expected Outcome: A new plugin provides a burn.rs [WASI-NN](https://github.com/second-state/wasmedge-wasi-nn) backend, a test suite for validating the plugin, documents and examples for explaining how to use the plugin.
+- Recommended Skills: Rust, Wasm
+- Mentor(s):
+  - Hung-Ying Tai (@hydai, hydai@secondstate.io)
+  - dm4 (@dm4, dm4@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3172
