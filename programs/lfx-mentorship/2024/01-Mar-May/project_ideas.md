@@ -83,7 +83,7 @@
 - Description: The KCL package management tool primarily handles the management of third-party KCL packages for the KCL project, which includes tasks such as uploading and downloading these packages. When adding third-party packages to the KCL project, it is important to adhere to version management strategies. This involves carefully selecting and downloading the appropriate version of a package, especially when different versions of the same package are available.
 - Expected Outcome: Add version management to the KCL package management tool.
 - Recommended Skills: golang
-- Mentor(s): # It is recommended to have at least 2 mentors, and at least one of them should be the primary mentor. For GSoC, it is **required** to have at least 2 mentors.
+- Mentor(s):
   - Pengfei Xu (@Peefy, xpf6677@gmail.com)
   - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
 - Upstream Issue (URL): https://github.com/kcl-lang/kpm/issues/246
@@ -93,7 +93,7 @@
 - Description: When the KCL IDE encounters some errors in the KCL code, it can pop up `Quick Fix` prompts to help users quickly fix the errors.
 - Expected Outcome: Added Quick Fix for some error prompts in KCL IDE.
 - Recommended Skills: rust
-- Mentor(s): # It is recommended to have at least 2 mentors, and at least one of them should be the primary mentor. For GSoC, it is **required** to have at least 2 mentors.
+- Mentor(s):
   - Pengfei Xu (@Peefy, xpf6677@gmail.com)
   - Zheng Zhang (@He1pa, he1pa404@gmail.com)
 - Upstream Issue (URL): https://github.com/kcl-lang/kcl/issues/997
@@ -103,7 +103,7 @@
 - Description: When a KCL package is loaded using KCL IDE, the IDE automatically updates the dependencies of the current KCL package through kpm.
 - Expected Outcome: Add automatic updates for third-party libraries to the IDE.
 - Recommended Skills: rust, go
-- Mentor(s): # It is recommended to have at least 2 mentors, and at least one of them should be the primary mentor. For GSoC, it is **required** to have at least 2 mentors.
+- Mentor(s):
   - Pengfei Xu (@Peefy, xpf6677@gmail.com)
   - Zheng Zhang (@He1pa, he1pa404@gmail.com)
   - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
