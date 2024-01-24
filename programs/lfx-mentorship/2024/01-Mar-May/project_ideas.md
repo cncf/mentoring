@@ -230,6 +230,17 @@
   - Zhongpei Qiao(@chivalryq, chivalry.pp@gmail.com)
 - Upstream Issue: https://github.com/kubevela/kubevela/issues/6435
 
+### OpenTelemetry
+
+#### OpenTelemetry Collector Debug exporter enhancements
+
+- Description: The OpenTelemetry Collector's Debug exporter is not very configurable. Currently the only option is to define `verbosity` at one of three levels: `basic`, `normal`, `detailed`. Users might find it useful to switch certain parts of output on/off, as well as decide where the exporter's output should be sent (currently only `stderr`). Let's add options to the exporter that allow users to configure the exporter's output.
+- Expected Outcome: Debug exporter's output can be configured
+- Recommended Skills: Go
+- Mentor(s):
+  - Andrzej Stencel ([@astencel-sumo](https://github.com/astencel-sumo/), andrzej@andrzejstencel.pl)
+- Upstream Issue: https://github.com/open-telemetry/opentelemetry-collector/issues/9372
+
 ### Prometheus
 
 #### Client_golang CI/CD improvements
