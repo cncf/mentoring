@@ -76,6 +76,38 @@
   - Bill Mulligan(@xmulligan, bill@isovalent.com)
 - Upstream Issue: https://github.com/cilium/community/issues/78 https://github.com/cilium/community/issues/27
 
+### Jaeger
+
+#### Jaeger-V2 Storage Backends
+
+- Description: Jaeger is a distributed tracing platform. Jaeger V2 is a major new version where we rebase all Jaeger backend components (agent, collector, ingester, and query) on top of the OpenTelemetry Collector. Currently only memory storage is wired in v2, we need to add Elasticsearch, Opensearch, Cassandra, Badger.
+- Expected Outcome: Build out full support in jaeger-v2 for all storage backends supported by jaeger-v1
+- Recommended Skills: Go, scripting, CI/CD
+- Mentor(s):
+  - Yuri Shkuro (@yurishkuro, github@ysh.us)
+  - Jonah Kowall (@jkowall, jkowall@kowall.net)
+- Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5084
+
+#### Jaeger-V2 Observability
+
+- Description: Jaeger is a distributed tracing platform. Jaeger V2 is a major new version where we rebase all Jaeger backend components (agent, collector, ingester, and query) on top of the OpenTelemetry Collector. Currently jaeger-v2 components are initialized without observability clients. We need to instantiate appropriate logging, tracing, and metrics clients and pass them to the components. The existing code uses internal metrics API, which needs to be bridged to OTEL metrics to minimize code changes.
+- Expected Outcome: Achieve parity in observability of jaeger-v2 compared to jaeger-v1
+- Recommended Skills: Go, scripting, CI/CD
+- Mentor(s):
+  - Yuri Shkuro (@yurishkuro, github@ysh.us)
+  - Jonah Kowall (@jkowall, jkowall@kowall.net)
+- Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5084
+
+#### Jaeger-V2 Adaptive Sampling
+
+- Description: Jaeger is a distributed tracing platform. Jaeger V2 is a major new version where we rebase all Jaeger backend components (agent, collector, ingester, and query) on top of the OpenTelemetry Collector. Jaeger-v1 collector can serve sampling configuration to SDKs, and allows either static configuration (with hot reload) or adaptive sampling that continuously re-calculates the desired sampling probabilities. We need to enable all these capabilities in jaeger-v2.
+- Expected Outcome: Support adaptive sampling in jaeger-v2
+- Recommended Skills: Go, scripting, CI/CD
+- Mentor(s):
+  - Yuri Shkuro (@yurishkuro, github@ysh.us)
+  - Jonah Kowall (@jkowall, jkowall@kowall.net)
+- Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5084
+
 ### KCL
 
 #### KCL Package Version Management
@@ -123,37 +155,22 @@
   - Pierangelo Di Pilato (@pierdipi, pierdipi@redhat.com)
 - Upstream Issue: https://github.com/knative/eventing/issues/7530
 
-### Jaeger
+### Prometheus
 
-#### Jaeger-V2 Storage Backends
+#### Client_golang CI/CD improvements
 
-- Description: Jaeger is a distributed tracing platform. Jaeger V2 is a major new version where we rebase all Jaeger backend components (agent, collector, ingester, and query) on top of the OpenTelemetry Collector. Currently only memory storage is wired in v2, we need to add Elasticsearch, Opensearch, Cassandra, Badger.
-- Expected Outcome: Build out full support in jaeger-v2 for all storage backends supported by jaeger-v1
-- Recommended Skills: Go, scripting, CI/CD
+- Description: Prometheus' client_golang is the Prometheus SDK for metrics instrumentation for Go applications. Client_golang promises full support for the 3 latests major Go versions, and for this task a lot of manual effort is executed by the community. Client_golang could receive several improvements around its CI/CD pipelines and automation:
+  - Golang version upgrades requires autogenerating go files that Go Collector uses to collect Go runtime metrics.
+  - Unit tests need to be run for the 3 latest Go versions, and running tests locally with different Go versions is hard at the moment. We can explore locally reproducible CI/CD.
+  - The changelog of new releases still requires a lot of manual work, like going through commit history and hand-picking commits that need to be advertised. We want to explore automation around semantic conventional commits that allows Changelog/Release automation.
+- Recommended Skills: Go, Shell, CI/CD
 - Mentor(s):
-  - Yuri Shkuro (@yurishkuro, github@ysh.us)
-  - Jonah Kowall (@jkowall, jkowall@kowall.net)
-- Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5084
-
-#### Jaeger-V2 Observability
-
-- Description: Jaeger is a distributed tracing platform. Jaeger V2 is a major new version where we rebase all Jaeger backend components (agent, collector, ingester, and query) on top of the OpenTelemetry Collector. Currently jaeger-v2 components are initialized without observability clients. We need to instantiate appropriate logging, tracing, and metrics clients and pass them to the components. The existing code uses internal metrics API, which needs to be bridged to OTEL metrics to minimize code changes.
-- Expected Outcome: Achieve parity in observability of jaeger-v2 compared to jaeger-v1
-- Recommended Skills: Go, scripting, CI/CD
-- Mentor(s):
-  - Yuri Shkuro (@yurishkuro, github@ysh.us)
-  - Jonah Kowall (@jkowall, jkowall@kowall.net)
-- Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5084
-
-#### Jaeger-V2 Adaptive Sampling
-
-- Description: Jaeger is a distributed tracing platform. Jaeger V2 is a major new version where we rebase all Jaeger backend components (agent, collector, ingester, and query) on top of the OpenTelemetry Collector. Jaeger-v1 collector can serve sampling configuration to SDKs, and allows either static configuration (with hot reload) or adaptive sampling that continuously re-calculates the desired sampling probabilities. We need to enable all these capabilities in jaeger-v2.
-- Expected Outcome: Support adaptive sampling in jaeger-v2
-- Recommended Skills: Go, scripting, CI/CD
-- Mentor(s):
-  - Yuri Shkuro (@yurishkuro, github@ysh.us)
-  - Jonah Kowall (@jkowall, jkowall@kowall.net)
-- Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5084
+  - [Arthur Sens](https://github.com/ArthurSens) (arthursens2005@gmail.com)
+  - [Kemal Akkoyun](https://github.com/kakkoyun) (kakkoyun@gmail.com)
+- Issue: 
+  - https://github.com/prometheus/client_golang/issues/1434
+  - https://github.com/prometheus/client_golang/issues/1435
+  - https://github.com/prometheus/client_golang/issues/1436
 
 ### Vitess
 
