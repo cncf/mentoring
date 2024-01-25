@@ -89,6 +89,35 @@
   - Natalie Arellano (@natalieparellano, natalie.arellano@broadcom.com)
 - Upstream Issue: https://github.com/buildpacks/pack/issues/1570
 
+### Harbor
+
+#### Harbor CLI
+
+- Description: Harbor is a popular and widely adopted container registry. We have developed an initial CLI (https://github.com/goharbor/harbor-cli) that we would like to extend and implement additional functionality, and common workflows that are currently only present in the Web UI. We are seeking a Golangs experienced manatee who can work on the project independently. 
+- Expected Outcome: Working Golang Harbor CLI which can be used in the CI/CD implementations that compliment the Web UI covering the typical workflows of Harbor administrators and users. Familiarity with Golang library spf13/cobra and REST/Open API. Well-documented CLI that users love to use, and with the corresponding architectural diagrams under the Harbor. Working CI/CD with GitHub actions that create multi architecture binaries and containers.
+- Recommended Skills: Golang, spf13/cobra
+- Mentor(s):
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Yan Wang (@wy65701436, yan-yw.wang@broadcom.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+- Upstream Issue: https://github.com/search?q=Harbor%20CLI&type=repositories
+
+#### Harbor Satellite
+
+- Description: Containers are becoming more and more omnipresent, event outside their natural habitat, the cloud. It is not common today to see that container are running on small and remote devices on the EDGE. Those fleets of devices often don’t have a reliable internet connection or no internet connection at all. Running containers without being able to fetch images is a hard thing to do. So we are bringing the registry closer to the appliances where they are running.
+Since we are not talking about a few registries but many more, it becomes challenging to manage all the registries, this is where the satellite concept comes into place where images are distributes from a central registry.
+The following slides and video outline the concept and its purpose in more detail.
+https://youtu.be/GJ3pnfUocEw?si=F9mn4-sgN1_K6rLK&t=1529
+https://docs.google.com/presentation/d/e/2PACX-1vRfcwotFzUSmfmSOmRQccBdJuFUFtIxeFE4mB3L9NgnOBM5tBnCs6uYOzyfUCIpd5xiEueMA1RYTFML/pub?start=false&loop=false&delayms=3000
+- Expected Outcome: The goal is to create a proof of concept, showcasing that such a solution practically works. Candidates should be able to demonstrate, how images can be replicated from a central registry to a registry on the edge location.
+The demonstration should contain a tunneling solution that has a Golang SDK or can be controlled from a Golang application. Part of the project is the selection and evaluation of different tunneling solutions. 
+- Recommended Skills: Golang, OSS contributions, distributed systems
+- Mentor(s):
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Yan Wang (@wy65701436, yan-yw.wang@broadcom.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+- Upstream Issue: https://github.com/search?q=repo%3Agoharbor%2Fharbor+Satellite&type=issues
+
 ### Inspektor Gadget
 
 #### Support for new types of eBPF programs
