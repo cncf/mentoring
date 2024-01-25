@@ -291,6 +291,49 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Anurag Kumar (@kranurag7, kranurag7@linux.com)
 - Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1591
 
+### KubeEdge
+
+#### Auto Generate KubeEdge API Document 
+
+- Description: KubeEdge has introduced several custom APIs, but currently, there is no corresponding API documentation available. We would like to implement automated generation of API documentation and display it on the website documentation to assist users in quickly understanding the APIs and help developers reduce maintenance costs.
+- Expected Outcome: A tool for automatically generating API documentation.
+- Recommended Skills: Golang, Kubernetes, Swagger
+- Mentor(s): 
+  - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
+  - Fisher Xu (@fisherxu, fisherxu1@gmail.com)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/5159
+
+#### Image PrePull Feature Enhancement
+
+- Description: In the latest release, KubeEdge has implemented the ability for image pre pull. However, each task execution only supports images from the same image repository currently. We hope to enhance this feature to support capabilities like overriding images and secrets, complete end-to-end tests for this feature.
+- Expected Outcome: Support image and secret override in image pre pull feature. And E2e tests for this feature are added. 
+- Recommended Skills: Golang, Kubernetes, KubeEdge
+- Mentor(s):
+  - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
+  - Fisher Xu (@fisherxu, fisherxu1@gmail.com)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/5341
+
+#### Keadm Tool Enhancement
+
+- Description: Keadm(KubeEdge installation tool) now only supports configuring a subset of parameters during EdgeCore installation. We would like to support specifying parameters using `--set` or directly using an existing local configuration file to achieve full parameter configuration and meet the users' requirements. 
+- Expected Outcome: Users can use `keadm join --set` or specify the local `edgecore.yaml` to configure EdgeCore.
+- Recommended Skills: Golang, Kubernetes, KubeEdge
+- Mentor(s):
+  - Willard Hu (@WillardHu, wei.hu@daocloud.io)
+  - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/5317 
+
+#### Support latest version in keink and run demo on keink
+
+- Description: keink(represent for KubeEdge IN kind) is a project for running local KubeEdge clusters using Docker container "nodes", so developers can install a multi-node
+  edge cluster in one node. Now we need to support the latest version installation in keink.
+- Expected Outcome: keink can install the latest version of KubeEdge and developers can quickly use keink to run kubeedge, and then develop applications on KubeEdge.
+- Recommended Skills: Kubernetes, KubeEdge, Golang
+- Mentor(s): 
+  - Fisher Xu (@fisherxu, fisherxu1@gmail.com)
+  - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
+- Upstream Issue: https://github.com/kubeedge/keink/issues/8
+
 ### KubeVela
 
 #### Support versioning for definitions
