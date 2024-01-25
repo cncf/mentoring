@@ -393,6 +393,33 @@ We want to leverage the above for creating a plugin which will allow users to se
   - [Harshit Gangal](https://github.com/harshit-gangal) (harshit@planetscale.com)
 - Issue: <https://github.com/vitessio/vitess/issues/14931>
 
+### Volcano
+
+#### Volcano supports multi-cluster AI workloads scheduling
+
+- Description: Volcano provides rich scheduling capabilities for AI workloads in the field of single cluster. In large model training scenarios, a single cluster cannot meet the computing power requirements of jobs, more and more users hope to submit jobs uniformly on multiple clusters for large model training, volcano needs to provide various scheduling capabilities, such as job management, gang scheduling, queue management, etc., and select the appropriate cluster for jobs to cope with the requirements of large model training.
+- Expected Outcome:
+  - Implement a basic multi-clusters scheduling framework integrated with multi-clusters scheduler like [Karmada](https://github.com/karmada-io/karmada) or other multi-cluster orchestration.
+  - Implement gang scheduling, fair scheduling in multi-cluster.
+  - Implement queue management in multi-cluster.
+- Recommended Skills: Go, Kubernetes, Volcano
+- Mentor(s):
+  -   william wang(@william-wang, wang.platform@gmail.com)
+  -   Xuzheng Chang(@Monokaix, changxuzheng@huawei.com)
+- Upstream Issue: https://github.com/volcano-sh/volcano/issues/3310
+
+#### Volcano supports DRA integration
+
+- Description:  [DRA](https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/) is a new generation device management mechanism for kubernetes. It introduces a new resource request API `ResourceClaim`, which requires kubelet, kube-controller-manager, scheduler, and third-party device management controllers to cooperate with each other to work. The kube-scheduler has implemented corresponding scheduling capabilities, Volcano also needs to implement the DRA scheduling plug-in to integrate the DRA function.
+- Expected Outcome:
+  - A design document describing how to integrate DRA into volcano.
+  - Implement DRA plugin in volcano.
+- Recommended Skills: Go, Kubernetes, Volcano
+- Mentor(s):
+  -   william wang(@william-wang, wang.platform@gmail.com)
+  -   Xuzheng Chang(@Monokaix, changxuzheng@huawei.com)
+- Upstream Issue: https://github.com/volcano-sh/volcano/issues/3143
+
 ### WasmEdge
 
 #### Integrate MLX as a new WASI-NN backend
@@ -434,30 +461,3 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Hung-Ying Tai (@hydai, hydai@secondstate.io)
   - dm4 (@dm4, dm4@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3172
-
-### Volcano
-
-#### Volcano supports multi-cluster AI workloads scheduling
-
-- Description: Volcano provides rich scheduling capabilities for AI workloads in the field of single cluster. In large model training scenarios, a single cluster cannot meet the computing power requirements of jobs, more and more users hope to submit jobs uniformly on multiple clusters for large model training, volcano needs to provide various scheduling capabilities, such as job management, gang scheduling, queue management, etc., and select the appropriate cluster for jobs to cope with the requirements of large model training.
-- Expected Outcome:
-  - Implement a basic multi-clusters scheduling framework integrated with multi-clusters scheduler like [Karmada](https://github.com/karmada-io/karmada) or other multi-cluster orchestration.
-  - Implement gang scheduling, fair scheduling in multi-cluster.
-  - Implement queue management in multi-cluster.
-- Recommended Skills: Go, Kubernetes, Volcano
-- Mentor(s):
-  -   william wang(@william-wang, wang.platform@gmail.com)
-  -   Xuzheng Chang(@Monokaix, changxuzheng@huawei.com)
-- Upstream Issue: https://github.com/volcano-sh/volcano/issues/3310
-
-#### Volcano supports DRA integration
-
-- Description:  [DRA](https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/) is a new generation device management mechanism for kubernetes. It introduces a new resource request API `ResourceClaim`, which requires kubelet, kube-controller-manager, scheduler, and third-party device management controllers to cooperate with each other to work. The kube-scheduler has implemented corresponding scheduling capabilities, Volcano also needs to implement the DRA scheduling plug-in to integrate the DRA function.
-- Expected Outcome:
-  - A design document describing how to integrate DRA into volcano.
-  - Implement DRA plugin in volcano.
-- Recommended Skills: Go, Kubernetes, Volcano
-- Mentor(s):
-  -   william wang(@william-wang, wang.platform@gmail.com)
-  -   Xuzheng Chang(@Monokaix, changxuzheng@huawei.com)
-- Upstream Issue: https://github.com/volcano-sh/volcano/issues/3143
