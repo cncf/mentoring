@@ -76,6 +76,19 @@
   - Bill Mulligan(@xmulligan, bill@isovalent.com)
 - Upstream Issue: https://github.com/cilium/community/issues/78 https://github.com/cilium/community/issues/27
 
+### Cloud Native Buildpacks
+
+#### Proof of concept for creating multi-arch images using buildkit
+
+- Description: A proof of concept to add buildkit support to pack in order to build multi-arch images. Pack is the reference implementation of a Cloud Native Buildpacks platform used to build application images from source code.
+- Expected Outcome: Multi-arch support has been one of the most requested features for Cloud Native Buildpacks, and this would allow end-users/developers to build multi-arch images with the pack cli.
+- Recommended Skills: Golang, Software development literacy, Familiarity building multi-arch containers with Docker and Buildkit. Familiarity with buildpacks will be helpful.
+- Mentor(s):
+  - Jerico Pena (@jericop, jericop@gmail.com)
+  - Juan Bustamante (@jjbustamante, bustamantejj@gmail.com)
+  - Natalie Arellano (@natalieparellano, natalie.arellano@broadcom.com)
+- Upstream Issue: https://github.com/buildpacks/pack/issues/1570
+
 ### Harbor
 
 #### Harbor CLI
@@ -305,7 +318,7 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Prashant Mishra (@primalpimmy, prashant20.pm@gmail.com)
   - Rudraksh Pareek (@DelusionalOptimist, rudrakshpareek3601@gmail.com )
   - Anurag Kumar (@kranurag7, kranurag7@linux.com)
-- Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1390
+- Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1591
 
 ### KubeVela
 
@@ -374,6 +387,40 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Aris Boutselis (@arbreezy, arisboutselis08@gmail.com)
 - Issue: https://github.com/k8sgpt-ai/k8sgpt/issues/889
 
+### Litmus Chaos
+
+#### Enhancement of litmusctl: Adding E2E Tests, CRUD Probes Commands, and Package Manager Availability
+
+- Description: The [project](https://github.com/litmuschaos/litmusctl) aims to improve litmusctl by introducing end-to-end (E2E) tests for better release testing and adding CRUD commands for probes, addressing user needs. Additionally, it seeks to enhance user accessibility by making litmusctl available on Brew and Chocolatey package managers.
+- Expected Outcome: The enhancement of litmusctl will include comprehensive E2E testing for improved reliability, the addition of CRUD commands for probes to expand functionality, and availability on Brew and Chocolatey for greater accessibility and user convenience.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s):
+  - Vedant Shrotria (@Jonsy13, vedant.shrotria@harness.io)
+  - Sarthak Jain (@SarthakJain26, sarthak.jain@harness.io)
+  - Nagesh Bansal (@Nageshbansal, nageshbansal59@gmail.com)
+- Upstream Issue: https://github.com/litmuschaos/litmus/issues/4405
+
+#### Enhancing Chaos Center: Implementing E2E Test Cases and Addressing CVE Issues
+
+- Description: This initiative focuses on augmenting the [Chaos Center](https://github.com/litmuschaos/litmus/tree/master/chaoscenter) with comprehensive end-to-end (E2E) test cases, addressing the current gap in testing capabilities. The lack of extensive E2E tests has been a challenge, especially during release cycles. The project also targets fixing identified Common Vulnerabilities and Exposures (CVEs) in the Chaos Center, enhancing the overall security and reliability of the system.
+- Expected Outcome: The project aims to establish a robust E2E testing framework for the Chaos Center, significantly improving test coverage and reliability during releases. Additionally, it focuses on resolving all identified CVEs, thereby enhancing the system's security. These improvements are expected to result in more stable and secure releases, increasing user trust in the Chaos Center.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s):
+  - Namkyu Park (@namkyu1999, lak9348@gmail.com)
+  - Shubham Chaudhary (@ispeakc0de, shubham.chaudhary@harness.io)
+  - Raj Babu Das (@imrajdas, mail.rajdas@gmail.com)
+- Upstream Issue: https://github.com/litmuschaos/litmus/issues/4406
+
+#### Enhancements in Chaos Center: Multiple Project Owners and Log Download API
+- Description: This project focuses on two major enhancements for the [Chaos Center](https://github.com/litmuschaos/litmus/tree/master/chaoscenter). First, it aims to enable the support for multiple project owners, a feature highly requested by users. This addition will allow for more collaborative and flexible project management within the Chaos Center. Second, the project will develop an API for downloading logs, providing users with easier access to log data. Furthermore, there's a need to update the API documentation to reflect these new changes and ensure that users have the latest information for seamless integration and usage.
+- Expected Outcome: The successful completion of this project will result in the Chaos Center supporting multiple project owners, fostering collaborative and efficient project management. The new log download API will enhance user experience by simplifying access to log data. Additionally, the updated API documentation will ensure that users have clear and current guidelines, supporting better utilization of the new features.
+- Recommended Skills: Golang, ReactJs
+- Mentor(s):
+  - Saranya Jena (@Saranya-jena, saranya.jena@harness.io)
+  - Sahil Kumar (@SahilKr24, sahil.kumar@harness.io)
+  - Hrishav Kumar (@hrishavjha, hrishav.kumar@harness.io)
+- Upstream Issue: https://github.com/litmuschaos/litmus/issues/4407
+
 ### OpenTelemetry
 
 #### One Logging Bridge per Language
@@ -421,6 +468,33 @@ We want to leverage the above for creating a plugin which will allow users to se
   - [Manan Gupta](https://github.com/GuptaManan100) (manan@planetscale.com)
   - [Harshit Gangal](https://github.com/harshit-gangal) (harshit@planetscale.com)
 - Issue: <https://github.com/vitessio/vitess/issues/14931>
+
+### Volcano
+
+#### Volcano supports multi-cluster AI workloads scheduling
+
+- Description: Volcano provides rich scheduling capabilities for AI workloads in the field of single cluster. In large model training scenarios, a single cluster cannot meet the computing power requirements of jobs, more and more users hope to submit jobs uniformly on multiple clusters for large model training, volcano needs to provide various scheduling capabilities, such as job management, gang scheduling, queue management, etc., and select the appropriate cluster for jobs to cope with the requirements of large model training.
+- Expected Outcome:
+  - Implement a basic multi-clusters scheduling framework integrated with multi-clusters scheduler like [Karmada](https://github.com/karmada-io/karmada) or other multi-cluster orchestration.
+  - Implement gang scheduling, fair scheduling in multi-cluster.
+  - Implement queue management in multi-cluster.
+- Recommended Skills: Go, Kubernetes, Volcano
+- Mentor(s):
+  -   william wang(@william-wang, wang.platform@gmail.com)
+  -   Xuzheng Chang(@Monokaix, changxuzheng@huawei.com)
+- Upstream Issue: https://github.com/volcano-sh/volcano/issues/3310
+
+#### Volcano supports DRA integration
+
+- Description:  [DRA](https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/) is a new generation device management mechanism for kubernetes. It introduces a new resource request API `ResourceClaim`, which requires kubelet, kube-controller-manager, scheduler, and third-party device management controllers to cooperate with each other to work. The kube-scheduler has implemented corresponding scheduling capabilities, Volcano also needs to implement the DRA scheduling plug-in to integrate the DRA function.
+- Expected Outcome:
+  - A design document describing how to integrate DRA into volcano.
+  - Implement DRA plugin in volcano.
+- Recommended Skills: Go, Kubernetes, Volcano
+- Mentor(s):
+  -   william wang(@william-wang, wang.platform@gmail.com)
+  -   Xuzheng Chang(@Monokaix, changxuzheng@huawei.com)
+- Upstream Issue: https://github.com/volcano-sh/volcano/issues/3143
 
 ### WasmEdge
 
