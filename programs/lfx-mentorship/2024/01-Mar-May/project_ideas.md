@@ -364,7 +364,7 @@ We want to leverage the above for creating a plugin which will allow users to se
 - Expected Outcome: The project aims to establish a robust E2E testing framework for the Chaos Center, significantly improving test coverage and reliability during releases. Additionally, it focuses on resolving all identified CVEs, thereby enhancing the system's security. These improvements are expected to result in more stable and secure releases, increasing user trust in the Chaos Center.
 - Recommended Skills: Golang, Kubernetes
 - Mentor(s):
-  - Namkyu Park (@namkyu1999, lak9348@konkuk.ac.kr)
+  - Namkyu Park (@namkyu1999, lak9348@gmail.com)
   - Shubham Chaudhary (@ispeakc0de, shubham.chaudhary@harness.io)
   - Raj Babu Das (@imrajdas, mail.rajdas@gmail.com)
 - Upstream Issue: https://github.com/litmuschaos/litmus/issues/4406
