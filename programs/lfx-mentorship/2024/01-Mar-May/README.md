@@ -467,4 +467,17 @@ We want to leverage the above for creating a plugin which will allow users to se
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/9456
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/f1041093-65f3-4169-8c70-187a0f286aa4
 
+### K8sGPT
+
+#### Enhance K8sGPT's analyzers Unit Test Coverage
+
+- Description: K8sGPT is a tool for scanning Kubernetes clusters, diagnosing and triaging issues with the help of GenAI. It has SRE experience codified into its analyzers. These analyzers are critical for K8sGPT to perform its in-depth analysis. There are a few analysers that have either limited or absent unit tests. The goal is to introduce more unit tests which will reflect mocked problematic/misconfigured K8s resources and assure K8sGPT analysers can catch and identify those test scenarios.
+- Expected Outcome: Introduce and enhance Test Coverage of K8sGPT's analyzers
+- Recommended Skills: Go, Kubernetes 
+- Mentor(s):
+  - Alex Jones (@AlexsJones, alex@k8sgpt.ai)
+  - Aris Boutselis (@arbreezy, arisboutselis08@gmail.com)
+- Issue: https://github.com/k8sgpt-ai/k8sgpt/issues/889
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/57907615-6548-462d-81dc-62c88476f122
+
 

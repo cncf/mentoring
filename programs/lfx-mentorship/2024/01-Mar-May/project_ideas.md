@@ -18,19 +18,6 @@
 
 ## Proposed Project ideas
 
-### K8sGPT
-
-#### Enhance K8sGPT's analyzers Unit Test Coverage
-
-- Description: K8sGPT is a tool for scanning Kubernetes clusters, diagnosing and triaging issues with the help of GenAI. It has SRE experience codified into its analyzers. These analyzers are critical for K8sGPT to perform its in-depth analysis. There are a few analysers that have either limited or absent unit tests. The goal is to introduce more unit tests which will reflect mocked problematic/misconfigured K8s resources and assure K8sGPT analysers can catch and identify those test scenarios.
-- Expected Outcome: Introduce and enhance Test Coverage of K8sGPT's analyzers
-- Recommended Skills: Go, Kubernetes 
-- Mentor(s):
-  - Alex Jones (@AlexsJones, alex@k8sgpt.ai)
-  - Aris Boutselis (@arbreezy, arisboutselis08@gmail.com)
-- Issue: https://github.com/k8sgpt-ai/k8sgpt/issues/889
-- LFX URL: 
-
 ### Litmus Chaos
 
 #### Enhancement of litmusctl: Adding E2E Tests, CRUD Probes Commands, and Package Manager Availability
