@@ -74,7 +74,7 @@
 - Recommended Skills: enthusiasm for governance and basic markdown experience
 - Mentor(s):
   - Bill Mulligan(@xmulligan, bill@isovalent.com)
-- Upstream Issue: https://github.com/cilium/community/issues/78 https://github.com/cilium/community/issues/27
+- Upstream Issue: https://github.com/cilium/community/issues/78 https://github.com/cilium/community/issues/27 https://github.com/cilium/community/issues/82
 
 ### Cloud Native Buildpacks
 
