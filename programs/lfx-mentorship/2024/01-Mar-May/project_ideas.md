@@ -18,19 +18,6 @@
 
 ## Proposed Project ideas
 
-### KubeVela
-
-#### Support versioning for definitions
-
-- Description: In KubeVela, X-Definitions provide the foundation for users to construct their applications. Currently we will automatically upgrade the definitions' version for our users, however, we still need the capability of explicit versioning in definitions. With this feature, our users can now manage the version easily for application upgrades and migrations.
-- Expected Outcome: Support expilict versioning in definitions to help application upgrades and migrations.
-- Recommended Skills: Go, Kubernetes
-- Mentor(s):
-  - Fog Dong (@FogDong, wuwuglu19@gmail.com)
-  - Zhongpei Qiao(@chivalryq, chivalry.pp@gmail.com)
-- Upstream Issue: https://github.com/kubevela/kubevela/issues/6435
-- LFX URL: 
-
 ### Kyverno
 
 #### Kyverno for Envoy Authorization
