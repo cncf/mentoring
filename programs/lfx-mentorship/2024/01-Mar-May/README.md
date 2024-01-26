@@ -480,4 +480,42 @@ We want to leverage the above for creating a plugin which will allow users to se
 - Issue: https://github.com/k8sgpt-ai/k8sgpt/issues/889
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/57907615-6548-462d-81dc-62c88476f122
 
+### LitmusChaos
+
+#### Enhancement of litmusctl: Adding E2E Tests, CRUD Probes Commands, and Package Manager Availability
+
+- Description: The [project](https://github.com/litmuschaos/litmusctl) aims to improve litmusctl by introducing end-to-end (E2E) tests for better release testing and adding CRUD commands for probes, addressing user needs. Additionally, it seeks to enhance user accessibility by making litmusctl available on Brew and Chocolatey package managers.
+- Expected Outcome: The enhancement of litmusctl will include comprehensive E2E testing for improved reliability, the addition of CRUD commands for probes to expand functionality, and availability on Brew and Chocolatey for greater accessibility and user convenience.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s):
+  - Vedant Shrotria (@Jonsy13, vedant.shrotria@harness.io)
+  - Sarthak Jain (@SarthakJain26, sarthak.jain@harness.io)
+  - Nagesh Bansal (@Nageshbansal, nageshbansal59@gmail.com)
+- Upstream Issue: https://github.com/litmuschaos/litmus/issues/4405
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/48008595-14d2-4725-a0dc-15d441568bc2
+
+#### Enhancing Chaos Center: Implementing E2E Test Cases and Addressing CVE Issues
+
+- Description: This initiative focuses on augmenting the [Chaos Center](https://github.com/litmuschaos/litmus/tree/master/chaoscenter) with comprehensive end-to-end (E2E) test cases, addressing the current gap in testing capabilities. The lack of extensive E2E tests has been a challenge, especially during release cycles. The project also targets fixing identified Common Vulnerabilities and Exposures (CVEs) in the Chaos Center, enhancing the overall security and reliability of the system.
+- Expected Outcome: The project aims to establish a robust E2E testing framework for the Chaos Center, significantly improving test coverage and reliability during releases. Additionally, it focuses on resolving all identified CVEs, thereby enhancing the system's security. These improvements are expected to result in more stable and secure releases, increasing user trust in the Chaos Center.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s):
+  - Namkyu Park (@namkyu1999, lak9348@gmail.com)
+  - Shubham Chaudhary (@ispeakc0de, shubham.chaudhary@harness.io)
+  - Raj Babu Das (@imrajdas, mail.rajdas@gmail.com)
+- Upstream Issue: https://github.com/litmuschaos/litmus/issues/4406
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/828a5410-6e18-49a8-986e-0ad2dd5ecfa2
+
+#### Enhancements in Chaos Center: Multiple Project Owners and Log Download API
+
+- Description: This project focuses on two major enhancements for the [Chaos Center](https://github.com/litmuschaos/litmus/tree/master/chaoscenter). First, it aims to enable the support for multiple project owners, a feature highly requested by users. This addition will allow for more collaborative and flexible project management within the Chaos Center. Second, the project will develop an API for downloading logs, providing users with easier access to log data. Furthermore, there's a need to update the API documentation to reflect these new changes and ensure that users have the latest information for seamless integration and usage.
+- Expected Outcome: The successful completion of this project will result in the Chaos Center supporting multiple project owners, fostering collaborative and efficient project management. The new log download API will enhance user experience by simplifying access to log data. Additionally, the updated API documentation will ensure that users have clear and current guidelines, supporting better utilization of the new features.
+- Recommended Skills: Golang, ReactJs
+- Mentor(s):
+  - Saranya Jena (@Saranya-jena, saranya.jena@harness.io)
+  - Sahil Kumar (@SahilKr24, sahil.kumar@harness.io)
+  - Hrishav Kumar (@hrishavjha, hrishav.kumar@harness.io)
+- Upstream Issue: https://github.com/litmuschaos/litmus/issues/4407
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/0b526c4c-a8ed-4a81-a3f1-1c6ebf328977
+
 
