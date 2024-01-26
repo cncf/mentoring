@@ -219,4 +219,40 @@ The demonstration should contain a tunneling solution that has a Golang SDK or c
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5084
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/00e78fef-e9a7-4e2c-bf29-e6099ac14b65
 
+### KCL
+
+#### KCL Package Version Management
+
+- Description: The KCL package management tool primarily handles the management of third-party KCL packages for the KCL project, which includes tasks such as uploading and downloading these packages. When adding third-party packages to the KCL project, it is important to adhere to version management strategies. This involves carefully selecting and downloading the appropriate version of a package, especially when different versions of the same package are available.
+- Expected Outcome: Add version management to the KCL package management tool.
+- Recommended Skills: golang
+- Mentor(s):
+  - Pengfei Xu (@Peefy, xpf6677@gmail.com)
+  - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/kpm/issues/246
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/06b5baee-bdcd-4f5e-9a1a-454191445a01
+
+#### KCL IDE Quick Fix
+
+- Description: When the KCL IDE encounters some errors in the KCL code, it can pop up `Quick Fix` prompts to help users quickly fix the errors.
+- Expected Outcome: Added Quick Fix for some error prompts in KCL IDE.
+- Recommended Skills: rust
+- Mentor(s):
+  - Pengfei Xu (@Peefy, xpf6677@gmail.com)
+  - Zheng Zhang (@He1pa, he1pa404@gmail.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/kcl/issues/997
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/391edda7-239d-4471-a36a-c03c24e024cb
+
+#### KCL IDE Update KCL Dependencies
+
+- Description: When a KCL package is loaded using KCL IDE, the IDE automatically updates the dependencies of the current KCL package through kpm.
+- Expected Outcome: Add automatic updates for third-party libraries to the IDE.
+- Recommended Skills: rust, go
+- Mentor(s):
+  - Pengfei Xu (@Peefy, xpf6677@gmail.com)
+  - Zheng Zhang (@He1pa, he1pa404@gmail.com)
+  - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/kcl/issues/998
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/59d5fb6c-153d-4e46-9d1f-2948641b0471
+
 
