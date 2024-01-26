@@ -255,4 +255,19 @@ The demonstration should contain a tunneling solution that has a Golang SDK or c
 - Upstream Issue (URL): https://github.com/kcl-lang/kcl/issues/998
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/59d5fb6c-153d-4e46-9d1f-2948641b0471
 
+### Knative Eventing
+
+#### Cross Namespace Event Links
+
+- Description: One of the most requested features in Knative Eventing over the past few years has been for triggers in different namespaces than brokers, and for subscriptions
+  in different namespaces than channels. More information can be found in the upstream issue.
+- Expected Outcome: Knative Eventing Triggers and Subscriptions can reference Brokers or Channels in a namespace different from their own if the user possesses the necessary
+  permissions to do so.
+- Recommended Skills: Go, Kubernetes
+- Mentor(s):
+  - Calum Murray (@Cali0707, cmurray@redhat.com)
+  - Pierangelo Di Pilato (@pierdipi, pierdipi@redhat.com)
+- Upstream Issue: https://github.com/knative/eventing/issues/7530
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/eba6b385-1293-4192-b2b4-7da3afb74476
+
 
