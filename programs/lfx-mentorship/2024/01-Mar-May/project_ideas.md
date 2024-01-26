@@ -18,40 +18,6 @@
 
 ## Proposed Project ideas
 
-### Antrea
-
-#### East-west connectivity monitoring tool for Pod network
-
-- Description: As a K8s network plugin (CNI plugin), Antrea provides networking functions for K8s Pods. These Pods are located on different Nodes, which can be in different availability zones, or even different geos. We would like to provide as part of Antrea (built-in capability) a tool to monitor Pod connectivity across the cluster. This tool should be able to report the average network latency between any 2 Nodes in the cluster. The latency information could then be visualized using a heatmap representation in the Antrea web UI.
-- Expected Outcome: A new Antrea API which reports network health information and latency between K8s Nodes. If time allows, the Antrea web UI should also be extended so that latency information can be easily visualized through a heatmap.
-- Recommended Skills: familiarity with Golang, some knowledge about the K8s architecture and APIs, some basic networking knowledge (TCP/IP stack), frontend development experience (React, TypeScript) would be great but not required.
-- Mentor(s):
-  - Yang Ding (@Dyanngg, dingyany1995@outlook.com)
-  - Anlan He (@heanlan, anlan9771@gmail.com)
-  - Antonin Bas (@antoninbas, antonin.bas@gmail.com)
-- Upstream Issue: https://github.com/antrea-io/antrea/issues/5514
-
-#### Ability to install / upgrade Antrea using the CLI
-
-- Description: Currently Antrea can be installed using a K8s YAML manifest or through the provided Helm chart. We believe there is value in providing a 3rd installation method, using the "antctl" CLI. The CLI installation / upgrade method would have the following advantages: a) more user-friendly, with support for command-line options to customize the installation, b) ability to run sanity checks on the K8s cluster before comitting to the installation, c) when upgrading, the CLI will ensure that Antrea components are upgraded in the optimal order, to minimize workload disruption.
-- Expected Outcome: A new command for antctl, the Antrea CLI, which will provide support for installation and upgrade.
-- Recommended Skills: familiarity with Golang, some knowledge about the K8s architecture and APIs, UX experience would be great but not required.
-- Mentor(s):
-  - Quan Tian (@tnqn, tianquan23@gmail.com)
-  - Lan Luo (@luolanzone, luolanzone@gmail.com)
-  - Antonin Bas (@antoninbas, antonin.bas@gmail.com)
-- Upstream Issue: https://github.com/antrea-io/antrea/issues/5896
-
-#### Replace deprecated bincover with golang built-in coverage profiling tool
-
-- Description: Currently Antrea uses a third-party tool called [bincover](https://github.com/confluentinc/bincover) to measure code coverage when running end-to-end (e2e) tests. This tool has been deprecated in favor of the built-in Go coverage profiling tool (https://go.dev/testing/coverage/) starting with Go 1.20, and it is no longer maintained. We would like to remove usage of bincover from the Antrea project and start using the built-in Go tool.
-- Expected Outcome: Complete removal of the bincove dependency. Code coverage can still be measured with the same accuracy when running Antrea e2e tests and the results can still be reported to [Codecov](https://about.codecov.io/).
-- Recommended Skills: familiarity with Golang and the Golang testing framework.
-- Mentor(s):
-  - Antonin Bas (@antoninbas, antonin.bas@gmail.com)
-  - Lan Luo (@luolanzone, luolanzone@gmail.com)
-- Upstream Issue: https://github.com/antrea-io/antrea/issues/4962
-
 ### Chaos Mesh
 
 #### Observability for StressChaos
@@ -64,6 +30,7 @@
   - Yue Yang(@g1eny0ung, g1enyy0ung@gmail.com)
   - Cwen Yin(@cwen0, yincwego@gmail.com)
 - Upstream Issue: https://github.com/chaos-mesh/chaos-mesh/discussions/3012, https://github.com/chaos-mesh/chaos-mesh/issues/3651
+- LFX URL: 
 
 ### Cilium
 
@@ -75,6 +42,7 @@
 - Mentor(s):
   - Bill Mulligan(@xmulligan, bill@isovalent.com)
 - Upstream Issue: https://github.com/cilium/community/issues/78 https://github.com/cilium/community/issues/27
+- LFX URL: 
 
 ### Cloud Native Buildpacks
 
@@ -88,6 +56,7 @@
   - Juan Bustamante (@jjbustamante, bustamantejj@gmail.com)
   - Natalie Arellano (@natalieparellano, natalie.arellano@broadcom.com)
 - Upstream Issue: https://github.com/buildpacks/pack/issues/1570
+- LFX URL: 
 
 ### Harbor
 
@@ -101,6 +70,7 @@
   - Yan Wang (@wy65701436, yan-yw.wang@broadcom.com)
   - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
 - Upstream Issue: https://github.com/search?q=Harbor%20CLI&type=repositories
+- LFX URL: 
 
 #### Harbor Satellite
 
@@ -117,6 +87,7 @@ The demonstration should contain a tunneling solution that has a Golang SDK or c
   - Yan Wang (@wy65701436, yan-yw.wang@broadcom.com)
   - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
 - Upstream Issue: https://github.com/search?q=repo%3Agoharbor%2Fharbor+Satellite&type=issues
+- LFX URL: 
 
 ### Inspektor Gadget
 
@@ -129,6 +100,7 @@ The demonstration should contain a tunneling solution that has a Golang SDK or c
   - Alban Crequy (@alban, albancrequy@microsoft.com)
   - Mauricio Vásquez (@mauriciovasquezbernal, mauriciov@microsoft.com)
 - Upstream Issue: https://github.com/inspektor-gadget/inspektor-gadget/issues/1912
+- LFX URL: 
 
 #### Testing framework for image-based gadgets
 
@@ -139,6 +111,7 @@ The demonstration should contain a tunneling solution that has a Golang SDK or c
   - Alban Crequy (@alban, albancrequy@microsoft.com)
   - Mauricio Vásquez (@mauriciovasquezbernal, mauriciov@microsoft.com)
 - Upstream Issue: https://github.com/inspektor-gadget/inspektor-gadget/issues/2046
+- LFX URL: 
 
 ### Istio
 
@@ -155,6 +128,7 @@ The demonstration should contain a tunneling solution that has a Golang SDK or c
 - Upstream Issue:
   - https://github.com/orgs/istio/projects/9
   - https://github.com/istio/ztunnel/issues/251
+- LFX URL: 
 
 ### Jaeger
 
@@ -167,6 +141,7 @@ The demonstration should contain a tunneling solution that has a Golang SDK or c
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5084
+- LFX URL: 
 
 #### Jaeger-V2 Observability
 
@@ -177,6 +152,7 @@ The demonstration should contain a tunneling solution that has a Golang SDK or c
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5084
+- LFX URL: 
 
 #### Jaeger-V2 Adaptive Sampling
 
@@ -187,6 +163,7 @@ The demonstration should contain a tunneling solution that has a Golang SDK or c
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5084
+- LFX URL: 
 
 ### KCL
 
@@ -199,6 +176,7 @@ The demonstration should contain a tunneling solution that has a Golang SDK or c
   - Pengfei Xu (@Peefy, xpf6677@gmail.com)
   - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
 - Upstream Issue (URL): https://github.com/kcl-lang/kpm/issues/246
+- LFX URL: 
 
 #### KCL IDE Quick Fix
 
@@ -209,6 +187,7 @@ The demonstration should contain a tunneling solution that has a Golang SDK or c
   - Pengfei Xu (@Peefy, xpf6677@gmail.com)
   - Zheng Zhang (@He1pa, he1pa404@gmail.com)
 - Upstream Issue (URL): https://github.com/kcl-lang/kcl/issues/997
+- LFX URL: 
 
 #### KCL IDE Update KCL Dependencies
 
@@ -220,6 +199,7 @@ The demonstration should contain a tunneling solution that has a Golang SDK or c
   - Zheng Zhang (@He1pa, he1pa404@gmail.com)
   - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
 - Upstream Issue (URL): https://github.com/kcl-lang/kcl/issues/998
+- LFX URL: 
 
 ### Knative Eventing
 
@@ -234,6 +214,7 @@ The demonstration should contain a tunneling solution that has a Golang SDK or c
   - Calum Murray (@Cali0707, cmurray@redhat.com)
   - Pierangelo Di Pilato (@pierdipi, pierdipi@redhat.com)
 - Upstream Issue: https://github.com/knative/eventing/issues/7530
+- LFX URL: 
 
 ### Konveyor
 
@@ -250,6 +231,7 @@ The demonstration should contain a tunneling solution that has a Golang SDK or c
   - Harikrishnan Balagopal (@HarikrishnanBalagopal, harikrishnan.balagopal@ibm.com)
   - Mehant Kammakomati (@kmehant, mehant.kammakomati2@ibm.com)
 - Upstream Issue: https://github.com/konveyor/move2kube/issues/1130
+- LFX URL: 
 
 #### Move2Kube: Simplify plugin architecture of m2k
 
@@ -265,6 +247,7 @@ The demonstration should contain a tunneling solution that has a Golang SDK or c
   - Harikrishnan Balagopal (@HarikrishnanBalagopal, harikrishnan.balagopal@ibm.com)
   - Mehant Kammakomati (@kmehant, mehant.kammakomati2@ibm.com)
 - Upstream Issue: https://github.com/konveyor/move2kube/issues/1131
+- LFX URL: 
 
 #### Move2Kube: Advanced Resources support and enhance other Move2Kube components
 
@@ -281,6 +264,7 @@ The demonstration should contain a tunneling solution that has a Golang SDK or c
   - Harikrishnan Balagopal (@HarikrishnanBalagopal, harikrishnan.balagopal@ibm.com)
   - Mehant Kammakomati (@kmehant, mehant.kammakomati2@ibm.com)
 - Upstream Issue: https://github.com/konveyor/move2kube/issues/1132
+- LFX URL: 
 
 ### Kubearmor
 
@@ -294,6 +278,7 @@ The demonstration should contain a tunneling solution that has a Golang SDK or c
   - Prashant Mishra (@primalpimmy, prashant20.pm@gmail.com)
   - Rudraksh Pareek (@DelusionalOptimist, rudrakshpareek3601@gmail.com )
 - Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1340
+- LFX URL: 
 
 #### Leverage OCI Hooks for Container Events
 
@@ -305,6 +290,7 @@ The demonstration should contain a tunneling solution that has a Golang SDK or c
   - Akshay Gaikwad (@akshay196, akgaikwad001@gmail.com)
   - Rudraksh Pareek (@DelusionalOptimist, rudrakshpareek3601@gmail.com )
 - Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1390
+- LFX URL: 
 
 #### Dashboards for application behavior and KubeArmor state
 
@@ -319,6 +305,7 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Rudraksh Pareek (@DelusionalOptimist, rudrakshpareek3601@gmail.com )
   - Anurag Kumar (@kranurag7, kranurag7@linux.com)
 - Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1591
+- LFX URL: 
 
 ### KubeEdge
 
@@ -331,6 +318,7 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
   - Fisher Xu (@fisherxu, fisherxu1@gmail.com)
 - Upstream Issue: https://github.com/kubeedge/kubeedge/issues/5159
+- LFX URL: 
 
 #### Image PrePull Feature Enhancement
 
@@ -341,6 +329,7 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
   - Fisher Xu (@fisherxu, fisherxu1@gmail.com)
 - Upstream Issue: https://github.com/kubeedge/kubeedge/issues/5341
+- LFX URL: 
 
 #### Keadm Tool Enhancement
 
@@ -351,6 +340,7 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Willard Hu (@WillardHu, wei.hu@daocloud.io)
   - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
 - Upstream Issue: https://github.com/kubeedge/kubeedge/issues/5317 
+- LFX URL: 
 
 #### Support latest version in keink and run demo on keink
 
@@ -362,6 +352,7 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Fisher Xu (@fisherxu, fisherxu1@gmail.com)
   - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
 - Upstream Issue: https://github.com/kubeedge/keink/issues/8
+- LFX URL: 
 
 ### KubeVela
 
@@ -374,6 +365,7 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Fog Dong (@FogDong, wuwuglu19@gmail.com)
   - Zhongpei Qiao(@chivalryq, chivalry.pp@gmail.com)
 - Upstream Issue: https://github.com/kubevela/kubevela/issues/6435
+- LFX URL: 
 
 ### Kyverno
 
@@ -386,6 +378,7 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Charles-Edouard Brétéché (@eddycharly, charles.edouard@nirmata.com)
   - Anushka Mittal (@anushkamittal2001, anushka@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/9488
+- LFX URL: 
 
 #### Kyverno VPA Recommender 
 
@@ -396,6 +389,7 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Jim Bugwadia (@jimbugwadia, jim@nirmata.com)
   - Khaled Emara (@KhaledEmaraDev, khaled.emara@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/9429
+- LFX URL: 
 
 
 #### Convert Kubernetes Best Practices Policies to CEL 
@@ -407,6 +401,7 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Anusha Hegde (@anusha94, anusha.hegde@nirmata.com)
   - Mariam Fahmy (@MariamFahmy98, mariam.fahmy@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/policies/issues/891
+- LFX URL: 
 
 #### Verify Multiple Image Attestations
 
@@ -417,6 +412,7 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Vishal Choudhary (@vishal-chdhry, vishal.choudhary@nirmata.com)
   - Shuting Zhao (@realshuting, shuting@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/9456
+- LFX URL: 
 
 ### K8sGPT
 
@@ -429,6 +425,7 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Alex Jones (@AlexsJones, alex@k8sgpt.ai)
   - Aris Boutselis (@arbreezy, arisboutselis08@gmail.com)
 - Issue: https://github.com/k8sgpt-ai/k8sgpt/issues/889
+- LFX URL: 
 
 ### Litmus Chaos
 
@@ -442,6 +439,7 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Sarthak Jain (@SarthakJain26, sarthak.jain@harness.io)
   - Nagesh Bansal (@Nageshbansal, nageshbansal59@gmail.com)
 - Upstream Issue: https://github.com/litmuschaos/litmus/issues/4405
+- LFX URL: 
 
 #### Enhancing Chaos Center: Implementing E2E Test Cases and Addressing CVE Issues
 
@@ -453,6 +451,7 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Shubham Chaudhary (@ispeakc0de, shubham.chaudhary@harness.io)
   - Raj Babu Das (@imrajdas, mail.rajdas@gmail.com)
 - Upstream Issue: https://github.com/litmuschaos/litmus/issues/4406
+- LFX URL: 
 
 #### Enhancements in Chaos Center: Multiple Project Owners and Log Download API
 - Description: This project focuses on two major enhancements for the [Chaos Center](https://github.com/litmuschaos/litmus/tree/master/chaoscenter). First, it aims to enable the support for multiple project owners, a feature highly requested by users. This addition will allow for more collaborative and flexible project management within the Chaos Center. Second, the project will develop an API for downloading logs, providing users with easier access to log data. Furthermore, there's a need to update the API documentation to reflect these new changes and ensure that users have the latest information for seamless integration and usage.
@@ -463,6 +462,7 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Sahil Kumar (@SahilKr24, sahil.kumar@harness.io)
   - Hrishav Kumar (@hrishavjha, hrishav.kumar@harness.io)
 - Upstream Issue: https://github.com/litmuschaos/litmus/issues/4407
+- LFX URL: 
 
 ### OpenTelemetry
 
@@ -482,6 +482,7 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Juraci Paixão Kröhling (@jpkrohling, juraci.kroehling@grafana.com)
   - Andrzej Stencel (@astencel-sumo, andrzej@andrzejstencel.pl)
 - Upstream Issue: https://github.com/open-telemetry/community/issues/1865
+- LFX URL: 
 
 ### Prometheus
 
@@ -499,6 +500,7 @@ We want to leverage the above for creating a plugin which will allow users to se
   - https://github.com/prometheus/client_golang/issues/1434
   - https://github.com/prometheus/client_golang/issues/1435
   - https://github.com/prometheus/client_golang/issues/1436
+- LFX URL: 
 
 ### Vitess
 
@@ -510,7 +512,8 @@ We want to leverage the above for creating a plugin which will allow users to se
 - Mentor(s): 
   - [Manan Gupta](https://github.com/GuptaManan100) (manan@planetscale.com)
   - [Harshit Gangal](https://github.com/harshit-gangal) (harshit@planetscale.com)
-- Issue: <https://github.com/vitessio/vitess/issues/14931>
+- Issue: https://github.com/vitessio/vitess/issues/14931
+- LFX URL: 
 
 ### Volcano
 
@@ -526,6 +529,7 @@ We want to leverage the above for creating a plugin which will allow users to se
   -   william wang(@william-wang, wang.platform@gmail.com)
   -   Xuzheng Chang(@Monokaix, changxuzheng@huawei.com)
 - Upstream Issue: https://github.com/volcano-sh/volcano/issues/3310
+- LFX URL: 
 
 #### Volcano supports DRA integration
 
@@ -538,6 +542,7 @@ We want to leverage the above for creating a plugin which will allow users to se
   -   william wang(@william-wang, wang.platform@gmail.com)
   -   Xuzheng Chang(@Monokaix, changxuzheng@huawei.com)
 - Upstream Issue: https://github.com/volcano-sh/volcano/issues/3143
+- LFX URL: 
 
 ### WasmEdge
 
@@ -550,6 +555,7 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Hung-Ying Tai (@hydai, hydai@secondstate.io)
   - dm4 (@dm4, dm4@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3168
+- LFX URL: 
 
 #### Integrate Intel Extension for Transformers as a new WASI-NN backend
 
@@ -560,6 +566,7 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Hung-Ying Tai (@hydai, hydai@secondstate.io)
   - dm4 (@dm4, dm4@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3169
+- LFX URL: 
 
 #### Integrate whisper.cpp as a new WASI-NN backend
 
@@ -570,6 +577,7 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Hung-Ying Tai (@hydai, hydai@secondstate.io)
   - dm4 (@dm4, dm4@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3170
+- LFX URL: 
 
 #### Integrate burn.rs as a new WASI-NN backend
 
@@ -580,3 +588,5 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Hung-Ying Tai (@hydai, hydai@secondstate.io)
   - dm4 (@dm4, dm4@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3172
+- LFX URL: 
+
