@@ -320,4 +320,45 @@ The demonstration should contain a tunneling solution that has a Golang SDK or c
 - Upstream Issue: https://github.com/konveyor/move2kube/issues/1132
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/43693b3c-6512-4c0b-ba1b-f9704bfd0991
 
+### Kubearmor
+
+#### Kubearmor Kata Container Support
+
+- Description: Kata Containers is an open source community working to build a secure container runtime with lightweight virtual machines that feel and perform like containers, but provide stronger workload isolation using hardware virtualization technology as a second layer of defense.
+- Expected Outcome: KubeArmor natively protecting Kata containers with required Integration.
+- Recommended Skills: Go, Kubernetes, Linux
+- Mentor(s): 
+  - Barun Acharya  (@daemon1024, barun1024@gmail.com)
+  - Prashant Mishra (@primalpimmy, prashant20.pm@gmail.com)
+  - Rudraksh Pareek (@DelusionalOptimist, rudrakshpareek3601@gmail.com )
+- Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1340
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/0ece2baf-071b-4155-b1e8-696fbe58e991
+
+#### Leverage OCI Hooks for Container Events
+
+- Description: Use OCI hooks and get events in context to container start/stop: Currently KubeArmor mounts docker/containerd/crio UNIX domain socket file in KubeArmor to watch for container events. The aim is to use OCI hooks for getting such container events.
+- Expected Outcome: Eliminate exposing docker/containerd/crio UNIX domain sockets inside a container.
+- Recommended Skills: Go, Kubernetes, Linux
+- Mentor(s): 
+  - Barun Acharya  (@daemon1024, barun1024@gmail.com)
+  - Akshay Gaikwad (@akshay196, akgaikwad001@gmail.com)
+  - Rudraksh Pareek (@DelusionalOptimist, rudrakshpareek3601@gmail.com )
+- Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1390
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/70f1ef34-7ddd-466d-a5bc-0f74e98c06f8
+
+#### Dashboards for application behavior and KubeArmor state
+
+- Description: For showing an application's behaviour, we'd like to have a Kibana/Grafana dashboard. We have existing integrations for
+visualizing alerts with Elastic/Loki and we can use them for creating these.
+We want to leverage the above for creating a plugin which will allow users to see an application's behavior based on visibility logs sent by KubeArmor.
+- Expected Outcome: A kubernetes dashboard setup that also has the app behaviours described.
+- Recommended Skills: Grafana, Javascript, Go, Kubernetes, Linux
+- Mentor(s): 
+  - Barun Acharya  (@daemon1024, barun1024@gmail.com)
+  - Prashant Mishra (@primalpimmy, prashant20.pm@gmail.com)
+  - Rudraksh Pareek (@DelusionalOptimist, rudrakshpareek3601@gmail.com )
+  - Anurag Kumar (@kranurag7, kranurag7@linux.com)
+- Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1591
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a604ba9c-565d-4e8c-aed2-dcd4ebedc85d
+
 
