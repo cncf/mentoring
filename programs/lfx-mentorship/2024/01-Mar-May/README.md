@@ -167,4 +167,21 @@ The demonstration should contain a tunneling solution that has a Golang SDK or c
 - Upstream Issue: https://github.com/inspektor-gadget/inspektor-gadget/issues/2046
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/65719d46-b71f-4778-a29b-3bb878d6ec70
 
+### Istio
+
+#### Improve Test Coverage for Istio Ambient Mesh
+
+- Description: Ambient mesh is now one of the biggest features in Istio, but it is in its early stage. We are in the process of improving the test coverage for Ambient Mesh in order to move it to Beta. Ztunnel works as shared data plane within a node, it subscribes to `Workload` and `Authorization` resources, both need to be well tested.
+- Expected Outcome:
+  - Enhanced UnitTest coverage for `Workload` and `Authorization` Delta xDS/Stow interface.
+  - Enhanced integration tests for ztunnel Authorization Policy 
+- Recommended Skills: Go, Istio Test Framework
+- Mentor(s):
+  - Zhonghu Xu (@hzxuzhonghu, zhhxu2011@gmail.com) 
+  - Faseela K (@kfaseela, k.faseela@gmail.com) 
+- Upstream Issue:
+  - https://github.com/orgs/istio/projects/9
+  - https://github.com/istio/ztunnel/issues/251
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/263ef898-ac07-49d7-9aff-ebd319159163
+
 
