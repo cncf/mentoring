@@ -361,4 +361,51 @@ We want to leverage the above for creating a plugin which will allow users to se
 - Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1591
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a604ba9c-565d-4e8c-aed2-dcd4ebedc85d
 
+### KubeEdge
+
+#### Auto Generate KubeEdge API Document 
+
+- Description: KubeEdge has introduced several custom APIs, but currently, there is no corresponding API documentation available. We would like to implement automated generation of API documentation and display it on the website documentation to assist users in quickly understanding the APIs and help developers reduce maintenance costs.
+- Expected Outcome: A tool for automatically generating API documentation.
+- Recommended Skills: Golang, Kubernetes, Swagger
+- Mentor(s): 
+  - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
+  - Fisher Xu (@fisherxu, fisherxu1@gmail.com)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/5159
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/b36e22c3-ff66-46b8-9422-510c86f1e3c3
+
+#### Image PrePull Feature Enhancement
+
+- Description: In the latest release, KubeEdge has implemented the ability for image pre pull. However, each task execution only supports images from the same image repository currently. We hope to enhance this feature to support capabilities like overriding images and secrets, complete end-to-end tests for this feature.
+- Expected Outcome: Support image and secret override in image pre pull feature. And E2e tests for this feature are added. 
+- Recommended Skills: Golang, Kubernetes, KubeEdge
+- Mentor(s):
+  - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
+  - Fisher Xu (@fisherxu, fisherxu1@gmail.com)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/5341
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/267cdecd-8ab9-43ab-be0e-ccf70ae1c023
+
+#### Keadm Tool Enhancement
+
+- Description: Keadm(KubeEdge installation tool) now only supports configuring a subset of parameters during EdgeCore installation. We would like to support specifying parameters using `--set` or directly using an existing local configuration file to achieve full parameter configuration and meet the users' requirements. 
+- Expected Outcome: Users can use `keadm join --set` or specify the local `edgecore.yaml` to configure EdgeCore.
+- Recommended Skills: Golang, Kubernetes, KubeEdge
+- Mentor(s):
+  - Willard Hu (@WillardHu, wei.hu@daocloud.io)
+  - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/5317 
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/94e63e48-4b72-4135-b7ca-84687d6f731e
+
+#### Support latest version in keink and run demo on keink
+
+- Description: keink(represent for KubeEdge IN kind) is a project for running local KubeEdge clusters using Docker container "nodes", so developers can install a multi-node
+  edge cluster in one node. Now we need to support the latest version installation in keink.
+- Expected Outcome: keink can install the latest version of KubeEdge and developers can quickly use keink to run kubeedge, and then develop applications on KubeEdge.
+- Recommended Skills: Kubernetes, KubeEdge, Golang
+- Mentor(s): 
+  - Fisher Xu (@fisherxu, fisherxu1@gmail.com)
+  - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
+- Upstream Issue: https://github.com/kubeedge/keink/issues/8
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/198a9ab4-1f6b-4db5-8e0a-404486235089
+
 
