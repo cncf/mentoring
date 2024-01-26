@@ -86,4 +86,16 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Upstream Issue: https://github.com/chaos-mesh/chaos-mesh/discussions/3012, https://github.com/chaos-mesh/chaos-mesh/issues/3651
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8ad2c24f-120d-4369-866c-c911a5c885e9
 
+### Cilium
+
+#### Governance Documentation
+
+- Description: This project will focus on governance documentation for the Cilium project with two key parts. First, the governenace documentation should be moved out of the main docs and into the community repo. Second, we need to do an inventory of all of the repos under the project and come up with a lifecycle for them.
+- Expected Outcome: Governance docs in community repo. All repos accounted for and with a lifecycle plan.
+- Recommended Skills: enthusiasm for governance and basic markdown experience
+- Mentor(s):
+  - Bill Mulligan(@xmulligan, bill@isovalent.com)
+- Upstream Issue: https://github.com/cilium/community/issues/78 https://github.com/cilium/community/issues/27
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/eeaec4a9-5a9c-4cae-945d-f99265e85275
+
 
