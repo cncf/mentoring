@@ -98,4 +98,18 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Upstream Issue: https://github.com/cilium/community/issues/78 https://github.com/cilium/community/issues/27
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/eeaec4a9-5a9c-4cae-945d-f99265e85275
 
+### Cloud Native Buildpacks
+
+#### Proof of concept for creating multi-arch images using buildkit
+
+- Description: A proof of concept to add buildkit support to pack in order to build multi-arch images. Pack is the reference implementation of a Cloud Native Buildpacks platform used to build application images from source code.
+- Expected Outcome: Multi-arch support has been one of the most requested features for Cloud Native Buildpacks, and this would allow end-users/developers to build multi-arch images with the pack cli.
+- Recommended Skills: Golang, Software development literacy, Familiarity building multi-arch containers with Docker and Buildkit. Familiarity with buildpacks will be helpful.
+- Mentor(s):
+  - Jerico Pena (@jericop, jericop@gmail.com)
+  - Juan Bustamante (@jjbustamante, bustamantejj@gmail.com)
+  - Natalie Arellano (@natalieparellano, natalie.arellano@broadcom.com)
+- Upstream Issue: https://github.com/buildpacks/pack/issues/1570
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2c5ced86-d23b-41f5-aec3-59730e29f092
+
 

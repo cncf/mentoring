@@ -18,20 +18,6 @@
 
 ## Proposed Project ideas
 
-### Cloud Native Buildpacks
-
-#### Proof of concept for creating multi-arch images using buildkit
-
-- Description: A proof of concept to add buildkit support to pack in order to build multi-arch images. Pack is the reference implementation of a Cloud Native Buildpacks platform used to build application images from source code.
-- Expected Outcome: Multi-arch support has been one of the most requested features for Cloud Native Buildpacks, and this would allow end-users/developers to build multi-arch images with the pack cli.
-- Recommended Skills: Golang, Software development literacy, Familiarity building multi-arch containers with Docker and Buildkit. Familiarity with buildpacks will be helpful.
-- Mentor(s):
-  - Jerico Pena (@jericop, jericop@gmail.com)
-  - Juan Bustamante (@jjbustamante, bustamantejj@gmail.com)
-  - Natalie Arellano (@natalieparellano, natalie.arellano@broadcom.com)
-- Upstream Issue: https://github.com/buildpacks/pack/issues/1570
-- LFX URL: 
-
 ### Harbor
 
 #### Harbor CLI
