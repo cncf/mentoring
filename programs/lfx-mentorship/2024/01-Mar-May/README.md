@@ -143,4 +143,28 @@ The demonstration should contain a tunneling solution that has a Golang SDK or c
 - Upstream Issue: https://github.com/search?q=repo%3Agoharbor%2Fharbor+Satellite&type=issues
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/31d2e818-5ce1-4f87-aba1-a8b2f71a0e01
 
+### Inspektor Gadget
+
+#### Support for new types of eBPF programs
+
+- Description: Inspektor Gadget is an eBPF tool and systems inspection framework for Kubernetes, containers and Linux hosts. Users can develop gadgets using different kinds of eBPF programs: kprobe, tracepoint, etc. This project will focus on adding support for more kinds of eBPF programs such as uprobes and ensuring the documentation is updated for each of them
+- Expected Outcome: Inspektor Gadget has support for additional eBPF program kinds
+- Recommended Skills: Go, containers, Linux, basics of eBPF
+- Mentor(s):
+  - Alban Crequy (@alban, albancrequy@microsoft.com)
+  - Mauricio Vásquez (@mauriciovasquezbernal, mauriciov@microsoft.com)
+- Upstream Issue: https://github.com/inspektor-gadget/inspektor-gadget/issues/1912
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/f016029e-f15f-4ee9-aaf5-5719bee72b59
+
+#### Testing framework for image-based gadgets
+
+- Description: Inspektor Gadget is an eBPF tool and systems inspection framework for Kubernetes, containers and Linux hosts. Previously, Inspektor Gadget had a set of built-in gadgets. We are now moving to image-based gadgets where users can develop their own gadgets in eBPF and host them in OCI registries. But we don't have a test framework to help gadget authors to test their gadgets. This project will focus on implementing such a framework, possibly taking inspiration from the existing framework for built-in gadgets. The documentation for gadget authors should be updated. This project has the opportunity to expand beyond testing, to work on the gadget development experience over all, for example by creating a github template for gadget development.
+- Expected Outcome: Gadget authors can test their gadgets
+- Recommended Skills: Go, containers, Linux, testing
+- Mentor(s):
+  - Alban Crequy (@alban, albancrequy@microsoft.com)
+  - Mauricio Vásquez (@mauriciovasquezbernal, mauriciov@microsoft.com)
+- Upstream Issue: https://github.com/inspektor-gadget/inspektor-gadget/issues/2046
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/65719d46-b71f-4778-a29b-3bb878d6ec70
+
 
