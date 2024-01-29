@@ -72,6 +72,22 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Upstream Issue: https://github.com/antrea-io/antrea/issues/4962
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8f08ebb1-05a8-41fb-8c4c-85626f63c195
 
+### CNCF TAG Network
+
+#### Mapping Kubernetes Resources: Identifying relationships between all standard and custom resources
+
+- Description: The OpenAPI specifications for Kubernetes provides taxonomy, but augmenting a graph data model with formalized ontologies enables any number of capabilities, one of the more straightforward is the inferencing requisite for natural language processing, and consequently, a human-centric query / response interaction becomes becomes possible. More importantly, more advanced systems can be built when a graph data model of connected systems is upgraded to be a knowledge semantic graph.
+- Expected Outcome:
+  - YAML-formatted definition of one or more relationships per Kubernetes resource.
+  - Documentation of each relationship - per component.
+  - Development of new types of genealogies - new types of ways in which resources relate to one another and how these relationships might be visualized.
+  - Verification of functional relationships
+- Recommended Skills: DevOps, Kubernetes Administration, Light familiarity with all of the CNCF projects and a desire to study each project and their operators/resources.
+- Mentor(s):
+  - Mentor Name: Uzair Shaikh (@muzairs15, muzair.shaikh810@gmail.com), Lee Calcote (@leecalcote, leecalcote@gmail.com)
+- Upstream Issue: https://github.com/cncf/tag-network/issues/35
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/1e9ac76e-0434-45fc-8137-fc5698f29cd0
+
 ### Chaos Mesh
 
 #### Observability for StressChaos
