@@ -128,6 +128,20 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Upstream Issue: https://github.com/buildpacks/pack/issues/1570
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2c5ced86-d23b-41f5-aec3-59730e29f092
 
+### CRI-O
+
+#### Fully Automated CRI-O Releases
+
+- Description: There are several steps to the CRI-O release process that are manual. Lots of work has been done to update this, but there is still pushing a tag, copying release notes and some other small tasks. This project is about such automation.
+- Expected Outcome:
+  - Fully automated release and patch versions of CRI-O
+- Mentor(s):
+    - Sascha Grunert (@saschagrunert, sgrunert@redhat.com)
+    - Krzysztof Wilczynski (@kwilczynski, kwilczyn@redhat.com)
+- Recommended Skills: Golang
+- Upstream Issue: https://github.com/cri-o/cri-o/issues/4003
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/7ed311c5-6b9b-4056-a8ee-acf04b9f55b9
+
 ### Harbor
 
 #### Harbor CLI
