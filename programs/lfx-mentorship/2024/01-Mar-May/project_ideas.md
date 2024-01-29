@@ -120,7 +120,7 @@ Integrate Nighthawk testing with existing CI/CD pipelines for automated performa
 - Upstream Issue: https://github.com/service-mesh-performance/service-mesh-performance/issues/416
 - LFX URL: 
 
-### Service Mesh Performance: Distributed Load Testing with Nighthawk
+#### Service Mesh Performance: Distributed Load Testing with Nighthawk
 
 - Description: Many performance benchmarks are limited to single instance load generation (single pod load generator). This limits the amount of traffic that can be generated to the output of the single machine that the benchmark tool runs on in or out of a cluster. Overcoming this limitation would allow for more flexible and robust testing. Distributed load testing in parallel poses a challenge when merging results without losing the precision we need to gain insight into the high tail percentiles. Distributed load testing offers insight into system behaviors that arguably more accurately represent real-world behaviors of services under load as that load comes from any number of sources.
 - Expected Outcome: Implementation of distributed load generation in Nighthawk. Integration of Nighthawk with relevant service mesh performance testing scenarios. Capability to invoke Nighthawk for distributed load testing through APIs and command-line interfaces. Implementation of reporting mechanisms for distributed load testing results.
