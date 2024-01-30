@@ -590,6 +590,21 @@ We want to leverage the above for creating a plugin which will allow users to se
 - Upstream Issue: https://github.com/meshery/meshery/issues/9966
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/83c60c5f-3e79-4532-8ee6-1266e30d21e0
 
+### OpenKruise 
+
+#### Build simple Web-UI that can integration with exiting PaaS
+
+- Description: Currently, OpenKruise depends solely on the PaaS or CLI to listing OpenKruise workload display and operations. The lack of a general purpose Web-UI greatly hinder the adoption among developer users. This project is about to build a simple Web-UI that can list OpenKruise workload along with the native K8s workload, and support enhanced operation such as container restart or workload rollout. The Web-UI can be served directly as a dashboard , or as an example of OpenKruise integration in PaaS.
+- Expected Outcome: 
+  - simple Web-UI
+  - integration of the Web-UI with existing PaaS such as [KubeSphere](https://dev-guide.kubesphere.io/extension-dev-guide)
+- Mentor(s):
+    - Zhang zhen (@furykerry, furykerry@gmail.com)
+    - Zhao Mingshan (@zmberg, berg.zms@gmail.com)
+- Recommended Skills: UX/UI, JavaScript, GoLang (a plus but not mandatory)
+- Upstream Issue: https://github.com/openkruise/kruise/issues/1497
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/4d241a4b-e568-4033-8f08-72b0cac60311
+
 ### OpenTelemetry
 
 #### One Logging Bridge per Language

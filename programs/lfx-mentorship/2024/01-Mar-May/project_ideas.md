@@ -18,21 +18,6 @@
 
 ## Proposed Project ideas
 
-### OpenKruise 
-
-#### Build simple Web-UI that can integration with exiting PaaS
-
-- Description: Currently, OpenKruise depends solely on the PaaS or CLI to listing OpenKruise workload display and operations. The lack of a general purpose Web-UI greatly hinder the adoption among developer users. This project is about to build a simple Web-UI that can list OpenKruise workload along with the native K8s workload, and support enhanced operation such as container restart or workload rollout. The Web-UI can be served directly as a dashboard , or as an example of OpenKruise integration in PaaS.
-- Expected Outcome: 
-  - simple Web-UI
-  - integration of the Web-UI with existing PaaS such as [KubeSphere](https://dev-guide.kubesphere.io/extension-dev-guide)
-- Mentor(s):
-    - Zhang zhen (@furykerry, furykerry@gmail.com)
-    - Zhao Mingshan (@zmberg, berg.zms@gmail.com)
-- Recommended Skills: UX/UI, JavaScript, GoLang (a plus but not mandatory)
-- Upstream Issue: https://github.com/openkruise/kruise/issues/1497
-- LFX URL: 
-
 ### Service Mesh Performance
 
 #### Service Mesh Performance: Adaptive Load Control with Nighthawk
