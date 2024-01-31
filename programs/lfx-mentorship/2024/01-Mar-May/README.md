@@ -111,7 +111,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Recommended Skills: enthusiasm for governance and basic markdown experience
 - Mentor(s):
   - Bill Mulligan(@xmulligan, bill@isovalent.com)
-- Upstream Issue: https://github.com/cilium/community/issues/78 https://github.com/cilium/community/issues/27
+- Upstream Issue: https://github.com/cilium/community/issues/78 https://github.com/cilium/community/issues/27 https://github.com/cilium/community/issues/82
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/eeaec4a9-5a9c-4cae-945d-f99265e85275
 
 ### Cloud Native Buildpacks
