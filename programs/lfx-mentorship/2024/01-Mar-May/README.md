@@ -472,7 +472,7 @@ We want to leverage the above for creating a plugin which will allow users to se
 - Expected Outcome: Enable users to perform autorisation with similar concepts as kyverno and kyverno-JSON using policies.
 - Recommended Skills: Golang, Kubernetes, Envoy
 - Mentor(s):
-  - Charles-Edouard Brétéché (@eddycharly, charles.edouard@nirmata.com)
+  - Charles-Edouard Brétéché (@eddycharly, charled.breteche@gmail.com)
   - Anushka Mittal (@anushkamittal2001, anushka@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/9488
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/5da34595-8dd2-4045-a77d-e86d4c64fbc3
