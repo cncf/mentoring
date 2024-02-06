@@ -600,8 +600,10 @@ We want to leverage the above for creating a plugin which will allow users to se
 - Expected Outcome: Introduce and enhance Test Coverage of K8sGPT's analyzers
 - Recommended Skills: Go, Kubernetes 
 - Mentor(s):
-  - Alex Jones (@AlexsJones, alex@k8sgpt.ai)
+  - Alex Jones (@AlexsJones, alexsimonjones@gmail.com)
   - Aris Boutselis (@arbreezy, arisboutselis08@gmail.com)
+  - Matthis Holleville (@matthisholleville, matthish29@gmail.com)
+  - JuHyung Son (@JuHyung-Son, sonju0427@gmail.com)
 - Issue: https://github.com/k8sgpt-ai/k8sgpt/issues/889
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/57907615-6548-462d-81dc-62c88476f122
 
