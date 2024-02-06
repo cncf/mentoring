@@ -528,8 +528,8 @@ We want to leverage the above for creating a plugin which will allow users to se
 - Expected Outcome: keink can install the latest version of KubeEdge and developers can quickly use keink to run kubeedge, and then develop applications on KubeEdge.
 - Recommended Skills: Kubernetes, KubeEdge, Golang
 - Mentor(s): 
+  - Hongbing Zhang (@HongbingZhang, hongbing.zhang@daocloud.io)
   - Fisher Xu (@fisherxu, fisherxu1@gmail.com)
-  - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
 - Upstream Issue: https://github.com/kubeedge/keink/issues/8
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/198a9ab4-1f6b-4db5-8e0a-404486235089
 
