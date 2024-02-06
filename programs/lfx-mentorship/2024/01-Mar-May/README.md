@@ -1,6 +1,6 @@
 # Term 01 - 2024 March - May
 
-Status: Planning
+Status: Ongoing
 
 Mentorship duration - three months (12 weeks - full-time schedule)
 
@@ -17,7 +17,7 @@ Mentorship duration - three months (12 weeks - full-time schedule)
 | Final mentee evaluations and mentee feedback/blog submission due, second and final stipend payment approvals | Wed May 22, 5:00 PM PST (Week 12) |
 | Last day of term | Friday May 31 |
 
-### Project Instructions
+### Project instructions
 
 Project maintainers and potential mentors are welcome to propose their mentoring project ideas via submitting a PR to GitHub here https://github.com/cncf/mentoring/blob/main/programs/lfx-mentorship/2024/01-Mar-May/project_ideas.md, by January 24, 2024.
 
@@ -27,7 +27,8 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 ---
 
-## Table of Contents
+## Accepted projects
+
 - [Antrea](#antrea)
   - [East-west connectivity monitoring tool for Pod network](#east-west-connectivity-monitoring-tool-for-pod-network)
   - [Ability to install / upgrade Antrea using the CLI](#ability-to-install--upgrade-antrea-using-the-cli)
@@ -110,12 +111,6 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - [Integrate Intel Extension for Transformers as a new WASI-NN backend](#integrate-intel-extension-for-transformers-as-a-new-wasi-nn-backend)
   - [Integrate whisper.cpp as a new WASI-NN backend](#integrate-whispercpp-as-a-new-wasi-nn-backend)
   - [Integrate burn.rs as a new WASI-NN backend](#integrate-burnrs-as-a-new-wasi-nn-backend)
-
----
-
-## Accepted Projects
-
----
 
 ### Antrea
 
