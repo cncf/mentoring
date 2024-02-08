@@ -31,6 +31,7 @@
 
 # Add '2024' to any change to 2024 project files
 2024:
+  - programs/summerofcode/2024.md
   - programs/lfx-mentorship/2024/*
   - programs/lfx-mentorship/2024/**/*
 
