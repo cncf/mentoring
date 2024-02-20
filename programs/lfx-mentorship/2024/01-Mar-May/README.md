@@ -229,6 +229,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Expected outcome: A suite of conformance tests for AWS integrations in Flux.
 - Recommended skills: AWS, Golang, GitHub Actions
 - Mentor: Stefan Prodan (@stefanprodan, stefan.prodan@gmail.com)
+- Upstream issue: https://github.com/fluxcd/flux2/issues/4619
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/61486d56-9b28-42db-9e61-7a74b846cc15
 
 ### Harbor
