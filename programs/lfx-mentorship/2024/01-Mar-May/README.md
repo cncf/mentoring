@@ -43,6 +43,8 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - [Proof of concept for creating multi-arch images using buildkit](#proof-of-concept-for-creating-multi-arch-images-using-buildkit)
 - [CRI-O](#cri-o)
   - [Fully Automated CRI-O Releases](#fully-automated-cri-o-releases)
+- [Flux](#flux)
+  - [Conformance tests for AWS](#conformance-tests-for-aws)
 - [Harbor](#harbor)
   - [Harbor CLI](#harbor-cli)
   - [Harbor Satellite](#harbor-satellite)
@@ -227,6 +229,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Expected outcome: A suite of conformance tests for AWS integrations in Flux.
 - Recommended skills: AWS, Golang, GitHub Actions
 - Mentor: Stefan Prodan (@stefanprodan, stefan.prodan@gmail.com)
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/61486d56-9b28-42db-9e61-7a74b846cc15
 
 ### Harbor
 
