@@ -219,6 +219,15 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Upstream Issue: https://github.com/cri-o/cri-o/issues/4003
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/7ed311c5-6b9b-4056-a8ee-acf04b9f55b9
 
+### Flux
+
+#### Conformance tests for AWS
+
+- Description: Flux has several integration points with hyper-scaler platforms e.g., AWS. In general it is tricky to test these satisfactorily, because it requires running in the platform and thereby incurring usage costs. GCP donate credits that are used to test there; and now the Flux project has been generously granted credits to use for testing in AWS, and we can create conformance tests for AWS specifically too.
+- Expected outcome: A suite of conformance tests for AWS integrations in Flux.
+- Recommended skills: AWS, Golang, GitHub Actions
+- Mentor: Stefan Prodan (@stefanprodan, stefan.prodan@gmail.com)
+
 ### Harbor
 
 #### Harbor CLI
