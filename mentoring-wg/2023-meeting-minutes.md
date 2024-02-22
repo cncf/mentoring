@@ -33,7 +33,7 @@ https://zoom.us/my/cncftagcontributorstrategy?pwd=TnI0WU9Eb2I1RlRWdkl1R0k1WkZXUT
 Passcode: 77777
 
 
-# Upcoming meeting
+# Past Meetings
 
 ## December 12, 2023
 
@@ -41,22 +41,25 @@ Passcode: 77777
 
 ### Attendance
 
-* 
+* Nate W.
+* Riaan K.
+* Josh B.
 
 ### Updates/reminders
 
-* 
+* Diane & Nate did a talk at Open Source Summit Japan (2023): [The Mentoring Effect: Measuring Effectivenes of LFX Mentoring Programs](https://www.youtube.com/watch?v=bcOowyAxfxc) 
 
 ### Agenda
 
-* 
+* LFX 2023 Term 3 (mostly) complete: https://github.com/cncf/mentoring/issues/1053
+    * Still need to post a blog entry
+    * Still need to plan LFX 2024 Term 3
+    * Mentor gift sent out :)
+* [LFX 2024 Term 1](https://github.com/cncf/mentoring/issues/1077) starting early in the new year ([CFP starts Jan 8](https://github.com/cncf/mentoring/tree/main/programs/lfx-mentorship/2024/01-Mar-May))
+    * NW would like to start doing a Mentor zoom meeting before the term to set expectations
+* LFX Mentee Summit usually happens early in January - Nate to put Shellea & Ali in touch with Shuah to help
+* Availability note: Nate will be away on vacation from Dec 15 to Jan 14.
 
-### Notes
-
-* 
-
-
-# Past Meetings
 
 ## November 21, 2023 (postponed from November 14, 2023)
 
