@@ -6,16 +6,16 @@ Mentorship duration - three months (12 weeks - full-time schedule)
 
 ### Timeline
 
-| activity | date |
-| --- | --- |   
-| project proposals | Monday Jan 8 - Wednesday Jan 24, 8:00 AM PDT |
-| mentee applications open | Monday Jan 29 - Tues Feb 13, 5:00 PM PDT |
-| application review/admission decisions | Wed Feb 14 - Tues Feb 27, 5:00 PM PDT |
-| selection notifications | Tues Feb 27, 5:00 PM PDT |
-| Mentorship program begins with the initial work assignments | Monday March 4 (Week 1) | 
-| Midterm mentee evaluations and first stipend payments | Wednesday April 10 (Week 6) |
-| Final mentee evaluations and mentee feedback/blog submission due, second and final stipend payment approvals | Wed May 22, 5:00 PM PST (Week 12) |
-| Last day of term | Friday May 31 |
+| activity | date                                                               |
+| --- |--------------------------------------------------------------------|   
+| project proposals | Monday Jan 8 - Wednesday Jan 24, 8:00 AM PDT                       |
+| mentee applications open | Monday Jan 29 - Tues Feb 13, 5:00 PM PDT                           |
+| application review/admission decisions | Wed Feb 14 - Tues Feb 27, 5:00 PM PDT                              |
+| selection notifications | Thurs Feb 29, 5:00 PM PDT (as selections are made on the platform) |
+| Mentorship program begins with the initial work assignments | Monday March 4 (Week 1)                                            | 
+| Midterm mentee evaluations and first stipend payments | Wednesday April 10 (Week 6)                                        |
+| Final mentee evaluations and mentee feedback/blog submission due, second and final stipend payment approvals | Wed May 22, 5:00 PM PST (Week 12)                                  |
+| Last day of term | Friday May 31                                                      |
 
 ### Project instructions
 
