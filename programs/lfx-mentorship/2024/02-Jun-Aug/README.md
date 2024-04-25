@@ -26,4 +26,3 @@ Project maintainers and potential mentors are welcome to propose their mentoring
 Mentee application instructions can be found on the [Program Guidelines](https://github.com/cncf/mentoring/blob/main/programs/lfx-mentorship/README.md#program-guidelines) page.
 
 ---
-

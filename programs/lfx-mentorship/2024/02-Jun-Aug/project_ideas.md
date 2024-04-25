@@ -37,4 +37,5 @@
     - Experience with Rest APIs and Golang is a plus too.
 - Mentor(s):
     - Florent Poinsard @fouioui florent@planetscale.com
+    - Frances Thai @notfelineit frances@planetscale.com
 - Upstream Issue (URL): https://github.com/vitessio/arewefastyet/issues/525
