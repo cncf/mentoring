@@ -30,4 +30,16 @@
   - Saswata Mukherjee (@saswatamcode, saswataminsta@yahoo.com)
 - Upstream Issue: https://github.com/thanos-io/thanos/issues/7285
 
+### Prometheus
+
+#### Prometheus Remote Write Benchmarking Capabilities
+
+- Description: Prometheus remote write allows users to send their metrics to other time series databases. Though the [Prombench tool](https://github.com/prometheus/test-infra/tree/master/prombench) has existed for a number of years, it has never been extended to support performance testing of Remote Write in a realistic production like environment. With the upcomming Remote Write 2.0 changes to both the underlying implementation as well as the wire format, the need for benchmarking of remote write beyond static Go bechmark tests has increased.
+- Expected Outcome: Build additional (or extends existing) tooling, similar to Prombench’s [load-generator](https://github.com/prometheus/test-infra/tree/master/tools/load-generator) and [avalanche](https://github.com/prometheus-community/avalanche), to support scenarios under which remote write should be performance tested. For example; allowing gradual increases/decreases in # of active series, sudden spikes in active series, various amounts of latency in the server receiving the remote write data, etc. Time permitted, extend Prombench's test suite to include a set of Remote Write tests that can be run via a new command.
+- Recommended Skills: Go, some familiarity with Prometheus or metrics
+- Mentor(s): 
+  - Callum Styan (@cstyan, callumstyan@gmail.com), 
+  - Jesús Vázquez (@jesusvazquez, jesus.vazquez@grafana.com)
+  - Nico Pazos and Alex Greenbank from Grafana also available to help
+
 ---
