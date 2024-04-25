@@ -297,3 +297,37 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
   - Hung-Ying Tai (@hydai, hydai@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3371
 
+### KCL
+
+#### KCL Package Management Dependencies Sparse Checkout
+
+- Description: `kpm` is a package management tool for KCL. When the scale of KCL project becomes larger and larger, and the external packages that KCL project relies on become more and more, `kpm` will become slow due to the need to download a large number of third-party dependencies. `kpm` needs to support `Sparse-Checkout`, which means downloading specific dependencies as needed rather than all of them, to improve the performance of the kpm.
+- Expected Outcome: When kpm requests dependencies, it can request specific content based on the actual use of the required dependencies, but not all of them.
+- Recommended Skills: golang, rust
+- Mentor(s):
+  - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
+  - Pengfei Xu (@Peefy, xpf6677@gmail.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/kpm/issues/304
+
+#### Optimization of KCL LSP prompt information
+
+- Description: Optimize KCL LSP(language server protocol) prompt information, including the implementation of type inlayhint and optimization of hover content rendering. Currently, KCL’s hover content is in plain text format and needs to be rendered into a more beautiful style.
+- Expected Outcome: Added type inlayhint in KCL IDE and optimize hover content render.
+- Recommended Skills: rust, LSP
+- Mentor(s):
+  - Pengfei Xu (@Peefy, xpf6677@gmail.com)
+  - Zheng Zhang (@He1pa, he1pa404@gmail.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/kcl/issues/1244
+
+#### Supports tree-sitter for KCL
+
+Supports tree-sitter for KCL
+
+- Description: Tree-sitter is a parser generator tool and an incremental parsing library. In order to support more features of the IDE, we need a more complete syntax tree, and for easy integration with the community, we intend to use tree-sitter to build a more complete parser system for KCL.
+
+- Expected Outcome: Supports all of the current KCL syntax, which can pass all test cases.
+- Recommended Skills: rust, LSP
+- Mentor(s):
+  - Zheng Zhang (@He1pa, he1pa404@gmail.com)
+  - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/tree-sitter-kcl/issues/2
