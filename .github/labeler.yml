@@ -46,8 +46,12 @@
 'Term 2: June-Aug':
   - programs/lfx-mentorship/2023/02-Jun-Aug/*
   - programs/lfx-mentorship/2023/02-Jun-Aug/**/*
+  - programs/lfx-mentorship/2024/02-Jun-Aug/*
+  - programs/lfx-mentorship/2024/02-Jun-Aug/**/*
 
 # Add 'Term 3: Sept-Nov' label to files for that term
 'Term 3: Sept-Nov':
   - programs/lfx-mentorship/2023/03-Sep-Nov/*
   - programs/lfx-mentorship/2023/03-Sep-Nov/**/*
+  - programs/lfx-mentorship/2024/03-Sep-Nov/*
+  - programs/lfx-mentorship/2024/03-Sep-Nov/**/*
