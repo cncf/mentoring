@@ -41,5 +41,6 @@
   - Callum Styan (@cstyan, callumstyan@gmail.com), 
   - Jesús Vázquez (@jesusvazquez, jesus.vazquez@grafana.com)
   - Nico Pazos and Alex Greenbank from Grafana also available to help
+- Upstream Issue: https://github.com/prometheus/prometheus/issues/13995
 
 ---
