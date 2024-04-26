@@ -18,6 +18,18 @@
 
 ## Proposed Project ideas
 
+### Karmada
+
+#### Certificate Lifecycle Management
+
+- Description: The Karmada Certificate Lifecycle Management project addresses user challenges in certificate management, focusing on mitigating service disruptions and security risks due to expirations. Key goals include implementing a feature for real-time monitoring of certificates with advance notification for upcoming expirations; creating a comprehensive manual for manual replacement with best practices and visuals; allowing configurable certificate validity during deployment via CLI, Helm charts, and Operator; and designing an automated certificate rotation system to streamline certificate maintenance and ensure continuous security across Karmada environments.
+- Expected Outcome: Certificate Visibility Tool/Feature, Manual Certificate Replacement Guide, Updated Installation Tools with Customizable Certificate Validity, and Automated Certificate Rotation Solution Design or Integration 
+- Recommended Skills: Golang, Kubernetes Admin, certificate management, Helm.
+- Mentor(s):
+    - Hongcai Ren (@RainbowMango, qdurenhongcai@gmail.com)
+    - Zhen Chang (@XiShanYongYe-Chang, changzhen5@huawei.com)
+- Upstream Issue: https://github.com/karmada-io/community/issues/69
+
 ### Thanos
 
 #### Compactor: Display TODO plan in UI
@@ -30,16 +42,24 @@
   - Saswata Mukherjee (@saswatamcode, saswataminsta@yahoo.com)
 - Upstream Issue: https://github.com/thanos-io/thanos/issues/7285
 
----
+### Vitess
 
-### Karmada
+#### Improve the website of our automated-benchmarking tool (migrate to shadcn ui and typescript)
 
-#### Certificate Lifecycle Management
-
-- Description: The Karmada Certificate Lifecycle Management project addresses user challenges in certificate management, focusing on mitigating service disruptions and security risks due to expirations. Key goals include implementing a feature for real-time monitoring of certificates with advance notification for upcoming expirations; creating a comprehensive manual for manual replacement with best practices and visuals; allowing configurable certificate validity during deployment via CLI, Helm charts, and Operator; and designing an automated certificate rotation system to streamline certificate maintenance and ensure continuous security across Karmada environments.
-- Expected Outcome: Certificate Visibility Tool/Feature, Manual Certificate Replacement Guide, Updated Installation Tools with Customizable Certificate Validity, and Automated Certificate Rotation Solution Design or Integration 
-- Recommended Skills: Golang, Kubernetes Admin, certificate management, Helm.
+- Description:
+    - Vitess uses arewefastyet to automatically benchmark its codebase and ensure no performance regression is introduced. This tool benchmarks Vitess every day, and is used to visualize the results of those benchmarks. It is an important tool in the development cycle of Vitess and is used by its maintainers and adopters.
+    - [Arewefastyet' website](https://benchmark.vitess.io) has changed quite a lot over the last year, we want to continue improving it by finishing the migration to TypeScript and by using Shadcn components.
+    - Moreover, we want to make the website responsive and have a proper Figma that serves as a reference for current and future contributors.
+- Expected Outcome:
+    - The mentee is expected to produce a Figma with the design of the website that will be co-authored with the mentor.
+    - Re-vamp most of the pages using Shadcn and the design defined with the mentor at the start of the internship period.
+    - Add type information for all/most components using TypeScript.
+- Recommended Skills:
+    - Be skilled in React/Vite/TypeScript.
+    - Must know how to simply use Docker and docker-compose.
+    - Experience with Figma is a big plus.
+    - Experience with Rest APIs and Golang is a plus too.
 - Mentor(s):
-    - Hongcai Ren (@RainbowMango, qdurenhongcai@gmail.com)
-    - Zhen Chang (@XiShanYongYe-Chang, changzhen5@huawei.com)
-- Upstream Issue: https://github.com/karmada-io/community/issues/69
+    - Florent Poinsard @fouioui florent@planetscale.com
+    - Frances Thai @notfelineit frances@planetscale.com
+- Upstream Issue (URL): https://github.com/vitessio/arewefastyet/issues/525
