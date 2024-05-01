@@ -77,10 +77,10 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
 - Expected Outcome: Inetgrating container image scanning capabilities in the Kubescape VSCode plugin and implementing
  Kubescape's ability to apply fixes for configuration issues to YAML files or Helm charts directly within their development environment.
 
-
 - Recommended Skills: Javascript, some familiarity with the inner workings of the VSCode plugin system.
 - Mentor(s):
-  - Ben Hirschberg (@slashben, ben@armosec.io); David Wertenteil (@dwertent, dwertent@armosec.io)
+  - Ben Hirschberg (@slashben, ben@armosec.io)
+  - David Wertenteil (@dwertent, dwertent@armosec.io)
 - Upstream Issue: [kubescape/Kubescape#1666](https://github.com/kubescape/kubescape/issues/1666)
 
 
@@ -90,10 +90,10 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
 - Description: Backstage has become a popular option for an internal portal that provides information for engineers in different capacities. Creating a backstage plugin for Kubescape will ultimately help users achieve their goal of hardening Kubernetes clusters, by being able to view security posture information on Backstage and without context switching.
 - Expected Outcome: A Kubescape plugin for Backstage in which users will be able to get information about their security posture and highest risk workloads at a glance within the orgnizational portal.
 
-
 - Recommended Skills: Typescript, React, some familiarity with new Backstage plugin system.
 - Mentor(s):
-  - Rotem Refael (@rotemamsa, rotem@armosec.io); Matthias Bertschy (@matthyx, matthiasb@armosec.io)
+  - Rotem Refael (@rotemamsa, rotem@armosec.io)
+  - Matthias Bertschy (@matthyx, matthiasb@armosec.io)
 - Upstream Issue: [kubescape/Kubescape#1667](https://github.com/kubescape/kubescape/issues/1667)
 
 
