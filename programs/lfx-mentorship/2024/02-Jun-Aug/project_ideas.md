@@ -31,13 +31,45 @@
   - Bill Mulligan(xmulligan, <bill.mulligan@isovalent.com>)
 - Upstream Issue: <https://github.com/cilium/cilium.io/issues/492>
 
+### Jaeger
+
+#### Jaeger-V2 Observability and Healthchecks
+
+- Description: Jaeger is a distributed tracing platform. Jaeger V2 is a major new version where we rebase all Jaeger backend components (agent, collector, ingester, and query) on top of the OpenTelemetry Collector. (1) Currently jaeger-v2 components are initialized without observability clients. We need to instantiate appropriate logging, tracing, and metrics clients and pass them to the components. The existing code uses internal metrics API, which needs to be bridged to OTEL metrics to minimize code changes. (2) Jaeger-v1 components can report their readiness using an internal health check API that is connected to the healthcheck endpoint on the admin port. We need to implement similar capability in Jaeger-v2.
+- Expected Outcome: Achieve parity in observability of jaeger-v2 compared to jaeger-v1
+- Recommended Skills: Go, scripting, CI/CD
+- Mentor(s):
+  - Yuri Shkuro (@yurishkuro, github@ysh.us)
+  - Jonah Kowall (@jkowall, jkowall@kowall.net)
+- Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5240
+
+#### Jaeger-V2 Service Performance Monitoring
+
+- Description: Jaeger is a distributed tracing platform. Jaeger V2 is a major new version where we rebase all Jaeger backend components (agent, collector, ingester, and query) on top of the OpenTelemetry Collector. Jaeger-v1 implements a functionality known as [SPM](https://www.jaegertracing.io/docs/latest/spm/), but it requires a separately running OpenTelemetry Collector to produce metrics out of spans using [SpanMetrics Connector](https://pkg.go.dev/github.com/open-telemetry/opentelemetry-collector-contrib/connector/spanmetricsconnector#section-readme). Since Jaeger-v2 is built on top of OTEL Collector, we can run SpanMetrics Connector directly in the Jaeger binary and simplify the setup for the users.
+- Expected Outcome: Achieve parity in SPM of jaeger-v2 compared to jaeger-v1. Implement integration tests. Update documentation accordingly.
+  - Extra credit: implement metrics reader directly on top of Elasticsearch/Opensearch and bypass the need for Prometheus.
+- Recommended Skills: Go, scripting, CI/CD
+- Mentor(s):
+  - Yuri Shkuro (@yurishkuro, github@ysh.us)
+  - Jonah Kowall (@jkowall, jkowall@kowall.net)
+- Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5240
+
+#### Jaeger-V2 Kafka-based architecture
+
+- Description: Jaeger is a distributed tracing platform. Jaeger V2 is a major new version where we rebase all Jaeger backend components (agent, collector, ingester, and query) on top of the OpenTelemetry Collector. The goal is to implement a deployment mode (supported in Jaeger-v1) that uses Kafka as an intermediate buffer for spans between collector and ingester. It should use the latest version of ibm/sarama driver ([related issue](https://github.com/jaegertracing/jaeger/issues/4591)) and support both original Jaeger formats as well as OpenTelemetry OTLP. It may be possible to utilize the Kafka exporter/receiver from OTEL contrib.
+- Expected Outcome: Achieve parity for Kafka-based deployment jaeger-v2 compared to jaeger-v1, including internal observability. Implement integration tests. Update documentation accordingly.
+- Recommended Skills: Go, scripting, CI/CD
+- Mentor(s):
+  - Yuri Shkuro (@yurishkuro, github@ysh.us)
+  - Jonah Kowall (@jkowall, jkowall@kowall.net)
+- Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5240
 
 ### Karmada
 
 #### Certificate Lifecycle Management
 
 - Description: The Karmada Certificate Lifecycle Management project addresses user challenges in certificate management, focusing on mitigating service disruptions and security risks due to expirations. Key goals include implementing a feature for real-time monitoring of certificates with advance notification for upcoming expirations; creating a comprehensive manual for manual replacement with best practices and visuals; allowing configurable certificate validity during deployment via CLI, Helm charts, and Operator; and designing an automated certificate rotation system to streamline certificate maintenance and ensure continuous security across Karmada environments.
-- Expected Outcome: Certificate Visibility Tool/Feature, Manual Certificate Replacement Guide, Updated Installation Tools with Customizable Certificate Validity, and Automated Certificate Rotation Solution Design or Integration 
+- Expected Outcome: Certificate Visibility Tool/Feature, Manual Certificate Replacement Guide, Updated Installation Tools with Customizable Certificate Validity, and Automated Certificate Rotation Solution Design or Integration
 - Recommended Skills: Golang, Kubernetes Admin, certificate management, Helm.
 - Mentor(s):
     - Hongcai Ren (@RainbowMango, qdurenhongcai@gmail.com)
@@ -74,8 +106,8 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
 - Description: Prometheus remote write allows users to send their metrics to other time series databases. Though the [Prombench tool](https://github.com/prometheus/test-infra/tree/master/prombench) has existed for a number of years, it has never been extended to support performance testing of Remote Write in a realistic production like environment. With the upcomming Remote Write 2.0 changes to both the underlying implementation as well as the wire format, the need for benchmarking of remote write beyond static Go bechmark tests has increased.
 - Expected Outcome: Build additional (or extends existing) tooling, similar to Prombench’s [load-generator](https://github.com/prometheus/test-infra/tree/master/tools/load-generator) and [avalanche](https://github.com/prometheus-community/avalanche), to support scenarios under which remote write should be performance tested. For example; allowing gradual increases/decreases in # of active series, sudden spikes in active series, various amounts of latency in the server receiving the remote write data, etc. Time permitted, extend Prombench's test suite to include a set of Remote Write tests that can be run via a new command.
 - Recommended Skills: Go, some familiarity with Prometheus or metrics, basic Docker knowledge
-- Mentor(s): 
-  - Callum Styan (@cstyan, callumstyan@gmail.com), 
+- Mentor(s):
+  - Callum Styan (@cstyan, callumstyan@gmail.com),
   - Jesús Vázquez (@jesusvazquez, jesus.vazquez@grafana.com)
   - Nico Pazos and Alex Greenbank from Grafana also available to help
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/13995
