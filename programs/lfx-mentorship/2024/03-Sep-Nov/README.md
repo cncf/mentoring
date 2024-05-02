@@ -1,4 +1,4 @@
-# Term 02 - 2024 June - August 
+# Term 02 - 2024 September - November
 
 Status: Planning
 
