@@ -66,6 +66,25 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
   https://github.com/knative/ux/issues/130
 
 
+### Kubernetes
+
+#### KEP Versioning
+
+- Description: Occasionally there are updates to the KEP templates in between releases and when the templates change between enhancement stages it:
+
+1. Extra work on the enhancements team as they need to ensure that each enhancement opted into a release is using the latest template (which today is a manual process)
+2. Confusion and risk for enhancement authors who may not have been aware that the templates changed, and updates are required when updating the KEPs to be included in a release.
+
+https://kubernetes.slack.com/archives/CPNHUMN74/p1675716127904979
+This also happened between v1.24 and v1.25 when the Test Plan section of the KEP template was updated.
+
+- Expected Outcome: We should version the [README.md KEP template file](https://github.com/kubernetes/enhancements/blob/master/keps/NNNN-kep-template/README.md) and ensure that PRs that update the README files under https://github.com/kubernetes/enhancements/tree/master/keps have been updated to use the latest template.
+- Recommended Skills: Golang, Kubernetes Admin, certificate management, Helm.
+- Mentor(s):
+    - Mark Rossetti (@marosset, marosset@microsoft.com)
+    - Meha Bhalodiya (@mehabhalodiya, mehabhalodiya@gmail.com)
+- Upstream Issue: https://github.com/kubernetes/enhancements/issues/3851
+
 
 ### Kubescape
 
