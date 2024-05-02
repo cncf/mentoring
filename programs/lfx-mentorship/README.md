@@ -22,6 +22,7 @@ LFX Mentorship is actively used by the Cloud Native Computing Foundation as a me
 
 | Year | Term             | Status      | Announcement                                                                                                                                                         | Details                                             |
 |------|------------------|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| 2024 | Term 1: Jun-Aug  | Planning |  | [2024 Term 1: Jun-Aug](2024/02-Jun-Aug/README.md)   |
 | 2024 | Term 1: Mar-May  | In progress |  | [2024 Term 1: Mar-May](2024/01-Mar-May/README.md)   |
 | 2023 | Term 3: Sep-Nov  | Completed   | [CNCF Blog](https://www.cncf.io/blog/2023/12/14/lfx-programs-cncf-mentees-have-successfully-finished-term-3/)                                                        | [2023 Term 3: Sep-Nov](2023/03-Sep-Nov/README.md)   |
 |  | Term 2: Jun-Aug  | Completed |[CNCF Blog](https://www.cncf.io/blog/2023/09/12/36-cncf-term-2-lfx-mentees-have-successfully-completed-the-program/)                                                | [2023 Term 2: Jun-Aug](2023/02-Jun-Aug/README.md)   |
@@ -39,7 +40,7 @@ LFX Mentorship is actively used by the Cloud Native Computing Foundation as a me
 
 ### Current cycle
 
-The LFX Mentorship program is completed for 2022. The current cycle is [2-Jun-Aug 2023](2023/02-Jun-Aug/README.md).
+The current cycle is [02-Jun-Aug 2024](2024/02-Jun-Aug/README.md).
 
 ## Program Maintainers
 
