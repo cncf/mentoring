@@ -66,6 +66,48 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
   https://github.com/knative/ux/issues/130
 
 
+### KubeEdge
+
+#### Iterating Enhancement for KubeEdge Dashboard
+
+- Description: Based on the previous release of KubeEdge, a version of the dashboard has been implemented. With the iterative updates of the backend API, the current dashboard may have several issues. In this project, we aim to iterate and update the dashboard to ensure its compatibility with the latest version of KubeEdge. Additionally, we want to refactor the dashboard using more mainstream frameworks such as Material and optimize the user experience of the dashboard.
+- Expected Outcome: new release Dashboard which supports new KubeEgde APIs.
+- Recommended Skills: KubeEdge, Front-end, nodejs
+- Mentor(s):
+  - Hongbing Zhang (@HongbingZhang, hongbing.zhang@daocloud.io)
+  - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
+- Upstream Issue: https://github.com/kubeedge/dashboard/issues/22
+
+#### Router Manager Support HA
+
+- Description: Users need to communicate between the cloud and the edge. For example, the cloud calls the rest interface of the edge service. In this case, the routing management function of KubeEdge can be used. Currently, routing management function of KubeEdge has some problems in the case of multiple CloudCore copies. The main problem is that when there are multiple copies of CloudCore, whether the cloud sends messages to the edge or reports the message to the cloud, it is not known which CloudCore is sent to it for processing, and there is confusion in message management in the cloud. In this project, we hope router manager can be optimized to support multi-CloudCore scenario.
+- Expected Outcome: Support using router manager in multi-CloudCore scenario.
+- Recommended Skills: Golang, KubeEdge
+- Mentor(s):
+  - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
+  - jiawei (@JiaweiGithub, jiawei.liu@daocloud.io)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/5561
+
+#### KubeEdge test cases enhancement
+
+- Description: Testing is an important task to ensure project stability, security, and other aspects. Since KubeEdge is built on top of native Kubernetes, in this project, we aim to integrate Kubernetes end-to-end (E2E) test cases into KubeEdge's CI. This integration will help ensure the native compatibility and usability of KubeEdge. Additionally, we also aim to improve the unit tests and increase the coverage of integration tests for KubeEdge.
+- Expected Outcome: Improve KubeEdge test coverage scenarios
+- Recommended Skills: Golang, KubeEdge
+- Mentor(s):
+  - Fisher Xu (@fisherxu, fisherxu1@gmail.com)
+  - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/5562
+
+#### KubeEdge Documentation Improvement
+
+- Description: Recently, we have updated the directory and structure of the community's official website documentation. We have listed some documentation improvement tasks. In this project, we would like you to have a thorough understanding of KubeEdge and complete these documentation optimization tasks to help users or developers gain a better understanding of and utilize KubeEdge effectively.
+- Expected Outcome: Document optimization of setup, usage guide, and developer guide, adding more FAQs, etc.
+- Recommended Skills: Kubernetes, KubeEdge, docs
+- Mentor(s):
+  - zhiying (@zhiyingfang2022, zhiying.fang@daocloud.io)
+  - wbc6080 (@wbc6080, wangbincheng4@huawei.com)
+- Upstream Issue: https://github.com/kubeedge/website/issues/433
+
 
 ### Kubescape
 
@@ -95,7 +137,6 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
   - Rotem Refael (@rotemamsa, rotem@armosec.io)
   - Matthias Bertschy (@matthyx, matthiasb@armosec.io)
 - Upstream Issue: [kubescape/Kubescape#1667](https://github.com/kubescape/kubescape/issues/1667)
-
 
 
 ### Prometheus
