@@ -188,3 +188,62 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
     - Frances Thai @notfelineit frances@planetscale.com
 - Upstream Issue (URL): https://github.com/vitessio/arewefastyet/issues/525
 
+### WasmEdge
+
+#### Support piper as a new backend of the WASI-NN WasmEdge plugin
+
+- Description: WasmEdge supports PyTorch, TensorFlow Lite, llama.cpp, and more NN backend. Dealing with the text-to-voice is a big thing that we want to achieve. To make it possible, we would like to integrate [piper](https://github.com/rhasspy/piper), A fast, local neural text-to-speech system in C++ as a new [WASI-NN](https://github.com/second-state/wasmedge-wasi-nn) backend.
+- Expected Outcome:
+  - A new plugin provides a piper [WASI-NN](https://github.com/second-state/wasmedge-wasi-nn) backend
+  - A test suite for validating the plugin
+  - Documents and examples for explaining how to use the plugin.
+- Recommended Skills: C++, Wasm
+- Mentor(s):
+  - Hung-Ying Tai (@hydai, hydai@secondstate.io)
+  - dm4 (@dm4, dm4@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3381
+
+#### Enabling LLM fine tuning in the WASI-NN ggml plugin
+
+- Description: WasmEdge is a lightweight and cross-platform runtime for LLM applications. It allows developers to create LLM apps on a Mac or Windows dev machine, compile them to Wasm, and deploy them on Nvidia machines without any changes to the binary app. It achieves application portability across CPUs and GPUs by supporting a W3C standard API called  [WASI-NN](https://github.com/second-state/wasmedge-wasi-nn), which abstracts GPU-related AI functions as high-level APIs. At this stage, however, only inference functions are supported. In this project, we aim to support fine-tuning features in WasmEdge. It will improve the developer experience for WasmEdge-enabled LLM tools. To achieve this, we plan to extend the current WASI-NN spec by adding a set of extra APIs, and then implement them by delegating to corresponding functions in llama.cpp embedded in the WasmEdge GGML plugin.
+- Expected Outcome:
+  - Use llama2-7b as the base LLM for fine-tuning; the final implementation should handle it correctly.
+  - Extend the [WASI-NN](https://github.com/second-state/wasmedge-wasi-nn) spec if needed to support the fine-tuning feature.
+  - Implement the fine-tuning functions inside [WASI-NN ggml plugin](https://github.com/WasmEdge/WasmEdge/blob/master/plugins/wasi_nn/ggml.h). They will call the corresponding functions in llama.cpp, as the inference functions do.
+  - Implement the LoRA-related functions inside the WASI-NN ggml plugin to load the pre-trained LoRA and verify the fine-tuned model.
+  - Documentation, examples, tutorials, and demonstration are required.
+- Recommended Skills: C++, WebAssembly, LLM fine-tuning
+- Mentor(s):
+  - Hung-Ying Tai (@hydai, hydai@secondstate.io)
+  - dm4 (@dm4, dm4@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3209
+
+#### Create a search-enabled API server for local LLMs
+
+- Description: WasmEdge is a lightweight inference runtime for AI and LLM applications. The [LlamaEdge project](https://github.com/LlamaEdge) has developed an [OpenAI-compatible API server](https://github.com/LlamaEdge/LlamaEdge/tree/main/api-server) and a [server-side RAG app](https://llamaedge.com/docs/user-guide/server-side-rag) based on WasmEdge. In this project, we aim to use the LlamaEdge components to build a new API server that incorporates real-time Internet search results into LLM answers.
+- Expected Outcome: An OpenAI-compatible local LLM API server that uses Google Search for supplemental context
+- Recommended Skills:
+  - Rust language
+  - LlamaEdge
+- Mentor(s):
+  - Michael Yuan (@juntao, michael@secondstate.io)
+  - Hung-Ying Tai (@hydai, hydai@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3372
+
+#### Finetune LLM models for Rust coding assistance
+
+- Description: WasmEdge is a lightweight inference runtime for AI and LLM applications. We want to build specialized and finetuned models for WasmEdge community. The model should be supported by WasmEdge and its applications should benefit the WasmEdge community. 
+  In this project, we will build and compare two finetuned model for Rust coding assistance.
+  * A code review model. It aims to be a new backend for the [PR review bot](https://github.com/flows-network/github-pr-summary/) we currently use in the community.
+  * A QA model. It should be able to answer user questions about the Rust language and provide explanations. Our goal is to provide an alternative to our [Learn Rust](https://flows.network/learn-rust) app.
+- Expected Outcome: Two finetuned models based on Llama3-8b for Rust code review and QA.
+- Recommended Skills:
+  - Rust language
+  - ChatGPT and Claude
+  - LlamaEdge
+  - llama.cpp
+- Mentor(s):
+  - Michael Yuan (@juntao, michael@secondstate.io)
+  - Hung-Ying Tai (@hydai, hydai@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3371
+
