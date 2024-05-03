@@ -188,3 +188,24 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
     - Frances Thai @notfelineit frances@planetscale.com
 - Upstream Issue (URL): https://github.com/vitessio/arewefastyet/issues/525
 
+### in-toto 
+
+#### Documentation Boost!
+
+- Description:
+  - Help contributors get started with improving the documentation of CNCF projects and TAGs.  To start, we'd like students to help to
+improve both the documentation of a project, and also encourage them to contribute to other projects.  So, view the issues as a starting
+point to help start your career in open source.
+- Expected Outcome:
+  - Develop effective documentation for CNCF projects.  As a start, the CNCF project in-toto has a fairly clear set of requirements for what
+documentation changes are needed.
+- Recommended Skills:
+  - Technical writing
+  - Basic understanding of cloud native projects (or a desire to learn!)
+- Mentor(s):
+  - Justin Cappos @JustinCappos jcappos@nyu.edu
+  - LF documentation wizard (to be named later)
+- Upstream Issues:
+  -   https://github.com/in-toto/docs/issues/90
+  -   https://github.com/in-toto/docs/issues/91
+  -   https://github.com/in-toto/docs/issues/92
