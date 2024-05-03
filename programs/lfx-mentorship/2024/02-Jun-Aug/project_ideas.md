@@ -206,6 +206,7 @@ documentation changes are needed.
   - Justin Cappos @JustinCappos jcappos@nyu.edu
   - LF documentation wizard (to be named later)
 - Upstream Issues:
+  -   https://github.com/in-toto/docs/issues/85
   -   https://github.com/in-toto/docs/issues/90
   -   https://github.com/in-toto/docs/issues/91
   -   https://github.com/in-toto/docs/issues/92
