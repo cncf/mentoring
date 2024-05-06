@@ -30,6 +30,28 @@
   - Bill Mulligan(xmulligan, <bill.mulligan@isovalent.com>)
 - Upstream Issue: <https://github.com/cilium/cilium.io/issues/492>
 
+### in-toto
+
+#### Sigstore support for in-toto-jenkins
+
+- Description: The [in-toto Jenkins plugin](https://github.com/in-toto/in-toto-jenkins-plugin) allows users to generate metadata in their build pipelines. Currently keys or credentials must be provided to the plugin to sign the metadata, whereas Sigstore offers keyless signing and verification. The addition of Sigstore transport will allow seamless uploading of metadata to Rekor transparency log. This project aims to enhance the Jenkins plugin by adding [Sigstore](https://www.sigstore.dev) support, allowing keyless signing and adding Sigstore transport.
+- Expected Outcome: in-toto-jenkins plugins gets support for Sigstore
+- Recommended Skills: Java, Jenkins
+- Mentor(s):
+  - Santiago Torres-Arias (@SantiagoTorres, santiagotorres@purdue.edu)
+  - Pradyumna Krishna (@PradyumnaKrishna, git@onpy.in)
+- Upstream Issue: https://github.com/in-toto/in-toto-jenkins-plugin/issues/6
+
+### Add GUAC support
+
+- Description: The project aims to integrate Graph for Understanding Artifact Composition (GUAC) with in-toto, a framework safeguarding software supply chain integrity. [Graph for Understanding Artifact Composition (GUAC)](https://guac.sh/) aggregates software security metadata into a high fidelity graph database—normalizing entity identities and mapping standard relationships between them. This project seeks to extend in-toto's capabilities by incorporating GUAC, enabling users to query GUAC with Package URLs (purls) and retrieve pertinent attestations.
+- Expected Outcome: Adds functionality to query GUAC, retrieve and parse relevant attestations for the specified artifact.
+- Recommended Skills: Go, Python
+- Mentor(s):
+  - Santiago Torres-Arias (@SantiagoTorres, santiagotorres@purdue.edu)
+  - Pradyumna Krishna (@PradyumnaKrishna, git@onpy.in)
+- Upstream Issue: https://github.com/in-toto/attestation-verifier/issues/29
+
 ### Jaeger
 
 #### Jaeger-V2 Observability and Healthchecks
