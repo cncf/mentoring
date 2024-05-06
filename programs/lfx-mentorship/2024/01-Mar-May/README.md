@@ -713,7 +713,7 @@ We want to leverage the above for creating a plugin which will allow users to se
   - Swift
 - Mentor(s):
   - Juraci Paixão Kröhling (@jpkrohling, juraci.kroehling@grafana.com)
-  - Andrzej Stencel (@astencel-sumo, andrzej@andrzejstencel.pl)
+  - Andrzej Stencel (@andrzej-stencel, andrzej@andrzejstencel.pl)
 - Upstream Issue: https://github.com/open-telemetry/community/issues/1865
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2d114b9d-015e-40f4-bdd7-9acbb836d84e
 

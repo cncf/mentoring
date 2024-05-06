@@ -8,13 +8,13 @@ Mentorship duration - three months (12 weeks - full-time schedule)
 
 | activity | date |
 | --- | --- |   
-| project proposals | Monday April 8 - Wed April 24, 2024, 5:00 PM PDT |
-| mentee applications open | Monday April 29 - Tues May 14, 5:00 PM PDT |
-| application review/admission decisions | Wed May 15 - Tues June 29, 5:00 PM PDT |
-| selection notifications | Tues May 29, 5:00 PM PDT |
-| Mentorship program begins with the initial work assignments | Monday June 3 (Week 1) | 
-| Midterm mentee evaluations and first stipend payments | Wednesday July 10 10 (Week 6) |
-| Final mentee evaluations and mentee feedback/blog submission due, second and final stipend payment approvals | Wed Aug 21, 5:00 PM PST (Week 12) |
+| project proposals | Monday April 8 - Wed May 8, 2024, 5:00 PM PDT |
+| mentee applications open | Monday May 13 - Tues May 28, 5:00 PM PDT |
+| application review/admission decisions | Wed May 29 - Tues June 11, 5:00 PM PDT |
+| selection notifications | Tues June 12, 5:00 PM PDT |
+| Mentorship program begins with the initial work assignments | Monday June 17 (Week 1) | 
+| Midterm mentee evaluations and first stipend payments | Wednesday July 24 (Week 6) |
+| Final mentee evaluations and mentee feedback/blog submission due, second and final stipend payment approvals | Wed Aug 28, 5:00 PM PST (Week 12) |
 | Last day of term | Friday Aug 30 |
 
 ### Project Instructions
