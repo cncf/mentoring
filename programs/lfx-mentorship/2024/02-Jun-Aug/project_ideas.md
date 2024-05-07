@@ -297,3 +297,25 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
   - Hung-Ying Tai (@hydai, hydai@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3371
 
+### KWOK
+
+#### Enhancement of Test Cases
+
+- Description: KWOK (Kubernetes WithOut Kubelet) is a toolkit that enables setting up a cluster of thousands of Nodes in seconds. KWOK is currently being used by a number of projects for testing and performance. It is crucial that KWOK itself behaves consistently. The following tests are currently being considered: Unit Test, E2E Test, Edge Cases.
+- Expected Outcome: Improved test coverage for KWOK.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s):
+  - Shiming Zhang (wzshiming, <wzshiming@hotmail.com>)
+  - Zhenghao Zhu (Zhuzhenghao, <zhenghao.zhu@daocloud.io>)
+- Upstream Issue: https://github.com/kubernetes-sigs/kwok/issues/1062
+
+#### Enhancement of Technical Outcomes
+
+- Description: KWOK (Kubernetes WithOut Kubelet) is a toolkit that enables setting up a cluster of thousands of Nodes in seconds. On the KWOK homepage (https://kwok.sigs.k8s.io/), we aim to document the technical outcomes of using KWOK. These outcomes represent the aggregation of some of KWOK's features to achieve a high-level technical goal. Currently, we have the following areas of focus: Chaos Testing, Performance, Simulation, and Scalability.
+- Expected Outcome: A section of the KWOK website detailing these technical outcomes.
+- Recommended Skills: Kubernetes, Technical Writing
+- Mentor(s):
+  - Shiming Zhang (wzshiming, <wzshiming@hotmail.com>)
+  - Zhenghao Zhu (Zhuzhenghao, <zhenghao.zhu@daocloud.io>)
+- Upstream Issue: https://github.com/kubernetes-sigs/kwok/issues/1063
+
