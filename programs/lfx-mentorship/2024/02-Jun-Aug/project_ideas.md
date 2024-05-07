@@ -202,6 +202,15 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
   - Nico Pazos and Alex Greenbank from Grafana also available to help
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/13995
 
+#### Mark Out-of-order ingestion as stable
+
+- Description: Prometheus is known by not accepting out-of-order samples during ingestion, but recently (2 years ago) [support was added behind a feature-flag](https://github.com/prometheus/prometheus/pull/11075). Since then, many improvements have been made to out-of-order ingestion and it has become one of the requirements for OTLP ingestion in Prometheus. We want to deliver Prometheus 3.0 in a few months, and that requires marking out-or-order ingestion as a stable feature. In this project we will clean up several smaller issues around out-of-order ingestion, hopefully marking it as stable by the end of the mentorship.
+- Recommended Skills: Go, familiarity with Prometheus TSDB.
+- Mentor(s):
+  - Bryan Boreham (@bboreham, bjboreham@gmail.com)
+  - Jesus Vazquez (@jesusvazquez, jesus.vazquez@grafana.com)
+- Upstream Issue: https://github.com/prometheus/prometheus/issues/12631
+
 
 ### Thanos
 
