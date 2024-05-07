@@ -195,7 +195,7 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
 
 - Description:
   - Open source projects need help with their documentation!  The TUF project is a good place to start.  We'd welcome help from others to help here
-and become contributors to other projects / TAGs later in the project period.
+and become contributors to other projects / TAGs later in the project period.  The student will (with minimal guidance from the CNCF team and TUF project) do a CNCF assessment for the TUF documentation
 - Expected Outcome:
   - Both an improvement of project docs and the development of a new contributor.  A student will understand how to do technical writing for an open source project.  
 - Recommended Skills:
