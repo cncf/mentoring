@@ -97,6 +97,24 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
 - Upstream Issue:
   https://github.com/knative/ux/issues/130
 
+#### Knative - applying pre-prepared website design
+
+- Description: Current design of the Knative website (https://knative.dev) does not look modern and contains inconsistent style. Knative UX working group has prepared a new design for the website. We would like to get this design implemented on the website. We also want to ensure with this implementation that the figures in the website include alt text descriptions. We are not looking for full WCAG compliance though.Also, currently the website is not really responsive and doesn’t look good on a mobile device. The group also has a design for the mobile. Finally we have many diagrams on the website that have different styles. We would like to have these diagrams more cohesive. This part is an extended goal though.
+
+- Expected Outcome: New design applied to website; website is made responsive; diagrams look and feel more cohesive.
+
+- Recommended Skills: HTML, CSS, Markdown, SVG, Material for Mkdocs, Figma
+
+- Mentor(s):
+  - Ali Ok (@aliok, aliok@redhat.com)
+  - Calum Murray (@cali0707, cmurray@redhat.com)
+  - Zainab Husain (@zainabhusain227, zainabhusain227@gmail.com)
+
+- Upstream Issue:
+  - https://github.com/knative/ux/issues/134
+  - https://github.com/knative/ux/issues/135 
+  - https://github.com/knative/ux/issues/103 
+
 
 ### KubeEdge
 
