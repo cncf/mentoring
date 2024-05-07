@@ -321,8 +321,6 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
 
 #### Supports tree-sitter for KCL
 
-Supports tree-sitter for KCL
-
 - Description: Tree-sitter is a parser generator tool and an incremental parsing library. In order to support more features of the IDE, we need a more complete syntax tree, and for easy integration with the community, we intend to use tree-sitter to build a more complete parser system for KCL.
 
 - Expected Outcome: Supports all of the current KCL syntax, which can pass all test cases.
