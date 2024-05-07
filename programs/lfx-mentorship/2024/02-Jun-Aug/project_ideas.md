@@ -297,3 +297,13 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
   - Hung-Ying Tai (@hydai, hydai@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3371
 
+### OpenKruise 
+
+#### Enhancement for Kruise-Game Dashboard
+
+- Description: The OpenKruiseGame Dashboard is presently in its basic form, and we aim to significantly expand its functionality going forward. We plan to introduce features such as the ability to filter game servers and perform batch updates on them.
+- Expected Outcome: new release Dashboard which supports searching, querying, updating objects in batch.
+- Recommended Skills: Kubernetes, nodejs, javascript
+- Mentor(s):
+  - Qiuyang Liu (@chrisliu1995, chrisliu1995@163.com)
+- Upstream Issue: https://github.com/openkruise/kruise-game/issues/139
