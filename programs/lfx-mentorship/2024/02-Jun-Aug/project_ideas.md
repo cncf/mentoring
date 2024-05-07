@@ -158,6 +158,32 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
   - wbc6080 (@wbc6080, wangbincheng4@huawei.com)
 - Upstream Issue: https://github.com/kubeedge/website/issues/433
 
+### Kubernetes
+
+#### Update Image Signing to Meet New Infra Requirements
+
+- Description: The process that signs with Sigstore all container images released on community
+infra was designed for a different serving architecture. When the community
+moved to [registry.k8s.io](https://kubernetes.io/blog/2022/11/28/registry-k8s-io-faster-cheaper-ga/)
+and increased 10x the number of registries, the replication of signatures broke 
+due to rate limits imposed on the new registries. As part of the project, you will
+be instrumental in implementing the new signing process currently being designed 
+by the Kubernetes Release Engineering team. This project will involve heavy rewrites and
+refactoring of parts of the [Image Promoter](https://github.com/kubernetes-sigs/promo-tools),
+the tool that releases community images.
+- Expected Outcome: Implementation of the new signing process, ideally we'll fix
+all inconsistent signatures across community registries.
+- Recommended Skills: Go programming, strong container architecture and registry
+fundamentals, familiarity with [sigstore](https://www.sigstore.dev/), 
+[go-containerregistry](https://github.com/google/go-containerregistry) and infrastructure (GCP & AWS). 
+- Mentor(s):
+  - Adolfo García Veytia (@puerco, puerco@stacklok.com)
+  - Jeremy Rickard (@jeremyrickard jrickard@microsoft.com)
+  - Marko Mudrinić (@xmudrii, mudrinic.mare@gmail.com)
+  - Meha Bhalodiya (@mehabhalodiya, mehabhalodiya@gmail.com)
+- Upstream Issues:
+  - https://github.com/kubernetes/registry.k8s.io/issues/187
+  - https://github.com/kubernetes/release/issues/2962
 
 ### Kubescape
 
