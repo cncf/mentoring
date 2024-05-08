@@ -204,7 +204,7 @@ documentation changes are needed.
   - Basic understanding of cloud native projects (or a desire to learn!)
 - Mentor(s):
   - Justin Cappos @JustinCappos jcappos@nyu.edu
-  - LF documentation wizard (to be named later)
+  - Patrice Chalin @chalin chalin@cncf.io
 - Upstream Issues:
   -   https://github.com/in-toto/docs/issues/85
   -   https://github.com/in-toto/docs/issues/90
