@@ -30,6 +30,18 @@
   - Bill Mulligan(xmulligan, <bill.mulligan@isovalent.com>)
 - Upstream Issue: <https://github.com/cilium/cilium.io/issues/492>
 
+### Crossplane
+
+#### Make Crossplane Easy - Improving the Developer Experience
+
+- Description: Crossplane is in use at scale in many production environments, but we get often get feedback that there are many obstacles to learn Crossplane and get to a successfully built production-ready control plane. A major reason for this learning curve is the lack of supporting tools and experiences on top of core Crossplane that could accelerate the community’s attempts to successfully build their platforms. These higher level experiences have recently become a focus for the project and we want to keep delivering awesome experiences that make Crossplane easier to use.
+- Expected Outcome: We expect the mentee to design and code multiple improvements to the Crossplane tooling from the issue linked below. We will start with smaller scoped issues to ramp up and then focus on a bigger deliverable such as adding [validation for Crossplane Functions](https://github.com/crossplane/crossplane/issues/5094). By the end of the term, the mentee will have multiple code PRs merged into the Crossplane codebase.
+- Recommended Skills: Go, Kubernetes, Crossplane, CLI tools, passion for DevEx
+- Mentor(s):
+  - Jared Watts (primary) (@jbw976, jbw976@gmail.com)
+  - Ezgi Demirel (secondary) (@ezgidemirel, ezgi@upbound.io)
+- Upstream Issue: https://github.com/crossplane/crossplane/issues/3957
+
 ### Jaeger
 
 #### Jaeger-V2 Observability and Healthchecks
