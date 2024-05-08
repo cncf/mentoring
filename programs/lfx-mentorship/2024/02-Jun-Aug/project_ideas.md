@@ -18,6 +18,17 @@
 
 ## Proposed Project ideas
 
+### Copacetic
+
+#### Add new scenarios to Copa's existing image patching features
+- Description: This project will focus on a series of initial TODOs that are present in the codebase and that have been recently added as issues in GitHub. The issues range from adding custom image repos, to handling custom configuration at the package and system level.
+- Expected Outcome: Added features as suggested by current TODOs in code to enhance Copacetic user experience and features.
+- Recommended Skills: Go, Linux Package Management tools, container images, distroless images, Trivy, knowledge of Copacetic codebase would be useful.
+- Mentors(s):
+  - Ashna Mehrotra (@ashnamehrotra, asmehrotra@microsoft.com)
+  - Robert Kielty (@RobertKielty, robert.kielty@cncf.io)
+- Upstream Issues: https://github.com/project-copacetic/copacetic/issues?q=is%3Aissue+is%3Aopen+%5BREQ%5D+created%3A%3E2024-05-01+ and https://github.com/project-copacetic/copacetic/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22
+
 ### Cilium
 
 #### Cilium Technical Outcomes
