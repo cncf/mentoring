@@ -278,7 +278,7 @@ and become contributors to other projects / TAGs later in the project period.  T
   - Basic understanding of security principles
 - Mentor(s):
   - Justin Cappos @JustinCappos jcappos@nyu.edu
-  - LF documentation wizard (to be named later)
+  - Patrice Chalin @chalin chalin@cncf.io
 - Upstream Issues:
   - https://github.com/cncf/techdocs/issues/162
 
