@@ -27,7 +27,7 @@
 - Mentors(s):
   - Ashna Mehrotra (@ashnamehrotra, asmehrotra@microsoft.com)
   - Robert Kielty (@RobertKielty, robert.kielty@cncf.io)
-- Upstream Issues: https://github.com/project-copacetic/copacetic/issues?q=is%3Aissue+is%3Aopen+%5BREQ%5D+created%3A%3E2024-05-01+ and https://github.com/project-copacetic/copacetic/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22
+- Upstream Issues: https://github.com/project-copacetic/copacetic/issues/611
 
 ### Cilium
 
