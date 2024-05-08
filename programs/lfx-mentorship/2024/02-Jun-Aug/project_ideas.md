@@ -127,6 +127,19 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
   - https://github.com/knative/ux/issues/135 
   - https://github.com/knative/ux/issues/103 
 
+### KubeArmor
+
+#### Improve System Test Coverage and Pratices for KubeArmor
+
+- Description: KubeArmor supports securing many environments ranging from Kubernetes, unorchestrated containers, bare metal and virtual machines. Our testing matrix however doesn't cover many of these completely. In this project, we plan to improve this coverage by introducing automated testing of some of these environments and imrove the scenarios covered in some existing ones. These tests would be written using the Ginkgo framework and automated via GitHub workflows. The matrix we'll target can be found in the upstream issue.
+- Expected Outcome: Improved test coverage; Standards for writing tests for KubeArmor; Stabilization of KubeArmor
+- Recommended Skills: Go, Scripting, Kubernetes, CI/CD (GitHub Actions)
+- Mentor(s):
+  - Barun Acharya (@daemon1024, barun1024@gmail.com)
+  - Rudraksh Pareek (@DelusionalOptimist, rudrakshpareek3601@gmail.com)
+  - Anurag Kumar (@kranurag7, kranurag7@linux.com)
+  - Prashant Mishra (@primalpimmy, prashant20.pm@gmail.com)
+- Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1749
 
 ### KubeEdge
 
