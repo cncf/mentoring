@@ -30,6 +30,51 @@
   - Bill Mulligan(xmulligan, <bill.mulligan@isovalent.com>)
 - Upstream Issue: <https://github.com/cilium/cilium.io/issues/492>
 
+
+### in-toto
+
+### Add GUAC support
+
+- Description: The project aims to integrate Graph for Understanding Artifact Composition (GUAC) with in-toto, a framework safeguarding software supply chain integrity. [Graph for Understanding Artifact Composition (GUAC)](https://guac.sh/) aggregates software security metadata into a high fidelity graph database—normalizing entity identities and mapping standard relationships between them. This project seeks to extend in-toto's capabilities by incorporating GUAC, enabling users to query GUAC with Package URLs (purls) and retrieve pertinent attestations.
+- Expected Outcome: Adds functionality to query GUAC, retrieve and parse relevant attestations for the specified artifact.
+- Recommended Skills: Go, Python
+- Mentor(s):
+  - Santiago Torres-Arias (@SantiagoTorres, santiagotorres@purdue.edu)
+  - Pradyumna Krishna (@PradyumnaKrishna, git@onpy.in)
+- Upstream Issue: https://github.com/in-toto/attestation-verifier/issues/29
+
+#### Documentation Boost!
+
+- Description:
+  - Help contributors get started with improving the documentation of CNCF projects and TAGs.  To start, we'd like mentees to help to
+improve both the documentation of a project, and also encourage them to contribute to other projects.  So, view the issues as a starting
+point to help start your career in open source.
+- Expected Outcome:
+  - Develop effective documentation for CNCF projects.  As a start, the CNCF project in-toto has a fairly clear set of requirements for what
+documentation changes are needed.
+- Recommended Skills:
+  - Technical writing
+  - Basic understanding of cloud native projects (or a desire to learn!)
+- Mentor(s):
+  - Justin Cappos @JustinCappos jcappos@nyu.edu
+  - Patrice Chalin @chalin chalin@cncf.io
+- Upstream Issues:
+  -   https://github.com/in-toto/docs/issues/85
+  -   https://github.com/in-toto/docs/issues/90
+  -   https://github.com/in-toto/docs/issues/91
+  -   https://github.com/in-toto/docs/issues/92
+
+#### Sigstore support for in-toto-jenkins
+
+- Description: The [in-toto Jenkins plugin](https://github.com/in-toto/in-toto-jenkins-plugin) allows users to generate metadata in their build pipelines. Currently keys or credentials must be provided to the plugin to sign the metadata, whereas Sigstore offers keyless signing and verification. The addition of Sigstore transport will allow seamless uploading of metadata to Rekor transparency log. This project aims to enhance the Jenkins plugin by adding [Sigstore](https://www.sigstore.dev) support, allowing keyless signing and adding Sigstore transport.
+- Expected Outcome: in-toto-jenkins plugins gets support for Sigstore
+- Recommended Skills: Java, Jenkins
+- Mentor(s):
+  - Santiago Torres-Arias (@SantiagoTorres, santiagotorres@purdue.edu)
+  - Pradyumna Krishna (@PradyumnaKrishna, git@onpy.in)
+- Upstream Issue: https://github.com/in-toto/in-toto-jenkins-plugin/issues/6
+
+
 ### Crossplane
 
 #### Make Crossplane Easy - Improving the Developer Experience
@@ -41,6 +86,7 @@
   - Jared Watts (primary) (@jbw976, jbw976@gmail.com)
   - Ezgi Demirel (secondary) (@ezgidemirel, ezgi@upbound.io)
 - Upstream Issue: https://github.com/crossplane/crossplane/issues/3957
+
 
 ### Jaeger
 
@@ -315,29 +361,6 @@ and become contributors to other projects / TAGs later in the project period.  T
   - Patrice Chalin @chalin chalin@cncf.io
 - Upstream Issues:
   - https://github.com/cncf/techdocs/issues/162
-
-### in-toto 
-
-#### Documentation Boost!
-
-- Description:
-  - Help contributors get started with improving the documentation of CNCF projects and TAGs.  To start, we'd like mentees to help to
-improve both the documentation of a project, and also encourage them to contribute to other projects.  So, view the issues as a starting
-point to help start your career in open source.
-- Expected Outcome:
-  - Develop effective documentation for CNCF projects.  As a start, the CNCF project in-toto has a fairly clear set of requirements for what
-documentation changes are needed.
-- Recommended Skills:
-  - Technical writing
-  - Basic understanding of cloud native projects (or a desire to learn!)
-- Mentor(s):
-  - Justin Cappos @JustinCappos jcappos@nyu.edu
-  - Patrice Chalin @chalin chalin@cncf.io
-- Upstream Issues:
-  -   https://github.com/in-toto/docs/issues/85
-  -   https://github.com/in-toto/docs/issues/90
-  -   https://github.com/in-toto/docs/issues/91
-  -   https://github.com/in-toto/docs/issues/92
 
 
 ### WasmEdge
