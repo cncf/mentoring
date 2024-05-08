@@ -30,6 +30,18 @@
   - Bill Mulligan(xmulligan, <bill.mulligan@isovalent.com>)
 - Upstream Issue: <https://github.com/cilium/cilium.io/issues/492>
 
+### Crossplane
+
+#### Make Crossplane Easy - Improving the Developer Experience
+
+- Description: Crossplane is in use at scale in many production environments, but we get often get feedback that there are many obstacles to learn Crossplane and get to a successfully built production-ready control plane. A major reason for this learning curve is the lack of supporting tools and experiences on top of core Crossplane that could accelerate the community’s attempts to successfully build their platforms. These higher level experiences have recently become a focus for the project and we want to keep delivering awesome experiences that make Crossplane easier to use.
+- Expected Outcome: We expect the mentee to design and code multiple improvements to the Crossplane tooling from the issue linked below. We will start with smaller scoped issues to ramp up and then focus on a bigger deliverable such as adding [validation for Crossplane Functions](https://github.com/crossplane/crossplane/issues/5094). By the end of the term, the mentee will have multiple code PRs merged into the Crossplane codebase.
+- Recommended Skills: Go, Kubernetes, Crossplane, CLI tools, passion for DevEx
+- Mentor(s):
+  - Jared Watts (primary) (@jbw976, jbw976@gmail.com)
+  - Ezgi Demirel (secondary) (@ezgidemirel, ezgi@upbound.io)
+- Upstream Issue: https://github.com/crossplane/crossplane/issues/3957
+
 ### Jaeger
 
 #### Jaeger-V2 Observability and Healthchecks
@@ -228,6 +240,15 @@ fundamentals, familiarity with [sigstore](https://www.sigstore.dev/),
   - Nico Pazos and Alex Greenbank from Grafana also available to help
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/13995
 
+#### Mark Out-of-order ingestion as stable
+
+- Description: Prometheus is known by not accepting out-of-order samples during ingestion, but recently (2 years ago) [support was added behind a feature-flag](https://github.com/prometheus/prometheus/pull/11075). Since then, many improvements have been made to out-of-order ingestion and it has become one of the requirements for OTLP ingestion in Prometheus. We want to deliver Prometheus 3.0 in a few months, and that requires marking out-or-order ingestion as a stable feature. In this project we will clean up several smaller issues around out-of-order ingestion, hopefully marking it as stable by the end of the mentorship.
+- Recommended Skills: Go, familiarity with Prometheus TSDB.
+- Mentor(s):
+  - Bryan Boreham (@bboreham, bjboreham@gmail.com)
+  - Jesus Vazquez (@jesusvazquez, jesus.vazquez@grafana.com)
+- Upstream Issue: https://github.com/prometheus/prometheus/issues/12631
+
 
 ### Thanos
 
@@ -281,6 +302,30 @@ and become contributors to other projects / TAGs later in the project period.  T
   - Patrice Chalin @chalin chalin@cncf.io
 - Upstream Issues:
   - https://github.com/cncf/techdocs/issues/162
+
+### in-toto 
+
+#### Documentation Boost!
+
+- Description:
+  - Help contributors get started with improving the documentation of CNCF projects and TAGs.  To start, we'd like mentees to help to
+improve both the documentation of a project, and also encourage them to contribute to other projects.  So, view the issues as a starting
+point to help start your career in open source.
+- Expected Outcome:
+  - Develop effective documentation for CNCF projects.  As a start, the CNCF project in-toto has a fairly clear set of requirements for what
+documentation changes are needed.
+- Recommended Skills:
+  - Technical writing
+  - Basic understanding of cloud native projects (or a desire to learn!)
+- Mentor(s):
+  - Justin Cappos @JustinCappos jcappos@nyu.edu
+  - Patrice Chalin @chalin chalin@cncf.io
+- Upstream Issues:
+  -   https://github.com/in-toto/docs/issues/85
+  -   https://github.com/in-toto/docs/issues/90
+  -   https://github.com/in-toto/docs/issues/91
+  -   https://github.com/in-toto/docs/issues/92
+
 
 ### WasmEdge
 
@@ -362,3 +407,15 @@ and become contributors to other projects / TAGs later in the project period.  T
   - Shiming Zhang (wzshiming, <wzshiming@hotmail.com>)
   - Zhenghao Zhu (Zhuzhenghao, <zhenghao.zhu@daocloud.io>)
 - Upstream Issue: https://github.com/kubernetes-sigs/kwok/issues/1063
+
+### OpenKruise 
+
+#### Enhancement for Kruise-Game Dashboard
+
+- Description: The OpenKruiseGame Dashboard is presently in its basic form, and we aim to significantly expand its functionality going forward. We plan to introduce features such as the ability to filter game servers and perform batch updates on them.
+- Expected Outcome: new release Dashboard which supports searching, querying, updating objects in batch.
+- Recommended Skills: Kubernetes, nodejs, javascript
+- Mentor(s):
+  - Qiuyang Liu (@chrisliu1995, chrisliu1995@163.com)
+  - Zhongwei Liu (@ringtail, zhongwei.lzw@alibaba-inc.com)
+- Upstream Issue: https://github.com/openkruise/kruise-game/issues/139
