@@ -306,4 +306,5 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
 - Recommended Skills: Kubernetes, nodejs, javascript
 - Mentor(s):
   - Qiuyang Liu (@chrisliu1995, chrisliu1995@163.com)
+  - Zhongwei Liu (@ringtail, zhongwei.lzw@alibaba-inc.com)
 - Upstream Issue: https://github.com/openkruise/kruise-game/issues/139
