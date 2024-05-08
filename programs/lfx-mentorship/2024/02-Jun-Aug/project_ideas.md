@@ -290,7 +290,7 @@ fundamentals, familiarity with [sigstore](https://www.sigstore.dev/),
 #### Documentation Boost!
 
 - Description:
-  - Help contributors get started with improving the documentation of CNCF projects and TAGs.  To start, we'd like students to help to
+  - Help contributors get started with improving the documentation of CNCF projects and TAGs.  To start, we'd like mentees to help to
 improve both the documentation of a project, and also encourage them to contribute to other projects.  So, view the issues as a starting
 point to help start your career in open source.
 - Expected Outcome:
