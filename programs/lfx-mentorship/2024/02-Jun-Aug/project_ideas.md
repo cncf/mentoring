@@ -158,6 +158,32 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
   - wbc6080 (@wbc6080, wangbincheng4@huawei.com)
 - Upstream Issue: https://github.com/kubeedge/website/issues/433
 
+### Kubernetes
+
+#### Update Image Signing to Meet New Infra Requirements
+
+- Description: The process that signs with Sigstore all container images released on community
+infra was designed for a different serving architecture. When the community
+moved to [registry.k8s.io](https://kubernetes.io/blog/2022/11/28/registry-k8s-io-faster-cheaper-ga/)
+and increased 10x the number of registries, the replication of signatures broke 
+due to rate limits imposed on the new registries. As part of the project, you will
+be instrumental in implementing the new signing process currently being designed 
+by the Kubernetes Release Engineering team. This project will involve heavy rewrites and
+refactoring of parts of the [Image Promoter](https://github.com/kubernetes-sigs/promo-tools),
+the tool that releases community images.
+- Expected Outcome: Implementation of the new signing process, ideally we'll fix
+all inconsistent signatures across community registries.
+- Recommended Skills: Go programming, strong container architecture and registry
+fundamentals, familiarity with [sigstore](https://www.sigstore.dev/), 
+[go-containerregistry](https://github.com/google/go-containerregistry) and infrastructure (GCP & AWS). 
+- Mentor(s):
+  - Adolfo García Veytia (@puerco, puerco@stacklok.com)
+  - Jeremy Rickard (@jeremyrickard jrickard@microsoft.com)
+  - Marko Mudrinić (@xmudrii, mudrinic.mare@gmail.com)
+  - Meha Bhalodiya (@mehabhalodiya, mehabhalodiya@gmail.com)
+- Upstream Issues:
+  - https://github.com/kubernetes/registry.k8s.io/issues/187
+  - https://github.com/kubernetes/release/issues/2962
 
 ### Kubescape
 
@@ -296,6 +322,28 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
   - Michael Yuan (@juntao, michael@secondstate.io)
   - Hung-Ying Tai (@hydai, hydai@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3371
+
+### KWOK
+
+#### Enhancement of Test Cases
+
+- Description: KWOK (Kubernetes WithOut Kubelet) is a toolkit that enables setting up a cluster of thousands of Nodes in seconds. KWOK is currently being used by a number of projects for testing and performance. It is crucial that KWOK itself behaves consistently. The following tests are currently being considered: Unit Test, E2E Test, Edge Cases.
+- Expected Outcome: Improved test coverage for KWOK.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s):
+  - Shiming Zhang (wzshiming, <wzshiming@hotmail.com>)
+  - Zhenghao Zhu (Zhuzhenghao, <zhenghao.zhu@daocloud.io>)
+- Upstream Issue: https://github.com/kubernetes-sigs/kwok/issues/1062
+
+#### Enhancement of Technical Outcomes
+
+- Description: KWOK (Kubernetes WithOut Kubelet) is a toolkit that enables setting up a cluster of thousands of Nodes in seconds. On the KWOK homepage (https://kwok.sigs.k8s.io/), we aim to document the technical outcomes of using KWOK. These outcomes represent the aggregation of some of KWOK's features to achieve a high-level technical goal. Currently, we have the following areas of focus: Chaos Testing, Performance, Simulation, and Scalability.
+- Expected Outcome: A section of the KWOK website detailing these technical outcomes.
+- Recommended Skills: Kubernetes, Technical Writing
+- Mentor(s):
+  - Shiming Zhang (wzshiming, <wzshiming@hotmail.com>)
+  - Zhenghao Zhu (Zhuzhenghao, <zhenghao.zhu@daocloud.io>)
+- Upstream Issue: https://github.com/kubernetes-sigs/kwok/issues/1063
 
 ### OpenKruise 
 
