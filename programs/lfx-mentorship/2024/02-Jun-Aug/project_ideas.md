@@ -30,7 +30,39 @@
   - Bill Mulligan(xmulligan, <bill.mulligan@isovalent.com>)
 - Upstream Issue: <https://github.com/cilium/cilium.io/issues/492>
 
+
 ### in-toto
+
+### Add GUAC support
+
+- Description: The project aims to integrate Graph for Understanding Artifact Composition (GUAC) with in-toto, a framework safeguarding software supply chain integrity. [Graph for Understanding Artifact Composition (GUAC)](https://guac.sh/) aggregates software security metadata into a high fidelity graph database—normalizing entity identities and mapping standard relationships between them. This project seeks to extend in-toto's capabilities by incorporating GUAC, enabling users to query GUAC with Package URLs (purls) and retrieve pertinent attestations.
+- Expected Outcome: Adds functionality to query GUAC, retrieve and parse relevant attestations for the specified artifact.
+- Recommended Skills: Go, Python
+- Mentor(s):
+  - Santiago Torres-Arias (@SantiagoTorres, santiagotorres@purdue.edu)
+  - Pradyumna Krishna (@PradyumnaKrishna, git@onpy.in)
+- Upstream Issue: https://github.com/in-toto/attestation-verifier/issues/29
+
+#### Documentation Boost!
+
+- Description:
+  - Help contributors get started with improving the documentation of CNCF projects and TAGs.  To start, we'd like mentees to help to
+improve both the documentation of a project, and also encourage them to contribute to other projects.  So, view the issues as a starting
+point to help start your career in open source.
+- Expected Outcome:
+  - Develop effective documentation for CNCF projects.  As a start, the CNCF project in-toto has a fairly clear set of requirements for what
+documentation changes are needed.
+- Recommended Skills:
+  - Technical writing
+  - Basic understanding of cloud native projects (or a desire to learn!)
+- Mentor(s):
+  - Justin Cappos @JustinCappos jcappos@nyu.edu
+  - Patrice Chalin @chalin chalin@cncf.io
+- Upstream Issues:
+  -   https://github.com/in-toto/docs/issues/85
+  -   https://github.com/in-toto/docs/issues/90
+  -   https://github.com/in-toto/docs/issues/91
+  -   https://github.com/in-toto/docs/issues/92
 
 #### Sigstore support for in-toto-jenkins
 
@@ -42,15 +74,19 @@
   - Pradyumna Krishna (@PradyumnaKrishna, git@onpy.in)
 - Upstream Issue: https://github.com/in-toto/in-toto-jenkins-plugin/issues/6
 
-### Add GUAC support
 
-- Description: The project aims to integrate Graph for Understanding Artifact Composition (GUAC) with in-toto, a framework safeguarding software supply chain integrity. [Graph for Understanding Artifact Composition (GUAC)](https://guac.sh/) aggregates software security metadata into a high fidelity graph database—normalizing entity identities and mapping standard relationships between them. This project seeks to extend in-toto's capabilities by incorporating GUAC, enabling users to query GUAC with Package URLs (purls) and retrieve pertinent attestations.
-- Expected Outcome: Adds functionality to query GUAC, retrieve and parse relevant attestations for the specified artifact.
-- Recommended Skills: Go, Python
+### Crossplane
+
+#### Make Crossplane Easy - Improving the Developer Experience
+
+- Description: Crossplane is in use at scale in many production environments, but we get often get feedback that there are many obstacles to learn Crossplane and get to a successfully built production-ready control plane. A major reason for this learning curve is the lack of supporting tools and experiences on top of core Crossplane that could accelerate the community’s attempts to successfully build their platforms. These higher level experiences have recently become a focus for the project and we want to keep delivering awesome experiences that make Crossplane easier to use.
+- Expected Outcome: We expect the mentee to design and code multiple improvements to the Crossplane tooling from the issue linked below. We will start with smaller scoped issues to ramp up and then focus on a bigger deliverable such as adding [validation for Crossplane Functions](https://github.com/crossplane/crossplane/issues/5094). By the end of the term, the mentee will have multiple code PRs merged into the Crossplane codebase.
+- Recommended Skills: Go, Kubernetes, Crossplane, CLI tools, passion for DevEx
 - Mentor(s):
-  - Santiago Torres-Arias (@SantiagoTorres, santiagotorres@purdue.edu)
-  - Pradyumna Krishna (@PradyumnaKrishna, git@onpy.in)
-- Upstream Issue: https://github.com/in-toto/attestation-verifier/issues/29
+  - Jared Watts (primary) (@jbw976, jbw976@gmail.com)
+  - Ezgi Demirel (secondary) (@ezgidemirel, ezgi@upbound.io)
+- Upstream Issue: https://github.com/crossplane/crossplane/issues/3957
+
 
 ### Jaeger
 
@@ -119,6 +155,37 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
 - Upstream Issue:
   https://github.com/knative/ux/issues/130
 
+#### Knative - applying pre-prepared website design
+
+- Description: Current design of the Knative website (https://knative.dev) does not look modern and contains inconsistent style. Knative UX working group has prepared a new design for the website. We would like to get this design implemented on the website. We also want to ensure with this implementation that the figures in the website include alt text descriptions. We are not looking for full WCAG compliance though.Also, currently the website is not really responsive and doesn’t look good on a mobile device. The group also has a design for the mobile. Finally we have many diagrams on the website that have different styles. We would like to have these diagrams more cohesive. This part is an extended goal though.
+
+- Expected Outcome: New design applied to website; website is made responsive; diagrams look and feel more cohesive.
+
+- Recommended Skills: HTML, CSS, Markdown, SVG, Material for Mkdocs, Figma
+
+- Mentor(s):
+  - Ali Ok (@aliok, aliok@redhat.com)
+  - Calum Murray (@cali0707, cmurray@redhat.com)
+  - Zainab Husain (@zainabhusain227, zainabhusain227@gmail.com)
+
+- Upstream Issue:
+  - https://github.com/knative/ux/issues/134
+  - https://github.com/knative/ux/issues/135 
+  - https://github.com/knative/ux/issues/103 
+
+### KubeArmor
+
+#### Improve System Test Coverage and Pratices for KubeArmor
+
+- Description: KubeArmor supports securing many environments ranging from Kubernetes, unorchestrated containers, bare metal and virtual machines. Our testing matrix however doesn't cover many of these completely. In this project, we plan to improve this coverage by introducing automated testing of some of these environments and imrove the scenarios covered in some existing ones. These tests would be written using the Ginkgo framework and automated via GitHub workflows. The matrix we'll target can be found in the upstream issue.
+- Expected Outcome: Improved test coverage; Standards for writing tests for KubeArmor; Stabilization of KubeArmor
+- Recommended Skills: Go, Scripting, Kubernetes, CI/CD (GitHub Actions)
+- Mentor(s):
+  - Barun Acharya (@daemon1024, barun1024@gmail.com)
+  - Rudraksh Pareek (@DelusionalOptimist, rudrakshpareek3601@gmail.com)
+  - Anurag Kumar (@kranurag7, kranurag7@linux.com)
+  - Prashant Mishra (@primalpimmy, prashant20.pm@gmail.com)
+- Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1749
 
 ### KubeEdge
 
@@ -162,6 +229,32 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
   - wbc6080 (@wbc6080, wangbincheng4@huawei.com)
 - Upstream Issue: https://github.com/kubeedge/website/issues/433
 
+### Kubernetes
+
+#### Update Image Signing to Meet New Infra Requirements
+
+- Description: The process that signs with Sigstore all container images released on community
+infra was designed for a different serving architecture. When the community
+moved to [registry.k8s.io](https://kubernetes.io/blog/2022/11/28/registry-k8s-io-faster-cheaper-ga/)
+and increased 10x the number of registries, the replication of signatures broke 
+due to rate limits imposed on the new registries. As part of the project, you will
+be instrumental in implementing the new signing process currently being designed 
+by the Kubernetes Release Engineering team. This project will involve heavy rewrites and
+refactoring of parts of the [Image Promoter](https://github.com/kubernetes-sigs/promo-tools),
+the tool that releases community images.
+- Expected Outcome: Implementation of the new signing process, ideally we'll fix
+all inconsistent signatures across community registries.
+- Recommended Skills: Go programming, strong container architecture and registry
+fundamentals, familiarity with [sigstore](https://www.sigstore.dev/), 
+[go-containerregistry](https://github.com/google/go-containerregistry) and infrastructure (GCP & AWS). 
+- Mentor(s):
+  - Adolfo García Veytia (@puerco, puerco@stacklok.com)
+  - Jeremy Rickard (@jeremyrickard jrickard@microsoft.com)
+  - Marko Mudrinić (@xmudrii, mudrinic.mare@gmail.com)
+  - Meha Bhalodiya (@mehabhalodiya, mehabhalodiya@gmail.com)
+- Upstream Issues:
+  - https://github.com/kubernetes/registry.k8s.io/issues/187
+  - https://github.com/kubernetes/release/issues/2962
 
 ### Kubescape
 
@@ -206,6 +299,15 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
   - Nico Pazos and Alex Greenbank from Grafana also available to help
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/13995
 
+#### Mark Out-of-order ingestion as stable
+
+- Description: Prometheus is known by not accepting out-of-order samples during ingestion, but recently (2 years ago) [support was added behind a feature-flag](https://github.com/prometheus/prometheus/pull/11075). Since then, many improvements have been made to out-of-order ingestion and it has become one of the requirements for OTLP ingestion in Prometheus. We want to deliver Prometheus 3.0 in a few months, and that requires marking out-or-order ingestion as a stable feature. In this project we will clean up several smaller issues around out-of-order ingestion, hopefully marking it as stable by the end of the mentorship.
+- Recommended Skills: Go, familiarity with Prometheus TSDB.
+- Mentor(s):
+  - Bryan Boreham (@bboreham, bjboreham@gmail.com)
+  - Jesus Vazquez (@jesusvazquez, jesus.vazquez@grafana.com)
+- Upstream Issue: https://github.com/prometheus/prometheus/issues/12631
+
 
 ### Thanos
 
@@ -241,6 +343,25 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
     - Florent Poinsard @fouioui florent@planetscale.com
     - Frances Thai @notfelineit frances@planetscale.com
 - Upstream Issue (URL): https://github.com/vitessio/arewefastyet/issues/525
+
+### TUF
+
+#### Documentation assessment and improvements
+
+- Description:
+  - Open source projects need help with their documentation!  The TUF project is a good place to start.  We'd welcome help from others to help here
+and become contributors to other projects / TAGs later in the project period.  The mentee will (with minimal guidance from the CNCF team and TUF project) do a [CNCF assessment](https://github.com/cncf/techdocs/blob/main/assessments/howto.md) for the TUF documentation
+- Expected Outcome:
+  - Both an improvement of project docs and the development of a new contributor.  A mentee will understand how to do technical writing for an open source project.  
+- Recommended Skills:
+  - Technical writing
+  - Basic understanding of security principles
+- Mentor(s):
+  - Justin Cappos @JustinCappos jcappos@nyu.edu
+  - Patrice Chalin @chalin chalin@cncf.io
+- Upstream Issues:
+  - https://github.com/cncf/techdocs/issues/162
+
 
 ### WasmEdge
 
@@ -301,3 +422,36 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
   - Hung-Ying Tai (@hydai, hydai@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3371
 
+### KWOK
+
+#### Enhancement of Test Cases
+
+- Description: KWOK (Kubernetes WithOut Kubelet) is a toolkit that enables setting up a cluster of thousands of Nodes in seconds. KWOK is currently being used by a number of projects for testing and performance. It is crucial that KWOK itself behaves consistently. The following tests are currently being considered: Unit Test, E2E Test, Edge Cases.
+- Expected Outcome: Improved test coverage for KWOK.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s):
+  - Shiming Zhang (wzshiming, <wzshiming@hotmail.com>)
+  - Zhenghao Zhu (Zhuzhenghao, <zhenghao.zhu@daocloud.io>)
+- Upstream Issue: https://github.com/kubernetes-sigs/kwok/issues/1062
+
+#### Enhancement of Technical Outcomes
+
+- Description: KWOK (Kubernetes WithOut Kubelet) is a toolkit that enables setting up a cluster of thousands of Nodes in seconds. On the KWOK homepage (https://kwok.sigs.k8s.io/), we aim to document the technical outcomes of using KWOK. These outcomes represent the aggregation of some of KWOK's features to achieve a high-level technical goal. Currently, we have the following areas of focus: Chaos Testing, Performance, Simulation, and Scalability.
+- Expected Outcome: A section of the KWOK website detailing these technical outcomes.
+- Recommended Skills: Kubernetes, Technical Writing
+- Mentor(s):
+  - Shiming Zhang (wzshiming, <wzshiming@hotmail.com>)
+  - Zhenghao Zhu (Zhuzhenghao, <zhenghao.zhu@daocloud.io>)
+- Upstream Issue: https://github.com/kubernetes-sigs/kwok/issues/1063
+
+### OpenKruise 
+
+#### Enhancement for Kruise-Game Dashboard
+
+- Description: The OpenKruiseGame Dashboard is presently in its basic form, and we aim to significantly expand its functionality going forward. We plan to introduce features such as the ability to filter game servers and perform batch updates on them.
+- Expected Outcome: new release Dashboard which supports searching, querying, updating objects in batch.
+- Recommended Skills: Kubernetes, nodejs, javascript
+- Mentor(s):
+  - Qiuyang Liu (@chrisliu1995, chrisliu1995@163.com)
+  - Zhongwei Liu (@ringtail, zhongwei.lzw@alibaba-inc.com)
+- Upstream Issue: https://github.com/openkruise/kruise-game/issues/139
