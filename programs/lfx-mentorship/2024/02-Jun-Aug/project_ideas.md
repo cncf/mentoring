@@ -30,6 +30,17 @@
   - Bill Mulligan(xmulligan, <bill.mulligan@isovalent.com>)
 - Upstream Issue: <https://github.com/cilium/cilium.io/issues/492>
 
+### Crossplane
+
+#### Make Crossplane Easy - Improving the Developer Experience
+
+- Description: Crossplane is in use at scale in many production environments, but we get often get feedback that there are many obstacles to learn Crossplane and get to a successfully built production-ready control plane. A major reason for this learning curve is the lack of supporting tools and experiences on top of core Crossplane that could accelerate the community’s attempts to successfully build their platforms. These higher level experiences have recently become a focus for the project and we want to keep delivering awesome experiences that make Crossplane easier to use.
+- Expected Outcome: We expect the mentee to design and code multiple improvements to the Crossplane tooling from the issue linked below. We will start with smaller scoped issues to ramp up and then focus on a bigger deliverable such as adding [validation for Crossplane Functions](https://github.com/crossplane/crossplane/issues/5094). By the end of the term, the mentee will have multiple code PRs merged into the Crossplane codebase.
+- Recommended Skills: Go, Kubernetes, Crossplane, CLI tools, passion for DevEx
+- Mentor(s):
+  - Jared Watts (primary) (@jbw976, jbw976@gmail.com)
+  - Ezgi Demirel (secondary) (@ezgidemirel, ezgi@upbound.io)
+- Upstream Issue: https://github.com/crossplane/crossplane/issues/3957
 
 ### Harbor
 
@@ -104,19 +115,6 @@ documentation changes are needed.
 - Upstream Issue: https://github.com/in-toto/in-toto-jenkins-plugin/issues/6
 
 
-### Crossplane
-
-#### Make Crossplane Easy - Improving the Developer Experience
-
-- Description: Crossplane is in use at scale in many production environments, but we get often get feedback that there are many obstacles to learn Crossplane and get to a successfully built production-ready control plane. A major reason for this learning curve is the lack of supporting tools and experiences on top of core Crossplane that could accelerate the community’s attempts to successfully build their platforms. These higher level experiences have recently become a focus for the project and we want to keep delivering awesome experiences that make Crossplane easier to use.
-- Expected Outcome: We expect the mentee to design and code multiple improvements to the Crossplane tooling from the issue linked below. We will start with smaller scoped issues to ramp up and then focus on a bigger deliverable such as adding [validation for Crossplane Functions](https://github.com/crossplane/crossplane/issues/5094). By the end of the term, the mentee will have multiple code PRs merged into the Crossplane codebase.
-- Recommended Skills: Go, Kubernetes, Crossplane, CLI tools, passion for DevEx
-- Mentor(s):
-  - Jared Watts (primary) (@jbw976, jbw976@gmail.com)
-  - Ezgi Demirel (secondary) (@ezgidemirel, ezgi@upbound.io)
-- Upstream Issue: https://github.com/crossplane/crossplane/issues/3957
-
-
 ### Jaeger
 
 #### Jaeger-V2 Observability and Healthchecks
@@ -162,6 +160,38 @@ documentation changes are needed.
     - Zhen Chang (@XiShanYongYe-Chang, changzhen5@huawei.com)
 - Upstream Issue: https://github.com/karmada-io/community/issues/69
 
+### KCL
+
+#### KCL Package Management Dependencies Sparse Checkout
+
+- Description: `kpm` is a package management tool for KCL. When the scale of KCL project becomes larger and larger, and the external packages that KCL project relies on become more and more, `kpm` will become slow due to the need to download a large number of third-party dependencies. `kpm` needs to support `Sparse-Checkout`, which means downloading specific dependencies as needed rather than all of them, to improve the performance of the kpm.
+- Expected Outcome: When kpm requests dependencies, it can request specific content based on the actual use of the required dependencies, but not all of them.
+- Recommended Skills: golang, rust
+- Mentor(s):
+  - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
+  - Pengfei Xu (@Peefy, xpf6677@gmail.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/kpm/issues/304
+
+#### Optimization of KCL LSP prompt information
+
+- Description: Optimize KCL LSP(language server protocol) prompt information, including the implementation of type inlayhint and optimization of hover content rendering. Currently, KCL’s hover content is in plain text format and needs to be rendered into a more beautiful style.
+- Expected Outcome: Added type inlayhint in KCL IDE and optimize hover content render.
+- Recommended Skills: rust, LSP
+- Mentor(s):
+  - Pengfei Xu (@Peefy, xpf6677@gmail.com)
+  - Zheng Zhang (@He1pa, he1pa404@gmail.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/kcl/issues/1244
+
+#### Supports tree-sitter for KCL
+
+- Description: Tree-sitter is a parser generator tool and an incremental parsing library. In order to support more features of the IDE, we need a more complete syntax tree, and for easy integration with the community, we intend to use tree-sitter to build a more complete parser system for KCL.
+
+- Expected Outcome: Supports all of the current KCL syntax, which can pass all test cases.
+- Recommended Skills: rust, LSP
+- Mentor(s):
+  - Zheng Zhang (@He1pa, he1pa404@gmail.com)
+  - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/tree-sitter-kcl/issues/2
 
 ### Knative
 
@@ -314,6 +344,39 @@ fundamentals, familiarity with [sigstore](https://www.sigstore.dev/),
   - Matthias Bertschy (@matthyx, matthiasb@armosec.io)
 - Upstream Issue: [kubescape/Kubescape#1667](https://github.com/kubescape/kubescape/issues/1667)
 
+### KWOK
+
+#### Enhancement of Test Cases
+
+- Description: KWOK (Kubernetes WithOut Kubelet) is a toolkit that enables setting up a cluster of thousands of Nodes in seconds. KWOK is currently being used by a number of projects for testing and performance. It is crucial that KWOK itself behaves consistently. The following tests are currently being considered: Unit Test, E2E Test, Edge Cases.
+- Expected Outcome: Improved test coverage for KWOK.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s):
+  - Shiming Zhang (wzshiming, <wzshiming@hotmail.com>)
+  - Zhenghao Zhu (Zhuzhenghao, <zhenghao.zhu@daocloud.io>)
+- Upstream Issue: https://github.com/kubernetes-sigs/kwok/issues/1062
+
+#### Enhancement of Technical Outcomes
+
+- Description: KWOK (Kubernetes WithOut Kubelet) is a toolkit that enables setting up a cluster of thousands of Nodes in seconds. On the KWOK homepage (https://kwok.sigs.k8s.io/), we aim to document the technical outcomes of using KWOK. These outcomes represent the aggregation of some of KWOK's features to achieve a high-level technical goal. Currently, we have the following areas of focus: Chaos Testing, Performance, Simulation, and Scalability.
+- Expected Outcome: A section of the KWOK website detailing these technical outcomes.
+- Recommended Skills: Kubernetes, Technical Writing
+- Mentor(s):
+  - Shiming Zhang (wzshiming, <wzshiming@hotmail.com>)
+  - Zhenghao Zhu (Zhuzhenghao, <zhenghao.zhu@daocloud.io>)
+- Upstream Issue: https://github.com/kubernetes-sigs/kwok/issues/1063
+
+### OpenKruise
+
+#### Enhancement for Kruise-Game Dashboard
+
+- Description: The OpenKruiseGame Dashboard is presently in its basic form, and we aim to significantly expand its functionality going forward. We plan to introduce features such as the ability to filter game servers and perform batch updates on them.
+- Expected Outcome: new release Dashboard which supports searching, querying, updating objects in batch.
+- Recommended Skills: Kubernetes, nodejs, javascript
+- Mentor(s):
+  - Qiuyang Liu (@chrisliu1995, chrisliu1995@163.com)
+  - Zhongwei Liu (@ringtail, zhongwei.lzw@alibaba-inc.com)
+- Upstream Issue: https://github.com/openkruise/kruise-game/issues/139
 
 ### Prometheus
 
@@ -350,6 +413,23 @@ fundamentals, familiarity with [sigstore](https://www.sigstore.dev/),
   - Saswata Mukherjee (@saswatamcode, saswataminsta@yahoo.com)
 - Upstream Issue: https://github.com/thanos-io/thanos/issues/7285
 
+### TUF
+
+#### Documentation assessment and improvements
+
+- Description:
+  - Open source projects need help with their documentation!  The TUF project is a good place to start.  We'd welcome help from others to help here
+    and become contributors to other projects / TAGs later in the project period.  The mentee will (with minimal guidance from the CNCF team and TUF project) do a [CNCF assessment](https://github.com/cncf/techdocs/blob/main/assessments/howto.md) for the TUF documentation
+- Expected Outcome:
+  - Both an improvement of project docs and the development of a new contributor.  A mentee will understand how to do technical writing for an open source project.
+- Recommended Skills:
+  - Technical writing
+  - Basic understanding of security principles
+- Mentor(s):
+  - Justin Cappos @JustinCappos jcappos@nyu.edu
+  - Patrice Chalin @chalin chalin@cncf.io
+- Upstream Issues:
+  - https://github.com/cncf/techdocs/issues/162
 
 ### Vitess
 
@@ -392,25 +472,6 @@ fundamentals, familiarity with [sigstore](https://www.sigstore.dev/),
     - Deepthi Sigireddi @deepthi deepthi@planetscale.com
     - Florent Poinsard @frouioui florent@planetscale.com
 - Upstream Issue (URL): https://github.com/vitessio/vitess/issues/15895
-
-### TUF
-
-#### Documentation assessment and improvements
-
-- Description:
-  - Open source projects need help with their documentation!  The TUF project is a good place to start.  We'd welcome help from others to help here
-and become contributors to other projects / TAGs later in the project period.  The mentee will (with minimal guidance from the CNCF team and TUF project) do a [CNCF assessment](https://github.com/cncf/techdocs/blob/main/assessments/howto.md) for the TUF documentation
-- Expected Outcome:
-  - Both an improvement of project docs and the development of a new contributor.  A mentee will understand how to do technical writing for an open source project.  
-- Recommended Skills:
-  - Technical writing
-  - Basic understanding of security principles
-- Mentor(s):
-  - Justin Cappos @JustinCappos jcappos@nyu.edu
-  - Patrice Chalin @chalin chalin@cncf.io
-- Upstream Issues:
-  - https://github.com/cncf/techdocs/issues/162
-
 
 ### WasmEdge
 
@@ -471,70 +532,3 @@ and become contributors to other projects / TAGs later in the project period.  T
   - Hung-Ying Tai (@hydai, hydai@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3371
 
-### KCL
-
-#### KCL Package Management Dependencies Sparse Checkout
-
-- Description: `kpm` is a package management tool for KCL. When the scale of KCL project becomes larger and larger, and the external packages that KCL project relies on become more and more, `kpm` will become slow due to the need to download a large number of third-party dependencies. `kpm` needs to support `Sparse-Checkout`, which means downloading specific dependencies as needed rather than all of them, to improve the performance of the kpm.
-- Expected Outcome: When kpm requests dependencies, it can request specific content based on the actual use of the required dependencies, but not all of them.
-- Recommended Skills: golang, rust
-- Mentor(s):
-  - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
-  - Pengfei Xu (@Peefy, xpf6677@gmail.com)
-- Upstream Issue (URL): https://github.com/kcl-lang/kpm/issues/304
-
-#### Optimization of KCL LSP prompt information
-
-- Description: Optimize KCL LSP(language server protocol) prompt information, including the implementation of type inlayhint and optimization of hover content rendering. Currently, KCL’s hover content is in plain text format and needs to be rendered into a more beautiful style.
-- Expected Outcome: Added type inlayhint in KCL IDE and optimize hover content render.
-- Recommended Skills: rust, LSP
-- Mentor(s):
-  - Pengfei Xu (@Peefy, xpf6677@gmail.com)
-  - Zheng Zhang (@He1pa, he1pa404@gmail.com)
-- Upstream Issue (URL): https://github.com/kcl-lang/kcl/issues/1244
-
-#### Supports tree-sitter for KCL
-
-- Description: Tree-sitter is a parser generator tool and an incremental parsing library. In order to support more features of the IDE, we need a more complete syntax tree, and for easy integration with the community, we intend to use tree-sitter to build a more complete parser system for KCL.
-
-- Expected Outcome: Supports all of the current KCL syntax, which can pass all test cases.
-- Recommended Skills: rust, LSP
-- Mentor(s):
-  - Zheng Zhang (@He1pa, he1pa404@gmail.com)
-  - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
-- Upstream Issue (URL): https://github.com/kcl-lang/tree-sitter-kcl/issues/2
-
-
-### KWOK
-
-#### Enhancement of Test Cases
-
-- Description: KWOK (Kubernetes WithOut Kubelet) is a toolkit that enables setting up a cluster of thousands of Nodes in seconds. KWOK is currently being used by a number of projects for testing and performance. It is crucial that KWOK itself behaves consistently. The following tests are currently being considered: Unit Test, E2E Test, Edge Cases.
-- Expected Outcome: Improved test coverage for KWOK.
-- Recommended Skills: Golang, Kubernetes
-- Mentor(s):
-  - Shiming Zhang (wzshiming, <wzshiming@hotmail.com>)
-  - Zhenghao Zhu (Zhuzhenghao, <zhenghao.zhu@daocloud.io>)
-- Upstream Issue: https://github.com/kubernetes-sigs/kwok/issues/1062
-
-#### Enhancement of Technical Outcomes
-
-- Description: KWOK (Kubernetes WithOut Kubelet) is a toolkit that enables setting up a cluster of thousands of Nodes in seconds. On the KWOK homepage (https://kwok.sigs.k8s.io/), we aim to document the technical outcomes of using KWOK. These outcomes represent the aggregation of some of KWOK's features to achieve a high-level technical goal. Currently, we have the following areas of focus: Chaos Testing, Performance, Simulation, and Scalability.
-- Expected Outcome: A section of the KWOK website detailing these technical outcomes.
-- Recommended Skills: Kubernetes, Technical Writing
-- Mentor(s):
-  - Shiming Zhang (wzshiming, <wzshiming@hotmail.com>)
-  - Zhenghao Zhu (Zhuzhenghao, <zhenghao.zhu@daocloud.io>)
-- Upstream Issue: https://github.com/kubernetes-sigs/kwok/issues/1063
-
-### OpenKruise 
-
-#### Enhancement for Kruise-Game Dashboard
-
-- Description: The OpenKruiseGame Dashboard is presently in its basic form, and we aim to significantly expand its functionality going forward. We plan to introduce features such as the ability to filter game servers and perform batch updates on them.
-- Expected Outcome: new release Dashboard which supports searching, querying, updating objects in batch.
-- Recommended Skills: Kubernetes, nodejs, javascript
-- Mentor(s):
-  - Qiuyang Liu (@chrisliu1995, chrisliu1995@163.com)
-  - Zhongwei Liu (@ringtail, zhongwei.lzw@alibaba-inc.com)
-- Upstream Issue: https://github.com/openkruise/kruise-game/issues/139
