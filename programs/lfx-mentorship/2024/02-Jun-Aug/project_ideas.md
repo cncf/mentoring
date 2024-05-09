@@ -60,6 +60,63 @@
   - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
 - Upstream Issue: https://github.com/goharbor/harbor/issues/20404
 
+### in-toto
+
+### Add GUAC support
+
+- Description: The project aims to integrate Graph for Understanding Artifact Composition (GUAC) with in-toto, a framework safeguarding software supply chain integrity. [Graph for Understanding Artifact Composition (GUAC)](https://guac.sh/) aggregates software security metadata into a high fidelity graph database—normalizing entity identities and mapping standard relationships between them. This project seeks to extend in-toto's capabilities by incorporating GUAC, enabling users to query GUAC with Package URLs (purls) and retrieve pertinent attestations.
+- Expected Outcome: Adds functionality to query GUAC, retrieve and parse relevant attestations for the specified artifact.
+- Recommended Skills: Go, Python
+- Mentor(s):
+  - Santiago Torres-Arias (@SantiagoTorres, santiagotorres@purdue.edu)
+  - Pradyumna Krishna (@PradyumnaKrishna, git@onpy.in)
+- Upstream Issue: https://github.com/in-toto/attestation-verifier/issues/29
+
+#### Documentation Boost!
+
+- Description:
+  - Help contributors get started with improving the documentation of CNCF projects and TAGs.  To start, we'd like mentees to help to
+improve both the documentation of a project, and also encourage them to contribute to other projects.  So, view the issues as a starting
+point to help start your career in open source.
+- Expected Outcome:
+  - Develop effective documentation for CNCF projects.  As a start, the CNCF project in-toto has a fairly clear set of requirements for what
+documentation changes are needed.
+- Recommended Skills:
+  - Technical writing
+  - Basic understanding of cloud native projects (or a desire to learn!)
+- Mentor(s):
+  - Justin Cappos @JustinCappos jcappos@nyu.edu
+  - Patrice Chalin @chalin chalin@cncf.io
+- Upstream Issues:
+  -   https://github.com/in-toto/docs/issues/85
+  -   https://github.com/in-toto/docs/issues/90
+  -   https://github.com/in-toto/docs/issues/91
+  -   https://github.com/in-toto/docs/issues/92
+
+#### Sigstore support for in-toto-jenkins
+
+- Description: The [in-toto Jenkins plugin](https://github.com/in-toto/in-toto-jenkins-plugin) allows users to generate metadata in their build pipelines. Currently keys or credentials must be provided to the plugin to sign the metadata, whereas Sigstore offers keyless signing and verification. The addition of Sigstore transport will allow seamless uploading of metadata to Rekor transparency log. This project aims to enhance the Jenkins plugin by adding [Sigstore](https://www.sigstore.dev) support, allowing keyless signing and adding Sigstore transport.
+- Expected Outcome: in-toto-jenkins plugins gets support for Sigstore
+- Recommended Skills: Java, Jenkins
+- Mentor(s):
+  - Santiago Torres-Arias (@SantiagoTorres, santiagotorres@purdue.edu)
+  - Pradyumna Krishna (@PradyumnaKrishna, git@onpy.in)
+- Upstream Issue: https://github.com/in-toto/in-toto-jenkins-plugin/issues/6
+
+
+### Crossplane
+
+#### Make Crossplane Easy - Improving the Developer Experience
+
+- Description: Crossplane is in use at scale in many production environments, but we get often get feedback that there are many obstacles to learn Crossplane and get to a successfully built production-ready control plane. A major reason for this learning curve is the lack of supporting tools and experiences on top of core Crossplane that could accelerate the community’s attempts to successfully build their platforms. These higher level experiences have recently become a focus for the project and we want to keep delivering awesome experiences that make Crossplane easier to use.
+- Expected Outcome: We expect the mentee to design and code multiple improvements to the Crossplane tooling from the issue linked below. We will start with smaller scoped issues to ramp up and then focus on a bigger deliverable such as adding [validation for Crossplane Functions](https://github.com/crossplane/crossplane/issues/5094). By the end of the term, the mentee will have multiple code PRs merged into the Crossplane codebase.
+- Recommended Skills: Go, Kubernetes, Crossplane, CLI tools, passion for DevEx
+- Mentor(s):
+  - Jared Watts (primary) (@jbw976, jbw976@gmail.com)
+  - Ezgi Demirel (secondary) (@ezgidemirel, ezgi@upbound.io)
+- Upstream Issue: https://github.com/crossplane/crossplane/issues/3957
+
+
 ### Jaeger
 
 #### Jaeger-V2 Observability and Healthchecks
@@ -145,6 +202,19 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
   - https://github.com/knative/ux/issues/135 
   - https://github.com/knative/ux/issues/103 
 
+### KubeArmor
+
+#### Improve System Test Coverage and Pratices for KubeArmor
+
+- Description: KubeArmor supports securing many environments ranging from Kubernetes, unorchestrated containers, bare metal and virtual machines. Our testing matrix however doesn't cover many of these completely. In this project, we plan to improve this coverage by introducing automated testing of some of these environments and imrove the scenarios covered in some existing ones. These tests would be written using the Ginkgo framework and automated via GitHub workflows. The matrix we'll target can be found in the upstream issue.
+- Expected Outcome: Improved test coverage; Standards for writing tests for KubeArmor; Stabilization of KubeArmor
+- Recommended Skills: Go, Scripting, Kubernetes, CI/CD (GitHub Actions)
+- Mentor(s):
+  - Barun Acharya (@daemon1024, barun1024@gmail.com)
+  - Rudraksh Pareek (@DelusionalOptimist, rudrakshpareek3601@gmail.com)
+  - Anurag Kumar (@kranurag7, kranurag7@linux.com)
+  - Prashant Mishra (@primalpimmy, prashant20.pm@gmail.com)
+- Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1749
 
 ### KubeEdge
 
@@ -299,9 +369,48 @@ fundamentals, familiarity with [sigstore](https://www.sigstore.dev/),
     - Experience with Figma is a big plus.
     - Experience with Rest APIs and Golang is a plus too.
 - Mentor(s):
-    - Florent Poinsard @fouioui florent@planetscale.com
+    - Florent Poinsard @frouioui florent@planetscale.com
     - Frances Thai @notfelineit frances@planetscale.com
 - Upstream Issue (URL): https://github.com/vitessio/arewefastyet/issues/525
+
+#### Community building and engagement
+
+- Description:
+    - [Vitess](https://vitess.io) is a CNCF project that has been around for a while. It has a strong community of users and contributors. We want to continue growing this community and make sure that everyone feels welcome and included.
+- Expected Outcome:
+    - The mentee is expected to evaluate contributor ladder schemes and rewards and produce a recommendation for the Vitess maintainers.
+    - Once a decision is made, the mentee is expected to implement the decisions from the maintainer team.
+    - The mentee is expected to collect data about Vitess usage from the community and publish the highlights as a blog post.
+    - The mentee is expected to review the [Getting Started docs on the Vitess website](https://vitess.io/docs/20.0/get-started/) and enhance them to improve the onboarding experience.
+    - The mentee is expected to research and recommend marketing opportunities for Vitess. These could be guest blog posts, podcasts, live streams etc.
+- Recommended Skills:
+    - Excellent verbal and written communication skills.
+    - Prior experience participating in an open source community is a plus.
+    - Should be able to install and run Vitess according to the user guides.
+    - Website development skills are a plus.
+- Mentor(s):
+    - Deepthi Sigireddi @deepthi deepthi@planetscale.com
+    - Florent Poinsard @frouioui florent@planetscale.com
+- Upstream Issue (URL): https://github.com/vitessio/vitess/issues/15895
+
+### TUF
+
+#### Documentation assessment and improvements
+
+- Description:
+  - Open source projects need help with their documentation!  The TUF project is a good place to start.  We'd welcome help from others to help here
+and become contributors to other projects / TAGs later in the project period.  The mentee will (with minimal guidance from the CNCF team and TUF project) do a [CNCF assessment](https://github.com/cncf/techdocs/blob/main/assessments/howto.md) for the TUF documentation
+- Expected Outcome:
+  - Both an improvement of project docs and the development of a new contributor.  A mentee will understand how to do technical writing for an open source project.  
+- Recommended Skills:
+  - Technical writing
+  - Basic understanding of security principles
+- Mentor(s):
+  - Justin Cappos @JustinCappos jcappos@nyu.edu
+  - Patrice Chalin @chalin chalin@cncf.io
+- Upstream Issues:
+  - https://github.com/cncf/techdocs/issues/162
+
 
 ### WasmEdge
 
@@ -361,6 +470,40 @@ fundamentals, familiarity with [sigstore](https://www.sigstore.dev/),
   - Michael Yuan (@juntao, michael@secondstate.io)
   - Hung-Ying Tai (@hydai, hydai@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3371
+
+### KCL
+
+#### KCL Package Management Dependencies Sparse Checkout
+
+- Description: `kpm` is a package management tool for KCL. When the scale of KCL project becomes larger and larger, and the external packages that KCL project relies on become more and more, `kpm` will become slow due to the need to download a large number of third-party dependencies. `kpm` needs to support `Sparse-Checkout`, which means downloading specific dependencies as needed rather than all of them, to improve the performance of the kpm.
+- Expected Outcome: When kpm requests dependencies, it can request specific content based on the actual use of the required dependencies, but not all of them.
+- Recommended Skills: golang, rust
+- Mentor(s):
+  - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
+  - Pengfei Xu (@Peefy, xpf6677@gmail.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/kpm/issues/304
+
+#### Optimization of KCL LSP prompt information
+
+- Description: Optimize KCL LSP(language server protocol) prompt information, including the implementation of type inlayhint and optimization of hover content rendering. Currently, KCL’s hover content is in plain text format and needs to be rendered into a more beautiful style.
+- Expected Outcome: Added type inlayhint in KCL IDE and optimize hover content render.
+- Recommended Skills: rust, LSP
+- Mentor(s):
+  - Pengfei Xu (@Peefy, xpf6677@gmail.com)
+  - Zheng Zhang (@He1pa, he1pa404@gmail.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/kcl/issues/1244
+
+#### Supports tree-sitter for KCL
+
+- Description: Tree-sitter is a parser generator tool and an incremental parsing library. In order to support more features of the IDE, we need a more complete syntax tree, and for easy integration with the community, we intend to use tree-sitter to build a more complete parser system for KCL.
+
+- Expected Outcome: Supports all of the current KCL syntax, which can pass all test cases.
+- Recommended Skills: rust, LSP
+- Mentor(s):
+  - Zheng Zhang (@He1pa, he1pa404@gmail.com)
+  - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/tree-sitter-kcl/issues/2
+
 
 ### KWOK
 
