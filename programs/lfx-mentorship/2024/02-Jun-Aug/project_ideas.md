@@ -227,10 +227,7 @@ Onboarding new end users into a sophisticated system like Knative Eventing prese
   - Calum Murray (@cali0707, cmurray@redhat.com)
   - Zainab Husain (@zainabhusain227, zainabhusain227@gmail.com)
 
-- Upstream Issue:
-  - https://github.com/knative/ux/issues/134
-  - https://github.com/knative/ux/issues/135 
-  - https://github.com/knative/ux/issues/103 
+- Upstream Issue: https://github.com/knative/ux/issues/137
 
 ### KubeArmor
 
