@@ -559,6 +559,7 @@ fundamentals, familiarity with [sigstore](https://www.sigstore.dev/),
   - Shubham Chaudhary (@ispeakc0de, shubham.chaudhary@harness.io)
   - Amit Das (@amityt, amit.das@harness.io)
   - Sahil Kumar (@SahilKr24, sahil.kumar@harness.io)
+- Upstream Issue: https://github.com/litmuschaos/litmus/issues/4633
 
 ### Implementing Upgrade Agent Support in Litmus 3.x
 
@@ -570,3 +571,4 @@ fundamentals, familiarity with [sigstore](https://www.sigstore.dev/),
 - Mentors(s):
   - Saranya Jena (@Saranya-jena, saranya.jena@harness.io)
   - Sarthak Jain (@SarthakJain26, sarthak.jain@harness.io)
+- Upstream Issue: https://github.com/litmuschaos/litmus/issues/4632
