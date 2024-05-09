@@ -31,6 +31,35 @@
 - Upstream Issue: <https://github.com/cilium/cilium.io/issues/492>
 
 
+### Harbor
+
+#### Harbor CLI
+
+- Description: Harbor is a popular and widely adopted container registry. We have developed an initial CLI (https://github.com/goharbor/harbor-cli) that we would like to extend and implement additional functionality, and common workflows that are currently only present in the Web UI. We are seeking a Golangs experienced manatee who can work on the project independently.
+- Expected Outcome: Working Golang Harbor CLI which can be used in the CI/CD implementations that compliment the Web UI covering the typical workflows of Harbor administrators and users. Familiarity with Golang library spf13/cobra and REST/Open API. Well-documented CLI that users love to use, and with the corresponding architectural diagrams under the Harbor. Working CI/CD with GitHub actions that create multi architecture binaries and containers.
+- Recommended Skills: Golang, spf13/cobra
+- Mentor(s):
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Yan Wang (@wy65701436, yan-yw.wang@broadcom.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+- Upstream Issue: https://github.com/goharbor/harbor-cli/issues/41
+
+#### Harbor Satellite
+
+- Description: In recent years, containers have extended beyond their traditional cloud environments, becoming increasingly prevalent in remote and edge computing contexts. These environments often lack reliable internet connectivity, posing significant challenges in managing and running containerized applications due to difficulties in fetching container images. To address this, the project aims to decentralize container registries, making them more accessible to edge devices. The need for a satellite that can operate independently, store images on disk, and run indefinitely with stored data is crucial for maintaining operations in areas with limited or no internet connectivity.
+  Harbor Satellite aims to bring Harbor container registries to edge locations, ensuring consistent, available, and integrity-checked images for edge computing environments. This proposal outlines the development of a stateful, standalone satellite that can function as a primary registry for edge locations and as a fallback option if the central Harbor registry is unavailable.
+- Expected Outcome:
+  The goal is to extend the proof of concept
+  and demonstrate that such a solution practically works.
+  Candidates should be able understanding and implementing the [image](https://github.com/opencontainers/image-spec) and [distribution spec](https://github.com/opencontainers/distribution-spec)
+  to replicate images from a central registry to a registry on the edge location.
+- Recommended Skills: Golang, Container, Image-spec, Distribution-spec
+- Mentor(s):
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Yan Wang (@wy65701436, yan-yw.wang@broadcom.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+- Upstream Issue: https://github.com/goharbor/harbor/issues/20404
+
 ### in-toto
 
 ### Add GUAC support
