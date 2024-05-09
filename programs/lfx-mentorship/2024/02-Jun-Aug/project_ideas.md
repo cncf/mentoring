@@ -340,9 +340,29 @@ fundamentals, familiarity with [sigstore](https://www.sigstore.dev/),
     - Experience with Figma is a big plus.
     - Experience with Rest APIs and Golang is a plus too.
 - Mentor(s):
-    - Florent Poinsard @fouioui florent@planetscale.com
+    - Florent Poinsard @frouioui florent@planetscale.com
     - Frances Thai @notfelineit frances@planetscale.com
 - Upstream Issue (URL): https://github.com/vitessio/arewefastyet/issues/525
+
+#### Community building and engagement
+
+- Description:
+    - [Vitess](https://vitess.io) is a CNCF project that has been around for a while. It has a strong community of users and contributors. We want to continue growing this community and make sure that everyone feels welcome and included.
+- Expected Outcome:
+    - The mentee is expected to evaluate contributor ladder schemes and rewards and produce a recommendation for the Vitess maintainers.
+    - Once a decision is made, the mentee is expected to implement the decisions from the maintainer team.
+    - The mentee is expected to collect data about Vitess usage from the community and publish the highlights as a blog post.
+    - The mentee is expected to review the [Getting Started docs on the Vitess website](https://vitess.io/docs/20.0/get-started/) and enhance them to improve the onboarding experience.
+    - The mentee is expected to research and recommend marketing opportunities for Vitess. These could be guest blog posts, podcasts, live streams etc.
+- Recommended Skills:
+    - Excellent verbal and written communication skills.
+    - Prior experience participating in an open source community is a plus.
+    - Should be able to install and run Vitess according to the user guides.
+    - Website development skills are a plus.
+- Mentor(s):
+    - Deepthi Sigireddi @deepthi deepthi@planetscale.com
+    - Florent Poinsard @frouioui florent@planetscale.com
+- Upstream Issue (URL): https://github.com/vitessio/vitess/issues/15895
 
 ### TUF
 
