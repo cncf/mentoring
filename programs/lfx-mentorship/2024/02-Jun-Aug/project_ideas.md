@@ -366,6 +366,47 @@ fundamentals, familiarity with [sigstore](https://www.sigstore.dev/),
   - Zhenghao Zhu (Zhuzhenghao, <zhenghao.zhu@daocloud.io>)
 - Upstream Issue: https://github.com/kubernetes-sigs/kwok/issues/1063
 
+### LitmusChaos
+
+#### Revamp Litmus Helm Agent, UBI migration of Images
+
+- Description: The Litmus Helm Agent, one of the microservice in Litmus, requires modernization for compatibility with Litmus 3.x API changes. Simultaneously, migrating Litmus Chaos container images to Red Hat's Universal Base Image (UBI) enhances security and compatibility. This project aims to revitalize the Helm Agent and streamline image management, ensuring seamless integration and robust deployment in containerized environments.
+- Expected Outcome:
+  - Seamless Integration: The Litmus Helm Agent will seamlessly support Litmus 3.x API changes, ensuring compatibility and uninterrupted functionality within the ecosystem.
+  - Enhanced Security: Migrating Litmus Chaos container images to Red Hat's Universal Base Image (UBI) will bolster security and compatibility, optimizing deployment in diverse containerized environments.
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s):
+  - Sayan Mondal (@S-ayanide, sayan.mondal@harness.io)
+  - Vedant Shrotria (@Jonsy13, vedant.shrotria@harness.io)
+  - Raj Babu Das (@imrajdas, mail.rajdas@gmail.com)
+- Upstream Issue: https://github.com/litmuschaos/litmus/issues/4634
+
+### Enhancements in Chaoscenter: GitOps Support for Azure Git, Group Chaos Infra by Environments in Infrastructure Selection Modal
+
+- Description: In this project, we aim to implement GitOps support specifically for Azure Git within Chaoscenter. Additionally, we will enhance the Infrastructure Selection Modal by introducing the capability to group chaos infrastructure based on environments, ensuring better organization and management.
+- Expected Outcome:
+  - Seamless integration with Azure Git for GitOps workflows.
+  - Introduction of environment-based grouping in the Infrastructure Selection Modal.
+  - Improved chaos infrastructure management and user experience in Chaoscenter.
+- Recommended Skills: Golang, Kubernetes, ReactJS
+- Mentors(s):
+  - Shubham Chaudhary (@ispeakc0de, shubham.chaudhary@harness.io)
+  - Amit Das (@amityt, amit.das@harness.io)
+  - Sahil Kumar (@SahilKr24, sahil.kumar@harness.io)
+- Upstream Issue: https://github.com/litmuschaos/litmus/issues/4633
+
+### Implementing Upgrade Agent Support in Litmus 3.x
+
+- Description: Integrating an upgrade agent into Litmus 3.x streamlines Chaoscenter upgrades, eliminating the need for fresh installations. This feature ensures seamless transitions between versions, especially useful when facing significant changes.
+- Expected Outcome:
+  - Seamless Upgrades: Integration of the Upgrade Agent ensures smooth transitions during Chaoscenter upgrades, removing the necessity for fresh installations.
+  - Simplified Process: Users can upgrade from one version to another without the hassle of reinstallation, saving time and effort.
+- Recommended Skills: Golang, Kubernetes
+- Mentors(s):
+  - Saranya Jena (@Saranya-jena, saranya.jena@harness.io)
+  - Sarthak Jain (@SarthakJain26, sarthak.jain@harness.io)
+- Upstream Issue: https://github.com/litmuschaos/litmus/issues/4632
+
 ### OpenKruise
 
 #### Enhancement for Kruise-Game Dashboard
@@ -531,44 +572,3 @@ fundamentals, familiarity with [sigstore](https://www.sigstore.dev/),
   - Michael Yuan (@juntao, michael@secondstate.io)
   - Hung-Ying Tai (@hydai, hydai@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3371
-
-### LitmusChaos
-
-#### Revamp Litmus Helm Agent, UBI migration of Images
-
-- Description: The Litmus Helm Agent, one of the microservice in Litmus, requires modernization for compatibility with Litmus 3.x API changes. Simultaneously, migrating Litmus Chaos container images to Red Hat's Universal Base Image (UBI) enhances security and compatibility. This project aims to revitalize the Helm Agent and streamline image management, ensuring seamless integration and robust deployment in containerized environments.
-- Expected Outcome:
-  - Seamless Integration: The Litmus Helm Agent will seamlessly support Litmus 3.x API changes, ensuring compatibility and uninterrupted functionality within the ecosystem.
-  - Enhanced Security: Migrating Litmus Chaos container images to Red Hat's Universal Base Image (UBI) will bolster security and compatibility, optimizing deployment in diverse containerized environments.
-- Recommended Skills: Golang, Kubernetes
-- Mentor(s):
-  - Sayan Mondal (@S-ayanide, sayan.mondal@harness.io)
-  - Vedant Shrotria (@Jonsy13, vedant.shrotria@harness.io)
-  - Raj Babu Das (@imrajdas, mail.rajdas@gmail.com)
-- Upstream Issue: https://github.com/litmuschaos/litmus/issues/4634
-
-### Enhancements in Chaoscenter: GitOps Support for Azure Git, Group Chaos Infra by Environments in Infrastructure Selection Modal
-
-- Description: In this project, we aim to implement GitOps support specifically for Azure Git within Chaoscenter. Additionally, we will enhance the Infrastructure Selection Modal by introducing the capability to group chaos infrastructure based on environments, ensuring better organization and management.
-- Expected Outcome:
-  - Seamless integration with Azure Git for GitOps workflows.
-  - Introduction of environment-based grouping in the Infrastructure Selection Modal.
-  - Improved chaos infrastructure management and user experience in Chaoscenter.
-- Recommended Skills: Golang, Kubernetes, ReactJS
-- Mentors(s):
-  - Shubham Chaudhary (@ispeakc0de, shubham.chaudhary@harness.io)
-  - Amit Das (@amityt, amit.das@harness.io)
-  - Sahil Kumar (@SahilKr24, sahil.kumar@harness.io)
-- Upstream Issue: https://github.com/litmuschaos/litmus/issues/4633
-
-### Implementing Upgrade Agent Support in Litmus 3.x
-
-- Description: Integrating an upgrade agent into Litmus 3.x streamlines Chaoscenter upgrades, eliminating the need for fresh installations. This feature ensures seamless transitions between versions, especially useful when facing significant changes.
-- Expected Outcome:
-  - Seamless Upgrades: Integration of the Upgrade Agent ensures smooth transitions during Chaoscenter upgrades, removing the necessity for fresh installations.
-  - Simplified Process: Users can upgrade from one version to another without the hassle of reinstallation, saving time and effort.
-- Recommended Skills: Golang, Kubernetes
-- Mentors(s):
-  - Saranya Jena (@Saranya-jena, saranya.jena@harness.io)
-  - Sarthak Jain (@SarthakJain26, sarthak.jain@harness.io)
-- Upstream Issue: https://github.com/litmuschaos/litmus/issues/4632
