@@ -579,3 +579,43 @@ fundamentals, familiarity with [sigstore](https://www.sigstore.dev/),
   - Michael Yuan (@juntao, michael@secondstate.io)
   - Hung-Ying Tai (@hydai, hydai@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3371
+
+### Meshery
+#### Meshery: CNCF project tutorials, creating design patterns, and publishing reference architectures
+
+- Description: Meshery the CNCF’s 10th fastest growing project. As a cloud native manager, Meshery [integrates with 250+ projects](https://meshery.io/integrations) and technologies. For each CNCF project integrated with Meshery, tutorials, sample designs, and deployment patterns with reference architectures need to be created. For the earnest, DevOps-minded intern, this internship represents a vast opportunity to learn, document, and publish tutorials and best practices not only around Meshery, but for any number of the other CNCF projects, too. You will use the [Meshery Playground](https://play.meshery.io)
+
+- Expected Outcome: 
+  - 25+ new design patterns published in Meshery Catalog and Artifact Hub.
+  - 5 new Meshery tutorials published in Meshery Docs.
+  - Bonus: Extend one or more of Meshery’s Learning Paths.
+	
+- Recommended Skills: written English, Kubernetes, DevOps, and familiarity with any number of other CNCF projects, like Jaeger, Helm, Harbor, Flux, Argo, Flux, Falco, etc., Jekyll, strong organizational skills
+- Mentor(s): Yash Sharma (@Yahsharma1911, yashsharma2572@gmail.com), Lee Calcote (@leecalcote, leecalcote@gmail.com)
+- Upstream Issue: https://github.com/meshery/meshery/issues/10888
+
+#### Meshery: End-to-End Testing with Playwright
+
+- Description: Meshery integrates with many other CNCF projects and technologies. Sustaining those integrations is only possible through automation. End-to-end testing with Playwright, GitHub Workflows, and self-documenting test reports is the means to the end of maintaining a healthy state of each of these [Meshery integrations](https://meshery.io/integrations). 
+ 
+- Expected Outcome: 
+  - Successful migration of E2E tests from Cypress to the Playwright test library within the Meshery project.
+  - Implementation of robust and reliable test cases using Playwright to cover a wide range of Meshery's E2E scenarios.
+  - Documentation detailing the migration process, and guidelines for future contributions to maintain test quality.
+  - Integration of Playwright test suite into the Meshery CI/CD pipeline to ensure continuous testing and reliability of the platform.
+- Recommended Skills: JavaScript, Playwright, GitHub Workflows, Jekyll, Markdown, familiarity with React or Nextjs would be helpful, CI/CD
+  - Mentor Name: Aabid Sofi (@aabidsofi19, mailtoaabid01@gmail.com), Lee Calcote (@leecalcote, leecalcote@gmail.com),
+- Upstream Issue: https://github.com/meshery/meshery/issues/10890
+
+#### Meshery: Support versioning for Meshery designs
+
+- Description: Meshery design is a common practice of both configuring and operating cloud native infrastructure functionality in a single, universal file. We are seeking to enhance Meshery's capabilities by supporting automatic versioning of Meshery designs based on user sessions. This functionality will enable users to track changes made to their designs by individuals, facilitating the ability to rollback changes at any time.
+
+- Expected Outcome: 
+  - Update Meshery server and pattern engine to support Meshery design versioning.
+  - Update UI to allow users to perform actions related to design versioning.
+  - Document changes made in pattern engine and server.
+
+- Recommended Skills: Golang, Kubernetes, Meshery, Familiarity with Helm charts and Artifact Hub, familiarity with React, Nextjs would be helpful
+- Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Uzair Shaikh (@muzairs15, muzair.shaikh810@gmail.com)
+- Upstream Issue: https://github.com/meshery/meshery/issues/10889
