@@ -18,6 +18,18 @@
 
 ## Proposed Project ideas
 
+### Service Mesh Performance
+
+#### Service Mesh Performance: Convergence of Network and Graph topologies
+
+- Description: Opens the door to leveraging algorithms in the areas of Centrality, Community Detection, Pathfinding, Topological Link Prediction, etc. Bringing to bear advances made in Machine Learning / AI / recommendation systems, fraud detection could really help to derive meaning and comprehension for future tools. Another example is how ML + graph approaches are used to find and determine the optimal molecular structure of atoms such that desired physical properties are targeted. This approach could be applied to the problem of workload sizing and estimation for service mesh operators and would-be adopters.
+
+- Expected outcome:
+  - Use Neo4j's ability to create graph projections, which copy a subgraph to RAM so that algorithms can be efficiently run.
+- Recommended Skills: Golang, familiarity with Service Mesh, grpc, docker, kubernetes
+- Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Xin Huang (@gyohuangxin, xin1.huang@intel.com)
+- Upstream Issue: https://github.com/service-mesh-performance/service-mesh-performance/issues/422
+
 ### CNCF TAG Network
 
 #### Mapping CNCF Landscape one Relationship-at-a-time
