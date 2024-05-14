@@ -474,6 +474,19 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Upstream Issue: https://github.com/kubernetes-sigs/kwok/issues/1063
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ef8e7637-2eb6-4672-8f6c-c9f9f0677da0
 
+### Kubespray
+
+#### Bug fix and enhancement of the helm support for add-ons.
+
+- Description: Kubespray is a sig project of Kubernetes. It helps deploy a production-ready Kubernetes cluster with Ansible. The project wants maintainers to help fix bugs and enhance the new features, as shown in the following link: https://github.com/kubernetes-sigs/kubespray/issues/5432. The project will start by tackling some 'help wanted' issues related to bug fixes and documentation. This initial involvement will help the mentee understand the Kubespray implementation and pave the way for potential maintainership.
+- Expected Outcome: Bug fix and enhancement of the helm support for add-ons.
+- Recommended Skills: Ansible, Kubernetes
+- Mentor(s):
+    - Kay Yan (yankay, <kay.yan@daocloud.io>)
+    - Mohamed Zaian (mzaian, <mohamedzaian@gmail.com> )
+- Upstream Issue: https://github.com/kubernetes-sigs/kubespray/issues/5432
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/754cd85c-b503-491c-840e-b8bbbd35fe5f
+
 ### LitmusChaos
 
 #### Revamp Litmus Helm Agent, UBI migration of Images
