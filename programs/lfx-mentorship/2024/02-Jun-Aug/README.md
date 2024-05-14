@@ -86,6 +86,8 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - [Vitess](#vitess)
   - [Improve the website of our automated-benchmarking tool (migrate to shadcn ui and typescript)](#improve-the-website-of-our-automated-benchmarking-tool-migrate-to-shadcn-ui-and-typescript)
   - [Community building and engagement](#community-building-and-engagement)
+- [Service Mesh Performance](service-mesh-performance)
+  - [Service Mesh Performance: Convergence of Network and Graph topologies](service-mesh-performance-convergence-of-network-and-graph-topologies)
 - [WasmEdge](#wasmedge)
   - [Support piper as a new backend of the WASI-NN WasmEdge plugin](#support-piper-as-a-new-backend-of-the-wasi-nn-wasmedge-plugin)
   - [Enabling LLM fine tuning in the WASI-NN ggml plugin](#enabling-llm-fine-tuning-in-the-wasi-nn-ggml-plugin)
@@ -631,6 +633,18 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
     - Florent Poinsard @frouioui florent@planetscale.com
 - Upstream Issue (URL): https://github.com/vitessio/vitess/issues/15895
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/1e395914-9adb-4254-a02d-08e6e03e3b93
+
+### Service Mesh Performance
+
+#### Service Mesh Performance: Convergence of Network and Graph topologies
+
+- Description: Opens the door to leveraging algorithms in the areas of Centrality, Community Detection, Pathfinding, Topological Link Prediction, etc. Bringing to bear advances made in Machine Learning / AI / recommendation systems, fraud detection could really help to derive meaning and comprehension for future tools. Another example is how ML + graph approaches are used to find and determine the optimal molecular structure of atoms such that desired physical properties are targeted. This approach could be applied to the problem of workload sizing and estimation for service mesh operators and would-be adopters.
+
+- Expected outcome:
+  - Use Neo4j's ability to create graph projections, which copy a subgraph to RAM so that algorithms can be efficiently run.
+- Recommended Skills: Golang, familiarity with Service Mesh, grpc, docker, kubernetes
+- Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Xin Huang (@gyohuangxin, xin1.huang@intel.com)
+- Upstream Issue: https://github.com/service-mesh-performance/service-mesh-performance/issues/422
 
 ### WasmEdge
 
