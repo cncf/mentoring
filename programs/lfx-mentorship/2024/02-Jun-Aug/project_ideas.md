@@ -18,6 +18,19 @@
 
 ## Proposed Project ideas
 
+### Kubespray
+
+#### Bug fix and enhancement of the helm support for add-ons.
+
+- Description: Kubespray is a sig project of Kubernetes. It helps deploy a production-ready Kubernetes cluster with Ansible. The project wants maintainers to help fix bugs and enhance the new features, as shown in the following link: https://github.com/kubernetes-sigs/kubespray/issues/5432. The project will start by tackling some 'help wanted' issues related to bug fixes and documentation. This initial involvement will help the mentee understand the Kubespray implementation and pave the way for potential maintainership.
+- Expected Outcome: Bug fix and enhancement of the helm support for add-ons.
+- Recommended Skills: Ansible, Kubernetes
+- Mentor(s):
+    - Kay Yan (yankay, <kay.yan@daocloud.io>)
+    - Mohamed Zaian (mzaian, <mohamedzaian@gmail.com> )
+- Upstream Issue: https://github.com/kubernetes-sigs/kubespray/issues/5432
+- LFX URL: 
+
 ### Service Mesh Performance
 
 #### Service Mesh Performance: Convergence of Network and Graph topologies
@@ -29,6 +42,7 @@
 - Recommended Skills: Golang, familiarity with Service Mesh, grpc, docker, kubernetes
 - Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Xin Huang (@gyohuangxin, xin1.huang@intel.com)
 - Upstream Issue: https://github.com/service-mesh-performance/service-mesh-performance/issues/422
+- LFX URL: 
 
 ### CNCF TAG Network
 
@@ -44,6 +58,7 @@
 - Recommended Skills: Familiarity with Helm charts and Artifact Hub, basic familiarity with Kubernetes, and familiarity with CNCF different projects would be helpful
 - Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Uzair Shaikh (@muzairs15, muzair.shaikh810@gmail.com)
 - Upstream Issue: https://github.com/cncf/tag-network/issues/39
+- LFX URL: 
 
 #### Technical Content Creation: CNCF Challenges 
 
@@ -61,6 +76,7 @@ Understand that your challenges will be promoted through CNCF channels, reviewed
 - Recommended Skills: written English, Kubernetes, DevOps, and familiarity with any number of other CNCF projects, like Prometheus, CoreDNS, Istio, Jaeger, Helm, Harbor, OPA, Rook, SPIFEE, Flux, Argo, Flux, Falco, etc., Jekyll, strong organizational skills
 - Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Nic Jackson (@nicholasjackson), jackson.nic@gmail.com)
 - Upstream Issue: https://github.com/cncf/tag-network/issues/40
+- LFX URL: 
 
 ### Meshery
 
@@ -76,6 +92,7 @@ Understand that your challenges will be promoted through CNCF channels, reviewed
 - Recommended Skills: written English, Kubernetes, DevOps, and familiarity with any number of other CNCF projects, like Jaeger, Helm, Harbor, Flux, Argo, Flux, Falco, etc., Jekyll, strong organizational skills
 - Mentor(s): Yash Sharma (@Yahsharma1911, yashsharma2572@gmail.com), Lee Calcote (@leecalcote, leecalcote@gmail.com)
 - Upstream Issue: https://github.com/meshery/meshery/issues/10888
+- LFX URL: 
 
 #### Meshery: End-to-End Testing with Playwright
 
@@ -89,6 +106,7 @@ Understand that your challenges will be promoted through CNCF channels, reviewed
 - Recommended Skills: JavaScript, Playwright, GitHub Workflows, Jekyll, Markdown, familiarity with React or Nextjs would be helpful, CI/CD
   - Mentor Name: Aabid Sofi (@aabidsofi19, mailtoaabid01@gmail.com), Lee Calcote (@leecalcote, leecalcote@gmail.com),
 - Upstream Issue: https://github.com/meshery/meshery/issues/10890
+- LFX URL: 
 
 #### Meshery: Support versioning for Meshery designs
 
@@ -102,3 +120,5 @@ Understand that your challenges will be promoted through CNCF channels, reviewed
 - Recommended Skills: Golang, Kubernetes, Meshery, Familiarity with Helm charts and Artifact Hub, familiarity with React, Nextjs would be helpful
 - Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Uzair Shaikh (@muzairs15, muzair.shaikh810@gmail.com)
 - Upstream Issue: https://github.com/meshery/meshery/issues/10889
+- LFX URL: 
+
