@@ -105,6 +105,42 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Upstream Issue: <https://github.com/cilium/cilium.io/issues/492>
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/9ab5c6dc-4735-4dfb-99c0-d00e86aeae60
 
+
+### CNCF TAG Network
+
+#### Mapping CNCF Landscape one Relationship-at-a-time
+
+- Description: While the OpenAPI specifications for Kubernetes offer a taxonomy, integrating a graph data model with formalized ontologies unlocks a multitude of capabilities. Among these, enabling inferencing necessary for natural language processing stands out as a straightforward application. This, in turn, facilitates the possibility of a human-centric query/response interaction. Importantly, advancing to a knowledge semantic graph from a connected systems' graph data model opens the door to building more sophisticated systems.
+
+- Expected Outcome: 
+  - Identifying new technologies from CNCF landscape and creating new YAML-formatted definitions of one or more relationships.
+  - Documentation of each relationship - per component.
+  - Development of new types of genealogies - new types of ways in which resources relate to one another and how these relationships might be visualized.
+
+- Recommended Skills: Familiarity with Helm charts and Artifact Hub, basic familiarity with Kubernetes, and familiarity with CNCF different projects would be helpful
+- Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Uzair Shaikh (@muzairs15, muzair.shaikh810@gmail.com)
+- Upstream Issue: https://github.com/cncf/tag-network/issues/39
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/bec63054-bc32-4444-b6c5-2b427f527e16
+
+#### Technical Content Creation CNCF Challenges 
+
+- Description: On a periodic basis, the CNCF would like to present a public challenge to those that are interested in participating (e.g. “Challenge: Distributed Tracing with Jaeger”). 
+
+Your mission in this internship is technical content creation of said challenges through use of markdown, Meshery, and any number of other CNCF projects. Challenges will be created using the Meshery Playground and potentially published in the proposed CNCF Hub. They will be similar too, but slightly different from these [example tutorials](https://docs.meshery.io/guides/tutorials/).
+
+Understand that your challenges will be promoted through CNCF channels, reviewed by various project maintainers, and that each challenger (participant) will receive a certain number of points, depending upon whether or not they successfully complete the challenges that you create and in what timeframe they complete those challenges (the faster, the more points). Your challenges will need to vary in level of difficulty. 
+
+- Expected Outcome: 
+  - 10+ new challenges published in CNCF Hub (and Meshery Catalog and Artifact Hub).
+  - Challenges can contain more than one objective. Points are earned for each objective completed.
+  - Bonus: Extend one or more of Meshery’s Learning Paths.
+	
+- Recommended Skills: written English, Kubernetes, DevOps, and familiarity with any number of other CNCF projects, like Prometheus, CoreDNS, Istio, Jaeger, Helm, Harbor, OPA, Rook, SPIFEE, Flux, Argo, Flux, Falco, etc., Jekyll, strong organizational skills
+- Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Nic Jackson (@nicholasjackson), jackson.nic@gmail.com)
+- Upstream Issue: https://github.com/cncf/tag-network/issues/40
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/1a620529-f2be-4a6f-8b4d-0562731cb840
+
+
 ### Copacetic
 
 #### Add new scenarios to Copa's existing image patching features
@@ -450,6 +486,21 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Upstream Issue: [kubescape/Kubescape#1667](https://github.com/kubescape/kubescape/issues/1667)
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/1e20bf55-4bcf-40ef-afee-d2b73948cd79
 
+
+### Kubespray
+
+#### Kubernetes SIG Project Kubespray: bug fixes & enhance helm support for add-ons
+
+- Description: Kubespray is a sig project of Kubernetes. It helps deploy a production-ready Kubernetes cluster with Ansible. The project wants maintainers to help fix bugs and enhance the new features, as shown in the following link: https://github.com/kubernetes-sigs/kubespray/issues/5432. The project will start by tackling some 'help wanted' issues related to bug fixes and documentation. This initial involvement will help the mentee understand the Kubespray implementation and pave the way for potential maintainership.
+- Expected Outcome: Bug fix and enhancement of the helm support for add-ons.
+- Recommended Skills: Ansible, Kubernetes
+- Mentor(s):
+    - Kay Yan (yankay, <kay.yan@daocloud.io>)
+    - Mohamed Zaian (mzaian, <mohamedzaian@gmail.com> )
+- Upstream Issue: https://github.com/kubernetes-sigs/kubespray/issues/5432
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/22b0ef86-d390-4ea2-b302-79e819dcbdfc
+
+
 ### KWOK
 
 #### Enhancement of Test Cases
@@ -518,6 +569,52 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Upstream Issue: https://github.com/litmuschaos/litmus/issues/4632
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/9ac6f8b4-4f76-41d0-b02b-89c79534e619
 
+
+### Meshery
+
+#### Meshery: Meshery: Project tutorials, design patterns, & publish reference architectures
+
+- Description: Meshery the CNCF’s 10th fastest growing project. As a cloud native manager, Meshery [integrates with 250+ projects](https://meshery.io/integrations) and technologies. For each CNCF project integrated with Meshery, tutorials, sample designs, and deployment patterns with reference architectures need to be created. For the earnest, DevOps-minded intern, this internship represents a vast opportunity to learn, document, and publish tutorials and best practices not only around Meshery, but for any number of the other CNCF projects, too. You will use the [Meshery Playground](https://play.meshery.io)
+
+- Expected Outcome: 
+  - 25+ new design patterns published in Meshery Catalog and Artifact Hub.
+  - 5 new Meshery tutorials published in Meshery Docs.
+  - Bonus: Extend one or more of Meshery’s Learning Paths.
+
+- Recommended Skills: written English, Kubernetes, DevOps, and familiarity with any number of other CNCF projects, like Jaeger, Helm, Harbor, Flux, Argo, Flux, Falco, etc., Jekyll, strong organizational skills
+- Mentor(s): Yash Sharma (@Yahsharma1911, yashsharma2572@gmail.com), Lee Calcote (@leecalcote, leecalcote@gmail.com)
+- Upstream Issue: https://github.com/meshery/meshery/issues/10888
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/7ec5139b-fca8-43db-bafc-bdb2faa58047
+
+#### Meshery: End-to-End Testing with Playwright
+
+- Description: Meshery integrates with many other CNCF projects and technologies. Sustaining those integrations is only possible through automation. End-to-end testing with Playwright, GitHub Workflows, and self-documenting test reports is the means to the end of maintaining a healthy state of each of these [Meshery integrations](https://meshery.io/integrations). 
+
+- Expected Outcome: 
+  - Successful migration of E2E tests from Cypress to the Playwright test library within the Meshery project.
+  - Implementation of robust and reliable test cases using Playwright to cover a wide range of Meshery's E2E scenarios.
+  - Documentation detailing the migration process, and guidelines for future contributions to maintain test quality.
+  - Integration of Playwright test suite into the Meshery CI/CD pipeline to ensure continuous testing and reliability of the platform.
+- Recommended Skills: JavaScript, Playwright, GitHub Workflows, Jekyll, Markdown, familiarity with React or Nextjs would be helpful, CI/CD
+  - Mentor Name: Aabid Sofi (@aabidsofi19, mailtoaabid01@gmail.com), Lee Calcote (@leecalcote, leecalcote@gmail.com),
+- Upstream Issue: https://github.com/meshery/meshery/issues/10890
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/62f4866e-9461-490d-890d-9f221a3941b4
+
+#### Meshery: Support versioning for Meshery designs
+
+- Description: Meshery design is a common practice of both configuring and operating cloud native infrastructure functionality in a single, universal file. We are seeking to enhance Meshery's capabilities by supporting automatic versioning of Meshery designs based on user sessions. This functionality will enable users to track changes made to their designs by individuals, facilitating the ability to rollback changes at any time.
+
+- Expected Outcome: 
+  - Update Meshery server and pattern engine to support Meshery design versioning.
+  - Update UI to allow users to perform actions related to design versioning.
+  - Document changes made in pattern engine and server.
+
+- Recommended Skills: Golang, Kubernetes, Meshery, Familiarity with Helm charts and Artifact Hub, familiarity with React, Nextjs would be helpful
+- Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Uzair Shaikh (@muzairs15, muzair.shaikh810@gmail.com)
+- Upstream Issue: https://github.com/meshery/meshery/issues/10889
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8e1ab317-9043-4f29-8b83-9b9ffa2b8b40
+
+
 ### OpenKruise
 
 #### Enhancement for Kruise-Game Dashboard
@@ -554,6 +651,20 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
     - Jesus Vazquez (@jesusvazquez, jesus.vazquez@grafana.com)
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/12631
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/454caa5a-6fd5-4e27-bde4-7649abf6d8ca
+
+
+### Service Mesh Performance
+
+#### Service Mesh Performance: Convergence of Network and Graph topologies
+
+- Description: Opens the door to leveraging algorithms in the areas of Centrality, Community Detection, Pathfinding, Topological Link Prediction, etc. Bringing to bear advances made in Machine Learning / AI / recommendation systems, fraud detection could really help to derive meaning and comprehension for future tools. Another example is how ML + graph approaches are used to find and determine the optimal molecular structure of atoms such that desired physical properties are targeted. This approach could be applied to the problem of workload sizing and estimation for service mesh operators and would-be adopters.
+
+- Expected outcome:
+  - Use Neo4j's ability to create graph projections, which copy a subgraph to RAM so that algorithms can be efficiently run.
+- Recommended Skills: Golang, familiarity with Service Mesh, grpc, docker, kubernetes
+- Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Xin Huang (@gyohuangxin, xin1.huang@intel.com)
+- Upstream Issue: https://github.com/service-mesh-performance/service-mesh-performance/issues/422
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/c605139b-8736-477a-835a-c6b45112bee4
 
 
 ### Thanos
