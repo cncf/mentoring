@@ -48,14 +48,6 @@ The current cycle is [02-Jun-Aug 2024](2024/02-Jun-Aug/README.md).
 - Jay Tiaki ([@jaytiaki](https://github.com/jaytiaki))
 - Ali Ok ([@aliok](https://github.com/aliok))
 
-## Communication
-
-LFX Platform-specific documentation is available [here](https://docs.linuxfoundation.org/lfx/mentorship). In the case of any questions or issues with the LFX Mentorship platform/website itself, payments, etc., please reach out to the [LFX Mentorship support team](https://support.linuxfoundation.org/) directly.
-
-For CNCF-specific questions, please use the [Discussions boards](https://github.com/cncf/mentoring/discussions) (or you can email us at mentoring@cncf.io if you have any questions you don't want to raise publicly).
-
-Please avoid using DM's to contact the program maintainers.
-
 ## Program Guidelines
 
 Please see the program-wide guidelines on the [LFX Mentorship website](https://docs.linuxfoundation.org/lfx/mentorship).
@@ -95,3 +87,16 @@ If you are a mentee, please note that you'll be asked to provide the Statement o
 ### Stipends
 
 The LFX Mentorship stipend policy is described here - <https://docs.linuxfoundation.org/lfx/mentorship/mentee-stipends>.
+
+## Communication
+
+If you have any questions or issues with the LFX Mentorship platform/website itself, payments, etc., contact the [LFX Mentorship support team](https://support.linuxfoundation.org/) directly.
+
+For CNCF-specific questions:
+
+- Use the [CNCF mentoring discussions board](https://github.com/cncf/mentoring/discussions)
+- Write to mentoring@cncf.io **only for questions that _can not_ be asked publicly**
+
+> [!IMPORTANT]
+> **_Do not_ directly message program maintainers or project mentors**.
+
