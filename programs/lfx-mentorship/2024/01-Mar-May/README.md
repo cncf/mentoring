@@ -314,6 +314,7 @@ The demonstration should contain a tunneling solution that has a Golang SDK or c
 - Mentor(s):
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
+  - Yash Sharma (yashrsharma44@meta.com)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5084
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/66aaa053-e7b1-4682-a285-73ce66420f86
 
@@ -325,6 +326,7 @@ The demonstration should contain a tunneling solution that has a Golang SDK or c
 - Mentor(s):
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
+  - Yash Sharma (yashrsharma44@meta.com)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5084
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/077f3bec-e3d3-41f7-a527-655c62661f80
 
@@ -336,6 +338,7 @@ The demonstration should contain a tunneling solution that has a Golang SDK or c
 - Mentor(s):
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
+  - Yash Sharma (yashrsharma44@meta.com)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5084
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/00e78fef-e9a7-4e2c-bf29-e6099ac14b65
 
