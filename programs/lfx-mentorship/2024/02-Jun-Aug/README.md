@@ -253,6 +253,7 @@ Understand that your challenges will be promoted through CNCF channels, reviewed
 - Mentor(s):
     - Yuri Shkuro (@yurishkuro, github@ysh.us)
     - Jonah Kowall (@jkowall, jkowall@kowall.net)
+    - Yash Sharma (yashrsharma44@meta.com)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5240
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/bd752f55-9080-4826-af09-ad86d3614ab2
 
@@ -265,6 +266,7 @@ Understand that your challenges will be promoted through CNCF channels, reviewed
 - Mentor(s):
     - Yuri Shkuro (@yurishkuro, github@ysh.us)
     - Jonah Kowall (@jkowall, jkowall@kowall.net)
+    - Yash Sharma (yashrsharma44@meta.com)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5240
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/574c4759-09fa-468d-9cfd-4fbb0fb98c09
 
@@ -276,6 +278,7 @@ Understand that your challenges will be promoted through CNCF channels, reviewed
 - Mentor(s):
     - Yuri Shkuro (@yurishkuro, github@ysh.us)
     - Jonah Kowall (@jkowall, jkowall@kowall.net)
+    - Yash Sharma (yashrsharma44@meta.com)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5240
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/6c6181c6-030a-4053-af29-18f09e5e2c4f
 
