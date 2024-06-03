@@ -637,7 +637,7 @@ Understand that your challenges will be promoted through CNCF channels, reviewed
 - Recommended Skills: Go, some familiarity with Prometheus or metrics, basic Docker knowledge
 - Mentor(s):
     - Callum Styan (@cstyan, callumstyan@gmail.com),
-    - Jesús Vázquez (@jesusvazquez, jesus.vazquez@grafana.com)
+    - Jesús Vázquez (@jesusvazquez, jesusvzpg@grafana.com)
     - Nico Pazos and Alex Greenbank from Grafana also available to help
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/13995
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/0462446f-aeea-4a19-9bd6-f4241ee5e8f2
@@ -648,7 +648,7 @@ Understand that your challenges will be promoted through CNCF channels, reviewed
 - Recommended Skills: Go, familiarity with Prometheus TSDB.
 - Mentor(s):
     - Bryan Boreham (@bboreham, bjboreham@gmail.com)
-    - Jesus Vazquez (@jesusvazquez, jesus.vazquez@grafana.com)
+    - Jesus Vazquez (@jesusvazquez, jesusvzpg@grafana.com)
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/12631
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/454caa5a-6fd5-4e27-bde4-7649abf6d8ca
 
