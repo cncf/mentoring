@@ -225,6 +225,7 @@ Understand that your challenges will be promoted through CNCF channels, reviewed
 - Mentor(s):
     - Justin Cappos @JustinCappos jcappos@nyu.edu
     - Patrice Chalin @chalin chalin@cncf.io
+    - Lukas Pühringer @lukpueh lukas.puehringer@nyu.edu
 - Upstream Issues:
     -   https://github.com/in-toto/docs/issues/85
     -   https://github.com/in-toto/docs/issues/90
@@ -695,6 +696,7 @@ Understand that your challenges will be promoted through CNCF channels, reviewed
 - Mentor(s):
     - Justin Cappos @JustinCappos jcappos@nyu.edu
     - Patrice Chalin @chalin chalin@cncf.io
+    - Lukas Pühringer @lukpueh lukas.puehringer@nyu.edu
 - Upstream Issues:
     - https://github.com/cncf/techdocs/issues/162
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/e35f28f9-f333-47a8-a76a-119567cf10ca
