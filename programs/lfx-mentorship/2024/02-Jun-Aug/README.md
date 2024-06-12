@@ -1,4 +1,4 @@
-# Term 02 - 2024 June - August 
+# Term 02 - 2024 June - August
 
 Status: Planning
 
@@ -7,12 +7,12 @@ Mentorship duration - three months (12 weeks - full-time schedule)
 ### Timeline
 
 | activity | date |
-| --- | --- |   
+| --- | --- |
 | project proposals | Monday April 8 - Wed May 8, 2024, 5:00 PM PDT |
 | mentee applications open | Monday May 13 - Tues May 28, 5:00 PM PDT |
 | application review/admission decisions | Wed May 29 - Tues June 11, 5:00 PM PDT |
 | selection notifications | Wed June 12, 5:00 PM PDT |
-| Mentorship program begins with the initial work assignments | Monday June 17 (Week 1) | 
+| Mentorship program begins with the initial work assignments | Monday June 17 (Week 1) |
 | Midterm mentee evaluations and first stipend payments | Wednesday July 24 (Week 6) |
 | Final mentee evaluations and mentee feedback/blog submission due, second and final stipend payment approvals | Wed Aug 28, 5:00 PM PST (Week 12) |
 | Last day of term | Friday Aug 30 |
@@ -30,11 +30,11 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 ## Accepted projects
 
 - [Cilium](#cilium)
-  - [Cilium Technical Outcomes](#cilium-technical-outcomes) 
+  - [Cilium Technical Outcomes](#cilium-technical-outcomes)
 - [Copacetic](#copacetic)
   - [Add new scenarios to Copa's existing image patching features](#add-new-scenarios-to-copas-existing-image-patching-features)
 - [Crossplane](#crossplane)
-  - [Make Crossplane Easy - Improving the Developer Experience](#make-crossplane-easy---improving-the-developer-experience) 
+  - [Make Crossplane Easy - Improving the Developer Experience](#make-crossplane-easy---improving-the-developer-experience)
 - [Harbor](#harbor)
   - [Harbor CLI](#harbor-cli)
   - [Harbor Satellite](#harbor-satellite)
@@ -96,7 +96,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 #### Cilium Technical Outcomes
 
-- Description: On the Cilium [homepage](cilium.io), we want to document technical outcomes from using Cilium. Think of these technical outcomes as aggregating some of cilium features to achieve a high level technical goal. These are the current ones we have in mind: Zero Trust Networking, Network Automation, Distributed Firewalling, Cost and Carbon Savings, Multi-cloud Connectivity.
+- Description: On the Cilium [homepage](https://cilium.io), we want to document technical outcomes from using Cilium. Think of these technical outcomes as aggregating some of cilium features to achieve a high level technical goal. These are the current ones we have in mind: Zero Trust Networking, Network Automation, Distributed Firewalling, Cost and Carbon Savings, Multi-cloud Connectivity.
 - Expected Outcome: A section of the Cilium website detailing these technical outcomes. This section on the website can include any supporting materials from the Cilium community i.e blogs, videos, talks, illustrations, etc.
 - Recommended Skills: Technical Writing, some basic working knowlegde of Cilium or the willingness to quickly ramp up, Kubernetes, general familiarity with the cloud native ecosystem, basic React.js(the cilium webiste is built with Gatsby).
 - Mentor(s):
@@ -112,7 +112,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 - Description: While the OpenAPI specifications for Kubernetes offer a taxonomy, integrating a graph data model with formalized ontologies unlocks a multitude of capabilities. Among these, enabling inferencing necessary for natural language processing stands out as a straightforward application. This, in turn, facilitates the possibility of a human-centric query/response interaction. Importantly, advancing to a knowledge semantic graph from a connected systems' graph data model opens the door to building more sophisticated systems.
 
-- Expected Outcome: 
+- Expected Outcome:
   - Identifying new technologies from CNCF landscape and creating new YAML-formatted definitions of one or more relationships.
   - Documentation of each relationship - per component.
   - Development of new types of genealogies - new types of ways in which resources relate to one another and how these relationships might be visualized.
@@ -122,19 +122,19 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Upstream Issue: https://github.com/cncf/tag-network/issues/39
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/bec63054-bc32-4444-b6c5-2b427f527e16
 
-#### Technical Content Creation CNCF Challenges 
+#### Technical Content Creation CNCF Challenges
 
-- Description: On a periodic basis, the CNCF would like to present a public challenge to those that are interested in participating (e.g. “Challenge: Distributed Tracing with Jaeger”). 
+- Description: On a periodic basis, the CNCF would like to present a public challenge to those that are interested in participating (e.g. “Challenge: Distributed Tracing with Jaeger”).
 
 Your mission in this internship is technical content creation of said challenges through use of markdown, Meshery, and any number of other CNCF projects. Challenges will be created using the Meshery Playground and potentially published in the proposed CNCF Hub. They will be similar too, but slightly different from these [example tutorials](https://docs.meshery.io/guides/tutorials/).
 
-Understand that your challenges will be promoted through CNCF channels, reviewed by various project maintainers, and that each challenger (participant) will receive a certain number of points, depending upon whether or not they successfully complete the challenges that you create and in what timeframe they complete those challenges (the faster, the more points). Your challenges will need to vary in level of difficulty. 
+Understand that your challenges will be promoted through CNCF channels, reviewed by various project maintainers, and that each challenger (participant) will receive a certain number of points, depending upon whether or not they successfully complete the challenges that you create and in what timeframe they complete those challenges (the faster, the more points). Your challenges will need to vary in level of difficulty.
 
-- Expected Outcome: 
+- Expected Outcome:
   - 10+ new challenges published in CNCF Hub (and Meshery Catalog and Artifact Hub).
   - Challenges can contain more than one objective. Points are earned for each objective completed.
   - Bonus: Extend one or more of Meshery’s Learning Paths.
-	
+
 - Recommended Skills: written English, Kubernetes, DevOps, and familiarity with any number of other CNCF projects, like Prometheus, CoreDNS, Istio, Jaeger, Helm, Harbor, OPA, Rook, SPIFEE, Flux, Argo, Flux, Falco, etc., Jekyll, strong organizational skills
 - Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Nic Jackson (@nicholasjackson), jackson.nic@gmail.com)
 - Upstream Issue: https://github.com/cncf/tag-network/issues/40
@@ -580,7 +580,7 @@ Understand that your challenges will be promoted through CNCF channels, reviewed
 
 - Description: Meshery the CNCF’s 10th fastest growing project. As a cloud native manager, Meshery [integrates with 250+ projects](https://meshery.io/integrations) and technologies. For each CNCF project integrated with Meshery, tutorials, sample designs, and deployment patterns with reference architectures need to be created. For the earnest, DevOps-minded intern, this internship represents a vast opportunity to learn, document, and publish tutorials and best practices not only around Meshery, but for any number of the other CNCF projects, too. You will use the [Meshery Playground](https://play.meshery.io)
 
-- Expected Outcome: 
+- Expected Outcome:
   - 25+ new design patterns published in Meshery Catalog and Artifact Hub.
   - 5 new Meshery tutorials published in Meshery Docs.
   - Bonus: Extend one or more of Meshery’s Learning Paths.
@@ -592,9 +592,9 @@ Understand that your challenges will be promoted through CNCF channels, reviewed
 
 #### Meshery: End-to-End Testing with Playwright
 
-- Description: Meshery integrates with many other CNCF projects and technologies. Sustaining those integrations is only possible through automation. End-to-end testing with Playwright, GitHub Workflows, and self-documenting test reports is the means to the end of maintaining a healthy state of each of these [Meshery integrations](https://meshery.io/integrations). 
+- Description: Meshery integrates with many other CNCF projects and technologies. Sustaining those integrations is only possible through automation. End-to-end testing with Playwright, GitHub Workflows, and self-documenting test reports is the means to the end of maintaining a healthy state of each of these [Meshery integrations](https://meshery.io/integrations).
 
-- Expected Outcome: 
+- Expected Outcome:
   - Successful migration of E2E tests from Cypress to the Playwright test library within the Meshery project.
   - Implementation of robust and reliable test cases using Playwright to cover a wide range of Meshery's E2E scenarios.
   - Documentation detailing the migration process, and guidelines for future contributions to maintain test quality.
@@ -608,7 +608,7 @@ Understand that your challenges will be promoted through CNCF channels, reviewed
 
 - Description: Meshery design is a common practice of both configuring and operating cloud native infrastructure functionality in a single, universal file. We are seeking to enhance Meshery's capabilities by supporting automatic versioning of Meshery designs based on user sessions. This functionality will enable users to track changes made to their designs by individuals, facilitating the ability to rollback changes at any time.
 
-- Expected Outcome: 
+- Expected Outcome:
   - Update Meshery server and pattern engine to support Meshery design versioning.
   - Update UI to allow users to perform actions related to design versioning.
   - Document changes made in pattern engine and server.
@@ -690,7 +690,7 @@ Understand that your challenges will be promoted through CNCF channels, reviewed
 
 - Description:
     - Open source projects need help with their documentation!  The TUF project is a good place to start.  We'd welcome help from others to help here
-      and become contributors to other projects / TAGs later in the project period.  The mentee will (with minimal guidance from the CNCF team and TUF project) do a [CNCF assessment](https://github.com/cncf/techdocs/blob/main/assessments/howto.md) for the TUF documentation
+      and become contributors to other projects / TAGs later in the project period.  The mentee will (with minimal guidance from the CNCF team and TUF project) do a [CNCF assessment](https://github.com/cncf/techdocs/blob/main/docs/analysis/howto.md) for the TUF documentation
 - Expected Outcome:
     - Both an improvement of project docs and the development of a new contributor.  A mentee will understand how to do technical writing for an open source project.
 - Recommended Skills:
@@ -782,7 +782,7 @@ Understand that your challenges will be promoted through CNCF channels, reviewed
 
 #### Create a search-enabled API server for local LLMs
 
-- Description: WasmEdge is a lightweight inference runtime for AI and LLM applications. The [LlamaEdge project](https://github.com/LlamaEdge) has developed an [OpenAI-compatible API server](https://github.com/LlamaEdge/LlamaEdge/tree/main/api-server) and a [server-side RAG app](https://llamaedge.com/docs/user-guide/server-side-rag) based on WasmEdge. In this project, we aim to use the LlamaEdge components to build a new API server that incorporates real-time Internet search results into LLM answers.
+- Description: WasmEdge is a lightweight inference runtime for AI and LLM applications. The [LlamaEdge project](https://github.com/LlamaEdge) has developed an [OpenAI-compatible API server](https://github.com/LlamaEdge/LlamaEdge/tree/main/api-server) and a [server-side RAG app](https://llamaedge.com/docs/category/server-side-rag) based on WasmEdge. In this project, we aim to use the LlamaEdge components to build a new API server that incorporates real-time Internet search results into LLM answers.
 - Expected Outcome: An OpenAI-compatible local LLM API server that uses Google Search for supplemental context
 - Recommended Skills:
     - Rust language
