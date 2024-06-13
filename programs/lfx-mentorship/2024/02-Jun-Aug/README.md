@@ -82,7 +82,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - [Thanos](#thanos)
   - [Compactor: Display TODO plan in UI](#compactor-display-todo-plan-in-ui)
 - [TUF](#tuf)
-  - [Documentation assessment and improvements](#documentation-assessment-and-improvements)
+  - [Documentation analysis and improvements](#documentation-analysis-and-improvements)
 - [Vitess](#vitess)
   - [Improve the website of our automated-benchmarking tool (migrate to shadcn ui and typescript)](#improve-the-website-of-our-automated-benchmarking-tool-migrate-to-shadcn-ui-and-typescript)
   - [Community building and engagement](#community-building-and-engagement)
@@ -686,11 +686,11 @@ Understand that your challenges will be promoted through CNCF channels, reviewed
 
 ### TUF
 
-#### Documentation assessment and improvements
+#### Documentation analysis and improvements
 
 - Description:
     - Open source projects need help with their documentation!  The TUF project is a good place to start.  We'd welcome help from others to help here
-      and become contributors to other projects / TAGs later in the project period.  The mentee will (with minimal guidance from the CNCF team and TUF project) do a [CNCF assessment](https://github.com/cncf/techdocs/blob/main/docs/analysis/howto.md) for the TUF documentation
+      and become contributors to other projects / TAGs later in the project period.  The mentee will (with minimal guidance from the CNCF team and TUF project) do a [CNCF analysis](https://github.com/cncf/techdocs/blob/main/docs/analysis/howto.md) for the TUF documentation
 - Expected Outcome:
     - Both an improvement of project docs and the development of a new contributor.  A mentee will understand how to do technical writing for an open source project.
 - Recommended Skills:
