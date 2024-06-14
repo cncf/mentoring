@@ -2,6 +2,7 @@
 
 - [LFX](#lfx)
   - [2024](#2024)
+    - [Term 2: Jun-Aug](#2024-term-2-june---august)
     - [Term 1: Mar-May](#2024-term-1-march---may)
   - [2023](#2023)
     - [Term 3: Sept-Nov](#term-3-september---november)
@@ -18,7 +19,7 @@
 
 ##### 2024 Term 2: June - August
 
-[In progress](./2024/02-Jun-Aug/README.md)
+[In progress](lfx-mentorship/2024/02-Jun-Aug/README.md)
 
 ##### 2024 Term 1: March - May
 
