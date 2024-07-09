@@ -14,7 +14,7 @@ CNCF TAG Contributor Strategy
 ## Meeting details
 
 ### Recurring monthly
-* 2nd Tuesday of the month at 8PM UTC
+* 3rd Thursday of the month at 10:00 AM Pacific Time
 
 [CNCF Public Events - TAG CS Mentoring WG](https://tockify.com/cncf.public.events/monthly?search=CNCF%20TAG%20Contributor%20Strategy%20Mentoring%20WG)
 
@@ -27,7 +27,7 @@ Passcode: 77777
 
 # Meeting Minutes
 
-* [2024](./2024-meeting-minutes.md) (current)
+* [2024](https://docs.google.com/document/d/1sSYRo-5yxJggGg3JVATxMKdxVWbY_ZGD2mhKlPNW7qM/edit?usp=sharing) (current)
 * [2023](./2023-meeting-minutes.md)
 * [2022](./2022-meeting-minutes.md)
 * [June 30, July 12, July 26, 2022](https://docs.google.com/document/d/1ZVFf_GRB5yrcTQieudtk3W-gWL6KuwHn1QG8XKdrARo/edit?usp=sharing)
