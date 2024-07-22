@@ -48,6 +48,6 @@ Define and implement a new module or library to facilitate integration of analyz
 
 - Mentor(s):
   - Hiteshwari Patel (@hhpatel14, patelhiteshwari95@gmail.com)
-  - Savitha Ragunathan (@sraghunathan, saveetha13@gmail.com)
+  - Savitha Raghunathan (@sraghunathan, saveetha13@gmail.com)
 
 - Upstream Issue: https://github.com/konveyor/enhancements/issues/187
