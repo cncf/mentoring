@@ -24,7 +24,7 @@
 #### IPv4/IPv6 Dual Stack Support
 
 - Description: Envoy Gateway is an open source project for managing Envoy Proxy as a standalone or Kubernetes-based application gateway. Gateway API resources are used to dynamically provision and configure the managed Envoy Proxies. Currently the implementation only supports Kubernetes clusters with IPv4 enabled, and not IPv6
-- Expected Outcome: 
+- Expected Outcome:
   The managed Envoy Proxy fleet can
   - Accept connections/listen on an interface that has an IPv6 address assigned to it
   - Can route to IPv6 pod endpoints/addresses
@@ -34,11 +34,11 @@
   - Arko Dasgupta (@arkodg, arko@tetrate.io)
 - Upstream Issue: https://github.com/envoyproxy/gateway/issues/184
 
-### Konveyor AI 
+### Konveyor AI
 
 #### Intelli-j IDE plugin integration of analyzer-lsp for real time updates with Konveyor AI
 
-- Description: Konveyor provides a unified experience of tools to help organizations modernize their applications at scale, transitioning them to Kubernetes and cloud-native technologies. Recently the Konveyor community began the development of a Generative AI approach for application modernization called Konveyor-AI.  Konveyor AI accelerates application migration by discovering migration incidents in the source code and providing LLM-generated fixes in a diff view presentation. When proposed changes are accepted, it provides real-time updates on the number of incidents.  The presentation side for this work is currently serviced via an IDE extension for VSCode.  
+- Description: Konveyor provides a unified experience of tools to help organizations modernize their applications at scale, transitioning them to Kubernetes and cloud-native technologies. Recently the Konveyor community began the development of a Generative AI approach for application modernization called Konveyor-AI.  Konveyor AI accelerates application migration by discovering migration incidents in the source code and providing LLM-generated fixes in a diff view presentation. When proposed changes are accepted, it provides real-time updates on the number of incidents.  The presentation side for this work is currently serviced via an IDE extension for VSCode.
 We aim to expand Konveyor AI by developing an IntelliJ plugin. Our first step involves integrating the static code analysis tool, analyzer-lsp, into the IntelliJ plugin. We plan to create a common module for interaction with analyzer-lsp, which can be used in multiple IDE plugins, starting with VSCode and IntelliJ. Currently, the IntelliJ IDE uses the Konveyor CLI tool, Kantra, for analysis and transformation, but we need to replace Kantra with analyzer-lsp to optimize real-time updates.
 
 - Expected Outcome:
@@ -51,3 +51,94 @@ Define and implement a new module or library to facilitate integration of analyz
   - Savitha Raghunathan (@sraghunathan, saveetha13@gmail.com)
 
 - Upstream Issue: https://github.com/konveyor/enhancements/issues/187
+
+### Inspektor Gadget
+
+#### New gadget for detecting deadlocks
+
+- Description: Inspektor Gadget is an eBPF tool and systems inspection framework for Kubernetes, containers and Linux hosts. In this project, you will write a new gadget in BPF and WASM to detect deadlocks in applications. The BPF program will be attached on mutex locks and mutex unlocks functions with uprobes. The WASM program will build a mutex wait directed graph and look for cycles. Then, the gadget will display the stack trace showing the mutex locks causing the deadlock.
+
+    This project builds upon previous work:
+
+  - In a previous mentorship project, Inspektor Gadget gained support for uprobes and kernel stack traces (https://www.inspektor-gadget.io/blog/2024/06/supporting-uprobe-based-gadgets-lfx-mentorship-report/).
+  - BCC tools include deadlock.py doing the same: https://github.com/iovisor/bcc/blob/master/tools/deadlock_example.txt and https://github.com/iovisor/bcc/blob/master/tools/deadlock.py
+
+    However, this project still has challenging issues to resolve:
+
+  - Inspektor Gadget does not support dumping stack traces from userspace applications yet
+
+- Expected Outcome: A new gadget detects lock order inversion and prints the stack traces where each mutex was acquired.
+
+- Recommended Skills: Go, BPF, WASM, graph data structure
+
+- Mentor(s):
+  - Alban Crequy (@alban, albancrequy@microsoft.com)
+  - Burak Ok (@burak-ok, burakok@microsoft.com)
+
+- Upstream Issue: https://github.com/inspektor-gadget/inspektor-gadget/issues/3194
+
+#### Testing Inspektor Gadget gadgets on different kernel versions
+
+- Description: The Inspektor Gadget gadgets are heavily coupled to the kernel version as they need to access internal kernel data and use different eBPF features. One key feature for Inspektor Gadget is to hide all this complexity from its users: the gadgets should work the same regardless the kernel version they’re running in. To be sure our gadgets (and Inspektor Gadget too) are working fine, we need to run tests on different kernel versions we want to support.
+
+    The purpose of this mentorship is to develop a framework that allows gadget developers to (1) implement unit tests for their gadgets (2) and run them on different kernel versions. A previous mentorship successfully implemented a framework for running integration tests (https://github.com/inspektor-gadget/inspektor-gadget/pull/2607), now it’s time to extend that framework to allow running unit tests as well. Some preliminary investigation done in (https://github.com/inspektor-gadget/inspektor-gadget/pull/2638) explored the possibility to use https://github.com/lmb/vimto, it seems it’s the right tool for the job.
+
+Expected Outcome: Gadget developers have a way to run unit tests in different kernel versions for their gadgets in their CI platform
+
+- Recommended Skills: Golang
+
+- Mentor(s):
+  - Mauricio Vasquez Bernal (@mauriciovasquezbernal, mauriciov@microsoft.com)
+  - Alban Crequy (@alban, albancrequy@microsoft.com)
+
+- Upstream Issue:
+  - https://github.com/inspektor-gadget/inspektor-gadget/issues/3195
+  - https://github.com/inspektor-gadget/inspektor-gadget/issues/1343
+
+
+#### Exploring Chaos Engineering with eBPF and Inspektor Gadget
+
+- Description: Chaos Engineering is the discipline of experimenting on a system in order to build confidence in the system’s capability to withstand turbulent conditions in production, ref. https://principlesofchaos.org/, i.e. to induce errors on a system and see how it behaves. eBPF can be used to induce such errors on a system, it can change the return value of a kernel function, drop or modify network packets, etc.
+
+    The goal of this mentorship is to implement a set of gadgets for Inspektor Gadget that helps causing system chaos. These are some ideas of the gadgets that should be implemented:
+
+  - DNS: Drop/modify/add latency DNS requests and/or responses based on
+    - The container or process performing it
+      - The target URL
+      - The DNS server
+    - TCP/UDP: Drop network packets based on
+      - Destination / Source IPs
+      - Originating or destination pod or process
+    - Simulate system call failures based on
+      - Container or process performing the syscall
+      - Syscall
+
+    The gadgets should expose metrics with the number of times it induced failures, and possibly also provide notifications when those errors were induced.
+
+- Expected Outcome: A set of gadgets with the above functionality should be implemented and merged on the upstream Inspektor Gadget repository. Those gadgets should include documentation and tests.
+
+- Recommended Skills: Golang, eBPF, networking protocols.
+
+- Mentor(s):
+  - Michael Friese (@flyth, mfriese@microsoft.com)
+  - Mauricio Vasquez Bernal (@mauriciovasquezbernal, mauriciov@microsoft.com)
+
+- Upstream Issue: https://github.com/inspektor-gadget/inspektor-gadget/issues/3196
+
+#### Develop DNS/HTTP event generation capabilities in Inspektor Gadget
+
+- Description: Inspektor Gadget enables users to inspect Linux containers and Kubernetes workloads, offering the powerful capability to monitor traffic for currently running applications. So far, gadgets can only passively monitor events, the ability to generate specific events would be a great addition to the existing features. For example, if users could trigger a DNS request from a specific pod or make an HTTP request to a particular endpoint, Inspektor Gadget could check if the request succeeded or not. Users would then be notified if there are errors/outages/problems in the cluster.
+
+- Expected Outcome: As part of the mentorship, you will:
+
+    1. Explore the best way to implement event generation, external program vs implementing it within Inspektor Gadget.
+    2. Develop DNS/HTTP event generator and see how it works with gadgets.
+    3. Use the event generation in our integration testing.
+
+- Recommended Skills: Golang, Kubernetes and Understanding of DNS/HTTP protocols.
+
+- Mentor(s):
+  - Qasim Sarfraz (@mqasimsarfraz, qasimsarfraz@microsoft.com)
+  - Burak Ok (@burak-ok, burakok@microsoft.com)
+
+- Upstream Issue: https://github.com/inspektor-gadget/inspektor-gadget/issues/3193
