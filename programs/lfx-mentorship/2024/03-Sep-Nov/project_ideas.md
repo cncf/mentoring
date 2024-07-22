@@ -34,3 +34,20 @@
   - Arko Dasgupta (@arkodg, arko@tetrate.io)
 - Upstream Issue: https://github.com/envoyproxy/gateway/issues/184
 
+### Konveyor AI 
+
+#### Intelli-j IDE plugin integration of analyzer-lsp for real time updates with Konveyor AI
+
+- Description: Konveyor provides a unified experience of tools to help organizations modernize their applications at scale, transitioning them to Kubernetes and cloud-native technologies. Recently the Konveyor community began the development of a Generative AI approach for application modernization called Konveyor-AI.  Konveyor AI accelerates application migration by discovering migration incidents in the source code and providing LLM-generated fixes in a diff view presentation. When proposed changes are accepted, it provides real-time updates on the number of incidents.  The presentation side for this work is currently serviced via an IDE extension for VSCode.  
+We aim to expand Konveyor AI by developing an IntelliJ plugin. Our first step involves integrating the static code analysis tool, analyzer-lsp, into the IntelliJ plugin. We plan to create a common module for interaction with analyzer-lsp, which can be used in multiple IDE plugins, starting with VSCode and IntelliJ. Currently, the IntelliJ IDE uses the Konveyor CLI tool, Kantra, for analysis and transformation, but we need to replace Kantra with analyzer-lsp to optimize real-time updates.
+
+- Expected Outcome:
+Define and implement a new module or library to facilitate integration of analyzer-lsp into multiple IDEs.  We will start with VSCode and IntelliJ to begin.
+
+- Recommended Skills: Typescript, Java, Basic software development skills (command line, git)
+
+- Mentor(s):
+  - Hiteshwari Patel (@hhpatel14, patelhiteshwari95@gmail.com)
+  - Savitha Ragunathan (@sraghunathan, saveetha13@gmail.com)
+
+- Upstream Issue: https://github.com/konveyor/enhancements/issues/187
