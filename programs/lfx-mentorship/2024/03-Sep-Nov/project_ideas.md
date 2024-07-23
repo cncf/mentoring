@@ -34,6 +34,26 @@
   - Arko Dasgupta (@arkodg, arko@tetrate.io)
 - Upstream Issue: https://github.com/envoyproxy/gateway/issues/184
 
+### Istio
+
+#### Improve documentation build infrastructure
+
+- Description: The build infrastructure for istio.io currently carries a complete archived copy of the site for each release of Istio.  These archived versions should be separated to their own branch, with only the supported versions published.  We should also separate out content which is not version-specific (e.g. the home page, news and blogs) so that only the latest version of this content is visible online.
+- Expected Outcome: Updated publishing infrastructure for istio.io which separates evergreen content (home page, blogs) with versioned content (documentation).  Drop-downs per docs page allow switching between the supported versions.  
+- Recommended Skills: Systems engineering, scripting, programming (Go/Bash), Hugo templating
+- Mentor(s):
+  - Craig Box (@craigbox, craig.box AT gee-mail)
+- Upstream Issue: https://github.com/istio/istio.io/issues/15463
+
+#### Implement new site search
+
+- Description: Up to four versions of Istio are supported at one time, and so the documentation for each must be available. Our current site search is outdated and needs to be replaced, so that the search content only exists in the site search, and only fresh content is available on google.com.
+- Expected Outcome: Working site search on istio.io, which lets you search for content for the currently supported versions.
+- Recommended Skills: Hugo, Systems engineering, scripting, programming (Bash/go), Hugo templating
+- Mentor(s):
+  - Craig Box (@craigbox, craig.box AT gee-mail)
+- Upstream Issue: https://github.com/istio/istio.io/issues/15464
+
 ### Konveyor AI
 
 #### Intelli-j IDE plugin integration of analyzer-lsp for real time updates with Konveyor AI
