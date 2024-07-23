@@ -210,3 +210,39 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
   - Michael Yuan (@juntao, michael@secondstate.io)
   - Hung-Ying, Tai (@hydai, hydai@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3580
+
+### KCL
+
+#### New local dependency storage for KCL package management tool
+
+- Description: `kpm` is a package management tool for KCL. `kpm` needs to refactor the local storage structure of the current dependencies to support storage of packages with the same name from different OCI registes and caching of the remote dependencies.
+- Expected Outcome: The local storage structure has been designed in issue https://github.com/kcl-lang/kpm/issues/384, and the feature in issue need to be implemented.
+- Recommended Skills: golang
+- Mentor(s):
+  - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
+  - Pengfei Xu (@Peefy, xpf6677@gmail.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/kpm/issues/384
+
+#### The checksum check of the three-party dependencies
+
+- Description: `kpm` is a package management tool for KCL. `kpm` currently lacks checksum verification for dependencies, so this part needs to be completed to support package integrity verification and package source verification
+
+- Expected Outcome: Complete the workflow of adding checksum through `kpm` when uploading package and verifying checksum through `kpm` when downloading package
+- Recommended Skills: golang
+- Mentor(s):
+  - Pengfei Xu (@Peefy, xpf6677@gmail.com)
+  - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
+- Co-Mentor:
+  - Akash Kumar (@AkashKumar7902, meakash7902@gmail.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/kpm/issues/394
+
+#### KCL Language Server Protocol Support on Lsp4IJ for Jetbrains IDEs
+
+- Description: Currently, the KCL IDE plug-in based on Jetbrains LSP cannot support all versions of Jetbrains IDE, so migrate the KCL IDE plug-in to Lsp4IJ to support all versions of Jetbrains IDE.
+
+- Expected Outcome: KCL IDE plug-in is migrated to Lsp4IJ
+- Recommended Skills: Java
+- Mentor(s):
+  - Zheng Zhang (@He1pa, he1pa404@gmail.com)
+  - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
+- Upstream Issue (URL): https://github.com/kcl-lang/intellij-kcl-lsp/issues/3
