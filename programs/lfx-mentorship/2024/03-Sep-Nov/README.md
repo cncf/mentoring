@@ -8,11 +8,11 @@ Mentorship duration - three months (12 weeks - full-time schedule)
 
 | activity                                                                                                     | date                                                                                |
 |--------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|   
-| project proposals                                                                                            | Jul 3 - Jul 23 5:00 PM PDT                                                          |
-| mentee applications open                                                                                     | Jul 24 - Aug 6 5:00 PM PDT                                                          |
-| application review/admission decisions                                                                       | Aug 7 - Aug 20 5:00 PM PDT                                                          |
-| selection notifications                                                                                      | Aug 27, 2024 5:00 PM PDT                                                            |
-| Mentorship program begins with the initial work assignments                                                  | Sept 4, 2024                                                                        | 
+| project proposals                                                                                            | Jul 3 - Jul 30 5:00 PM PDT                                                          |
+| mentee applications open                                                                                     | Jul 31 - Aug 13 5:00 PM PDT                                                         |
+| application review/admission decisions                                                                       | Aug 14 - Aug 27 5:00 PM PDT                                                         |
+| selection notifications                                                                                      | Sept 3, 2024 5:00 PM PDT                                                            |
+| Mentorship program begins with the initial work assignments                                                  | Sept 9, 2024                                                                        | 
 | Midterm mentee evaluations and first stipend payments                                                        | October 15, 2024 5:00 PM PDT (the week following the National Day holiday in China) |
 | Final mentee evaluations and mentee feedback/blog submission due, second and final stipend payment approvals | Nov 26, 2024 5:00 PM PDT (Giving some time after KubeCon NA)                        |
 | Last day of term                                                                                             | November 29, 2024                                                                   |
