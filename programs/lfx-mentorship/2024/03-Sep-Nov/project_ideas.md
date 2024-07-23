@@ -210,3 +210,27 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
   - Michael Yuan (@juntao, michael@secondstate.io)
   - Hung-Ying, Tai (@hydai, hydai@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3580
+
+### Kyverno
+
+#### Kyverno CLI for the Mutate Existing Rule
+
+- Description: Support the mutate existing rule in Kyverno CLI.
+- Expected Outcome: Allow users to be able to apply mutate existing policies to resources from 1. file systems; 2. clusters.
+- Recommended Skills: Golang, Kubernetes, Cobra
+- Mentor(s):
+  - Shuting Zhao (@realshuting, shuting@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/4354
+
+
+#### Policy Exceptions 3.0
+
+- Description: Support some enhancements to Policy Exceptions.
+- Expected Outcome:
+1. Support list of PolicyException namespaces (--exceptionNamespace flag)
+2. PolicyExceptions to have a status object and report readiness in printer column
+3. Support imageReferences in Policy Exceptions for verify image rules
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s):
+  - Mariam Fahmy (@MariamFahmy98, mariam@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/9478
