@@ -223,7 +223,6 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
 #### Jaeger v2 Helm Chart 
 - Description: Currently, Jaeger v1 has an official Helm chart (https://github.com/jaegertracing/helm-charts), but there isn't one yet for Jaeger v2. The goal of this project is to develop a comprehensive Helm chart for Jaeger v2 that allows for easy deployment and management of Jaeger v2 components in Kubernetes environments. This chart should provide flexibility in configuration, support various deployment scenarios, and integrate well with the new architecture of Jaeger v2. Relevant links:
  - Jaeger: https://www.jaegertracing.io/
- - Jaeger v2 announcement: https://medium.com/jaegertracing/announcing-jaeger-v2-a-new-architecture-for-distributed-tracing-e87b1fea0fe4
  - Helm: https://helm.sh/
  - Existing Jaeger Helm charts: https://github.com/jaegertracing/helm-charts
 - Expected Outcome: By the end of this project, we aim to have a production-ready Helm chart for Jaeger v2 that is:
