@@ -218,7 +218,7 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
 - Recommended Skills: Go, scripting, kubernetes, operator framework, CI/CD
 - Mentor(s):
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
-  - Jonah Kowall (@jkowall, jkowall@kowall.net
+  - Jonah Kowall (@jkowall, jkowall@kowall.net)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5766
 #### Jaeger v2 Helm Chart
 - Description: Currently, Jaeger v1 has an official Helm chart (https://github.com/jaegertracing/helm-charts), but there isn't one yet for Jaeger v2. The goal of this project is to develop a comprehensive Helm chart for Jaeger v2 that allows for easy deployment and management of Jaeger v2 components in Kubernetes environments. This chart should provide flexibility in configuration, support various deployment scenarios, and integrate well with the new architecture of Jaeger v2. More details in the [upstream issue](https://github.com/jaegertracing/jaeger/issues/5767).
