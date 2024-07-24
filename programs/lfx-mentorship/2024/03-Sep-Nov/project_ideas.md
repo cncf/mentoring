@@ -220,6 +220,7 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
 - Recommended Skills: Golang, Kubernetes, Cobra
 - Mentor(s):
   - Shuting Zhao (@realshuting, shuting@nirmata.com)
+  - Mariam Fahmy (@MariamFahmy98, mariam@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/4354
 
 
@@ -233,4 +234,5 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
 - Recommended Skills: Golang, Kubernetes
 - Mentor(s):
   - Mariam Fahmy (@MariamFahmy98, mariam@nirmata.com)
+  - Shuting Zhao (@realshuting, shuting@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/9478
