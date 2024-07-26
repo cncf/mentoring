@@ -328,3 +328,40 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
   - Yang Ding (@Dyanngg, dingyany1995@outlook.com)
   - Antonin Bas (@antoninbas, antonin.bas@gmail.com)
 - Upstream Issue: https://github.com/antrea-io/antrea/issues/6229
+
+### KubeArmor
+
+#### Implement Fuzz testing for KubeArmor Components
+
+- Description: Implement fuzz testing for KubeArmor using a suitable tool like oss-fuzz or AFL. Generate a comprehensive input set to guide the fuzz testing, profile execution using tools like pprof to detect anomalies, and identify components such as the policy controller, operator, configmap handler, and GRPC endpoints for testing. Document the entire process for repeatability in future versions and develop an automation strategy for ongoing fuzz testing.
+- Expected Outcome: Improved OSSF Score; Standards for Fuzz Testing for KubeArmor; Stabilization of KubeArmor
+- Recommended Skills: Go, Kubernetes, Fuzz Testing Experience
+- Mentor(s):
+    - Barun Acharya (@daemon1024, barun1024@gmail.com)
+    - Rudraksh Pareek (@DelusionalOptimist, rudrakshpareek3601@gmail.com)
+    - Prateek Nandle (@Prateeknandle, prateeknandle@gmail.com)
+- Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1367
+
+#### Support Podman and OCI Hooks support for unorchestrated environments
+
+- Description: Leverage OCI hooks to obtain container start/stop events and container details for KubeArmor, replacing the current UNIX domain socket file method. Integrate Podman support for unorchestrated environments, ensuring policy enforcement and alerts/telemetry validation. Design the implementation to gather necessary container information and verify functionality with Podman as well as Containerd without Unix Socket.
+- Expected Outcome: Work with Podman in rootless mode and Eliminate exposing UNIX domain sockets for other container runtimes
+- Recommended Skills: Go, Container Runtime Interface, Linux
+- Mentor(s):
+    - Barun Acharya (@daemon1024, barun1024@gmail.com)
+    - Rudraksh Pareek (@DelusionalOptimist, rudrakshpareek3601@gmail.com)
+    - Abdulrahman Elawady (@AbdelrahmanElawady, abdoelawady125@gmail.com)
+    - Rishabh Soni (@rootxrishabh, risrock02@gmail.com)
+- Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1814
+
+#### Non K8s KubeArmor Enhancements
+
+- Description: Extend KubeArmor features to non-Kubernetes environments by implementing karmor recommend for host policies and unorchestrated containers, and enabling dynamic configuration for default posture and visibility through kubearmor.yaml, a new gRPC service, and karmor commands. Enhance karmor profile for host logs, support karmor install for VMs, and validate policies for non-Kubernetes setups.
+- Expected Outcome: User friendly KubeArmor functionality including Application Behaviour and Policy Management in non-Kubernetes environments.
+- Recommended Skills: Go, Container Runtime Interface, Linux
+- Mentor(s):
+    - Barun Acharya (@daemon1024, barun1024@gmail.com)
+    - Rudraksh Pareek (@DelusionalOptimist, rudrakshpareek3601@gmail.com)
+    - Prateek Nandle (@Prateeknandle, prateeknandle@gmail.com)
+    - Rishabh Soni (@rootxrishabh, risrock02@gmail.com)
+- Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1815
