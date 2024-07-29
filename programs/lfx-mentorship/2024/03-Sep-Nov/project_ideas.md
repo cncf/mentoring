@@ -370,7 +370,7 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
 
 #### Enhance Prometheus Benchmark Suite
 
-- Description: PromBench is the automated system for benchmarking Prometheus, intended to be a realistic comparison for users.  It sets up a Kubenetes cluster, configures Prometheus to monitor many fake services, and simulates users querying the data.
+- Description: PromBench is the automated system for benchmarking Prometheus, intended to be a realistic comparison for users.  It sets up a Kubernetes cluster, configures Prometheus to monitor many fake services, and simulates users querying the data.
 - Expected Outcome: PromBench should cover more of Prometheus functionality, making it a more useful benchmark for users.
 - Recommended Skills: Go, Prometheus
 - Mentor(s):
