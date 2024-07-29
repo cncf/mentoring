@@ -365,3 +365,15 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
     - Prateek Nandle (@Prateeknandle, prateeknandle@gmail.com)
     - Rishabh Soni (@rootxrishabh, risrock02@gmail.com)
 - Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1815
+
+### Prometheus
+
+#### Enhance Prometheus Benchmark Suite
+
+- Description: PromBench is the automated system for benchmarking Prometheus, intended to be a realistic comparison for users.  It sets up a Kubernetes cluster, configures Prometheus to monitor many fake services, and simulates users querying the data.
+- Expected Outcome: PromBench should cover more of Prometheus functionality, making it a more useful benchmark for users.
+- Recommended Skills: Go, Prometheus
+- Mentor(s):
+  - Bryan Boreham (@bboreham, bjboreham@gmail.com)
+  - Kemal Akkoyun (@kakkoyun, kakkoyun@gmail.com)
+- Upstream Issue: https://github.com/prometheus/test-infra/issues/707
