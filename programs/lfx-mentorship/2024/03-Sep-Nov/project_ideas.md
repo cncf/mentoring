@@ -365,3 +365,16 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
     - Prateek Nandle (@Prateeknandle, prateeknandle@gmail.com)
     - Rishabh Soni (@rootxrishabh, risrock02@gmail.com)
 - Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1815
+
+
+### Vitess
+
+#### Add new getting started examples
+
+- Description: Vitess is a cloud-native database, while managing Vitess can be complex, the list of our getting started guide and code examples is not very exhaustive. We would like to have a mentee work on growing the list of code examples and guide to help new users acquire Vitess.
+- Expected Outcome: By the end of the term, the mentee will have a deeper knowledge of Vitess and shipped at least one guide in every area of Vitess.
+- Recommended Skills: Go, DDBS, Communication
+- Mentor(s):
+  - Florent Poinsard (@frouioui, florent@planetscale.com)
+  - Matt Lord (@mattlord, mlord@planetscale.com)
+- Upstream Issue: https://github.com/vitessio/website/issues/1798
