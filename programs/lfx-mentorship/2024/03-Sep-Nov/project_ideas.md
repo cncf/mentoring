@@ -378,6 +378,17 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
   - Kemal Akkoyun (@kakkoyun, kakkoyun@gmail.com)
 - Upstream Issue: https://github.com/prometheus/test-infra/issues/707
 
+#### Prometheus Remote-Write v2 support in otel-collector's `prometheusremotewriteexporter`.
+
+- Description: Prometheus recently [announced the second version of it's remote-write protocol](https://prometheus.io/docs/specs/remote_write_spec_2_0/), with support for new features on top of performance and cost savings. The work to be done is contribute support for this new protocol in the OpenTelemtry-Collector-Contrib repository, more specifically to the `prometheusremotewriteexporter` component.
+- Expected Outcome: `prometheusremotewriteexporter` component with support for PRW v2.
+- Recommended Skills: Go, Prometheus, OpenTelemetry.
+- Mentors(s):
+    - Arthur Silva Sens (@ArthurSens, arthursens2005@gmail.com)
+    - Arve Knudsen (@aknuds1, arve.knudsen@pm.me)
+    - David Ashpole (@dashpole, dashpole@google.com)
+- Upstream Issue: https://github.com/open-telemetry/opentelemetry-collector-contrib/issues/33661
+
 ### Harbor
 
 #### Harbor CLI
@@ -390,7 +401,6 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
   - Yan Wang (@wy65701436, yan-yw.wang@broadcom.com)
   - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
 - Upstream Issue: https://github.com/goharbor/harbor-cli/issues/142
-
 
 #### Harbor Satellite
 
@@ -408,3 +418,14 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
   - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
 - Upstream Issue: https://github.com/goharbor/harbor/issues/20790
 
+### Vitess
+
+#### Add new getting started examples
+
+- Description: Vitess is a cloud-native database, while managing Vitess can be complex, the list of our getting started guide and code examples is not very exhaustive. We would like to have a mentee work on growing the list of code examples and guide to help new users acquire Vitess. Given the mentee's fresh eyes, we would like them to contribute to the troubleshooting / common issues guide too.
+- Expected Outcome: By the end of the term, the mentee will have a deeper knowledge of Vitess and shipped at least one guide in every area of Vitess.
+- Recommended Skills: Go, Distributed Database, Communication
+- Mentor(s):
+  - Florent Poinsard (@frouioui, florent@planetscale.com)
+  - Matt Lord (@mattlord, mlord@planetscale.com)
+- Upstream Issue: https://github.com/vitessio/website/issues/1798
