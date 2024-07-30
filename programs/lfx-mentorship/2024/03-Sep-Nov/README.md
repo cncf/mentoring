@@ -27,3 +27,23 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 ---
 
+## Accepted projects
+
+### Envoy Gateway
+
+#### IPv4/IPv6 Dual Stack Support
+
+CNCF - Envoy Gateway: IPv4/IPv6 Dual Stack Support (2024 Term 3)
+
+- Description: Envoy Gateway is an open source project for managing Envoy Proxy as a standalone or Kubernetes-based application gateway. Gateway API resources are used to dynamically provision and configure the managed Envoy Proxies. Currently the implementation only supports Kubernetes clusters with IPv4 enabled, and not IPv6
+- Expected Outcome:
+  The managed Envoy Proxy fleet can
+  - Accept connections/listen on an interface that has an IPv6 address assigned to it
+  - Can route to IPv6 pod endpoints/addresses
+- Recommended Skills: Golang, familiarity with Kubernetes Networking
+- Mentor(s):
+  - Jianpeng He (@zirain, zirain@tetrate.io)
+  - Arko Dasgupta (@arkodg, arko@tetrate.io)
+- Upstream Issue: https://github.com/envoyproxy/gateway/issues/184
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/408607a5-22a7-469e-ba9b-773e8fb06ace
+
