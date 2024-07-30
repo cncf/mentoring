@@ -33,6 +33,7 @@
   - Jianpeng He (@zirain, zirain@tetrate.io)
   - Arko Dasgupta (@arkodg, arko@tetrate.io)
 - Upstream Issue: https://github.com/envoyproxy/gateway/issues/184
+- LFX URL: 
 
 ### Istio
 
@@ -44,6 +45,7 @@
 - Mentor(s):
   - Craig Box (@craigbox, craig.box AT gee-mail)
 - Upstream Issue: https://github.com/istio/istio.io/issues/15463
+- LFX URL: 
 
 #### Implement new site search
 
@@ -53,6 +55,7 @@
 - Mentor(s):
   - Craig Box (@craigbox, craig.box AT gee-mail)
 - Upstream Issue: https://github.com/istio/istio.io/issues/15464
+- LFX URL: 
 
 ### Konveyor AI
 
@@ -71,6 +74,7 @@ Define and implement a new module or library to facilitate integration of analyz
   - Savitha Raghunathan (@sraghunathan, saveetha13@gmail.com)
 
 - Upstream Issue: https://github.com/konveyor/enhancements/issues/187
+- LFX URL: 
 
 
 #### Enhancing Kai with Data Querying for Fine-Tuning and Potential InstructLab Integration
@@ -97,6 +101,7 @@ Define and implement a new module or library to facilitate integration of analyz
 
 
 - Upstream Issue: https://github.com/konveyor/enhancements/issues/187
+- LFX URL: 
 
 
 
@@ -124,6 +129,7 @@ Define and implement a new module or library to facilitate integration of analyz
   - Burak Ok (@burak-ok, burakok@microsoft.com)
 
 - Upstream Issue: https://github.com/inspektor-gadget/inspektor-gadget/issues/3194
+- LFX URL: 
 
 #### Testing Inspektor Gadget gadgets on different kernel versions
 
@@ -142,6 +148,7 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
 - Upstream Issue:
   - https://github.com/inspektor-gadget/inspektor-gadget/issues/3195
   - https://github.com/inspektor-gadget/inspektor-gadget/issues/1343
+- LFX URL: 
 
 
 #### Exploring Chaos Engineering with eBPF and Inspektor Gadget
@@ -172,6 +179,7 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
   - Mauricio Vasquez Bernal (@mauriciovasquezbernal, mauriciov@microsoft.com)
 
 - Upstream Issue: https://github.com/inspektor-gadget/inspektor-gadget/issues/3196
+- LFX URL: 
 
 #### Develop DNS/HTTP event generation capabilities in Inspektor Gadget
 
@@ -190,6 +198,7 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
   - Burak Ok (@burak-ok, burakok@microsoft.com)
 
 - Upstream Issue: https://github.com/inspektor-gadget/inspektor-gadget/issues/3193
+- LFX URL: 
 
 ### WasmEdge
 
@@ -205,6 +214,7 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
   - Yi-Ying He (@q82419, yiying@secondstate.io)
   - Hung-Ying, Tai (@hydai, hydai@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3585
+- LFX URL: 
 
 #### Fix bugs found by fuzzer
 
@@ -215,6 +225,7 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
   - Hung-Ying, Tai (@hydai, hydai@secondstate.io)
   - Yi-Ying He (@q82419, yiying@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3584
+- LFX URL: 
 
 #### Create an LLM app with deep understanding of a GitHub repo
 
@@ -236,6 +247,7 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
   - Michael Yuan (@juntao, michael@secondstate.io)
   - Hung-Ying, Tai (@hydai, hydai@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3581
+- LFX URL: 
 
 #### Create a Wasm-based LLM app for financial analysts
 
@@ -258,6 +270,7 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
   - Michael Yuan (@juntao, michael@secondstate.io)
   - Hung-Ying, Tai (@hydai, hydai@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3580
+- LFX URL: 
 
 ### Jaeger
 #### Jaeger v2 Kubernetes Operator
@@ -268,6 +281,8 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5766
+- LFX URL: 
+
 #### Jaeger v2 Helm Chart
 - Description: Currently, Jaeger v1 has an official Helm chart (https://github.com/jaegertracing/helm-charts), but there isn't one yet for Jaeger v2. The goal of this project is to develop a comprehensive Helm chart for Jaeger v2 that allows for easy deployment and management of Jaeger v2 components in Kubernetes environments. This chart should provide flexibility in configuration, support various deployment scenarios, and integrate well with the new architecture of Jaeger v2. More details in the [upstream issue](https://github.com/jaegertracing/jaeger/issues/5767).
 - Expected Outcome: By the end of this project, we aim to have a production-ready Helm chart for Jaeger v2 that is:
@@ -280,6 +295,7 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5767
+- LFX URL: 
 
 
 ### KCL
@@ -293,6 +309,7 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
   - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
   - Pengfei Xu (@Peefy, xpf6677@gmail.com)
 - Upstream Issue (URL): https://github.com/kcl-lang/kpm/issues/384
+- LFX URL: 
 
 #### The checksum check of the three-party dependencies
 
@@ -306,6 +323,7 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
 - Co-Mentor:
   - Akash Kumar (@AkashKumar7902, meakash7902@gmail.com)
 - Upstream Issue (URL): https://github.com/kcl-lang/kpm/issues/394
+- LFX URL: 
 
 #### KCL Language Server Protocol Support on Lsp4IJ for Jetbrains IDEs
 
@@ -317,6 +335,7 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
   - Zheng Zhang (@He1pa, he1pa404@gmail.com)
   - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
 - Upstream Issue (URL): https://github.com/kcl-lang/intellij-kcl-lsp/issues/3
+- LFX URL: 
 
 ### Kyverno
 
@@ -329,6 +348,7 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
   - Shuting Zhao (@realshuting, shuting@nirmata.com)
   - Mariam Fahmy (@MariamFahmy98, mariam@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/4354
+- LFX URL: 
 
 
 #### Policy Exceptions 3.0
@@ -343,6 +363,7 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
   - Mariam Fahmy (@MariamFahmy98, mariam@nirmata.com)
   - Shuting Zhao (@realshuting, shuting@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/9478
+- LFX URL: 
 
 ### Antrea
 
@@ -356,6 +377,7 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
   - Yang Ding (@Dyanngg, dingyany1995@outlook.com)
   - Antonin Bas (@antoninbas, antonin.bas@gmail.com)
 - Upstream Issue: https://github.com/antrea-io/antrea/issues/6229
+- LFX URL: 
 
 ### KubeArmor
 
@@ -369,6 +391,7 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
     - Rudraksh Pareek (@DelusionalOptimist, rudrakshpareek3601@gmail.com)
     - Prateek Nandle (@Prateeknandle, prateeknandle@gmail.com)
 - Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1367
+- LFX URL: 
 
 #### Support Podman and OCI Hooks support for unorchestrated environments
 
@@ -381,6 +404,7 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
     - Abdulrahman Elawady (@AbdelrahmanElawady, abdoelawady125@gmail.com)
     - Rishabh Soni (@rootxrishabh, risrock02@gmail.com)
 - Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1814
+- LFX URL: 
 
 #### Non K8s KubeArmor Enhancements
 
@@ -393,6 +417,7 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
     - Prateek Nandle (@Prateeknandle, prateeknandle@gmail.com)
     - Rishabh Soni (@rootxrishabh, risrock02@gmail.com)
 - Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1815
+- LFX URL: 
 
 ### Prometheus
 
@@ -405,6 +430,7 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
   - Bryan Boreham (@bboreham, bjboreham@gmail.com)
   - Kemal Akkoyun (@kakkoyun, kakkoyun@gmail.com)
 - Upstream Issue: https://github.com/prometheus/test-infra/issues/707
+- LFX URL: 
 
 #### Prometheus Remote-Write v2 support in otel-collector's `prometheusremotewriteexporter`.
 
@@ -416,6 +442,7 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
     - Arve Knudsen (@aknuds1, arve.knudsen@pm.me)
     - David Ashpole (@dashpole, dashpole@google.com)
 - Upstream Issue: https://github.com/open-telemetry/opentelemetry-collector-contrib/issues/33661
+- LFX URL: 
 
 ### Harbor
 
@@ -429,6 +456,7 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
   - Yan Wang (@wy65701436, yan-yw.wang@broadcom.com)
   - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
 - Upstream Issue: https://github.com/goharbor/harbor-cli/issues/142
+- LFX URL: 
 
 #### Harbor Satellite
 
@@ -445,6 +473,7 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
   - Yan Wang (@wy65701436, yan-yw.wang@broadcom.com)
   - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
 - Upstream Issue: https://github.com/goharbor/harbor/issues/20790
+- LFX URL: 
 
 ### Vitess
 
@@ -457,3 +486,5 @@ Expected Outcome: Gadget developers have a way to run unit tests in different ke
   - Florent Poinsard (@frouioui, florent@planetscale.com)
   - Matt Lord (@mattlord, mlord@planetscale.com)
 - Upstream Issue: https://github.com/vitessio/website/issues/1798
+- LFX URL: 
+
