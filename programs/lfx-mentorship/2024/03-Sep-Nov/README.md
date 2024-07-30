@@ -47,3 +47,29 @@ CNCF - Envoy Gateway: IPv4/IPv6 Dual Stack Support (2024 Term 3)
 - Upstream Issue: https://github.com/envoyproxy/gateway/issues/184
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/408607a5-22a7-469e-ba9b-773e8fb06ace
 
+### Istio
+
+#### Improve documentation build infrastructure
+
+CNCF - Istio: Improve documentation build infrastructure (2024 Term 3)
+
+- Description: The build infrastructure for istio.io currently carries a complete archived copy of the site for each release of Istio.  These archived versions should be separated to their own branch, with only the supported versions published.  We should also separate out content which is not version-specific (e.g. the home page, news and blogs) so that only the latest version of this content is visible online.
+- Expected Outcome: Updated publishing infrastructure for istio.io which separates evergreen content (home page, blogs) with versioned content (documentation).  Drop-downs per docs page allow switching between the supported versions.  
+- Recommended Skills: Systems engineering, scripting, programming (Go/Bash), Hugo templating
+- Mentor(s):
+  - Craig Box (@craigbox, craig.box AT gee-mail)
+- Upstream Issue: https://github.com/istio/istio.io/issues/15463
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/7a9cac67-6cfc-4915-bc39-8f2b5c1a4d00
+
+#### Implement new site search
+
+CNCF - Istio: Implement new site search (2024 Term 3)
+
+- Description: Up to four versions of Istio are supported at one time, and so the documentation for each must be available. Our current site search is outdated and needs to be replaced, so that the search content only exists in the site search, and only fresh content is available on google.com.
+- Expected Outcome: Working site search on istio.io, which lets you search for content for the currently supported versions.
+- Recommended Skills: Hugo, Systems engineering, scripting, programming (Bash/go), Hugo templating
+- Mentor(s):
+  - Craig Box (@craigbox, craig.box AT gee-mail)
+- Upstream Issue: https://github.com/istio/istio.io/issues/15464
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/557f553d-6cab-41e5-925e-c8063dc99d7e
+
