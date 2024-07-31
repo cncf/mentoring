@@ -310,6 +310,52 @@ CNCF - Konveyor AI: Data Querying for Kai & InstructLab Integration Potential (2
 - Upstream Issue: https://github.com/konveyor/enhancements/issues/187
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8493016e-975f-4559-8833-db4c884b2fc5
 
+### KubeArmor
+
+#### Implement Fuzz testing for KubeArmor Components
+
+CNCF - KubeArmor: Implement Fuzz testing for KubeArmor Components (2024 Term 3)
+
+- Description: Implement fuzz testing for KubeArmor using a suitable tool like oss-fuzz or AFL. Generate a comprehensive input set to guide the fuzz testing, profile execution using tools like pprof to detect anomalies, and identify components such as the policy controller, operator, configmap handler, and GRPC endpoints for testing. Document the entire process for repeatability in future versions and develop an automation strategy for ongoing fuzz testing.
+- Expected Outcome: Improved OSSF Score; Standards for Fuzz Testing for KubeArmor; Stabilization of KubeArmor
+- Recommended Skills: Go, Kubernetes, Fuzz Testing Experience
+- Mentor(s):
+    - Barun Acharya (@daemon1024, barun1024@gmail.com)
+    - Rudraksh Pareek (@DelusionalOptimist, rudrakshpareek3601@gmail.com)
+    - Prateek Nandle (@Prateeknandle, prateeknandle@gmail.com)
+- Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1367
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/91bd7201-e83f-444c-9157-f82f4c56d060
+
+#### Support Podman and OCI Hooks support for unorchestrated environments
+
+CNCF - KubeArmor: Support Podman and OCI Hooks support for unorchestrated environments (2024 Term 3)
+
+- Description: Leverage OCI hooks to obtain container start/stop events and container details for KubeArmor, replacing the current UNIX domain socket file method. Integrate Podman support for unorchestrated environments, ensuring policy enforcement and alerts/telemetry validation. Design the implementation to gather necessary container information and verify functionality with Podman as well as Containerd without Unix Socket.
+- Expected Outcome: Work with Podman in rootless mode and Eliminate exposing UNIX domain sockets for other container runtimes
+- Recommended Skills: Go, Container Runtime Interface, Linux
+- Mentor(s):
+    - Barun Acharya (@daemon1024, barun1024@gmail.com)
+    - Rudraksh Pareek (@DelusionalOptimist, rudrakshpareek3601@gmail.com)
+    - Abdulrahman Elawady (@AbdelrahmanElawady, abdoelawady125@gmail.com)
+    - Rishabh Soni (@rootxrishabh, risrock02@gmail.com)
+- Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1814
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/c693a6b1-d034-4140-8aba-dfe02fbef48a
+
+#### Non K8s KubeArmor Enhancements
+
+CNCF - KubeArmor: Non K8s KubeArmor Enhancements (2024 Term 3)
+
+- Description: Extend KubeArmor features to non-Kubernetes environments by implementing karmor recommend for host policies and unorchestrated containers, and enabling dynamic configuration for default posture and visibility through kubearmor.yaml, a new gRPC service, and karmor commands. Enhance karmor profile for host logs, support karmor install for VMs, and validate policies for non-Kubernetes setups.
+- Expected Outcome: User friendly KubeArmor functionality including Application Behaviour and Policy Management in non-Kubernetes environments.
+- Recommended Skills: Go, Container Runtime Interface, Linux
+- Mentor(s):
+    - Barun Acharya (@daemon1024, barun1024@gmail.com)
+    - Rudraksh Pareek (@DelusionalOptimist, rudrakshpareek3601@gmail.com)
+    - Prateek Nandle (@Prateeknandle, prateeknandle@gmail.com)
+    - Rishabh Soni (@rootxrishabh, risrock02@gmail.com)
+- Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1815
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/87d64083-e1fa-4aa4-a828-ca24e5ae96b3
+
 ### Kyverno
 
 #### Kyverno CLI for the Mutate Existing Rule
