@@ -447,6 +447,21 @@ CNCF - Prometheus: Remote-Write v2 in otel-collector's prometheusremotewriteexpo
 - Upstream Issue: https://github.com/open-telemetry/opentelemetry-collector-contrib/issues/33661
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/3fa26f90-87aa-46a4-80f9-00195ae276e8
 
+### Vitess
+
+#### Add new getting started examples
+
+CNCF - Vitess: Add new getting started examples (2024 Term 3)
+
+- Description: Vitess is a cloud-native database, while managing Vitess can be complex, the list of our getting started guide and code examples is not very exhaustive. We would like to have a mentee work on growing the list of code examples and guide to help new users acquire Vitess. Given the mentee's fresh eyes, we would like them to contribute to the troubleshooting / common issues guide too.
+- Expected Outcome: By the end of the term, the mentee will have a deeper knowledge of Vitess and shipped at least one guide in every area of Vitess.
+- Recommended Skills: Go, Distributed Database, Communication
+- Mentor(s):
+  - Florent Poinsard (@frouioui, florent@planetscale.com)
+  - Matt Lord (@mattlord, mlord@planetscale.com)
+- Upstream Issue: https://github.com/vitessio/website/issues/1798
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/51f85b18-1184-443c-9e9a-5f00d9cd5040
+
 ### WasmEdge
 
 #### WASM Serializer with new proposals
