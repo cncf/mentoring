@@ -19,31 +19,6 @@
 
 ## Proposed Project ideas
 
-### Prometheus
-
-#### Enhance Prometheus Benchmark Suite
-
-- Description: PromBench is the automated system for benchmarking Prometheus, intended to be a realistic comparison for users.  It sets up a Kubernetes cluster, configures Prometheus to monitor many fake services, and simulates users querying the data.
-- Expected Outcome: PromBench should cover more of Prometheus functionality, making it a more useful benchmark for users.
-- Recommended Skills: Go, Prometheus
-- Mentor(s):
-  - Bryan Boreham (@bboreham, bjboreham@gmail.com)
-  - Kemal Akkoyun (@kakkoyun, kakkoyun@gmail.com)
-- Upstream Issue: https://github.com/prometheus/test-infra/issues/707
-- LFX URL: 
-
-#### Prometheus Remote-Write v2 support in otel-collector's `prometheusremotewriteexporter`.
-
-- Description: Prometheus recently [announced the second version of it's remote-write protocol](https://prometheus.io/docs/specs/remote_write_spec_2_0/), with support for new features on top of performance and cost savings. The work to be done is contribute support for this new protocol in the OpenTelemtry-Collector-Contrib repository, more specifically to the `prometheusremotewriteexporter` component.
-- Expected Outcome: `prometheusremotewriteexporter` component with support for PRW v2.
-- Recommended Skills: Go, Prometheus, OpenTelemetry.
-- Mentors(s):
-    - Arthur Silva Sens (@ArthurSens, arthursens2005@gmail.com)
-    - Arve Knudsen (@aknuds1, arve.knudsen@pm.me)
-    - David Ashpole (@dashpole, dashpole@google.com)
-- Upstream Issue: https://github.com/open-telemetry/opentelemetry-collector-contrib/issues/33661
-- LFX URL: 
-
 ### Harbor
 
 #### Harbor CLI

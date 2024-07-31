@@ -387,6 +387,33 @@ CNCF - Kyverno: Policy Exceptions 3.0 (2024 Term 3)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/9478
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/5632d7c3-a383-4e31-816a-7b38d89a327f
 
+### Prometheus
+
+#### Enhance Prometheus Benchmark Suite
+
+- Description: PromBench is the automated system for benchmarking Prometheus, intended to be a realistic comparison for users.  It sets up a Kubernetes cluster, configures Prometheus to monitor many fake services, and simulates users querying the data.
+- Expected Outcome: PromBench should cover more of Prometheus functionality, making it a more useful benchmark for users.
+- Recommended Skills: Go, Prometheus
+- Mentor(s):
+  - Bryan Boreham (@bboreham, bjboreham@gmail.com)
+  - Kemal Akkoyun (@kakkoyun, kakkoyun@gmail.com)
+- Upstream Issue: https://github.com/prometheus/test-infra/issues/707
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/b9a0e569-0f73-40dc-94d2-8dc3d376dbc6
+
+#### Prometheus Remote-Write v2 support in otel-collector's `prometheusremotewriteexporter`.
+
+CNCF - Prometheus: Remote-Write v2 in otel-collector's prometheusremotewriteexporter (2024 Term 3)
+
+- Description: Prometheus recently [announced the second version of it's remote-write protocol](https://prometheus.io/docs/specs/remote_write_spec_2_0/), with support for new features on top of performance and cost savings. The work to be done is contribute support for this new protocol in the OpenTelemtry-Collector-Contrib repository, more specifically to the `prometheusremotewriteexporter` component.
+- Expected Outcome: `prometheusremotewriteexporter` component with support for PRW v2.
+- Recommended Skills: Go, Prometheus, OpenTelemetry.
+- Mentors(s):
+    - Arthur Silva Sens (@ArthurSens, arthursens2005@gmail.com)
+    - Arve Knudsen (@aknuds1, arve.knudsen@pm.me)
+    - David Ashpole (@dashpole, dashpole@google.com)
+- Upstream Issue: https://github.com/open-telemetry/opentelemetry-collector-contrib/issues/33661
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/3fa26f90-87aa-46a4-80f9-00195ae276e8
+
 ### WasmEdge
 
 #### WASM Serializer with new proposals
@@ -466,5 +493,4 @@ CNCF - WasmEdge: Create a Wasm-based LLM app for financial analysts (2024 Term 3
   - Hung-Ying, Tai (@hydai, hydai@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3580
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/75feef58-e372-4797-846a-c6a5d6087a19
-
 
