@@ -29,6 +29,51 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 ## Accepted projects
 
+<!-- TOC -->
+* [Antrea](#antrea)
+  * [Support application-level DNS caches when using FQDN-based security rules](#support-application-level-dns-caches-when-using-fqdn-based-security-rules)
+* [Envoy Gateway](#envoy-gateway)
+  * [IPv4/IPv6 Dual Stack Support](#ipv4ipv6-dual-stack-support)
+* [Harbor](#harbor)
+  * [Harbor CLI](#harbor-cli)
+  * [Harbor Satellite](#harbor-satellite)
+* [Inspektor Gadget](#inspektor-gadget)
+  * [New gadget for detecting deadlocks](#new-gadget-for-detecting-deadlocks)
+  * [Testing Inspektor Gadget gadgets on different kernel versions](#testing-inspektor-gadget-gadgets-on-different-kernel-versions)
+  * [Exploring Chaos Engineering with eBPF and Inspektor Gadget](#exploring-chaos-engineering-with-ebpf-and-inspektor-gadget)
+  * [Develop DNS/HTTP event generation capabilities in Inspektor Gadget](#develop-dnshttp-event-generation-capabilities-in-inspektor-gadget)
+* [Istio](#istio)
+  * [Improve documentation build infrastructure](#improve-documentation-build-infrastructure)
+  * [Implement new site search](#implement-new-site-search)
+* [Jaeger](#jaeger)
+  * [Jaeger v2 Kubernetes Operator](#jaeger-v2-kubernetes-operator)
+  * [Jaeger v2 Helm Chart](#jaeger-v2-helm-chart)
+* [KCL](#kcl)
+  * [New local dependency storage for KCL package management tool](#new-local-dependency-storage-for-kcl-package-management-tool)
+  * [The checksum check of the three-party dependencies](#the-checksum-check-of-the-three-party-dependencies)
+  * [KCL Language Server Protocol Support on Lsp4IJ for Jetbrains IDEs](#kcl-language-server-protocol-support-on-lsp4ij-for-jetbrains-ides)
+* [Konveyor AI](#konveyor-ai)
+  * [Intelli-j IDE plugin integration of analyzer-lsp for real time updates with Konveyor AI](#intelli-j-ide-plugin-integration-of-analyzer-lsp-for-real-time-updates-with-konveyor-ai)
+  * [Enhancing Kai with Data Querying for Fine-Tuning and Potential InstructLab Integration](#enhancing-kai-with-data-querying-for-fine-tuning-and-potential-instructlab-integration)
+* [KubeArmor](#kubearmor)
+  * [Implement Fuzz testing for KubeArmor Components](#implement-fuzz-testing-for-kubearmor-components)
+  * [Support Podman and OCI Hooks support for unorchestrated environments](#support-podman-and-oci-hooks-support-for-unorchestrated-environments)
+  * [Non K8s KubeArmor Enhancements](#non-k8s-kubearmor-enhancements)
+* [Kyverno](#kyverno)
+  * [Kyverno CLI for the Mutate Existing Rule](#kyverno-cli-for-the-mutate-existing-rule)
+  * [Policy Exceptions 3.0](#policy-exceptions-30)
+* [Prometheus](#prometheus)
+  * [Enhance Prometheus Benchmark Suite](#enhance-prometheus-benchmark-suite)
+  * [Prometheus Remote-Write v2 support in otel-collector's `prometheusremotewriteexporter`.](#prometheus-remote-write-v2-support-in-otel-collectors-prometheusremotewriteexporter)
+* [Vitess](#vitess)
+  * [Add new getting started examples](#add-new-getting-started-examples)
+* [WasmEdge](#wasmedge)
+  * [WASM Serializer with new proposals](#wasm-serializer-with-new-proposals)
+  * [Fix bugs found by fuzzer](#fix-bugs-found-by-fuzzer)
+  * [Create an LLM app with deep understanding of a GitHub repo](#create-an-llm-app-with-deep-understanding-of-a-github-repo)
+  * [Create a Wasm-based LLM app for financial analysts](#create-a-wasm-based-llm-app-for-financial-analysts)
+<!-- TOC -->
+
 ### Antrea
 
 #### Support application-level DNS caches when using FQDN-based security rules
