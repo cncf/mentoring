@@ -294,6 +294,37 @@ CNCF - Konveyor AI: Data Querying for Kai & InstructLab Integration Potential (2
 - Upstream Issue: https://github.com/konveyor/enhancements/issues/187
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8493016e-975f-4559-8833-db4c884b2fc5
 
+### Kyverno
+
+#### Kyverno CLI for the Mutate Existing Rule
+
+CNCF - Kyverno: Kyverno CLI for the Mutate Existing Rule (2024 Term 3)
+
+- Description: Support the mutateExisting rule in Kyverno CLI
+- Expected Outcome: Allow users to be able to apply mutate existing policies to resources from 1. file systems; 2. clusters.
+- Recommended Skills: Golang, Kubernetes, Cobra
+- Mentor(s):
+  - Shuting Zhao (@realshuting, shuting@nirmata.com)
+  - Mariam Fahmy (@MariamFahmy98, mariam@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/4354
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/56bf0ae9-a919-42df-bd0e-e3d6910cbeef
+
+#### Policy Exceptions 3.0
+
+CNCF - Kyverno: Policy Exceptions 3.0 (2024 Term 3)
+
+- Description: Support some enhancements to Policy Exceptions.
+- Expected Outcome:
+1. Support list of PolicyException namespaces (--exceptionNamespace flag)
+2. PolicyExceptions to have a status object and report readiness in printer column
+3. Support imageReferences in Policy Exceptions for verify image rules
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s):
+  - Mariam Fahmy (@MariamFahmy98, mariam@nirmata.com)
+  - Shuting Zhao (@realshuting, shuting@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/9478
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/5632d7c3-a383-4e31-816a-7b38d89a327f
+
 ### WasmEdge
 
 #### WASM Serializer with new proposals

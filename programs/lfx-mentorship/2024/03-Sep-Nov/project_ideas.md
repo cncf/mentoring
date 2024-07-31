@@ -19,33 +19,6 @@
 
 ## Proposed Project ideas
 
-### Kyverno
-
-#### Kyverno CLI for the Mutate Existing Rule
-
-- Description: Support the mutate existing rule in Kyverno CLI.
-- Expected Outcome: Allow users to be able to apply mutate existing policies to resources from 1. file systems; 2. clusters.
-- Recommended Skills: Golang, Kubernetes, Cobra
-- Mentor(s):
-  - Shuting Zhao (@realshuting, shuting@nirmata.com)
-  - Mariam Fahmy (@MariamFahmy98, mariam@nirmata.com)
-- Upstream Issue: https://github.com/kyverno/kyverno/issues/4354
-- LFX URL: 
-
-#### Policy Exceptions 3.0
-
-- Description: Support some enhancements to Policy Exceptions.
-- Expected Outcome:
-1. Support list of PolicyException namespaces (--exceptionNamespace flag)
-2. PolicyExceptions to have a status object and report readiness in printer column
-3. Support imageReferences in Policy Exceptions for verify image rules
-- Recommended Skills: Golang, Kubernetes
-- Mentor(s):
-  - Mariam Fahmy (@MariamFahmy98, mariam@nirmata.com)
-  - Shuting Zhao (@realshuting, shuting@nirmata.com)
-- Upstream Issue: https://github.com/kyverno/kyverno/issues/9478
-- LFX URL: 
-
 ### Antrea
 
 #### Support application-level DNS caches when using FQDN-based security rules
