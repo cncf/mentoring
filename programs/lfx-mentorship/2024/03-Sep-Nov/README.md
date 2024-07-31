@@ -73,3 +73,53 @@ CNCF - Istio: Implement new site search (2024 Term 3)
 - Upstream Issue: https://github.com/istio/istio.io/issues/15464
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/557f553d-6cab-41e5-925e-c8063dc99d7e
 
+### Konveyor AI
+
+#### Intelli-j IDE plugin integration of analyzer-lsp for real time updates with Konveyor AI
+
+CNCF - Konveyor AI: IntelliJ plugin for Real-Time Updates with analyzer-lsp (2024 Term 3)
+
+- Description: Konveyor provides a unified experience of tools to help organizations modernize their applications at scale, transitioning them to Kubernetes and cloud-native technologies. Recently the Konveyor community began the development of a Generative AI approach for application modernization called Konveyor-AI.  Konveyor AI accelerates application migration by discovering migration incidents in the source code and providing LLM-generated fixes in a diff view presentation. When proposed changes are accepted, it provides real-time updates on the number of incidents.  The presentation side for this work is currently serviced via an IDE extension for VSCode.
+We aim to expand Konveyor AI by developing an IntelliJ plugin. Our first step involves integrating the static code analysis tool, analyzer-lsp, into the IntelliJ plugin. We plan to create a common module for interaction with analyzer-lsp, which can be used in multiple IDE plugins, starting with VSCode and IntelliJ. Currently, the IntelliJ IDE uses the Konveyor CLI tool, Kantra, for analysis and transformation, but we need to replace Kantra with analyzer-lsp to optimize real-time updates.
+
+- Expected Outcome:
+Define and implement a new module or library to facilitate integration of analyzer-lsp into multiple IDEs.  We will start with VSCode and IntelliJ to begin.
+
+- Recommended Skills: Typescript, Java, Basic software development skills (command line, git)
+
+- Mentor(s):
+  - Hiteshwari Patel (@hhpatel14, patelhiteshwari95@gmail.com)
+  - Savitha Raghunathan (@sraghunathan, saveetha13@gmail.com)
+
+- Upstream Issue: https://github.com/konveyor/enhancements/issues/187
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/0d392e44-e3ce-4799-8082-35ae48910f24
+
+
+#### Enhancing Kai with Data Querying for Fine-Tuning and Potential InstructLab Integration
+
+CNCF - Konveyor AI: Data Querying for Kai & InstructLab Integration Potential (2024 Term 3)
+
+- Description:
+  - Kai is a tool designed to leverage AI for application modernization by analyzing code, identifying issues, and suggesting fixes. We aim to enhance Kai by developing a robust data querying mechanism to facilitate fine-tuning processes. This enhancement will lay the groundwork for potential future integration with InstructLab, an open-source AI project enabling community contributions to Large Language Models (LLMs) by adding new skills or knowledge. The primary focus will be on creating mechanisms to query and utilize data effectively, with a stretch goal of integrating static analysis tools and implementing an agent-based workflow.
+  - This project will significantly enhance Kai’s backend, making it more scalable and capable of providing deeper code insights while also contributing to the enrichment of LLMs through InstructLab. It will offer a rich learning experience for participating students, covering backend development, workflow management, and contributing to open-source AI projects.
+
+- Expected Outcome:
+  - Successfully develop and implement a data querying mechanism in Kai to facilitate fine-tuning processes.
+  - Demonstrate the enhanced backend with improved data querying capabilities.
+  - Participate actively in community meetings, presenting progress and insights.
+  - Create a detailed blog post documenting the project, its outcomes, and potential future directions, including the possible integration with InstructLab.
+  - (Stretch Goal) Develop a reusable module for agent-based workflows into Kai, enhancing its ability to detect and report code issues.
+
+- Recommended Skills:
+  - Python
+  - Podman / Docker
+  - Basic Software Development skills (command line, git)
+  
+- Mentor(s):
+  - Jonah Sussman (@JonahSussman, jsussman@redhat.com)
+  - Fabian von Feilitzsch (@fabianvf, fvonfeil@redhat.com)
+
+- Upstream Issue: https://github.com/konveyor/enhancements/issues/187
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8493016e-975f-4559-8833-db4c884b2fc5
+
+
