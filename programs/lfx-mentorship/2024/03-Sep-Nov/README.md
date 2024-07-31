@@ -29,6 +29,22 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 ## Accepted projects
 
+### Antrea
+
+#### Support application-level DNS caches when using FQDN-based security rules
+
+CNCF - Antrea: Application-Level DNS Caches for FQDN-Based Security Rules (2024 Term 3)
+
+- Description: Antrea provides [Network Policy APIs](https://github.com/antrea-io/antrea/blob/main/docs/antrea-network-policy.md) (in the form of K8s CRDs) for K8s cluster administrators and application developers to declare security rules in order to protect workloads. These APIs complement the [Network Policies supported natively in K8s](https://kubernetes.io/docs/concepts/services-networking/network-policies/). When using the Antrea-specific Network Policy APIs, it is possible to use Fully Qualified Domain Names (FQDNs) in order to select the list of external domains with which a K8s application is allowed to communicate, or forbidden from communicating. The current implementation of this feature is not compatible with applications which directly cache the result of DNS queries. We have found that this type of caching is frequent for Java applications, which greatly impacts the usability of FQDN-based security rules. We believe that by defining a new configuration parameter for the Antrea implementation, we can bypass the issue and ensure that the feature can be used even with such applications, providing of course that the parameter is set correctly by users.
+- Expected Outcome: Definition and implementation of a new configuration parameter (`minTLS`) for the Antrea Agent, which will ensure that FQDN-based security rules can be used even with application that cache DNS results. The implementation should come with a sufficient amount of tests (both unit tests and e2e tests), ensuring that the feature is working as expected.
+- Recommended Skills: familiarity with Golang, some knowledge about the K8s architecture and APIs, basic knowledge about networking in particular of the DNS protocol.
+- Mentor(s):
+  - Quan Tian (@tnqn, tianquan23@gmail.com)
+  - Yang Ding (@Dyanngg, dingyany1995@outlook.com)
+  - Antonin Bas (@antoninbas, antonin.bas@gmail.com)
+- Upstream Issue: https://github.com/antrea-io/antrea/issues/6229
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/99e8e0a0-4d82-4ac5-88bc-55b1d1a2c1f4
+
 ### Envoy Gateway
 
 #### IPv4/IPv6 Dual Stack Support
