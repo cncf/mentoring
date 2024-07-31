@@ -19,34 +19,6 @@
 
 ## Proposed Project ideas
 
-### Jaeger
-
-#### Jaeger v2 Kubernetes Operator
-
-- Description: Jaeger-v1 has its own Kubernetes Operator (https://github.com/jaegertracing/jaeger-operator) which deploys Jaeger components according to the deployment strategy as well as the database or datastore. The goal of this project is to develop a new operator for [Jaeger-v2](https://github.com/jaegertracing/jaeger/issues/4843) that achieves feature parity with the v1 operator while introducing improvements and new capabilities. This new operator will leverage the [OpenTelemetry operator](https://github.com/open-telemetry/opentelemetry-operator) for Jaeger-v2 deployment while maintaining and enhancing the storage management features from the v1 operator. More details in the [upstream issue](https://github.com/jaegertracing/jaeger/issues/5766).
-- Expected Outcome: By the end of this project, we aim to achieve full feature parity between the Jaeger v2 operator and the v1 operator, with the added benefits of OpenTelemetry integration. The new operator will provide a seamless experience for users, maintaining the robustness and flexibility of v1 while introducing the advantages of v2 and OpenTelemetry.
-- Recommended Skills: Go, scripting, kubernetes, operator framework, CI/CD
-- Mentor(s):
-  - Yuri Shkuro (@yurishkuro, github@ysh.us)
-  - Jonah Kowall (@jkowall, jkowall@kowall.net)
-- Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5766
-- LFX URL: 
-
-#### Jaeger v2 Helm Chart
-
-- Description: Currently, Jaeger v1 has an official Helm chart (https://github.com/jaegertracing/helm-charts), but there isn't one yet for Jaeger v2. The goal of this project is to develop a comprehensive Helm chart for Jaeger v2 that allows for easy deployment and management of Jaeger v2 components in Kubernetes environments. This chart should provide flexibility in configuration, support various deployment scenarios, and integrate well with the new architecture of Jaeger v2. More details in the [upstream issue](https://github.com/jaegertracing/jaeger/issues/5767).
-- Expected Outcome: By the end of this project, we aim to have a production-ready Helm chart for Jaeger v2 that is:
- - Fully functional and tested on the current version of Kubernetes
- - Well-documented with clear usage instructions and examples
- - Flexible enough to support a wide range of deployment scenarios
- - Ready for submission to the official Jaeger Helm chart repository
-- Recommended Skills: Go, scripting, kubernetes, helm, CI/CD
-- Mentor(s):
-  - Yuri Shkuro (@yurishkuro, github@ysh.us)
-  - Jonah Kowall (@jkowall, jkowall@kowall.net)
-- Upstream Issue: https://github.com/jaegertracing/jaeger/issues/5767
-- LFX URL: 
-
 ### KCL
 
 #### New local dependency storage for KCL package management tool
@@ -98,7 +70,6 @@
   - Mariam Fahmy (@MariamFahmy98, mariam@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/4354
 - LFX URL: 
-
 
 #### Policy Exceptions 3.0
 
