@@ -641,7 +641,7 @@ CNCF - Kyverno: Kyverno CLI for the Mutate Existing Rule (2024 Term 3)
 - Recommended Skills: Golang, Kubernetes, Cobra
 - Mentor(s):
   - Shuting Zhao (@realshuting, shuting@nirmata.com)
-  - Mariam Fahmy (@MariamFahmy98, mariam@nirmata.com)
+  - Mariam Fahmy (@MariamFahmy98, mariam.fahmy@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/4354
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/56bf0ae9-a919-42df-bd0e-e3d6910cbeef
 
@@ -656,7 +656,7 @@ CNCF - Kyverno: Policy Exceptions 3.0 (2024 Term 3)
 3. Support imageReferences in Policy Exceptions for verify image rules
 - Recommended Skills: Golang, Kubernetes
 - Mentor(s):
-  - Mariam Fahmy (@MariamFahmy98, mariam@nirmata.com)
+  - Mariam Fahmy (@MariamFahmy98, mariam.fahmy@nirmata.com)
   - Shuting Zhao (@realshuting, shuting@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/9478
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/5632d7c3-a383-4e31-816a-7b38d89a327f
