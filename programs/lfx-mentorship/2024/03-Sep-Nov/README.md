@@ -475,7 +475,7 @@ CNCF - Konveyor AI: Data Querying for Kai & InstructLab Integration Potential (2
   - Jonah Sussman (@JonahSussman, jsussman@redhat.com)
   - Fabian von Feilitzsch (@fabianvf, fvonfeil@redhat.com)
 
-- Upstream Issue: https://github.com/konveyor/enhancements/issues/187
+- Upstream Issue: https://github.com/konveyor/enhancements/issues/191
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8493016e-975f-4559-8833-db4c884b2fc5
 
 ### KubeArmor
