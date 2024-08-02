@@ -670,6 +670,32 @@ CNCF - KubeEdge: Integrate KubeEdge, Sedna, and Volcano for Efficient Task Sched
 
 ### Kyverno
 
+#### Cleanup policy - Add deletion propagation support
+
+- Description: Support specifying the deletion propagation policy in cleanup policies and TTL-based cleanup.
+- Expected Outcome:
+1. Support specifying the deletion propagation policy in cleanup policies
+2. Support specifying the deletion propagation policy with TTL-based cleanup
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s):
+  - Charles-Edouard Brétéché (@eddycharly, charled.breteche@gmail.com)
+  - Vishal Choudhary (@vishal-chdhry, vishal.choudhary@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/10755
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/6d3ce005-6d61-48ad-a50c-00e3bed91c29
+
+#### Controller autogen - Implement new approach to autogen
+
+- Description: Implement a new policy rules autogen system based on extracting the pod spec from higher-level controllers.
+- Expected Outcome:
+1. The new system works by applying the same rules on the extracted pod spec instead of generating new rules for higher-level controllers
+2. The system treats pods and higher-level controllers exactly the same from a policy stand point
+- Recommended Skills: Golang, Kubernetes
+- Mentor(s):
+  - Charles-Edouard Brétéché (@eddycharly, charled.breteche@gmail.com)
+  - Vishal Choudhary (@vishal-chdhry, vishal.choudhary@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/10756
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/0f2bbc4b-6caa-42fa-a697-d20c1e89ca09
+
 #### Kyverno CLI for the Mutate Existing Rule
 
 CNCF - Kyverno: Kyverno CLI for the Mutate Existing Rule (2024 Term 3)
