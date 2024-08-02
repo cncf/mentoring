@@ -31,7 +31,10 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 <!-- TOC -->
 * [Antrea](#antrea)
-   * [Support application-level DNS caches when using FQDN-based security rules](#support-application-level-dns-caches-when-using-fqdn-based-security-rules)
+  * [Support application-level DNS caches when using FQDN-based security rules](#support-application-level-dns-caches-when-using-fqdn-based-security-rules)
+* [CNCF TAG Network](#cncf-tag-network)
+  * [Interrelating Kubernetes Resources: Identifying relationships between all standard and custom resources](#interrelating-kubernetes-resources-identifying-relationships-between-all-standard-and-custom-resources)
+  * [CNCF Challenges: Technical Content Creation](#cncf-challenges-technical-content-creation)
 * [Envoy Gateway](#envoy-gateway)
   * [IPv4/IPv6 Dual Stack Support](#ipv4ipv6-dual-stack-support)
 * [Harbor](#harbor)
@@ -70,6 +73,8 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   * [Cloud-edge collaborative speculative decoding for LLM based on KubeEdge-Ianvs](#cloud-edge-collaborative-speculative-decoding-for-llm-based-on-kubeedge-ianvs)
   * [Integrate KubeEdge, Sedna, and Volcano for High-Performance Training Task Scheduling](#integrate-kubeedge-sedna-and-volcano-for-high-performance-training-task-scheduling-)
 * [Kyverno](#kyverno)
+  * [Cleanup policy - Add deletion propagation support](#cleanup-policy---add-deletion-propagation-support)
+  * [Controller autogen - Implement new approach to autogen](#controller-autogen---implement-new-approach-to-autogen)
   * [Kyverno CLI for the Mutate Existing Rule](#kyverno-cli-for-the-mutate-existing-rule)
   * [Policy Exceptions 3.0](#policy-exceptions-30)
 * [Meshery](#meshery)
