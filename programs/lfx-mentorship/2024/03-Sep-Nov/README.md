@@ -72,6 +72,8 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   * [Multimodal Large Model Joint Learning Algorithm: Reproduction Based on KubeEdge-Ianvs](#multimodal-large-model-joint-learning-algorithm-reproduction-based-on-kubeedge-ianvs)
   * [Cloud-edge collaborative speculative decoding for LLM based on KubeEdge-Ianvs](#cloud-edge-collaborative-speculative-decoding-for-llm-based-on-kubeedge-ianvs)
   * [Integrate KubeEdge, Sedna, and Volcano for High-Performance Training Task Scheduling](#integrate-kubeedge-sedna-and-volcano-for-high-performance-training-task-scheduling-)
+* [Kubernetes](#kubernetes)
+  * [Testeable documentation for the Pod Lifecycle events](#testeable-documentation-for-the-pod-lifecycle-events)
 * [Kyverno](#kyverno)
   * [Cleanup policy - Add deletion propagation support](#cleanup-policy---add-deletion-propagation-support)
   * [Controller autogen - Implement new approach to autogen](#controller-autogen---implement-new-approach-to-autogen)
@@ -677,6 +679,19 @@ CNCF - KubeEdge: Integrate KubeEdge, Sedna, and Volcano for Efficient Task Sched
 
 - Upstream Issue: https://github.com/kubeedge/kubeedge/issues/5762
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/49fa6dab-9cb5-4889-bbeb-66c4a5545f8f
+
+### Kubernetes
+
+#### Testeable documentation for the Pod Lifecycle events
+
+- Description: Kubernetes Pods are the unit of execution. Pods's API surface is limited, but yet presenting many challenges for people authoring complex behaviors like proper graceful termination, probes, or advances initialization behaviors. Documentation and testing of those scenarios is limited. The misunderstanding of pod lifecycle and edge casesoften lead to reliability issues in Pods. Lately there were limited efforts to document and test those behaviors. Creating a skaffolding to document and test those behaviors will help temendously the Kubernetes project as well as end users.
+- Expected Outcome: Skaffolding in https://github.com/kubernetes/website/ to add new pod lifecycle behavios descriptions. Tests for those edge cases. And cross linking between tests and documentation.
+- Recommended Skills: familiarity with Golang, some knowledge about the K8s and containers, understanding of Hugo is a plus.
+- Mentor(s):
+  - Sergey Kanzhelev (@SergeyKanzhelev, S.Kanzhelev@live.com)
+  - Tim Allclair (@tallclair, tallclair@google.com)
+- Upstream Issue: https://github.com/kubernetes/kubernetes/issues/126369
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/127b628a-a5f1-4ced-a2ac-7892148699a0
 
 ### Kyverno
 
