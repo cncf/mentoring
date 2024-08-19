@@ -2,7 +2,7 @@
 
 Status: Planning
 
-Mentorship duration - three months (12 weeks - full-time schedule)
+Mentorship duration - three months (11 weeks - full-time schedule)
 
 ### Timeline
 
