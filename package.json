@@ -16,7 +16,7 @@
     "_list:check:*": "npm run --loglevel=warn | grep -Ee '^\\s*check:[^:]+$'",
     "_list:fix:*": "npm run --loglevel=warn | grep -Ee '^\\s*fix:[^:]+$' | grep -v 'fix:all'",
     "check:format": "npm run _check:format || (echo '[help] Run: npm run fix:format'; exit 1)",
-    "check:links": "bash -c 'for f in *.md `find docs analyses -name \"*.md\"`; do npx markdown-link-check --config .markdown-link-check.json $f || exit 1; done'",
+    "check:links": "bash -c 'find . -type f -name \"*.md\" -not -path \"*/node_modules/*\" -print0 | xargs -0 -I {} npx markdown-link-check --config .markdown-link-check.json {} || exit 1'",
     "check:markdown": "npm run _check:markdown:all",
     "check:spelling": "npx cspell --no-progress -c .cspell.yml **/*.md",
     "check": "npm run seq -- $(npm run -s _list:check:*)",
