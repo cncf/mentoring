@@ -1,0 +1,29 @@
+name: Format checks
+
+on:
+  pull_request:
+
+jobs:
+  format-check:
+    name: FILE FORMAT
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: package.json
+      - run: npm run check:format
+
+  markdown-linter:
+    name: MARKDOWN linter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: package.json
+      - run: npm run check:markdown

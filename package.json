@@ -1,0 +1,43 @@
+{
+  "name": "mentoring",
+  "version": "0.0.0",
+  "description": "Resources provided for and by the CNCF Mentoring community",
+  "scripts": {
+    "_check:format:any": "npx prettier --check --ignore-path ''",
+    "_check:format:delta": "npm run _check:format:any -- $(npm run -s _list:git:delta)",
+    "_check:format": "npx prettier --check .",
+    "_check:links": "npx markdown-link-check --config .markdown-link-check.json",
+    "_check:markdown:all": "npm run -s _list:check:md | xargs -I {} -P 4 npx -p markdownlint-cli markdownlint -c .markdownlint.yaml {}",
+    "_check:markdown:delta": "npm run -s _list:git:delta | xargs -I {} npx -p markdownlint-cli markdownlint -c .markdownlint.yaml {}",
+    "_check:markdown:1": "npx -p markdownlint-cli markdownlint -c .markdownlint.yaml",
+    "_list:git:delta": "git diff --name-only --diff-filter=ACMR | grep -E '\\.(js|md|scss|yml|yaml)$'",
+    "_list:check:md:no-analysis": "find . -name '*.md' -not -path '*/node_modules/*' -a -not -path '*/.?*' -a -not -path '*/00*'",
+    "_list:check:md": "find . -name '*.md' -not -path '*/node_modules/*' -a -not -path '*/.?*' | grep -Eve '/000|/0010|/0011'",
+    "_list:check:*": "npm run --loglevel=warn | grep -Ee '^\\s*check:[^:]+$'",
+    "_list:fix:*": "npm run --loglevel=warn | grep -Ee '^\\s*fix:[^:]+$' | grep -v 'fix:all'",
+    "check:format": "npm run _check:format || (echo '[help] Run: npm run fix:format'; exit 1)",
+    "check:links": "bash -c 'for f in *.md `find docs analyses -name \"*.md\"`; do npx markdown-link-check --config .markdown-link-check.json $f || exit 1; done'",
+    "check:markdown": "npm run _check:markdown:all",
+    "check:spelling": "npx cspell --no-progress -c .cspell.yml **/*.md",
+    "check": "npm run seq -- $(npm run -s _list:check:*)",
+    "fix:format": "npm run _check:format -- --write",
+    "fix": "npm run seq -- $(npm -s run _list:fix:*)",
+    "seq": "bash -c 'for cmd in \"$@\"; do npm run $cmd || exit 1; done' - ",
+    "test": "npm run check"
+  },
+  "author": "CNCF",
+  "license": "CC-BY-4.0",
+  "devDependencies": {
+    "cspell": "^8.8.4",
+    "markdown-link-check": "^3.12.2",
+    "markdownlint": "^0.34.0",
+    "markdownlint-cli": "^0.41.0",
+    "prettier": "^3.3.2"
+  },
+  "private": true,
+  "spelling": "cSpell:ignore ACMR loglevel -",
+  "prettier": {
+    "proseWrap": "always",
+    "singleQuote": true
+  }
+}
