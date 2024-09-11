@@ -1,6 +1,6 @@
 # Term 03 - 2024 September - November
 
-Status: Planning
+Status: Ongoing
 
 Mentorship duration - three months (12 weeks - full-time schedule)
 
