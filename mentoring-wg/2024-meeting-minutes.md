@@ -5,7 +5,7 @@ tags: Meeting Minutes, 2024
 
 # Mentoring Working Group
 
-This file’s location: [1\. Technical Advisory Groups / TAG Contributor Strategy / Mentoring](https://drive.google.com/drive/folders/1IlgEbbspQTpSthEuXgZqZsUCEJxH5NBZ?usp=drive\_link)  
+This file’s location: [1\. Technical Advisory Groups / TAG Contributor Strategy / Mentoring](https://drive.google.com/drive/folders/1IlgEbbspQTpSthEuXgZqZsUCEJxH5NBZ?usp=drive_link)  
 GitHub location: [https://github.com/cncf/mentoring/blob/main/mentoring-wg/2024-meeting-minutes.md](https://github.com/cncf/mentoring/blob/main/mentoring-wg/2024-meeting-minutes.md) 
 
 # About TAGCS Mentorship Working Group
@@ -26,10 +26,9 @@ GitHub location: [https://github.com/cncf/mentoring/blob/main/mentoring-wg/2024-
 
 Zoom Meeting: [https://zoom.us/my/cncftagcontributorstrategy?pwd=TnI0WU9Eb2I1RlRWdkl1R0k1WkZXUT09](https://zoom.us/my/cncftagcontributorstrategy?pwd=TnI0WU9Eb2I1RlRWdkl1R0k1WkZXUT09)  
 Passcode: 77777  
-
 ---
 
-# Upcoming Meetings
+# Past Meetings
 
 ## September 19, 2024
 
@@ -37,25 +36,34 @@ Passcode: 77777
 
 ### Attendance
 
-* 
+* Nate W.  
+* Josh B.  
+* Prasanth B.  
+* Faseela K.
 
 ### Updates/reminders
 
-* 
-
-### Agenda
-
-* 
+* End of LFX Term 2 CNCF blog post should go up tomorrow  
+* LFX Term 3 has started: 47 mentees, 69 mentors, across 20 CNCF projects  
+* [2025 Term 1 schedule](https://github.com/cncf/mentoring/tree/main/programs/lfx-mentorship/2025/01-Mar-May)   
+  * This is a draft, updates/comments welcome  
+* Governing Board meeting info (here’s what CNCF is sharing with the GB):  
+  * [https://docs.google.com/spreadsheets/d/e/2PACX-1vQPfUX9-yuEAXN\_pO-bpRShHbp70YUTHY1UEnHYKOsqOL5O0VpdkxnH-DsyNf4GxMmylsoRQ79cblON/pubchart?oid=1556086465\&format=interactive](https://docs.google.com/spreadsheets/d/e/2PACX-1vQPfUX9-yuEAXN_pO-bpRShHbp70YUTHY1UEnHYKOsqOL5O0VpdkxnH-DsyNf4GxMmylsoRQ79cblON/pubchart?oid=1556086465&format=interactive)   
+  * (source: [CNCF Mentoring Stats Overview (ongoing summary)](https://docs.google.com/spreadsheets/d/13xybjxyWOHcfNn3Mmpd6zbq61gLp5Kprdsda-nJ50lM/edit?usp=sharing))	  
+* Outreachy: CNCF has approved funding for 1 participant (OTel)  
+* Revisit blog posting and work reports (NW to write up new mentee guide of how this would work)  
+  * Need templates  
+  * Strongly suggest blog posts (not require)
 
 ### Notes
 
-* 
-
-# Past Meetings
+* NW to explore automating meeting announcements
 
 ## August 15, 2024
 
 10:00 Pacific Time (17:00 UTC on 2024-08-15)
+
+[TAG Contributor Strategy: Mentoring WG 2023-08-14](https://youtu.be/Sujcok2ETQA)
 
 ### Attendance
 
@@ -100,6 +108,8 @@ Passcode: 77777
 
 21:00 UTC (2:00 PM PDT on 2024-07-09; 10:00 AM NZST on 2024-07-10)
 
+[TAG Contributor Strategy: Mentoring WG 2023-07-09](https://youtu.be/xXk1rZullJQ?si=ui1Faum7uSeyJ8Ly)
+
 ### Attendance
 
 * Nate W.  
@@ -127,6 +137,8 @@ Passcode: 77777
 
 21:00 UTC (2:00 PM PDT on 2024-01-11; 10:00 AM NZST on 2024-01-12)
 
+[TAG Contributor Strategy: Mentoring WG 2023-06-11](https://youtu.be/QlSJtuu0Pz4?si=_5wsnLj-TYwQozzU)
+
 ### Attendance
 
 * Nate W.  
@@ -140,7 +152,7 @@ Passcode: 77777
 * \[aliok\] Changing time for the Mentoring WG meeting  
   * Nate is going to create a Doodle  
     * One slot should be the empty TAG thursday slot (TAG meets 3 times a month, we can grab the 4th)  
-* \[aliok\] Discussion around mandatory blogposts / webinars / recordings for mentees  
+*  \[aliok\] Discussion around mandatory blogposts / webinars / recordings for mentees  
   * [https://github.com/cncf/mentoring/issues/1216](https://github.com/cncf/mentoring/issues/1216)   
   * We already encourage mentees to write blog posts  
   * We don’t want to mandate it to block the stipend payments  
@@ -148,7 +160,7 @@ Passcode: 77777
   * Mentors/mentees might not have the skills  
     * We would need to provide assistance, which might be hard due to resource constraints  
     * We might provide a blogpost template, which might help with mentees to write the blog posts. This might help with having more blog posts.  
-  * Ali [commented](https://github.com/cncf/mentoring/issues/1216\#issuecomment-2161620387) on the issue, and asked the issue author if they’re interested in providing such a template.  
+  * Ali [commented](https://github.com/cncf/mentoring/issues/1216#issuecomment-2161620387) on the issue, and asked the issue author if they’re interested in providing such a template.  
     * Also created [a ticket](https://github.com/cncf/mentoring/issues/1256)  
 * \[Sunil\] Anything to participate in or help with this WG?  
   * Josh’s suggestion: a semi-structured mentoring program for security tasks on CNCF projects, as Sunil is part of TAG Security  
@@ -209,7 +221,7 @@ Passcode: 77777
   * Mentors making “I want to mentor this” selections (due April 16\)  
     * Reminder email to go out tomorrow
 
-## March 12
+## March 12, 2024
 
 ### Attendance
 
@@ -228,8 +240,8 @@ Passcode: 77777
   * Some projects interested: Buildpacks  
 * \[aliok\] KubeCon mini-summit  
 * \[aliok\] KubeCon TAG CS canvassing  
-  *  [KubeCon EU 2024 - Project booth visit pairing](https://docs.google.com/spreadsheets/d/1NyUSu1F5OKL4VYpWrf6735wb34x4BwTkcQZt1KYipbw/edit\#gid=0)  
-  * [KubeCon EU 2024 - Project Pavillion Canvass Details](https://docs.google.com/document/d/1PLkN6ZM5kndrfiNP6HchbzQsI2XF-qLZ\_Q0BkRgG\_fs/edit\#heading=h.uc3pmzl4kaa)  
+  *  [KubeCon EU 2024 - Project booth visit pairing](https://docs.google.com/spreadsheets/d/1NyUSu1F5OKL4VYpWrf6735wb34x4BwTkcQZt1KYipbw/edit#gid=0)  
+  * [KubeCon EU 2024 - Project Pavillion Canvass Details](https://docs.google.com/document/d/1PLkN6ZM5kndrfiNP6HchbzQsI2XF-qLZ_Q0BkRgG_fs/edit#heading=h.uc3pmzl4kaa)  
 * Details about keeping an eye on mentees?
 
 ## February 13, 2024
@@ -259,7 +271,7 @@ Passcode: 77777
 * Google doc vs Hackmd?  
   * We might have to switch  
   * Discussed issues for sharing, Chinese contributors  
-  * Need to put stuff into TAG shared drive	Document created to move to for 2024 in [CNCF/TAG\_CS/Mentoring](https://docs.google.com/document/d/1sSYRo-5yxJggGg3JVATxMKdxVWbY\_ZGD2mhKlPNW7qM/edit)
+  * Need to put stuff into TAG shared drive	Document created to move to for 2024 in [CNCF/TAG\_CS/Mentoring](https://docs.google.com/document/d/1sSYRo-5yxJggGg3JVATxMKdxVWbY_ZGD2mhKlPNW7qM/edit)
 
 ---
 
@@ -287,10 +299,10 @@ Passcode: 77777
 
 ---
 
-Archives
+# Archive
 
 * [2023 Meeting Minutes](https://hackmd.io/zNzH0LTMQ16Lkjg16FZEcw?both)  
 * [2022 Meeting Minutes](https://hackmd.io/zNzH0LTMQ16Lkjg16FZEcw?both)  
-* [June 30, July 12, July 26, 2022](https://docs.google.com/document/d/1ZVFf\_GRB5yrcTQieudtk3W-gWL6KuwHn1QG8XKdrARo/edit?usp=sharing)
+* [June 30, July 12, July 26, 2022](https://docs.google.com/document/d/1ZVFf_GRB5yrcTQieudtk3W-gWL6KuwHn1QG8XKdrARo/edit?usp=sharing)
 
 
