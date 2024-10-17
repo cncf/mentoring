@@ -5,8 +5,10 @@ tags: Meeting Minutes, 2024
 
 # Mentoring Working Group
 
-This file’s location: [1\. Technical Advisory Groups / TAG Contributor Strategy / Mentoring](https://drive.google.com/drive/folders/1IlgEbbspQTpSthEuXgZqZsUCEJxH5NBZ?usp=drive_link)  
-GitHub location: [https://github.com/cncf/mentoring/blob/main/mentoring-wg/2024-meeting-minutes.md](https://github.com/cncf/mentoring/blob/main/mentoring-wg/2024-meeting-minutes.md)
+This file’s location:  
+[1\. Technical Advisory Groups / TAG Contributor Strategy / Mentoring](https://drive.google.com/drive/folders/1IlgEbbspQTpSthEuXgZqZsUCEJxH5NBZ?usp=drive_link)  
+GitHub location:  
+[https://github.com/cncf/mentoring/blob/main/mentoring-wg/2024-meeting-minutes.md](https://github.com/cncf/mentoring/blob/main/mentoring-wg/2024-meeting-minutes.md)
 
 # About TAGCS Mentorship Working Group
 
@@ -24,7 +26,8 @@ GitHub location: [https://github.com/cncf/mentoring/blob/main/mentoring-wg/2024-
 
 ### Zoom
 
-Zoom Meeting: [https://zoom.us/my/cncftagcontributorstrategy?pwd=TnI0WU9Eb2I1RlRWdkl1R0k1WkZXUT09](https://zoom.us/my/cncftagcontributorstrategy?pwd=TnI0WU9Eb2I1RlRWdkl1R0k1WkZXUT09)  
+Zoom Meeting:  
+[https://zoom.us/my/cncftagcontributorstrategy?pwd=TnI0WU9Eb2I1RlRWdkl1R0k1WkZXUT09](https://zoom.us/my/cncftagcontributorstrategy?pwd=TnI0WU9Eb2I1RlRWdkl1R0k1WkZXUT09)  
 Passcode: 77777
 ---
 
