@@ -5,10 +5,9 @@ tags: Meeting Minutes, 2024
 
 # Mentoring Working Group
 
-This file’s location:  
+This file’s location: 
 [1\. Technical Advisory Groups / TAG Contributor Strategy / Mentoring](https://drive.google.com/drive/folders/1IlgEbbspQTpSthEuXgZqZsUCEJxH5NBZ?usp=drive_link)  
-GitHub location:  
-[https://github.com/cncf/mentoring/blob/main/mentoring-wg/2024-meeting-minutes.md](https://github.com/cncf/mentoring/blob/main/mentoring-wg/2024-meeting-minutes.md)
+GitHub location: [https://github.com/cncf/mentoring/blob/main/mentoring-wg/2024-meeting-minutes.md](https://github.com/cncf/mentoring/blob/main/mentoring-wg/2024-meeting-minutes.md)
 
 # About TAGCS Mentorship Working Group
 
