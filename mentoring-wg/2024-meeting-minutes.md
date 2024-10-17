@@ -28,8 +28,8 @@ GitHub location: [https://github.com/cncf/mentoring/blob/main/mentoring-wg/2024-
 Zoom Meeting:  
 
 [https://zoom.us/my/cncftagcontributorstrategy?pwd=TnI0WU9Eb2I1RlRWdkl1R0k1WkZXUT09](https://zoom.us/my/cncftagcontributorstrategy?pwd=TnI0WU9Eb2I1RlRWdkl1R0k1WkZXUT09)  
-
 Passcode: 77777
+
 ---
 
 # Upcoming Meetings
