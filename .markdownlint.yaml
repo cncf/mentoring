@@ -1,0 +1,5 @@
+# See https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
+# and https://github.com/DavidAnson/markdownlint/blob/main/README.md
+
+list-marker-space: false
+no-inline-html: false
