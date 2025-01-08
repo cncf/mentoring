@@ -52,6 +52,8 @@ labels:
     color: 0052CC
   - name: '2024'
     color: 0052CC
+  - name: '2025'
+    color: 0052CC
   # one "blank" line
   - name: blank
 
