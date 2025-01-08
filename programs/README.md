@@ -1,7 +1,10 @@
 # CNCF Mentoring: Programs for 2022 - 2024
 
 - [LFX](#lfx)
+  - [2025](#2025)
+    - [Term 1: Mar-May](#2025-term-1-march---may)
   - [2024](#2024)
+    - [Term 3: Sept-Nov](#2024-term-3-september---november)
     - [Term 2: Jun-Aug](#2024-term-2-june---august)
     - [Term 1: Mar-May](#2024-term-1-march---may)
   - [2023](#2023)
@@ -15,11 +18,60 @@
 
 ### LFX
 
+#### 2025
+
+##### 2025 Term 1: March - May
+
+[Planning](lfx-mentorship/2025/01-Mar-May/README.md)
+
 #### 2024
 
-#### 2024 Term 3: September - November
+##### 2024 Term 3: September - November
 
-[In progress](lfx-mentorship/2024/03-Sep-Nov/README.md)
+| Project | Mentor(s)                                                                                            | Mentee |
+| --- |--------------------------------------------------------------------------------------------------------| --- |
+| [CNCF - Harbor: Harbor CLI (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/11beb7c5-02b3-4f33-9dc5-3480a43b0869) | Vadim Bauer, Yan Wang, Orlin Vasilev                                                                   | Althaf Asharaf |
+| [CNCF - Kyverno: Kyverno CLI for the Mutate Existing Rule (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/56bf0ae9-a919-42df-bd0e-e3d6910cbeef) | Shuting Zhao, Mariam Fahmy                                                                             | Ammar Yasser |
+| [CNCF - Jaeger: Jaeger v2 Kubernetes Operator (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/f15ad171-503c-41ae-b573-1e3088312dba) | Yuri Shkuro, Jonah Kowall                                                                              | Ankit Kurmi |
+| [CNCF - Meshery: UI Migration from MUI v4 to MUI v5 and Sistent (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/c98d0652-03c1-4409-bf1c-7240a4947d39) | Lee Calcote, Antonette Caldwell                                                                        | Ankita Sahu |
+| [CNCF - Karmada: Enhance Karmada controller-manager and schedule testing coverage (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/78bd7568-0f36-4648-8a5c-2ba6444ac76a) | Zhen Chang, Zhuang Zhang                                                                               | Anuj Agrawal |
+| [CNCF - WasmEdge: Create a Wasm-based LLM app for financial analysts (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/75feef58-e372-4797-846a-c6a5d6087a19) | Michael Yuan, Hung-Ying, Tai                                                                           | Arnav Shah |
+| [CNCF - WasmEdge: Create an LLM app with deep understanding of a GitHub repo (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/7909e713-a081-49d9-b14e-4ee5a36e0e97) | Michael Yuan, Hung-Ying, Tai                                                                           | Aru Sharma |
+| [CNCF - KubeEdge: Multimodal Large Model Joint Learning via KubeEdge-Ianvs Reproduction (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/d5d315c7-aaee-46ee-895e-a0f9e6ffed4b) | Chuang Hu, Zimu Zheng                                                                                  | Aryan Yadav |
+| [CNCF - Inspektor Gadget: Exploring Chaos Engineering with eBPF and Inspektor Gadget (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/c99b5a1f-a1e8-4a9c-93f1-3ee965dabbae) | Michael Friese, Mauricio Vasquez Bernal                                                                | Bharadwaja Meherrushi Chittapragada |
+| [CNCF - KubeArmor: Support Podman and OCI Hooks support for unorchestrated environments (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/c693a6b1-d034-4140-8aba-dfe02fbef48a) | Barun Acharya, Rudraksh Pareek, Abdulrahman Elawady, Rishabh Soni                                      | Cheithanya PR |
+| [CNCF - Konveyor AI: Data Querying for Kai & InstructLab Integration Potential (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/8493016e-975f-4559-8833-db4c884b2fc5) | Jonah Sussman, Fabian von Feilitzsch                                                                   | Dev Patel |
+| [CNCF - Antrea: Application-Level DNS Caches for FQDN-Based Security Rules (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/99e8e0a0-4d82-4ac5-88bc-55b1d1a2c1f4) | Quan Tian, Yang Ding, Antonin Bas                                                                      | Hemant Kumar |
+| [CNCF - WasmEdge: Fix bugs found by fuzzer (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/824beced-74a9-4b65-9db3-c20589b9d0f6) | Hung-Ying, Tai, Yi-Ying He                                                                             | Himanshi Srestha |
+| [CNCF - OpenKruise: Visualize Kruise Rollout progress with kubectl plugin (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/766ae869-a807-470c-aec2-e63ead04e0e2) | Zhang Zhen, Zhao Mingshan                                                                              | Jaskirat Singh |
+| [CNCF - Meshery: End-to-End Testing with Playwright (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/a9113576-7216-46a7-bc9a-f922c1c62f8d) | Aabid Sofi, Lee Calcote                                                                                | Jerens Soerjadi Lensun |
+| [CNCF - Prometheus: Remote-Write v2 in otel-collector's prometheusremotewriteexporter (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/3fa26f90-87aa-46a4-80f9-00195ae276e8) | Arthur Silva Sens, Arve Knudsen, David Ashpole                                                         | Juraj Michálek |
+| [CNCF - Envoy Gateway: IPv4/IPv6 Dual Stack Support (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/408607a5-22a7-469e-ba9b-773e8fb06ace) | Jianpeng He, Arko Dasgupta                                                                             | Juwon Hwang |
+| [CNCF - Inspektor Gadget: DNS/HTTP Event Generation Capabilities (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/c7ba30b5-625d-4086-ad09-c60071e01a8c) | Qasim Sarfraz, Burak Ok                                                                                | Kapil Sharma |
+| [CNCF - Prometheus: Enhance Prometheus Benchmark Suite (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/b9a0e569-0f73-40dc-94d2-8dc3d376dbc6) | Bryan Boreham, Kemal Akkoyun                                                                           | Kushal Shukla |
+| [CNCF - Karmada: Collect and visualize Karmada metrics (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/5af36c01-f146-4092-8920-97322df6589c) | Wenjiang Ding, Zhen Chang                                                                              | Md Asiful Alam |
+| [CNCF - Jaeger: Jaeger v2 Helm Chart (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/330c6397-06ed-481c-8c86-13fdcbce3896) | Yuri Shkuro, Jonah Kowall                                                                              | Mehul Gautam |
+| [CNCF - Harbor: Harbor Satellite (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/ed963c1b-6697-4b3f-bef6-578cd9722f47) | Vadim Bauer, Yan Wang, Orlin Vasilev                                                                   | Mehul Kumar |
+| [CNCF - Thanos: Add support for hedged requests (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/541a5bb5-09fd-47a9-a244-a65386aa7f7c) | Giedrius Statkevičius, Saswata Mukherjee                                                               | Milind Dethe |
+| [CNCF - WasmEdge: WASM Serializer with new proposals (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/c96de5c4-e1c3-4a02-a18a-65507d1cb675) | Yi-Ying He, Hung-Ying, Tai                                                                             | Mohamed Atef |
+| [CNCF - Karmada: Enhance Test Coverage for Search, Operator, and Webhook Components (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/1a732552-02b6-4b69-bbf6-d7ea12354e8d) | Zhen Chang, Chaosi Pan                                                                                 | Mohamed Awnallah |
+| [CNCF - KCL: The checksum check of the three-party dependencies (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/ade2c7db-ce6e-4c9c-bb4d-8a9e6ff1cf17) | Pengfei Xu, Zhe Zong, Akash Kumar                                                                      | Nishant Bansal |
+| [CNCF - KubeArmor: Non K8s KubeArmor Enhancements (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/87d64083-e1fa-4aa4-a828-ca24e5ae96b3) | Barun Acharya, Rudraksh Pareek, Prateek Nandle (@Prateeknandle, prateeknandle@gmail.com), Rishabh Soni | Nishant Singh |
+| [CNCF - KubeArmor: Implement Fuzz testing for KubeArmor Components (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/91bd7201-e83f-444c-9157-f82f4c56d060) | Barun Acharya, Rudraksh Pareek, Prateek Nandle (@Prateeknandle, prateeknandle@gmail.com)               | Pradyot Ranjan |
+| [CNCF - KubeEdge: Elastic Inference for Deep Learning Models Using KubeEdge (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/1f58cbe5-fe3a-4d0f-9875-b1725ecac223) | ming tang, Shelley Bao                                                                                 | Qijie Huang |
+| [CNCF - KCL: KCL Language Server Protocol Support on Lsp4IJ for Jetbrains IDEs (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/dd72885b-3f85-44af-a176-dd04717fb6dc) | Zheng Zhang, Zhe Zong                                                                                  | Rehan Chalana |
+| [CNCF - Inspektor Gadget: Testing Inspektor Gadget gadgets on different kernel versions (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/a0e8bcc0-5c52-48ec-9959-506ce27ad46e) | Mauricio Vasquez Bernal, Alban Crequy                                                                  | Sanskar Sharma |
+| [CNCF - OpenKruise: Game operation and maintenance API (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/1f2605c8-c9f3-4a13-95d5-062bd024f9be) | Liu Zhongwei, Liu Qiuyang                                                                              | Scott Liu |
+| [CNCF - TAG Network: CNCF Challenges: Technical Content Creation (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/5c1b69c5-2315-4ec2-8883-7d59f1650a11) | Lee Calcote, Nic Jackson                                                                               | Shalini Kumari |
+| [CNCF - KubeEdge: Integrate KubeEdge, Sedna, and Volcano for Efficient Task Scheduling (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/49fa6dab-9cb5-4889-bbeb-66c4a5545f8f) | Shelley Bao, Fisher Xu                                                                                 | Shao Wang |
+| [CNCF - Kyverno: Cleanup policy - Add deletion propagation support (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/6d3ce005-6d61-48ad-a50c-00e3bed91c29) | Charles-Edouard Brétéché, Vishal Choudhary                                                             | Shivam Shivam (Shivam Kumar) |
+| [CNCF - Service Mesh Performance: CNCF Project Performance Test Dashboard (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/f0add302-47e2-4918-ba86-7a3570b3540c) | Lee Calcote, Xin Huang                                                                                 | Shlok Mishra |
+| [CNCF - Inspektor Gadget: New gadget for detecting deadlocks (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/7fdda09c-0eb8-466b-9fdf-e4b3c6a1d5b3) | Alban Crequy, Burak Ok                                                                                 | Snehil Shah |
+| [CNCF - Konveyor AI: IntelliJ plugin for Real-Time Updates with analyzer-lsp (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/0d392e44-e3ce-4799-8082-35ae48910f24) | Hiteshwari Patel, Savitha Raghunathan                                                                  | Soham Banerjee |
+| [CNCF - KubeEdge: Decouple Node Cooperation and Batch Management in EdgeApplication (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/89fe7f6c-052b-4597-9ba3-c016858b1835) | Willard, Elias Wang                                                                                    | Tejas Kumar |
+| [CNCF - Kyverno: Controller autogen - Implement new approach to autogen (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/0f2bbc4b-6caa-42fa-a697-d20c1e89ca09) | Charles-Edouard Brétéché, Vishal Choudhary                                                             | Utsab Sapkota |
+| [CNCF - KubeEdge: Cloud-Edge Speculative Decoding for LLM via KubeEdge-Ianvs (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/bfa8251f-a975-4e07-8e7a-915df3518551) | Shijing Hu, Zimu Zheng                                                                                 | Yu Fan |
+| [CNCF - Meshery: Migrate APIs to be schema-driven (2024 Term 3)](https://mentorship.lfx.linuxfoundation.org/project/796982d7-09b9-40b3-94f2-3b32cdcdfbf6) | Lee Calcote, Yash Sharma                                                                               | Zoe Caleb Boris |
 
 ##### 2024 Term 2: June - August
 
