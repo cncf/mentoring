@@ -17,6 +17,6 @@ It's best if you use a public communication channel whenever possible; however, 
 
 ## Current Year
 
-Details about the 2024 program are available [here](https://github.com/cncf/mentoring/blob/main/programs/summerofcode/2024.md).
+Details about the 2025 program are available [here](https://github.com/cncf/mentoring/blob/main/programs/summerofcode/2025.md).
 
 [Google summer of code timeline](https://developers.google.com/open-source/gsoc/timeline).
