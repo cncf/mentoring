@@ -24,7 +24,6 @@
 # Add '2023' to any change to 2023 project files
 2023:
   - programs/summerofcode/2023.md
-  - programs/seasonofdocs/README.md # TODO, update next cycle
   - programs/lfx-mentorship/2023/*
   - programs/lfx-mentorship/2023/**/*
   - mentoring-wg/2023-meeting-minutes.md
@@ -47,6 +46,7 @@
   - programs/lfx-mentorship/2023/01-Mar-May/**/*
   - programs/lfx-mentorship/2024/01-Mar-May/*
   - programs/lfx-mentorship/2024/01-Mar-May/**/*
+  - programs/lfx-mentorship/2025/01-Mar-May/*
   - programs/lfx-mentorship/2025/01-Mar-May/**/*
 
 # Add 'Term 2: June-Aug' label to files for that term
@@ -55,6 +55,7 @@
   - programs/lfx-mentorship/2023/02-Jun-Aug/**/*
   - programs/lfx-mentorship/2024/02-Jun-Aug/*
   - programs/lfx-mentorship/2024/02-Jun-Aug/**/*
+  - programs/lfx-mentorship/2025/02-Jun-Aug/*
   - programs/lfx-mentorship/2025/02-Jun-Aug/**/*
 
 # Add 'Term 3: Sept-Nov' label to files for that term
@@ -63,4 +64,5 @@
   - programs/lfx-mentorship/2023/03-Sep-Nov/**/*
   - programs/lfx-mentorship/2024/03-Sep-Nov/*
   - programs/lfx-mentorship/2024/03-Sep-Nov/**/*
+  - programs/lfx-mentorship/2025/03-Sep-Nov/*
   - programs/lfx-mentorship/2025/03-Sep-Nov/**/*
