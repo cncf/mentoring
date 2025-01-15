@@ -18,6 +18,27 @@
 
 ## Proposed Project ideas
 
+### Envoy Gateway
+
+#### Integrating CNCF Fuzzing Framework for Envoy Gateway
+
+- Description: [Envoy Gateway](https://gateway.envoyproxy.io) has become a crucial part of modern cloud-native infrastructures, 
+providing a simplified way to deploy and manage [Envoy Proxy](https://www.envoyproxy.io).
+Ensuring the reliability and security of Envoy Gateway is paramount for its growing user base.
+
+Fuzzing, a widely-used technique for identifying software vulnerabilities and bugs, can significantly enhance the robustness of Envoy Gateway.
+By integrating the [CNCF Fuzzing Framework](https://github.com/cncf/cncf-fuzzing), this project aims to improve the 
+security posture of Envoy Gateway through comprehensive automated testing.
+- Expected Outcome:
+  - Add a fuzz test that covers 80% of code paths for translating Gateway API input configuration into xDS output.
+  - Enable continuous fuzzing using [OSS-Fuzz](https://github.com/google/oss-fuzz).
+- Recommended Skills: Go, scripting.
+- Mentor(s):
+  - Arko Dasgupta (@arkodg, arko@tetrate.io)
+  - Teju Nareddy (@nareddyt, tnareddy@confluent.io)
+- Upstream Issue: https://github.com/envoyproxy/gateway/issues/3124
+
+
 ### Jaeger
 
 #### Jaeger: Upgrade Storage Backends to V2 Storage API
