@@ -6,16 +6,16 @@ Mentorship duration - three months (full-time schedule)
 
 ### Timeline
 
-| **Activity**                                                 | **Dates (2025)**                      | **Notes**                                                                                          |
-|--------------------------------------------------------------|---------------------------------------|----------------------------------------------------------------------------------------------------|
-| **Project Proposals Open**                                   | Wed, July 2 – Tue, July 29            | ~4 weeks for mentors to propose and finalize projects                                              |
-| **Mentee Applications Open**                                 | Wed, July 30 – Tue, August 12         | 2 weeks                                                                                           |
-| **Application Review/Admission Decisions**                   | Wed, August 13 – Tue, August 26       | 2 weeks                                                                                           |
-| **Selection Notifications**                                  | Wed, August 27                        |                                                                                                    |
-| **Mentorship Program Begins (Work Phase, Week 1)**           | Mon, September 8                      | Avoiding US Labor Day (Sep 1)                                                                      |
-| **Midterm Mentee Evaluations & First Stipend Payment**       | Wed, October 15 (Week 6)              | Occurs after China’s National Day (Oct 1–7)                                                        |
-| **Final Mentee Evaluations & Second Stipend Payment**        | Wed, November 26 (Week 12)            | Day before US Thanksgiving (Nov 27)                                                                |
-| **Last Day of Term**                                        | Fri, November 28                      | The Friday of Thanksgiving week in the US                                                          |
+| **Activity**                                                  | **Dates (2025)**                      |
+|---------------------------------------------------------------|---------------------------------------|
+| **Project Proposals Open**                                    | Wed, July 2 – Tue, July 29            |
+| **Mentee Applications Open**                                  | Wed, July 30 – Tue, August 12         |
+| **Application Review/Admission Decisions**                    | Wed, August 13 – Tue, August 26       |
+| **Selection Notifications**                                   | Wed, August 27                        |
+| **Mentorship Program Begins (Work Phase, Week 1)**            | Mon, September 8                      |
+| **Midterm Mentee Evaluations & First Stipend Payment**        | Wed, October 15 (Week 6)              |
+| **Final Mentee Evaluations & Second Stipend Payment**         | Wed, November 26 (Week 12)            |
+| **Last Day of Term**                                          | Fri, November 28                      |
 
 ### Project instructions
 
