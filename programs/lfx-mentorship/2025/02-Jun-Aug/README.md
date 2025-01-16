@@ -1,4 +1,4 @@
-# Term 02 - 2025 March - May
+# Term 02 - 2025 Jun - Aug
 
 Status: Planning
 
