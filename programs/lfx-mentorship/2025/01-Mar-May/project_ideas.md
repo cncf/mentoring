@@ -105,6 +105,9 @@
   Andy Anderson
   GitHub: @clubanderson
   Email: andy@clubanderson.com
+  Braulio Dumba
+  GitHub: dumb0002
+  Email: braulio.dumba@ibm.com
 
 - Repository
   GitHub Repository: kubestellar/ui
