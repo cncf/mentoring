@@ -11,6 +11,9 @@ repository:
   homepage: https://mentoring.cncf.io
 
 labels:
+  - name: CI/infra
+    description: CI & infrastructure
+    color: #696969
   - name: lfx mentorship
     color: a2dcf2
   - name: enhancement
