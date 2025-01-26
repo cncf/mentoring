@@ -67,6 +67,50 @@ security posture of Envoy Gateway through comprehensive automated testing.
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
 - Upstream Issue: https://github.com/jaegertracing/jaeger-ui/issues/2534
 
+### Kmesh
+
+#### Re-design and implement the Kmesh website
+
+- Description: The existing Kmesh website theme struggled to meet existing development needs. Therefore, there is a need to redesign the Kmesh website and replace the theme to make it easier for developers to add documentation. Development instructions for the website are also provided.
+- Expected Outcome:
+  - The website has more readable documentation, covering user cases, developer courses, etc. 
+  - Docs about how to develop website.
+- Recommended Skills: JS, Kmesh, Html
+- Mentor(s): LiZhenCheng9527(@LiZhenCheng9527 , leezhencheng6@gmail.com)
+- Upstream Issue: https://github.com/kmesh-net/website/issues/115
+
+#### Kmesh eBPF unit test
+
+- Description: As the community features continue to expand, the number of eBPF programs in the data plane has increased. Due to the inherent limitations of eBPF (third-state encoding, neither user space nor kernel space, running in a kernel virtual machine with a dedicated instruction set), Kmesh implements complex governance logic through features like tail call and map-in-map, which poses challenges for data plane quality protection.
+eBPF, a recently introduced programmable technology in the kernel, currently has an immature ecosystem. The industry is actively exploring eBPF testing capabilities (e.g., Unit Testing eBPF). This project aims to develop an eBPF UT testing framework in conjunction with the Kmesh project to ensure the quality of the Kmesh data plane.
+- Expected Outcome:
+  - Export Kmesh eBPF programs to support UT test case.
+  - Export design documentation for eBPF UT tests
+- Recommended Skills: C, eBPF,  (go)
+- Mentor(s): @bitcoffeeiux ([liuxin350@huawei.com](mailto:liuxin350@huawei.com))
+- Upstream Issue: https://github.com/kmesh-net/kmesh/issues/1209
+
+#### Add the Kmesh e2e Test
+
+- Description: Kmesh now has an e2e testing framework, but it only covers some of the usage scenarios for key features. More test cases need to be covered to ensure the stability of key features.
+- Expected Outcome:
+  - e2e Test Cases
+  - Documentation maintenance for e2e testing
+- Recommended Skills: go, Kmesh
+- Mentor(s): @YaoZengzeng (yaozengzeng@huawei.com)
+- Upstream Issue: https://github.com/kmesh-net/kmesh/issues/1210
+
+#### Metrics for TCP Long Connection
+
+- Description: Currently, Kmesh metrics are only reported when a TCP connection is closed. In the case of long connections, it is not possible to know the status before the connection is closed. Therefore, we hope to add the capability to periodically report metrics for long connections.
+- Expected Outcome:
+  - proposal
+  - code
+  - user guide.
+- Recommended Skills: go, c, eBPF
+- Mentor(s): @nlgwcy (wuchangye@huawei.com)
+- Upstream Issue: https://github.com/kmesh-net/kmesh/issues/1211
+
 ### KubeStellar
 
 #### Enhancing KubeStellar UI for Expanded Functionality and User Experience
