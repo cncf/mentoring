@@ -67,6 +67,42 @@ security posture of Envoy Gateway through comprehensive automated testing.
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
 - Upstream Issue: https://github.com/jaegertracing/jaeger-ui/issues/2534
 
+### Karmada
+
+#### Karmada Self-Signed Certificate Content Standardization
+
+- Description: In the existing [Karmada](https://github.com/karmada-io/karmada) architecture, each component should have its own unique certificates to ensure clear identity and security. Best practices dictate that each component's name be used as the Common Name (CN) in its certificate to facilitate identity differentiation. However, currently, all Karmada components share same identical certificate content, leading to confusion and potential security risks.
+The objective of this project is to enhance the compliance of the Karmada certificate system by ensuring that each component possesses distinct certificates that reflect its identity. This will improve system security, reduce management complexity, and align with industry standards. This project aims to achieve the following standards:
+  - Utilize a single CA certificate for the entire Karmada system.
+  - Issue individual server certificates for each server component, using the component name as the CN.
+  - Issue individual client certificates for each client component, using the component name as the CN, same client can use consistent certificate for different servers.
+- Expected Outcome:
+  - Complete the issuance of different certificates for 8 server components and import the certificate content into the corresponding certificate Secrets.
+  - Complete the issuance of different certificates for 11 client components and import the certificate content into the corresponding certificate Secrets or Config Secrets.
+- Recommended Skills:
+  - Familiarity with Golang, Kubernetes, and Karmada.
+  - Basic understanding of certificate management.
+- Mentor(s):
+  - Chaosi Pan (@chaosi-zju, chaosi@zju.edu.cn)
+  - Zhen Chang (@XiShanYongYe-Chang, changzhen5@huawei.com)
+- Upstream Issue: https://github.com/karmada-io/karmada/issues/6091
+
+#### Implement multi-cluster management in the Karmada dashboard
+
+- Description: The Karmada dashboard has already implemented the management of resources in the control plane. Apart from that, we hope to implement the management of resources in the member cluster: once users add Kubernetes resources and the corresponding policy resources on the control plane, they can switch to the corresponding member cluster seamlessly, check the status of Kubernetes resources in the specific member cluster. Kubernetes dashboard is one of the most popular single-cluster management tools, which uses client-go sdk to communicate with the apiserver to manage resources in the cluster. A great deal of client-go related logic can be extended to muli-cluster easily, due to the karmada-aggregated-apiserver component and the compatibility design between Kubernetes resource and Karmada resoruces. So we hope to combine the Kubernetes dashboard with the karmada-aggregated-apiserver component to implement multi-cluster management in the Karmada dashboard.
+- Expected Outcome:
+  - Proposal for multi-cluster management base on `karmada-aggregated-apiserver`.
+  - Tools to lift Kubernetes dashboard with specific version into Karmada dashboard repo, and implement management of resources in member cluster based on `karmada-aggregated-apiserver`.
+  - Typical ui for member-cluster management:
+    - list/detail/delete/update action for `deployment` resources.
+    - log viewer for `pod`.
+    - web terminal for `pod`，which user can attach the running pod, and execute tempory commands.
+- Recommended Skills: Kubernetes, Go, gin, react, webgl
+- Mentor(s):
+  - Wenjiang Ding (@warjiang, 1096409085@qq.com)
+  - Zhen Chang (@XiShanYongYe-Chang, changzhen5@huawei.com)
+- Upstream Issue: https://github.com/karmada-io/dashboard/issues/182
+
 ### KubeStellar
 
 #### Enhancing KubeStellar UI for Expanded Functionality and User Experience
