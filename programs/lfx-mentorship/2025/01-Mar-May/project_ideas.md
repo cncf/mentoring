@@ -218,7 +218,7 @@ find requirements from https://github.com/WebAssembly/component-model/tree/main/
 
 - Description: In the last year Prometheus has tackled and solved many UX problems that OTel users had when sending OTLP data to Prometheus. One challenge that remains unsolved is how do users expect to use OTLP Resource Attributes in Prometheus. This project is about conducting a UX research that explores the main problems users are facing today with the current state of Resource Attributes and Prometheus and coming up with ideas how to solve them.
 - Expected Outcome: 
-   -  Preliminary artifacts (e.g., research plan) shared as project progresses.
+  -  Preliminary artifacts (e.g., research plan) shared as project progresses.
   - Research report, summarizing the findings.
   - A spoken presentation including research method and results.
     - Stretch goal: apply to present the project at KubeCon.
