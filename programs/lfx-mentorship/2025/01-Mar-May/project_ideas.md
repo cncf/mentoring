@@ -202,3 +202,32 @@ find requirements from https://github.com/WebAssembly/component-model/tree/main/
   - Miley Fu (@MileyFu, miley@secondstate.io)
   - Vivian Hu (@alabulei1, vivian@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3986
+
+### Prometheus
+
+#### Get `PrometheusRemoteWriteReceiver` in OTel-Collector to Alpha Maturity
+
+- Description: In recent discussions with the team, we decided that Prometheus won't be exporting its data with the OTLP format, however, Prometheus is still committed to have good import/export compatibility with OpenTelemetry. Last year Prometheus release the second version of its Remote-Write protocol, which translates a lot better with the OTLP format and the team started working on a PRW receiver in the collector-contrib project. This project is about getting this component into the finish line and publish it as an stable component in the collector.
+- Expected Outcome: PrometheusRemoteWriteReceiver considered Alpha and released with OpenTelemetry-Collector-Contrib.
+- Recommended Skills: Prometheus Remote-Write, OTLP, Go.
+- Mentor(s):
+  - Arthur Sens (@ArthurSens, arthursens2005@gmail.com)
+- Upstream Issue: https://github.com/open-telemetry/opentelemetry-collector-contrib/issues/37277
+
+#### UX Research: How users expect to use OTLP Resource Attributes in Prometheus
+
+- Description: In the last year Prometheus has tackled and solved many UX problems that OTel users had when sending OTLP data to Prometheus. One challenge that remains unsolved is how do users expect to use OTLP Resource Attributes in Prometheus. This project is about conducting a UX research that explores the main problems users are facing today with the current state of Resource Attributes and Prometheus and coming up with ideas how to solve them.
+- Expected Outcome: 
+  -  Preliminary artifacts (e.g., research plan) shared as project progresses.
+  - Research report, summarizing the findings.
+  - A spoken presentation including research method and results.
+    - Stretch goal: apply to present the project at KubeCon.
+- Recommended Skills:
+  - Interest or currently working in UX Research and Design.
+  - Familiarity with databases and querying.
+  - Being comfortable to talk with End-Users in English.
+- Mentor(s):
+    - Arthur Sens (@ArthurSens, arthursens2005@gmail.com)
+    - Amy Super (@amy-super, amy.super@grafana.com)
+    - Andrej Kiripolsky (@AndrejKiri, andrej.kiripolsky@grafana.com)
+* Upstream Issue: 
