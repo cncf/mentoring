@@ -202,3 +202,34 @@ find requirements from https://github.com/WebAssembly/component-model/tree/main/
   - Miley Fu (@MileyFu, miley@secondstate.io)
   - Vivian Hu (@alabulei1, vivian@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3986
+
+### Harbor
+
+#### Harbor CLI
+
+- Description: Harbor is a widely adopted container registry, and its initial CLI has been developed by LFX mentees. The goal is to extend this CLI by implementing additional functionalities and workflows that are currently only available in the Web UI. The CLI should be useful for Harbor administrators and users, especially to manage workflows within CI/CD pipelines. We seek a Golang-experienced mentee to enhance the CLI independently.
+- Expected Outcome:
+  - Extend the Harbor CLI to include essential commands not yet implemented.
+  - Add new features to improve Harbor management via the CLI, enabling robust workflows in CI/CD environments. 
+- Recommended Skills: Golang, spf13/cobra
+- Mentor(s):
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Yan Wang (@wy65701436, yan-yw.wang@broadcom.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
+- Upstream Issue: https://github.com/goharbor/harbor-cli/issues/315
+
+#### Harbor Satellite
+
+- Description: Containers have extended beyond their traditional cloud environments, becoming increasingly prevalent in remote and edge computing contexts. These environments often lack reliable internet connectivity, posing significant challenges in managing and running containerized applications due to difficulties in fetching container images. To address this, the project aims to decentralize container registries, making them more accessible to edge devices.
+- Expected Outcome:
+  The goal is to extend the proof of concept and demonstrate that such a solution practically works.
+  Candidates should be able understanding and implementing the [image](https://github.com/opencontainers/image-spec) and [distribution spec](https://github.com/opencontainers/distribution-spec)
+  to replicate images from a central registry to a registry on the edge location.
+- Recommended Skills: Golang, Container, Image-spec, Distribution-spec
+- Mentor(s):
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Yan Wang (@wy65701436, yan-yw.wang@broadcom.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
+- Upstream Issue: https://github.com/goharbor/harbor/issues/21469
