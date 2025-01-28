@@ -38,6 +38,44 @@ security posture of Envoy Gateway through comprehensive automated testing.
   - Teju Nareddy (@nareddyt, tnareddy@confluent.io)
 - Upstream Issue: https://github.com/envoyproxy/gateway/issues/3124
 
+### Inspektor Gadget
+
+#### Building gadgets with Rust
+
+- Description: Inspektor Gadget is an eBPF tool and systems inspection framework for Kubernetes, containers and Linux
+ hosts. A Gadget is an OCI image that includes one or more eBPF programs, metadata YAML file, and optionally, WASM modules for post processing. Today, Inspektor Gadget provides tooling to build gadgets from source code written in C (for the eBPF module) and Go (for the WASM module). This project is about adding support from building gadgets from Rust both for eBPF programs and for WASM modules.
+- Expected Outcome: users can write their gadgets in Rust.
+- Recommended Skills: Rust, Go, eBPF, WASM
+- Mentor(s):
+  - Mauricio Vasquez Bernal (@mauriciovasquezbernal, mauriciov@microsoft.com)
+  - Francis Laniel (@eiffel-fl, flaniel@linux.microsoft.com)
+- Upstream Issue: https://github.com/inspektor-gadget/inspektor-gadget/issues/3950
+
+#### Implementing unit tests
+
+- Description: Inspektor Gadget is an eBPF tool and systems inspection framework for Kubernetes, containers and Linux hosts. A Gadget is an OCI image that includes one or more eBPF programs, metadata YAML file, and optionally, WASM modules for post processing. As OCI images, they use the same tooling as containers: building, pushing/pulling from OCI Registries.
+Even though there are many integration tests, we wish to increase the coverage of unit tests for the majority of internal packages. These packages are essential, and a bad commit could lead to unseen disruptions. Debugging and diagnosing through integration tests is cumbersome and takes too much time.
+- Expected Outcome:
+  - Find out which packages are in most need of unit tests
+  - Create a mock class/framework if needed
+  - Implement unit tests
+- Recommended Skills: Go
+- Mentors:
+  - Burak Ok (@burak-ok, burakok@microsoft.com)
+  - Qasim Sarfraz (@mqasimsarfraz,  qasimsarfraz@microsoft.com)
+- Upstream Issue: https://github.com/inspektor-gadget/inspektor-gadget/issues/3835
+
+#### Inspekting and analysing gadgets
+
+- Description: Inspektor Gadget is an eBPF tool and systems inspection framework for Kubernetes, containers and Linux
+ hosts. A Gadget is an OCI image that includes one or more eBPF programs, metadata YAML file, and optionally, WASM modules for post processing. As OCI images, they use the same tooling as containers: building, pushing/pulling from OCI Registries. But today, Inspektor Gadget does not have good tooling for inspecting a gadget: the `ig image inspect` command just gives the gadget name, digest and creation date without further details.
+- Expected Outcome: the `ig image inspect` command tells the architectures supported by the gadget, the layers included in the OCI image, the data sources with their fields, the eBPF parameters. Additionally, inspecting the eBPF module can provide the ELF sections, the eBPF maps and the disassembled eBPF bytecode annotated with the source when available.
+- Recommended Skills: Go, eBPF
+- Mentors:
+  - Alban Crequy (@alban, albancrequy@microsoft.com)
+  - Jose Blanquicet (@blanquicet, josebl@microsoft.com)
+- Upstream Issue: https://github.com/inspektor-gadget/inspektor-gadget/issues/3387
+
 ### Jaeger
 
 #### Jaeger: Upgrade Storage Backends to V2 Storage API
