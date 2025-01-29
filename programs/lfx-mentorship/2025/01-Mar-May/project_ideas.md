@@ -76,7 +76,9 @@ security posture of Envoy Gateway through comprehensive automated testing.
   - The website has more readable documentation, covering user cases, developer courses, etc. 
   - Docs about how to develop website.
 - Recommended Skills: JS, Kmesh, Html
-- Mentor(s): LiZhenCheng9527(@LiZhenCheng9527 , leezhencheng6@gmail.com)
+- Mentor(s):
+  - ZhenCheng Li(@LiZhenCheng9527, leezhencheng6@gmail.com),
+  - Zhonghu Xu(@hzxuzhonghu, zhhxu2011@163.com)
 - Upstream Issue: https://github.com/kmesh-net/website/issues/115
 
 #### Kmesh eBPF unit test
@@ -87,7 +89,9 @@ eBPF, a recently introduced programmable technology in the kernel, currently has
   - Export Kmesh eBPF programs to support UT test case.
   - Export design documentation for eBPF UT tests
 - Recommended Skills: C, eBPF,  (go)
-- Mentor(s): @bitcoffeeiux ([liuxin350@huawei.com](mailto:liuxin350@huawei.com))
+- Mentor(s):
+  - Xin Liu(@bitcoffeeiux, liuxin350@huawei.com)
+  - Changye Wu(@nlgwcy, wuchangye@huawei.com)
 - Upstream Issue: https://github.com/kmesh-net/kmesh/issues/1209
 
 #### Add the Kmesh e2e Test
@@ -97,7 +101,9 @@ eBPF, a recently introduced programmable technology in the kernel, currently has
   - e2e Test Cases
   - Documentation maintenance for e2e testing
 - Recommended Skills: go, Kmesh
-- Mentor(s): @YaoZengzeng (yaozengzeng@huawei.com)
+- Mentor(s):
+  - Zengzeng Yao(@yaozegzeng, yaozengzeng@huawei.com)
+  - Zhonghu Xu(@hzxuzhonghu, zhhxu2011@163.com)
 - Upstream Issue: https://github.com/kmesh-net/kmesh/issues/1210
 
 #### Metrics for TCP Long Connection
@@ -108,7 +114,9 @@ eBPF, a recently introduced programmable technology in the kernel, currently has
   - code
   - user guide.
 - Recommended Skills: go, c, eBPF
-- Mentor(s): @nlgwcy (wuchangye@huawei.com)
+- Mentor(s):
+  - Changye wu(@nlgwcy, wuchangye@huawei.com)
+  - ZhenCheng Li(@LiZhenCheng9527, leezhencheng6@gmail.com)
 - Upstream Issue: https://github.com/kmesh-net/kmesh/issues/1211
 
 ### KubeStellar
