@@ -214,7 +214,6 @@ find requirements from https://github.com/WebAssembly/component-model/tree/main/
 - Recommended Skills: Golang, spf13/cobra
 - Mentor(s):
   - Vadim Bauer (@vad1mo, vb@container-registry.com)
-  - Yan Wang (@wy65701436, yan-yw.wang@broadcom.com)
   - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
   - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
 - Upstream Issue: https://github.com/goharbor/harbor-cli/issues/315
@@ -229,7 +228,6 @@ find requirements from https://github.com/WebAssembly/component-model/tree/main/
 - Recommended Skills: Golang, Container, Image-spec, Distribution-spec
 - Mentor(s):
   - Vadim Bauer (@vad1mo, vb@container-registry.com)
-  - Yan Wang (@wy65701436, yan-yw.wang@broadcom.com)
   - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
   - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
 - Upstream Issue: https://github.com/goharbor/harbor/issues/21469
