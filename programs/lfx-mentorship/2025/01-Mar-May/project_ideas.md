@@ -38,6 +38,46 @@ security posture of Envoy Gateway through comprehensive automated testing.
   - Teju Nareddy (@nareddyt, tnareddy@confluent.io)
 - Upstream Issue: https://github.com/envoyproxy/gateway/issues/3124
 
+### Headlamp (a Kubernetes UI)
+
+#### Headlamp: Instrument with OpenTelemetry
+
+- Description: Headlamp is a Kubernetes UI which is extensible. Having it instrumented with OpenTelemetry would allow those operating it to get information for debugging it when problems happen.
+- Expected Outcome: Headlamp backend and frontend are instrumented so those that want to use OpenTelemetry when operating Headlamp can. There's documentation and a blog post with a demo video explaining how it's used.
+- Recommended Skills: golang, TypeScript
+- Mentor(s):
+  - Rene Dudfield (@illume, renedudfield@microsoft.com)
+  - Kautilya Tripathi (@knrt10, ktripathi@microsoft.com)
+  - Santhosh Nagaraj (@yolossn, sannagaraj@microsoft.com)
+- Upstream Issue: https://github.com/headlamp-k8s/headlamp/issues/2799
+
+#### Headlamp: Make a Headlamp plugin for KEDA
+
+- Description: Headlamp is a Kubernetes UI which is extensible. KEDA is a Kubernetes-based Event Driven Autoscaler. With KEDA, one can drive the scaling of any container in Kubernetes based on the number of events needing to be processed. While KEDA provides excellent functionality for scaling workloads based on event sources and custom metrics, monitoring and managing KEDA resources through Kubernetes dashboards remains challenging.
+- Expected Outcome: Create a Headlamp plugin that provides comprehensive visibility and management capabilities for KEDA resources, enabling users to do the following. 1. View and manage ScaledObjects and ScaledJobs through a intuitive interface. 2. Monitor real-time scaling metrics and trigger states. 3. Troubleshoot scaling behaviors with integrated logging and event visualization.
+- Recommended Skills: Golang, TypeScript. Kubernetes and KEDA too would be nice to have.
+- Mentor(s):
+  - Santhosh Nagaraj (@yolossn, sannagaraj@microsoft.com)
+  - Rene Dudfield (@illume, renedudfield@microsoft.com)
+  - Kautilya Tripathi (@knrt10, ktripathi@microsoft.com)
+- Upstream Issue: https://github.com/headlamp-k8s/headlamp/issues/2791
+
+#### Headlamp: Build Plugin Installation Container
+
+- Description: Headlamp is a Kubernetes UI which is extensible through plugins. Currently, plugin installation in Kubernetes environments requires manual intervention.  We need a containerized solution that can automatically install plugins during Headlamp's deployment using Kubernetes-native approaches like init containers and ConfigMaps.
+- Expected Outcome:
+  1. A containerized version of headlamp-plugin CLI that can be used as an init container
+  2. Helm chart updates to support plugin installation via configuration
+  3. Automated container builds as part of Headlamp's release process
+  4. Documentation and examples showing how to use the plugin installer container
+  5. Integration tests validating the plugin installation process
+- Recommended Skills: Kubernetes, TypeScript, Shell scripting
+- Mentor(s):
+  - Kautilya Tripathi (@knrt10, ktripathi@microsoft.com)
+  - Santhosh Nagaraj (@yolossn, sannagaraj@microsoft.com)
+  - Rene Dudfield (@illume, renedudfield@microsoft.com)
+- Upstream Issue: https://github.com/headlamp-k8s/headlamp/issues/2787
+
 ### Inspektor Gadget
 
 #### Building gadgets with Rust
