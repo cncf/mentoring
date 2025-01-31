@@ -229,24 +229,20 @@ The objective of this project is to enhance the compliance of the Karmada certif
     - Add support for user-defined themes (dark/light mode).
     - Exportable configurations for sharing binding policies or deployment setups.
 
+By implementing these enhancements, KubeStellar UI will evolve into a comprehensive tool for cluster management, empowering users to efficiently deploy and manage resources while offering an intuitive and modern interface.
+
 - Recommended Skills
   - Frontend Development: Node.js, React, Vite, and REST API integration.
   - Backend Development: Go and Kubernetes API communication.
   - Cluster Management: Familiarity with Kubernetes clusters and associated workflows.
   - UI/UX Design: Experience in designing interfaces for system operators.
 
-- Mentor
-  Andy Anderson
-  GitHub: @clubanderson
-  Email: andy@clubanderson.com
-  Braulio Dumba
-  GitHub: dumb0002
-  Email: braulio.dumba@ibm.com
+- Mentor(s):
+  - Andy Anderson (@clubanderson, andy@clubanderson.com)
+  - Braulio Dumba (dumb0002, braulio.dumba@ibm.com)
 
-- Repository
-  GitHub Repository: kubestellar/ui
+- Upstream Issue: kubestellar/ui (TBD)
 
-By implementing these enhancements, KubeStellar UI will evolve into a comprehensive tool for cluster management, empowering users to efficiently deploy and manage resources while offering an intuitive and modern interface.
 
 ### WasmEdge
 
@@ -344,4 +340,4 @@ find requirements from https://github.com/WebAssembly/component-model/tree/main/
     - Arthur Sens (@ArthurSens, arthursens2005@gmail.com)
     - Amy Super (@amy-super, amy.super@grafana.com)
     - Andrej Kiripolsky (@AndrejKiri, andrej.kiripolsky@grafana.com)
-* Upstream Issue: 
+* Upstream Issue: https://github.com/prometheus/prometheus/issues/15909
