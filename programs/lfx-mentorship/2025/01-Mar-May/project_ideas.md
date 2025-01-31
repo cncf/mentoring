@@ -38,6 +38,84 @@ security posture of Envoy Gateway through comprehensive automated testing.
   - Teju Nareddy (@nareddyt, tnareddy@confluent.io)
 - Upstream Issue: https://github.com/envoyproxy/gateway/issues/3124
 
+### Headlamp (a Kubernetes UI)
+
+#### Headlamp: Instrument with OpenTelemetry
+
+- Description: Headlamp is a Kubernetes UI which is extensible. Having it instrumented with OpenTelemetry would allow those operating it to get information for debugging it when problems happen.
+- Expected Outcome: Headlamp backend and frontend are instrumented so those that want to use OpenTelemetry when operating Headlamp can. There's documentation and a blog post with a demo video explaining how it's used.
+- Recommended Skills: golang, TypeScript
+- Mentor(s):
+  - Rene Dudfield (@illume, renedudfield@microsoft.com)
+  - Kautilya Tripathi (@knrt10, ktripathi@microsoft.com)
+  - Santhosh Nagaraj (@yolossn, sannagaraj@microsoft.com)
+- Upstream Issue: https://github.com/headlamp-k8s/headlamp/issues/2799
+
+#### Headlamp: Make a Headlamp plugin for KEDA
+
+- Description: Headlamp is a Kubernetes UI which is extensible. KEDA is a Kubernetes-based Event Driven Autoscaler. With KEDA, one can drive the scaling of any container in Kubernetes based on the number of events needing to be processed. While KEDA provides excellent functionality for scaling workloads based on event sources and custom metrics, monitoring and managing KEDA resources through Kubernetes dashboards remains challenging.
+- Expected Outcome: Create a Headlamp plugin that provides comprehensive visibility and management capabilities for KEDA resources, enabling users to do the following. 1. View and manage ScaledObjects and ScaledJobs through a intuitive interface. 2. Monitor real-time scaling metrics and trigger states. 3. Troubleshoot scaling behaviors with integrated logging and event visualization.
+- Recommended Skills: Golang, TypeScript. Kubernetes and KEDA too would be nice to have.
+- Mentor(s):
+  - Santhosh Nagaraj (@yolossn, sannagaraj@microsoft.com)
+  - Rene Dudfield (@illume, renedudfield@microsoft.com)
+  - Kautilya Tripathi (@knrt10, ktripathi@microsoft.com)
+- Upstream Issue: https://github.com/headlamp-k8s/headlamp/issues/2791
+
+#### Headlamp: Build Plugin Installation Container
+
+- Description: Headlamp is a Kubernetes UI which is extensible through plugins. Currently, plugin installation in Kubernetes environments requires manual intervention.  We need a containerized solution that can automatically install plugins during Headlamp's deployment using Kubernetes-native approaches like init containers and ConfigMaps.
+- Expected Outcome:
+  1. A containerized version of headlamp-plugin CLI that can be used as an init container
+  2. Helm chart updates to support plugin installation via configuration
+  3. Automated container builds as part of Headlamp's release process
+  4. Documentation and examples showing how to use the plugin installer container
+  5. Integration tests validating the plugin installation process
+- Recommended Skills: Kubernetes, TypeScript, Shell scripting
+- Mentor(s):
+  - Kautilya Tripathi (@knrt10, ktripathi@microsoft.com)
+  - Santhosh Nagaraj (@yolossn, sannagaraj@microsoft.com)
+  - Rene Dudfield (@illume, renedudfield@microsoft.com)
+- Upstream Issue: https://github.com/headlamp-k8s/headlamp/issues/2787
+
+### Inspektor Gadget
+
+#### Building gadgets with Rust
+
+- Description: Inspektor Gadget is an eBPF tool and systems inspection framework for Kubernetes, containers and Linux
+ hosts. A Gadget is an OCI image that includes one or more eBPF programs, metadata YAML file, and optionally, WASM modules for post processing. Today, Inspektor Gadget provides tooling to build gadgets from source code written in C (for the eBPF module) and Go (for the WASM module). This project is about adding support from building gadgets from Rust both for eBPF programs and for WASM modules.
+- Expected Outcome: users can write their gadgets in Rust.
+- Recommended Skills: Rust, Go, eBPF, WASM
+- Mentor(s):
+  - Mauricio Vasquez Bernal (@mauriciovasquezbernal, mauriciov@microsoft.com)
+  - Francis Laniel (@eiffel-fl, flaniel@linux.microsoft.com)
+- Upstream Issue: https://github.com/inspektor-gadget/inspektor-gadget/issues/3950
+
+#### Implementing unit tests
+
+- Description: Inspektor Gadget is an eBPF tool and systems inspection framework for Kubernetes, containers and Linux hosts. A Gadget is an OCI image that includes one or more eBPF programs, metadata YAML file, and optionally, WASM modules for post processing. As OCI images, they use the same tooling as containers: building, pushing/pulling from OCI Registries.
+Even though there are many integration tests, we wish to increase the coverage of unit tests for the majority of internal packages. These packages are essential, and a bad commit could lead to unseen disruptions. Debugging and diagnosing through integration tests is cumbersome and takes too much time.
+- Expected Outcome:
+  - Find out which packages are in most need of unit tests
+  - Create a mock class/framework if needed
+  - Implement unit tests
+- Recommended Skills: Go
+- Mentors:
+  - Burak Ok (@burak-ok, burakok@microsoft.com)
+  - Qasim Sarfraz (@mqasimsarfraz,  qasimsarfraz@microsoft.com)
+- Upstream Issue: https://github.com/inspektor-gadget/inspektor-gadget/issues/3835
+
+#### Inspekting and analysing gadgets
+
+- Description: Inspektor Gadget is an eBPF tool and systems inspection framework for Kubernetes, containers and Linux
+ hosts. A Gadget is an OCI image that includes one or more eBPF programs, metadata YAML file, and optionally, WASM modules for post processing. As OCI images, they use the same tooling as containers: building, pushing/pulling from OCI Registries. But today, Inspektor Gadget does not have good tooling for inspecting a gadget: the `ig image inspect` command just gives the gadget name, digest and creation date without further details.
+- Expected Outcome: the `ig image inspect` command tells the architectures supported by the gadget, the layers included in the OCI image, the data sources with their fields, the eBPF parameters. Additionally, inspecting the eBPF module can provide the ELF sections, the eBPF maps and the disassembled eBPF bytecode annotated with the source when available.
+- Recommended Skills: Go, eBPF
+- Mentors:
+  - Alban Crequy (@alban, albancrequy@microsoft.com)
+  - Jose Blanquicet (@blanquicet, josebl@microsoft.com)
+- Upstream Issue: https://github.com/inspektor-gadget/inspektor-gadget/issues/3387
+
 ### Jaeger
 
 #### Jaeger: Upgrade Storage Backends to V2 Storage API
@@ -66,6 +144,42 @@ security posture of Envoy Gateway through comprehensive automated testing.
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
 - Upstream Issue: https://github.com/jaegertracing/jaeger-ui/issues/2534
+
+### Karmada
+
+#### Karmada Self-Signed Certificate Content Standardization
+
+- Description: In the existing [Karmada](https://github.com/karmada-io/karmada) architecture, each component should have its own unique certificates to ensure clear identity and security. Best practices dictate that each component's name be used as the Common Name (CN) in its certificate to facilitate identity differentiation. However, currently, all Karmada components share same identical certificate content, leading to confusion and potential security risks.
+The objective of this project is to enhance the compliance of the Karmada certificate system by ensuring that each component possesses distinct certificates that reflect its identity. This will improve system security, reduce management complexity, and align with industry standards. This project aims to achieve the following standards:
+  - Utilize a single CA certificate for the entire Karmada system.
+  - Issue individual server certificates for each server component, using the component name as the CN.
+  - Issue individual client certificates for each client component, using the component name as the CN, same client can use consistent certificate for different servers.
+- Expected Outcome:
+  - Complete the issuance of different certificates for 8 server components and import the certificate content into the corresponding certificate Secrets.
+  - Complete the issuance of different certificates for 11 client components and import the certificate content into the corresponding certificate Secrets or Config Secrets.
+- Recommended Skills:
+  - Familiarity with Golang, Kubernetes, and Karmada.
+  - Basic understanding of certificate management.
+- Mentor(s):
+  - Chaosi Pan (@chaosi-zju, chaosi@zju.edu.cn)
+  - Zhen Chang (@XiShanYongYe-Chang, changzhen5@huawei.com)
+- Upstream Issue: https://github.com/karmada-io/karmada/issues/6091
+
+#### Implement multi-cluster management in the Karmada dashboard
+
+- Description: The Karmada dashboard has already implemented the management of resources in the control plane. Apart from that, we hope to implement the management of resources in the member cluster: once users add Kubernetes resources and the corresponding policy resources on the control plane, they can switch to the corresponding member cluster seamlessly, check the status of Kubernetes resources in the specific member cluster. Kubernetes dashboard is one of the most popular single-cluster management tools, which uses client-go sdk to communicate with the apiserver to manage resources in the cluster. A great deal of client-go related logic can be extended to muli-cluster easily, due to the karmada-aggregated-apiserver component and the compatibility design between Kubernetes resource and Karmada resoruces. So we hope to combine the Kubernetes dashboard with the karmada-aggregated-apiserver component to implement multi-cluster management in the Karmada dashboard.
+- Expected Outcome:
+  - Proposal for multi-cluster management base on `karmada-aggregated-apiserver`.
+  - Tools to lift Kubernetes dashboard with specific version into Karmada dashboard repo, and implement management of resources in member cluster based on `karmada-aggregated-apiserver`.
+  - Typical ui for member-cluster management:
+    - list/detail/delete/update action for `deployment` resources.
+    - log viewer for `pod`.
+    - web terminal for `pod`，which user can attach the running pod, and execute tempory commands.
+- Recommended Skills: Kubernetes, Go, gin, react, webgl
+- Mentor(s):
+  - Wenjiang Ding (@warjiang, 1096409085@qq.com)
+  - Zhen Chang (@XiShanYongYe-Chang, changzhen5@huawei.com)
+- Upstream Issue: https://github.com/karmada-io/dashboard/issues/182
 
 ### Kmesh
 
@@ -167,24 +281,20 @@ eBPF, a recently introduced programmable technology in the kernel, currently has
     - Add support for user-defined themes (dark/light mode).
     - Exportable configurations for sharing binding policies or deployment setups.
 
+By implementing these enhancements, KubeStellar UI will evolve into a comprehensive tool for cluster management, empowering users to efficiently deploy and manage resources while offering an intuitive and modern interface.
+
 - Recommended Skills
   - Frontend Development: Node.js, React, Vite, and REST API integration.
   - Backend Development: Go and Kubernetes API communication.
   - Cluster Management: Familiarity with Kubernetes clusters and associated workflows.
   - UI/UX Design: Experience in designing interfaces for system operators.
 
-- Mentor
-  Andy Anderson
-  GitHub: @clubanderson
-  Email: andy@clubanderson.com
-  Braulio Dumba
-  GitHub: dumb0002
-  Email: braulio.dumba@ibm.com
+- Mentor(s):
+  - Andy Anderson (@clubanderson, andy@clubanderson.com)
+  - Braulio Dumba (dumb0002, braulio.dumba@ibm.com)
 
-- Repository
-  GitHub Repository: kubestellar/ui
+- Upstream Issue: kubestellar/ui (TBD)
 
-By implementing these enhancements, KubeStellar UI will evolve into a comprehensive tool for cluster management, empowering users to efficiently deploy and manage resources while offering an intuitive and modern interface.
 
 ### WasmEdge
 
@@ -254,3 +364,32 @@ find requirements from https://github.com/WebAssembly/component-model/tree/main/
   - Miley Fu (@MileyFu, miley@secondstate.io)
   - Vivian Hu (@alabulei1, vivian@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3986
+
+### Prometheus
+
+#### Get `PrometheusRemoteWriteReceiver` in OTel-Collector to Alpha Maturity
+
+- Description: In recent discussions with the team, we decided that Prometheus won't be exporting its data with the OTLP format, however, Prometheus is still committed to have good import/export compatibility with OpenTelemetry. Last year Prometheus release the second version of its Remote-Write protocol, which translates a lot better with the OTLP format and the team started working on a PRW receiver in the collector-contrib project. This project is about getting this component into the finish line and publish it as an stable component in the collector.
+- Expected Outcome: PrometheusRemoteWriteReceiver considered Alpha and released with OpenTelemetry-Collector-Contrib.
+- Recommended Skills: Prometheus Remote-Write, OTLP, Go.
+- Mentor(s):
+  - Arthur Sens (@ArthurSens, arthursens2005@gmail.com)
+- Upstream Issue: https://github.com/open-telemetry/opentelemetry-collector-contrib/issues/37277
+
+#### UX Research: How users expect to use OTLP Resource Attributes in Prometheus
+
+- Description: In the last year Prometheus has tackled and solved many UX problems that OTel users had when sending OTLP data to Prometheus. One challenge that remains unsolved is how do users expect to use OTLP Resource Attributes in Prometheus. This project is about conducting a UX research that explores the main problems users are facing today with the current state of Resource Attributes and Prometheus and coming up with ideas how to solve them.
+- Expected Outcome: 
+  -  Preliminary artifacts (e.g., research plan) shared as project progresses.
+  - Research report, summarizing the findings.
+  - A spoken presentation including research method and results.
+    - Stretch goal: apply to present the project at KubeCon.
+- Recommended Skills:
+  - Interest or currently working in UX Research and Design.
+  - Familiarity with databases and querying.
+  - Being comfortable to talk with End-Users in English.
+- Mentor(s):
+    - Arthur Sens (@ArthurSens, arthursens2005@gmail.com)
+    - Amy Super (@amy-super, amy.super@grafana.com)
+    - Andrej Kiripolsky (@AndrejKiri, andrej.kiripolsky@grafana.com)
+* Upstream Issue: https://github.com/prometheus/prometheus/issues/15909
