@@ -281,6 +281,72 @@ eBPF, a recently introduced programmable technology in the kernel, currently has
   - ZhenCheng Li(@LiZhenCheng9527, leezhencheng6@gmail.com)
 - Upstream Issue: https://github.com/kmesh-net/kmesh/issues/1211
 
+### KubeEdge
+
+#### Domain-specific large model benchmarks: the edge perspective
+
+- Description: Based on existing datasets, the issue aims to build an advanced benchmark for edge-oriented domain-specific large models on KubeEdge-Ianvs. It aims to help all Edge AI application developers validate and select the best-matched domain-specific large models. For Edge AI service providers, it also helps identify which scenarios, edge nodes, or even locations could have the best performance or improvement for their models.
+- Expected Outcome: 
+  - Domain-specific Large Model Benchmark for the edge, including test datasets, testing toolkits, and usage guidelines.
+  - (Advanced) Design and implementation of specific evaluation metrics.
+  - (Advanced) Survey and research reports.
+- Recommended Skills: KubeEdge-Ianvs, Python, LLMs
+- Mentor(s):
+  - Zimu Zheng (@MooreZheng, zimu.zheng@hotmail.com)
+  - hsj576 (@hsj576, sjhu21@m.fudan.edu.cn)
+- Upstream Issue: https://github.com/kubeedge/ianvs/issues/177
+
+#### Enhance Dependency Management and Documentation for KubeEdge-Ianvs
+
+- Description: Ianvs is currently grappling with significant dependency management challenges. It lacks a robust system to handle updates and ensure compatibility. As Python versions, dependency libraries, and Ianvs features continuously evolve, many existing examples fail to run, resulting in a surge of inquiries in the Issues section. Moreover, new PRs are often merged without being tested against historical examples, making it difficult to guarantee the functionality of past features through manual Code Review alone. There is an urgent need for a more comprehensive CI testing framework to maintain the usability of Ianvs features as the project progresses. Additionally, the online documentation is outdated, which can be quite confusing for new users.
+- Expected Outcome: 
+  - Update the Contributing Guide
+  - Develop a New Quick Start Example with Comprehensive Documentation
+  - Update Documentation for Other Paradigm Usage
+- Recommended Skills:  KubeEdge, Ianvs, Python, CI/CD pipelines
+- Mentor(s):
+  - FuryMartin (@FuryMartin, furymartin9910@outlook.com)
+  - hsj576 (@hsj576, sjhu21@m.fudan.edu.cn)
+- Upstream Issue: https://github.com/kubeedge/ianvs/issues/178
+
+#### Enhance KubeEdge testing coverage
+
+- Description: KubeEdge would like to improve the UT coverage of the code to better maintain the quality of the code and reduce the introduction of defects. Increase the UT coverage rate to 60% to 70% (currently, the UT coverage rate is 38.69% ). It is important to note that in addition to requiring the overall UT coverage of KubeEdge to meet the requirements, the UT coverage of each core code directory(cloud/, edge/, keadm/ and pkg/) also needs to exceed 60%.
+- Expected Outcome: Increase the UT coverage rate to 60% to 70%
+- Recommended Skills:  KubeEdge, Go, Testing
+- Mentor(s):
+  - Elias Wang (@wbc6080, wangbincheng4@huawei.com)
+  - Fisher Xu (@fisherxu, fisherxu1@gmail.com)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/6101
+
+#### KubeEdge Dashboard Enhancement - BFF
+
+- Description: To improve the performance of KubeEdge dashboard, we would like to introduce a BFF (Backend for Frontend) layer. It serves as a middle layer to handle the communication between the dashboard and the KubeEdge API, providing a more efficient, secure, and maintainable solution.
+- Expected Outcome: 
+  - Integrate with [keink](https://github.com/kubeedge/keink)
+  - Error handling and retry
+  - Data pre-processing (Optional)
+- Recommended Skills:  KubeEdge, JavaScript, React
+- Mentor(s):
+  - Chen Su (@ghosind, ghosind@gmail.com)
+  - Elias Wang (@wbc6080, wangbincheng4@huawei.com)
+- Upstream Issue: https://github.com/kubeedge/dashboard/issues/37
+
+#### Community Website Comprehensive Upgrade Project: Homepage Renewal and Expansion of Core Pages
+
+- Description: To improve the user experience of the KubeEdge official website, this project will focus on homepage design enhancements, the addition of new pages, and improvements to community resources. The goal of this project is to enhance the website's usability, increase user engagement, and attract more users to KubeEdge by enhancing training content and hardware compatibility support.
+- Expected Outcome:
+  - Design and optimization of the homepage, including design and code updates. 
+  - New page: Showcase for KubeEdge course videos, including design and code updates. 
+  - New page: "Hardware Compatibility" page, including design and code updates. 
+  - Design and optimization of the partner page, including design and code updates. 
+  - Optimization of community resources, improving documentation and onboarding experience to ensure users can easily get started and effectively use KubeEdge.
+- Recommended Skills:  KubeEdge, JavaScript, Docusaurus
+- Mentor(s):
+  - Hongbing Zhang (@HongbingZhang, hongbing.zhang@daocloud.io)
+  - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
+- Upstream Issue: https://github.com/kubeedge/website/issues/665
+
 ### KubeStellar
 
 #### Enhancing KubeStellar UI for Expanded Functionality and User Experience
