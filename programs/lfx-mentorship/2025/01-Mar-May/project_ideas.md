@@ -18,6 +18,33 @@
 
 ## Proposed Project ideas
 
+### Istio
+
+#### Support TLS for Istio metrics endpoints
+
+- Description: [Istio](https://istio.io) extends Kubernetes to establish a programmable, application-aware network. Working with both Kubernetes and traditional workloads, Istio brings standard, universal traffic management, telemetry, and security to complex deployments
+
+Istio does not support HTTPs based metric scraping for control plane, gateway, and Envoy sidecar [metrics](https://istio.io/latest/docs/ops/integrations/prometheus/#tls-settings)
+
+This could have some security related consequences:
+
+- An attacker might find some sensitive information that they can use for their advantage. For example, Envoy /stats endpoint can be used to enumerate all upstream services in the cluster.
+- In theory an attacker could masquerade the metrics endpoint(s) and inject fake data to monitoring systems, in order to e.g. hide an ongoing attack, confuse the system to autoscale up/down etc.
+
+It would be nice to protect the metrics endpoints with TLS, using mutual authentication. While this feature is a big one covering multiple components,
+the easiest component alone is intended to be covered as part of this internship.
+
+- Expected Outcome:
+  - Implement HTTPS metrics for ztunnel component
+  - Add unit tests and integration tests for the feature
+  - Add documentation for the functionality
+- Recommended Skills: Rust, Go, scripting, Kubernetes, Istio Ambient basics.
+- Mentor(s):
+  - Faseela K (@kfaseela, k.faseela@gmail.com)
+  - Benjamin Leggett (@bleggett, benjamin.leggett@solo.io)
+  - Jianpeng He(@zirain, zirain2009@gmail.com)
+- Upstream Issue: https://github.com/istio/istio/issues/54760
+
 ### Envoy Gateway
 
 #### Integrating CNCF Fuzzing Framework for Envoy Gateway
@@ -29,6 +56,7 @@ Ensuring the reliability and security of Envoy Gateway is paramount for its grow
 Fuzzing, a widely-used technique for identifying software vulnerabilities and bugs, can significantly enhance the robustness of Envoy Gateway.
 By integrating the [CNCF Fuzzing Framework](https://github.com/cncf/cncf-fuzzing), this project aims to improve the 
 security posture of Envoy Gateway through comprehensive automated testing.
+
 - Expected Outcome:
   - Add a fuzz test that covers 80% of code paths for translating Gateway API input configuration into xDS output.
   - Enable continuous fuzzing using [OSS-Fuzz](https://github.com/google/oss-fuzz).
