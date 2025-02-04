@@ -536,3 +536,20 @@ find requirements from https://github.com/WebAssembly/component-model/tree/main/
     - Amy Super (@amy-super, amy.super@grafana.com)
     - Andrej Kiripolsky (@AndrejKiri, andrej.kiripolsky@grafana.com)
 * Upstream Issue: https://github.com/prometheus/prometheus/issues/15909
+
+#### TUF
+##### Metadata Repository Visualization
+
+A [TUF](https://theupdateframework.com/) metadata repository consists of signed metadata files, which are read by TUF clients when securely downloading artifacts. The [metadata](https://theupdateframework.com/docs/metadata/) contains information about the artifacts and about the metadata itself, most notably, who is trusted to sign what.
+
+A suitable visual representation of this trust hierarchy makes TUF's security properties more accessible to end-users, and, more importantly, allows metadata signers to carefully review metadata changes before signing them.
+
+In this project you will, together with your mentor and the TUF community, identify requirements for the visualization of a TUF metadata repository and build a corresponding web app.
+
+- Expected Outcome: Identify requirements and build a basic web app to visualize TUF metadata. *(Initial requirements may be inspired by the `tuf-on-ci` use case.)*
+- Recommended Skills: Front-end web development, Information Visualization
+- Mentor(s): # 
+  - Lukas Pühringer (@lukpueh, lukas.puehringer@nyu.edu) - primary
+  - TBD
+- Upstream Issue (URL): TBD, https://github.com/theupdateframework/tuf-on-ci/issues/39 (initial ideas)
+
