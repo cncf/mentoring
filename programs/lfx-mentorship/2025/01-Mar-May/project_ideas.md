@@ -31,7 +31,7 @@ The base of `mksctl` has also been reversed into the `1.x` branch of the `microc
   - Allow developers to easily start new Microcks instances with mksctl start and mksctl stop, for example
   - Allows quick addition of new commands like import from URL, import all the files from a directory, create job, list jobs, and so on.
 Moving to standard tools like Cobra CLI is a way to make it more scalable so that people can contribute and add the features they want.
-- Recommended Skills: Go, scripting, CLI, API.
+- Recommended Skills: Go, scripting, CLI, APIs.
 - Mentor(s):
   - Yacine Kheddache (@yada, yacine@microcks.io)
   - Laurent Broudoux (@lbroudoux, laurent@microcks.io)
