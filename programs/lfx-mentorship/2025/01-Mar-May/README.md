@@ -135,6 +135,54 @@ Even though there are many integration tests, we wish to increase the coverage o
 - Upstream Issue: https://github.com/inspektor-gadget/inspektor-gadget/issues/3387
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a6d66c40-3d12-4fa4-88bf-18574f6b4ec0
 
+### Istio
+
+#### Support TLS for Istio metrics endpoints
+
+- Description: [Istio](https://istio.io) extends Kubernetes to establish a programmable, application-aware network. Working with both Kubernetes and traditional workloads, Istio brings standard, universal traffic management, telemetry, and security to complex deployments
+
+Istio does not support HTTPs based metric scraping for control plane, gateway, and Envoy sidecar [metrics](https://istio.io/latest/docs/ops/integrations/prometheus/#tls-settings)
+
+This could have some security related consequences:
+
+- An attacker might find some sensitive information that they can use for their advantage. For example, Envoy /stats endpoint can be used to enumerate all upstream services in the cluster.
+- In theory an attacker could masquerade the metrics endpoint(s) and inject fake data to monitoring systems, in order to e.g. hide an ongoing attack, confuse the system to autoscale up/down etc.
+
+It would be nice to protect the metrics endpoints with TLS, using mutual authentication. While this feature is a big one covering multiple components,
+the easiest component alone is intended to be covered as part of this internship.
+
+- Expected Outcome:
+  - Implement HTTPS metrics for ztunnel component
+  - Add unit tests and integration tests for the feature
+  - Add documentation for the functionality
+- Recommended Skills: Rust, Go, scripting, Kubernetes, Istio Ambient basics.
+- Mentor(s):
+  - Faseela K (@kfaseela, k.faseela@gmail.com)
+  - Benjamin Leggett (@bleggett, benjamin.leggett@solo.io)
+  - Jianpeng He(@zirain, zirain2009@gmail.com)
+- Upstream Issue: https://github.com/istio/istio/issues/54760
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/9b1a1e87-2757-4f4f-aa58-49d55fc07b16 
+
+#### Improve documentation build infrastructure
+
+- Description: The build infrastructure for istio.io currently carries a complete archived copy of the site for each release of Istio.  These archived versions should be separated to their own branch, with only the supported versions published.  We should also separate out content which is not version-specific (e.g. the home page, news and blogs) so that only the latest version of this content is visible online.
+- Expected Outcome: Updated publishing infrastructure for istio.io which separates evergreen content (home page, blogs) with versioned content (documentation).  Drop-downs per docs page allow switching between the supported versions.  
+- Recommended Skills: Systems engineering, scripting, programming (Go/Bash), Hugo templating
+- Mentor(s):
+  - Craig Box (@craigbox, craig.box AT gee-mail)
+- Upstream Issue: https://github.com/istio/istio.io/issues/15463
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2fe99eb2-abc3-454f-b80a-ffd336fa2788
+
+#### Implement new site search
+
+- Description: Up to four versions of Istio are supported at one time, and so the documentation for each must be available. Our current site search is outdated and needs to be replaced, so that the search content only exists in the site search, and only fresh content is available on google.com.
+- Expected Outcome: Working site search on istio.io, which lets you search for content for the currently supported versions.
+- Recommended Skills: Hugo, Systems engineering, scripting, programming (Bash/go), Hugo templating
+- Mentor(s):
+  - Craig Box (@craigbox, craig.box AT gee-mail)
+- Upstream Issue: https://github.com/istio/istio.io/issues/15464
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a8165dc1-fb52-40ca-bd1f-862a5176df98
+
 ### Jaeger
 
 #### Jaeger: Upgrade Storage Backends to V2 Storage API
