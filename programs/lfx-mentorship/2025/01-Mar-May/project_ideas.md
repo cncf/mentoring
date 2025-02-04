@@ -208,3 +208,25 @@ In this project you will, together with your mentor and the TUF community, ident
   - TBD
 - Upstream Issue (URL): TBD, https://github.com/theupdateframework/tuf-on-ci/issues/39 (initial ideas)
 
+
+### Kyverno
+
+#### Chainsaw Tests For New Policy Types
+
+- Description: Kyverno 1.14 is introducing new policy types based on the upstream ValidatingAdmissionPolicy and MutatingAdmissionPolicy. This issue is to update sample policies for this new type, and update documentation.
+- GitHub Issue: [Chainsaw testing](https://github.com/kyverno/kyverno/issues/12065)
+- Recommended Skills: Golang, Kubernetes, ValidatingAdmissionPolicy
+- Mentor(s):  Charles-Edouard Brétéché (@eddycharly, charles.edouard@nirmata.com)
+
+#### Sample Policies For New Policy Types
+
+- Description: Add and convert Kyverno sample policies using the new policy types.
+- GitHub Issue: https://github.com/kyverno/kyverno/issues/12085 
+- Recommended Skills: Golang, Kubernetes, ValidatingAdmissionPolicy, MutatingAdmissionPolicy
+- Mentor(s): Jim Bugwadia [@JimBugwadia](https://github.com/JimBugwadia)
+
+#### Mutating Admission Policy Integration
+- Description: Integrate Mutating Admission Policy with Kyverno CLI.
+- GitHub Issue: https://github.com/kyverno/kyverno/issues/10573
+- Recommended Skills: Golang, Kubernetes, MutatingAdmissionPolicy
+- Mentor(s): Mariam Fahmy (@MariamFahmy98, mariam.fahmy@nirmata.com), Shuting Zhao (@realshuting, shuting@nirmata.com)
