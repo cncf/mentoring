@@ -244,3 +244,30 @@ This project focuses on creating a validated and repeatable SaaS architecture fo
   - Yacine Kheddache (@yada, yacine@microcks.io)
   - Laurent Broudoux (@lbroudoux, laurent@microcks.io)
 - Upstream Issue: https://github.com/microcks/community/issues/33
+
+### Vitess
+
+#### Enhance flag support across Vitess Components
+
+Vitess is a distributed database system built on MySQL. Flags are widely used in Vitess for configuring components. As part of a major Vitess flag restructure, support for dynamic flag configuration was introduced. However, several Vitess components have not yet fully adopted this feature. This project involves modifying these components to fully integrate dynamic flags and performing additional flag-related refactors where necessary.
+
+- Expected Outcome: Improved flag support across all Vitess components, ensuring consistent and flexible configuration management.
+- Recommended Skills: golang
+- Mentor(s):
+-  Deepthi Sigireddi (@deepthi, deepthi@planetscale.com)
+-  Rohit Nayak (@rohit-nayak-ps, rohit@planetscale.com)
+- Upstream Issue: https://github.com/vitessio/vitess/issues/17687
+
+#### Develop an FAQ Chatbot for Vitess using Retrieval-Augmented Generation
+
+Vitess is a distributed database system built on MySQL. Developers often need to search through documentation, Slack 
+discussions, and GitHub issues to find answers. This project will implement an AI-powered FAQ chatbot using 
+**Retrieval-Augmented Generation**, integrating **vector search** with an **LLM** (like OpenAI, DeepSeek, 
+GPT-4, Mistral, Llama3). The chatbot will be available via a **CLI and Slack bot** for developer support.
+
+- Expected Outcome: A chatbot that provides accurate Vitess-related answers via CLI and Slack, using indexed documentation and discussions for retrieval.
+- Recommended Skills: golang, python, LLM APIs, vector databases
+- Mentor(s):
+  -  Rohit Nayak (@rohit-nayak-ps, rohit@planetscale.com)
+  -  Manan Gupta (@GuptaManan100, manan@planetscale.com)
+- Upstream Issue: https://github.com/vitessio/vitess/issues/17690
