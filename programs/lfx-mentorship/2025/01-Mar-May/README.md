@@ -135,6 +135,54 @@ Even though there are many integration tests, we wish to increase the coverage o
 - Upstream Issue: https://github.com/inspektor-gadget/inspektor-gadget/issues/3387
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a6d66c40-3d12-4fa4-88bf-18574f6b4ec0
 
+### Istio
+
+#### Support TLS for Istio metrics endpoints
+
+- Description: [Istio](https://istio.io) extends Kubernetes to establish a programmable, application-aware network. Working with both Kubernetes and traditional workloads, Istio brings standard, universal traffic management, telemetry, and security to complex deployments
+
+Istio does not support HTTPs based metric scraping for control plane, gateway, and Envoy sidecar [metrics](https://istio.io/latest/docs/ops/integrations/prometheus/#tls-settings)
+
+This could have some security related consequences:
+
+- An attacker might find some sensitive information that they can use for their advantage. For example, Envoy /stats endpoint can be used to enumerate all upstream services in the cluster.
+- In theory an attacker could masquerade the metrics endpoint(s) and inject fake data to monitoring systems, in order to e.g. hide an ongoing attack, confuse the system to autoscale up/down etc.
+
+It would be nice to protect the metrics endpoints with TLS, using mutual authentication. While this feature is a big one covering multiple components,
+the easiest component alone is intended to be covered as part of this internship.
+
+- Expected Outcome:
+  - Implement HTTPS metrics for ztunnel component
+  - Add unit tests and integration tests for the feature
+  - Add documentation for the functionality
+- Recommended Skills: Rust, Go, scripting, Kubernetes, Istio Ambient basics.
+- Mentor(s):
+  - Faseela K (@kfaseela, k.faseela@gmail.com)
+  - Benjamin Leggett (@bleggett, benjamin.leggett@solo.io)
+  - Jianpeng He(@zirain, zirain2009@gmail.com)
+- Upstream Issue: https://github.com/istio/istio/issues/54760
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/9b1a1e87-2757-4f4f-aa58-49d55fc07b16 
+
+#### Improve documentation build infrastructure
+
+- Description: The build infrastructure for istio.io currently carries a complete archived copy of the site for each release of Istio.  These archived versions should be separated to their own branch, with only the supported versions published.  We should also separate out content which is not version-specific (e.g. the home page, news and blogs) so that only the latest version of this content is visible online.
+- Expected Outcome: Updated publishing infrastructure for istio.io which separates evergreen content (home page, blogs) with versioned content (documentation).  Drop-downs per docs page allow switching between the supported versions.  
+- Recommended Skills: Systems engineering, scripting, programming (Go/Bash), Hugo templating
+- Mentor(s):
+  - Craig Box (@craigbox, craig.box AT gee-mail)
+- Upstream Issue: https://github.com/istio/istio.io/issues/15463
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2fe99eb2-abc3-454f-b80a-ffd336fa2788
+
+#### Implement new site search
+
+- Description: Up to four versions of Istio are supported at one time, and so the documentation for each must be available. Our current site search is outdated and needs to be replaced, so that the search content only exists in the site search, and only fresh content is available on google.com.
+- Expected Outcome: Working site search on istio.io, which lets you search for content for the currently supported versions.
+- Recommended Skills: Hugo, Systems engineering, scripting, programming (Bash/go), Hugo templating
+- Mentor(s):
+  - Craig Box (@craigbox, craig.box AT gee-mail)
+- Upstream Issue: https://github.com/istio/istio.io/issues/15464
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a8165dc1-fb52-40ca-bd1f-862a5176df98
+
 ### Jaeger
 
 #### Jaeger: Upgrade Storage Backends to V2 Storage API
@@ -259,6 +307,77 @@ eBPF, a recently introduced programmable technology in the kernel, currently has
   - ZhenCheng Li(@LiZhenCheng9527, leezhencheng6@gmail.com)
 - Upstream Issue: https://github.com/kmesh-net/kmesh/issues/1211
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/c5dadaed-445e-4a74-825b-3e2f1a8b2be1
+
+### KubeEdge
+
+#### Domain-specific large model benchmarks: the edge perspective
+
+- Description: Based on existing datasets, the issue aims to build an advanced benchmark for edge-oriented domain-specific large models on KubeEdge-Ianvs. It aims to help all Edge AI application developers validate and select the best-matched domain-specific large models. For Edge AI service providers, it also helps identify which scenarios, edge nodes, or even locations could have the best performance or improvement for their models.
+- Expected Outcome: 
+  - Domain-specific Large Model Benchmark for the edge, including test datasets, testing toolkits, and usage guidelines.
+  - (Advanced) Design and implementation of specific evaluation metrics.
+  - (Advanced) Survey and research reports.
+- Recommended Skills: KubeEdge-Ianvs, Python, LLMs
+- Mentor(s):
+  - Zimu Zheng (@MooreZheng, zimu.zheng@hotmail.com)
+  - hsj576 (@hsj576, sjhu21@m.fudan.edu.cn)
+- Upstream Issue: https://github.com/kubeedge/ianvs/issues/177
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/e3fc44d9-9ddd-42e6-a9be-8f6c2a114672
+
+#### Enhance Dependency Management and Documentation for KubeEdge-Ianvs
+
+- Description: Ianvs is currently grappling with significant dependency management challenges. It lacks a robust system to handle updates and ensure compatibility. As Python versions, dependency libraries, and Ianvs features continuously evolve, many existing examples fail to run, resulting in a surge of inquiries in the Issues section. Moreover, new PRs are often merged without being tested against historical examples, making it difficult to guarantee the functionality of past features through manual Code Review alone. There is an urgent need for a more comprehensive CI testing framework to maintain the usability of Ianvs features as the project progresses. Additionally, the online documentation is outdated, which can be quite confusing for new users.
+- Expected Outcome: 
+  - Update the Contributing Guide
+  - Develop a New Quick Start Example with Comprehensive Documentation
+  - Update Documentation for Other Paradigm Usage
+- Recommended Skills:  KubeEdge, Ianvs, Python, CI/CD pipelines
+- Mentor(s):
+  - FuryMartin (@FuryMartin, furymartin9910@outlook.com)
+  - hsj576 (@hsj576, sjhu21@m.fudan.edu.cn)
+- Upstream Issue: https://github.com/kubeedge/ianvs/issues/178
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8961c0b4-0e34-43be-9022-384a4847f5d3
+
+#### Enhance KubeEdge testing coverage
+
+- Description: KubeEdge would like to improve the UT coverage of the code to better maintain the quality of the code and reduce the introduction of defects. Increase the UT coverage rate to 60% to 70% (currently, the UT coverage rate is 38.69% ). It is important to note that in addition to requiring the overall UT coverage of KubeEdge to meet the requirements, the UT coverage of each core code directory(cloud/, edge/, keadm/ and pkg/) also needs to exceed 60%.
+- Expected Outcome: Increase the UT coverage rate to 60% to 70%
+- Recommended Skills:  KubeEdge, Go, Testing
+- Mentor(s):
+  - Elias Wang (@wbc6080, wangbincheng4@huawei.com)
+  - Fisher Xu (@fisherxu, fisherxu1@gmail.com)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/6101
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a85be883-5139-4e69-8859-6662f7ffd71d
+
+#### KubeEdge Dashboard Enhancement - BFF
+
+- Description: To improve the performance of KubeEdge dashboard, we would like to introduce a BFF (Backend for Frontend) layer. It serves as a middle layer to handle the communication between the dashboard and the KubeEdge API, providing a more efficient, secure, and maintainable solution.
+- Expected Outcome: 
+  - Integrate with [keink](https://github.com/kubeedge/keink)
+  - Error handling and retry
+  - Data pre-processing (Optional)
+- Recommended Skills:  KubeEdge, JavaScript, React
+- Mentor(s):
+  - Chen Su (@ghosind, ghosind@gmail.com)
+  - Elias Wang (@wbc6080, wangbincheng4@huawei.com)
+- Upstream Issue: https://github.com/kubeedge/dashboard/issues/37
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/16217666-64ec-45e7-842b-9df5ceb07382
+
+#### Community Website Comprehensive Upgrade Project: Homepage Renewal and Expansion of Core Pages
+
+- Description: To improve the user experience of the KubeEdge official website, this project will focus on homepage design enhancements, the addition of new pages, and improvements to community resources. The goal of this project is to enhance the website's usability, increase user engagement, and attract more users to KubeEdge by enhancing training content and hardware compatibility support.
+- Expected Outcome:
+  - Design and optimization of the homepage, including design and code updates. 
+  - New page: Showcase for KubeEdge course videos, including design and code updates. 
+  - New page: "Hardware Compatibility" page, including design and code updates. 
+  - Design and optimization of the partner page, including design and code updates. 
+  - Optimization of community resources, improving documentation and onboarding experience to ensure users can easily get started and effectively use KubeEdge.
+- Recommended Skills:  KubeEdge, JavaScript, Docusaurus
+- Mentor(s):
+  - Hongbing Zhang (@HongbingZhang, hongbing.zhang@daocloud.io)
+  - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
+- Upstream Issue: https://github.com/kubeedge/website/issues/665
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/576c6710-942b-41cc-9e51-113c1957fc02
 
 ### WasmEdge
 
@@ -395,4 +514,21 @@ find requirements from https://github.com/WebAssembly/component-model/tree/main/
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/15909
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/36e3f336-ce78-4074-b833-012015eb59be
 
+#### TUF
+
+##### Metadata Repository Visualization
+
+A [TUF](https://theupdateframework.com/) metadata repository consists of signed metadata files, which are read by TUF clients when securely downloading artifacts. The [metadata](https://theupdateframework.com/docs/metadata/) contains information about the artifacts and about the metadata itself, most notably, who is trusted to sign what.
+
+A suitable visual representation of this trust hierarchy makes TUF's security properties more accessible to end-users, and, more importantly, allows metadata signers to carefully review metadata changes before signing them.
+
+In this project you will, together with your mentor and the TUF community, identify requirements for the visualization of a TUF metadata repository and build a corresponding web app.
+
+- Expected Outcome: Identify requirements and build a basic web app to visualize TUF metadata. *(Initial requirements may be inspired by the `tuf-on-ci` use case.)*
+- Recommended Skills: Front-end web development, Information Visualization
+- Mentor(s): # 
+  - Lukas Pühringer (@lukpueh, lukas.puehringer@nyu.edu) - primary
+  - TBD
+- Upstream Issue (URL): TBD, https://github.com/theupdateframework/tuf-on-ci/issues/39 (initial ideas)
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ea1a5098-29ce-4799-82e0-07416ab4b56a
 
