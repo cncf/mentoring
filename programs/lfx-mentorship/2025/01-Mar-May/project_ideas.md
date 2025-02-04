@@ -233,4 +233,4 @@ GPT-4, Mistral, Llama3). The chatbot will be available via a **CLI and Slack bot
 - Mentor(s):
   -  Rohit Nayak (@rohit-nayak-ps, rohit@planetscale.com)
   -  Manan Gupta (@GuptaManan100, manan@planetscale.com)
-- Upstream Issue: TBD
+- Upstream Issue: https://github.com/vitessio/vitess/issues/17690
