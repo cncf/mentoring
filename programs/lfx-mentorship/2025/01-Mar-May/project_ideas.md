@@ -31,6 +31,30 @@
   - Hang Yan (@hangyan, hang.yan@hotmail.com)
 - Upstream Issue: https://github.com/antrea-io/antrea/issues/6864
 
+### Knative
+
+#### Design and Implement Levels for Educational Game
+
+- Description: The Knative community is developing an educational game to teach concepts about event driven architectures and how to build them with Knative. A good overview of the project was [presented at KubeCon NA 2024](https://youtu.be/TTBKh6F4v-g?si=MRmx6a2YJsl7y0Q-). We are currently looking to tale our initial prototype and turn it into a full game. In this project, you will help achieve this by designing levels that teach architectural concepts, and implementing those levels in the Godot game engine.
+- Expected Outcome: Identify key event driven architecture patterns, design levels to teach the patterns, implement the levels in Godot.
+- Recommended Skills: Godot, Game Development, Event Driven Architecture
+- Mentor(s):
+  - Calum Murray (@Cali0707, calum.murray@mail.utoronto.ca)
+  - Zainab Husain (@zainabhusain227, zainabhusain227@gmail.com)
+  - Angelina Zhai (@AngelinaZhai, angelina.zhai@mail.utoronto.ca)
+- Upstream Issue: https://github.com/knative-extensions/educational-game/issues/8
+
+#### Create high fidelity audio and animations to Educational Game
+
+- Description: The Knative community is developing an educational game to teach concepts about event driven architectures and how to build them with Knative. A good overview of the project was [presented at KubeCon NA 2024](https://youtu.be/TTBKh6F4v-g?si=MRmx6a2YJsl7y0Q-). We are currently looking to tale our initial prototype and turn it into a full game. In this project, you will help achieve this by creating both visual and audio assets, giving the game a polished look.
+- Expected Outcome: Identify which assets should be created, create audio assets, create visual assets, add assets Godot.
+- Recommended Skills: Audio Design, Animation, Graphic Design, Game Development 
+- Mentor(s):
+  - Calum Murray (@Cali0707, calum.murray@mail.utoronto.ca)
+  - Zainab Husain (@zainabhusain227, zainabhusain227@gmail.com)
+  - Angelina Zhai (@AngelinaZhai, angelina.zhai@mail.utoronto.ca)
+- Upstream Issue: https://github.com/knative-extensions/educational-game/issues/9
+
 ### KubeStellar
 
 #### Enhancing KubeStellar UI for Expanded Functionality and User Experience
