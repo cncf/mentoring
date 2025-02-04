@@ -208,3 +208,43 @@ In this project you will, together with your mentor and the TUF community, ident
   - TBD
 - Upstream Issue (URL): TBD, https://github.com/theupdateframework/tuf-on-ci/issues/39 (initial ideas)
 
+### LitmusChaos
+
+#### Enhancing CI/CD Integration for LitmusChaos: SDK Development and Chaos-CI-Lib Revamp
+
+- Description: This task aims to improve the CI/CD experience for LitmusChaos by developing a dedicated SDK that integrates seamlessly with existing CI libraries. The revamped Chaos CI Library will align with Litmus 3.x, eliminating outdated installation steps and enabling direct invocation of prebuilt chaos experiments. Additionally, CI action templates will be refined to optimize tunables, ensuring a smoother and more efficient workflow for users leveraging GitHub and GitLab pipelines.
+- Expected Outcome:
+  - Seamless CI/CD integration with a new Chaos CI SDK
+  - A modernized Chaos-CI-Lib compatible with Litmus 3.x
+  - Optimized CI action templates for GitHub and GitLab pipelines
+- Recommended Skills: Go, scripting, CI/CD, familiarity with LitmusChaos is a plus but not required.
+- Mentor(s):
+  - Shubham Chaudhary (@ispeakc0de, shubham.chaudhary@harness.io)
+  - Vedant Shrotria (@Jonsy13, vedant.shrotria@harness.io )
+- Upstream Issue: https://github.com/litmuschaos/litmus/issues/5038
+
+#### Improve the code coverage for observability in the LitmusChaos components
+
+- Description: Enhancing observability across key components, including chaos-runner, chaos-operator, and litmus-go. By adding distributed tracing(span, span attributes, and error tracking) and exporting logs to the Open Telemetry Collector.
+- Expected Outcome:
+  - Enhanced observability with OpenTelemetry in key LitmusChaos components
+  - Detailed span instrumentation for improved tracing and error tracking
+  - Logs seamlessly exported to OpenTelemetry Collector
+- Recommended Skills: OpenTelemetry, Go, familiarity with LitmusChaos is a plus but not required
+- Mentor(s):
+  - Namkyu Park (@namkyu1999, lak9348@gmail.com)
+  - Adarsh Kumar (@Adarshkumar14, adarsh.kumar@harness.io)
+- Upstream Issue: https://github.com/litmuschaos/litmus/issues/5039
+
+#### Expanding the LitmusChaos Tutorials - Day 0, Day 1, and Day 2 User Flows
+
+- Description: This task focuses on improving the LitmusChaos documentation by structuring and creating tutorials into Day 0, Day 1, and Day 2 workflows tailored for different users. Instead of documenting individual faults (which would require constant maintenance), the goal is to create user-flow-based guides that help users understand chaos engineering principles at different levels of expertise, from beginners experimenting with sample apps to advance users implementing chaos in real-world systems. Additionally, this task will involve tech doc improvements, fixing structural issues, removing duplicates, and ensuring a clear and intuitive documentation experience for the community
+- Expected Outcome:
+  - Structured Day 0, Day 1, and Day 2 tutorials for different user levels
+  - Improved documentation clarity and reduced redundancy
+  - Persona-based chaos experiment guides for real-world use cases
+- Recommended Skills: Techincal Writing, Research Skills, familiarity with LitmusChaos is a plus but not required
+- Mentor(s):
+  - Sayan Mondal (@S-ayanide, sayanmondal342@gmail.com)
+  - Smriti Satyanarayana (@SmritiSatya, smriti.satyanarayana@harness.io)
+- Upstream Issue: https://github.com/litmuschaos/litmus/issues/5037
