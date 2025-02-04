@@ -19,6 +19,18 @@
 
 ## Proposed Project ideas
 
+### Antrea
+
+#### Support L4 protocol filters in PacketCapture API
+
+- Description: As a Kubernetes (K8s) network plugin (CNI plugin), Antrea provides networking functions for K8s Pods and includes various troubleshooting tools for cluster administrators and application developers to diagnose networking issues. The [PacketCapture feature](https://github.com/antrea-io/antrea/blob/main/docs/packetcapture-guide.md) was introduced recently and allows capturing network traffic for specific endpoints using predefined filters similar to those supported by libpcap/tcpdump. Users can initiate a packet capture through a Kubernetes Custom Resource Definition (CRD) or a CLI command. The Antrea control plane then generates and injects the corresponding BPF program, and the captured packets can be exported as a pcap file. Currently, only a limited set of filters is supported. With this project, we aim to introduce additional filters, particularly Layer 4 protocol filters, such as TCP flags for the TCP transport protocol. These new filters will enable Antrea users to target network traffic more precisely.
+- Expected Outcome: Extend the API definition for the PacketCapture CRD with additional filter fields, and implement the new API functionality by mapping the new fields to the corresponding BPF instructions. The new fields should also be exposed in the corresponding `antctl` CLI commands. The implementation should come with a sufficient amount of tests (both unit tests and e2e tests), ensuring that the new functionality is working as expected.
+- Recommended Skills: familiarity with Golang, some knowledge about the K8s architecture and APIs, basic knowledge about networking protocols (IP/TCP/UDP/ICMP).
+- Mentor(s):
+  - Antonin Bas (@antoninbas, antonin.bas@gmail.com)
+  - Hang Yan (@hangyan, hang.yan@hotmail.com)
+- Upstream Issue: https://github.com/antrea-io/antrea/issues/6864
+
 ### KubeStellar
 
 #### Enhancing KubeStellar UI for Expanded Functionality and User Experience
