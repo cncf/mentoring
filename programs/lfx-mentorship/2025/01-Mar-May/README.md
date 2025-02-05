@@ -29,6 +29,19 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 ---
 
+### Antrea
+
+#### Support L4 protocol filters in PacketCapture API
+
+- Description: As a Kubernetes (K8s) network plugin (CNI plugin), Antrea provides networking functions for K8s Pods and includes various troubleshooting tools for cluster administrators and application developers to diagnose networking issues. The [PacketCapture feature](https://github.com/antrea-io/antrea/blob/main/docs/packetcapture-guide.md) was introduced recently and allows capturing network traffic for specific endpoints using predefined filters similar to those supported by libpcap/tcpdump. Users can initiate a packet capture through a Kubernetes Custom Resource Definition (CRD) or a CLI command. The Antrea control plane then generates and injects the corresponding BPF program, and the captured packets can be exported as a pcap file. Currently, only a limited set of filters is supported. With this project, we aim to introduce additional filters, particularly Layer 4 protocol filters, such as TCP flags for the TCP transport protocol. These new filters will enable Antrea users to target network traffic more precisely.
+- Expected Outcome: Extend the API definition for the PacketCapture CRD with additional filter fields, and implement the new API functionality by mapping the new fields to the corresponding BPF instructions. The new fields should also be exposed in the corresponding `antctl` CLI commands. The implementation should come with a sufficient amount of tests (both unit tests and e2e tests), ensuring that the new functionality is working as expected.
+- Recommended Skills: familiarity with Golang, some knowledge about the K8s architecture and APIs, basic knowledge about networking protocols (IP/TCP/UDP/ICMP).
+- Mentor(s):
+  - Antonin Bas (@antoninbas, antonin.bas@gmail.com)
+  - Hang Yan (@hangyan, hang.yan@hotmail.com)
+- Upstream Issue: https://github.com/antrea-io/antrea/issues/6864
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/c1b6fda9-e2e6-41e1-8495-68abe9e980ca
+
 ### Envoy Gateway
 
 #### Integrating CNCF Fuzzing Framework for Envoy Gateway
@@ -308,6 +321,32 @@ eBPF, a recently introduced programmable technology in the kernel, currently has
 - Upstream Issue: https://github.com/kmesh-net/kmesh/issues/1211
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/c5dadaed-445e-4a74-825b-3e2f1a8b2be1
 
+### Knative
+
+#### Design and Implement Levels for Educational Game
+
+- Description: The Knative community is developing an educational game to teach concepts about event driven architectures and how to build them with Knative. A good overview of the project was [presented at KubeCon NA 2024](https://youtu.be/TTBKh6F4v-g?si=MRmx6a2YJsl7y0Q-). We are currently looking to tale our initial prototype and turn it into a full game. In this project, you will help achieve this by designing levels that teach architectural concepts, and implementing those levels in the Godot game engine.
+- Expected Outcome: Identify key event driven architecture patterns, design levels to teach the patterns, implement the levels in Godot.
+- Recommended Skills: Godot, Game Development, Event Driven Architecture
+- Mentor(s):
+  - Calum Murray (@Cali0707, calum.murray@mail.utoronto.ca)
+  - Zainab Husain (@zainabhusain227, zainabhusain227@gmail.com)
+  - Angelina Zhai (@AngelinaZhai, angelina.zhai@mail.utoronto.ca)
+- Upstream Issue: https://github.com/knative-extensions/educational-game/issues/8
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/58392ddd-4d5a-491e-9b09-6035aa4c907e
+
+#### Create high fidelity audio and animations to Educational Game
+
+- Description: The Knative community is developing an educational game to teach concepts about event driven architectures and how to build them with Knative. A good overview of the project was [presented at KubeCon NA 2024](https://youtu.be/TTBKh6F4v-g?si=MRmx6a2YJsl7y0Q-). We are currently looking to tale our initial prototype and turn it into a full game. In this project, you will help achieve this by creating both visual and audio assets, giving the game a polished look.
+- Expected Outcome: Identify which assets should be created, create audio assets, create visual assets, add assets Godot.
+- Recommended Skills: Audio Design, Animation, Graphic Design, Game Development 
+- Mentor(s):
+  - Calum Murray (@Cali0707, calum.murray@mail.utoronto.ca)
+  - Zainab Husain (@zainabhusain227, zainabhusain227@gmail.com)
+  - Angelina Zhai (@AngelinaZhai, angelina.zhai@mail.utoronto.ca)
+- Upstream Issue: https://github.com/knative-extensions/educational-game/issues/9
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/707084fe-ea4d-469e-a867-5d0a5e04b7c1
+
 ### KubeEdge
 
 #### Domain-specific large model benchmarks: the edge perspective
@@ -378,6 +417,69 @@ eBPF, a recently introduced programmable technology in the kernel, currently has
   - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
 - Upstream Issue: https://github.com/kubeedge/website/issues/665
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/576c6710-942b-41cc-9e51-113c1957fc02
+
+### KubeStellar
+
+#### Enhancing KubeStellar UI for Expanded Functionality and UX
+
+- Description: [KubeStellar](https://kubestellar.io) is a flexible solution for challenges associated with multi-cluster configuration management for edge, multi-cloud, and hybrid cloud. KubeStellar's UI is a tool for interacting with KubeStellar components, managing its inventory and transport space (ITS), and workload description space (WDS). Currently, the UI is in its early stages, providing only basic features like reading kubeconfig info and displaying ITS and WDS. The goal of this project is to significantly enhance the functionality and usability of the KubeStellar UI by implementing additional core features, improving its user interface, and ensuring a seamless experience for Kubernetes cluster operators.
+
+- Objectives
+  1. Implement BindingPolicies CRUD:
+    - Develop intuitive interfaces for creating, reading, updating, and deleting binding policies.
+    - Ensure policies are validated against Kubernetes standards and KubeStellar’s architecture.
+    - Allow users to view and manage binding policies tied to specific workloads or clusters.
+  2. Add Workload Deployment to WDS:
+    - Build functionality for deploying workloads to one or more WDS.
+    - Provide real-time feedback on deployment status and logs.
+    - Add visualization for workload placement across multiple WDS, ensuring clarity of resource distribution.
+  3. Cluster Onboarding to ITS:
+    - Create an onboarding wizard to guide users through adding new clusters to the ITS.
+    - Validate clusters' compatibility and connection during the onboarding process.
+    - Automatically generate and display kubeconfig details for onboarded clusters.
+  4. Enhance UI Usability and Performance:
+    - Upgrade the UI with modern design principles for a consistent and intuitive user experience.
+    - Leverage React and Vite to optimize load times and component rendering.
+    - Introduce real-time updates for ITS and WDS data using WebSocket or API polling.
+  5. Backend Integration with Go:
+    - Extend the Go backend to support new API endpoints for the proposed features.
+    - Ensure secure and efficient communication between the UI and Kubernetes API.
+    - Validate backend performance under high-scale usage.
+
+- Expected Outcomes
+  - New Features:
+    - BindingPolicies CRUD operations accessible via the UI.
+    - Workload deployment support to one or more WDS.
+    - Seamless onboarding process for adding clusters to the ITS.
+  - Improved Usability:
+    - A polished UI with a modern look and feel, supporting intuitive navigation.
+    - Real-time insights into cluster operations and workload deployments.
+  - Robust Performance:
+    - Scalable backend integration with Go for handling large cluster environments.
+    - Optimized frontend with Node.js, React, and Vite for faster interaction.
+
+- Bonus Features
+  - Visualization Improvements:
+    - Visual dashboard for workload deployments and cluster health monitoring.
+    - Integration of charts to show resource utilization trends across ITS and WDS.
+  - User Customizations:
+    - Add support for user-defined themes (dark/light mode).
+    - Exportable configurations for sharing binding policies or deployment setups.
+
+By implementing these enhancements, KubeStellar UI will evolve into a comprehensive tool for cluster management, empowering users to efficiently deploy and manage resources while offering an intuitive and modern interface.
+
+- Recommended Skills
+  - Frontend Development: Node.js, React, Vite, and REST API integration.
+  - Backend Development: Go and Kubernetes API communication.
+  - Cluster Management: Familiarity with Kubernetes clusters and associated workflows.
+  - UI/UX Design: Experience in designing interfaces for system operators.
+
+- Mentor(s):
+  - Andy Anderson (@clubanderson, andy@clubanderson.com)
+  - Braulio Dumba (dumb0002, braulio.dumba@ibm.com)
+
+- Upstream Issue: https://github.com/kubestellar/ui/issues/63
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/129bdb9e-9f8d-47c0-b643-23d50a19e6c7
 
 ### WasmEdge
 
@@ -482,6 +584,58 @@ find requirements from https://github.com/WebAssembly/component-model/tree/main/
   - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
 - Upstream Issue: https://github.com/goharbor/harbor/issues/21469
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ff3431c0-3cb1-4c07-bd10-21a8e495c897
+
+### LitmusChaos
+
+#### Enhancing CI/CD Integration for LitmusChaos: SDK Development and Chaos-CI-Lib Revamp
+
+CNCF - LitmusChaos: CI/CD Integration, SDK Development & Chaos-CI-Lib Revamp (2025 Term 1)
+
+- Description: This task aims to improve the CI/CD experience for LitmusChaos by developing a dedicated SDK that integrates seamlessly with existing CI libraries. The revamped Chaos CI Library will align with Litmus 3.x, eliminating outdated installation steps and enabling direct invocation of prebuilt chaos experiments. Additionally, CI action templates will be refined to optimize tunables, ensuring a smoother and more efficient workflow for users leveraging GitHub and GitLab pipelines.
+- Expected Outcome:
+  - Seamless CI/CD integration with a new Chaos CI SDK
+  - A modernized Chaos-CI-Lib compatible with Litmus 3.x
+  - Optimized CI action templates for GitHub and GitLab pipelines
+- Recommended Skills: Go, scripting, CI/CD, familiarity with LitmusChaos is a plus but not required.
+- Mentor(s):
+  - Shubham Chaudhary (@ispeakc0de, shubham.chaudhary@harness.io)
+  - Vedant Shrotria (@Jonsy13, vedant.shrotria@harness.io )
+- Upstream Issue: https://github.com/litmuschaos/litmus/issues/5038
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/445a6158-3ba7-429e-b0e1-f7417ff9a724
+
+#### Improve the code coverage for observability in the LitmusChaos components
+
+CNCF - LitmusChaos: Improve code coverage for observability in LitmusChaos components (2025 Term 1)
+
+- Description: Enhancing observability across key components, including chaos-runner, chaos-operator, and litmus-go. By adding distributed tracing(span, span attributes, and error tracking) and exporting logs to the Open Telemetry Collector.
+- Expected Outcome:
+  - Enhanced observability with OpenTelemetry in key LitmusChaos components
+  - Detailed span instrumentation for improved tracing and error tracking
+  - Logs seamlessly exported to OpenTelemetry Collector
+- Recommended Skills: OpenTelemetry, Go, familiarity with LitmusChaos is a plus but not required
+- Mentor(s):
+  - Namkyu Park (@namkyu1999, lak9348@gmail.com)
+  - Adarsh Kumar (@Adarshkumar14, adarsh.kumar@harness.io)
+- Upstream Issue: https://github.com/litmuschaos/litmus/issues/5039
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/55d8f0a4-86d5-4a90-890b-e8750a27dc60
+
+#### Expanding the LitmusChaos Tutorials - Day 0, Day 1, and Day 2 User Flows
+
+CNCF - LitmusChaos: Expand Tutorials – Day 0, Day 1 & Day 2 User Flows (2025 Term 1)
+
+- Description: This task focuses on improving the LitmusChaos documentation by structuring and creating tutorials into Day 0, Day 1, and Day 2 workflows tailored for different users. Instead of documenting individual faults (which would require constant maintenance), the goal is to create user-flow-based guides that help users understand chaos engineering principles at different levels of expertise, from beginners experimenting with sample apps to advance users implementing chaos in real-world systems. Additionally, this task will involve tech doc improvements, fixing structural issues, removing duplicates, and ensuring a clear and intuitive documentation experience for the community
+- Expected Outcome:
+  - Structured Day 0, Day 1, and Day 2 tutorials for different user levels
+  - Improved documentation clarity and reduced redundancy
+  - Persona-based chaos experiment guides for real-world use cases
+- Recommended Skills: Techincal Writing, Research Skills, familiarity with LitmusChaos is a plus but not required
+- Mentor(s):
+  - Sayan Mondal (@S-ayanide, sayanmondal342@gmail.com)
+  - Smriti Satyanarayana (@SmritiSatya, smriti.satyanarayana@harness.io)
+- Upstream Issue: https://github.com/litmuschaos/litmus/issues/5037
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/e10bdb01-ef2b-41c5-9a84-6891ecaf6364
+
+
 
 ### Prometheus
 
