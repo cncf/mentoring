@@ -64,6 +64,37 @@ security posture of Envoy Gateway through comprehensive automated testing.
 - Upstream Issue: https://github.com/envoyproxy/gateway/issues/3124
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/44020e81-1218-49aa-95e0-ee3e03998eb3
 
+### Harbor
+
+#### Harbor CLI
+
+- Description: Harbor is a widely adopted container registry, and its initial CLI has been developed by LFX mentees. The goal is to extend this CLI by implementing additional functionalities and workflows that are currently only available in the Web UI. The CLI should be useful for Harbor administrators and users, especially to manage workflows within CI/CD pipelines. We seek a Golang-experienced mentee to enhance the CLI independently.
+- Expected Outcome:
+  - Extend the Harbor CLI to include essential commands not yet implemented.
+  - Add new features to improve Harbor management via the CLI, enabling robust workflows in CI/CD environments.
+- Recommended Skills: Golang, spf13/cobra
+- Mentor(s):
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
+- Upstream Issue: https://github.com/goharbor/harbor-cli/issues/315
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/769b7e87-f2f5-4532-b247-392b1897ea50
+
+#### Harbor Satellite
+
+- Description: Containers have extended beyond their traditional cloud environments, becoming increasingly prevalent in remote and edge computing contexts. These environments often lack reliable internet connectivity, posing significant challenges in managing and running containerized applications due to difficulties in fetching container images. To address this, the project aims to decentralize container registries, making them more accessible to edge devices.
+- Expected Outcome:
+  The goal is to extend the proof of concept and demonstrate that such a solution practically works.
+  Candidates should be able understanding and implementing the [image](https://github.com/opencontainers/image-spec) and [distribution spec](https://github.com/opencontainers/distribution-spec)
+  to replicate images from a central registry to a registry on the edge location.
+- Recommended Skills: Golang, Container, Image-spec, Distribution-spec
+- Mentor(s):
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
+- Upstream Issue: https://github.com/goharbor/harbor/issues/21469
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ff3431c0-3cb1-4c07-bd10-21a8e495c897
+
 ### Headlamp (a Kubernetes UI)
 
 #### Headlamp: Instrument with OpenTelemetry
@@ -481,110 +512,6 @@ By implementing these enhancements, KubeStellar UI will evolve into a comprehens
 - Upstream Issue: https://github.com/kubestellar/ui/issues/63
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/129bdb9e-9f8d-47c0-b643-23d50a19e6c7
 
-### WasmEdge
-
-#### Implement a new WasmEdge installer in Rust
-
-- Description: Create a new tool in Rust that provides: Support cross-operating systems, including Linux(amd64 and aarch64), macOS(Intel models and Apple Silicon models), and Windows(amd64); Simplifies installation of the WasmEdge runtime and its plugins in a single tool called wasmedgeup; Automatically handles versioning, dependencies, OS/ARCH detection, and ensure the same user experience across operating systems and architectures. For more details, please refer to the upstream issue.
-- Expected Outcome:
-  - A Rust implemented installer in [wasmedgeup](https://github.com/WasmEdge/wasmedgeup).
-  - A document to describe how to use.
-  - A CI workflow to build and test on Linux(Ubuntu, Fedora), macOS, and Windows.
-- Recommended Skills:
-- Mentor(s):
-  - Hung-Ying Tai (@hydai, hydai@secondstate.io)
-- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3990
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/79119ceb-7c52-4b9f-b1f2-694b9d1117e3
-
-#### Implement component model's validator
-
-- Description: The current validator of component model inside of WasmEdge only check nested module and ensure VM can run the nested modules without problem, but the validations from component model are mostly skipped.
-- Expected Outcome:
-  - One should create a workable (merged into upstream) implementation of validator by working on
-  - `include/validator/validator_component.h`
-  - `lib/validator/validator_component.cpp`
-  - The visitor pattern are already setup.
-- Recommended Skills:
-  - Since component model proposal separate their validation spec, one should able to
-find requirements from https://github.com/WebAssembly/component-model/tree/main/design/mvp
-  - Implements it in C++.
-- Mentor(s):
-  - Lîm Tsú-thuàn (@dannypsnl, dannypsnl@secondstate.io)
-- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3966
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/97f77900-7f5c-45e4-9b0c-638c2db6a8e4
-
-#### Improve the WasmEdge-based Rust coding assistant for inference-time scaling
-
-- Description: In a [previous LFX mentorship project](https://github.com/WasmEdge/WasmEdge/issues/3495), we have created an [LLM-based coding assistant grounded in Rust programming language skills](https://huggingface.co/datasets/gaianet/learn-rust). We aim to further improve the Rust coding assistant by incorporating inference-time compute that utilizes the Rust compiler for feedback. One of the greatest advantages of Rust is its powerful and strict compiler, and the detailed error message generated by the compiler. The Rust compiler could give valuable feedbacks to code generating LLMs to improve the code quality.
-- Expected Outcome:
-  - Run a [Qwen Coder 2.5 LLM locally](https://github.com/GaiaNet-AI/node-configs/tree/main/qwen-2.5-coder-7b-instruct) or access it via an API.
-  - Create an LLM system prompt that describes the structure and key elements of a `cargo` project. It will guide the LLM to generate multiple files (artifacts) for a complete project.
-  - Create a Python program to send user requests to the LLM and parse the generated result into locally cached files.
-  - Use a local Rust compiler to build the generated project. Sends the error messages back to the LLM to re-generate.
-  - Iterate until there is no more errors.
-  - Build a web API for the Python program that takes OpenAI compatible requests and return OpenAI compatible results.
-- Recommended Skills:
-  - Rust
-  - [LlamaEdge](https://llamaedge.com/docs/user-guide/llm/full-openai)
-  - LLMs like ChatGPT
-  - Coding assistant like GitHub Copilot
-- Mentor(s):
-  - Michael Yuan (@juntao, michael@secondstate.io)
-- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3985
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/626ca1e4-9869-4401-8e45-68041ebc98cf
-
-#### Create a Japanese translation agent for CNCF videos
-
-- Description: WasmEdge is a cross-platform and lightweight runtime for AI models. It can run a variety of GenAI models, such as [LLM](https://llamaedge.com/docs/user-guide/llm/get-started-with-llamaedge), [whisper](https://llamaedge.com/docs/user-guide/speech-to-text/quick-start-whisper) (voice to text), and [GPT-SoVITS](https://llamaedge.com/docs/user-guide/text-to-speech/gpt-sovits) (text to voice) on your own computers. By combining those 3 models together, developers in the WasmEdge community has created “video translation” applications that can translate video and audio content into another language. One such application is [VideoLangua.com](http://videolangua.com/) In this mentorship, we would like to build a Japanese translator agent that are specifically tailored to CNCF technical content.
-- Expected Outcome:
-  - Use whisper to extract a time-stamped English transcript from a sample of CNCF videos. Develop whisper prompt that are suitable for CNCF technical content.
-  - Evaluate and select LLMs that are good at English to Japanese translation.
-  - Develop LLM prompts that are suitable for CNCF technical content.
-  - Train Japanese TTS actor models for GPT-SoVITS using PyTorch.
-  - Create dictionaries for how to pronounce CNCF technical words in Japanese.
-  - Evaluate the synthesized Japanese voice.
-- Recommended Skills:
-  - The mentee must speak Japanese fluently.
-  - He or she needs to be familiar with technical content in CNCF videos.
-  - He or she should also be familiar with GenAI APIs (eg OpenAI API) and be able use PyTorch.
-- Mentor(s):
-  - Michael Yuan (@juntao, michael@secondstate.io)
-  - Miley Fu (@MileyFu, miley@secondstate.io)
-  - Vivian Hu (@alabulei1, vivian@secondstate.io)
-- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3986
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/5ba528fe-9704-4e11-b46d-607a5ad1e838
-
-### Harbor
-
-#### Harbor CLI
-
-- Description: Harbor is a widely adopted container registry, and its initial CLI has been developed by LFX mentees. The goal is to extend this CLI by implementing additional functionalities and workflows that are currently only available in the Web UI. The CLI should be useful for Harbor administrators and users, especially to manage workflows within CI/CD pipelines. We seek a Golang-experienced mentee to enhance the CLI independently.
-- Expected Outcome:
-  - Extend the Harbor CLI to include essential commands not yet implemented.
-  - Add new features to improve Harbor management via the CLI, enabling robust workflows in CI/CD environments. 
-- Recommended Skills: Golang, spf13/cobra
-- Mentor(s):
-  - Vadim Bauer (@vad1mo, vb@container-registry.com)
-  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
-  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
-- Upstream Issue: https://github.com/goharbor/harbor-cli/issues/315
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/769b7e87-f2f5-4532-b247-392b1897ea50
-
-#### Harbor Satellite
-
-- Description: Containers have extended beyond their traditional cloud environments, becoming increasingly prevalent in remote and edge computing contexts. These environments often lack reliable internet connectivity, posing significant challenges in managing and running containerized applications due to difficulties in fetching container images. To address this, the project aims to decentralize container registries, making them more accessible to edge devices.
-- Expected Outcome:
-  The goal is to extend the proof of concept and demonstrate that such a solution practically works.
-  Candidates should be able understanding and implementing the [image](https://github.com/opencontainers/image-spec) and [distribution spec](https://github.com/opencontainers/distribution-spec)
-  to replicate images from a central registry to a registry on the edge location.
-- Recommended Skills: Golang, Container, Image-spec, Distribution-spec
-- Mentor(s):
-  - Vadim Bauer (@vad1mo, vb@container-registry.com)
-  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
-  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
-- Upstream Issue: https://github.com/goharbor/harbor/issues/21469
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ff3431c0-3cb1-4c07-bd10-21a8e495c897
-
 ### LitmusChaos
 
 #### Enhancing CI/CD Integration for LitmusChaos: SDK Development and Chaos-CI-Lib Revamp
@@ -635,8 +562,6 @@ CNCF - LitmusChaos: Expand Tutorials – Day 0, Day 1 & Day 2 User Flows (2025 T
 - Upstream Issue: https://github.com/litmuschaos/litmus/issues/5037
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/e10bdb01-ef2b-41c5-9a84-6891ecaf6364
 
-
-
 ### Prometheus
 
 #### Get `PrometheusRemoteWriteReceiver` in OTel-Collector to Alpha Maturity
@@ -686,3 +611,75 @@ In this project you will, together with your mentor and the TUF community, ident
 - Upstream Issue (URL): TBD, https://github.com/theupdateframework/tuf-on-ci/issues/39 (initial ideas)
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ea1a5098-29ce-4799-82e0-07416ab4b56a
 
+### WasmEdge
+
+#### Implement a new WasmEdge installer in Rust
+
+- Description: Create a new tool in Rust that provides: Support cross-operating systems, including Linux(amd64 and aarch64), macOS(Intel models and Apple Silicon models), and Windows(amd64); Simplifies installation of the WasmEdge runtime and its plugins in a single tool called wasmedgeup; Automatically handles versioning, dependencies, OS/ARCH detection, and ensure the same user experience across operating systems and architectures. For more details, please refer to the upstream issue.
+- Expected Outcome:
+  - A Rust implemented installer in [wasmedgeup](https://github.com/WasmEdge/wasmedgeup).
+  - A document to describe how to use.
+  - A CI workflow to build and test on Linux(Ubuntu, Fedora), macOS, and Windows.
+- Recommended Skills:
+- Mentor(s):
+  - Hung-Ying Tai (@hydai, hydai@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3990
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/79119ceb-7c52-4b9f-b1f2-694b9d1117e3
+
+#### Implement component model's validator
+
+- Description: The current validator of component model inside of WasmEdge only check nested module and ensure VM can run the nested modules without problem, but the validations from component model are mostly skipped.
+- Expected Outcome:
+  - One should create a workable (merged into upstream) implementation of validator by working on
+  - `include/validator/validator_component.h`
+  - `lib/validator/validator_component.cpp`
+  - The visitor pattern are already setup.
+- Recommended Skills:
+  - Since component model proposal separate their validation spec, one should able to
+    find requirements from https://github.com/WebAssembly/component-model/tree/main/design/mvp
+  - Implements it in C++.
+- Mentor(s):
+  - Lîm Tsú-thuàn (@dannypsnl, dannypsnl@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3966
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/97f77900-7f5c-45e4-9b0c-638c2db6a8e4
+
+#### Improve the WasmEdge-based Rust coding assistant for inference-time scaling
+
+- Description: In a [previous LFX mentorship project](https://github.com/WasmEdge/WasmEdge/issues/3495), we have created an [LLM-based coding assistant grounded in Rust programming language skills](https://huggingface.co/datasets/gaianet/learn-rust). We aim to further improve the Rust coding assistant by incorporating inference-time compute that utilizes the Rust compiler for feedback. One of the greatest advantages of Rust is its powerful and strict compiler, and the detailed error message generated by the compiler. The Rust compiler could give valuable feedbacks to code generating LLMs to improve the code quality.
+- Expected Outcome:
+  - Run a [Qwen Coder 2.5 LLM locally](https://github.com/GaiaNet-AI/node-configs/tree/main/qwen-2.5-coder-7b-instruct) or access it via an API.
+  - Create an LLM system prompt that describes the structure and key elements of a `cargo` project. It will guide the LLM to generate multiple files (artifacts) for a complete project.
+  - Create a Python program to send user requests to the LLM and parse the generated result into locally cached files.
+  - Use a local Rust compiler to build the generated project. Sends the error messages back to the LLM to re-generate.
+  - Iterate until there is no more errors.
+  - Build a web API for the Python program that takes OpenAI compatible requests and return OpenAI compatible results.
+- Recommended Skills:
+  - Rust
+  - [LlamaEdge](https://llamaedge.com/docs/user-guide/llm/full-openai)
+  - LLMs like ChatGPT
+  - Coding assistant like GitHub Copilot
+- Mentor(s):
+  - Michael Yuan (@juntao, michael@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3985
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/626ca1e4-9869-4401-8e45-68041ebc98cf
+
+#### Create a Japanese translation agent for CNCF videos
+
+- Description: WasmEdge is a cross-platform and lightweight runtime for AI models. It can run a variety of GenAI models, such as [LLM](https://llamaedge.com/docs/user-guide/llm/get-started-with-llamaedge), [whisper](https://llamaedge.com/docs/user-guide/speech-to-text/quick-start-whisper) (voice to text), and [GPT-SoVITS](https://llamaedge.com/docs/user-guide/text-to-speech/gpt-sovits) (text to voice) on your own computers. By combining those 3 models together, developers in the WasmEdge community has created “video translation” applications that can translate video and audio content into another language. One such application is [VideoLangua.com](http://videolangua.com/) In this mentorship, we would like to build a Japanese translator agent that are specifically tailored to CNCF technical content.
+- Expected Outcome:
+  - Use whisper to extract a time-stamped English transcript from a sample of CNCF videos. Develop whisper prompt that are suitable for CNCF technical content.
+  - Evaluate and select LLMs that are good at English to Japanese translation.
+  - Develop LLM prompts that are suitable for CNCF technical content.
+  - Train Japanese TTS actor models for GPT-SoVITS using PyTorch.
+  - Create dictionaries for how to pronounce CNCF technical words in Japanese.
+  - Evaluate the synthesized Japanese voice.
+- Recommended Skills:
+  - The mentee must speak Japanese fluently.
+  - He or she needs to be familiar with technical content in CNCF videos.
+  - He or she should also be familiar with GenAI APIs (eg OpenAI API) and be able use PyTorch.
+- Mentor(s):
+  - Michael Yuan (@juntao, michael@secondstate.io)
+  - Miley Fu (@MileyFu, miley@secondstate.io)
+  - Vivian Hu (@alabulei1, vivian@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/3986
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/5ba528fe-9704-4e11-b46d-607a5ad1e838
