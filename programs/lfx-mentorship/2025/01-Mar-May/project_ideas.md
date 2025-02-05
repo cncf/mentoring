@@ -48,6 +48,7 @@ The outcome will be a **comprehensive documentation improvement plan**, with tar
   - Erica Hughberg (@missBerg, erica.hughberg@tetrate.io)
   - Arko Dasgupta (@arkodg, arko@tetrate.io)
 - Upstream Issue: https://github.com/envoyproxy/gateway/issues/5203
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2b752e3d-d55b-40de-a702-13b88aff974a
 
 ### Kyverno
 
@@ -57,6 +58,7 @@ The outcome will be a **comprehensive documentation improvement plan**, with tar
 - GitHub Issue: [Chainsaw testing](https://github.com/kyverno/kyverno/issues/12065)
 - Recommended Skills: Golang, Kubernetes, ValidatingAdmissionPolicy
 - Mentor(s):  Charles-Edouard Brétéché (@eddycharly, charles.edouard@nirmata.com)
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/d9683d35-0ad4-4c32-b32d-f058d37cf94f
 
 #### Sample Policies For New Policy Types
 
@@ -64,12 +66,14 @@ The outcome will be a **comprehensive documentation improvement plan**, with tar
 - GitHub Issue: https://github.com/kyverno/kyverno/issues/12085 
 - Recommended Skills: Golang, Kubernetes, ValidatingAdmissionPolicy, MutatingAdmissionPolicy
 - Mentor(s): Jim Bugwadia [@JimBugwadia](https://github.com/JimBugwadia)
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/59295005-33de-4665-82b5-d315d108da31
 
 #### Mutating Admission Policy Integration
 - Description: This project will focus on Integrating the new Kubernetes MutatingAdmissionPolicy with Kyverno CLI for the apply and test commands. 
 - GitHub Issue: https://github.com/kyverno/kyverno/issues/10573
 - Recommended Skills: Golang, Kubernetes, MutatingAdmissionPolicy
 - Mentor(s): Mariam Fahmy (@MariamFahmy98, mariam.fahmy@nirmata.com), Shuting Zhao (@realshuting, shuting@nirmata.com)
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/1db4df12-49f2-467e-93c2-1625e462eb20
 
 ### Thanos
 
@@ -87,6 +91,7 @@ The project is interesting because you will learn how query engines are implemen
   - Giedrius Statkevičius (@GiedriusS, giedriuswork@gmail.com)
   - Saswata Mukherjee (@saswatamcode, saswataminsta@yahoo.com)
 - Upstream Issue (URL): https://github.com/thanos-io/promql-engine/issues/515
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/d58c0d26-e276-4ca5-b2ca-21e6582fbcf7
 
 ### Volcano
 
@@ -101,6 +106,7 @@ The project is interesting because you will learn how query engines are implemen
   - Xuzheng Chang(@Monokaix, 2536818783@qq.com)
   - Zicong Chen(@JesseStutler, jesseincomparable@hotmail.com)
 - Upstream Issue: https://github.com/volcano-sh/volcano/issues/3992
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a785c059-fb70-41aa-88a2-62692ab2ca98
 
 #### Coordinate descheduler and Volcano to support resource defragmentation
 
@@ -113,6 +119,7 @@ The project is interesting because you will learn how query engines are implemen
   - Xuzheng Chang(@Monokaix, 2536818783@qq.com)
   - Zicong Chen(@JesseStutler, jesseincomparable@hotmail.com)
 - Upstream Issue: https://github.com/volcano-sh/volcano/issues/3948
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/607246c3-f48b-446c-a7cc-10c0068c553f
 
 #### Volcano dashboard feature enhancements
 
@@ -125,3 +132,5 @@ The project is interesting because you will learn how query engines are implemen
   - Xuzheng Chang(@Monokaix, 2536818783@qq.com)
   - Zicong Chen(@JesseStutler, jesseincomparable@hotmail.com)
 - Upstream Issue: https://github.com/volcano-sh/dashboard/issues/11
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/438c1fec-d3d3-4ab0-82ce-499993f8b681
+
