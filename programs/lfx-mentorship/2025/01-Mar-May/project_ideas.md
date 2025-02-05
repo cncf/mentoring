@@ -47,3 +47,5 @@ The outcome will be a **comprehensive documentation improvement plan**, with tar
 - Mentor(s):
   - Erica Hughberg (@missBerg, erica.hughberg@tetrate.io)
   - Arko Dasgupta (@arkodg, arko@tetrate.io)
+
+- Upstream Issue: https://github.com/envoyproxy/gateway/issues/5203
