@@ -137,7 +137,7 @@ The outcome will be a **comprehensive documentation improvement plan**, with tar
   - Kautilya Tripathi (@knrt10, ktripathi@microsoft.com)
   - Santhosh Nagaraj (@yolossn, sannagaraj@microsoft.com)
 - Upstream Issue: https://github.com/headlamp-k8s/headlamp/issues/2799
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/63ae2083-f0a7-4458-a279-e10b9662ea16
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/d961bfc7-00e1-4c05-bf1a-f9c7ddf1756a
 
 #### Headlamp: Make a Headlamp plugin for KEDA
 
@@ -149,7 +149,7 @@ The outcome will be a **comprehensive documentation improvement plan**, with tar
   - Rene Dudfield (@illume, renedudfield@microsoft.com)
   - Kautilya Tripathi (@knrt10, ktripathi@microsoft.com)
 - Upstream Issue: https://github.com/headlamp-k8s/headlamp/issues/2791
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2199847c-f5e6-4287-850a-64b25f2cc246
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ceebb991-978f-4782-8435-195637f433aa
 
 #### Headlamp: Build Plugin Installation Container
 
