@@ -567,9 +567,6 @@ By implementing these enhancements, KubeStellar UI will evolve into a comprehens
 - Mentor(s): Mariam Fahmy (@MariamFahmy98, mariam.fahmy@nirmata.com), Shuting Zhao (@realshuting, shuting@nirmata.com)
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/1db4df12-49f2-467e-93c2-1625e462eb20
 
-
-
-
 ### LitmusChaos
 
 #### Enhancing CI/CD Integration for LitmusChaos: SDK Development and Chaos-CI-Lib Revamp
@@ -792,8 +789,6 @@ The project is interesting because you will learn how query engines are implemen
 - Upstream Issue (URL): https://github.com/thanos-io/promql-engine/issues/515
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/d58c0d26-e276-4ca5-b2ca-21e6582fbcf7
 
-
-
 ### TUF
 
 #### Metadata Repository Visualization
@@ -881,7 +876,6 @@ GPT-4, Mistral, Llama3). The chatbot will be available via a **CLI and Slack bot
   - Zicong Chen(@JesseStutler, jesseincomparable@hotmail.com)
 - Upstream Issue: https://github.com/volcano-sh/dashboard/issues/11
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/438c1fec-d3d3-4ab0-82ce-499993f8b681
-
 
 ### WasmEdge
 
