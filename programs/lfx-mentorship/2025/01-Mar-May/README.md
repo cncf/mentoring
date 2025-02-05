@@ -542,6 +542,34 @@ By implementing these enhancements, KubeStellar UI will evolve into a comprehens
 - Upstream Issue: https://github.com/kubestellar/ui/issues/63
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/129bdb9e-9f8d-47c0-b643-23d50a19e6c7
 
+### Kyverno
+
+#### Chainsaw Tests For New Policy Types
+
+- Description: Kyverno 1.14 is introducing new policy types based on the upstream Kubernetes ValidatingAdmissionPolicy and MutatingAdmissionPolicy resources, as well as a new ImageVerificationPolicy based on CEL. This project will add e2e tests using Chainsaw for these new policy types.
+- GitHub Issue: [Chainsaw testing](https://github.com/kyverno/kyverno/issues/12065)
+- Recommended Skills: Golang, Kubernetes, ValidatingAdmissionPolicy
+- Mentor(s):  Charles-Edouard Brétéché (@eddycharly, charles.edouard@nirmata.com)
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/d9683d35-0ad4-4c32-b32d-f058d37cf94f
+
+#### Sample Policies For New Policy Types
+
+- Description:  Kyverno 1.14 is introducing new policy types based on the upstream Kubernetes ValidatingAdmissionPolicy and MutatingAdmissionPolicy resources, as well as a new ImageVerificationPolicy based on CEL.  This project will focus on the website and sample policy updates using the new policy types.
+- GitHub Issue: https://github.com/kyverno/kyverno/issues/12085 
+- Recommended Skills: Golang, Kubernetes, ValidatingAdmissionPolicy, MutatingAdmissionPolicy
+- Mentor(s): Jim Bugwadia [@JimBugwadia](https://github.com/JimBugwadia)
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/59295005-33de-4665-82b5-d315d108da31
+
+#### Mutating Admission Policy Integration
+- Description: This project will focus on Integrating the new Kubernetes MutatingAdmissionPolicy with Kyverno CLI for the apply and test commands. 
+- GitHub Issue: https://github.com/kyverno/kyverno/issues/10573
+- Recommended Skills: Golang, Kubernetes, MutatingAdmissionPolicy
+- Mentor(s): Mariam Fahmy (@MariamFahmy98, mariam.fahmy@nirmata.com), Shuting Zhao (@realshuting, shuting@nirmata.com)
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/1db4df12-49f2-467e-93c2-1625e462eb20
+
+
+
+
 ### LitmusChaos
 
 #### Enhancing CI/CD Integration for LitmusChaos: SDK Development and Chaos-CI-Lib Revamp
