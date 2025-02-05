@@ -213,7 +213,7 @@ In this project you will, together with your mentor and the TUF community, ident
 
 #### Chainsaw Tests For New Policy Types
 
-- Description: Kyverno 1.14 is introducing new policy types based on the upstream ValidatingAdmissionPolicy and MutatingAdmissionPolicy. This issue is to update sample policies for this new type, and update documentation.
+- Description: Kyverno 1.14 is introducing new policy types based on the upstream Kubernetes ValidatingAdmissionPolicy and MutatingAdmissionPolicy resources, as well as a new ImageVerificationPolicy based on CEL. This project will add e2e tests using Chainsaw for these new policy types.
 - GitHub Issue: [Chainsaw testing](https://github.com/kyverno/kyverno/issues/12065)
 - Recommended Skills: Golang, Kubernetes, ValidatingAdmissionPolicy
 - Mentor(s):  Charles-Edouard Brétéché (@eddycharly, charles.edouard@nirmata.com)
