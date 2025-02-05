@@ -220,7 +220,7 @@ In this project you will, together with your mentor and the TUF community, ident
 
 #### Sample Policies For New Policy Types
 
-- Description: Add and convert Kyverno sample policies using the new policy types.
+- Description:  Kyverno 1.14 is introducing new policy types based on the upstream Kubernetes ValidatingAdmissionPolicy and MutatingAdmissionPolicy resources, as well as a new ImageVerificationPolicy based on CEL.  This project will focus on the website and sample policy updates using the new policy types.
 - GitHub Issue: https://github.com/kyverno/kyverno/issues/12085 
 - Recommended Skills: Golang, Kubernetes, ValidatingAdmissionPolicy, MutatingAdmissionPolicy
 - Mentor(s): Jim Bugwadia [@JimBugwadia](https://github.com/JimBugwadia)
