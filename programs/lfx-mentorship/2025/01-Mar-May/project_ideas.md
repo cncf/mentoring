@@ -16,120 +16,82 @@
 
 ---
 
+
 ## Proposed Project ideas
 
-### Envoy Gateway
+### KCL
 
-#### Integrating CNCF Fuzzing Framework for Envoy Gateway
+#### A test framework developed for the KCL package management tool
 
-- Description: [Envoy Gateway](https://gateway.envoyproxy.io) has become a crucial part of modern cloud-native infrastructures, 
-providing a simplified way to deploy and manage [Envoy Proxy](https://www.envoyproxy.io).
-Ensuring the reliability and security of Envoy Gateway is paramount for its growing user base.
+- Description: The main content of this topic is to refer to the structure of the test part of common programming languages, such as go and rust, to develop a test framework for KCL's package management tool to help developers better write test cases for the project. The main function of the test framework is to provide a mock environment that supports compiling KCL and interacting with simulated environments such as OCI/Git registry.
+- Expected Outcome: 
+  - A mock environment is started during testing. This mock environment can complete the test without being affected by the network.
+  - In this mock environment, complete the test of: `kcl run`, `kcl mod add`, `kcl mod pull`, `kcl mod push`.
+- Recommended Skills: Go, Rust
+- Mentor(s):
+  - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
+  - Heipa (@He1pa, he1pa404@gmail.com)
+- Upstream Issue: https://github.com/kcl-lang/kpm/issues/593
 
-Fuzzing, a widely-used technique for identifying software vulnerabilities and bugs, can significantly enhance the robustness of Envoy Gateway.
-By integrating the [CNCF Fuzzing Framework](https://github.com/cncf/cncf-fuzzing), this project aims to improve the 
-security posture of Envoy Gateway through comprehensive automated testing.
+#### KPM & LSP Integrated
+
+- Description: Sometimes users will edit the `kcl.mod` file in the IDE to update project dependencies. The integration between LSP and KPM needs to be strengthened, it mainly includes two parts of functions. 
+  - According to the content written by the user in the kcl.mod file, the IDE automatically calls the `kcl run/mod add/mod metadata` and other functions, and feeds back the results in the IDE. 
+  - According to the user's operations in the command line, the changes of `kcl.mod` and project content are synchronized to the IDE.
+
+examples:
+
+1. When users update kcl.mod in the IDE, the required dependencies are automatically downloaded.
+
+2. When users use the kpm tool to update dependencies, the IDE can be updated (recompiled). For example
+```kcl
+import k8s  # Error: Module not found
+```
+
+use `kcl mod add k8s` to download the dependency `k8s`.
+
+kpm will download the k8s package and then the IDE errors will be eliminated
+
+- Expected Outcome: 
+  - Complete at least the following parts:
+    - IDE triggers automatic dependencies updates of package management tools.
+    - Automatic synchronization of kcl.mod files.
+    - IDE users actively trigger dependency downloads, it looks like: a button or link for user to download the missing dependencies.
+    - After the dependency update is complete, the IDE triggers a recompile to clear the error
+- Recommended Skills: Go, Rust
+- Mentor(s):
+    - Heipa (@He1pa, he1pa404@gmail.com)
+    - Zhe Zong (@zong-zhe, zongzhe1024@163.com)
+- Upstream Issue: https://github.com/kcl-lang/kcl/issues/1847
+
+### KubeArmor
+
+#### Providing Zero-Trust policies for popular workloads
+
+- Description: KubeArmor can whitelist processes and assets based on set of rules provided through the policies. This feature allows KubeArmor to achieve zero trust for a workload. However, knowing the allowed behaviour for a workload and manually creating these policies is a pain. Therefore we want to provide Zero-trust policies for popular workloads like grafana, WordPress, redis, etc. (let's say some 100 workloads). We want to make these Zero-Trust policies available as artifacts.
+  
+- Expected Outcome: Create a registry of policies that allow users to seamlessly fetch and apply policies for popular workloads.
+
+- Extended Goal: Since applications will have newer versions and the existing Zero-Trust policies may not work as expected. We can have an automated system to generate these Zero-Trust policies and so we can also automate the process of generating Zero-Trust policies for every version available or newer versions as well.
+  
+- Recommended Skills: familiarity with Golang, K8s CRD(Custom Resource Definition), YAML.
+- Mentor(s):
+  - Rishabh Soni (@rootxrishabh, risrock02@gmail.com)
+  - Prateek Nandle (@Prateeknandle, prateeknandle@gmail.com)
+  - Barun Acharya (@daemon1024, barun1024@gmail.com)
+* Upstream Issue: https://github.com/kubearmor/KubeArmor/issues/1959
+
+### OpenKruise
+
+#### Implement Fuzz testing for OpenKruise
+
+- Description: Implement fuzz testing for OpenKruise using a suitale tool like oss-fuzz. Generate a comprehensive input set to guide the fuzz testing, and identify features that accept complex user inputs for testing. Document the entire process for repeatability in future versions and integrate the fuzz testing into CI pipeline.
 - Expected Outcome:
-  - Add a fuzz test that covers 80% of code paths for translating Gateway API input configuration into xDS output.
+  - Add a fuzz test that covers important features including workoadspread,uniteddeployment, sidecarset and resourcedistribution.
   - Enable continuous fuzzing using [OSS-Fuzz](https://github.com/google/oss-fuzz).
-- Recommended Skills: Go, scripting.
+- Recommended Skills: Go, Kubernetes, Fuzz Testing Experience
 - Mentor(s):
-  - Arko Dasgupta (@arkodg, arko@tetrate.io)
-  - Teju Nareddy (@nareddyt, tnareddy@confluent.io)
-- Upstream Issue: https://github.com/envoyproxy/gateway/issues/3124
+  - Zhang Zhen (@furykerry, furykerry@gmail.com)
+  - Zhao Mingshan (@zmberg, berg.zms@gmail.com)
+- Upstream Issue: https://github.com/openkruise/kruise/issues/1713
 
-
-### Jaeger
-
-#### Jaeger: Upgrade Storage Backends to V2 Storage API
-
-- Description: [Jaeger](https://www.jaegertracing.io/) is an open-source, distributed tracing platform designed to monitor and troubleshoot microservices-based systems. A critical component of Jaeger is its storage backends, where traces captured by Jaeger are stored. With the release of Jaeger v2 last year we introduced a new, more efficient Storage API v2. However, the existing backend implementations in Jaeger are still using v1 API that is only wrapped in the v2 adapter, which prevents them from benefiting from the new capabilities such as batch writes and result streaming. The objective of this project is to upgrade some (or all) backend implementations to use the Storage API v2 natively. Please refer to the upstream issue for more details.
-- Expected Outcome:
-  - Upgrade memory and Elasticsearch backends to use the Storage API v2 natively.
-  - Bonus: upgrade Cassandra and Badger backends to use the Storage API v2 natively.
-- Recommended Skills: Go, scripting, CI/CD, familiarity with Elasticsearch/Cassandra a plus but not required.
-- Mentor(s):
-  - Yuri Shkuro (@yurishkuro, github@ysh.us)
-  - Mahad Zaryab (@mahadzaryab1, mahadzaryab1@gmail.com)
-- Upstream Issue: https://github.com/jaegertracing/jaeger/issues/6458
-
-#### Upgrade charts and graphs in Jaeger UI
-
-- Description: [Jaeger](https://www.jaegertracing.io/) is an open-source, distributed tracing platform designed to monitor and troubleshoot microservices-based systems. Jaeger UI pioneered many new visualizations for analyzing distributed traces. However, over time, it accumulated views that utilize different and sometimes deprecated viz libraries. The objective is to standardize charting / graphing libraries used in Jaeger UI, upgrade their dependencies, and add new visualization features. Please refer to the upstream issue for more details.
-- Expected Outcome:
-  - Jaeger UI is not using deprecated dependencies
-  - Consistent look and feel of graphs
-  - Bonus: side panel for details for a given node
-  - Bonus: overlaying metrics on the graph (as edge annotations and node coloring to reflect health / error rates)
-  - Bonus: varying node displays depending on the type of node and implementation language
-- Recommended Skills: Javascript, Typescript, React, NPM, Vite.js
-- Mentor(s):
-  - Yuri Shkuro (@yurishkuro, github@ysh.us)
-  - Jonah Kowall (@jkowall, jkowall@kowall.net)
-- Upstream Issue: https://github.com/jaegertracing/jaeger-ui/issues/2534
-
-### KubeStellar
-
-#### Enhancing KubeStellar UI for Expanded Functionality and User Experience
-
-- Description: [KubeStellar](https://kubestellar.io) is a flexible solution for challenges associated with multi-cluster configuration management for edge, multi-cloud, and hybrid cloud. KubeStellar's UI is a tool for interacting with KubeStellar components, managing its inventory and transport space (ITS), and workload description space (WDS). Currently, the UI is in its early stages, providing only basic features like reading kubeconfig info and displaying ITS and WDS. The goal of this project is to significantly enhance the functionality and usability of the KubeStellar UI by implementing additional core features, improving its user interface, and ensuring a seamless experience for Kubernetes cluster operators.
-
-- Objectives
-  1. Implement BindingPolicies CRUD:
-    - Develop intuitive interfaces for creating, reading, updating, and deleting binding policies.
-    - Ensure policies are validated against Kubernetes standards and KubeStellar’s architecture.
-    - Allow users to view and manage binding policies tied to specific workloads or clusters.
-  2. Add Workload Deployment to WDS:
-    - Build functionality for deploying workloads to one or more WDS.
-    - Provide real-time feedback on deployment status and logs.
-    - Add visualization for workload placement across multiple WDS, ensuring clarity of resource distribution.
-  3. Cluster Onboarding to ITS:
-    - Create an onboarding wizard to guide users through adding new clusters to the ITS.
-    - Validate clusters' compatibility and connection during the onboarding process.
-    - Automatically generate and display kubeconfig details for onboarded clusters.
-  4. Enhance UI Usability and Performance:
-    - Upgrade the UI with modern design principles for a consistent and intuitive user experience.
-    - Leverage React and Vite to optimize load times and component rendering.
-    - Introduce real-time updates for ITS and WDS data using WebSocket or API polling.
-  5. Backend Integration with Go:
-    - Extend the Go backend to support new API endpoints for the proposed features.
-    - Ensure secure and efficient communication between the UI and Kubernetes API.
-    - Validate backend performance under high-scale usage.
-
-- Expected Outcomes
-  - New Features:
-    - BindingPolicies CRUD operations accessible via the UI.
-    - Workload deployment support to one or more WDS.
-    - Seamless onboarding process for adding clusters to the ITS.
-  - Improved Usability:
-    - A polished UI with a modern look and feel, supporting intuitive navigation.
-    - Real-time insights into cluster operations and workload deployments.
-  - Robust Performance:
-    - Scalable backend integration with Go for handling large cluster environments.
-    - Optimized frontend with Node.js, React, and Vite for faster interaction.
-
-- Bonus Features
-  - Visualization Improvements:
-    - Visual dashboard for workload deployments and cluster health monitoring.
-    - Integration of charts to show resource utilization trends across ITS and WDS.
-  - User Customizations:
-    - Add support for user-defined themes (dark/light mode).
-    - Exportable configurations for sharing binding policies or deployment setups.
-
-- Recommended Skills
-  - Frontend Development: Node.js, React, Vite, and REST API integration.
-  - Backend Development: Go and Kubernetes API communication.
-  - Cluster Management: Familiarity with Kubernetes clusters and associated workflows.
-  - UI/UX Design: Experience in designing interfaces for system operators.
-
-- Mentor
-  Andy Anderson
-  GitHub: @clubanderson
-  Email: andy@clubanderson.com
-  Braulio Dumba
-  GitHub: dumb0002
-  Email: braulio.dumba@ibm.com
-
-- Repository
-  GitHub Repository: kubestellar/ui
-By implementing these enhancements, KubeStellar UI will evolve into a comprehensive tool for cluster management, empowering users to efficiently deploy and manage resources while offering an intuitive and modern interface.
