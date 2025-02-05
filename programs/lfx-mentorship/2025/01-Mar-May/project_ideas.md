@@ -73,8 +73,6 @@ The outcome will be a **comprehensive documentation improvement plan**, with tar
 
 ### Thanos
 
-### Thanos
-
 #### Add support for new PromQL aggregations
 
 Thanos (https://thanos.io) has its own PromQL (Prometheus (https://prometheus.io) querying language) engine. The original PromQL engine recently added support for new aggregations. We are missing support for them in the Thanos PromQL engine (https://github.com/thanos-io/promql-engine).
