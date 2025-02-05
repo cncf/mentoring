@@ -75,27 +75,11 @@ The outcome will be a **comprehensive documentation improvement plan**, with tar
 
 #### Add support for new PromQL aggregations
 
-[Thanos](https://thanos.io) has its own PromQL ([Prometheus](https://prometheus.io) querying language) engine. The original PromQL engine recently added support for new aggregations. We are missing support for them in the [Thanos PromQL engine](https://github.com/thanos-io/promql-engine).
+Thanos (https://thanos.io) has its own PromQL (Prometheus (https://prometheus.io) querying language) engine. The original PromQL engine recently added support for new aggregations. We are missing support for them in the Thanos PromQL engine (https://github.com/thanos-io/promql-engine).
 
-In this project you will implement support for `limitk` and `limit_ratio`. See [issue](https://github.com/thanos-io/promql-engine/issues/515). This will unblock users who need this functionality.
+In this project you will implement support for `limitk` and `limit_ratio`. See issue (https://github.com/thanos-io/promql-engine/issues/515). This will unblock users who need this functionality.
 
 The project is interesting because you will learn how query engines are implemented, about distributed query execution.
-
-- Description: In the last year Prometheus has tackled and solved many UX problems that OTel users had when sending OTLP data to Prometheus. One challenge that remains unsolved is how do users expect to use OTLP Resource Attributes in Prometheus. This project is about conducting a UX research that explores the main problems users are facing today with the current state of Resource Attributes and Prometheus and coming up with ideas how to solve them.
-- Expected Outcome: 
-  -  Preliminary artifacts (e.g., research plan) shared as project progresses.
-  - Research report, summarizing the findings.
-  - A spoken presentation including research method and results.
-    - Stretch goal: apply to present the project at KubeCon.
-- Recommended Skills:
-  - Interest or currently working in UX Research and Design.
-  - Familiarity with databases and querying.
-  - Being comfortable to talk with End-Users in English.
-- Mentor(s):
-    - Arthur Sens (@ArthurSens, arthursens2005@gmail.com)
-    - Amy Super (@amy-super, amy.super@grafana.com)
-    - Andrej Kiripolsky (@AndrejKiri, andrej.kiripolsky@grafana.com)
-* Upstream Issue: https://github.com/prometheus/prometheus/issues/15909
 
 - Expected Outcome: `limitk`, `limit_ratio` are supported in the Thanos PromQL engine (local & distributed modes), tests are written for them
 - Recommended Skills: Go programming language experience
