@@ -49,6 +49,28 @@ The outcome will be a **comprehensive documentation improvement plan**, with tar
   - Arko Dasgupta (@arkodg, arko@tetrate.io)
 - Upstream Issue: https://github.com/envoyproxy/gateway/issues/5203
 
+### Kyverno
+
+#### Chainsaw Tests For New Policy Types
+
+- Description: Kyverno 1.14 is introducing new policy types based on the upstream Kubernetes ValidatingAdmissionPolicy and MutatingAdmissionPolicy resources, as well as a new ImageVerificationPolicy based on CEL. This project will add e2e tests using Chainsaw for these new policy types.
+- GitHub Issue: [Chainsaw testing](https://github.com/kyverno/kyverno/issues/12065)
+- Recommended Skills: Golang, Kubernetes, ValidatingAdmissionPolicy
+- Mentor(s):  Charles-Edouard Brétéché (@eddycharly, charles.edouard@nirmata.com)
+
+#### Sample Policies For New Policy Types
+
+- Description:  Kyverno 1.14 is introducing new policy types based on the upstream Kubernetes ValidatingAdmissionPolicy and MutatingAdmissionPolicy resources, as well as a new ImageVerificationPolicy based on CEL.  This project will focus on the website and sample policy updates using the new policy types.
+- GitHub Issue: https://github.com/kyverno/kyverno/issues/12085 
+- Recommended Skills: Golang, Kubernetes, ValidatingAdmissionPolicy, MutatingAdmissionPolicy
+- Mentor(s): Jim Bugwadia [@JimBugwadia](https://github.com/JimBugwadia)
+
+#### Mutating Admission Policy Integration
+- Description: This project will focus on Integrating the new Kubernetes MutatingAdmissionPolicy with Kyverno CLI for the apply and test commands. 
+- GitHub Issue: https://github.com/kyverno/kyverno/issues/10573
+- Recommended Skills: Golang, Kubernetes, MutatingAdmissionPolicy
+- Mentor(s): Mariam Fahmy (@MariamFahmy98, mariam.fahmy@nirmata.com), Shuting Zhao (@realshuting, shuting@nirmata.com)
+
 ### Thanos
 
 #### Add support for new PromQL aggregations
