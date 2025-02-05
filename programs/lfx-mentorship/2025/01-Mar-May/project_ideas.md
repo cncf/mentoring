@@ -226,7 +226,7 @@ In this project you will, together with your mentor and the TUF community, ident
 - Mentor(s): Jim Bugwadia [@JimBugwadia](https://github.com/JimBugwadia)
 
 #### Mutating Admission Policy Integration
-- Description: Integrate Mutating Admission Policy with Kyverno CLI.
+- Description: This project will focus on Integrating the new Kubernetes MutatingAdmissionPolicy with Kyverno CLI for the apply and test commands. 
 - GitHub Issue: https://github.com/kyverno/kyverno/issues/10573
 - Recommended Skills: Golang, Kubernetes, MutatingAdmissionPolicy
 - Mentor(s): Mariam Fahmy (@MariamFahmy98, mariam.fahmy@nirmata.com), Shuting Zhao (@realshuting, shuting@nirmata.com)
