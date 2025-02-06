@@ -483,6 +483,8 @@ eBPF, a recently introduced programmable technology in the kernel, currently has
 
 #### Implement a Binding Policy Frontend Supported by Binding Policy Backend Endpoints
 
+_CNCF - KubeStellar: Implement Binding Policy Frontend with Backend Endpoints (2025 Term 1)_
+
 - Description
 This project focuses on developing the UI components necessary for managing Binding Policies in KubeStellar. Users should be able to create, update, delete, and view policies via an intuitive interface while ensuring seamless integration with the backend API.
 
