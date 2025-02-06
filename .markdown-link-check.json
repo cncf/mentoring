@@ -1,0 +1,19 @@
+{
+  "ignorePatterns": [
+    {
+      "pattern": "^http://localhost"
+    },
+    {
+      "pattern": "^#"
+    },
+    {
+      "pattern": "^https://(www|docs).tremor.rs"
+    },
+    {
+      "pattern": "\\?no-link-check$"
+    }
+  ],
+  "timeout": "3s",
+  "retryOn429": true,
+  "aliveStatusCodes": [200, 206]
+}
