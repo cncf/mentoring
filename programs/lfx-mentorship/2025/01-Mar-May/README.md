@@ -605,7 +605,7 @@ This project aims to develop the frontend components for managing clusters in th
   - Andy Anderson (@clubanderson, andy@clubanderson.com)
   - Braulio Dumba (dumb0002, braulio.dumba@ibm.com)
 - Upstream Issue: https://github.com/kubestellar/ui/issues/50
-- LFX URL:
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/b3805d32-03c4-4d5f-b56e-613ac24629c1
 
 #### Implement an ITS Backend to Support UI Frontend Operations
 
