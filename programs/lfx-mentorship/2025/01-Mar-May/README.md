@@ -481,66 +481,154 @@ eBPF, a recently introduced programmable technology in the kernel, currently has
 
 ### KubeStellar
 
-#### Enhancing KubeStellar UI for Expanded Functionality and UX
+#### Implement a Binding Policy Frontend Supported by Binding Policy Backend Endpoints
 
-- Description: [KubeStellar](https://kubestellar.io) is a flexible solution for challenges associated with multi-cluster configuration management for edge, multi-cloud, and hybrid cloud. KubeStellar's UI is a tool for interacting with KubeStellar components, managing its inventory and transport space (ITS), and workload description space (WDS). Currently, the UI is in its early stages, providing only basic features like reading kubeconfig info and displaying ITS and WDS. The goal of this project is to significantly enhance the functionality and usability of the KubeStellar UI by implementing additional core features, improving its user interface, and ensuring a seamless experience for Kubernetes cluster operators.
+- Description
+This project focuses on developing the UI components necessary for managing Binding Policies in KubeStellar. Users should be able to create, update, delete, and view policies via an intuitive interface while ensuring seamless integration with the backend API.
 
 - Objectives
-  1. Implement BindingPolicies CRUD:
-    - Develop intuitive interfaces for creating, reading, updating, and deleting binding policies.
-    - Ensure policies are validated against Kubernetes standards and KubeStellar’s architecture.
-    - Allow users to view and manage binding policies tied to specific workloads or clusters.
-  2. Add Workload Deployment to WDS:
-    - Build functionality for deploying workloads to one or more WDS.
-    - Provide real-time feedback on deployment status and logs.
-    - Add visualization for workload placement across multiple WDS, ensuring clarity of resource distribution.
-  3. Cluster Onboarding to ITS:
-    - Create an onboarding wizard to guide users through adding new clusters to the ITS.
-    - Validate clusters' compatibility and connection during the onboarding process.
-    - Automatically generate and display kubeconfig details for onboarded clusters.
-  4. Enhance UI Usability and Performance:
-    - Upgrade the UI with modern design principles for a consistent and intuitive user experience.
-    - Leverage React and Vite to optimize load times and component rendering.
-    - Introduce real-time updates for ITS and WDS data using WebSocket or API polling.
-  5. Backend Integration with Go:
-    - Extend the Go backend to support new API endpoints for the proposed features.
-    - Ensure secure and efficient communication between the UI and Kubernetes API.
-    - Validate backend performance under high-scale usage.
-
+  - Develop UI components for managing Binding Policies (CRUD operations).
+  - Implement validation mechanisms to ensure policies comply with Kubernetes standards.
+  - Provide real-time updates on policy status and binding information.
+  - Improve UI design for a seamless user experience.
 - Expected Outcomes
-  - New Features:
-    - BindingPolicies CRUD operations accessible via the UI.
-    - Workload deployment support to one or more WDS.
-    - Seamless onboarding process for adding clusters to the ITS.
-  - Improved Usability:
-    - A polished UI with a modern look and feel, supporting intuitive navigation.
-    - Real-time insights into cluster operations and workload deployments.
-  - Robust Performance:
-    - Scalable backend integration with Go for handling large cluster environments.
-    - Optimized frontend with Node.js, React, and Vite for faster interaction.
-
-- Bonus Features
-  - Visualization Improvements:
-    - Visual dashboard for workload deployments and cluster health monitoring.
-    - Integration of charts to show resource utilization trends across ITS and WDS.
-  - User Customizations:
-    - Add support for user-defined themes (dark/light mode).
-    - Exportable configurations for sharing binding policies or deployment setups.
-
-By implementing these enhancements, KubeStellar UI will evolve into a comprehensive tool for cluster management, empowering users to efficiently deploy and manage resources while offering an intuitive and modern interface.
-
+  - A fully functional Binding Policy management UI.
+  - Smooth user interaction with the backend API.
+  - Modern UI with real-time validation and feedback.
 - Recommended Skills
   - Frontend Development: Node.js, React, Vite, and REST API integration.
   - Backend Development: Go and Kubernetes API communication.
   - Cluster Management: Familiarity with Kubernetes clusters and associated workflows.
   - UI/UX Design: Experience in designing interfaces for system operators.
-
-- Mentor(s):
+- Mentor(s)
   - Andy Anderson (@clubanderson, andy@clubanderson.com)
   - Braulio Dumba (dumb0002, braulio.dumba@ibm.com)
+- Upstream Issue: https://github.com/kubestellar/ui/issues/54
+- LFX URL:
 
-- Upstream Issue: https://github.com/kubestellar/ui/issues/63
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/129bdb9e-9f8d-47c0-b643-23d50a19e6c7
+#### Implement a Binding Policy Backend to Support UI Frontend
+
+Description
+This project focuses on implementing the backend API for managing Binding Policies. The API should support creating, reading, updating, and deleting policies while ensuring robust validation and performance.
+
+- Objectives
+  - Develop backend API endpoints for Binding Policy management.
+  - Ensure proper validation and enforcement of Kubernetes standards.
+  - Optimize backend performance for handling multiple policy requests.
+  - Implement logging and error handling for better debugging.
+- Expected Outcomes
+  - A secure and scalable backend API for Binding Policies.
+  - Full CRUD functionality accessible from the UI.
+  - Improved validation and performance optimizations.
+- Recommended Skills
+  - Frontend Development: Node.js, React, Vite, and REST API integration.
+  - Backend Development: Go and Kubernetes API communication.
+  - Cluster Management: Familiarity with Kubernetes clusters and associated workflows.
+  - UI/UX Design: Experience in designing interfaces for system operators.
+- Mentor(s)
+  - Andy Anderson (@clubanderson, andy@clubanderson.com)
+  - Braulio Dumba (dumb0002, braulio.dumba@ibm.com)
+- Upstream Issue: https://github.com/kubestellar/ui/issues/53
+- LFX URL:
+
+#### Implement a WDS Backend to Support UI Frontend Operations
+
+- Description
+This project will focus on implementing the backend infrastructure necessary to manage Workload Description Space (WDS) operations. The backend will support UI functionalities such as workload deployment and visualization.
+
+- Objectives
+  - Develop API endpoints for workload deployment to WDS.
+  - Implement workload status tracking and log retrieval.
+  - Ensure efficient workload resource retrieval.
+- Expected Outcomes
+  - A robust WDS backend to support UI functionalities.
+  - Secure API integrations for workload management.
+  - Efficient backend processes for workload deployment and tracking.
+- Recommended Skills
+  - Frontend Development: Node.js, React, Vite, and REST API integration.
+  - Backend Development: Go and Kubernetes API communication.
+  - Cluster Management: Familiarity with Kubernetes clusters and associated workflows.
+  - UI/UX Design: Experience in designing interfaces for system operators.
+- Mentor(s)
+  - Andy Anderson (@clubanderson, andy@clubanderson.com)
+  - Braulio Dumba (dumb0002, braulio.dumba@ibm.com)
+- Upstream Issue: https://github.com/kubestellar/ui/issues/52
+- LFX URL:
+
+#### Implement a WDS Frontend Supported by WDS Backend
+
+- Description
+This project focuses on enhancing the KubeStellar UI with WDS-related functionalities, allowing users to manage and deploy workloads effectively.
+
+- Objectives
+  - Implement UI components for managing workloads in WDS.
+  - Integrate real-time workload deployment tracking.
+  - Enhance UI design for better user experience and usability.
+  - Display visual indicators for workload placement across multiple clusters.
+- Expected Outcomes
+  - A user-friendly UI for managing WDS workloads.
+  - Real-time feedback on deployment status.
+  - Improved visualization of workload distribution.
+- Recommended Skills
+  - Frontend Development: Node.js, React, Vite, and REST API integration.
+  - Backend Development: Go and Kubernetes API communication.
+  - Cluster Management: Familiarity with Kubernetes clusters and associated workflows.
+  - UI/UX Design: Experience in designing interfaces for system operators.
+- Mentor(s)
+  - Andy Anderson (@clubanderson, andy@clubanderson.com)
+  - Braulio Dumba (dumb0002, braulio.dumba@ibm.com)
+- Upstream Issue: https://github.com/kubestellar/ui/issues/51
+- LFX URL:
+
+#### Implement an ITS Frontend Supported by ITS Backend Endpoints
+
+- Description
+This project aims to develop the frontend components for managing clusters in the Inventory and Transport Space (ITS). Users should be able to onboard and manage clusters through an intuitive UI.
+
+- Objectives
+  - Develop UI components for cluster onboarding and management.
+  - Implement validation and error handling for cluster registration.
+  - Ensure smooth integration with backend APIs for real-time updates.
+  - Provide a guided onboarding experience for adding new clusters.
+- Expected Outcomes
+  - A fully functional ITS management UI.
+  - Improved usability for adding and managing clusters.
+  - Seamless backend integration for real-time data updates.
+- Recommended Skills
+  - Frontend Development: Node.js, React, Vite, and REST API integration.
+  - Backend Development: Go and Kubernetes API communication.
+  - Cluster Management: Familiarity with Kubernetes clusters and associated workflows.
+  - UI/UX Design: Experience in designing interfaces for system operators.
+- Mentor(s)
+  - Andy Anderson (@clubanderson, andy@clubanderson.com)
+  - Braulio Dumba (dumb0002, braulio.dumba@ibm.com)
+- Upstream Issue: https://github.com/kubestellar/ui/issues/50
+- LFX URL:
+
+#### Implement an ITS Backend to Support UI Frontend Operations
+
+- Description
+This project focuses on building the backend functionality necessary for managing clusters in ITS. It will provide API endpoints to support the frontend’s cluster onboarding and management features.
+
+- Objectives
+  - Develop backend APIs for ITS cluster management.
+  - Implement validation and security features for onboarding new clusters.
+  - Ensure high performance and scalability for handling multiple clusters.
+  - Optimize API interactions for faster response times.
+- Expected Outcomes
+  - A fully functional ITS backend with API support.
+  - Secure and efficient cluster onboarding processes.
+  - Scalable architecture for managing large Kubernetes deployments.
+- Recommended Skills
+  - Frontend Development: Node.js, React, Vite, and REST API integration.
+  - Backend Development: Go and Kubernetes API communication.
+  - Cluster Management: Familiarity with Kubernetes clusters and associated workflows.
+  - UI/UX Design: Experience in designing interfaces for system operators.
+- Mentor(s)
+  - Andy Anderson (@clubanderson, andy@clubanderson.com)
+  - Braulio Dumba (dumb0002, braulio.dumba@ibm.com)
+- Upstream Issue: https://github.com/kubestellar/ui/issues/49
+- LFX URL:
 
 ### Kyverno
 
