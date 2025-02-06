@@ -506,7 +506,7 @@ This project focuses on developing the UI components necessary for managing Bind
   - Andy Anderson (@clubanderson, andy@clubanderson.com)
   - Braulio Dumba (dumb0002, braulio.dumba@ibm.com)
 - Upstream Issue: https://github.com/kubestellar/ui/issues/54
-- LFX URL:
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8bbb76e3-07e5-404d-9335-28cc0d8ecf0c
 
 #### Implement a Binding Policy Backend to Support UI Frontend
 
