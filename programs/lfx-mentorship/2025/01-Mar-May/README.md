@@ -630,7 +630,7 @@ This project focuses on building the backend functionality necessary for managin
   - Andy Anderson (@clubanderson, andy@clubanderson.com)
   - Braulio Dumba (dumb0002, braulio.dumba@ibm.com)
 - Upstream Issue: https://github.com/kubestellar/ui/issues/49
-- LFX URL:
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/11478e3c-ac06-4d15-a11f-a7bf1f9994e3
 
 ### Kyverno
 
