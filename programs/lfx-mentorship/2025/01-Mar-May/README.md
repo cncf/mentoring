@@ -555,7 +555,7 @@ This project will focus on implementing the backend infrastructure necessary to 
   - Andy Anderson (@clubanderson, andy@clubanderson.com)
   - Braulio Dumba (dumb0002, braulio.dumba@ibm.com)
 - Upstream Issue: https://github.com/kubestellar/ui/issues/52
-- LFX URL:
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/885239e6-6a95-410f-9aae-00fd8b4c5f09
 
 #### Implement a WDS Frontend Supported by WDS Backend
 
