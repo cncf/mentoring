@@ -580,7 +580,7 @@ This project focuses on enhancing the KubeStellar UI with WDS-related functional
   - Andy Anderson (@clubanderson, andy@clubanderson.com)
   - Braulio Dumba (dumb0002, braulio.dumba@ibm.com)
 - Upstream Issue: https://github.com/kubestellar/ui/issues/51
-- LFX URL:
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/e549191d-6880-4a98-8fd2-ec5fc47ecc92
 
 #### Implement an ITS Frontend Supported by ITS Backend Endpoints
 
