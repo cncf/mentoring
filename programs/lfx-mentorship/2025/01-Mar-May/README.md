@@ -531,7 +531,7 @@ This project focuses on implementing the backend API for managing Binding Polici
   - Andy Anderson (@clubanderson, andy@clubanderson.com)
   - Braulio Dumba (dumb0002, braulio.dumba@ibm.com)
 - Upstream Issue: https://github.com/kubestellar/ui/issues/53
-- LFX URL:
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/d9f46954-3b56-4e42-b83c-dd3dee2b8b6d
 
 #### Implement a WDS Backend to Support UI Frontend Operations
 
