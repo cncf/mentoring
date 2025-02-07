@@ -479,7 +479,7 @@ kpm will download the k8s package and then the IDE errors will be eliminated
 - Recommended Skills: JS, Kmesh, Html
 - Mentor(s):
   - ZhenCheng Li(@LiZhenCheng9527, leezhencheng6@gmail.com),
-  - Zhonghu Xu(@hzxuzhonghu, zhhxu2011@163.com)
+  - Zhonghu Xu(@hzxuzhonghu, zhhxu2011@gmail.com)
 - Upstream Issue: https://github.com/kmesh-net/website/issues/115
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/6269bdd1-1004-465c-bbdc-6a230988c899
 
@@ -492,7 +492,7 @@ eBPF, a recently introduced programmable technology in the kernel, currently has
   - Export design documentation for eBPF UT tests
 - Recommended Skills: C, eBPF,  (go)
 - Mentor(s):
-  - Xin Liu(@bitcoffeeiux, liuxin350@huawei.com)
+  - Xin Liu(@bitcoffeeiux, 854182924@qq.com)
   - Changye Wu(@nlgwcy, wuchangye@huawei.com)
 - Upstream Issue: https://github.com/kmesh-net/kmesh/issues/1209
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/58b458ba-6be0-4dd9-b194-bfe6f98d2a2c
@@ -506,7 +506,7 @@ eBPF, a recently introduced programmable technology in the kernel, currently has
 - Recommended Skills: go, Kmesh
 - Mentor(s):
   - Zengzeng Yao(@yaozegzeng, yaozengzeng@huawei.com)
-  - Zhonghu Xu(@hzxuzhonghu, zhhxu2011@163.com)
+  - Zhonghu Xu(@hzxuzhonghu, zhhxu2011@gmail.com)
 - Upstream Issue: https://github.com/kmesh-net/kmesh/issues/1210
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2a955954-1a86-4835-be29-f4c70bfd77d2
 
