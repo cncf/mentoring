@@ -1032,7 +1032,7 @@ This project focuses on creating a validated and repeatable SaaS architecture fo
 - Mentor(s):
     - Arthur Sens (@ArthurSens, arthursens2005@gmail.com)
     - Amy Super (@amy-super, amy.super@grafana.com)
-    - Andrej Kiripolsky (@AndrejKiri, andrej.kiripolsky@grafana.com)
+    - Andrej Kiripolsky (@AndrejKiri, andrej.kiripolsky@gmail.com)
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/15909
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/36e3f336-ce78-4074-b833-012015eb59be
 
