@@ -43,6 +43,7 @@ Your mission in this internship is to create and publish a series of hands-on tu
 - Recommended Skills: written English, Markdown, Kubernetes, DevOps, and hands-on experience with cloud-native tools.
 - Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), James Horti (@hortison, james.horton2337@gmail.com)
 - Upstream Issue: https://github.com/meshery/meshery/issues/13521
+- LFX URL: https://crowdfunding.lfx.linuxfoundation.org/projects/4cca92b8-ede6-4396-8d3f-68cfa2ec911c
 
 #### Expanding end-to-end test coverage in Meshery using Playwright
 
