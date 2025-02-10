@@ -29,6 +29,7 @@
 - Recommended Skills: Golang, Cuelang, Well-written and well-spoken English, Kubernetes, DevOps
 - Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Mia Grenell (@miacycle, mia.grenell2337@gmail.com)
 - Upstream Issue: https://github.com/meshery/meshery/issues/13520
+- LFX URL: https://crowdfunding.lfx.linuxfoundation.org/projects/2ce4cf0b-05e0-430a-b9e1-3df46d917ef6
 
 #### Hands-on tutorials using Meshery Playground
 
