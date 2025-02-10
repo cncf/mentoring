@@ -57,3 +57,4 @@ Expanding the coverage of E2E tests is crucial to improving the reliability of M
 - Recommended Skills: JavaScript, Playwright, GitHub Workflows, familiarity with React or Nextjs would be helpful, CI/CD
 - Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Aabid Sofi (@aabidsofi19, mailtoaabid01@gmail.com)
 - Upstream Issue: https://github.com/meshery/meshery/issues/13514
+- LFX URL: https://crowdfunding.lfx.linuxfoundation.org/projects/abd10fed-e03f-4425-863e-157accfe354f
