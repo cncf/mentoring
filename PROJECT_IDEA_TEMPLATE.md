@@ -1,27 +1,12 @@
-### Template
+### GSOC 2025 Proposal for Microcks
 
-```
-#### CNCF Project Name
+
+#### CNCF Project Name : Improving Microcks CLI or creating some microcks utility likemksctl
 ##### Title
 
-- Description:
-- Expected Outcome:
-- Recommended Skills:
-- Mentor(s): # It is recommended to have at least 2 mentors, and at least one of them should be the primary mentor. For GSoC, it is **required** to have at least 2 mentors.
-  - Jane Doe (@jane-github, jane@email.address) - primary
-  - John Doe (@john-github, john@email.address)
-- Upstream Issue (URL):
-```
-
-### Sample:
-
-#### Prometheus
-##### Refactor the APIs for better readability and less maintenance overhead
-
-- Description: Currently the HTTP API is not very well organized and needs some tidying up. The actual course of action is not decided yet, but [go-kit](https://github.com/go-kit/kit) looks like a good fit.
-- Expected Outcome: A refactored HTTP API that is easier to maintain and extend.
-- Recommended Skills: golang
-- Mentor(s):
-  - Jane Doe (@jane-github, jane@email.address) - primary
-  - John Doe (@john-github, john@email.address)
-- Upstream Issue: https://github.com/prometheus/prometheus/issues/3416
+- Description: Improving Microcks CLI, Developing mksctl Utility, and Updating Microcks Hub Frontend; The Microcks CLI is being restructured with Cobra for scalability, while **mksctl** gains essential commands. Package manager support improves accessibility, the Hub frontend gets a UI/UX upgrade, and on-premises deployment is streamlined via Docker Compose and Kubernetes. Comprehensive documentation and testing ensure stability.
+  <br>
+- Expected Outcome: The Microcks CLI is being revamped using the Cobra framework to standardize commands and enhance usability. The **mksctl** tool is gaining new features, including instance management commands (start/stop), improved import options, and job management capabilities. To improve accessibility, installation support will be added for package managers like Homebrew and apt. The Microcks Hub frontend will be upgraded from Angular 8 to a modern framework (React, Vue, or the latest Angular), with a refined UI/UX for better user experience. On-premises deployment support will be introduced via Docker Compose and Kubernetes Helm Charts. Comprehensive documentation and unit tests will ensure stability, reliability, and ease of use.
+ <br>
+- Recommended Skills: Cobra CLI, Java, Typescript
+- I’m excited to work with the Microcks team on their amazing project, as its tech stack aligns closely with my interests, and I see a great opportunity to learn and grow.
