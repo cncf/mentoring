@@ -6,16 +6,18 @@ Mentorship duration - three months (full-time schedule)
 
 ### Timeline
 
-| **Activity**                                                  | **Dates (2025)**            |
-|---------------------------------------------------------------|-----------------------------|
-| **Project Proposals Open**                                    | Wed, April 16 – Tue, May 13 |
-| **Mentee Applications Open**                                  | Wed, May 14 – Tue, May 27   |
-| **Application Review/Admission Decisions**                    | Wed, May 28 – Tue, June 3   |
-| **Selection Notifications**                                   | Wed, June 4                 |
-| **Mentorship Program Begins (Work Phase, Week 1)**            | Mon, June 9                 |
-| **Midterm Mentee Evaluations & First Stipend Payment**        | Wed, July 16 (Week 6)       |
-| **Final Mentee Evaluations & Second Stipend Payment**         | Wed, August 27 (Week 12)    |
-| **Last Day of Term**                                          | Fri, August 29              |
+| **Activity**                   | **Dates (2025)**                                                               |
+|--------------------------------|--------------------------------------------------------------------------------|
+| **Project Proposals Open**     | Wed, April 16 – Tue, May 13, 2025 11AM PDT (18:00 UTC)                         |
+| **Mentee Applications Open**   | Wed, May 14, 2025 11AM PDT (18:00 UTC) – Tue, May 27 2025 11AM PDT (18:00 UTC) |
+| **Application Review Period**  | Wed, May 28 – Tue, June 3, 2025 11 AM PDT (18:00 UTC)                          |
+| **Selection Notifications**    | Wed, June 4, 2025                                                              |
+| **Mentorship Program Begins**  | Mon, June 9, 2025                                                              |
+| **Midterm Mentee Evaluations** | Tues, July 15, 2025 11AM PDT (18:00 UTC)                                       |
+| **First Stipend Payments**     | Wednesday, July 16, 2025                                                       |
+| **Final Mentee Evaluations**   | Tues, August 26, 2025 11AM PDT (18:00 UTC)                                     |
+| **Second Stipend Payments**    | Wednesday, Aug 27, 2025                                                        |
+| **Last Day of Term**           | Fri, August 29, 2025                                                           |
 
 ### Project instructions
 
