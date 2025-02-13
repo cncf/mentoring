@@ -32,7 +32,7 @@ Improved Maintainability: Migration to React, Vue, or latest Angular for long-te
 On-Premises Deployment: Organizations can deploy Microcks Hub within their infrastructure. <br>
 Open Source Contribution: Strengthens the Microcks ecosystem. <br>
 I would also like to involve in other projects of Microcks too.<br>
-- Recommended Skills: Figma, Reactjs, Angularjs, Javascript, Java, Docker, kubernetes, Go
+- Recommended Skills: Figma, Reactjs, Angularjs, Javascript, Java, Docker, kubernetes, Go, Svelte, Vitejs
   - Mentor Name : Yacine Kheddache (@yada, yacine@microcks.io) <br>
 Laurent Broudoux (@lbroudoux, laurent@microcks.io) <br>
 Julien Breux (@JulienBreux, julien.breux@gmail.com) <br>
