@@ -1069,7 +1069,7 @@ In this project you will, together with your mentor and the TUF community, ident
 - Mentor(s): # 
   - Lukas Pühringer (@lukpueh, lukas.puehringer@nyu.edu) - primary
   - Jussi Kukkonen (@jku)
-- Upstream Issue (URL): TBD, https://github.com/theupdateframework/tuf-on-ci/issues/39 (initial ideas)
+- Upstream Issue (URL): https://github.com/theupdateframework/specification/issues/312
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ea1a5098-29ce-4799-82e0-07416ab4b56a
 
 ### Vitess
