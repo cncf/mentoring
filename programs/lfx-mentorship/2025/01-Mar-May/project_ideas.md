@@ -1,7 +1,7 @@
 ### CNCF Project Name: CNCF SIG Docs & Cloud Native Tooling
 
 
-#### Mentorship project Title: Cloud Native Codex – A Searchable Command & Troubleshooting Guide
+#### Mentorship project Title: Cloud Native Codex – An Interactive Command & Troubleshooting Reference
 
 - **Description:**  
   Cloud engineers often forget exact commands for Kubernetes, Prometheus, Helm, Terraform, and other CNCF tools. **Cloud Native Codex** is an interactive **CLI tool and Web UI** that allows users to quickly search for:  
