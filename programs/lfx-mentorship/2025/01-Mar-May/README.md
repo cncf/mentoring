@@ -67,7 +67,6 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   * [Metrics for TCP Long Connection](#metrics-for-tcp-long-connection)
 * [Knative](#knative)
   * [Design and Implement Levels for Educational Game](#design-and-implement-levels-for-educational-game)
-  * [Create high fidelity audio and animations to Educational Game](#create-high-fidelity-audio-and-animations-to-educational-game)
 * [KubeArmor](#kubearmor)
   * [Providing Zero-Trust policies for popular workloads](#providing-zero-trust-policies-for-popular-workloads)
 * [KubeEdge](#kubeedge)
@@ -84,7 +83,6 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   * [Implement an ITS Frontend Supported by ITS Backend Endpoints](#implement-an-its-frontend-supported-by-its-backend-endpoints)
   * [Implement an ITS Backend to Support UI Frontend Operations](#implement-an-its-backend-to-support-ui-frontend-operations)
 * [Kyverno](#kyverno)
-  * [Chainsaw Tests For New Policy Types](#chainsaw-tests-for-new-policy-types)
   * [Sample Policies For New Policy Types](#sample-policies-for-new-policy-types)
   * [Mutating Admission Policy Integration](#mutating-admission-policy-integration)
 * [LitmusChaos](#litmuschaos)
@@ -542,18 +540,6 @@ eBPF, a recently introduced programmable technology in the kernel, currently has
 - Upstream Issue: https://github.com/knative-extensions/educational-game/issues/8
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/58392ddd-4d5a-491e-9b09-6035aa4c907e
 
-#### Create high fidelity audio and animations to Educational Game
-
-- Description: The Knative community is developing an educational game to teach concepts about event driven architectures and how to build them with Knative. A good overview of the project was [presented at KubeCon NA 2024](https://youtu.be/TTBKh6F4v-g?si=MRmx6a2YJsl7y0Q-). We are currently looking to tale our initial prototype and turn it into a full game. In this project, you will help achieve this by creating both visual and audio assets, giving the game a polished look.
-- Expected Outcome: Identify which assets should be created, create audio assets, create visual assets, add assets Godot.
-- Recommended Skills: Audio Design, Animation, Graphic Design, Game Development 
-- Mentor(s):
-  - Calum Murray (@Cali0707, calum.murray@mail.utoronto.ca)
-  - Zainab Husain (@zainabhusain227, zainabhusain227@gmail.com)
-  - Angelina Zhai (@AngelinaZhai, angelina.zhai@mail.utoronto.ca)
-- Upstream Issue: https://github.com/knative-extensions/educational-game/issues/9
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/707084fe-ea4d-469e-a867-5d0a5e04b7c1
-
 ### KubeArmor
 
 #### Providing Zero-Trust policies for popular workloads
@@ -797,14 +783,6 @@ This project focuses on building the backend functionality necessary for managin
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/11478e3c-ac06-4d15-a11f-a7bf1f9994e3
 
 ### Kyverno
-
-#### Chainsaw Tests For New Policy Types
-
-- Description: Kyverno 1.14 is introducing new policy types based on the upstream Kubernetes ValidatingAdmissionPolicy and MutatingAdmissionPolicy resources, as well as a new ImageVerificationPolicy based on CEL. This project will add e2e tests using Chainsaw for these new policy types.
-- GitHub Issue: [Chainsaw testing](https://github.com/kyverno/kyverno/issues/12065)
-- Recommended Skills: Golang, Kubernetes, ValidatingAdmissionPolicy
-- Mentor(s):  Charles-Edouard Brétéché (@eddycharly, charles.edouard@nirmata.com)
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/d9683d35-0ad4-4c32-b32d-f058d37cf94f
 
 #### Sample Policies For New Policy Types
 
