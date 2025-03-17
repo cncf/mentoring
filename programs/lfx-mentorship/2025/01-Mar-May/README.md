@@ -332,6 +332,7 @@ the easiest component alone is intended to be covered as part of this internship
   - Faseela K (@kfaseela, k.faseela@gmail.com)
   - Benjamin Leggett (@bleggett, benjamin.leggett@solo.io)
   - Jianpeng He(@zirain, zirain2009@gmail.com)
+  - Ian Rudie (@ilrudie, ian.rudie@solo.io)
 - Upstream Issue: https://github.com/istio/istio/issues/54760
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/9b1a1e87-2757-4f4f-aa58-49d55fc07b16 
 
