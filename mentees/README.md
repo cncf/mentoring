@@ -31,8 +31,9 @@ Having a solid support network provides a safe and productive environment for me
 * **Your relationship with your mentor** will be your most important connection throughout your program. In addition to providing valuable new skills and coaching, mentors can also support your professional networking and overall guidance in your career. Communicating any barriers to your learning or commitments and working together to find solutions can go a long way to developing a good working rapport.
 * **Communication channels, groups and forums** such as Slack can be a great way to find solutions to common problems you'll likely encounter on your journey. Some popular options include:
 
-[CNCF Slack channels](https://communityinviter.com/apps/cloud-native/cncf) such as **#mentoring**; where you can engage to share your knowledge to solve specific problems. 
-***Important Note:*** *It is not recommended to request general guidance or to express interest in working on issues that might be raised on these channels. Please refer to the '[What is Contribution?](#what-is-contribution)' section in FAQs for the preferred process.*
+[CNCF Slack channels](https://slack.cncf.io) such as **#mentoring**; where you can engage to share your knowledge to solve specific problems.
+
+***Important Note:*** *It is not recommended to request general guidance or to express interest in working on issues that might be raised on these channels. Refer to the '[What is Contribution?](#what-is-contribution)' section in FAQs for the preferred process.*
 
 [CNCF Community Groups and events](https://community.cncf.io/) - Conferences, workshops, and other events such as Meetups bring together individuals from the Cloud Native community to collaborate and share knowledge.
 
