@@ -4,7 +4,7 @@ The Cloud Native Computing Foundation participates in the [Google Summer of Code
 
 ## Organization Admins
 
-- Nate Waddington ([@nate-double-u](https://github.com/nate-double-u))
+- Nate W. ([@nate-double-u](https://github.com/nate-double-u))
 
 ## Communication
 
