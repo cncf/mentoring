@@ -46,7 +46,7 @@ The current cycle is [01-Mar-May 2025](2025/01-Mar-May/README.md).
 
 ## Program Maintainer
 
-- Nate Waddington ([@nate-double-u](https://github.com/nate-double-u))
+- Nate W. ([@nate-double-u](https://github.com/nate-double-u))
 
 ## Program Guidelines
 
