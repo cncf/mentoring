@@ -44,7 +44,7 @@ LFX Mentorship is actively used by the Cloud Native Computing Foundation as a me
 
 The current cycle is [01-Mar-May 2025](2025/01-Mar-May/README.md).
 
-## Program Maintainer
+## Program Maintainers
 
 - Nate W. ([@nate-double-u](https://github.com/nate-double-u))
 
