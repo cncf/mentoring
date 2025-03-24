@@ -42,13 +42,11 @@ LFX Mentorship is actively used by the Cloud Native Computing Foundation as a me
 
 ### Current cycle
 
-The current cycle is [02-Jun-Aug 2024](2024/02-Jun-Aug/README.md).
+The current cycle is [01-Mar-May 2025](2025/01-Mar-May/README.md).
 
-## Program Maintainers
+## Program Maintainer
 
-- Nate Waddington ([@nate-double-u](https://github.com/nate-double-u))
-- Jay Tiaki ([@jaytiaki](https://github.com/jaytiaki))
-- Ali Ok ([@aliok](https://github.com/aliok))
+- Nate W. ([@nate-double-u](https://github.com/nate-double-u))
 
 ## Program Guidelines
 
@@ -58,9 +56,9 @@ Please see the program-wide guidelines on the [LFX Mentorship website](https://d
 
 #### Projects
 
-Project maintainers and mentors are requested to submit the ideas below (under the Project Ideas section) section using the [template](/PROJECT_IDEA_TEMPLATE.md).
+Project maintainers and mentors are requested to submit the ideas using the [template](/PROJECT_IDEA_TEMPLATE.md).
 
-CNCF will select the projects that will participate in the Community Bridge mentorship round and they will appear on the Community Bridge website after the selection.
+CNCF will select the projects that will participate in the LFX mentorship round and they will appear on the LFX Mentorship Platform website after the selection.
 
 #### Mentors
 
