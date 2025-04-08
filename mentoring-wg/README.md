@@ -1,12 +1,10 @@
-CNCF TAG Contributor Strategy
-# Mentoring Working Group
+# CNCF TOC Mentoring Subproject
 
-
-## About TAGCS Mentorship Working Group
+## About
 
 [Mentoring WG Charter](https://github.com/cncf/tag-contributor-strategy/tree/main/mentoring)
 
-* CNCF Slack: [#tag-contributor-strategy](https://cloud-native.slack.com/archives/CT6CWS1JN)
+* CNCF Slack: [#mentoring](https://cloud-native.slack.com/archives/CGPK98JNQ)
 * [Discussion boards](https://github.com/cncf/mentoring/discussions)
 * [Email list](https://lists.cncf.io/g/tag-cs-mentoring-wg/)
 
@@ -16,14 +14,11 @@ CNCF TAG Contributor Strategy
 ### Recurring monthly
 * 3rd Thursday of the month at 10:00 AM Pacific Time
 
-[CNCF Public Events - TAG CS Mentoring WG](https://tockify.com/cncf.public.events/monthly?search=CNCF%20TAG%20Contributor%20Strategy%20Mentoring%20WG)
+[CNCF TOC Mentoring Subproject Public Calendar](https://zoom-lfx.platform.linuxfoundation.org/meetings/toc-mentoring-subproject?view=month)
 
 ### Zoom
 
-Zoom Meeting  
-https://zoom.us/my/cncftagcontributorstrategy?pwd=TnI0WU9Eb2I1RlRWdkl1R0k1WkZXUT09
-
-Passcode: 77777
+[Zoom Meeting](https://zoom-lfx.platform.linuxfoundation.org/meeting/98463708370?password=72ace7ec-4348-4061-af62-6a1307ea4127)
 
 # Meeting Minutes
 
