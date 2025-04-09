@@ -2,9 +2,9 @@
 
 ## About
 
-[Mentoring WG Charter](https://github.com/cncf/tag-contributor-strategy/tree/main/mentoring)
+[Mentoring Subproject Charter](https://github.com/cncf/toc/blob/main/toc_subprojects/mentoring-subproject/charter.md)
 
-* CNCF Slack: [#mentoring](https://cloud-native.slack.com/archives/CGPK98JNQ)
+* CNCF Slack: [#cncf-mentoring](https://cloud-native.slack.com/archives/CGPK98JNQ)
 * [Discussion boards](https://github.com/cncf/mentoring/discussions)
 * [Email list](https://lists.cncf.io/g/tag-cs-mentoring-wg/)
 
