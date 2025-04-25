@@ -49,8 +49,7 @@ This project aims to develop a marketplace system for KubeStellar that will allo
   - Rishi Mondal (@MAVRICK-1 , mavrickrishi@gmail.com)
   - Andy Anderson (@clubanderson , andy@clubanderson.com)
   - Rahul Vishwakarma (@manzil-infinity180 , rahulvs2809@gmail.com)
-- Upstream Issue : 
-[https://github.com/kubestellar/ui/issues/606](https://github.com/kubestellar/ui/issues/606)
+- Upstream Issue: [https://github.com/kubestellar/ui/issues/606](https://github.com/kubestellar/ui/issues/606)
 
 
 #### Implementing a Model Context Protocol for KubeStellar MCP Server
