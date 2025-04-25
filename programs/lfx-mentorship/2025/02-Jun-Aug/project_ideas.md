@@ -55,7 +55,7 @@
 
 #### Implementing a Model Context Protocol for KubeStellar MCP Server
 
-Description : 
+Description:  
 This project aims to develop a Model Context Protocol for KubeStellar's Management Control Plane (MCP) server. The protocol will establish a standardized communication framework between KubeStellar's internal components and the AI models used for command interpretation. By defining clear context boundaries, semantic structures, and state management patterns, the protocol will enable the MCP server to maintain consistent understanding of the multi-cluster environment while processing natural language management commands across KubeStellar deployments.
 
 - Expected Outcome
