@@ -82,4 +82,4 @@ This project aims to develop a Model Context Protocol for KubeStellar's Manageme
   - Rishi Mondal (@MAVRICK-1 , mavrickrishi@gmail.com)
   - Andy Anderson (@clubanderson , andy@clubanderson.com)
 
-- Upstream Issue : [https://github.com/kubestellar/ui/issues/607](https://github.com/kubestellar/ui/issues/607)
+- Upstream Issue: [https://github.com/kubestellar/ui/issues/607](https://github.com/kubestellar/ui/issues/607)
