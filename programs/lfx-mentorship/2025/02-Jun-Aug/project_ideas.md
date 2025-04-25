@@ -83,3 +83,32 @@ This project aims to develop a Model Context Protocol for KubeStellar's Manageme
   - Andy Anderson (@clubanderson , andy@clubanderson.com)
 
 - Upstream Issue: [https://github.com/kubestellar/ui/issues/607](https://github.com/kubestellar/ui/issues/607)
+
+
+#### Enhancing KubeStellar: UI Modernization & Marketplace Integration
+
+- Description:
+This project aims to significantly transform the KubeStellar experience through comprehensive UI modernization with a central focus on introducing a robust Marketplace feature. The implementation will deliver a seamless way for users to discover and integrate extensions while also improving installation workflows, enhancing UI/UX elements, upgrading topology visualizations, and modernizing documentation. The marketplace will serve as a pivotal community hub that accelerates adoption and extensibility of the KubeStellar platform.
+
+- Expected Outcome
+  - A comprehensive Marketplace integrated directly into KubeStellar UI that pulls from kubestellar/galaxy, showcasing project cards with repository links, related blogs, star counts, categorization (Kubeflow, Argo Workflows, Keueu, etc.), and providing valuable social/usage insights to drive community engagement
+  - Installation and Setup Guide integrated directly into KubeStellar UI with cluster readiness checker, guided installation wizard, and real-time error feedback and resolution flows
+  - UI/UX Enhancements including performance optimizations, responsive design for various screen sizes, skeleton loading for improved perceived performance, and user management with role-based access controls
+  - Topology Visualization Enhancements with improved graphical representations, more intuitive navigation, and enhanced interaction models
+  - KubeStellar UI Documentation featuring integration of React components within the existing documentation site, interactive examples and demos, and component showcases
+
+- Recommended Skills
+  - React
+  - TypeScript
+  - Kubernetes
+  - KubeStellar
+  - UI/UX Design
+  - REST API
+  - Golang
+  - GitHub workflow
+
+- Mentor
+  - Rishi Mondal (@MAVRICK-1 , mavrickrishi@gmail.com)
+  - Andy Anderson (@clubanderson , andy@clubanderson.com)
+
+- Upstream Issue: [https://github.com/kubestellar/ui/issues/615](https://github.com/kubestellar/ui/issues/615)
