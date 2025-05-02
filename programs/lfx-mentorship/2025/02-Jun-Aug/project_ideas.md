@@ -22,7 +22,7 @@
 
 #### Graduate the kubeadm feature gate WaitForAllControlPlaneComponents to GA
 
-- Description:  
+- Description:
 The feature gate WaitForAllControlPlaneComponents is used to
 enhance the health checks performed by kubeadm on control plane node creation,
 to not only check the availability of the kube-apisever, but also check
@@ -41,7 +41,7 @@ and e2e test updates.
 
 #### Building a Marketplace for KubeStellar Plugins
 
-- Description:  
+- Description:
 This project aims to develop a marketplace system for KubeStellar that will allow users to discover, install, and manage plugins that extend KubeStellar's functionality. The marketplace will provide a centralized hub for community-contributed plugins, enhancing KubeStellar's extensibility and user experience. The implementation will include a backend API written in Go and a frontend interface built with React.
 
 - Expected Outcome
@@ -53,11 +53,11 @@ This project aims to develop a marketplace system for KubeStellar that will allo
   - Documentation for plugin developers and users
 
 - Recommended Skills
-  - Go 
+  - Go
   - React.ts
   - REST API
   - Kubernetes
-  - KubeStellar 
+  - KubeStellar
   - Docker
   - containerization
   - Git
@@ -72,7 +72,7 @@ This project aims to develop a marketplace system for KubeStellar that will allo
 
 #### Implementing a Model Context Protocol for KubeStellar MCP Server
 
-- Description:  
+- Description:
 This project aims to develop a Model Context Protocol for KubeStellar's Management Control Plane (MCP) server. The protocol will establish a standardized communication framework between KubeStellar's internal components and the AI models used for command interpretation. By defining clear context boundaries, semantic structures, and state management patterns, the protocol will enable the MCP server to maintain consistent understanding of the multi-cluster environment while processing natural language management commands across KubeStellar deployments.
 
 - Expected Outcome
@@ -91,8 +91,8 @@ This project aims to develop a Model Context Protocol for KubeStellar's Manageme
   - TypeScript
   - Python
   - AI model
-  - GenAi  
-  - serialization formats 
+  - GenAi
+  - serialization formats
   - efficient data structures
   - distributed systems state management
 
@@ -130,3 +130,41 @@ This project aims to significantly transform the KubeStellar experience through 
   - Andy Anderson (@clubanderson , andy@clubanderson.com)
 
 - Upstream Issue: [https://github.com/kubestellar/ui/issues/615](https://github.com/kubestellar/ui/issues/615)
+
+
+#### Enhancing KubeStellar core Helm chart by reducing its reliance on initContainers
+
+- Description:
+This project aims to investigate and implement ideas for improving KubeStellar Core Helm chart reliance by contributing improvements to Helm project and reducing its reliance on initContainers for waiting/gathering/processing Kubernetes resources that are used by other containers (for example, KubeFlex Control Planes and their kubeconfigs).
+- Introduce an annotation that would make Helm wait for user-specified resources
+- Introduce priority/coordination of Helm resource creation
+- Introduce an alternative path for dependence chart override values
+- Introduce a mechanism for a chart to require a specified Helm min version or range
+- Introduce an alternative to kubectl initContainers
+
+- Expected Outcome
+  - A comprehensive investigation of potential alternative methods and approaches
+  - Contributions to Helm project to introduce new features that would allow to improve the quality of KubeStellar Core chart
+  - A solution implementation that reduces the reliance on kubectl initContainers
+
+- Recommended Skills
+  - Helm
+  - Go
+  - REST API
+  - Kubernetes
+  - KubeStellar
+  - Docker
+  - containerization
+  - Git
+  - GitHub workflow
+
+- Mentor
+  - Franco Stellari (@francostellari , fstellari@gmail.com)
+  - Andy Anderson (@clubanderson , andy@clubanderson.com)
+
+- Upstream Issues:
+  - [https://github.com/kubestellar/kubestellar/issues/2890](https://github.com/kubestellar/kubestellar/issues/2890)
+  - [https://github.com/helm/helm/issues/30669](https://github.com/helm/helm/issues/30669)
+  - [https://github.com/helm/helm/issues/30670](https://github.com/helm/helm/issues/30670)
+  - [https://github.com/helm/helm/issues/30671](https://github.com/helm/helm/issues/30671)
+  - [https://github.com/helm/helm/issues/30672](https://github.com/helm/helm/issues/30672)
