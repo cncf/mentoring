@@ -135,7 +135,7 @@ This project aims to significantly transform the KubeStellar experience through 
 #### Enterprise Ready OpenCost: Integration Testing
 
 - Description:
-We need enhanced integration tests to prepare OpenCost for graduation and enterprise readiness. This proposed project will deliver a comprehensive suite of integration tests designed to facilitate development and contribution by third parties, while protecting the stability of OpenCost for our tens of thousands of users. These tests will validate both the quality of the data collected by OpenCost, and the correct operation of the APIs. We have recently implemented a pipeline that builds real stacks for these tests to hit - we now need to fill that framework up with great tests. 
+We need enhanced integration tests to prepare OpenCost for graduation and enterprise readiness. This proposed project will deliver a comprehensive suite of integration tests designed to facilitate development and contribution by third parties, while protecting the stability of OpenCost for our tens of thousands of users. These tests will validate both the quality of the data collected by OpenCost, and the correct operation of the APIs. We have recently implemented a pipeline that builds real stacks for these tests to hit - we now need to fill that framework up with great tests. See the testing strategy document @ https://github.com/opencost/opencost/blob/develop/docs/testing/AUTOMATED_TESTING.md for the current state of testing, and the infrastructure that we have put into place to support this mentorship effort. 
 
 - Expected Outcome
   - A comprehensive integration test suite as defined in the linked ticket. 
