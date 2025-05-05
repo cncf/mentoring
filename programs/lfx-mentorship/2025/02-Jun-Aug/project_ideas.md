@@ -130,3 +130,28 @@ This project aims to significantly transform the KubeStellar experience through 
   - Andy Anderson (@clubanderson , andy@clubanderson.com)
 
 - Upstream Issue: [https://github.com/kubestellar/ui/issues/615](https://github.com/kubestellar/ui/issues/615)
+
+
+#### Enterprise Ready OpenCost: Integration Testing
+
+- Description:
+We need enhanced integration tests to prepare OpenCost for graduation and enterprise readiness. This proposed project will deliver a comprehensive suite of integration tests designed to facilitate development and contribution by third parties, while protecting the stability of OpenCost for our tens of thousands of users. These tests will validate both the quality of the data collected by OpenCost, and the correct operation of the APIs. We have recently implemented a pipeline that builds real stacks for these tests to hit - we now need to fill that framework up with great tests. 
+
+- Expected Outcome
+  - A comprehensive integration test suite as defined in the linked ticket. 
+  - All tests run and pass automatically in pre-existing per-push integration test pipeline. 
+  - Approach for each integration test is documented 
+  - Endpoint coverage % and parameter coverage % is calculated 
+  - Any unfinished or follow on work is documented via issues on OpenCost
+
+- Recommended Skills
+  - Test Development
+  - REST API
+  - Golang
+  - GitHub Actions
+  - Public Cloud Providers
+
+- Mentor
+  - Alex Meijer (@ameijer , alexander.meijer@ibm.com)
+
+- Upstream Issue: [https://github.com/opencost/opencost/issues/3141](https://github.com/opencost/opencost/issues/3141)
