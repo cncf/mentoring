@@ -41,7 +41,7 @@
 
 - Mentor(s):
 - Maya Singh (@mayasingh17, mayasingh@microsoft.com)
-- Slava Falico @vfalico, vfalico@gmail.com
+- Slava Falico (@vfalico, vfalico@gmail.com)
   
 - Upstream Issue:[[RFE] Inspektor Gadget Traceloop Gadget Go to Market Strategy and Execution (CNCF Mentorship Program) · Issue #4417 · inspektor-gadget/inspektor-gadget](https://github.com/inspektor-gadget/inspektor-gadget/issues/4417)
 
