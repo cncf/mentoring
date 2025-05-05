@@ -33,8 +33,9 @@ and e2e test updates.
 - Expected Outcome: The feature gate is graduated to GA
 - Recommended Skills: golang, Kubernetes, kubeadm
 - Mentor(s):
-  - Shida Qiu (@SataQiu, shidaqiu2018@gmail.com)
-  - Paco Xu (@pacoxu, paco.xu@daocloud.io)
+  - Shida Qiu (@SataQiu)
+  - Paco Xu (@pacoxu)
+- Type: maintainer mentorship (only for maintainers to work on as part of a one-off LFX Project)
 - Upstream Issue (URL): https://github.com/kubernetes/kubeadm/issues/2907
 
 ### KubeStellar
