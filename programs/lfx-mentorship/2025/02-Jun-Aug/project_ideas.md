@@ -18,6 +18,34 @@
 
 ## Proposed Project ideas
 
+### Inspektor Gadget 
+
+#### [PM Mentorship] Traceloop GTM Strategy and Execution
+
+- Description:
+  This is a Project Management mentorship (product management for open source)  for the project Inspektor Gadget (IG). Inspektor Gadget is a powerful observability tool that enables security, monitoring and troubleshooting on Linux and Kubernetes. The framework uses a concept called “gadgets” which uses a technology called eBPF to enable us to drive valuable insights from the Linux kernel. Today, we have a very powerful gadget called Traceloop. However, as you can see the documentation around it is quite minimal and we need a strategy around how to bring this gadget to market in a big way. With Traceloop users can debug crashing applications as demonstrated here. Our goal is to make community members aware of traceloop and therefore Inspektor Gadget to a) decrease time to resolution for developers debugging their applications b) drive adoption of the project . 
+
+- Expected Outcome:
+  Increased awareness of the gadget Traceloop and Inspektor Gadget, and also a repeatable framework is established that can be easily scaled to other gadgets
+
+- Recommended Skills:
+  - User Research
+  - Translating User Needs to Technical Requirements
+  - Marketing Analytics
+  - Go-to-market strategy
+  - Roadmapping and Prioritization
+  - Marketing Content Creation
+  - Documentation and Communication
+  - Community Engagement
+  - You do NOT need to have all of these skills to be successful in this role. By the end of this mentorship you will have exposure to these skills and the opportunity to build them out. 
+
+- Mentor(s):
+- Maya Singh (@mayasingh17, mayasingh@microsoft.com)
+- Slava Falico @vfalico, vfalico@gmail.com
+  
+- Upstream Issue:[[RFE] Inspektor Gadget Traceloop Gadget Go to Market Strategy and Execution (CNCF Mentorship Program) · Issue #4417 · inspektor-gadget/inspektor-gadget](https://github.com/inspektor-gadget/inspektor-gadget/issues/4417)
+
+
 ### Kubernetes
 
 #### Graduate the kubeadm feature gate WaitForAllControlPlaneComponents to GA
