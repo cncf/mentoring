@@ -40,13 +40,13 @@ and e2e test updates.
 
 ### KubeStellar
 
-#### Building a Marketplace for KubeStellar Plugins
+#### Building a Plugin System for KubeStellar
 
 - Description:  
-This project aims to develop a marketplace system for KubeStellar that will allow users to discover, install, and manage plugins that extend KubeStellar's functionality. The marketplace will provide a centralized hub for community-contributed plugins, enhancing KubeStellar's extensibility and user experience. The implementation will include a backend API written in Go and a frontend interface built with React.
+This project aims to develop a plugin system for KubeStellar that will allow users to discover, install, and manage plugins that extend KubeStellar's functionality. The plugin system will provide a centralized hub for community-contributed plugins, enhancing KubeStellar's extensibility and user experience. The implementation will include a backend API written in Go and a frontend interface built with React.
 
 - Expected Outcome
-  - A fully functional plugin marketplace integrated into KubeStellar's UI
+  - A fully functional plugin system integrated into KubeStellar's UI
   - Backend API for plugin management (upload, discovery, installation, updates)
   - Frontend components for browsing, searching, and installing plugins
   - Plugin versioning and compatibility checking
@@ -104,26 +104,30 @@ This project aims to develop a Model Context Protocol for KubeStellar's Manageme
 - Upstream Issue: [https://github.com/kubestellar/ui/issues/607](https://github.com/kubestellar/ui/issues/607)
 
 
-#### Enhancing KubeStellar: UI Modernization & Marketplace Integration
+#### Developing a Marketplace UI and Optimize the Current UI
 
-- Description:
-This project aims to significantly transform the KubeStellar experience through comprehensive UI modernization with a central focus on introducing a robust Marketplace feature. The implementation will deliver a seamless way for users to discover and integrate extensions while also improving installation workflows, enhancing UI/UX elements, upgrading topology visualizations, and modernizing documentation. The marketplace will serve as a pivotal community hub that accelerates adoption and extensibility of the KubeStellar platform.
+- Description:  
+This project focuses on creating a comprehensive plugin marketplace UI for KubeStellar that enables users to easily discover, install, update, and delete plugins directly from the interface. The marketplace will provide a seamless user experience with intuitive navigation, detailed plugin information, and streamlined management workflows. Additionally, the project will implement advanced resource filtering capabilities throughout the KubeStellar UI, allowing users to efficiently search, sort, and filter various resources based on multiple criteria.
 
-- Expected Outcome
-  - A comprehensive Marketplace integrated directly into KubeStellar UI that pulls from kubestellar/galaxy, showcasing project cards with repository links, related blogs, star counts, categorization (Kubeflow, Argo Workflows, Keueu, etc.), and providing valuable social/usage insights to drive community engagement
+- Expected Outcome:
+  - A fully functional plugin marketplace UI integrated into KubeStellar
+  - Installation, deletion, and update workflows for plugins with visual feedback
+  - Plugin categorization, ratings, and search functionality
+  - Dependency management and compatibility checking for plugins
+  - Advanced resource filtering system across the UI with support for multiple filter criteria
+  - Filter persistence across user sessions
+  - Responsive design that works across different device sizes
+  - Performance optimizations to ensure smooth interaction even with many plugins/resources
   - Installation and Setup Guide integrated directly into KubeStellar UI with cluster readiness checker, guided installation wizard, and real-time error feedback and resolution flows
-  - UI/UX Enhancements including performance optimizations, responsive design for various screen sizes, skeleton loading for improved perceived performance, and user management with role-based access controls
-  - Topology Visualization Enhancements with improved graphical representations, more intuitive navigation, and enhanced interaction models
-  - KubeStellar UI Documentation featuring integration of React components within the existing documentation site, interactive examples and demos, and component showcases
 
-- Recommended Skills
+- Recommended Skills:
   - React
   - TypeScript
+  - REST API integration
+  - Golang
   - Kubernetes
   - KubeStellar
-  - UI/UX Design
-  - REST API
-  - Golang
+  - State management
   - GitHub workflow
 
 - Mentor
