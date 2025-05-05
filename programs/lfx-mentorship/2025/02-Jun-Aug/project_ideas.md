@@ -131,3 +131,33 @@ This project aims to significantly transform the KubeStellar experience through 
   - Andy Anderson (@clubanderson , andy@clubanderson.com)
 
 - Upstream Issue: [https://github.com/kubestellar/ui/issues/615](https://github.com/kubestellar/ui/issues/615)
+
+### Cartography
+
+#### Fill in missing AWS resource types for CloudGoat scenarios
+
+- **Description**:
+  Cartography currently does not ingest many of the AWS resource types used in popular CloudGoat attack/detection scenarios.  This mentorship project will extend Cartography’s AWS plugin and schema to cover these missing resources, enabling security practitioners to visualize and query full CloudGoat labs end‑to‑end.  The mentee will:
+  1. Audit the AWS resource types used across selected CloudGoat scenarios.
+  2. Update Cartography’s schema to include each resource, with appropriate labels and key properties.
+  3. Implement ingestion functions in the AWS plugin, including relationship discovery (e.g., linking log groups to CloudWatch alarms).
+  4. Add Cypher sample queries and Python examples to the docs demonstrating how to explore one's infrastructure.
+
+- **Expected Outcome**:
+  - Support for the full list of AWS resources used in CloudGoat (e.g. SSM parameters, CodeBuild projects, CloudWatch metrics/alarms, SNS topics/subscriptions, ECS/EFS resources, Glue jobs, API Gateway, Cognito, Secrets Manager, etc.).
+    - Full list in the linked issue
+  - Automated test coverage for each new resource type.
+  - Updated documentation and example notebooks showing end‑to‑end CloudGoat use cases with Cartography.
+
+- **Recommended Skills**:
+  - Python  
+  - AWS SDK (boto3)  
+  - Graph databases / Neo4j (Cypher)  
+  - Familiarity with Cartography’s module architecture  
+  - Basic security knowledge 
+
+- **Mentor(s)**:
+  - Kunaal Sikka (@kunaals, kunaal@subimage.io)
+  - Alex Chantavy (@achantavy, alex@subimage.io)
+
+- **Upstream Issue**: https://github.com/cartography-cncf/cartography/issues/1552
