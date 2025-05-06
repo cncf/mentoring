@@ -40,8 +40,8 @@
   - You do NOT need to have all of these skills to be successful in this role. By the end of this mentorship you will have exposure to these skills and the opportunity to build them out. 
 
 - Mentor(s):
-- Maya Singh (@mayasingh17, mayasingh@microsoft.com)
-- Slava Falico (@vfalico, vfalico@gmail.com)
+  - Maya Singh (@mayasingh17, mayasingh@microsoft.com)
+  - Slava Falico (@vfalico, vfalico@gmail.com)
   
 - Upstream Issue:[[RFE] Inspektor Gadget Traceloop Gadget Go to Market Strategy and Execution (CNCF Mentorship Program) · Issue #4417 · inspektor-gadget/inspektor-gadget](https://github.com/inspektor-gadget/inspektor-gadget/issues/4417)
 
