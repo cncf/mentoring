@@ -18,6 +18,64 @@
 
 ## Proposed Project ideas
 
+### Cartography
+
+#### Fill in missing AWS resource types for CloudGoat scenarios
+
+- **Description**:
+  Cartography currently does not ingest many of the AWS resource types used in popular CloudGoat attack/detection scenarios.  This mentorship project will extend Cartography’s AWS plugin and schema to cover these missing resources, enabling security practitioners to visualize and query full CloudGoat labs end‑to‑end.  The mentee will:
+  1. Audit the AWS resource types used across selected CloudGoat scenarios.
+  2. Update Cartography’s schema to include each resource, with appropriate labels and key properties.
+  3. Implement ingestion functions in the AWS plugin, including relationship discovery (e.g., linking log groups to CloudWatch alarms).
+  4. Add Cypher sample queries and Python examples to the docs demonstrating how to explore one's infrastructure.
+
+- **Expected Outcome**:
+  - Support for the full list of AWS resources used in CloudGoat (e.g. SSM parameters, CodeBuild projects, CloudWatch metrics/alarms, SNS topics/subscriptions, ECS/EFS resources, Glue jobs, API Gateway, Cognito, Secrets Manager, etc.).
+    - Full list in the linked issue
+  - Automated test coverage for each new resource type.
+  - Updated documentation and example notebooks showing end‑to‑end CloudGoat use cases with Cartography.
+
+- **Recommended Skills**:
+  - Python  
+  - AWS SDK (boto3)  
+  - Graph databases / Neo4j (Cypher)  
+  - Familiarity with Cartography’s module architecture  
+  - Basic security knowledge 
+
+- **Mentor(s)**:
+  - Kunaal Sikka (@kunaals, kunaal@subimage.io)
+  - Alex Chantavy (@achantavy, alex@subimage.io)
+
+- **Upstream Issue**: https://github.com/cartography-cncf/cartography/issues/1552
+
+### Inspektor Gadget 
+
+#### [PM Mentorship] Traceloop GTM Strategy and Execution
+
+- Description:  
+  This is a Project Management mentorship (product management for open source)  for the project Inspektor Gadget (IG). [Inspektor Gadget](inspektor-gadget.io) is a powerful observability tool that enables security, monitoring and troubleshooting on Linux and Kubernetes. The framework uses a concept called “gadgets” which uses a technology called eBPF to enable us to drive valuable insights from the Linux kernel. Today, we have a very powerful gadget called [Traceloop](https://inspektor-gadget.io/docs/latest/gadgets/traceloop). However, as you can see the documentation around it is quite minimal and we need a strategy around how to bring this gadget to market in a big way. With Traceloop users can debug crashing applications as demonstrated [here](https://www.youtube.com/watch?v=IoiDvzIZ3ok&list=PLnfCaIV4aZe9oQ7REBuP0PWwp-NEbFlGR&index=30). Our goal is to make community members aware of traceloop and therefore Inspektor Gadget to a) decrease time to resolution for developers debugging their applications b) drive adoption of the project . 
+
+- Expected Outcome:
+  Increased awareness of the gadget Traceloop and Inspektor Gadget, and also a repeatable framework is established that can be easily scaled to other gadgets
+
+- Recommended Skills:
+  - User Research
+  - Translating User Needs to Technical Requirements
+  - Marketing Analytics
+  - Go-to-market strategy
+  - Roadmapping and Prioritization
+  - Marketing Content Creation
+  - Documentation and Communication
+  - Community Engagement
+  - You do NOT need to have all of these skills to be successful in this role. By the end of this mentorship you will have exposure to these skills and the opportunity to build them out. 
+
+- Mentor(s):
+  - Maya Singh (@mayasingh17, mayasingh@microsoft.com)
+  - Slava Falico (@vfalico, vfalico@gmail.com)
+  
+- Upstream Issue: [RFE] Inspektor Gadget Traceloop Gadget Go to Market Strategy and Execution (CNCF Mentorship Program) [inspektor-gadget/inspektor-gadget Issue #4417](https://github.com/inspektor-gadget/inspektor-gadget/issues/4417)
+
+
 ### Kubernetes
 
 #### Graduate the kubeadm feature gate WaitForAllControlPlaneComponents to GA
@@ -40,13 +98,13 @@ and e2e test updates.
 
 ### KubeStellar
 
-#### Building a Marketplace for KubeStellar Plugins
+#### Building a Plugin System for KubeStellar
 
 - Description:  
-This project aims to develop a marketplace system for KubeStellar that will allow users to discover, install, and manage plugins that extend KubeStellar's functionality. The marketplace will provide a centralized hub for community-contributed plugins, enhancing KubeStellar's extensibility and user experience. The implementation will include a backend API written in Go and a frontend interface built with React.
+This project aims to develop a plugin system for KubeStellar that will allow users to discover, install, and manage plugins that extend KubeStellar's functionality. The plugin system will provide a centralized hub for community-contributed plugins, enhancing KubeStellar's extensibility and user experience. The implementation will include a backend API written in Go and a frontend interface built with React.
 
 - Expected Outcome
-  - A fully functional plugin marketplace integrated into KubeStellar's UI
+  - A fully functional plugin system integrated into KubeStellar's UI
   - Backend API for plugin management (upload, discovery, installation, updates)
   - Frontend components for browsing, searching, and installing plugins
   - Plugin versioning and compatibility checking
@@ -54,11 +112,11 @@ This project aims to develop a marketplace system for KubeStellar that will allo
   - Documentation for plugin developers and users
 
 - Recommended Skills
-  - Go 
+  - Go
   - React.ts
   - REST API
   - Kubernetes
-  - KubeStellar 
+  - KubeStellar
   - Docker
   - containerization
   - Git
@@ -92,8 +150,8 @@ This project aims to develop a Model Context Protocol for KubeStellar's Manageme
   - TypeScript
   - Python
   - AI model
-  - GenAi  
-  - serialization formats 
+  - GenAi
+  - serialization formats
   - efficient data structures
   - distributed systems state management
 
@@ -104,26 +162,30 @@ This project aims to develop a Model Context Protocol for KubeStellar's Manageme
 - Upstream Issue: [https://github.com/kubestellar/ui/issues/607](https://github.com/kubestellar/ui/issues/607)
 
 
-#### Enhancing KubeStellar: UI Modernization & Marketplace Integration
+#### Developing a Marketplace UI and Optimize the Current UI
 
-- Description:
-This project aims to significantly transform the KubeStellar experience through comprehensive UI modernization with a central focus on introducing a robust Marketplace feature. The implementation will deliver a seamless way for users to discover and integrate extensions while also improving installation workflows, enhancing UI/UX elements, upgrading topology visualizations, and modernizing documentation. The marketplace will serve as a pivotal community hub that accelerates adoption and extensibility of the KubeStellar platform.
+- Description:  
+This project focuses on creating a comprehensive plugin marketplace UI for KubeStellar that enables users to easily discover, install, update, and delete plugins directly from the interface. The marketplace will provide a seamless user experience with intuitive navigation, detailed plugin information, and streamlined management workflows. Additionally, the project will implement advanced resource filtering capabilities throughout the KubeStellar UI, allowing users to efficiently search, sort, and filter various resources based on multiple criteria.
 
-- Expected Outcome
-  - A comprehensive Marketplace integrated directly into KubeStellar UI that pulls from kubestellar/galaxy, showcasing project cards with repository links, related blogs, star counts, categorization (Kubeflow, Argo Workflows, Keueu, etc.), and providing valuable social/usage insights to drive community engagement
+- Expected Outcome:
+  - A fully functional plugin marketplace UI integrated into KubeStellar
+  - Installation, deletion, and update workflows for plugins with visual feedback
+  - Plugin categorization, ratings, and search functionality
+  - Dependency management and compatibility checking for plugins
+  - Advanced resource filtering system across the UI with support for multiple filter criteria
+  - Filter persistence across user sessions
+  - Responsive design that works across different device sizes
+  - Performance optimizations to ensure smooth interaction even with many plugins/resources
   - Installation and Setup Guide integrated directly into KubeStellar UI with cluster readiness checker, guided installation wizard, and real-time error feedback and resolution flows
-  - UI/UX Enhancements including performance optimizations, responsive design for various screen sizes, skeleton loading for improved perceived performance, and user management with role-based access controls
-  - Topology Visualization Enhancements with improved graphical representations, more intuitive navigation, and enhanced interaction models
-  - KubeStellar UI Documentation featuring integration of React components within the existing documentation site, interactive examples and demos, and component showcases
 
-- Recommended Skills
+- Recommended Skills:
   - React
   - TypeScript
+  - REST API integration
+  - Golang
   - Kubernetes
   - KubeStellar
-  - UI/UX Design
-  - REST API
-  - Golang
+  - State management
   - GitHub workflow
 
 - Mentor
@@ -132,32 +194,52 @@ This project aims to significantly transform the KubeStellar experience through 
 
 - Upstream Issue: [https://github.com/kubestellar/ui/issues/615](https://github.com/kubestellar/ui/issues/615)
 
-### Cartography
 
-#### Fill in missing AWS resource types for CloudGoat scenarios
+#### Extending KubeFlex with a new type of Control Plane
 
-- **Description**:
-  Cartography currently does not ingest many of the AWS resource types used in popular CloudGoat attack/detection scenarios.  This mentorship project will extend Cartography’s AWS plugin and schema to cover these missing resources, enabling security practitioners to visualize and query full CloudGoat labs end‑to‑end.  The mentee will:
-  1. Audit the AWS resource types used across selected CloudGoat scenarios.
-  2. Update Cartography’s schema to include each resource, with appropriate labels and key properties.
-  3. Implement ingestion functions in the AWS plugin, including relationship discovery (e.g., linking log groups to CloudWatch alarms).
-  4. Add Cypher sample queries and Python examples to the docs demonstrating how to explore one's infrastructure.
+- Description:  
+KubeFlex is a flexible and scalable platform for running lightweight Kubernetes control plane APIs to support specific use-cases in cloud and edge computing environments. It supports various kinds of control planes, such as: vcluster, ocm, host, etc. This project aims to extend KubeFlex to support a new type of control plane that provides the full components of a control plane in a typical Kubernetes cluster (e.g., API Server, Scheduler, Controller-Manager, etc.). This new control plane will be based on K3s and it will allow KubeFlex to support new use-cases such as multi-tenant scenarios.
+- Expected Outcome: A new type of KubeFlex provided control plane based on k3s
+- Recommended Skills: Golang, Kubernetes, K3s
+- Mentor(s):
+  - Paolo Dettori: (@pdettori, dettori@us.ibm.com)
+  - Braulio Dumba: (@dumb0002, Braulio.Dumba@ibm.com)
+- Upstream Issue (URL): [https://github.com/kubestellar/kubeflex/issues/347](https://github.com/kubestellar/kubeflex/issues/347)
 
-- **Expected Outcome**:
-  - Support for the full list of AWS resources used in CloudGoat (e.g. SSM parameters, CodeBuild projects, CloudWatch metrics/alarms, SNS topics/subscriptions, ECS/EFS resources, Glue jobs, API Gateway, Cognito, Secrets Manager, etc.).
-    - Full list in the linked issue
-  - Automated test coverage for each new resource type.
-  - Updated documentation and example notebooks showing end‑to‑end CloudGoat use cases with Cartography.
 
-- **Recommended Skills**:
-  - Python  
-  - AWS SDK (boto3)  
-  - Graph databases / Neo4j (Cypher)  
-  - Familiarity with Cartography’s module architecture  
-  - Basic security knowledge 
+#### Enhancing KubeStellar core Helm chart by reducing its reliance on initContainers
 
-- **Mentor(s)**:
-  - Kunaal Sikka (@kunaals, kunaal@subimage.io)
-  - Alex Chantavy (@achantavy, alex@subimage.io)
+- Description:  
+This project aims to investigate and implement ideas for improving KubeStellar Core Helm chart reliance by contributing improvements to Helm project and reducing its reliance on initContainers for waiting/gathering/processing Kubernetes resources that are used by other containers (for example, KubeFlex Control Planes and their kubeconfigs).
+- Introduce an annotation that would make Helm wait for user-specified resources
+- Introduce priority/coordination of Helm resource creation
+- Introduce an alternative path for dependence chart override values
+- Introduce a mechanism for a chart to require a specified Helm min version or range
+- Introduce an alternative to kubectl initContainers
 
-- **Upstream Issue**: https://github.com/cartography-cncf/cartography/issues/1552
+- Expected Outcome
+  - A comprehensive investigation of potential alternative methods and approaches
+  - Contributions to Helm project to introduce new features that would allow to improve the quality of KubeStellar Core chart
+  - A solution implementation that reduces the reliance on kubectl initContainers
+
+- Recommended Skills
+  - Helm
+  - Go
+  - REST API
+  - Kubernetes
+  - KubeStellar
+  - Docker
+  - containerization
+  - Git
+  - GitHub workflow
+
+- Mentor
+  - Franco Stellari (@francostellari , fstellari@gmail.com)
+  - Andy Anderson (@clubanderson , andy@clubanderson.com)
+
+- Upstream Issues:
+  - [https://github.com/kubestellar/kubestellar/issues/2890](https://github.com/kubestellar/kubestellar/issues/2890)
+  - [https://github.com/helm/helm/issues/30669](https://github.com/helm/helm/issues/30669)
+  - [https://github.com/helm/helm/issues/30670](https://github.com/helm/helm/issues/30670)
+  - [https://github.com/helm/helm/issues/30671](https://github.com/helm/helm/issues/30671)
+  - [https://github.com/helm/helm/issues/30672](https://github.com/helm/helm/issues/30672)
