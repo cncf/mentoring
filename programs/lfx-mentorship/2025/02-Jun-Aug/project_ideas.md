@@ -22,7 +22,7 @@
 
 #### Graduate the kubeadm feature gate WaitForAllControlPlaneComponents to GA
 
-- Description:
+- Description:  
 The feature gate WaitForAllControlPlaneComponents is used to
 enhance the health checks performed by kubeadm on control plane node creation,
 to not only check the availability of the kube-apisever, but also check
