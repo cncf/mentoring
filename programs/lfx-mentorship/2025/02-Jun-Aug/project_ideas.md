@@ -41,7 +41,7 @@ and e2e test updates.
 
 #### Building a Marketplace for KubeStellar Plugins
 
-- Description:
+- Description:  
 This project aims to develop a marketplace system for KubeStellar that will allow users to discover, install, and manage plugins that extend KubeStellar's functionality. The marketplace will provide a centralized hub for community-contributed plugins, enhancing KubeStellar's extensibility and user experience. The implementation will include a backend API written in Go and a frontend interface built with React.
 
 - Expected Outcome
