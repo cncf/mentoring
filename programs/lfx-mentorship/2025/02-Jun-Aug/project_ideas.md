@@ -54,11 +54,11 @@ This project aims to develop a marketplace system for KubeStellar that will allo
   - Documentation for plugin developers and users
 
 - Recommended Skills
-  - Go 
+  - Go
   - React.ts
   - REST API
   - Kubernetes
-  - KubeStellar 
+  - KubeStellar
   - Docker
   - containerization
   - Git
@@ -92,8 +92,8 @@ This project aims to develop a Model Context Protocol for KubeStellar's Manageme
   - TypeScript
   - Python
   - AI model
-  - GenAi  
-  - serialization formats 
+  - GenAi
+  - serialization formats
   - efficient data structures
   - distributed systems state management
 
@@ -131,3 +131,41 @@ This project aims to significantly transform the KubeStellar experience through 
   - Andy Anderson (@clubanderson , andy@clubanderson.com)
 
 - Upstream Issue: [https://github.com/kubestellar/ui/issues/615](https://github.com/kubestellar/ui/issues/615)
+
+
+#### Enhancing KubeStellar core Helm chart by reducing its reliance on initContainers
+
+- Description:
+This project aims to investigate and implement ideas for improving KubeStellar Core Helm chart reliance by contributing improvements to Helm project and reducing its reliance on initContainers for waiting/gathering/processing Kubernetes resources that are used by other containers (for example, KubeFlex Control Planes and their kubeconfigs).
+- Introduce an annotation that would make Helm wait for user-specified resources
+- Introduce priority/coordination of Helm resource creation
+- Introduce an alternative path for dependence chart override values
+- Introduce a mechanism for a chart to require a specified Helm min version or range
+- Introduce an alternative to kubectl initContainers
+
+- Expected Outcome
+  - A comprehensive investigation of potential alternative methods and approaches
+  - Contributions to Helm project to introduce new features that would allow to improve the quality of KubeStellar Core chart
+  - A solution implementation that reduces the reliance on kubectl initContainers
+
+- Recommended Skills
+  - Helm
+  - Go
+  - REST API
+  - Kubernetes
+  - KubeStellar
+  - Docker
+  - containerization
+  - Git
+  - GitHub workflow
+
+- Mentor
+  - Franco Stellari (@francostellari , fstellari@gmail.com)
+  - Andy Anderson (@clubanderson , andy@clubanderson.com)
+
+- Upstream Issues:
+  - [https://github.com/kubestellar/kubestellar/issues/2890](https://github.com/kubestellar/kubestellar/issues/2890)
+  - [https://github.com/helm/helm/issues/30669](https://github.com/helm/helm/issues/30669)
+  - [https://github.com/helm/helm/issues/30670](https://github.com/helm/helm/issues/30670)
+  - [https://github.com/helm/helm/issues/30671](https://github.com/helm/helm/issues/30671)
+  - [https://github.com/helm/helm/issues/30672](https://github.com/helm/helm/issues/30672)
