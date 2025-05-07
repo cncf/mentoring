@@ -161,9 +161,20 @@ This project aims to significantly transform the KubeStellar experience through 
 - Upstream Issue: [https://github.com/kubestellar/ui/issues/615](https://github.com/kubestellar/ui/issues/615)
 
 
+#### Extending KubeFlex with a new type of Control Plane
+
+- Description:  
+KubeFlex is a flexible and scalable platform for running lightweight Kubernetes control plane APIs to support specific use-cases in cloud and edge computing environments. It supports various kinds of control planes, such as: vcluster, ocm, host, etc. This project aims to extend KubeFlex to support a new type of control plane that provides the full components of a control plane in a typical Kubernetes cluster (e.g., API Server, Scheduler, Controller-Manager, etc.). This new control plane will be based on K3s and it will allow KubeFlex to support new use-cases such as multi-tenant scenarios.
+- Expected Outcome: A new type of KubeFlex provided control plane based on k3s
+- Recommended Skills: Golang, Kubernetes, K3s
+- Mentor(s):
+  - Paolo Dettori: (@pdettori, dettori@us.ibm.com)
+  - Braulio Dumba: (@dumb0002, Braulio.Dumba@ibm.com)
+- Upstream Issue (URL): [https://github.com/kubestellar/kubeflex/issues/347](https://github.com/kubestellar/kubeflex/issues/347)
+
 #### Enhancing KubeStellar core Helm chart by reducing its reliance on initContainers
 
-- Description:
+- Description:  
 This project aims to investigate and implement ideas for improving KubeStellar Core Helm chart reliance by contributing improvements to Helm project and reducing its reliance on initContainers for waiting/gathering/processing Kubernetes resources that are used by other containers (for example, KubeFlex Control Planes and their kubeconfigs).
 - Introduce an annotation that would make Helm wait for user-specified resources
 - Introduce priority/coordination of Helm resource creation
