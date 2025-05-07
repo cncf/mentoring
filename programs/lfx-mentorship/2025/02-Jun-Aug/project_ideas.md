@@ -243,3 +243,79 @@ This project aims to investigate and implement ideas for improving KubeStellar C
   - [https://github.com/helm/helm/issues/30670](https://github.com/helm/helm/issues/30670)
   - [https://github.com/helm/helm/issues/30671](https://github.com/helm/helm/issues/30671)
   - [https://github.com/helm/helm/issues/30672](https://github.com/helm/helm/issues/30672)
+
+
+### OpenKruise
+
+#### add best practice to use openkruise workload with Karmada etc
+
+- Description: 
+Karmada and OCM are popular multi-cluster orchestration system, OpenKruise advance workload had been integrated with these orchestration system by community users, this project aims to provide official guidelines for the usage of OpenKruise in Karmada and OCM.
+
+- Expected Outcome:
+  - A complete document of Karmada and OCM integration with common OpenKruise workload(e.g. CloneSet, Advance StatefulSet) including supported features and current limitation
+  - Possible code fix of problems found in the integration 
+
+- Recommended Skills
+  - Kuberntetes
+  - technical document writing with markdown
+ 
+- Mentor(s):
+  - Zhao Mingshan (@zmberg, berg.zms@gmail.com)
+  - Sun Weixiang(@veophi, Vec.G.Sun@gmail.com)
+
+- Upstream Issue: [https://github.com/openkruise/kruise/issues/2005](https://github.com/openkruise/kruise/issues/2005)
+
+#### OpenKruiseGame controlplane HA deployment support
+
+- Description:
+The Kruise Game Controller Manager currently stores cache information for network plugins in memory, resulting in its single-replica deployment. From a business stability architecture perspective, it is necessary to migrate the cache out of memory to enable Kruise Game to transition to a multi-replica deployment. Besides, the current webhook certificate is self-signed by the controller. When the number of copies is more than one, an unauthenticated error will occur, so this needs to be modified.
+
+- Expected Outcome:
+  - support multi-replicas deployment
+  - support webhook certificate signing using cert manager 
+
+- Recommended Skills:
+  - Go
+  - Kubernetes
+
+- Mentor:
+  - Qiuyang Liu (@chrisliu1995, chrisliu1995@163.com)
+  - Zhongwei Liu (@ringtail, zhongwei.lzw@alibaba-inc.com)
+
+- Upstream Issue:[https://github.com/openkruise/kruise-game/issues/220](https://github.com/openkruise/kruise-game/issues/220)
+
+#### Support progressDeadlineSeconds for Cloneset
+
+This project aims to support progressDeadlineSeconds in CloneSet so as to provide information about whether the deployment is failed. The meaning of `progressDeadlineSeconds` is quite similar to the one in native kuberentes workload(`deployment`), but it need extra support for the time counting during CloneSet is paused due to partition restriction.
+
+- Recommended Skills
+  - Kubernetes
+  - Golang
+  - operator development
+
+- Expected Outcome
+  - A fully functional progressDeadlineSeconds supporting code with necessary unit and integration tests
+  - complete document of the progressDeadlineSeconds and related CloneSet new condition in the status 
+
+- Mentor
+  - Yuxing Yuan(@ABNER-1, abner199709@gmail.com)
+  - Zhao Mingshan (@zmberg, berg.zms@gmail.com)
+  
+- Upstream Issue:[https://github.com/openkruise/kruise/issues/2006](https://github.com/openkruise/kruise/issues/2006)
+
+#### Build simple dashboard to view and operate OpenKruise workload 
+- Description: Currently, OpenKruise depends solely on the PaaS or CLI to listing OpenKruise workload display and operations. The lack of a general purpose Web-UI greatly hinder the adoption among developer users. This project is about to build a simple Web-UI that can list OpenKruise workload along with the native K8s workload, and support enhanced operation such as container restart or workload rollout. The Web-UI is preferably developed using UI extensions of existing PaaS e.g. Kubesphere and Rancher.
+
+- Expected Outcome:
+  - simple Web-UI
+  - integration of the Web-UI with existing PaaS such as [KubeSphere](https://dev-guide.kubesphere.io/extension-dev-guide)
+- Recommended Skills: 
+    - UX/UI(react)
+    - JavaScript
+    - GoLang
+    - Kubesphere/Rancher development(prefered but not mandatory ) 
+- Mentor(s):
+    - Zhang Zhen (@furykerry, furykerry@gmail.com)
+    - Zhong Tianyun (@AiRanthem, airanthem666@gmail.com)
+- Upstream Issue: https://github.com/openkruise/kruise/issues/1497
