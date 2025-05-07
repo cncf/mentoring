@@ -18,6 +18,34 @@
 
 ## Proposed Project ideas
 
+### Inspektor Gadget 
+
+#### [PM Mentorship] Traceloop GTM Strategy and Execution
+
+- Description:  
+  This is a Project Management mentorship (product management for open source)  for the project Inspektor Gadget (IG). [Inspektor Gadget](inspektor-gadget.io) is a powerful observability tool that enables security, monitoring and troubleshooting on Linux and Kubernetes. The framework uses a concept called “gadgets” which uses a technology called eBPF to enable us to drive valuable insights from the Linux kernel. Today, we have a very powerful gadget called [Traceloop](https://inspektor-gadget.io/docs/latest/gadgets/traceloop). However, as you can see the documentation around it is quite minimal and we need a strategy around how to bring this gadget to market in a big way. With Traceloop users can debug crashing applications as demonstrated [here](https://www.youtube.com/watch?v=IoiDvzIZ3ok&list=PLnfCaIV4aZe9oQ7REBuP0PWwp-NEbFlGR&index=30). Our goal is to make community members aware of traceloop and therefore Inspektor Gadget to a) decrease time to resolution for developers debugging their applications b) drive adoption of the project . 
+
+- Expected Outcome:
+  Increased awareness of the gadget Traceloop and Inspektor Gadget, and also a repeatable framework is established that can be easily scaled to other gadgets
+
+- Recommended Skills:
+  - User Research
+  - Translating User Needs to Technical Requirements
+  - Marketing Analytics
+  - Go-to-market strategy
+  - Roadmapping and Prioritization
+  - Marketing Content Creation
+  - Documentation and Communication
+  - Community Engagement
+  - You do NOT need to have all of these skills to be successful in this role. By the end of this mentorship you will have exposure to these skills and the opportunity to build them out. 
+
+- Mentor(s):
+  - Maya Singh (@mayasingh17, mayasingh@microsoft.com)
+  - Slava Falico (@vfalico, vfalico@gmail.com)
+  
+- Upstream Issue: [RFE] Inspektor Gadget Traceloop Gadget Go to Market Strategy and Execution (CNCF Mentorship Program) [inspektor-gadget/inspektor-gadget Issue #4417](https://github.com/inspektor-gadget/inspektor-gadget/issues/4417)
+
+
 ### Kubernetes
 
 #### Graduate the kubeadm feature gate WaitForAllControlPlaneComponents to GA
@@ -54,11 +82,11 @@ This project aims to develop a marketplace system for KubeStellar that will allo
   - Documentation for plugin developers and users
 
 - Recommended Skills
-  - Go 
+  - Go
   - React.ts
   - REST API
   - Kubernetes
-  - KubeStellar 
+  - KubeStellar
   - Docker
   - containerization
   - Git
@@ -92,8 +120,8 @@ This project aims to develop a Model Context Protocol for KubeStellar's Manageme
   - TypeScript
   - Python
   - AI model
-  - GenAi  
-  - serialization formats 
+  - GenAi
+  - serialization formats
   - efficient data structures
   - distributed systems state management
 
@@ -144,3 +172,39 @@ KubeFlex is a flexible and scalable platform for running lightweight Kubernetes 
   - Braulio Dumba: (@dumb0002, Braulio.Dumba@ibm.com)
 - Upstream Issue (URL): [https://github.com/kubestellar/kubeflex/issues/347](https://github.com/kubestellar/kubeflex/issues/347)
 
+#### Enhancing KubeStellar core Helm chart by reducing its reliance on initContainers
+
+- Description:  
+This project aims to investigate and implement ideas for improving KubeStellar Core Helm chart reliance by contributing improvements to Helm project and reducing its reliance on initContainers for waiting/gathering/processing Kubernetes resources that are used by other containers (for example, KubeFlex Control Planes and their kubeconfigs).
+- Introduce an annotation that would make Helm wait for user-specified resources
+- Introduce priority/coordination of Helm resource creation
+- Introduce an alternative path for dependence chart override values
+- Introduce a mechanism for a chart to require a specified Helm min version or range
+- Introduce an alternative to kubectl initContainers
+
+- Expected Outcome
+  - A comprehensive investigation of potential alternative methods and approaches
+  - Contributions to Helm project to introduce new features that would allow to improve the quality of KubeStellar Core chart
+  - A solution implementation that reduces the reliance on kubectl initContainers
+
+- Recommended Skills
+  - Helm
+  - Go
+  - REST API
+  - Kubernetes
+  - KubeStellar
+  - Docker
+  - containerization
+  - Git
+  - GitHub workflow
+
+- Mentor
+  - Franco Stellari (@francostellari , fstellari@gmail.com)
+  - Andy Anderson (@clubanderson , andy@clubanderson.com)
+
+- Upstream Issues:
+  - [https://github.com/kubestellar/kubestellar/issues/2890](https://github.com/kubestellar/kubestellar/issues/2890)
+  - [https://github.com/helm/helm/issues/30669](https://github.com/helm/helm/issues/30669)
+  - [https://github.com/helm/helm/issues/30670](https://github.com/helm/helm/issues/30670)
+  - [https://github.com/helm/helm/issues/30671](https://github.com/helm/helm/issues/30671)
+  - [https://github.com/helm/helm/issues/30672](https://github.com/helm/helm/issues/30672)
