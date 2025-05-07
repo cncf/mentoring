@@ -153,5 +153,6 @@ We need enhanced integration tests to prepare OpenCost for graduation and enterp
 
 - Mentor
   - Alex Meijer (@ameijer , alexander.meijer@ibm.com)
+  - Cliff Colvin (@cliffcolvin , clifford.colvin@ibm.com)
 
 - Upstream Issue: [https://github.com/opencost/opencost/issues/3141](https://github.com/opencost/opencost/issues/3141)
