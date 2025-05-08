@@ -319,3 +319,46 @@ This project aims to support progressDeadlineSeconds in CloneSet so as to provid
     - Zhang Zhen (@furykerry, furykerry@gmail.com)
     - Zhong Tianyun (@AiRanthem, airanthem666@gmail.com)
 - Upstream Issue: https://github.com/openkruise/kruise/issues/1497
+
+### Kyverno
+
+#### Optimize Kyverno CLI In-cluster Resource Loader
+
+- Description: Kyverno provides robust support for applying multiple policy types to Kubernetes cluster resources via CLI. However, the resource loading mechanisms vary significantly across different policy types, resulting in inconsistent behavior and limited scalability when handling large resource sets.
+
+- Expected Outcome: Develop a unified, reusable in-cluster resource loading framework that standardizes resource retrieval across all policy types, and optimize performance when loading large numbers of resources.
+
+- Recommended Skills:
+  - Golang
+  - Kubernetes
+  - Cobra
+
+- Mentor(s):  
+  - Mariam Fahmy (@MariamFahmy98, mariam.fahmy@nirmata.com)
+  - Shuting Zhao (@realshuting, shuting@nirmata.com)
+  - Yugandhar (@yrsuthari, ysuthari@gmail.com)
+
+- Upstream Issue (URL): 
+  - https://github.com/kyverno/kyverno/issues/12973
+  - https://github.com/kyverno/kyverno/issues/12967
+
+#### Improve Test Coverage and Docs for New Policy Types
+
+- Description: Kyverno 1.14+ introduces several new policy types including ValidatingPolicy, ImageValidatingPolicy, and others that extend the platform's capabilities. To ensure reliability and stability of these new features, we need to systematically improve test coverage through comprehensive Chainsaw tests and targeted unit tests.
+
+- Expected Outcome: 
+  - Good test coverage for new policy types
+  - Documentation for new policy types
+
+- Recommended Skills:
+  - Golang
+  - Chainsaw
+  - Kubernetes
+  - Testing
+
+- Mentor(s):
+  - Charles-Edouard Brétéché (@eddycharly, charled.breteche@gmail.com)
+  - Frank Jogeleit (@fjogeleit, frank.jogeleit@nirmata.com)
+
+- Upstream Issue (URL): 
+  - https://github.com/kyverno/kyverno/issues/13011
