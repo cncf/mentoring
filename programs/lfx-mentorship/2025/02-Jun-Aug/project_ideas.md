@@ -195,6 +195,32 @@ This project focuses on creating a comprehensive plugin marketplace UI for KubeS
 - Upstream Issue: [https://github.com/kubestellar/ui/issues/615](https://github.com/kubestellar/ui/issues/615)
 
 
+
+#### Enterprise Ready OpenCost: Integration Testing
+
+- Description:
+We need enhanced integration tests to prepare OpenCost for graduation and enterprise readiness. This proposed project will deliver a comprehensive suite of integration tests designed to facilitate development and contribution by third parties, while protecting the stability of OpenCost for our tens of thousands of users. These tests will validate both the quality of the data collected by OpenCost, and the correct operation of the APIs. We have recently implemented a pipeline that builds real stacks for these tests to hit - we now need to fill that framework up with great tests. See the testing strategy document @ https://github.com/opencost/opencost/blob/develop/docs/testing/AUTOMATED_TESTING.md for the current state of testing, and the infrastructure that we have put into place to support this mentorship effort. 
+
+- Expected Outcome
+  - A comprehensive integration test suite as defined in the linked ticket. 
+  - All tests run and pass automatically in pre-existing per-push integration test pipeline. 
+  - Approach for each integration test is documented 
+  - Endpoint coverage % and parameter coverage % is calculated 
+  - Any unfinished or follow on work is documented via issues on OpenCost
+
+- Recommended Skills
+  - Test Development
+  - REST API
+  - Golang
+  - GitHub Actions
+  - Public Cloud Providers
+
+- Mentor
+  - Alex Meijer (@ameijer , alexander.meijer@ibm.com)
+  - Cliff Colvin (@cliffcolvin , clifford.colvin@ibm.com)
+
+- Upstream Issue: [https://github.com/opencost/opencost/issues/3141](https://github.com/opencost/opencost/issues/3141)
+
 #### Extending KubeFlex with a new type of Control Plane
 
 - Description:  
@@ -319,6 +345,7 @@ This project aims to support progressDeadlineSeconds in CloneSet so as to provid
     - Zhang Zhen (@furykerry, furykerry@gmail.com)
     - Zhong Tianyun (@AiRanthem, airanthem666@gmail.com)
 - Upstream Issue: https://github.com/openkruise/kruise/issues/1497
+
 
 ### Kyverno
 
