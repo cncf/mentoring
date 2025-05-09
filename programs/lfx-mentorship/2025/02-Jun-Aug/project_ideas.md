@@ -393,27 +393,71 @@ This project aims to support progressDeadlineSeconds in CloneSet so as to provid
 #### Harbor CLI
 
 - Description: Harbor is a widely adopted container registry, and its initial CLI has been developed by LFX mentees. The goal is to extend this CLI by implementing additional functionalities and workflows that are currently only available in the Web UI. The CLI should be useful for Harbor administrators and users, especially to manage workflows within CI/CD pipelines. We seek a Golang-experienced mentee to enhance the CLI independently.
+
 - Expected Outcome:
   - Extend the Harbor CLI to include essential commands not yet implemented.
   - Add new features to improve Harbor management via the CLI for Harbor Administration, enabling robust workflows in CI/CD environments.
   - Review and test all implemented commands to ensure they work as expected.
+
 - Recommended Skills: Golang, spf13/cobra
+
 - Mentor(s):
   - Vadim Bauer (@vad1mo, vb@container-registry.com)
   - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
   - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
+
 - Upstream Issue: https://github.com/goharbor/harbor-cli/issues/450
 
-#### Harbor Satellite
+#### Implementing Ground Control for Harbor Satellite
 
-- Description: Containers have extended beyond their traditional cloud environments, becoming increasingly prevalent in remote and edge computing contexts. These environments often lack reliable internet connectivity, posing significant challenges in managing and running containerized applications due to difficulties in fetching container images. To address this, the project aims to decentralize container registries, making them more accessible to edge devices.
+- Description: As edge computing grows, managing container registries at edge becomes a challenge. Ground Control (GC) is a centralized control plane that manages and coordinates distributed edge registries, known as satellites. GC handles satellite registration, state management, robot account creation and management. It is deployed near the central Harbor registry and acts as the brain of the distributed registry system.
+
 - Expected Outcome:
-  - The goal is to extend the proof of concept and demonstrate that such a solution practically works.
-  - Candidates should be able understanding and implementing the [image](https://github.com/opencontainers/image-spec) and [distribution spec](https://github.com/opencontainers/distribution-spec) to replicate images from a central registry to a registry on the edge location.
-  - Add e2e tests, testing reliable artifact replication from the central Harbor registry to a local OCI-compliant registry at the edge.
-- Recommended Skills: Golang, Container, Image-spec, Distribution-spec
+  - Extend build and release pipelines using Dagger.
+  - Implement satellite sync for status and health reporting.
+  - Improve artifact state and configuration updates through OCI-compliant state artifacts.
+  - Add e2e tests for Ground Control functionality including state publication and robot account management.
+
+- Recommended Skills
+  - REST API
+  - Golang
+  - GitHub workflow
+  - Dagger
+  - PostgreSQL
+  - sqlc
+  - [OCI Image Spec](https://github.com/opencontainers/image-spec/blob/main/spec.md)
+  - [Distribution Spec](https://github.com/opencontainers/distribution-spec/blob/main/spec.md)
+  
 - Mentor(s):
   - Vadim Bauer (@vad1mo, vb@container-registry.com)
   - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
-  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)project
+  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
+
 - Upstream Issue: https://github.com/goharbor/harbor/issues/21959
+
+#### Harbor Satellite: Implementing a Eventing System for Satellite
+
+- Description:
+Harbor Satellite is a lightweight, OCI-compliant registry (currently based on Zot) designed to run on edge devices, such as Raspberry Pi or ARM-based hardware. It acts as a local container registry for edge devices and workloads. The satellite autonomously fetches configuration and state, registers with Ground Control, reports its status, and optionally sends system-level events to connected edge systems.
+
+- Expected Outcome:
+  - Implement an eventing mechanism to notify edge systems about critical state transitions (e.g., "state update ready", "sync complete").
+  - Improve build and release pipelines.
+  - Make the satellite functional on ARM-based edge devices (like Raspberry Pi).
+  - Add reliable state and health reporting back to Ground Control.
+  - Add e2e tests to validate artifact fetching, status reporting, and eventing.
+
+- Recommended Skills
+  - Golang
+  - Containers
+  - Edge Computing
+  - OCI Image/Distribution Spec
+  - Webhooks
+  - Event-Driven Architecture
+
+- Mentor(s):
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
+
+- Upstream Issue: https://github.com/goharbor/harbor/issues/21986
