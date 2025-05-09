@@ -346,3 +346,51 @@ This project aims to support progressDeadlineSeconds in CloneSet so as to provid
     - Zhong Tianyun (@AiRanthem, airanthem666@gmail.com)
 - Upstream Issue: https://github.com/openkruise/kruise/issues/1497
 
+### PipeCD
+
+#### Support deploy application using OpenTofu with PipeCD plugin
+
+- Description: In the latest evolution of PipeCD, the plugin architecture for piped has been established (ref: [PipeCD plugin-arch blog](https://pipecd.dev/blog/2024/11/28/overview-of-the-plan-for-pluginnable-pipecd/)), paving the way for community-developed plugins. Previously, PipeCD already supported deploying applications using Terraform, with the Terraform plugin being developed by the maintainer team to ensure continued support for existing users. Meanwhile, OpenTofu has emerged within the Cloud Native landscape as a drop-in alternative to Terraform. To align with this development, we aim to extend PipeCD’s support to enable the deployment of OpenTofu applications, just as we have done for Terraform.
+  
+- Expected Outcome:
+  - OpenTofu plugin for PipeCD
+  - Possible update plugin SDK while develop the OpenTofu plugin
+  - Possible update docs how to develop PipeCD plugin
+  - Blog about how to develop a PipeCD plugin on [https://pipecd.dev/blog/](https://pipecd.dev/blog/)
+  
+- Recommended Skills:
+  - Golang
+  - Terraform / OpenTofu
+  - GitOps
+  - Contrinous Delivery (CD)
+
+- Mentor(s):
+  - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
+  - Shinnosuke Sawada-Dazai (@Warashi, shin@warashi.dev)
+  - Yoshiki Fujikane (@ffjlabo, ffjlabo@gmail.com)
+
+- Upstream Issue: https://github.com/pipe-cd/pipecd/issues/5807
+
+#### Support managing SQL schema using PipeCD SQL plugin
+
+- Description: With the latest advancements in PipeCD, the plugin architecture for piped has been successfully established (ref: [PipeCD plugin-arch blog](https://pipecd.dev/blog/2024/11/28/overview-of-the-plan-for-pluginnable-pipecd/)), opening the door for community-driven plugin development. While GitOps traditionally focuses on managing workload states, what about database states? Tools like [sqldef](https://github.com/sqldef/sqldef) can be incredibly helpful, especially when adopting a GitOps approach.
+  
+- Expected Outcome:
+  - SQL plugin for PipeCD
+  - Possible update plugin SDK while develop the SQL plugin
+  - Possible update docs how to develop PipeCD plugin
+  - Blog about how to develop a PipeCD plugin on [https://pipecd.dev/blog/](https://pipecd.dev/blog/)
+
+- Recommended Skills:
+  - Golang
+  - SQL
+  - GitOps
+  - Continuos Delivery (CD)
+
+- Mentor(s):
+  - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
+  - Shinnosuke Sawada-Dazai (@Warashi, shin@warashi.dev)
+  - Yoshiki Fujikane (@ffjlabo, ffjlabo@gmail.com)
+
+- Upstream Issue: https://github.com/pipe-cd/pipecd/issues/5808
+
