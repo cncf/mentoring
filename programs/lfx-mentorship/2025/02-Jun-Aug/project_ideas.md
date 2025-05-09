@@ -48,10 +48,50 @@
 
 - **Upstream Issue**: https://github.com/cartography-cncf/cartography/issues/1552
 
+### CloudNativePG
+
+#### Implementing “Declarative Management of PostgreSQL Foreign Data Wrappers” in CloudNativePG
+
+- **Description:** This project aims to extend the CloudNativePG operator to
+  support declarative configuration of foreign data wrappers through its
+  Database custom resource. PostgreSQL supports the SQL/MED (Management of
+  External Data) specification, enabling access to external data sources through
+  standard SQL queries. These sources—known as foreign data—are accessed via
+  **foreign data wrappers (FDWs)**, which are libraries that handle the
+  connection and data exchange with the external systems. A variety of FDWs are
+  available for PostgreSQL. Of particular interest for this project is the
+  `postgres_fdw` extension, which facilitates access to other PostgreSQL
+  instances.
+
+- **Expected Outcome**:
+    - A detailed design discussion documented in the upstream issue in
+      CloudNativePG GitHub repository, involving mentors, maintainers, and the
+      community.
+    - A fully working pull request implementing support for declarative foreign
+      data wrappers, complete with:
+        - Reconciliation logic for the Database resource controller
+        - Documentation
+        - Automated tests integrated into the CI/CD pipeline
+
+- **Recommended Skills**:
+    - Go programming (operator development)
+    - Kubernetes and CRDs (Custom Resource Definitions)
+    - Git and GitHub workflows
+    - CloudNativePG
+    - Familiarity with PostgreSQL internals and SQL syntax
+
+- **Mentor(s)**:
+  - Gabriele Bartolini (@gbartolini, gabriele.bartolini@enterprisedb.com)
+  - Leonardo Cecchi (@leonardoce, leonardo.cecchi@enterprisedb.com)
+  - Marco Nenciarini (@mnencia, marco.nenciarini@enterprisedb.com)
+  - Armando Ruocco (@armru, armando.ruocco@enterprisedb.com)
+
+- **Upstream Issue**: https://github.com/cloudnative-pg/cloudnative-pg/issues/4683
+
+
 ### Inspektor Gadget 
 
 #### [PM Mentorship] Traceloop GTM Strategy and Execution
-
 - Description:  
   This is a Project Management mentorship (product management for open source)  for the project Inspektor Gadget (IG). [Inspektor Gadget](inspektor-gadget.io) is a powerful observability tool that enables security, monitoring and troubleshooting on Linux and Kubernetes. The framework uses a concept called “gadgets” which uses a technology called eBPF to enable us to drive valuable insights from the Linux kernel. Today, we have a very powerful gadget called [Traceloop](https://inspektor-gadget.io/docs/latest/gadgets/traceloop). However, as you can see the documentation around it is quite minimal and we need a strategy around how to bring this gadget to market in a big way. With Traceloop users can debug crashing applications as demonstrated [here](https://www.youtube.com/watch?v=IoiDvzIZ3ok&list=PLnfCaIV4aZe9oQ7REBuP0PWwp-NEbFlGR&index=30). Our goal is to make community members aware of traceloop and therefore Inspektor Gadget to a) decrease time to resolution for developers debugging their applications b) drive adoption of the project . 
 
