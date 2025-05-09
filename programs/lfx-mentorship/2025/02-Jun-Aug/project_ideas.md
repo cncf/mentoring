@@ -48,6 +48,47 @@
 
 - **Upstream Issue**: https://github.com/cartography-cncf/cartography/issues/1552
 
+### CloudNativePG
+
+#### Implementing “Declarative Management of PostgreSQL Foreign Data Wrappers” in CloudNativePG
+
+- **Description:** This project aims to extend the CloudNativePG operator to
+  support declarative configuration of foreign data wrappers through its
+  Database custom resource. PostgreSQL supports the SQL/MED (Management of
+  External Data) specification, enabling access to external data sources through
+  standard SQL queries. These sources—known as foreign data—are accessed via
+  **foreign data wrappers (FDWs)**, which are libraries that handle the
+  connection and data exchange with the external systems. A variety of FDWs are
+  available for PostgreSQL. Of particular interest for this project is the
+  `postgres_fdw` extension, which facilitates access to other PostgreSQL
+  instances.
+
+- **Expected Outcome**:
+    - A detailed design discussion documented in the upstream issue in
+      CloudNativePG GitHub repository, involving mentors, maintainers, and the
+      community.
+    - A fully working pull request implementing support for declarative foreign
+      data wrappers, complete with:
+        - Reconciliation logic for the Database resource controller
+        - Documentation
+        - Automated tests integrated into the CI/CD pipeline
+
+- **Recommended Skills**:
+    - Go programming (operator development)
+    - Kubernetes and CRDs (Custom Resource Definitions)
+    - Git and GitHub workflows
+    - CloudNativePG
+    - Familiarity with PostgreSQL internals and SQL syntax
+
+- **Mentor(s)**:
+  - Gabriele Bartolini (@gbartolini, gabriele.bartolini@enterprisedb.com)
+  - Leonardo Cecchi (@leonardoce, leonardo.cecchi@enterprisedb.com)
+  - Marco Nenciarini (@mnencia, marco.nenciarini@enterprisedb.com)
+  - Armando Ruocco (@armru, armando.ruocco@enterprisedb.com)
+
+- **Upstream Issue**: https://github.com/cloudnative-pg/cloudnative-pg/issues/4683
+
+
 ### Inspektor Gadget 
 
 #### [PM Mentorship] Traceloop GTM Strategy and Execution
