@@ -387,3 +387,40 @@ This project aims to support progressDeadlineSeconds in CloneSet so as to provid
     - Zhong Tianyun (@AiRanthem, airanthem666@gmail.com)
 - Upstream Issue: https://github.com/openkruise/kruise/issues/1497
 
+### Istio
+
+#### Expand testing for Multi-Cluster in Ambient
+
+
+description: |
+  Istio is a service mesh platform used by thousands of companies to secure and manage their microservices traffic, most often in a single Kubernetes cluster.
+  However, the ability to operate across multiple clusters is an important feature in Istio's traditional Sidecar mode, and work to support
+  it in Istio's Ambient mode is making rapid progress. To call any feature complete,
+  comprehensive testing is needed. Given that multicluster Istio Ambient is a new mode of operating, we will
+  need to both adapt tests for existing features to ensure they work across multiple clusters,
+  as well as identify multi-cluster specific scenarios we want to codify in tests.
+
+  These kinds of tests exist mode in both the main Istio repository, as well as in the istio.io
+  website's repository. The docs tests are equally as important, as they prove that the
+  instructions we give to users actually work.
+
+expectedOutcome:
+  - Audit existing ambient integration tests for cases that do not support multi-cluster testing patterns.
+  - Refactor those tests, using Istio's testing infrastructure to cover features within a multi-cluster environment.
+  - Work with Istio maintainers to identify opportunities for testing new scenarios that exist only for ambient multi-cluster.
+  - As documentation is written for https://istio.io, verify that the user instructions (kubectl commands, YAML snippets, etc.) actually work end-to-end.
+  - Gain hands-on experience with Istio's codebase, service mesh architectures, and Kubernetes multi-cluster patterns.
+  - Help us catch regressions and bugs
+
+- **Recommended Skills**:
+  - Go
+  - Kubernetes
+  - Istio
+  - Basic networking knowledge
+
+
+- **Mentor(s)**:
+  - Steven Jin (@stevenjin8, sjinxuan@microsoft.com)
+  - Steven Landow (@stevenctl, steven.landow@solo.io)
+
+- **Upstream Issue**: https://github.com/istio/istio/issues/56228
