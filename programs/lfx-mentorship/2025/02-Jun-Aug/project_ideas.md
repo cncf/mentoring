@@ -17,6 +17,41 @@
 ---
 
 ## Proposed Project ideas
+|
+# UX/UI Mentorship: Design System Foundations for KubeStellar
+
+- **Description**:
+Establish a lightweight, scalable design system that brings visual consistency, reusable components, and clear UX guidance across the full scope of KubeStellar. The system will support multiple user-facing surfaces, including websites, software interfaces, and CLI-based tools. This mentorship will serve as the foundational design phase, setting the stage for a future front-end development and implementation effort planned for later this year. Special emphasis will be placed on the documentation site and contributor-facing tooling to ensure immediate impact and long-term scalability.
+
+- **Expected Outcome**:
+The mentorship will deliver a scalable yet lightweight design system tailored to KubeStellar's needs. It will include a component inventory, reusable UI patterns, a full CSS specification, and visual guidelines to ensure consistency and usability across the project's five active areas. While this phase focuses on foundational design work, it will directly support a future implementation phase—enabling contributors to efficiently apply the system to KubeStellar's interfaces, including UI, Docs, and CLI-based tooling. Special emphasis will be placed on ensuring the documentation site benefits immediately from this structure.
+
+- **Deliverables**:
+-UI Audit Summary: A documented audit of existing UI elements across KubeStellar interfaces, identifying inconsistencies and opportunities for improvement.
+- Design Foundations Guide: A foundational set of visual guidelines including typography, color palette, spacing, and layout grids.
+- Reusable Component Designs: Figma mockups of commonly used UI components (e.g., buttons, cards, inputs, navigation) with states and interaction guidance.
+- Component Usage Documentation: A concise guide explaining how and when to use each component, with practical examples for developers and contributors.
+- Figma Starter Library: A structured, shareable Figma file including design tokens, reusable components, and layout references.
+- Full CSS Specification: A developer-ready CSS reference that maps all design tokens, spacing scales, typography, color values, and component styles—designed to simplify implementation and align with frontend frameworks if needed.
+- Homepage Hero Mock: A visual concept and animation-ready mockup for the KubeStellar homepage hero section.
+- Docs Master Page Mock: A fully designed layout for a documentation master page, featuring structural layout, navigation, and UI-integrated component examples.
+- Stretch Goal: If time allows, conduct an information architecture analysis of the current documentation site and provide recommendations. This may include proposing the separation of non-documentation content into standalone sites to improve clarity and user experience.
+
+- **Recommended Skills**:
+- UX/UI Design
+- Figma Proficiency
+- Design Systems (e.g., Material UI, Carbon)
+- Responsive Design
+- Visual Consistency
+- Open Source Mindset
+- Developer Collaboration (e.g., GitHub, handoff tools)
+- React
+- Documentation Skills
+
+- **Mentors**:
+Andrea Velázquez and Kevin Roche
+
+- **Upstream Issue:** To be determined
 
 ### Cartography
 
