@@ -474,3 +474,43 @@ expectedOutcome:
   - Steven Landow (@stevenctl, steven.landow@solo.io)
 
 - **Upstream Issue**: https://github.com/istio/istio/issues/56228
+
+### WasmEdge
+
+#### Port WasmEdge and the WASI-NN ggml backend to the s390x platform
+
+- Description: WasmEdge provides cross-platform support for amd64 and arm64 for executing AI/LLM applications. We would like to support as many new hardware platforms as possible, so developers and users will no longer need to worry about the actual hardware. All they need to do is develop their AI agent or LLM applications once and deploy their services anywhere. For more information, please check the upstream issue.
+- Expected Outcome:
+  - Make the WasmEdge toolchain support the s390x platform, including the interpreter and the AOT mode.
+  - Ensure the WASI-NN ggml plugin can execute without any issues on the s390x platform.
+  - Implement test suites to verify the above behaviors.
+  - Write a document discussing the compilation, installation, execution, and verification of the work.
+- Recommended Skills:
+  - C++
+  - s390x
+  - LLVM
+- Expected project size: Large (~350 hour projects)
+- Mentor(s):
+  - Hung-Ying Tai (@hydai, hydai@secondstate.io) - Primary
+  - dm4 (@dm4, dm4@secondstate.io)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/4010
+
+#### Use Runwasi with WasmEdge runtime to test multiple WASM apps as cloud services
+
+- Description: With WasmEdge serving as one of Runwasi’s standard runtimes, and as our C++-implemented library continues to evolve, we also need a verification process integrated into Runwasi to streamline and validate the stability of both container and cloud environments.
+- Expected Outcome:
+  - A concise GitHub workflow demonstrates Runwasi end-to-end testing on Kubernetes.
+    - Need to design an interactive application scenario that supports multiple nodes
+    - Try to incorporate the use of the WasmEdge plugin into this scenario
+  - Document
+- Recommended Skills:
+  - Rust
+  - C++
+  - GDB
+  - git / github workflow
+  - shell script
+- Expected project size: Large (~350 hour projects)
+- Mentor(s):
+  - Vincent (@CaptainVincent, vincent@secondstate.io) - Primary
+  - yi (@0yi0 yi@secondstate.io)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/4011
