@@ -37,7 +37,32 @@
   - Robbie Cronin (robert-cronin, robbiecronin@microsoft.com)
 - **Upstream Issue:** https://github.com/project-copacetic/copacetic/issues/867
 
+### OpenCost
 
+#### Enterprise Ready OpenCost: Integration Testing
+
+- Description:
+We need enhanced integration tests to prepare OpenCost for graduation and enterprise readiness. This proposed project will deliver a comprehensive suite of integration tests designed to facilitate development and contribution by third parties, while protecting the stability of OpenCost for our tens of thousands of users. These tests will validate both the quality of the data collected by OpenCost, and the correct operation of the APIs. We have recently implemented a pipeline that builds real stacks for these tests to hit - we now need to fill that framework up with great tests. See the testing strategy document @ https://github.com/opencost/opencost/blob/develop/docs/testing/AUTOMATED_TESTING.md for the current state of testing, and the infrastructure that we have put into place to support this mentorship effort. 
+
+- Expected Outcome
+  - A comprehensive integration test suite as defined in the linked ticket. 
+  - All tests run and pass automatically in pre-existing per-push integration test pipeline. 
+  - Approach for each integration test is documented 
+  - Endpoint coverage % and parameter coverage % is calculated 
+  - Any unfinished or follow on work is documented via issues on OpenCost
+
+- Recommended Skills
+  - Test Development
+  - REST API
+  - Golang
+  - GitHub Actions
+  - Public Cloud Providers
+
+- Mentor
+  - Alex Meijer (@ameijer , alexander.meijer@ibm.com)
+  - Cliff Colvin (@cliffcolvin , clifford.colvin@ibm.com)
+
+- Upstream Issue: [https://github.com/opencost/opencost/issues/3141](https://github.com/opencost/opencost/issues/3141)
 
 ### Cartography
 
@@ -160,6 +185,43 @@ and e2e test updates.
 
 ### KubeStellar
 
+# UX/UI Mentorship: Design System Foundations for KubeStellar
+
+- **Description**:
+Establish a lightweight, scalable design system that brings visual consistency, reusable components, and clear UX guidance across the full scope of KubeStellar. The system will support multiple user-facing surfaces, including websites, software interfaces, and CLI-based tools. This mentorship will serve as the foundational design phase, setting the stage for a future front-end development and implementation effort planned for later this year. Special emphasis will be placed on the documentation site and contributor-facing tooling to ensure immediate impact and long-term scalability.
+
+- **Expected Outcome**:
+The mentorship will deliver a scalable yet lightweight design system tailored to KubeStellar's needs. It will include a component inventory, reusable UI patterns, a full CSS specification, and visual guidelines to ensure consistency and usability across the project's five active areas. While this phase focuses on foundational design work, it will directly support a future implementation phase—enabling contributors to efficiently apply the system to KubeStellar's interfaces, including UI, Docs, and CLI-based tooling. Special emphasis will be placed on ensuring the documentation site benefits immediately from this structure.
+
+- **Deliverables**:
+-UI Audit Summary: A documented audit of existing UI elements across KubeStellar interfaces, identifying inconsistencies and opportunities for improvement.
+- Design Foundations Guide: A foundational set of visual guidelines including typography, color palette, spacing, and layout grids.
+- Reusable Component Designs: Figma mockups of commonly used UI components (e.g., buttons, cards, inputs, navigation) with states and interaction guidance.
+- Component Usage Documentation: A concise guide explaining how and when to use each component, with practical examples for developers and contributors.
+- Figma Starter Library: A structured, shareable Figma file including design tokens, reusable components, and layout references.
+- Full CSS Specification: A developer-ready CSS reference that maps all design tokens, spacing scales, typography, color values, and component styles—designed to simplify implementation and align with frontend frameworks if needed.
+- Homepage Hero Mock: A visual concept and animation-ready mockup for the KubeStellar homepage hero section.
+- Docs Master Page Mock: A fully designed layout for a documentation master page, featuring structural layout, navigation, and UI-integrated component examples.
+- Stretch Goal: If time allows, conduct an information architecture analysis of the current documentation site and provide recommendations. This may include proposing the separation of non-documentation content into standalone sites to improve clarity and user experience.
+
+- **Recommended Skills**:
+- UX/UI Design
+- Figma Proficiency
+- Design Systems (e.g., Material UI, Carbon)
+- Responsive Design
+- Visual Consistency
+- Open Source Mindset
+- Developer Collaboration (e.g., GitHub, handoff tools)
+- React
+- Documentation Skills
+
+- **Mentors**:
+- Andrea Velázquez (@andreuxxxx, andrea@buoyant.io)
+- Kevin Roche (@KPRoche, kproche@us.ibm.com)
+
+- **Upstream Issue:** https://github.com/kubestellar/kubestellar/issues/2912
+
+
 #### Building a Plugin System for KubeStellar
 
 - Description:  
@@ -257,31 +319,6 @@ This project focuses on creating a comprehensive plugin marketplace UI for KubeS
 - Upstream Issue: [https://github.com/kubestellar/ui/issues/615](https://github.com/kubestellar/ui/issues/615)
 
 
-
-#### Enterprise Ready OpenCost: Integration Testing
-
-- Description:
-We need enhanced integration tests to prepare OpenCost for graduation and enterprise readiness. This proposed project will deliver a comprehensive suite of integration tests designed to facilitate development and contribution by third parties, while protecting the stability of OpenCost for our tens of thousands of users. These tests will validate both the quality of the data collected by OpenCost, and the correct operation of the APIs. We have recently implemented a pipeline that builds real stacks for these tests to hit - we now need to fill that framework up with great tests. See the testing strategy document @ https://github.com/opencost/opencost/blob/develop/docs/testing/AUTOMATED_TESTING.md for the current state of testing, and the infrastructure that we have put into place to support this mentorship effort. 
-
-- Expected Outcome
-  - A comprehensive integration test suite as defined in the linked ticket. 
-  - All tests run and pass automatically in pre-existing per-push integration test pipeline. 
-  - Approach for each integration test is documented 
-  - Endpoint coverage % and parameter coverage % is calculated 
-  - Any unfinished or follow on work is documented via issues on OpenCost
-
-- Recommended Skills
-  - Test Development
-  - REST API
-  - Golang
-  - GitHub Actions
-  - Public Cloud Providers
-
-- Mentor
-  - Alex Meijer (@ameijer , alexander.meijer@ibm.com)
-  - Cliff Colvin (@cliffcolvin , clifford.colvin@ibm.com)
-
-- Upstream Issue: [https://github.com/opencost/opencost/issues/3141](https://github.com/opencost/opencost/issues/3141)
 
 #### Extending KubeFlex with a new type of Control Plane
 
@@ -569,3 +606,23 @@ expectedOutcome:
   - Steven Landow (@stevenctl, steven.landow@solo.io)
 
 - **Upstream Issue**: https://github.com/istio/istio/issues/56228
+
+
+### Krkn
+
+#### Chaos scenario rollback feature
+
+- Description:<br/>
+We intend to refactor the current Scenario Plugin API and add a new feature in the plugin abstract class to restore all the changes performed by krkn in the cluster in case run method encounters some kind of exception before ending the execution and or if the run failed for external infrastructure failures.
+- Expected Outcome:<br/>
+The cluster status should be rolled back to the original condition before the scenario execution.
+- Recommended Skills:<br/>
+  - python
+  - kubernetes
+  - container runtime environments
+  - common cloud platforms
+- Mentor(s):
+  -  Tullio Sebastiani (@tsebastiani, tsebasti@redhat.com) 
+  -  Naga Ravi Chaitanya Elluri (@chaitanyaenr, nelluri@redhat.com)
+  -  Paige Patton (@paigerube14, ppatton@redhat.com)
+- Upstream Issue:
