@@ -388,6 +388,80 @@ This project aims to support progressDeadlineSeconds in CloneSet so as to provid
 - Upstream Issue: https://github.com/openkruise/kruise/issues/1497
 
 
+### Harbor
+
+#### Harbor CLI
+
+- Description: Harbor is a widely adopted container registry, and its initial CLI has been developed by LFX mentees. The goal is to extend this CLI by implementing additional functionalities and workflows that are currently only available in the Web UI. The CLI should be useful for Harbor administrators and users, especially to manage workflows within CI/CD pipelines. We seek a Golang-experienced mentee to enhance the CLI independently.
+
+- Expected Outcome:
+  - Extend the Harbor CLI to include essential commands not yet implemented.
+  - Add new features to improve Harbor management via the CLI for Harbor Administration, enabling robust workflows in CI/CD environments.
+  - Review and test all implemented commands to ensure they work as expected.
+
+- Recommended Skills: Golang, spf13/cobra
+
+- Mentor(s):
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
+
+- Upstream Issue: https://github.com/goharbor/harbor-cli/issues/450
+
+#### Implementing Ground Control for Harbor Satellite
+
+- Description: As edge computing grows, managing container registries at edge becomes a challenge. Ground Control (GC) is a centralized control plane that manages and coordinates distributed edge registries, known as satellites. GC handles satellite registration, state management, robot account creation and management. It is deployed near the central Harbor registry and acts as the brain of the distributed registry system.
+
+- Expected Outcome:
+  - Extend build and release pipelines using Dagger.
+  - Implement satellite sync for status and health reporting.
+  - Improve artifact state and configuration updates through OCI-compliant state artifacts.
+  - Add e2e tests for Ground Control functionality including state publication and robot account management.
+
+- Recommended Skills
+  - REST API
+  - Golang
+  - GitHub workflow
+  - Dagger
+  - PostgreSQL
+  - sqlc
+  - [OCI Image Spec](https://github.com/opencontainers/image-spec/blob/main/spec.md)
+  - [Distribution Spec](https://github.com/opencontainers/distribution-spec/blob/main/spec.md)
+  
+- Mentor(s):
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
+
+- Upstream Issue: https://github.com/goharbor/harbor/issues/21959
+
+#### Harbor Satellite: Implementing a Eventing System for Satellite
+
+- Description:
+Harbor Satellite is a lightweight, OCI-compliant registry (currently based on Zot) designed to run on edge devices, such as Raspberry Pi or ARM-based hardware. It acts as a local container registry for edge devices and workloads. The satellite autonomously fetches configuration and state, registers with Ground Control, reports its status, and optionally sends system-level events to connected edge systems.
+
+- Expected Outcome:
+  - Implement an eventing mechanism to notify edge systems about critical state transitions (e.g., "state update ready", "sync complete").
+  - Improve build and release pipelines.
+  - Make the satellite functional on ARM-based edge devices (like Raspberry Pi).
+  - Add reliable state and health reporting back to Ground Control.
+  - Add e2e tests to validate artifact fetching, status reporting, and eventing.
+
+- Recommended Skills
+  - Golang
+  - Containers
+  - Edge Computing
+  - OCI Image/Distribution Spec
+  - Webhooks
+  - Event-Driven Architecture
+
+- Mentor(s):
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
+
+- Upstream Issue: https://github.com/goharbor/harbor/issues/21986
+
 ### PipeCD
 
 #### Support deploy application using OpenTofu with PipeCD plugin
