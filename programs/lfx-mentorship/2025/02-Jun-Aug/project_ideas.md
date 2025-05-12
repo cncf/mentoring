@@ -489,7 +489,6 @@ expectedOutcome:
   - C++
   - s390x
   - LLVM
-- Expected project size: Large (~350 hour projects)
 - Mentor(s):
   - Hung-Ying Tai (@hydai, hydai@secondstate.io) - Primary
   - dm4 (@dm4, dm4@secondstate.io)
@@ -509,8 +508,57 @@ expectedOutcome:
   - GDB
   - git / github workflow
   - shell script
-- Expected project size: Large (~350 hour projects)
 - Mentor(s):
   - Vincent (@CaptainVincent, vincent@secondstate.io) - Primary
   - yi (@0yi0 yi@secondstate.io)
 - Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/4011
+
+#### Support bitnet.cpp as a new WASI-NN plugin
+
+- Description: WasmEdge provides several AI frameworks as WASI-NN plugins to enable the power of AI/LLM applications for developers and users. We are always eager to add new backends to improve coverage of all models and hardware. BitNet.cpp, released by Microsoft, offers the ability to run 1-bit LLMs quickly without a GPU. We would like to support this framework so that people with limited resources, such as CPU-only hardware, can enjoy the amazing world brought by LLMs.
+- Expected Outcome:
+    1. A new WASI-NN plugin supports [BitNet](https://github.com/microsoft/BitNet).
+    2. Use the pure C++ interface from BitNet without any Python dependencies.
+    3. The plugin must run the model listed in the BitNet repository, e.g., [BitNet b1.58 2B4T - Scaling Native 1-bit LLM](https://huggingface.co/microsoft/bitnet-b1.58-2B-4T).
+    4. A tutorial and example for demonstration.
+    5. A CI workflow for building, testing, and releasing the built assets.
+- Recommended skills:
+  - C++
+  - [WASI-NN](https://github.com/WebAssembly/wasi-nn)
+  - GitHub workflows
+  - LLMs
+- Mentor(s):
+  - Hung-Ying Tai (@hydai, hydai@secondstate.io)
+  - dm4 (@dm4, dm4@secondstate.io)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/4110
+
+#### Create an MCP-based AI agent to help LF certificate prep
+
+- Description: You will create an AI agent based on open-source Large Language Models (LLMs) running on the CNCF WasmEdge runtime and an MCP server. The application will tie together key components in a modern AI agent stack to create a useful application. The AI agent will ask, answer, and explain practice questions for a specific tech certification program. It enables students to study for the certificate tests more effectively.
+- Expected Outcome:
+    - **Deliverable 1:** create a MCP server with 2 functions
+        - `get_random_question()`: The function selects a random question from a list. It returns both the question and the answer. This function is called by the LLM when it detects that the user asked for a new practice question.
+        - `get_question_and_answer()`: The function searches an input text from the database for an corresponding question and answer.
+    - **Deliverable 2:** create a practice question / answer database on a subject that you are most familiar with. The MCP functions will
+    - **Deliverable 3:** Create an agent app based on the LlamaEdge framework with a
+    - Wokflow 1
+        - The user asks a question. The LLM calls MCP function `get_question_and_answer()`
+        - The agent adds the answer to the context
+        - The LLM converse with the user with knowledge about the question and its answer
+    - Workflow 2
+        - The user asks for a practice question. The LLM calls MCP function `get_random_question()` to get the question and answer.
+        - Both the question and answer are added to the context.
+        - The LLM responds to the user with the question ONLY.
+        - It carries on the conversation around that question.
+- Recommended skills:
+    - AI agent concepts
+    - LLM and [tool calls](https://llamaedge.com/docs/user-guide/llm/tool-call)
+    - [Running open-source LLMs locally](https://llamaedge.com/docs/user-guide/llm/full-openai)
+    - [Running MCP servers](https://github.com/decentralized-mcp/servers/tree/main/example)
+    - Rust
+    - Python
+- Mentor(s):
+  - Michael Yuan (@juntao michael@secondstate.io)
+  - Vivian Hu (@alabulei1 vivian@secondstate.io)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/4109
+
