@@ -52,7 +52,7 @@ The mentorship will deliver a scalable yet lightweight design system tailored to
 - Andrea Velázquez (@andreuxxxx, andrea@buoyant.io)
 - Kevin Roche (@KPRoche, kproche@us.ibm.com)
 
-- **Upstream Issue:** To be determined
+- **Upstream Issue:** https://github.com/kubestellar/kubestellar/issues/2912
 
 ### Cartography
 
