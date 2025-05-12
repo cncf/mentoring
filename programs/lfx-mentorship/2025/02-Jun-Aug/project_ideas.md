@@ -461,3 +461,90 @@ Harbor Satellite is a lightweight, OCI-compliant registry (currently based on Zo
   - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
 
 - Upstream Issue: https://github.com/goharbor/harbor/issues/21986
+
+### PipeCD
+
+#### Support deploy application using OpenTofu with PipeCD plugin
+
+- Description: In the latest evolution of PipeCD, the plugin architecture for piped has been established (ref: [PipeCD plugin-arch blog](https://pipecd.dev/blog/2024/11/28/overview-of-the-plan-for-pluginnable-pipecd/)), paving the way for community-developed plugins. Previously, PipeCD already supported deploying applications using Terraform, with the Terraform plugin being developed by the maintainer team to ensure continued support for existing users. Meanwhile, OpenTofu has emerged within the Cloud Native landscape as a drop-in alternative to Terraform. To align with this development, we aim to extend PipeCD’s support to enable the deployment of OpenTofu applications, just as we have done for Terraform.
+  
+- Expected Outcome:
+  - OpenTofu plugin for PipeCD
+  - Possible update plugin SDK while develop the OpenTofu plugin
+  - Possible update docs how to develop PipeCD plugin
+  - Blog about how to develop a PipeCD plugin on [https://pipecd.dev/blog/](https://pipecd.dev/blog/)
+  
+- Recommended Skills:
+  - Golang
+  - Terraform / OpenTofu
+  - GitOps
+  - Contrinous Delivery (CD)
+
+- Mentor(s):
+  - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
+  - Shinnosuke Sawada-Dazai (@Warashi, shin@warashi.dev)
+  - Yoshiki Fujikane (@ffjlabo, ffjlabo@gmail.com)
+
+- Upstream Issue: https://github.com/pipe-cd/pipecd/issues/5807
+
+#### Support managing SQL schema using PipeCD SQL plugin
+
+- Description: With the latest advancements in PipeCD, the plugin architecture for piped has been successfully established (ref: [PipeCD plugin-arch blog](https://pipecd.dev/blog/2024/11/28/overview-of-the-plan-for-pluginnable-pipecd/)), opening the door for community-driven plugin development. While GitOps traditionally focuses on managing workload states, what about database states? Tools like [sqldef](https://github.com/sqldef/sqldef) can be incredibly helpful, especially when adopting a GitOps approach.
+  
+- Expected Outcome:
+  - SQL plugin for PipeCD
+  - Possible update plugin SDK while develop the SQL plugin
+  - Possible update docs how to develop PipeCD plugin
+  - Blog about how to develop a PipeCD plugin on [https://pipecd.dev/blog/](https://pipecd.dev/blog/)
+
+- Recommended Skills:
+  - Golang
+  - SQL
+  - GitOps
+  - Continuos Delivery (CD)
+
+- Mentor(s):
+  - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
+  - Shinnosuke Sawada-Dazai (@Warashi, shin@warashi.dev)
+  - Yoshiki Fujikane (@ffjlabo, ffjlabo@gmail.com)
+
+- Upstream Issue: https://github.com/pipe-cd/pipecd/issues/5808
+
+
+### Istio
+
+#### Expand testing for Multi-Cluster in Ambient
+
+
+description: |
+  Istio is a service mesh platform used by thousands of companies to secure and manage their microservices traffic, most often in a single Kubernetes cluster.
+  However, the ability to operate across multiple clusters is an important feature in Istio's traditional Sidecar mode, and work to support
+  it in Istio's Ambient mode is making rapid progress. To call any feature complete,
+  comprehensive testing is needed. Given that multicluster Istio Ambient is a new mode of operating, we will
+  need to both adapt tests for existing features to ensure they work across multiple clusters,
+  as well as identify multi-cluster specific scenarios we want to codify in tests.
+
+  These kinds of tests exist mode in both the main Istio repository, as well as in the istio.io
+  website's repository. The docs tests are equally as important, as they prove that the
+  instructions we give to users actually work.
+
+expectedOutcome:
+  - Audit existing ambient integration tests for cases that do not support multi-cluster testing patterns.
+  - Refactor those tests, using Istio's testing infrastructure to cover features within a multi-cluster environment.
+  - Work with Istio maintainers to identify opportunities for testing new scenarios that exist only for ambient multi-cluster.
+  - As documentation is written for https://istio.io, verify that the user instructions (kubectl commands, YAML snippets, etc.) actually work end-to-end.
+  - Gain hands-on experience with Istio's codebase, service mesh architectures, and Kubernetes multi-cluster patterns.
+  - Help us catch regressions and bugs
+
+- **Recommended Skills**:
+  - Go
+  - Kubernetes
+  - Istio
+  - Basic networking knowledge
+
+
+- **Mentor(s)**:
+  - Steven Jin (@stevenjin8, sjinxuan@microsoft.com)
+  - Steven Landow (@stevenctl, steven.landow@solo.io)
+
+- **Upstream Issue**: https://github.com/istio/istio/issues/56228
