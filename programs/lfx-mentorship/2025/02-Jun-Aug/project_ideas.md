@@ -49,7 +49,8 @@ The mentorship will deliver a scalable yet lightweight design system tailored to
 - Documentation Skills
 
 - **Mentors**:
-Andrea Velázquez and Kevin Roche
+- Andrea Velázquez (@andreuxxxx, andrea@buoyant.io)
+- Kevin Roche (@KPRoche, kproche@us.ibm.com)
 
 - **Upstream Issue:** To be determined
 
