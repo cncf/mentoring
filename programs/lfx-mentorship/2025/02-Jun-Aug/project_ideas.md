@@ -587,3 +587,23 @@ expectedOutcome:
   - Steven Landow (@stevenctl, steven.landow@solo.io)
 
 - **Upstream Issue**: https://github.com/istio/istio/issues/56228
+
+
+### Krkn
+
+#### Chaos scenario rollback feature
+
+- Description:<br/>
+We intend to refactor the current Scenario Plugin API and add a new feature in the plugin abstract class to restore all the changes performed by krkn in the cluster in case run method encounters some kind of exception before ending the execution and or if the run failed for external infrastructure failures.
+- Expected Outcome:<br/>
+The cluster status should be rolled back to the original condition before the scenario execution.
+- Recommended Skills:<br/>
+  - python
+  - kubernetes
+  - container runtime environments
+  - common cloud platforms
+- Mentor(s):
+  -  Tullio Sebastiani (@tsebastiani, tsebasti@redhat.com) 
+  -  Naga Ravi Chaitanya Elluri (@chaitanyaenr, nelluri@redhat.com)
+  -  Paige Patton (@paigerube14, ppatton@redhat.com)
+- Upstream Issue:
