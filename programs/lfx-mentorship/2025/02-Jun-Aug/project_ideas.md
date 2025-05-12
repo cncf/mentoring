@@ -18,6 +18,33 @@
 
 ## Proposed Project ideas
 
+### OpenCost
+
+#### Enterprise Ready OpenCost: Integration Testing
+
+- Description:
+We need enhanced integration tests to prepare OpenCost for graduation and enterprise readiness. This proposed project will deliver a comprehensive suite of integration tests designed to facilitate development and contribution by third parties, while protecting the stability of OpenCost for our tens of thousands of users. These tests will validate both the quality of the data collected by OpenCost, and the correct operation of the APIs. We have recently implemented a pipeline that builds real stacks for these tests to hit - we now need to fill that framework up with great tests. See the testing strategy document @ https://github.com/opencost/opencost/blob/develop/docs/testing/AUTOMATED_TESTING.md for the current state of testing, and the infrastructure that we have put into place to support this mentorship effort. 
+
+- Expected Outcome
+  - A comprehensive integration test suite as defined in the linked ticket. 
+  - All tests run and pass automatically in pre-existing per-push integration test pipeline. 
+  - Approach for each integration test is documented 
+  - Endpoint coverage % and parameter coverage % is calculated 
+  - Any unfinished or follow on work is documented via issues on OpenCost
+
+- Recommended Skills
+  - Test Development
+  - REST API
+  - Golang
+  - GitHub Actions
+  - Public Cloud Providers
+
+- Mentor
+  - Alex Meijer (@ameijer , alexander.meijer@ibm.com)
+  - Cliff Colvin (@cliffcolvin , clifford.colvin@ibm.com)
+
+- Upstream Issue: [https://github.com/opencost/opencost/issues/3141](https://github.com/opencost/opencost/issues/3141)
+
 ### Cartography
 
 #### Fill in missing AWS resource types for CloudGoat scenarios
@@ -47,6 +74,47 @@
   - Alex Chantavy (@achantavy, alex@subimage.io)
 
 - **Upstream Issue**: https://github.com/cartography-cncf/cartography/issues/1552
+
+### CloudNativePG
+
+#### Implementing “Declarative Management of PostgreSQL Foreign Data Wrappers” in CloudNativePG
+
+- **Description:** This project aims to extend the CloudNativePG operator to
+  support declarative configuration of foreign data wrappers through its
+  Database custom resource. PostgreSQL supports the SQL/MED (Management of
+  External Data) specification, enabling access to external data sources through
+  standard SQL queries. These sources—known as foreign data—are accessed via
+  **foreign data wrappers (FDWs)**, which are libraries that handle the
+  connection and data exchange with the external systems. A variety of FDWs are
+  available for PostgreSQL. Of particular interest for this project is the
+  `postgres_fdw` extension, which facilitates access to other PostgreSQL
+  instances.
+
+- **Expected Outcome**:
+    - A detailed design discussion documented in the upstream issue in
+      CloudNativePG GitHub repository, involving mentors, maintainers, and the
+      community.
+    - A fully working pull request implementing support for declarative foreign
+      data wrappers, complete with:
+        - Reconciliation logic for the Database resource controller
+        - Documentation
+        - Automated tests integrated into the CI/CD pipeline
+
+- **Recommended Skills**:
+    - Go programming (operator development)
+    - Kubernetes and CRDs (Custom Resource Definitions)
+    - Git and GitHub workflows
+    - CloudNativePG
+    - Familiarity with PostgreSQL internals and SQL syntax
+
+- **Mentor(s)**:
+  - Gabriele Bartolini (@gbartolini, gabriele.bartolini@enterprisedb.com)
+  - Leonardo Cecchi (@leonardoce, leonardo.cecchi@enterprisedb.com)
+  - Marco Nenciarini (@mnencia, marco.nenciarini@enterprisedb.com)
+  - Armando Ruocco (@armru, armando.ruocco@enterprisedb.com)
+
+- **Upstream Issue**: https://github.com/cloudnative-pg/cloudnative-pg/issues/4683
+
 
 ### Inspektor Gadget 
 
@@ -97,6 +165,43 @@ and e2e test updates.
 - Upstream Issue (URL): https://github.com/kubernetes/kubeadm/issues/2907
 
 ### KubeStellar
+
+# UX/UI Mentorship: Design System Foundations for KubeStellar
+
+- **Description**:
+Establish a lightweight, scalable design system that brings visual consistency, reusable components, and clear UX guidance across the full scope of KubeStellar. The system will support multiple user-facing surfaces, including websites, software interfaces, and CLI-based tools. This mentorship will serve as the foundational design phase, setting the stage for a future front-end development and implementation effort planned for later this year. Special emphasis will be placed on the documentation site and contributor-facing tooling to ensure immediate impact and long-term scalability.
+
+- **Expected Outcome**:
+The mentorship will deliver a scalable yet lightweight design system tailored to KubeStellar's needs. It will include a component inventory, reusable UI patterns, a full CSS specification, and visual guidelines to ensure consistency and usability across the project's five active areas. While this phase focuses on foundational design work, it will directly support a future implementation phase—enabling contributors to efficiently apply the system to KubeStellar's interfaces, including UI, Docs, and CLI-based tooling. Special emphasis will be placed on ensuring the documentation site benefits immediately from this structure.
+
+- **Deliverables**:
+-UI Audit Summary: A documented audit of existing UI elements across KubeStellar interfaces, identifying inconsistencies and opportunities for improvement.
+- Design Foundations Guide: A foundational set of visual guidelines including typography, color palette, spacing, and layout grids.
+- Reusable Component Designs: Figma mockups of commonly used UI components (e.g., buttons, cards, inputs, navigation) with states and interaction guidance.
+- Component Usage Documentation: A concise guide explaining how and when to use each component, with practical examples for developers and contributors.
+- Figma Starter Library: A structured, shareable Figma file including design tokens, reusable components, and layout references.
+- Full CSS Specification: A developer-ready CSS reference that maps all design tokens, spacing scales, typography, color values, and component styles—designed to simplify implementation and align with frontend frameworks if needed.
+- Homepage Hero Mock: A visual concept and animation-ready mockup for the KubeStellar homepage hero section.
+- Docs Master Page Mock: A fully designed layout for a documentation master page, featuring structural layout, navigation, and UI-integrated component examples.
+- Stretch Goal: If time allows, conduct an information architecture analysis of the current documentation site and provide recommendations. This may include proposing the separation of non-documentation content into standalone sites to improve clarity and user experience.
+
+- **Recommended Skills**:
+- UX/UI Design
+- Figma Proficiency
+- Design Systems (e.g., Material UI, Carbon)
+- Responsive Design
+- Visual Consistency
+- Open Source Mindset
+- Developer Collaboration (e.g., GitHub, handoff tools)
+- React
+- Documentation Skills
+
+- **Mentors**:
+- Andrea Velázquez (@andreuxxxx, andrea@buoyant.io)
+- Kevin Roche (@KPRoche, kproche@us.ibm.com)
+
+- **Upstream Issue:** https://github.com/kubestellar/kubestellar/issues/2912
+
 
 #### Building a Plugin System for KubeStellar
 
@@ -195,31 +300,6 @@ This project focuses on creating a comprehensive plugin marketplace UI for KubeS
 - Upstream Issue: [https://github.com/kubestellar/ui/issues/615](https://github.com/kubestellar/ui/issues/615)
 
 
-
-#### Enterprise Ready OpenCost: Integration Testing
-
-- Description:
-We need enhanced integration tests to prepare OpenCost for graduation and enterprise readiness. This proposed project will deliver a comprehensive suite of integration tests designed to facilitate development and contribution by third parties, while protecting the stability of OpenCost for our tens of thousands of users. These tests will validate both the quality of the data collected by OpenCost, and the correct operation of the APIs. We have recently implemented a pipeline that builds real stacks for these tests to hit - we now need to fill that framework up with great tests. See the testing strategy document @ https://github.com/opencost/opencost/blob/develop/docs/testing/AUTOMATED_TESTING.md for the current state of testing, and the infrastructure that we have put into place to support this mentorship effort. 
-
-- Expected Outcome
-  - A comprehensive integration test suite as defined in the linked ticket. 
-  - All tests run and pass automatically in pre-existing per-push integration test pipeline. 
-  - Approach for each integration test is documented 
-  - Endpoint coverage % and parameter coverage % is calculated 
-  - Any unfinished or follow on work is documented via issues on OpenCost
-
-- Recommended Skills
-  - Test Development
-  - REST API
-  - Golang
-  - GitHub Actions
-  - Public Cloud Providers
-
-- Mentor
-  - Alex Meijer (@ameijer , alexander.meijer@ibm.com)
-  - Cliff Colvin (@cliffcolvin , clifford.colvin@ibm.com)
-
-- Upstream Issue: [https://github.com/opencost/opencost/issues/3141](https://github.com/opencost/opencost/issues/3141)
 
 #### Extending KubeFlex with a new type of Control Plane
 
@@ -389,3 +469,185 @@ This project aims to support progressDeadlineSeconds in CloneSet so as to provid
 
 - Upstream Issue (URL): 
   - https://github.com/kyverno/kyverno/issues/13011
+
+
+### Harbor
+
+#### Harbor CLI
+
+- Description: Harbor is a widely adopted container registry, and its initial CLI has been developed by LFX mentees. The goal is to extend this CLI by implementing additional functionalities and workflows that are currently only available in the Web UI. The CLI should be useful for Harbor administrators and users, especially to manage workflows within CI/CD pipelines. We seek a Golang-experienced mentee to enhance the CLI independently.
+
+- Expected Outcome:
+  - Extend the Harbor CLI to include essential commands not yet implemented.
+  - Add new features to improve Harbor management via the CLI for Harbor Administration, enabling robust workflows in CI/CD environments.
+  - Review and test all implemented commands to ensure they work as expected.
+
+- Recommended Skills: Golang, spf13/cobra
+
+- Mentor(s):
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
+
+- Upstream Issue: https://github.com/goharbor/harbor-cli/issues/450
+
+#### Implementing Ground Control for Harbor Satellite
+
+- Description: As edge computing grows, managing container registries at edge becomes a challenge. Ground Control (GC) is a centralized control plane that manages and coordinates distributed edge registries, known as satellites. GC handles satellite registration, state management, robot account creation and management. It is deployed near the central Harbor registry and acts as the brain of the distributed registry system.
+
+- Expected Outcome:
+  - Extend build and release pipelines using Dagger.
+  - Implement satellite sync for status and health reporting.
+  - Improve artifact state and configuration updates through OCI-compliant state artifacts.
+  - Add e2e tests for Ground Control functionality including state publication and robot account management.
+
+- Recommended Skills
+  - REST API
+  - Golang
+  - GitHub workflow
+  - Dagger
+  - PostgreSQL
+  - sqlc
+  - [OCI Image Spec](https://github.com/opencontainers/image-spec/blob/main/spec.md)
+  - [Distribution Spec](https://github.com/opencontainers/distribution-spec/blob/main/spec.md)
+  
+- Mentor(s):
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
+
+- Upstream Issue: https://github.com/goharbor/harbor/issues/21959
+
+#### Harbor Satellite: Implementing a Eventing System for Satellite
+
+- Description:
+Harbor Satellite is a lightweight, OCI-compliant registry (currently based on Zot) designed to run on edge devices, such as Raspberry Pi or ARM-based hardware. It acts as a local container registry for edge devices and workloads. The satellite autonomously fetches configuration and state, registers with Ground Control, reports its status, and optionally sends system-level events to connected edge systems.
+
+- Expected Outcome:
+  - Implement an eventing mechanism to notify edge systems about critical state transitions (e.g., "state update ready", "sync complete").
+  - Improve build and release pipelines.
+  - Make the satellite functional on ARM-based edge devices (like Raspberry Pi).
+  - Add reliable state and health reporting back to Ground Control.
+  - Add e2e tests to validate artifact fetching, status reporting, and eventing.
+
+- Recommended Skills
+  - Golang
+  - Containers
+  - Edge Computing
+  - OCI Image/Distribution Spec
+  - Webhooks
+  - Event-Driven Architecture
+
+- Mentor(s):
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
+
+- Upstream Issue: https://github.com/goharbor/harbor/issues/21986
+
+### PipeCD
+
+#### Support deploy application using OpenTofu with PipeCD plugin
+
+- Description: In the latest evolution of PipeCD, the plugin architecture for piped has been established (ref: [PipeCD plugin-arch blog](https://pipecd.dev/blog/2024/11/28/overview-of-the-plan-for-pluginnable-pipecd/)), paving the way for community-developed plugins. Previously, PipeCD already supported deploying applications using Terraform, with the Terraform plugin being developed by the maintainer team to ensure continued support for existing users. Meanwhile, OpenTofu has emerged within the Cloud Native landscape as a drop-in alternative to Terraform. To align with this development, we aim to extend PipeCD’s support to enable the deployment of OpenTofu applications, just as we have done for Terraform.
+  
+- Expected Outcome:
+  - OpenTofu plugin for PipeCD
+  - Possible update plugin SDK while develop the OpenTofu plugin
+  - Possible update docs how to develop PipeCD plugin
+  - Blog about how to develop a PipeCD plugin on [https://pipecd.dev/blog/](https://pipecd.dev/blog/)
+  
+- Recommended Skills:
+  - Golang
+  - Terraform / OpenTofu
+  - GitOps
+  - Contrinous Delivery (CD)
+
+- Mentor(s):
+  - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
+  - Shinnosuke Sawada-Dazai (@Warashi, shin@warashi.dev)
+  - Yoshiki Fujikane (@ffjlabo, ffjlabo@gmail.com)
+
+- Upstream Issue: https://github.com/pipe-cd/pipecd/issues/5807
+
+#### Support managing SQL schema using PipeCD SQL plugin
+
+- Description: With the latest advancements in PipeCD, the plugin architecture for piped has been successfully established (ref: [PipeCD plugin-arch blog](https://pipecd.dev/blog/2024/11/28/overview-of-the-plan-for-pluginnable-pipecd/)), opening the door for community-driven plugin development. While GitOps traditionally focuses on managing workload states, what about database states? Tools like [sqldef](https://github.com/sqldef/sqldef) can be incredibly helpful, especially when adopting a GitOps approach.
+  
+- Expected Outcome:
+  - SQL plugin for PipeCD
+  - Possible update plugin SDK while develop the SQL plugin
+  - Possible update docs how to develop PipeCD plugin
+  - Blog about how to develop a PipeCD plugin on [https://pipecd.dev/blog/](https://pipecd.dev/blog/)
+
+- Recommended Skills:
+  - Golang
+  - SQL
+  - GitOps
+  - Continuos Delivery (CD)
+
+- Mentor(s):
+  - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
+  - Shinnosuke Sawada-Dazai (@Warashi, shin@warashi.dev)
+  - Yoshiki Fujikane (@ffjlabo, ffjlabo@gmail.com)
+
+- Upstream Issue: https://github.com/pipe-cd/pipecd/issues/5808
+
+
+### Istio
+
+#### Expand testing for Multi-Cluster in Ambient
+
+
+description: |
+  Istio is a service mesh platform used by thousands of companies to secure and manage their microservices traffic, most often in a single Kubernetes cluster.
+  However, the ability to operate across multiple clusters is an important feature in Istio's traditional Sidecar mode, and work to support
+  it in Istio's Ambient mode is making rapid progress. To call any feature complete,
+  comprehensive testing is needed. Given that multicluster Istio Ambient is a new mode of operating, we will
+  need to both adapt tests for existing features to ensure they work across multiple clusters,
+  as well as identify multi-cluster specific scenarios we want to codify in tests.
+
+  These kinds of tests exist mode in both the main Istio repository, as well as in the istio.io
+  website's repository. The docs tests are equally as important, as they prove that the
+  instructions we give to users actually work.
+
+expectedOutcome:
+  - Audit existing ambient integration tests for cases that do not support multi-cluster testing patterns.
+  - Refactor those tests, using Istio's testing infrastructure to cover features within a multi-cluster environment.
+  - Work with Istio maintainers to identify opportunities for testing new scenarios that exist only for ambient multi-cluster.
+  - As documentation is written for https://istio.io, verify that the user instructions (kubectl commands, YAML snippets, etc.) actually work end-to-end.
+  - Gain hands-on experience with Istio's codebase, service mesh architectures, and Kubernetes multi-cluster patterns.
+  - Help us catch regressions and bugs
+
+- **Recommended Skills**:
+  - Go
+  - Kubernetes
+  - Istio
+  - Basic networking knowledge
+
+
+- **Mentor(s)**:
+  - Steven Jin (@stevenjin8, sjinxuan@microsoft.com)
+  - Steven Landow (@stevenctl, steven.landow@solo.io)
+
+- **Upstream Issue**: https://github.com/istio/istio/issues/56228
+
+
+### Krkn
+
+#### Chaos scenario rollback feature
+
+- Description:<br/>
+We intend to refactor the current Scenario Plugin API and add a new feature in the plugin abstract class to restore all the changes performed by krkn in the cluster in case run method encounters some kind of exception before ending the execution and or if the run failed for external infrastructure failures.
+- Expected Outcome:<br/>
+The cluster status should be rolled back to the original condition before the scenario execution.
+- Recommended Skills:<br/>
+  - python
+  - kubernetes
+  - container runtime environments
+  - common cloud platforms
+- Mentor(s):
+  -  Tullio Sebastiani (@tsebastiani, tsebasti@redhat.com) 
+  -  Naga Ravi Chaitanya Elluri (@chaitanyaenr, nelluri@redhat.com)
+  -  Paige Patton (@paigerube14, ppatton@redhat.com)
+- Upstream Issue:
