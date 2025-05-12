@@ -474,3 +474,37 @@ expectedOutcome:
   - Steven Landow (@stevenctl, steven.landow@solo.io)
 
 - **Upstream Issue**: https://github.com/istio/istio/issues/56228
+
+### OpenYurt
+
+#### OpenYurt Dashboard Enhancements
+
+description: |
+  OpenYurt is an open-source edge cloud-native platform designed to streamline application management and resource orchestration in edge computing scenarios.
+  This project aims to enhance the yurt-dashboard (the core management interface of OpenYurt) by implementing internationalization support, 
+  integrating edge AI capabilities, and upgrading core API versions to improve global accessibility, technical innovation, and system stability.
+  The project will leverage the React frontend framework, Golang backend services, and Kubernetes ecosystem toolchain to provide developers with a more efficient edge cloud-native experience.
+
+
+expectedOutcome:
+  - i18n Implementation: Extract existing Chinese text and complete English translations using LinguiJS framework
+  Implement frontend language-switching functionality with dynamic user selection
+  - Edge AI Integration: Containerize and develop deployment templates for at least 3 open-source edge AI applications in the dashboard
+  - API Modernization: Align with OpenYurt' latest API standards to ensure platform compatibility and security.
+
+
+- **Recommended Skills**:
+  - Proficiency in React/TypeScript and LinguiJS internationalization framework
+  - Strong Golang backend development skills with Kubernetes Operator pattern knowledge
+  - Deep understanding of Kubernetes API mechanisms and CRD version migration experience
+  - Prior experience in edge computing or AI application deployment (e.g., KubeEdge, K3s)
+  - Excellent technical writing skills in both English and Chinese
+
+- **Mentor(s)**:
+  - Lu Chen (@luc99hen, luc99.en@gmail.com)
+  - Bingchang Tang (@zyjhtangtang, bingchang07@gmail.com)
+
+- **Upstream Issue**:
+  - i18n Support: https://github.com/openyurtio/yurt-dashboard/issues/50
+  - Edge AI Integration: https://github.com/openyurtio/yurt-dashboard/issues/44
+  - API Upgrade: https://github.com/openyurtio/yurt-dashboard/issues/43
