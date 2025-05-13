@@ -18,101 +18,6 @@
 
 ## Proposed Project ideas
 
-### Headlamp 
-
-#### Kubernetes UI Headlamp: Implement Kubernetes API Caching, Pagination, and Search
-
-**Description**: Headlamp currently fetches Kubernetes API data directly from the frontend, which can lead to performance bottlenecks and unnecessary API load. Introducing a caching layer in the headlamp-server backend will reduce API calls, improve response times, and enable more efficient data handling. This enhancement will also allow for improved pagination—fetching only the data needed for the current view—and enable backend-powered search functionality, reducing the need for the frontend to download large datasets.
-
-**Expected Outcome**:
-
-- A backend caching layer for Kubernetes API responses, scoped per user context to ensure data isolation and security.
-- A new pagination API that allows the frontend to request only the currently visible page of data.
-- A search API that queries the cached data, enabling fast and efficient search without full data downloads.
-- Documentation and possibly a demo video explaining the architecture and usage of the new caching, pagination, and search features.
-
-**Recommended Skills**: Golang (Optional: Kubernetes API)
-
-**Mentor(s)**:
-- Santhosh Nagaraj (@yolossn, sannagaraj@microsoft.com)
-- Rene Dudfield (@illume, renedudfield@microsoft.com)
-- Kautilya Tripathi (@knrt10, ktripathi@microsoft.com)
-
-**Upstream Issue**: https://github.com/kubernetes-sigs/headlamp/issues/3230
-
-
-#### Kubernetes UI Headlamp: Gateway API Service Mesh Visualization
-
-**Description**: The Gateway API is becoming the standard for Kubernetes service networking, including ingress, traffic routing, and service mesh use cases. While Headlamp has built-in support for Gateway API resources, there is currently no integrated way to visualize and manage service mesh topologies, traffic flows, and policies. This feature aims to enhance Headlamp with a visual and interactive interface for understanding and managing service meshes built on the Gateway API.
-
-**Expected Outcome**:
-
-A Headlamp feature that enables users to:
-
-- Visualize service mesh topologies using Gateway API resources (e.g., Gateways, Routes, Services)
-- Overlay traffic flow data, latency, error metrics, and traffic policies (e.g., splitting, retries, timeouts) on the resource map
-- Leverage existing Headlamp Map and CRD extension capabilities for seamless integration
-- Documentation and possibly a demo video or blog post.
- 
-**Recommended Skills**: TypeScript, React (Optional: Kubernetes Gateway API)
-
-**Mentor(s)**:
-- Rene Dudfield (@illume, renedudfield@microsoft.com)
-- Kautilya Tripathi (@knrt10, ktripathi@microsoft.com)
-- Santhosh Nagaraj (@yolossn, sannagaraj@microsoft.com)
-
-**Upstream Issue**: https://github.com/kubernetes-sigs/headlamp/issues/2798
-
-
-#### Kubernetes UI Headlamp Plugin: Karpenter Autoscaling Insights and Management
-
-**Description**: Karpenter is a dynamic Kubernetes node autoscaler that provisions compute resources in response to real-time workload demands. While Karpenter is powerful, it lacks a native UI for visualizing its autoscaling behavior and managing its custom resources. This plugin will integrate Karpenter-specific insights into Headlamp, leveraging Headlamp’s existing CRD support to provide a focused, user-friendly interface for understanding and managing Karpenter’s decisions.
-
-**Expected Outcome**:
-
-A Headlamp plugin that provides:
-
-- Show Karpenter Provisioners, NodePools, and NodeClasses, including their constraints and current status.
-- Real-time display of scaling decisions, such as which pods triggered provisioning and why.
-- A dashboard for pending pods with unmet scheduling requirements, highlighting why they couldn’t be scheduled.
-- Integration with Kubernetes events and Karpenter metrics to show provisioning latency, node lifecycle events, and cost efficiency.
-- A configuration editor for Karpenter Custom Resource Definitions(CRDs) using Headlamp’s existing CRD facilities.
-- Documentation and possibly a demo video or blog post.
-
-**Recommended Skills**: TypeScript, React (Optional: Kubernetes API, Karpenter)
-
-**Mentor(s)**:
-
-- Kautilya Tripathi (@knrt10, ktripathi@microsoft.com)
-- Santhosh Nagaraj (@yolossn, sannagaraj@microsoft.com)
-- Rene Dudfield (@illume, renedudfield@microsoft.com)
-
-**Upstream Issue**: https://github.com/kubernetes-sigs/headlamp/issues/3231
-
-
-#### Kubernetes Headlamp UI: UX Audit and Design Improvements for Plugins
-
-**Description**:
-Headlamp is a Kubernetes UI that supports a growing ecosystem of plugins, including integrations with CNCF projects like Flux, KEDA, and Falco. As the number and complexity of these plugins grow, ensuring a consistent, intuitive, and user-friendly experience becomes increasingly important. This project will focus on conducting UX audits of existing Headlamp plugins, identifying usability issues, and proposing design improvements. It will also explore user personas (e.g., operators vs. developers) to inform design decisions and help shape the future of plugin UX in Headlamp.
-
-**Expected Outcome**:
-A design-led UX audit and improvement initiative that includes:
-
-- A review of selected Headlamp plugins to identify usability issues and inconsistencies
-- User research and persona development to better understand plugin audiences
-- Design proposals and mockups for improving plugin UIs and workflows
-- Collaboration with technical mentors to help implement selected improvements
-- Optional exploration of UX needs for recent Kubernetes features or under-designed areas in Headlamp
-
-**Recommended Skills**: UX design, UI design, user research, Figma or similar tools
-(Optional: familiarity with Kubernetes, Headlamp, or frontend development)
-
-**Mentor(s)**:
-- Joaquim Rocha (@joaquimrocha, joaquimm@microsoft.com)
-- Ivelisse Capellan Heyer (@ivelisseca, ivelisseca@microsoft.com)
-
-**Upstream Issue**: https://github.com/kubernetes-sigs/headlamp/issues/3233
-
 
 ### Copacetic
 
@@ -992,3 +897,101 @@ expectedOutcome:
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/7115
+
+
+### Headlamp 
+
+#### Kubernetes UI Headlamp: Implement Kubernetes API Caching, Pagination, and Search
+
+**Description**: Headlamp currently fetches Kubernetes API data directly from the frontend, which can lead to performance bottlenecks and unnecessary API load. Introducing a caching layer in the headlamp-server backend will reduce API calls, improve response times, and enable more efficient data handling. This enhancement will also allow for improved pagination—fetching only the data needed for the current view—and enable backend-powered search functionality, reducing the need for the frontend to download large datasets.
+
+**Expected Outcome**:
+
+- A backend caching layer for Kubernetes API responses, scoped per user context to ensure data isolation and security.
+- A new pagination API that allows the frontend to request only the currently visible page of data.
+- A search API that queries the cached data, enabling fast and efficient search without full data downloads.
+- Documentation and possibly a demo video explaining the architecture and usage of the new caching, pagination, and search features.
+
+**Recommended Skills**: Golang (Optional: Kubernetes API)
+
+**Mentor(s)**:
+- Santhosh Nagaraj (@yolossn, sannagaraj@microsoft.com)
+- Rene Dudfield (@illume, renedudfield@microsoft.com)
+- Kautilya Tripathi (@knrt10, ktripathi@microsoft.com)
+
+**Upstream Issue**: https://github.com/kubernetes-sigs/headlamp/issues/3230
+
+
+#### Kubernetes UI Headlamp: Gateway API Service Mesh Visualization
+
+**Description**: The Gateway API is becoming the standard for Kubernetes service networking, including ingress, traffic routing, and service mesh use cases. While Headlamp has built-in support for Gateway API resources, there is currently no integrated way to visualize and manage service mesh topologies, traffic flows, and policies. This feature aims to enhance Headlamp with a visual and interactive interface for understanding and managing service meshes built on the Gateway API.
+
+**Expected Outcome**:
+
+A Headlamp feature that enables users to:
+
+- Visualize service mesh topologies using Gateway API resources (e.g., Gateways, Routes, Services)
+- Overlay traffic flow data, latency, error metrics, and traffic policies (e.g., splitting, retries, timeouts) on the resource map
+- Leverage existing Headlamp Map and CRD extension capabilities for seamless integration
+- Documentation and possibly a demo video or blog post.
+ 
+**Recommended Skills**: TypeScript, React (Optional: Kubernetes Gateway API)
+
+**Mentor(s)**:
+- Rene Dudfield (@illume, renedudfield@microsoft.com)
+- Kautilya Tripathi (@knrt10, ktripathi@microsoft.com)
+- Santhosh Nagaraj (@yolossn, sannagaraj@microsoft.com)
+
+**Upstream Issue**: https://github.com/kubernetes-sigs/headlamp/issues/2798
+
+
+#### Kubernetes UI Headlamp Plugin: Karpenter Autoscaling Insights and Management
+
+**Description**: Karpenter is a dynamic Kubernetes node autoscaler that provisions compute resources in response to real-time workload demands. While Karpenter is powerful, it lacks a native UI for visualizing its autoscaling behavior and managing its custom resources. This plugin will integrate Karpenter-specific insights into Headlamp, leveraging Headlamp’s existing CRD support to provide a focused, user-friendly interface for understanding and managing Karpenter’s decisions.
+
+**Expected Outcome**:
+
+A Headlamp plugin that provides:
+
+- Show Karpenter Provisioners, NodePools, and NodeClasses, including their constraints and current status.
+- Real-time display of scaling decisions, such as which pods triggered provisioning and why.
+- A dashboard for pending pods with unmet scheduling requirements, highlighting why they couldn’t be scheduled.
+- Integration with Kubernetes events and Karpenter metrics to show provisioning latency, node lifecycle events, and cost efficiency.
+- A configuration editor for Karpenter Custom Resource Definitions(CRDs) using Headlamp’s existing CRD facilities.
+- Documentation and possibly a demo video or blog post.
+
+**Recommended Skills**: TypeScript, React (Optional: Kubernetes API, Karpenter)
+
+**Mentor(s)**:
+
+- Kautilya Tripathi (@knrt10, ktripathi@microsoft.com)
+- Santhosh Nagaraj (@yolossn, sannagaraj@microsoft.com)
+- Rene Dudfield (@illume, renedudfield@microsoft.com)
+
+**Upstream Issue**: https://github.com/kubernetes-sigs/headlamp/issues/3231
+
+
+#### Kubernetes Headlamp UI: UX Audit and Design Improvements for Plugins
+
+**Description**:
+Headlamp is a Kubernetes UI that supports a growing ecosystem of plugins, including integrations with CNCF projects like Flux, KEDA, and Falco. As the number and complexity of these plugins grow, ensuring a consistent, intuitive, and user-friendly experience becomes increasingly important. This project will focus on conducting UX audits of existing Headlamp plugins, identifying usability issues, and proposing design improvements. It will also explore user personas (e.g., operators vs. developers) to inform design decisions and help shape the future of plugin UX in Headlamp.
+
+**Expected Outcome**:
+A design-led UX audit and improvement initiative that includes:
+
+- A review of selected Headlamp plugins to identify usability issues and inconsistencies
+- User research and persona development to better understand plugin audiences
+- Design proposals and mockups for improving plugin UIs and workflows
+- Collaboration with technical mentors to help implement selected improvements
+- Optional exploration of UX needs for recent Kubernetes features or under-designed areas in Headlamp
+
+**Recommended Skills**: UX design, UI design, user research, Figma or similar tools
+(Optional: familiarity with Kubernetes, Headlamp, or frontend development)
+
+**Mentor(s)**:
+- Joaquim Rocha (@joaquimrocha, joaquimm@microsoft.com)
+- Ivelisse Capellan Heyer (@ivelisseca, ivelisseca@microsoft.com)
+
+**Upstream Issue**: https://github.com/kubernetes-sigs/headlamp/issues/3233
+
+
