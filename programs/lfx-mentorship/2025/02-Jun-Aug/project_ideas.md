@@ -18,6 +18,25 @@
 
 ## Proposed Project ideas
 
+### Copacetic
+
+#### Wiz Scanning Support
+
+- **Description:** Copacetic currently doesn't support vulnerability scan reports by Wiz scanning. This mentorship project will extend Copa's support to cover this new scanning schema using a pre-existing template. 
+- **Expected Outcome:** The mentee will produce the following
+    1. Design doc for Wiz Scanning
+    2. Wiz Plugin Integration
+    3. End to End integration tests
+- **Recommended Skills:**
+    - Golang
+    - Docker
+    - Basic Git knowledge
+- **Mentor(s):**
+  - Ashna Mehrotra (ashnamehrotra, ashnamehrotra@gmail.com)
+  - Leonard Wang (leodewang, leonardwang2000@gmail.com)
+  - Robbie Cronin (robert-cronin, robbiecronin@microsoft.com)
+- **Upstream Issue:** https://github.com/project-copacetic/copacetic/issues/867
+
 ### OpenCost
 
 #### Enterprise Ready OpenCost: Integration Testing
@@ -42,6 +61,7 @@ We need enhanced integration tests to prepare OpenCost for graduation and enterp
 - Mentor
   - Alex Meijer (@ameijer , alexander.meijer@ibm.com)
   - Cliff Colvin (@cliffcolvin , clifford.colvin@ibm.com)
+  - Matt Bolt (@mbolt35 , matthew.bolt@ibm.com)
 
 - Upstream Issue: [https://github.com/opencost/opencost/issues/3141](https://github.com/opencost/opencost/issues/3141)
 
@@ -427,50 +447,6 @@ This project aims to support progressDeadlineSeconds in CloneSet so as to provid
 - Upstream Issue: https://github.com/openkruise/kruise/issues/1497
 
 
-### Kyverno
-
-#### Optimize Kyverno CLI In-cluster Resource Loader
-
-- Description: Kyverno provides robust support for applying multiple policy types to Kubernetes cluster resources via CLI. However, the resource loading mechanisms vary significantly across different policy types, resulting in inconsistent behavior and limited scalability when handling large resource sets.
-
-- Expected Outcome: Develop a unified, reusable in-cluster resource loading framework that standardizes resource retrieval across all policy types, and optimize performance when loading large numbers of resources.
-
-- Recommended Skills:
-  - Golang
-  - Kubernetes
-  - Cobra
-
-- Mentor(s):  
-  - Mariam Fahmy (@MariamFahmy98, mariam.fahmy@nirmata.com)
-  - Shuting Zhao (@realshuting, shuting@nirmata.com)
-  - Yugandhar (@yrsuthari, ysuthari@gmail.com)
-
-- Upstream Issue (URL): 
-  - https://github.com/kyverno/kyverno/issues/12973
-  - https://github.com/kyverno/kyverno/issues/12967
-
-#### Improve Test Coverage and Docs for New Policy Types
-
-- Description: Kyverno 1.14+ introduces several new policy types including ValidatingPolicy, ImageValidatingPolicy, and others that extend the platform's capabilities. To ensure reliability and stability of these new features, we need to systematically improve test coverage through comprehensive Chainsaw tests and targeted unit tests.
-
-- Expected Outcome: 
-  - Good test coverage for new policy types
-  - Documentation for new policy types
-
-- Recommended Skills:
-  - Golang
-  - Chainsaw
-  - Kubernetes
-  - Testing
-
-- Mentor(s):
-  - Charles-Edouard Brétéché (@eddycharly, charled.breteche@gmail.com)
-  - Frank Jogeleit (@fjogeleit, frank.jogeleit@nirmata.com)
-
-- Upstream Issue (URL): 
-  - https://github.com/kyverno/kyverno/issues/13011
-
-
 ### Harbor
 
 #### Harbor CLI
@@ -650,4 +626,48 @@ The cluster status should be rolled back to the original condition before the sc
   -  Tullio Sebastiani (@tsebastiani, tsebasti@redhat.com) 
   -  Naga Ravi Chaitanya Elluri (@chaitanyaenr, nelluri@redhat.com)
   -  Paige Patton (@paigerube14, ppatton@redhat.com)
-- Upstream Issue:
+- Upstream Issue: https://github.com/krkn-chaos/krkn/issues/804
+
+
+### Kyverno
+
+#### Optimize Kyverno CLI In-cluster Resource Loader
+
+- Description: Kyverno provides robust support for applying multiple policy types to Kubernetes cluster resources via CLI. However, the resource loading mechanisms vary significantly across different policy types, resulting in inconsistent behavior and limited scalability when handling large resource sets.
+
+- Expected Outcome: Develop a unified, reusable in-cluster resource loading framework that standardizes resource retrieval across all policy types, and optimize performance when loading large numbers of resources.
+
+- Recommended Skills:
+  - Golang
+  - Kubernetes
+  - Cobra
+
+- Mentor(s):  
+  - Mariam Fahmy (@MariamFahmy98, mariam.fahmy@nirmata.com)
+  - Shuting Zhao (@realshuting, shuting@nirmata.com)
+  - Yugandhar (@yrsuthari, ysuthari@gmail.com)
+
+- Upstream Issue (URL): 
+  - https://github.com/kyverno/kyverno/issues/12973
+  - https://github.com/kyverno/kyverno/issues/12967
+
+#### Improve Test Coverage and Docs for New Policy Types
+
+- Description: Kyverno 1.14+ introduces several new policy types including ValidatingPolicy, ImageValidatingPolicy, and others that extend the platform's capabilities. To ensure reliability and stability of these new features, we need to systematically improve test coverage through comprehensive Chainsaw tests and targeted unit tests.
+
+- Expected Outcome: 
+  - Good test coverage for new policy types
+  - Documentation for new policy types
+
+- Recommended Skills:
+  - Golang
+  - Chainsaw
+  - Kubernetes
+  - Testing
+
+- Mentor(s):
+  - Charles-Edouard Brétéché (@eddycharly, charled.breteche@gmail.com)
+  - Frank Jogeleit (@fjogeleit, frank.jogeleit@nirmata.com)
+
+- Upstream Issue (URL): 
+  - https://github.com/kyverno/kyverno/issues/13011
