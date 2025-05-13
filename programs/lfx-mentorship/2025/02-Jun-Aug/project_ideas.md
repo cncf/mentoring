@@ -625,4 +625,4 @@ The cluster status should be rolled back to the original condition before the sc
   -  Tullio Sebastiani (@tsebastiani, tsebasti@redhat.com) 
   -  Naga Ravi Chaitanya Elluri (@chaitanyaenr, nelluri@redhat.com)
   -  Paige Patton (@paigerube14, ppatton@redhat.com)
-- Upstream Issue:
+- Upstream Issue: https://github.com/krkn-chaos/krkn/issues/804
