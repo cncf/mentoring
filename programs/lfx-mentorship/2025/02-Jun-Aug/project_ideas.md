@@ -873,3 +873,26 @@ expectedOutcome:
   - Zicong Chen(@JesseStutler, jesseincomparable@hotmail.com)
 
 - Upstream Issue: [https://github.com/volcano-sh/volcano/issues/4278](https://github.com/volcano-sh/volcano/issues/4278)
+
+
+### Jaeger
+
+#### Upgrade Jaeger-UI to React v19
+
+- Description: [Jaeger](https://www.jaegertracing.io/) is an open-source, distributed tracing platform designed to monitor and troubleshoot microservices-based systems. Jaeger-UI is the web UI for Jaeger, built with [React](https://react.dev/). The current version of React used by Jaeger-UI is v18. This project aims to upgrade Jaeger-UI to React v19, in order to stay up to date with the dependencies.
+- Expected Outcome: A working version of Jaeger-UI upgraded to React v19, with all the features and functionality of the current version. This may include a need to upgrade or replace some other dependencies that may not be compatible with the latest React.
+- Recommended Skills: Javascript, React, HTML, CSS, Web development, UI/UX design, Testing
+- Mentor(s):
+  - Yuri Shkuro (@yurishkuro, github@ysh.us)
+  - Jonah Kowall (@jkowall, jkowall@kowall.net)
+- Upstream Issue: https://github.com/jaegertracing/jaeger-ui/issues/2764
+
+#### Jaeger demo on Kubernetes
+
+- Description: [Jaeger](https://www.jaegertracing.io/) is an open-source, distributed tracing platform designed to monitor and troubleshoot microservices-based systems. We provide an easy getting started guide using `docker compose`, but we would also like to run a live demo that people can access directly from the Jaeger website. This project aims to create a Kubernetes deployment for the Jaeger demo, including the Jaeger backend and the UI, HotROD demo app, and the Service Performance Monitoring setup, so that users can try out the project in action and we can use this for various events to promote the project. This should be something which automatically deploys the new versions when they are released. The data in the demo environment should either be a rolling buffer or purged daily. It might even be a good idea to just recreate the environment daily which might solve both problems at once. This can be determined by the mentee.  We currently have access to an Oracle Cloud environment where this can be stood up for “dev” and “prod” as managed kubernetes clusters.
+- Expected Outcome: A working version of Jaeger demo auto-deployed on Oracle Cloud. Automatic version upgrades. Config as code. Security. Monitoring. Documentation.
+- Recommended Skills: Kubernetes, Cloud, Security, Monitoring
+- Mentor(s):
+  - Jonah Kowall (@jkowall, jkowall@kowall.net)
+  - Yuri Shkuro (@yurishkuro, github@ysh.us)
+- Upstream Issue: https://github.com/jaegertracing/jaeger/issues/7115
