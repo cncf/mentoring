@@ -795,3 +795,81 @@ expectedOutcome:
   - Edge AI Integration: https://github.com/openyurtio/yurt-dashboard/issues/44
   - API Upgrade: https://github.com/openyurtio/yurt-dashboard/issues/43
 
+
+### Volcano
+
+#### Enhance JobFlow Functionality
+
+- Description: The Volcano community introduced JobFlow to address inter-job dependencies. Through the concepts of JobTemplate and JobFlow, users can declare and orchestrate multiple Volcano jobs, leveraging control flow primitives such as sequential, parallel, conditional, branching, and looping execution. JobFlow aims to facilitate the migration of AI, BigData, and HPC workloads to the cloud-native environment. The current JobFlow functionality requires further enhancements to meet more complex real-world scenarios. Ref: https://github.com/volcano-sh/volcano/tree/master/docs/design/jobflow.
+
+- Expected Outcome:
+  - Support modifying parameters of a JobTemplate when referenced in a JobFlow, for example, changing container image versions, adjusting resource limits, etc.
+  - Implement a configurable retry mechanism for failed jobs within a JobFlow, for example, supporting exponential backoff retry policies, setting maximum retry attempts, etc.
+  - Introduce richer control flow statements such as if, switch, and for statements, for example, conditional branching based on the status of upstream tasks, iterative execution of specific task sets, etc.
+
+
+- Recommended Skills: Kubernetes, GO, Volcano
+
+- Mentor(s):
+  - Jiang Dong(@dongjiang1989, dongjiang2010@gmail.com)
+  - Xuzheng Chang(@Monokaix, 2536818783@qq.com)
+
+- Upstream Issue: [https://github.com/volcano-sh/volcano/issues/4275](https://github.com/volcano-sh/volcano/issues/4275)
+
+#### Implement Volcano Scheduler Simulator
+
+- Description: For users of Kubernetes and Volcano schedulers, the scheduling process is often a black box. Understanding how scheduling decisions are made and evaluating the functionality and performance of the scheduler, especially when introducing new scheduling features, can be challenging. Setting up a full-fledged Kubernetes cluster and generating realistic workloads to observe scheduling behavior can be resource-intensive and time-consuming. Users need a lightweight and efficient way to verify the correctness and performance implications of scheduler changes without the overhead of a real cluster. The kube-scheduler community has addressed this need with `kube-scheduler-simulator`, and the Volcano community would greatly benefit from a similar tool.
+
+- Expected Outcome:
+  - Implement a Volcano scheduler simulator capable of simulating the core scheduling logic of the Volcano scheduler.
+  - The simulator should be able to receive simulated Kubernetes cluster states (e.g., Nodes, Pods, Queues) and Volcano configurations as input.
+  - The simulator should output the simulated scheduling results, including the Node to which a Pod is scheduled, and the decision-making process information (e.g., considered Nodes, filtering and scoring results).
+  - (Optional) The simulator could provide basic performance metrics output, such as simulated scheduling latency.
+  - Provide clear usage documentation and examples to facilitate users in verifying functionality and performance using the simulator.
+
+- Recommended Skills: Kubernetes, GO, Volcano
+
+- Mentor(s):
+  - lowang-bh(@lowang-bh, lhui_wang@163.com)
+  - Xuzheng Chang(@Monokaix, 2536818783@qq.com)
+  
+- Upstream Issue: [https://github.com/volcano-sh/volcano/issues/4276](https://github.com/volcano-sh/volcano/issues/4276)
+
+#### Enhance Volcano Dashboard UX and Functionality
+
+- Description: The Volcano Dashboard serves as the frontend for displaying Volcano resources. Currently, it supports resources like Volcano Jobs, Queues, and Pods, but editing often involves raw YAML, which is not user-friendly for modifying or creating new resources. To improve user experience, this project aims to enhance the Dashboard's interactivity and user-friendliness, as well as support the display of hierarchical Queues and HyperNode resources.
+
+- Expected Outcome:
+  - Improve resource display and editing interfaces by providing more user-friendly interaction methods, such as using forms or visual editors instead of direct YAML editing for creating and modifying resources.
+  - Support the display of hierarchical Queues and HyperNode resources with mouse-click expand/collapse functionality to clearly visualize resource relationships.
+  - Optimize the user interface design to enhance aesthetics and ease of use.
+  - Refactor the backend code to improve maintainability and scalability.
+  - Display both **key information** and **full information** for resources, with an option to switch between views.
+  - (Optional) Support the display and management of more resource types.
+
+- Recommended Skills: Kubernetes, React, Node, JS
+
+- Mentor(s):
+  - Xuzheng Chang(@Monokaix, 2536818783@qq.com)
+  - Zicong Chen(@JesseStutler, jesseincomparable@hotmail.com)
+
+- Upstream Issue: [https://github.com/volcano-sh/volcano/issues/4277](https://github.com/volcano-sh/volcano/issues/4277)
+
+#### Enhance Volcano Official Documentation
+
+- Description: As Volcano's functionality grows and its integration with the broader ecosystem deepens, the community documentation needs to be updated and iterated upon to provide better user guidance and experience. Clear and comprehensive documentation helps users quickly get started with Volcano and reduces the cost of usage and configuration. Currently, some documentation is scattered across the GitHub repository and needs to be migrated to the official website to provide a unified entry point for users.
+
+- Expected Outcome:
+  - Migrate the documentation from the GitHub repository that is not yet on the official website to the official website.
+  - Provide detailed explanations of the functionality of **Volcano Scheduler**, **Volcano Controller**, **Volcano Agent**, and **Volcano Admission** components, including the meaning of their respective startup parameters.
+  - Supplement the documentation for core features such as JobFlow and vGPU virtualization.
+  - Add a "Best Practices" section offering recommendations and configuration examples for using Volcano in various scenarios.
+  - Include a "Troubleshooting" section that collects and organizes common issues and their solutions.
+
+- Recommended Skills: Technical Writing, Markdown, Git, Hugo or other static site generators
+
+- Mentor(s):
+  - Xuzheng Chang(@Monokaix, 2536818783@qq.com)
+  - Zicong Chen(@JesseStutler, jesseincomparable@hotmail.com)
+
+- Upstream Issue: [https://github.com/volcano-sh/volcano/issues/4278](https://github.com/volcano-sh/volcano/issues/4278)
