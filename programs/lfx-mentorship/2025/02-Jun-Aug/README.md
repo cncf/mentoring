@@ -9,7 +9,7 @@ Mentorship duration - three months (full-time schedule)
 | **Activity**                   | **Dates (2025)**                                                               |
 |--------------------------------|--------------------------------------------------------------------------------|
 | **Project Proposals Open**     | Wed, April 16 – Tue, May 13, 2025 11AM PDT (18:00 UTC)                         |
-| **Mentee Applications Open**   | Wed, May 14, 2025 11AM PDT (18:00 UTC) – Tue, May 27 2025 11AM PDT (18:00 UTC) |
+| **Mentee Applications Open**   | Thurs, May 15, 2025 11AM PDT (18:00 UTC) – Tue, May 27 2025 11AM PDT (18:00 UTC) |
 | **Application Review Period**  | Wed, May 28 – Tue, June 3, 2025 11 AM PDT (18:00 UTC)                          |
 | **Selection Notifications**    | Wed, June 4, 2025                                                              |
 | **Mentorship Program Begins**  | Mon, June 9, 2025                                                              |
