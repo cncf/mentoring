@@ -18,6 +18,53 @@
 
 ## Proposed Project ideas
 
+### Copacetic
+
+#### Wiz Scanning Support
+
+- **Description:** Copacetic currently doesn't support vulnerability scan reports by Wiz scanning. This mentorship project will extend Copa's support to cover this new scanning schema using a pre-existing template. 
+- **Expected Outcome:** The mentee will produce the following
+    1. Design doc for Wiz Scanning
+    2. Wiz Plugin Integration
+    3. End to End integration tests
+- **Recommended Skills:**
+    - Golang
+    - Docker
+    - Basic Git knowledge
+- **Mentor(s):**
+  - Ashna Mehrotra (ashnamehrotra, ashnamehrotra@gmail.com)
+  - Leonard Wang (leodewang, leonardwang2000@gmail.com)
+  - Robbie Cronin (robert-cronin, robbiecronin@microsoft.com)
+- **Upstream Issue:** https://github.com/project-copacetic/copacetic/issues/867
+
+### OpenCost
+
+#### Enterprise Ready OpenCost: Integration Testing
+
+- Description:
+We need enhanced integration tests to prepare OpenCost for graduation and enterprise readiness. This proposed project will deliver a comprehensive suite of integration tests designed to facilitate development and contribution by third parties, while protecting the stability of OpenCost for our tens of thousands of users. These tests will validate both the quality of the data collected by OpenCost, and the correct operation of the APIs. We have recently implemented a pipeline that builds real stacks for these tests to hit - we now need to fill that framework up with great tests. See the testing strategy document @ https://github.com/opencost/opencost/blob/develop/docs/testing/AUTOMATED_TESTING.md for the current state of testing, and the infrastructure that we have put into place to support this mentorship effort. 
+
+- Expected Outcome
+  - A comprehensive integration test suite as defined in the linked ticket. 
+  - All tests run and pass automatically in pre-existing per-push integration test pipeline. 
+  - Approach for each integration test is documented 
+  - Endpoint coverage % and parameter coverage % is calculated 
+  - Any unfinished or follow on work is documented via issues on OpenCost
+
+- Recommended Skills
+  - Test Development
+  - REST API
+  - Golang
+  - GitHub Actions
+  - Public Cloud Providers
+
+- Mentor
+  - Alex Meijer (@ameijer , alexander.meijer@ibm.com)
+  - Cliff Colvin (@cliffcolvin , clifford.colvin@ibm.com)
+  - Matt Bolt (@mbolt35 , matthew.bolt@ibm.com)
+
+- Upstream Issue: [https://github.com/opencost/opencost/issues/3141](https://github.com/opencost/opencost/issues/3141)
+
 ### Cartography
 
 #### Fill in missing AWS resource types for CloudGoat scenarios
@@ -139,6 +186,43 @@ and e2e test updates.
 
 ### KubeStellar
 
+# UX/UI Mentorship: Design System Foundations for KubeStellar
+
+- **Description**:
+Establish a lightweight, scalable design system that brings visual consistency, reusable components, and clear UX guidance across the full scope of KubeStellar. The system will support multiple user-facing surfaces, including websites, software interfaces, and CLI-based tools. This mentorship will serve as the foundational design phase, setting the stage for a future front-end development and implementation effort planned for later this year. Special emphasis will be placed on the documentation site and contributor-facing tooling to ensure immediate impact and long-term scalability.
+
+- **Expected Outcome**:
+The mentorship will deliver a scalable yet lightweight design system tailored to KubeStellar's needs. It will include a component inventory, reusable UI patterns, a full CSS specification, and visual guidelines to ensure consistency and usability across the project's five active areas. While this phase focuses on foundational design work, it will directly support a future implementation phase—enabling contributors to efficiently apply the system to KubeStellar's interfaces, including UI, Docs, and CLI-based tooling. Special emphasis will be placed on ensuring the documentation site benefits immediately from this structure.
+
+- **Deliverables**:
+-UI Audit Summary: A documented audit of existing UI elements across KubeStellar interfaces, identifying inconsistencies and opportunities for improvement.
+- Design Foundations Guide: A foundational set of visual guidelines including typography, color palette, spacing, and layout grids.
+- Reusable Component Designs: Figma mockups of commonly used UI components (e.g., buttons, cards, inputs, navigation) with states and interaction guidance.
+- Component Usage Documentation: A concise guide explaining how and when to use each component, with practical examples for developers and contributors.
+- Figma Starter Library: A structured, shareable Figma file including design tokens, reusable components, and layout references.
+- Full CSS Specification: A developer-ready CSS reference that maps all design tokens, spacing scales, typography, color values, and component styles—designed to simplify implementation and align with frontend frameworks if needed.
+- Homepage Hero Mock: A visual concept and animation-ready mockup for the KubeStellar homepage hero section.
+- Docs Master Page Mock: A fully designed layout for a documentation master page, featuring structural layout, navigation, and UI-integrated component examples.
+- Stretch Goal: If time allows, conduct an information architecture analysis of the current documentation site and provide recommendations. This may include proposing the separation of non-documentation content into standalone sites to improve clarity and user experience.
+
+- **Recommended Skills**:
+- UX/UI Design
+- Figma Proficiency
+- Design Systems (e.g., Material UI, Carbon)
+- Responsive Design
+- Visual Consistency
+- Open Source Mindset
+- Developer Collaboration (e.g., GitHub, handoff tools)
+- React
+- Documentation Skills
+
+- **Mentors**:
+- Andrea Velázquez (@andreuxxxx, andrea@buoyant.io)
+- Kevin Roche (@KPRoche, kproche@us.ibm.com)
+
+- **Upstream Issue:** https://github.com/kubestellar/kubestellar/issues/2912
+
+
 #### Building a Plugin System for KubeStellar
 
 - Description:  
@@ -236,31 +320,6 @@ This project focuses on creating a comprehensive plugin marketplace UI for KubeS
 - Upstream Issue: [https://github.com/kubestellar/ui/issues/615](https://github.com/kubestellar/ui/issues/615)
 
 
-
-#### Enterprise Ready OpenCost: Integration Testing
-
-- Description:
-We need enhanced integration tests to prepare OpenCost for graduation and enterprise readiness. This proposed project will deliver a comprehensive suite of integration tests designed to facilitate development and contribution by third parties, while protecting the stability of OpenCost for our tens of thousands of users. These tests will validate both the quality of the data collected by OpenCost, and the correct operation of the APIs. We have recently implemented a pipeline that builds real stacks for these tests to hit - we now need to fill that framework up with great tests. See the testing strategy document @ https://github.com/opencost/opencost/blob/develop/docs/testing/AUTOMATED_TESTING.md for the current state of testing, and the infrastructure that we have put into place to support this mentorship effort. 
-
-- Expected Outcome
-  - A comprehensive integration test suite as defined in the linked ticket. 
-  - All tests run and pass automatically in pre-existing per-push integration test pipeline. 
-  - Approach for each integration test is documented 
-  - Endpoint coverage % and parameter coverage % is calculated 
-  - Any unfinished or follow on work is documented via issues on OpenCost
-
-- Recommended Skills
-  - Test Development
-  - REST API
-  - Golang
-  - GitHub Actions
-  - Public Cloud Providers
-
-- Mentor
-  - Alex Meijer (@ameijer , alexander.meijer@ibm.com)
-  - Cliff Colvin (@cliffcolvin , clifford.colvin@ibm.com)
-
-- Upstream Issue: [https://github.com/opencost/opencost/issues/3141](https://github.com/opencost/opencost/issues/3141)
 
 #### Extending KubeFlex with a new type of Control Plane
 
@@ -550,6 +609,272 @@ expectedOutcome:
 - **Upstream Issue**: https://github.com/istio/istio/issues/56228
 
 
+### Krkn
+
+#### Chaos scenario rollback feature
+
+- Description:<br/>
+We intend to refactor the current Scenario Plugin API and add a new feature in the plugin abstract class to restore all the changes performed by krkn in the cluster in case run method encounters some kind of exception before ending the execution and or if the run failed for external infrastructure failures.
+- Expected Outcome:<br/>
+The cluster status should be rolled back to the original condition before the scenario execution.
+- Recommended Skills:<br/>
+  - python
+  - kubernetes
+  - container runtime environments
+  - common cloud platforms
+- Mentor(s):
+  -  Tullio Sebastiani (@tsebastiani, tsebasti@redhat.com) 
+  -  Naga Ravi Chaitanya Elluri (@chaitanyaenr, nelluri@redhat.com)
+  -  Paige Patton (@paigerube14, ppatton@redhat.com)
+- Upstream Issue: https://github.com/krkn-chaos/krkn/issues/804
+
+
+### Kyverno
+
+#### Optimize Kyverno CLI In-cluster Resource Loader
+
+- Description: Kyverno provides robust support for applying multiple policy types to Kubernetes cluster resources via CLI. However, the resource loading mechanisms vary significantly across different policy types, resulting in inconsistent behavior and limited scalability when handling large resource sets.
+
+- Expected Outcome: Develop a unified, reusable in-cluster resource loading framework that standardizes resource retrieval across all policy types, and optimize performance when loading large numbers of resources.
+
+- Recommended Skills:
+  - Golang
+  - Kubernetes
+  - Cobra
+
+- Mentor(s):  
+  - Mariam Fahmy (@MariamFahmy98, mariam.fahmy@nirmata.com)
+  - Shuting Zhao (@realshuting, shuting@nirmata.com)
+  - Yugandhar (@yrsuthari, ysuthari@gmail.com)
+
+- Upstream Issue (URL): 
+  - https://github.com/kyverno/kyverno/issues/12973
+  - https://github.com/kyverno/kyverno/issues/12967
+
+#### Improve Test Coverage and Docs for New Policy Types
+
+- Description: Kyverno 1.14+ introduces several new policy types including ValidatingPolicy, ImageValidatingPolicy, and others that extend the platform's capabilities. To ensure reliability and stability of these new features, we need to systematically improve test coverage through comprehensive Chainsaw tests and targeted unit tests.
+
+- Expected Outcome: 
+  - Good test coverage for new policy types
+  - Documentation for new policy types
+
+- Recommended Skills:
+  - Golang
+  - Chainsaw
+  - Kubernetes
+  - Testing
+
+- Mentor(s):
+  - Charles-Edouard Brétéché (@eddycharly, charled.breteche@gmail.com)
+  - Frank Jogeleit (@fjogeleit, frank.jogeleit@nirmata.com)
+
+- Upstream Issue (URL): 
+  - https://github.com/kyverno/kyverno/issues/13011
+
+
+### WasmEdge
+
+#### Port WasmEdge and the WASI-NN ggml backend to the s390x platform
+
+- Description: WasmEdge provides cross-platform support for amd64 and arm64 for executing AI/LLM applications. We would like to support as many new hardware platforms as possible, so developers and users will no longer need to worry about the actual hardware. All they need to do is develop their AI agent or LLM applications once and deploy their services anywhere. For more information, please check the upstream issue.
+- Expected Outcome:
+  - Make the WasmEdge toolchain support the s390x platform, including the interpreter and the AOT mode.
+  - Ensure the WASI-NN ggml plugin can execute without any issues on the s390x platform.
+  - Implement test suites to verify the above behaviors.
+  - Write a document discussing the compilation, installation, execution, and verification of the work.
+- Recommended Skills:
+  - C++
+  - s390x
+  - LLVM
+- Mentor(s):
+  - Hung-Ying Tai (@hydai, hydai@secondstate.io) - Primary
+  - dm4 (@dm4, dm4@secondstate.io)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/4010
+
+#### Use Runwasi with WasmEdge runtime to test multiple WASM apps as cloud services
+
+- Description: With WasmEdge serving as one of Runwasi’s standard runtimes, and as our C++-implemented library continues to evolve, we also need a verification process integrated into Runwasi to streamline and validate the stability of both container and cloud environments.
+- Expected Outcome:
+  - A concise GitHub workflow demonstrates Runwasi end-to-end testing on Kubernetes.
+    - Need to design an interactive application scenario that supports multiple nodes
+    - Try to incorporate the use of the WasmEdge plugin into this scenario
+  - Document
+- Recommended Skills:
+  - Rust
+  - C++
+  - GDB
+  - git / github workflow
+  - shell script
+- Mentor(s):
+  - Vincent (@CaptainVincent, vincent@secondstate.io) - Primary
+  - yi (@0yi0 yi@secondstate.io)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/4011
+
+#### Support bitnet.cpp as a new WASI-NN plugin
+
+- Description: WasmEdge provides several AI frameworks as WASI-NN plugins to enable the power of AI/LLM applications for developers and users. We are always eager to add new backends to improve coverage of all models and hardware. BitNet.cpp, released by Microsoft, offers the ability to run 1-bit LLMs quickly without a GPU. We would like to support this framework so that people with limited resources, such as CPU-only hardware, can enjoy the amazing world brought by LLMs.
+- Expected Outcome:
+    1. A new WASI-NN plugin supports [BitNet](https://github.com/microsoft/BitNet).
+    2. Use the pure C++ interface from BitNet without any Python dependencies.
+    3. The plugin must run the model listed in the BitNet repository, e.g., [BitNet b1.58 2B4T - Scaling Native 1-bit LLM](https://huggingface.co/microsoft/bitnet-b1.58-2B-4T).
+    4. A tutorial and example for demonstration.
+    5. A CI workflow for building, testing, and releasing the built assets.
+- Recommended skills:
+  - C++
+  - [WASI-NN](https://github.com/WebAssembly/wasi-nn)
+  - GitHub workflows
+  - LLMs
+- Mentor(s):
+  - Hung-Ying Tai (@hydai, hydai@secondstate.io)
+  - dm4 (@dm4, dm4@secondstate.io)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/4110
+
+#### Create an MCP-based AI agent to help LF certificate prep
+
+- Description: You will create an AI agent based on open-source Large Language Models (LLMs) running on the CNCF WasmEdge runtime and an MCP server. The application will tie together key components in a modern AI agent stack to create a useful application. The AI agent will ask, answer, and explain practice questions for a specific tech certification program. It enables students to study for the certificate tests more effectively.
+- Expected Outcome:
+    - **Deliverable 1:** create a MCP server with 2 functions
+        - `get_random_question()`: The function selects a random question from a list. It returns both the question and the answer. This function is called by the LLM when it detects that the user asked for a new practice question.
+        - `get_question_and_answer()`: The function searches an input text from the database for an corresponding question and answer.
+    - **Deliverable 2:** create a practice question / answer database on a subject that you are most familiar with. The MCP functions will
+    - **Deliverable 3:** Create an agent app based on the LlamaEdge framework with a
+    - Wokflow 1
+        - The user asks a question. The LLM calls MCP function `get_question_and_answer()`
+        - The agent adds the answer to the context
+        - The LLM converse with the user with knowledge about the question and its answer
+    - Workflow 2
+        - The user asks for a practice question. The LLM calls MCP function `get_random_question()` to get the question and answer.
+        - Both the question and answer are added to the context.
+        - The LLM responds to the user with the question ONLY.
+        - It carries on the conversation around that question.
+- Recommended skills:
+    - AI agent concepts
+    - LLM and [tool calls](https://llamaedge.com/docs/user-guide/llm/tool-call)
+    - [Running open-source LLMs locally](https://llamaedge.com/docs/user-guide/llm/full-openai)
+    - [Running MCP servers](https://github.com/decentralized-mcp/servers/tree/main/example)
+    - Rust
+    - Python
+- Mentor(s):
+  - Michael Yuan (@juntao michael@secondstate.io)
+  - Vivian Hu (@alabulei1 vivian@secondstate.io)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/4109
+
+
+### OpenYurt
+
+#### OpenYurt Dashboard Enhancements
+
+description: |
+  OpenYurt is an open-source edge cloud-native platform designed to streamline application management and resource orchestration in edge computing scenarios.
+  This project aims to enhance the yurt-dashboard (the core management interface of OpenYurt) by implementing internationalization support, 
+  integrating edge AI capabilities, and upgrading core API versions to improve global accessibility, technical innovation, and system stability.
+  The project will leverage the React frontend framework, Golang backend services, and Kubernetes ecosystem toolchain to provide developers with a more efficient edge cloud-native experience.
+
+
+expectedOutcome:
+  - i18n Implementation: Extract existing Chinese text and complete English translations using LinguiJS framework
+  Implement frontend language-switching functionality with dynamic user selection
+  - Edge AI Integration: Containerize and develop deployment templates for at least 3 open-source edge AI applications in the dashboard
+  - API Modernization: Align with OpenYurt' latest API standards to ensure platform compatibility and security.
+
+
+- **Recommended Skills**:
+  - Proficiency in React/TypeScript and LinguiJS internationalization framework
+  - Strong Golang backend development skills with Kubernetes Operator pattern knowledge
+  - Deep understanding of Kubernetes API mechanisms and CRD version migration experience
+  - Prior experience in edge computing or AI application deployment (e.g., KubeEdge, K3s)
+  - Excellent technical writing skills in both English and Chinese
+
+- **Mentor(s)**:
+  - Lu Chen (@luc99hen, luc99.en@gmail.com)
+  - Bingchang Tang (@zyjhtangtang, bingchang07@gmail.com)
+
+- **Upstream Issue**:
+  - i18n Support: https://github.com/openyurtio/yurt-dashboard/issues/50
+  - Edge AI Integration: https://github.com/openyurtio/yurt-dashboard/issues/44
+  - API Upgrade: https://github.com/openyurtio/yurt-dashboard/issues/43
+
+
+### Volcano
+
+#### Enhance JobFlow Functionality
+
+- Description: The Volcano community introduced JobFlow to address inter-job dependencies. Through the concepts of JobTemplate and JobFlow, users can declare and orchestrate multiple Volcano jobs, leveraging control flow primitives such as sequential, parallel, conditional, branching, and looping execution. JobFlow aims to facilitate the migration of AI, BigData, and HPC workloads to the cloud-native environment. The current JobFlow functionality requires further enhancements to meet more complex real-world scenarios. Ref: https://github.com/volcano-sh/volcano/tree/master/docs/design/jobflow.
+
+- Expected Outcome:
+  - Support modifying parameters of a JobTemplate when referenced in a JobFlow, for example, changing container image versions, adjusting resource limits, etc.
+  - Implement a configurable retry mechanism for failed jobs within a JobFlow, for example, supporting exponential backoff retry policies, setting maximum retry attempts, etc.
+  - Introduce richer control flow statements such as if, switch, and for statements, for example, conditional branching based on the status of upstream tasks, iterative execution of specific task sets, etc.
+
+
+- Recommended Skills: Kubernetes, GO, Volcano
+
+- Mentor(s):
+  - Jiang Dong(@dongjiang1989, dongjiang2010@gmail.com)
+  - Xuzheng Chang(@Monokaix, 2536818783@qq.com)
+
+- Upstream Issue: [https://github.com/volcano-sh/volcano/issues/4275](https://github.com/volcano-sh/volcano/issues/4275)
+
+#### Implement Volcano Scheduler Simulator
+
+- Description: For users of Kubernetes and Volcano schedulers, the scheduling process is often a black box. Understanding how scheduling decisions are made and evaluating the functionality and performance of the scheduler, especially when introducing new scheduling features, can be challenging. Setting up a full-fledged Kubernetes cluster and generating realistic workloads to observe scheduling behavior can be resource-intensive and time-consuming. Users need a lightweight and efficient way to verify the correctness and performance implications of scheduler changes without the overhead of a real cluster. The kube-scheduler community has addressed this need with `kube-scheduler-simulator`, and the Volcano community would greatly benefit from a similar tool.
+
+- Expected Outcome:
+  - Implement a Volcano scheduler simulator capable of simulating the core scheduling logic of the Volcano scheduler.
+  - The simulator should be able to receive simulated Kubernetes cluster states (e.g., Nodes, Pods, Queues) and Volcano configurations as input.
+  - The simulator should output the simulated scheduling results, including the Node to which a Pod is scheduled, and the decision-making process information (e.g., considered Nodes, filtering and scoring results).
+  - (Optional) The simulator could provide basic performance metrics output, such as simulated scheduling latency.
+  - Provide clear usage documentation and examples to facilitate users in verifying functionality and performance using the simulator.
+
+- Recommended Skills: Kubernetes, GO, Volcano
+
+- Mentor(s):
+  - lowang-bh(@lowang-bh, lhui_wang@163.com)
+  - Xuzheng Chang(@Monokaix, 2536818783@qq.com)
+  
+- Upstream Issue: [https://github.com/volcano-sh/volcano/issues/4276](https://github.com/volcano-sh/volcano/issues/4276)
+
+#### Enhance Volcano Dashboard UX and Functionality
+
+- Description: The Volcano Dashboard serves as the frontend for displaying Volcano resources. Currently, it supports resources like Volcano Jobs, Queues, and Pods, but editing often involves raw YAML, which is not user-friendly for modifying or creating new resources. To improve user experience, this project aims to enhance the Dashboard's interactivity and user-friendliness, as well as support the display of hierarchical Queues and HyperNode resources.
+
+- Expected Outcome:
+  - Improve resource display and editing interfaces by providing more user-friendly interaction methods, such as using forms or visual editors instead of direct YAML editing for creating and modifying resources.
+  - Support the display of hierarchical Queues and HyperNode resources with mouse-click expand/collapse functionality to clearly visualize resource relationships.
+  - Optimize the user interface design to enhance aesthetics and ease of use.
+  - Refactor the backend code to improve maintainability and scalability.
+  - Display both **key information** and **full information** for resources, with an option to switch between views.
+  - (Optional) Support the display and management of more resource types.
+
+- Recommended Skills: Kubernetes, React, Node, JS
+
+- Mentor(s):
+  - Xuzheng Chang(@Monokaix, 2536818783@qq.com)
+  - Zicong Chen(@JesseStutler, jesseincomparable@hotmail.com)
+
+- Upstream Issue: [https://github.com/volcano-sh/volcano/issues/4277](https://github.com/volcano-sh/volcano/issues/4277)
+
+#### Enhance Volcano Official Documentation
+
+- Description: As Volcano's functionality grows and its integration with the broader ecosystem deepens, the community documentation needs to be updated and iterated upon to provide better user guidance and experience. Clear and comprehensive documentation helps users quickly get started with Volcano and reduces the cost of usage and configuration. Currently, some documentation is scattered across the GitHub repository and needs to be migrated to the official website to provide a unified entry point for users.
+
+- Expected Outcome:
+  - Migrate the documentation from the GitHub repository that is not yet on the official website to the official website.
+  - Provide detailed explanations of the functionality of **Volcano Scheduler**, **Volcano Controller**, **Volcano Agent**, and **Volcano Admission** components, including the meaning of their respective startup parameters.
+  - Supplement the documentation for core features such as JobFlow and vGPU virtualization.
+  - Add a "Best Practices" section offering recommendations and configuration examples for using Volcano in various scenarios.
+  - Include a "Troubleshooting" section that collects and organizes common issues and their solutions.
+
+- Recommended Skills: Technical Writing, Markdown, Git, Hugo or other static site generators
+
+- Mentor(s):
+  - Xuzheng Chang(@Monokaix, 2536818783@qq.com)
+  - Zicong Chen(@JesseStutler, jesseincomparable@hotmail.com)
+
+- Upstream Issue: [https://github.com/volcano-sh/volcano/issues/4278](https://github.com/volcano-sh/volcano/issues/4278)
+
+
 ### Jaeger
 
 #### Upgrade Jaeger-UI to React v19
@@ -571,5 +896,3 @@ expectedOutcome:
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/7115
-
-
