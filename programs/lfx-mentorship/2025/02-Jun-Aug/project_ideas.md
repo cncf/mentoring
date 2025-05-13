@@ -608,7 +608,6 @@ expectedOutcome:
 
 - **Upstream Issue**: https://github.com/istio/istio/issues/56228
 
-
 ### Krkn
 
 #### Chaos scenario rollback feature
@@ -671,3 +670,92 @@ The cluster status should be rolled back to the original condition before the sc
 
 - Upstream Issue (URL): 
   - https://github.com/kyverno/kyverno/issues/13011
+
+
+### WasmEdge
+
+#### Port WasmEdge and the WASI-NN ggml backend to the s390x platform
+
+- Description: WasmEdge provides cross-platform support for amd64 and arm64 for executing AI/LLM applications. We would like to support as many new hardware platforms as possible, so developers and users will no longer need to worry about the actual hardware. All they need to do is develop their AI agent or LLM applications once and deploy their services anywhere. For more information, please check the upstream issue.
+- Expected Outcome:
+  - Make the WasmEdge toolchain support the s390x platform, including the interpreter and the AOT mode.
+  - Ensure the WASI-NN ggml plugin can execute without any issues on the s390x platform.
+  - Implement test suites to verify the above behaviors.
+  - Write a document discussing the compilation, installation, execution, and verification of the work.
+- Recommended Skills:
+  - C++
+  - s390x
+  - LLVM
+- Mentor(s):
+  - Hung-Ying Tai (@hydai, hydai@secondstate.io) - Primary
+  - dm4 (@dm4, dm4@secondstate.io)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/4010
+
+#### Use Runwasi with WasmEdge runtime to test multiple WASM apps as cloud services
+
+- Description: With WasmEdge serving as one of Runwasi’s standard runtimes, and as our C++-implemented library continues to evolve, we also need a verification process integrated into Runwasi to streamline and validate the stability of both container and cloud environments.
+- Expected Outcome:
+  - A concise GitHub workflow demonstrates Runwasi end-to-end testing on Kubernetes.
+    - Need to design an interactive application scenario that supports multiple nodes
+    - Try to incorporate the use of the WasmEdge plugin into this scenario
+  - Document
+- Recommended Skills:
+  - Rust
+  - C++
+  - GDB
+  - git / github workflow
+  - shell script
+- Mentor(s):
+  - Vincent (@CaptainVincent, vincent@secondstate.io) - Primary
+  - yi (@0yi0 yi@secondstate.io)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/4011
+
+#### Support bitnet.cpp as a new WASI-NN plugin
+
+- Description: WasmEdge provides several AI frameworks as WASI-NN plugins to enable the power of AI/LLM applications for developers and users. We are always eager to add new backends to improve coverage of all models and hardware. BitNet.cpp, released by Microsoft, offers the ability to run 1-bit LLMs quickly without a GPU. We would like to support this framework so that people with limited resources, such as CPU-only hardware, can enjoy the amazing world brought by LLMs.
+- Expected Outcome:
+    1. A new WASI-NN plugin supports [BitNet](https://github.com/microsoft/BitNet).
+    2. Use the pure C++ interface from BitNet without any Python dependencies.
+    3. The plugin must run the model listed in the BitNet repository, e.g., [BitNet b1.58 2B4T - Scaling Native 1-bit LLM](https://huggingface.co/microsoft/bitnet-b1.58-2B-4T).
+    4. A tutorial and example for demonstration.
+    5. A CI workflow for building, testing, and releasing the built assets.
+- Recommended skills:
+  - C++
+  - [WASI-NN](https://github.com/WebAssembly/wasi-nn)
+  - GitHub workflows
+  - LLMs
+- Mentor(s):
+  - Hung-Ying Tai (@hydai, hydai@secondstate.io)
+  - dm4 (@dm4, dm4@secondstate.io)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/4110
+
+#### Create an MCP-based AI agent to help LF certificate prep
+
+- Description: You will create an AI agent based on open-source Large Language Models (LLMs) running on the CNCF WasmEdge runtime and an MCP server. The application will tie together key components in a modern AI agent stack to create a useful application. The AI agent will ask, answer, and explain practice questions for a specific tech certification program. It enables students to study for the certificate tests more effectively.
+- Expected Outcome:
+    - **Deliverable 1:** create a MCP server with 2 functions
+        - `get_random_question()`: The function selects a random question from a list. It returns both the question and the answer. This function is called by the LLM when it detects that the user asked for a new practice question.
+        - `get_question_and_answer()`: The function searches an input text from the database for an corresponding question and answer.
+    - **Deliverable 2:** create a practice question / answer database on a subject that you are most familiar with. The MCP functions will
+    - **Deliverable 3:** Create an agent app based on the LlamaEdge framework with a
+    - Wokflow 1
+        - The user asks a question. The LLM calls MCP function `get_question_and_answer()`
+        - The agent adds the answer to the context
+        - The LLM converse with the user with knowledge about the question and its answer
+    - Workflow 2
+        - The user asks for a practice question. The LLM calls MCP function `get_random_question()` to get the question and answer.
+        - Both the question and answer are added to the context.
+        - The LLM responds to the user with the question ONLY.
+        - It carries on the conversation around that question.
+- Recommended skills:
+    - AI agent concepts
+    - LLM and [tool calls](https://llamaedge.com/docs/user-guide/llm/tool-call)
+    - [Running open-source LLMs locally](https://llamaedge.com/docs/user-guide/llm/full-openai)
+    - [Running MCP servers](https://github.com/decentralized-mcp/servers/tree/main/example)
+    - Rust
+    - Python
+- Mentor(s):
+  - Michael Yuan (@juntao michael@secondstate.io)
+  - Vivian Hu (@alabulei1 vivian@secondstate.io)
+- Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/4109
+
