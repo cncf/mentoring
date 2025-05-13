@@ -995,3 +995,50 @@ A design-led UX audit and improvement initiative that includes:
 **Upstream Issue**: https://github.com/kubernetes-sigs/headlamp/issues/3233
 
 
+### Kgateway
+
+## kgateway
+
+#### OpenTelemetry is an AI Gateway’s Best Friend: Extending Observability to kgateway’s AI Extensions
+
+- Description:
+
+Kgateway can be used as an “AI Gateway” that allows applying traditional
+traffic management, security, and resiliency policies when reaching out to LLM
+providers. It also allows sending a request to another server for processing
+things like prompt guards or enrichment before we send it off to the LLM
+providers. An important aspect in any system that has lots of moving parts is
+observability: the collection of metrics and other information that allow you
+to identify issues and troubleshoot a live system.
+
+This project aims to enable OpenTelemetry support in kgateway’s AI extensions
+by allowing users to configure a gRPC tracing collector. This feature enables
+span propagation from the AI extensions extproc server and exporting traces to
+an OpenTelemetry-compatible backend (e.g., OpenTelemetry Collector, Jaeger,
+Zipkin, or Datadog). This feature will build on Envoy’s native tracing
+capabilities and aligns with industry-standard observability practices. This
+will make it easier to debug, monitor, and optimize traffic flowing to LLM
+Providers through kgateway.
+
+- Expected Outcome:
+  - Design and implement an API to enable tracing for the kgateway’s AI extproc extension.
+  - Extend the AI extensions extproc server with OpenTelemetry tracing.
+  - Create end-to-end (e2e) tests to validate configuration and trace propagation.
+  - Write documentation for plugin developers and end users
+  - Gain hands-on experience with AI providers, OpenTelemetry, tracing platforms, Envoy, Kubernetes, and kgateway while building real observability features!
+
+
+- Recommended Skills:
+  - Golang
+  - Python
+  - GitHub workflow
+  - Otel
+  - Kubernetes
+  - Kubernetes Gateway API
+  - Envoy
+
+- Mentor(s):
+  - Nina Polshakova (@npolshakova, ninapolshakova@gmail.com)
+  - Steven Landow (@stevenctl, steven.landow@solo.io)
+
+- Upstream Issue: https://github.com/kgateway-dev/kgateway/issues/11177
