@@ -72,3 +72,62 @@ This would provide enhanced control and safer rollout strategies (e.g., canary o
 - Upstream Issue: https://github.com/antrea-io/antrea/issues/6861, https://github.com/antrea-io/antrea/issues/6976, https://github.com/antrea-io/antrea/issues/6863
 - LFX URL: 
 
+### KubeEdge
+
+#### Embodied Intelligence Benchmarking Framework for Industrial Manufacturing with KubeEdge-Ianvs
+
+- Description: As industrial manufacturing accelerates its digital transformation through advancements in robotics, adaptive production lines, and smart testing systems, cloud-edge collaboration has emerged as a critical enabler for deploying embodied intelligence in complex operational environments. Contemporary industry requirements for embodied intelligence now extend beyond basic task execution to encompass multimodal perception-decision integration, dynamic environment adaptation, and distributed device orchestration. Existing benchmarking frameworks exhibit limitations in evaluating scenario-specific embodied attributes inherent to industrial settings. This initiative leverages the KubeEdge-Ianvs collaborative AI framework, integrating domain-specific test datasets, simulation environments, and quantitative metrics to establish a certified industrial-grade evaluation infrastructure for embodied intelligence systems.
+- Expected Outcome:
+  - Develop an industrial-grade embodied intelligence dataset through systematic classification and reorganization of existing resources across four standardized task categories
+  - Design standardized validation suites within KubeEdge-Ianvs
+  - Deploy reference baseline algorithms using the developed validation suites to establish performance benchmarks within KubeEdge-Ianvs
+- Recommended Skills: Python, Benchmark, Dataset, Embodied Intelligence
+- Mentor(s):
+  - Zimu Zheng (@MooreZheng, zimu.zheng@hotmail.com)
+  - Mengzhuo Chen (@IcyFeather233, icyfeather@foxmail.com)
+- Upstream Issue: https://github.com/kubeedge/ianvs/issues/197
+- LFX URL: 
+
+#### Device Anomaly Detection Framework Based on KubeEdge
+
+- Description: The current KubeEdge platform represents device states using three statuses: Desired, ObservedDesired, and Reported. The device states displayed on the platform are entirely reliant on the Mapper, which collects and reports data from the device side. However, due to limitations in the Mapper implementation, physical device malfunctions, network delays, and potential network attacks, the device states shown on the platform may not accurately reflect the actual state of the devices. In the KubeEdge platform, if applications depend on device states for decision-making, such inconsistencies in state representation may lead to undesirable outcomes. Therefore, this project aims to design a device state anomaly detection framework for KubeEdge. By exploring the causal relationships among device states, the framework will establish lightweight anomaly detection capabilities and provide a comprehensive toolchain encompassing data collection, model training, real-time anomaly detection, and results visualization.
+- Expected Outcome:
+  - A general-purpose device anomaly detection framework that supports user-defined detection algorithms
+  - A complete technical design document including model selection, training procedures, and detailed architecture diagrams for both training and online detection components
+  - A machine learning model and corresponding anomaly detection algorithm capable of capturing causal relationships among device states, trained and tested using standard frameworks
+  - An online anomaly detection module integrated into the KubeEdge device state reporting workflow, enabling real-time analysis through a model inference hook
+- Recommended Skills: KubeEdge, IoT, Machine Learning
+- Mentor(s):
+  - Liwei Shen (@meixiezichuan, shenliwei@fudan.edu.cn)
+  - Elias Wang (@wbc6080, wangbincheng4@huawei.com)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/6312
+- LFX URL: 
+
+#### Automatically generate unit tests and e2e tests based on LLM
+
+- Description: Unit test and e2e test coverage is a critical metric for ensuring code quality and stability. However, many codebases suffer from low test coverage, which increases the risk of release quality, undetected bugs and regressions. We can leverage Large Language Models (LLMs) like DeepSeek to automatically generate unit tests/e2e tests for code with low coverage, then integrate this into CI/CD pipelines to submit Pull Requests (PRs) for people reviewing.
+- Expected Outcome:
+  - Research open-source tools compatible with LLM（DeepSeek) for automated unit test/e2e test generation
+  - Integrate the automated test generation tool into CI/CD
+  - Trigger the tool automatically based on code changes and submit a Pull Request (PR)
+- Recommended Skills: KubeEdge, LLM, Golang, DevOps
+- Mentor(s):
+  - Yue Li (@liyuerich, yue.li@daocloud.io)
+  - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/6318
+- LFX URL: 
+
+#### Support KubeEdge EdgeNode Runing on RK3588 Chip
+
+- Description: The RK3588 chip, developed by Rockchip, is widely used in edge computing devices due to its balanced computational power, rich interface options, and low power consumption. Supporting RK3588 edge devices is crucial for expanding the KubeEdge ecosystem. However, it has not yet been fully validated whether RK3588-based edge nodes can be seamlessly integrated with KubeEdge. This project aims to establish complete compatibility between RK3588 and KubeEdge.
+- Expected Outcome:
+  - Debug and Support KubeEdge EdgeNode running on RK3588 Chip.
+  - Successfully deploy edge pods on edge node based on RK3588.
+  - Achieve node management and metrics for nodes and pods.
+  - Complete hardware compatibility testing and output documentation or a blog.
+- Recommended Skills: KubeEdge, Hardware, Golang
+- Mentor(s):
+  - Hongbing Zhang (@HongbingZhang, hongbing.zhang@daocloud.io)
+  - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/6320
+- LFX URL: 
