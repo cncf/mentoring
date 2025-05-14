@@ -30,6 +30,68 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 ---
 
+* [Cartography](#cartography)
+  * [Fill in missing AWS resource types for CloudGoat scenarios](#fill-in-missing-aws-resource-types-for-cloudgoat-scenarios)
+* [CloudNativePG](#cloudnativepg)
+  * [Implementing “Declarative Management of PostgreSQL Foreign Data Wrappers” in CloudNativePG](#implementing-declarative-management-of-postgresql-foreign-data-wrappers-in-cloudnativepg)
+* [Copacetic](#copacetic)
+  * [Wiz Scanning Support](#wiz-scanning-support)
+* [Inspektor Gadget](#inspektor-gadget-)
+  * [[PM Mentorship] Traceloop GTM Strategy and Execution](#pm-mentorship-traceloop-gtm-strategy-and-execution)
+* [Harbor](#harbor)
+  * [Harbor CLI](#harbor-cli)
+  * [Harbor Satellite: Implementing a Eventing System for Satellite](#harbor-satellite-implementing-a-eventing-system-for-satellite)
+  * [Implementing Ground Control for Harbor Satellite](#implementing-ground-control-for-harbor-satellite)
+* [Headlamp](#headlamp-)
+  * [Kubernetes UI Headlamp: Implement Kubernetes API Caching, Pagination, and Search](#kubernetes-ui-headlamp-implement-kubernetes-api-caching-pagination-and-search)
+  * [Kubernetes UI Headlamp: Gateway API Service Mesh Visualization](#kubernetes-ui-headlamp-gateway-api-service-mesh-visualization)
+  * [Kubernetes UI Headlamp Plugin: Karpenter Autoscaling Insights and Management](#kubernetes-ui-headlamp-plugin-karpenter-autoscaling-insights-and-management)
+  * [Kubernetes Headlamp UI: UX Audit and Design Improvements for Plugins](#kubernetes-headlamp-ui-ux-audit-and-design-improvements-for-plugins)
+* [Istio](#istio)
+  * [Expand testing for Multi-Cluster in Ambient](#expand-testing-for-multi-cluster-in-ambient)
+* [Jaeger](#jaeger)
+  * [Jaeger demo on Kubernetes](#jaeger-demo-on-kubernetes)
+  * [Upgrade Jaeger-UI to React v19](#upgrade-jaeger-ui-to-react-v19)
+* [Kgateway](#kgateway)
+  * [OpenTelemetry is an AI Gateway’s Best Friend: Extending Observability to kgateway’s AI Extensions](#opentelemetry-is-an-ai-gateways-best-friend-extending-observability-to-kgateways-ai-extensions)
+* [Kubernetes](#kubernetes)
+  * [Graduate the kubeadm feature gate WaitForAllControlPlaneComponents to GA](#graduate-the-kubeadm-feature-gate-waitforallcontrolplanecomponents-to-ga)
+* [KubeStellar](#kubestellar)
+  * [Building a Plugin System for KubeStellar](#building-a-plugin-system-for-kubestellar)
+  * [Developing a Marketplace UI and Optimize the Current UI](#developing-a-marketplace-ui-and-optimize-the-current-ui)
+  * [Enhancing KubeStellar core Helm chart by reducing its reliance on initContainers](#enhancing-kubestellar-core-helm-chart-by-reducing-its-reliance-on-initcontainers)
+  * [Extending KubeFlex with a new type of Control Plane](#extending-kubeflex-with-a-new-type-of-control-plane)
+  * [Implementing a Model Context Protocol for KubeStellar MCP Server](#implementing-a-model-context-protocol-for-kubestellar-mcp-server) 
+  * [UX/UI Mentorship: Design System Foundations for KubeStellar](#uxui-mentorship-design-system-foundations-for-kubestellar)
+* [Krkn](#krkn)
+  * [Chaos scenario rollback feature](#chaos-scenario-rollback-feature)
+* [Kyverno](#kyverno)
+  * [Improve Test Coverage and Docs for New Policy Types](#improve-test-coverage-and-docs-for-new-policy-types)
+  * [Optimize Kyverno CLI In-cluster Resource Loader](#optimize-kyverno-cli-in-cluster-resource-loader)
+* [OpenCost](#opencost)
+  * [Enterprise Ready OpenCost: Integration Testing](#enterprise-ready-opencost-integration-testing)
+* [OpenKruise](#openkruise)
+  * [add best practice to use openkruise workload with Karmada etc](#add-best-practice-to-use-openkruise-workload-with-karmada-etc)
+  * [Build simple dashboard to view and operate OpenKruise workload](#build-simple-dashboard-to-view-and-operate-openkruise-workload-)
+  * [OpenKruiseGame controlplane HA deployment support](#openkruisegame-controlplane-ha-deployment-support)
+  * [Support progressDeadlineSeconds for Cloneset](#support-progressdeadlineseconds-for-cloneset)
+* [OpenYurt](#openyurt)
+  * [OpenYurt Dashboard Enhancements](#openyurt-dashboard-enhancements)
+* [PipeCD](#pipecd)
+  * [Support deploy application using OpenTofu with PipeCD plugin](#support-deploy-application-using-opentofu-with-pipecd-plugin)
+  * [Support managing SQL schema using PipeCD SQL plugin](#support-managing-sql-schema-using-pipecd-sql-plugin)
+* [Volcano](#volcano)
+  * [Enhance JobFlow Functionality](#enhance-jobflow-functionality)
+  * [Enhance Volcano Dashboard UX and Functionality](#enhance-volcano-dashboard-ux-and-functionality)
+  * [Enhance Volcano Official Documentation](#enhance-volcano-official-documentation)
+  * [Implement Volcano Scheduler Simulator](#implement-volcano-scheduler-simulator)
+* [WasmEdge](#wasmedge) 
+  * [Create an MCP-based AI agent to help LF certificate prep](#create-an-mcp-based-ai-agent-to-help-lf-certificate-prep)
+  * [Port WasmEdge and the WASI-NN ggml backend to the s390x platform](#port-wasmedge-and-the-wasi-nn-ggml-backend-to-the-s390x-platform)
+  * [Use Runwasi with WasmEdge runtime to test multiple WASM apps as cloud services](#use-runwasi-with-wasmedge-runtime-to-test-multiple-wasm-apps-as-cloud-services)
+  * [Support bitnet.cpp as a new WASI-NN plugin](#support-bitnetcpp-as-a-new-wasi-nn-plugin)
+
+
 ### Copacetic
 
 #### Wiz Scanning Support
@@ -214,7 +276,7 @@ and e2e test updates.
 
 ### KubeStellar
 
-# UX/UI Mentorship: Design System Foundations for KubeStellar
+#### UX/UI Mentorship: Design System Foundations for KubeStellar
 
 CNCF - KubeStellar: Design System Foundations (2025 Term 2)
 
