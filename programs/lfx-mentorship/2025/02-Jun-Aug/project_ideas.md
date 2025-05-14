@@ -144,3 +144,30 @@ This would provide enhanced control and safer rollout strategies (e.g., canary o
 - Upstream Issue: <https://github.com/cilium/cilium.io/issues/492>
 - LFX URL: 
 
+
+## kgateway
+
+#### Mission: Scale Possible! Build Automated Scale Tests for kgateway
+
+Description:
+- This project aims to design and build a suite of automated scale tests for kgateway that would run as part of our builds and releases process. These tests will help us understand how kgateway behaves under a large number of Kubernetes gateway resources and kgateway extensions, and load tests to ensure it performs reliably as usage scales. You'll gain hands-on experience with performance testing, infrastructure automation, and Kubernetes-based systems.
+
+Expected Outcome:
+- Design and a scale testing suite
+- Build a scale test suite for kgateway
+- Analyze test results to identify bottlenecks or failure points
+- Write developer-facing documentation
+- Explore Oracle Developer cloud and determine if it is suitable for kgateway’s scale tests.
+
+Recommended Skills:
+- Golang
+- GitHub workflow
+- Kubernetes
+
+Mentor(s):
+  - Nina Polshakova (@npolshakova, ninapolshakova@gmail.com)
+  - Lawrence Gadban (@lgadban, lawrence.gadban@solo.io)  
+
+Upstream Issue: https://github.com/kgateway-dev/kgateway/issues/11210 
+- LFX URL: 
+
