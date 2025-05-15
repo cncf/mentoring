@@ -30,30 +30,45 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 ---
 
+* [Antrea](#antrea)
+  * [Improvements to the PacketCapture feature](#improvements-to-the-packetcapture-feature)
+  * [Replace Dependabot with Renovate for automatic dependency updates](#replace-dependabot-with-renovate-for-automatic-dependency-updates)
 * [Cartography](#cartography)
   * [Fill in missing AWS resource types for CloudGoat scenarios](#fill-in-missing-aws-resource-types-for-cloudgoat-scenarios)
+* [Cilium](#cilium)
+  * [Cilium Technical Outcomes](#cilium-technical-outcomes)
 * [CloudNativePG](#cloudnativepg)
   * [Implementing “Declarative Management of PostgreSQL Foreign Data Wrappers” in CloudNativePG](#implementing-declarative-management-of-postgresql-foreign-data-wrappers-in-cloudnativepg)
 * [Copacetic](#copacetic)
   * [Wiz Scanning Support](#wiz-scanning-support)
-* [Inspektor Gadget](#inspektor-gadget-)
-  * [[PM Mentorship] Traceloop GTM Strategy and Execution](#pm-mentorship-traceloop-gtm-strategy-and-execution)
+* [Envoy Gateway](#envoy-gateway)
+  * [Progressive Rollouts of the Envoy Proxy fleet during Envoy Gateway upgrades](#progressive-rollouts-of-the-envoy-proxy-fleet-during-envoy-gateway-upgrades)
 * [Harbor](#harbor)
   * [Harbor CLI](#harbor-cli)
   * [Harbor Satellite: Implementing a Eventing System for Satellite](#harbor-satellite-implementing-a-eventing-system-for-satellite)
   * [Implementing Ground Control for Harbor Satellite](#implementing-ground-control-for-harbor-satellite)
 * [Headlamp](#headlamp-)
-  * [Kubernetes UI Headlamp: Implement Kubernetes API Caching, Pagination, and Search](#kubernetes-ui-headlamp-implement-kubernetes-api-caching-pagination-and-search)
-  * [Kubernetes UI Headlamp: Gateway API Service Mesh Visualization](#kubernetes-ui-headlamp-gateway-api-service-mesh-visualization)
-  * [Kubernetes UI Headlamp Plugin: Karpenter Autoscaling Insights and Management](#kubernetes-ui-headlamp-plugin-karpenter-autoscaling-insights-and-management)
   * [Kubernetes Headlamp UI: UX Audit and Design Improvements for Plugins](#kubernetes-headlamp-ui-ux-audit-and-design-improvements-for-plugins)
+  * [Kubernetes UI Headlamp Plugin: Karpenter Autoscaling Insights and Management](#kubernetes-ui-headlamp-plugin-karpenter-autoscaling-insights-and-management)
+  * [Kubernetes UI Headlamp: Gateway API Service Mesh Visualization](#kubernetes-ui-headlamp-gateway-api-service-mesh-visualization)
+  * [Kubernetes UI Headlamp: Implement Kubernetes API Caching, Pagination, and Search](#kubernetes-ui-headlamp-implement-kubernetes-api-caching-pagination-and-search)
+* [Inspektor Gadget](#inspektor-gadget-)
+  * [[PM Mentorship] Traceloop GTM Strategy and Execution](#pm-mentorship-traceloop-gtm-strategy-and-execution)
 * [Istio](#istio)
   * [Expand testing for Multi-Cluster in Ambient](#expand-testing-for-multi-cluster-in-ambient)
 * [Jaeger](#jaeger)
   * [Jaeger demo on Kubernetes](#jaeger-demo-on-kubernetes)
   * [Upgrade Jaeger-UI to React v19](#upgrade-jaeger-ui-to-react-v19)
 * [Kgateway](#kgateway)
+  * [Mission: Scale Possible! Build Automated Scale Tests for kgateway](#mission-scale-possible-build-automated-scale-tests-for-kgateway)
   * [OpenTelemetry is an AI Gateway’s Best Friend: Extending Observability to kgateway’s AI Extensions](#opentelemetry-is-an-ai-gateways-best-friend-extending-observability-to-kgateways-ai-extensions)
+* [Krkn](#krkn)
+  * [Chaos scenario rollback feature](#chaos-scenario-rollback-feature)
+* [KubeEdge](#kubeedge)
+  * [Automatically generate unit tests and e2e tests based on LLM](#automatically-generate-unit-tests-and-e2e-tests-based-on-llm)
+  * [Device Anomaly Detection Framework Based on KubeEdge](#device-anomaly-detection-framework-based-on-kubeedge)
+  * [Embodied Intelligence Benchmarking Framework for Industrial Manufacturing with KubeEdge-Ianvs](#embodied-intelligence-benchmarking-framework-for-industrial-manufacturing-with-kubeedge-ianvs)
+  * [Support KubeEdge EdgeNode Runing on RK3588 Chip](#support-kubeedge-edgenode-runing-on-rk3588-chip)
 * [Kubernetes](#kubernetes)
   * [Graduate the kubeadm feature gate WaitForAllControlPlaneComponents to GA](#graduate-the-kubeadm-feature-gate-waitforallcontrolplanecomponents-to-ga)
 * [KubeStellar](#kubestellar)
@@ -61,10 +76,8 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   * [Developing a Marketplace UI and Optimize the Current UI](#developing-a-marketplace-ui-and-optimize-the-current-ui)
   * [Enhancing KubeStellar core Helm chart by reducing its reliance on initContainers](#enhancing-kubestellar-core-helm-chart-by-reducing-its-reliance-on-initcontainers)
   * [Extending KubeFlex with a new type of Control Plane](#extending-kubeflex-with-a-new-type-of-control-plane)
-  * [Implementing a Model Context Protocol for KubeStellar MCP Server](#implementing-a-model-context-protocol-for-kubestellar-mcp-server) 
+  * [Implementing a Model Context Protocol for KubeStellar MCP Server](#implementing-a-model-context-protocol-for-kubestellar-mcp-server)
   * [UX/UI Mentorship: Design System Foundations for KubeStellar](#uxui-mentorship-design-system-foundations-for-kubestellar)
-* [Krkn](#krkn)
-  * [Chaos scenario rollback feature](#chaos-scenario-rollback-feature)
 * [Kyverno](#kyverno)
   * [Improve Test Coverage and Docs for New Policy Types](#improve-test-coverage-and-docs-for-new-policy-types)
   * [Optimize Kyverno CLI In-cluster Resource Loader](#optimize-kyverno-cli-in-cluster-resource-loader)
@@ -85,11 +98,11 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   * [Enhance Volcano Dashboard UX and Functionality](#enhance-volcano-dashboard-ux-and-functionality)
   * [Enhance Volcano Official Documentation](#enhance-volcano-official-documentation)
   * [Implement Volcano Scheduler Simulator](#implement-volcano-scheduler-simulator)
-* [WasmEdge](#wasmedge) 
+* [WasmEdge](#wasmedge)
   * [Create an MCP-based AI agent to help LF certificate prep](#create-an-mcp-based-ai-agent-to-help-lf-certificate-prep)
   * [Port WasmEdge and the WASI-NN ggml backend to the s390x platform](#port-wasmedge-and-the-wasi-nn-ggml-backend-to-the-s390x-platform)
-  * [Use Runwasi with WasmEdge runtime to test multiple WASM apps as cloud services](#use-runwasi-with-wasmedge-runtime-to-test-multiple-wasm-apps-as-cloud-services)
   * [Support bitnet.cpp as a new WASI-NN plugin](#support-bitnetcpp-as-a-new-wasi-nn-plugin)
+  * [Use Runwasi with WasmEdge runtime to test multiple WASM apps as cloud services](#use-runwasi-with-wasmedge-runtime-to-test-multiple-wasm-apps-as-cloud-services)
 
 
 ### Copacetic
@@ -113,6 +126,7 @@ CNCF - Copacetic: Wiz Scanning Support (2025 Term 2)
   - Robbie Cronin (robert-cronin, robbiecronin@microsoft.com)
 - Upstream Issue: https://github.com/project-copacetic/copacetic/issues/867
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a4839420-3881-46cd-849a-f57784158f49
+
 
 ### OpenCost
 
@@ -144,6 +158,7 @@ We need enhanced integration tests to prepare OpenCost for graduation and enterp
 
 - Upstream Issue: [https://github.com/opencost/opencost/issues/3141](https://github.com/opencost/opencost/issues/3141)
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/79cfd37e-3259-49ff-82d2-58970fbbef6f
+
 
 ### Cartography
 
@@ -177,6 +192,7 @@ CNCF - Cartography: Fill in missing AWS resource types for CloudGoat scenarios (
 
 - Upstream Issue: https://github.com/cartography-cncf/cartography/issues/1552
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/de67557d-4c27-4ca6-9c93-015636d28682
+
 
 ### CloudNativePG
 
@@ -221,6 +237,7 @@ CNCF - CloudNativePG: Declarative Management of PostgreSQL FDWs (2025 Term 2)
 - Upstream Issue: https://github.com/cloudnative-pg/cloudnative-pg/issues/4683
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/53fa853e-b5fa-4d68-be71-f005c75aea89
 
+
 ### Inspektor Gadget 
 
 #### [PM Mentorship] Traceloop GTM Strategy and Execution
@@ -251,6 +268,7 @@ CNCF - Inspektor Gadget: Traceloop GTM Strategy and Execution (2025 Term 2)
 - Upstream Issue: [RFE] Inspektor Gadget Traceloop Gadget Go to Market Strategy and Execution (CNCF Mentorship Program) [inspektor-gadget/inspektor-gadget Issue #4417](https://github.com/inspektor-gadget/inspektor-gadget/issues/4417)
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a5f01d86-252f-48c2-90b7-c616dc5072d8
 
+
 ### Kubernetes
 
 #### Graduate the kubeadm feature gate WaitForAllControlPlaneComponents to GA
@@ -273,6 +291,7 @@ and e2e test updates.
 - Type: maintainer mentorship (only for maintainers to work on as part of a one-off LFX Project)
 - Upstream Issue (URL): https://github.com/kubernetes/kubeadm/issues/2907
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/c546b376-f57d-4181-b2fe-4acf6586e0cb
+
 
 ### KubeStellar
 
@@ -315,7 +334,6 @@ The mentorship will deliver a scalable yet lightweight design system tailored to
 - Upstream Issue: https://github.com/kubestellar/kubestellar/issues/2912
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/1cd69035-2bab-47f1-9774-952e9ec0d43e
 
-
 #### Building a Plugin System for KubeStellar
 
 CNCF - KubeStellar: Building a Plugin System (2025 Term 2)
@@ -348,7 +366,6 @@ This project aims to develop a plugin system for KubeStellar that will allow use
   - Rahul Vishwakarma (@manzil-infinity180 , rahulvs2809@gmail.com)
 - Upstream Issue: [https://github.com/kubestellar/ui/issues/606](https://github.com/kubestellar/ui/issues/606)
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/cf08311b-a7cf-4309-9989-5f85ba2b05b3
-
 
 #### Implementing a Model Context Protocol for KubeStellar MCP Server
 
@@ -385,7 +402,6 @@ This project aims to develop a Model Context Protocol for KubeStellar's Manageme
 - Upstream Issue: [https://github.com/kubestellar/ui/issues/607](https://github.com/kubestellar/ui/issues/607)
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/161ae153-3d60-499e-9791-863635d68864
 
-
 #### Developing a Marketplace UI and Optimize the Current UI
 
 CNCF - KubeStellar: Marketplace UI and UI Optimization (2025 Term 2)
@@ -421,7 +437,6 @@ This project focuses on creating a comprehensive plugin marketplace UI for KubeS
 - Upstream Issue: [https://github.com/kubestellar/ui/issues/615](https://github.com/kubestellar/ui/issues/615)
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a23f93b7-e384-4515-a165-c01e4ecd00ad
 
-
 #### Extending KubeFlex with a new type of Control Plane
 
 CNCF - KubeStellar: Extending KubeFlex with a new Control Plane (2025 Term 2)
@@ -435,7 +450,6 @@ KubeFlex is a flexible and scalable platform for running lightweight Kubernetes 
   - Braulio Dumba: (@dumb0002, Braulio.Dumba@ibm.com)
 - Upstream Issue (URL): [https://github.com/kubestellar/kubeflex/issues/347](https://github.com/kubestellar/kubeflex/issues/347)
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/d5499737-549b-498a-922a-695ef3955725
-
 
 #### Enhancing KubeStellar core Helm chart by reducing its reliance on initContainers
 
@@ -477,6 +491,7 @@ This project aims to investigate and implement ideas for improving KubeStellar C
   - [https://github.com/helm/helm/issues/30672](https://github.com/helm/helm/issues/30672)
 
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a56d987c-f754-4e2f-b159-2ea578ca5e56
+
 
 ### OpenKruise
 
@@ -566,6 +581,7 @@ CNCF - OpenKruise: Simple dashboard for workloads (2025 Term 2)
 - Upstream Issue: https://github.com/openkruise/kruise/issues/1497
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/217a88a5-ecbc-46b8-9e90-b68993a8ae45
 
+
 ### Harbor
 
 #### Harbor CLI
@@ -647,7 +663,8 @@ Harbor Satellite is a lightweight, OCI-compliant registry (currently based on Zo
   - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
 
 - Upstream Issue: https://github.com/goharbor/harbor/issues/21986
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/22be3e04-a317-4a9c-b6fd-e36991307242
+- LFX
+
 
 ### PipeCD
 
@@ -704,6 +721,7 @@ CNCF - PipeCD: SQL schema management plugin (2025 Term 2)
 
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/f56d4b7f-be23-4349-8066-f6526b863068
 
+
 ### Istio
 
 #### Expand testing for Multi-Cluster in Ambient
@@ -745,6 +763,7 @@ expectedOutcome:
 - Upstream Issue: https://github.com/istio/istio/issues/56228
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/958b17bf-e4f2-42fc-a7f3-01d95c53ee73
 
+
 ### Krkn
 
 #### Chaos scenario rollback feature
@@ -766,6 +785,7 @@ The cluster status should be rolled back to the original condition before the sc
   -  Paige Patton (@paigerube14, ppatton@redhat.com)
 - Upstream Issue: https://github.com/krkn-chaos/krkn/issues/804
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/92e42a9c-fc0a-46bf-8ca7-69ad673dcce0
+
 
 ### Kyverno
 
@@ -817,6 +837,7 @@ CNCF - Kyverno: Improve Test Coverage and Docs for New Policy Types (2025 Term 2
 
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ef446774-4fe7-4027-8c9b-e1e125c643ae
 
+
 ### WasmEdge
 
 #### Port WasmEdge and the WASI-NN ggml backend to the s390x platform
@@ -860,6 +881,7 @@ CNCF - WasmEdge: Use Runwasi with WasmEdge runtime to test multiple WASM apps (2
   - yi (@0yi0 yi@secondstate.io)
 - Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/4011
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/e54744c7-0435-42bb-b9aa-60e8df1c9081
+
 
 #### Support bitnet.cpp as a new WASI-NN plugin
 
@@ -916,6 +938,7 @@ CNCF - WasmEdge: Create an MCP-based AI agent to help LF certificate prep (2025 
 - Upstream Issue (URL): https://github.com/WasmEdge/WasmEdge/issues/4109
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/5070cba4-8c1e-4392-8cf8-cd9bebb5277e
 
+
 ### OpenYurt
 
 #### OpenYurt Dashboard Enhancements
@@ -928,13 +951,11 @@ description: |
   integrating edge AI capabilities, and upgrading core API versions to improve global accessibility, technical innovation, and system stability.
   The project will leverage the React frontend framework, Golang backend services, and Kubernetes ecosystem toolchain to provide developers with a more efficient edge cloud-native experience.
 
-
 expectedOutcome:
   - i18n Implementation: Extract existing Chinese text and complete English translations using LinguiJS framework
   Implement frontend language-switching functionality with dynamic user selection
   - Edge AI Integration: Containerize and develop deployment templates for at least 3 open-source edge AI applications in the dashboard
   - API Modernization: Align with OpenYurt' latest API standards to ensure platform compatibility and security.
-
 
 - Recommended Skills:
   - Proficiency in React/TypeScript and LinguiJS internationalization framework
@@ -954,6 +975,7 @@ expectedOutcome:
 
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/0d59f3ef-8de1-4264-9a0e-96afbe3558af
 
+
 ### Volcano
 
 #### Enhance JobFlow Functionality
@@ -966,7 +988,6 @@ CNCF - Volcano: Enhance JobFlow Functionality (2025 Term 2)
   - Support modifying parameters of a JobTemplate when referenced in a JobFlow, for example, changing container image versions, adjusting resource limits, etc.
   - Implement a configurable retry mechanism for failed jobs within a JobFlow, for example, supporting exponential backoff retry policies, setting maximum retry attempts, etc.
   - Introduce richer control flow statements such as if, switch, and for statements, for example, conditional branching based on the status of upstream tasks, iterative execution of specific task sets, etc.
-
 
 - Recommended Skills: Kubernetes, GO, Volcano
 
@@ -1044,6 +1065,7 @@ CNCF - Volcano: Enhance Volcano Official Documentation (2025 Term 2)
 - Upstream Issue: [https://github.com/volcano-sh/volcano/issues/4278](https://github.com/volcano-sh/volcano/issues/4278)
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a8bafeea-f608-4e73-9a44-ca60c309536f
 
+
 ### Jaeger
 
 #### Upgrade Jaeger-UI to React v19
@@ -1071,6 +1093,7 @@ CNCF - Jaeger: Jaeger demo on Kubernetes (2025 Term 2)
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/7115
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/14c5fcdd-61b9-40a1-8a10-27a1bba76b3d
+
 
 ### Headlamp 
 
@@ -1122,7 +1145,6 @@ Mentor(s):
 Upstream Issue: https://github.com/kubernetes-sigs/headlamp/issues/2798
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/62e272ef-e950-45dd-9c57-71d216d22ed2
 
-
 #### Kubernetes UI Headlamp Plugin: Karpenter Autoscaling Insights and Management
 
 CNCF - Headlamp: Karpenter Autoscaling Insights and Management (2025 Term 2)
@@ -1151,7 +1173,6 @@ Mentor(s):
 Upstream Issue: https://github.com/kubernetes-sigs/headlamp/issues/3231
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/5ca70394-f568-4bbf-a88d-4e5af8b235cf
 
-
 #### Kubernetes Headlamp UI: UX Audit and Design Improvements for Plugins
 
 CNCF - Headlamp: UX Audit and Design Improvements for Plugins (2025 Term 2)
@@ -1177,6 +1198,7 @@ Mentor(s):
 
 Upstream Issue: https://github.com/kubernetes-sigs/headlamp/issues/3233
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/4d736149-aa95-4f31-b01c-a54c754614d0
+
 
 ### Kgateway
 
@@ -1210,7 +1232,6 @@ Providers through kgateway.
   - Write documentation for plugin developers and end users
   - Gain hands-on experience with AI providers, OpenTelemetry, tracing platforms, Envoy, Kubernetes, and kgateway while building real observability features!
 
-
 - Recommended Skills:
   - Golang
   - Python
@@ -1227,4 +1248,174 @@ Providers through kgateway.
 - Upstream Issue: https://github.com/kgateway-dev/kgateway/issues/11177
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/347952bc-15c6-48f7-9c4e-aad7dffb3817
 
+#### Mission: Scale Possible! Build Automated Scale Tests for kgateway
 
+CNCF - Kgateway: Automated scale tests for kgateway (2025 Term 2)
+
+Description:
+- This project aims to design and build a suite of automated scale tests for kgateway that would run as part of our builds and releases process. These tests will help us understand how kgateway behaves under a large number of Kubernetes gateway resources and kgateway extensions, and load tests to ensure it performs reliably as usage scales. You'll gain hands-on experience with performance testing, infrastructure automation, and Kubernetes-based systems.
+
+Expected Outcome:
+- Design and a scale testing suite
+- Build a scale test suite for kgateway
+- Analyze test results to identify bottlenecks or failure points
+- Write developer-facing documentation
+- Explore Oracle Developer cloud and determine if it is suitable for kgateway’s scale tests.
+
+Recommended Skills:
+- Golang
+- GitHub workflow
+- Kubernetes
+
+Mentor(s):
+  - Nina Polshakova (@npolshakova, ninapolshakova@gmail.com)
+  - Lawrence Gadban (@lgadban, lawrence.gadban@solo.io)  
+
+Upstream Issue: https://github.com/kgateway-dev/kgateway/issues/11210 
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/d713bc73-3257-4d21-b533-97e0ccadf7bb
+
+
+### Envoy Gateway
+
+#### Progressive Rollouts of the Envoy Proxy fleet during Envoy Gateway upgrades
+
+CNCF - Envoy Gateway: Progressive Envoy Proxy Rollouts during Gateway Upgrades (2025 Term 2)
+
+- Description:
+Envoy Gateway translates Kubernetes-native Gateway API resources into xDS configuration consumed by Envoy Proxy.
+It also manages the lifecycle of the Envoy Proxy fleet by generating Kubernetes resources such as Deployments and Services.
+
+Currently, upgrades to Envoy Gateway (the control plane) result in immediate, in-place updates to the associated Envoy Proxy fleet (the data plane).
+While this operation is designed to be zero-downtime, some users prefer a staged upgrade process where the control plane is updated first,
+followed by a progressive rollout of the data plane.
+
+This project aims to design and implement support for progressive data plane upgrades, allowing users to decouple the control and data plane upgrade processes. 
+This would provide enhanced control and safer rollout strategies (e.g., canary or blue-green deployments).
+
+- Expected Outcome:
+  - Design a two-step upgrade workflow that separates control plane and data plane updates.
+  - Implement configuration or CRD support to control rollout strategy of the Envoy Proxy fleet.
+  - Add documentation and example manifests for users to adopt the new workflow.
+
+- Recommended Skills: Golang, Kubernetes, CD tools (like Argo Rollouts and Flagger).
+
+- Mentor(s):
+  - Arko Dasgupta (@arkodg, arko@tetrate.io)
+  - Kateryna Nezdolii (@nezdolik, kateryna.nezdolii@gmail.com)
+
+- Upstream Issue: https://github.com/envoyproxy/gateway/issues/4494
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/5c427ca3-19f3-4c66-887c-3a3489893300
+
+
+### Antrea
+
+#### Replace Dependabot with Renovate for automatic dependency updates
+
+CNCF - Antrea: Automate dependency updates with Renovate (2025 Term 2)
+
+- Description: Antrea currently relies on Github's Dependabot to automatically updated dependencies (Go modules / Github Actions) on the main branch. There is a key limitation with Dependabot, which is that it doesn't support automatically updating dependencies with security vulnerabilities in "active" release branches (for Antrea minor versions which are currently actively supported). This limitation means that maintainers have to manually backport Dependabot patches when they address security vulnerabilities, which has become a burden. [Renovate](https://docs.renovatebot.com/) is an alternative tool for dependency management, and it seems that it offers richer configuration options and may not suffer from the same limitation as Dependabot.
+- Expected Outcome: Migrate the Dependabot config to a Renovate config for the main Antrea repository (antrea-io/antrea), as well as for all other repositories (under the antrea-io organization) which currently use Dependabot. Dependencies that are currently updated as a group (e.g., `golang.org/x` modules) should remain that way. The Renovate config should include provisions to automatically perform security updates in active release branches. The change should not impact developer workflows and the Antrea release cycle; all experiments should be performed in a fork.
+- Recommended Skills: familiarity with the Github ecosystem, including Github Actions, and with the standard Github dev workflows.
+- Mentor(s):
+  - Quan Tian (@tnqn, tianquan23@gmail.com)
+  - Lan Luo (@luolanzone, luolanzone@gmail.com)
+  - Antonin Bas (@antoninbas, antonin.bas@gmail.com)
+- Upstream Issue: https://github.com/antrea-io/antrea/issues/7155
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/62d69fd5-6c90-4ba1-b260-a5dc247fc3cf
+
+#### Improvements to the PacketCapture feature
+
+CNCF - Antrea: Enhance PacketCapture with IPv6 and flexible filters (2025 Term 2)
+
+- Description: As a Kubernetes (K8s) network plugin (CNI plugin), Antrea provides networking functions for K8s Pods and includes various troubleshooting tools for cluster administrators and application developers to diagnose networking issues. The [PacketCapture feature](https://github.com/antrea-io/antrea/blob/main/docs/packetcapture-guide.md) was introduced recently (Antrea v2.2) and allows capturing network traffic for specific endpoints using predefined filters similar to those supported by libpcap/tcpdump. Users can initiate a packet capture through a Kubernetes Custom Resource Definition (CRD) or a CLI command. The Antrea control plane then generates and injects the corresponding BPF program, and the captured packets can be exported as a pcap file. In the last iteration of the LFX mentorship program, we added support for L4 filters (TCP flags, ICMP type & code) to the PacketCapture API, to enable Antrea users to target network traffic more precisely. We would like to keep improving the PacketCapture feature with 1) IPv6 support, 2) more flexibility when providing the source and destination, 3) the ability to specify the capture point for traffic (source or destination Pod).
+- Expected Outcome: Extend the API definition for the PacketCapture CRD, and implement the new API functionality by generating the correct BPF instructions. The `antctl` CLI command for PacketCapture should be updated as needed to accomodate for the API changes. The implementation should come with a sufficient amount of tests (both unit tests and e2e tests), ensuring that the new functionality is working as expected.
+- Recommended Skills: familiarity with Golang, some knowledge about the K8s architecture and APIs, basic knowledge about networking protocols (IP/TCP/UDP/ICMP).
+- Mentor(s):
+  - Hang Yan (@hangyan, hang.yan@hotmail.com)
+  - Antonin Bas (@antoninbas, antonin.bas@gmail.com)
+- Upstream Issue: https://github.com/antrea-io/antrea/issues/6861, https://github.com/antrea-io/antrea/issues/6976, https://github.com/antrea-io/antrea/issues/6863
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/7dc05f9c-b90d-4fe0-bf43-d6bf10ea29a2
+
+
+### KubeEdge
+
+#### Embodied Intelligence Benchmarking Framework for Industrial Manufacturing with KubeEdge-Ianvs
+
+CNCF - KubeEdge: Industrial embodied intelligence benchmarking framework (2025 Term 2)
+
+- Description: As industrial manufacturing accelerates its digital transformation through advancements in robotics, adaptive production lines, and smart testing systems, cloud-edge collaboration has emerged as a critical enabler for deploying embodied intelligence in complex operational environments. Contemporary industry requirements for embodied intelligence now extend beyond basic task execution to encompass multimodal perception-decision integration, dynamic environment adaptation, and distributed device orchestration. Existing benchmarking frameworks exhibit limitations in evaluating scenario-specific embodied attributes inherent to industrial settings. This initiative leverages the KubeEdge-Ianvs collaborative AI framework, integrating domain-specific test datasets, simulation environments, and quantitative metrics to establish a certified industrial-grade evaluation infrastructure for embodied intelligence systems.
+- Expected Outcome:
+  - Develop an industrial-grade embodied intelligence dataset through systematic classification and reorganization of existing resources across four standardized task categories
+  - Design standardized validation suites within KubeEdge-Ianvs
+  - Deploy reference baseline algorithms using the developed validation suites to establish performance benchmarks within KubeEdge-Ianvs
+- Recommended Skills: Python, Benchmark, Dataset, Embodied Intelligence
+- Mentor(s):
+  - Zimu Zheng (@MooreZheng, zimu.zheng@hotmail.com)
+  - Mengzhuo Chen (@IcyFeather233, icyfeather@foxmail.com)
+- Upstream Issue: https://github.com/kubeedge/ianvs/issues/197
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/bd625cf2-dba9-4246-8c32-746fcc05c8e0
+
+#### Device Anomaly Detection Framework Based on KubeEdge
+
+CNCF - KubeEdge: Device anomaly detection framework (2025 Term 2)
+
+- Description: The current KubeEdge platform represents device states using three statuses: Desired, ObservedDesired, and Reported. The device states displayed on the platform are entirely reliant on the Mapper, which collects and reports data from the device side. However, due to limitations in the Mapper implementation, physical device malfunctions, network delays, and potential network attacks, the device states shown on the platform may not accurately reflect the actual state of the devices. In the KubeEdge platform, if applications depend on device states for decision-making, such inconsistencies in state representation may lead to undesirable outcomes. Therefore, this project aims to design a device state anomaly detection framework for KubeEdge. By exploring the causal relationships among device states, the framework will establish lightweight anomaly detection capabilities and provide a comprehensive toolchain encompassing data collection, model training, real-time anomaly detection, and results visualization.
+- Expected Outcome:
+  - A general-purpose device anomaly detection framework that supports user-defined detection algorithms
+  - A complete technical design document including model selection, training procedures, and detailed architecture diagrams for both training and online detection components
+  - A machine learning model and corresponding anomaly detection algorithm capable of capturing causal relationships among device states, trained and tested using standard frameworks
+  - An online anomaly detection module integrated into the KubeEdge device state reporting workflow, enabling real-time analysis through a model inference hook
+- Recommended Skills: KubeEdge, IoT, Machine Learning
+- Mentor(s):
+  - Liwei Shen (@meixiezichuan, shenliwei@fudan.edu.cn)
+  - Elias Wang (@wbc6080, wangbincheng4@huawei.com)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/6312
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/1d432ec0-17cf-4092-9356-f69b1d5e140e
+
+#### Automatically generate unit tests and e2e tests based on LLM
+
+CNCF - KubeEdge: LLM-generated unit and e2e tests automation (2025 Term 2)
+
+- Description: Unit test and e2e test coverage is a critical metric for ensuring code quality and stability. However, many codebases suffer from low test coverage, which increases the risk of release quality, undetected bugs and regressions. We can leverage Large Language Models (LLMs) like DeepSeek to automatically generate unit tests/e2e tests for code with low coverage, then integrate this into CI/CD pipelines to submit Pull Requests (PRs) for people reviewing.
+- Expected Outcome:
+  - Research open-source tools compatible with LLM（DeepSeek) for automated unit test/e2e test generation
+  - Integrate the automated test generation tool into CI/CD
+  - Trigger the tool automatically based on code changes and submit a Pull Request (PR)
+- Recommended Skills: KubeEdge, LLM, Golang, DevOps
+- Mentor(s):
+  - Yue Li (@liyuerich, yue.li@daocloud.io)
+  - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/6318
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/c936cda3-d842-4286-a38a-7138d5b04f51
+
+#### Support KubeEdge EdgeNode Runing on RK3588 Chip
+
+CNCF - KubeEdge: Support RK3588 edge nodes (2025 Term 2)
+
+- Description: The RK3588 chip, developed by Rockchip, is widely used in edge computing devices due to its balanced computational power, rich interface options, and low power consumption. Supporting RK3588 edge devices is crucial for expanding the KubeEdge ecosystem. However, it has not yet been fully validated whether RK3588-based edge nodes can be seamlessly integrated with KubeEdge. This project aims to establish complete compatibility between RK3588 and KubeEdge.
+- Expected Outcome:
+  - Debug and Support KubeEdge EdgeNode running on RK3588 Chip.
+  - Successfully deploy edge pods on edge node based on RK3588.
+  - Achieve node management and metrics for nodes and pods.
+  - Complete hardware compatibility testing and output documentation or a blog.
+- Recommended Skills: KubeEdge, Hardware, Golang
+- Mentor(s):
+  - Hongbing Zhang (@HongbingZhang, hongbing.zhang@daocloud.io)
+  - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/6320
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/6ea6aa02-023f-492f-addd-28087e9810a3
+
+
+### Cilium
+
+#### Cilium Technical Outcomes
+
+CNCF - Cilium: Document technical outcomes on website (2025 Term 2)
+
+- Description: On the Cilium [homepage](https://cilium.io), we want to document technical outcomes from using Cilium. Think of these technical outcomes as aggregating some of cilium features to achieve a high level technical goal. These are the current ones we have in mind: Zero Trust Networking, Network Automation, Distributed Firewalling, Cost and Carbon Savings, Multi-cloud Connectivity.
+- Expected Outcome: A section of the Cilium website detailing these technical outcomes. This section on the website can include any supporting materials from the Cilium community i.e blogs, videos, talks, illustrations, etc.
+- Recommended Skills: Technical Writing, some basic working knowlegde of Cilium or the willingness to quickly ramp up, Kubernetes, general familiarity with the cloud native ecosystem, basic React.js(the cilium webiste is built with Gatsby).
+- Mentor(s):
+    - Bill Mulligan(xmulligan, <bill.mulligan@isovalent.com>)
+- Upstream Issue: <https://github.com/cilium/cilium.io/issues/492>
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8c677ed1-cec0-44b7-93aa-60f90ddb7949
