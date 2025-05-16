@@ -784,6 +784,7 @@ CNCF - Istio: Update documentation CMS build pipeline (2025 Term 2)
 - Mentor(s):
   - Craig Box (@craigbox, craig.box AT gee-mail)
 - Upstream Issue: https://github.com/istio/istio.io/issues/16491
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/3c42c0b6-cd32-42ca-b32e-1865f42a9f21
 
 ### Krkn
 
