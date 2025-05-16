@@ -56,6 +56,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   * [[PM Mentorship] Traceloop GTM Strategy and Execution](#pm-mentorship-traceloop-gtm-strategy-and-execution)
 * [Istio](#istio)
   * [Expand testing for Multi-Cluster in Ambient](#expand-testing-for-multi-cluster-in-ambient)
+  * [Update documentation CMS build pipeline](#update-documentation-cms-build-pipeline)
 * [Jaeger](#jaeger)
   * [Jaeger demo on Kubernetes](#jaeger-demo-on-kubernetes)
   * [Upgrade Jaeger-UI to React v19](#upgrade-jaeger-ui-to-react-v19)
@@ -763,6 +764,27 @@ expectedOutcome:
 - Upstream Issue: https://github.com/istio/istio/issues/56228
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/958b17bf-e4f2-42fc-a7f3-01d95c53ee73
 
+
+#### Update documentation CMS build pipeline
+
+CNCF - Istio: Update documentation CMS build pipeline (2025 Term 2)
+
+- Description: istio.io is a large application in and of itself: static content is available in three languages with multiple versions, and
+  a large testing infrastructure acts as the end-to-end testing for the Istio project, validating that the project works as
+  documented whenever an update is made to the docs or Istio itself.
+  
+  In this project, you will be mentored towards maintainership of the Istio documentation build pipeline, including completing
+  recently started work on multi-version availability and its integration with search engines, bringing the tooling for the
+  deployment pipeline up to date, and laying groundwork for large content changes as ambient mode moves towards the default.
+- Expected Outcome:
+  - Clean builds and publishes, with no lingering warnings or errors
+  - Updated documentation on contributing tests, such that a new user can easily contribute testable documentation
+  - Published process for users to see old versions of the docs, where we no longer publish them on istio.io
+- Recommended Skills: Integration, Systems engineering, scripting, programming (Bash/go), Hugo templating
+- Mentor(s):
+  - Craig Box (@craigbox, craig.box AT gee-mail)
+- Upstream Issue: https://github.com/istio/istio.io/issues/16491
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/3c42c0b6-cd32-42ca-b32e-1865f42a9f21
 
 ### Krkn
 
