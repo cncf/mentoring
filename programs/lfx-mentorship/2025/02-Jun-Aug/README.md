@@ -767,6 +767,8 @@ expectedOutcome:
 
 #### Update documentation CMS build pipeline
 
+CNCF - Istio: Update documentation CMS build pipeline (2025 Term 2)
+
 - Description: istio.io is a large application in and of itself: static content is available in three languages with multiple versions, and
   a large testing infrastructure acts as the end-to-end testing for the Istio project, validating that the project works as
   documented whenever an update is made to the docs or Istio itself.
