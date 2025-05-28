@@ -493,6 +493,86 @@ This project aims to investigate and implement ideas for improving KubeStellar C
 
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a56d987c-f754-4e2f-b159-2ea578ca5e56
 
+### Meshery
+
+#### Model relationships for Azure services
+
+CNCF - Meshery: Model relationships for Azure services (2025 Term 2)
+
+Meshery Models are declarative representations of infrastructure and applications. Within these models, Relationships define how different Components (e.g., Kubernetes resources, Cloud services) interact and depend on each other. These relationships are crucial for visualizing, understanding, and managing complex cloud native systems.
+
+This internship focuses on significantly expanding the breadth and depth of Meshery Relationships across a wide array of technologies supported by Meshery. As Meshery continues to integrate with more cloud-native technologies (Kubernetes, public clouds, and all CNCF projects), there's a growing need to accurately model the intricate relationships between their components - vital for providing users with comprehensive insights and control over their deployments.
+
+- Recommended Skills: DevOps, systems administration, solutions architecture. Experience with Kubernetes, Azure and its services.
+- Responsibilities:
+  - Research and Analyze Technologies: Dive deep into various cloud-native technologies (e.g., different compute services, databases, messaging systems, network services, etc.) to understand their components and how they interconnect.
+  - Develop Relationship Definitions: Create and contribute relationship definitions, typically in JSON or YAML format, to the Meshery models. 
+  - Model Inter-Technology Interactions: Focus particularly on defining relationships between components from different technologies (e.g., how a Kubernetes deployment relates to an AWS RDS instance, or how a Linkerd service interacts with a Prometheus monitoring component).
+  - Document New Relationships: Clearly document the newly defined relationships, their purpose, and how they are represented within Meshery designs, contributing to the official Meshery documentation.
+- Expected Outcome:
+  - A multitude of new relationships defined both intra and inter Azure services.
+  - Policy Contribution: For advanced interns, there may be opportunities to contribute to the Rego policies that evaluate and enforce these relationships.
+- Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Sangram Rath (@sangramrath, sangram.rath@gmail.com, Mia Grenell (@miacycle, mia.grenell2337@gmail.com))
+- Issue: https://github.com/meshery/meshery/issues/14793
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8a048110-059d-4928-bd94-00fd5f5e500d
+
+#### Model relationships for AWS services
+
+CNCF - Meshery: Model relationships for AWS services (2025 Term 2)
+
+- Description:
+Meshery Models are declarative representations of infrastructure and applications. Within these models, Relationships define how different Components (e.g., Kubernetes resources, Cloud services) interact and depend on each other. These relationships are crucial for visualizing, understanding, and managing complex cloud native systems.
+
+This internship focuses on significantly expanding the breadth and depth of Meshery Relationships across a wide array of technologies supported by Meshery. As Meshery continues to integrate with more cloud-native technologies (Kubernetes, public clouds, and all CNCF projects), there's a growing need to accurately model the intricate relationships between their components - vital for providing users with comprehensive insights and control over their deployments.
+
+- Recommended Skills: DevOps, systems administration, solutions architecture. Experience with Kubernetes, AWS and its services.
+- Responsibilities:
+  - Research and Analyze Technologies: Dive deep into various cloud-native technologies (e.g., different compute services, databases, messaging systems, network services, etc.) to understand their components and how they interconnect.
+  - Develop Relationship Definitions: Create and contribute relationship definitions, typically in JSON or YAML format, to the Meshery models. 
+  - Model Inter-Technology Interactions: Focus particularly on defining relationships between components from different technologies (e.g., how a Kubernetes deployment relates to an AWS RDS instance, or how a Linkerd service interacts with a Prometheus monitoring component).
+  - Document New Relationships: Clearly document the newly defined relationships, their purpose, and how they are represented within Meshery designs, contributing to the official Meshery documentation.
+- Expected Outcome:
+  - A multitude of new relationships defined both intra and inter AWS services.
+  - Policy Contribution: For advanced interns, there may be opportunities to contribute to the Rego policies that evaluate and enforce these relationships.
+- Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Sangram Rath (@sangramrath, sangram.rath@gmail.com, Mia Grenell (@miacycle, mia.grenell2337@gmail.com)
+- Issue: https://github.com/meshery/meshery/issues/14794
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/d548f403-0d7f-4ca5-88f1-393ae592a05a
+
+#### Meshery Model Support for kro ResourceGraphDefinitions (RGDs)
+
+CNCF - Meshery: Model support for kro ResourceGraphDefinitions (2025 Term 2)
+
+- Description: Enhance Meshery's existing orchestration capabilities to include support for kro ResourceGraphDefinitions (RGDs) as first-class Meshery Models. This involves enabling Meshery to manage and orchestrate RGDs, similar to how it handles other Kubernetes resources. The project will also include generating support for ResourceGraphDefinition in Meshery's Model generator.
+- Expected Outcome:
+  - Meshery will be able to orchestrate and manage kro RGDs. This includes the ability to deploy, configure, and manage the lifecycle of RGDs through Meshery. The Meshery Model generator will be updated to automatically generate models for kro RGDs, simplifying their integration and management within Meshery. This will be an officially supported feature of Meshery.
+- Recommended Skills: Golang, well-written and well-spoken English, Kubernetes, DevOps
+- Mentors: Lee Calcote (@leecalcote, leecalcote@gmail.com), Aabid Sofi (@aabidsofi19, mailtoaabid01@gmail.com)
+- Issue: https://github.com/meshery/meshery/issues/13520
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/b993ee7d-6b52-47e8-a651-e1c6c91e5d2b
+
+#### Workflow Engine in Meshery
+
+CNCF - Meshery: Workflow engine integration (2025 Term 2)
+
+- Description: Integrate a new architectural component into Meshery: a workflow engine, using Temporal. This project involves shifting Meshery off of sqlite over to postgres using gorm (golang). Interns will familiarize with concepts of orchestration engines, including chaining workflows, and content lifecycle management.
+- Recommended Skills: Golang, Temporal, ReactJS
+- Mentor(s): Lee Calcote (@leecalcote, leecalcote@gmail.com), Rian Cteulp (@ritzorama, rian.cteulp@gmail.com)
+- Issue: https://github.com/meshery/meshery/issues/14795
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/6244b48c-1fc6-4b1c-b965-7df7e117b06d
+
+#### Solutions Architecture of Popular Cloud Native Deployments
+
+CNCF - Meshery: Solutions architecture for cloud-native deployments (2025 Term 2)
+
+- Description: Learning paths with hands-on labs are a crucial resource for DevOps engineers and cloud-native practitioners. The Meshery Playground provides a live cluster environment, making it an ideal platform for learning every kind of cloud and cloud native technology. Meshery Docs is in need of comprehensive tutorials and scenarios covering common infrastructure management use cases. Mission is to create and publish a series of hands-on tutorials using Meshery Playground. Each tutorial will include step-by-step guides, live demonstrations, and interactive labs using the Playground allowing learners to apply their knowledge directly without the hassle of any configuration.These tutorials will be reviewed by various project maintainers and then published in guides/tutorials.
+- Expected Outcome:
+  - 10+ new solution architectures (designs) published in Meshery Catalog
+  - Each design is ideally adjoined with an interactive tutorial (using Meshery Playground), guiding users through infrastructure.
+  - Tutorials should vary in complexity, catering to beginners and advanced learners.
+- Recommended Skills: written English, Markdown, Kubernetes, DevOps, and hands-on experience with cloud-native tools
+- Mentor(s): Sangram Rath (@sangramrath, sangram.rath@gmail.com), Lee Calcote (@leecalcote, leecalcote@gmail.com)
+- Issue: https://github.com/meshery/meshery/issues/14796
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/b1fcdcd9-0066-4a9a-a879-7d5624b02727
 
 ### OpenKruise
 
