@@ -2,6 +2,7 @@
 
 - [LFX](#lfx)
   - [2025](#2025)
+    - [Term 2: Jun-Aug](#2025-term-2-june---august)
     - [Term 1: Mar-May](#2025-term-1-march---may)
   - [2024](#2024)
     - [Term 3: Sept-Nov](#2024-term-3-september---november)
@@ -20,9 +21,78 @@
 
 #### 2025
 
+##### 2024 Term 2: June - August
+
+[Planning](lfx-mentorship/2025/02-Jun-Aug/README.md)
+
 ##### 2025 Term 1: March - May
 
-[Planning](lfx-mentorship/2025/01-Mar-May/README.md)
+| Project | Mentors | Mentee |
+| --- | --- | --- |
+| [CNCF - Antrea: Support L4 protocol filters in PacketCapture API (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/c1b6fda9-e2e6-41e1-8495-68abe9e980ca) | Antonin Bas, Hang Yan | Aryan Bakliwal |
+| [CNCF - Envoy Gateway: Enhancing Envoy Gateway Documentation Using CNCF Tech Docs Analysis Framework (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/2b752e3d-d55b-40de-a702-13b88aff974a) | Erica Hughberg, Arko Dasgupta | Melissa Salazar |
+| [CNCF - Envoy Gateway: Integrating CNCF Fuzzing Framework for Envoy Gateway (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/44020e81-1218-49aa-95e0-ee3e03998eb3) | Arko Dasgupta, Teju Nareddy | Sudipto Baral |
+| [CNCF - Harbor: Harbor CLI (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/769b7e87-f2f5-4532-b247-392b1897ea50) | Vadim Bauer, Orlin Vasilev, Prasanth Baskar | Rizul Gupta |
+| [CNCF - Harbor: Harbor Satellite (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/ff3431c0-3cb1-4c07-bd10-21a8e495c897) | Vadim Bauer, Orlin Vasilev, Prasanth Baskar | Viswanath sai |
+| [CNCF - Headlamp: Build Plugin Installation Container (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/992fc67e-ff9e-41fd-8062-28ec8733903f) | Kautilya Tripathi, Santhosh Nagaraj, Rene Dudfield | Faakhir Zahid |
+| [CNCF - Headlamp: Instrument with OpenTelemetry (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/d961bfc7-00e1-4c05-bf1a-f9c7ddf1756a) | Rene Dudfield, Kautilya Tripathi, Santhosh Nagaraj | Dhairya Amrish |
+| [CNCF - Headlamp: Make a Headlamp plugin for KEDA (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/ceebb991-978f-4782-8435-195637f433aa) | Santhosh Nagaraj, Rene Dudfield, Kautilya Tripathi | Adwait Godbole |
+| [CNCF - Inspektor Gadget: Building gadgets with Rust (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/42dd5a60-47f9-4f7c-b895-49ce6c81a59a) | Mauricio Vasquez Bernal, Francis Laniel | Daksh Kaushik |
+| [CNCF - Inspektor Gadget: Implementing unit tests (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/d3a1a899-1ca0-4e10-a402-01ef6fde26f2) | Burak Ok, Qasim Sarfraz | Shaheer Ahmad |
+| [CNCF - Inspektor Gadget: Inspekting and analysing gadgets (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/a6d66c40-3d12-4fa4-88bf-18574f6b4ec0) | Alban Crequy, Jose Blanquicet | Kapil Sareen |
+| [CNCF - Istio: Implement new site search (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/a8165dc1-fb52-40ca-bd1f-862a5176df98) | Craig Box | Adesh Ghadage |
+| [CNCF - Istio: Improve documentation build infrastructure (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/2fe99eb2-abc3-454f-b80a-ffd336fa2788) | Craig Box | Sam Begin |
+| [CNCF - Istio: Support TLS for Istio metrics endpoints (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/9b1a1e87-2757-4f4f-aa58-49d55fc07b16) | Faseela K, Benjamin Leggett, Jianpeng He, Ian Rudie | Harsh Pratap Singh |
+| [CNCF - Jaeger: Upgrade charts and graphs in Jaeger UI (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/48ebfb59-eab7-4d22-8373-30a0bbfb12f7) | Yuri Shkuro, Jonah Kowall | Hariom Gupta |
+| [CNCF - Jaeger: Upgrade Storage Backends to V2 Storage API (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/5ce2b62c-94a9-44e9-95bc-b83a13c0a0e6) | Yuri Shkuro, Mahad Zaryab | MANIK MEHTA |
+| [CNCF - Karmada: Implement multi-cluster management in the Karmada dashboard (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/4fb84d25-bcc0-4190-a233-760ef0b22797) | Wenjiang Ding, Zhen Chang | Sayem Khan |
+| [CNCF - Karmada: Karmada Self-Signed Certificate Content Standardization (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/8d2d522f-8838-4baa-9be4-d13dab30289b) | Chaosi Pan, Zhen Chang | fu zhaoyi |
+| [CNCF - KCL: KPM & LSP Integrated (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/012a9fb4-286b-4a76-ad7a-2de644427109) | Heipa, Zhe Zong | Siddhi Agrawal |
+| [CNCF - Kmesh: Kmesh eBPF unit test (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/58b458ba-6be0-4dd9-b194-bfe6f98d2a2c) | Xin Liu, Changye Wu | Zhenxiong Tian |
+| [CNCF - Kmesh: Metrics for TCP Long Connection (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/c5dadaed-445e-4a74-825b-3e2f1a8b2be1) | Changye wu, ZhenCheng Li | YASH PATEL |
+| [CNCF - Kmesh: Re-design and implement the Kmesh website (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/6269bdd1-1004-465c-bbdc-6a230988c899) | ZhenCheng Li, Zhonghu Xu | jayesh savaliya |
+| [CNCF - Knative: Design and Implement Levels for Educational Game (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/58392ddd-4d5a-491e-9b09-6035aa4c907e) | Calum Murray, Zainab Husain, Angelina Zhai | Ankita Jana |
+| [CNCF - KubeArmor: Providing Zero-Trust policies for popular workloads (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/5f7ef24a-a57b-477d-940f-9989f1bec481) | Rishabh Soni, Prateek Nandle, Barun Acharya | Daksh Jain |
+| [CNCF - KubeEdge: Community Website Comprehensive Upgrade Project: Homepage Renewal and Expansion of Core Pages (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/576c6710-942b-41cc-9e51-113c1957fc02) | Hongbing Zhang, Shelley Bao | qin su |
+| [CNCF - KubeEdge: Domain-specific large model benchmarks: the edge perspective (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/e3fc44d9-9ddd-42e6-a9be-8f6c2a114672) | Zimu Zheng, hsj576 | Mengzhuo Chen |
+| [CNCF - KubeEdge: Enhance Dependency Management and Documentation for KubeEdge-Ianvs (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/8961c0b4-0e34-43be-9022-384a4847f5d3) | FuryMartin, hsj576 | Aryan Nanda |
+| [CNCF - KubeEdge: Enhance KubeEdge testing coverage (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/a85be883-5139-4e69-8859-6662f7ffd71d) | Elias Wang, Fisher Xu | Dhiren Mhatre |
+| [CNCF - KubeEdge: KubeEdge Dashboard Enhancement - BFF (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/16217666-64ec-45e7-842b-9df5ceb07382) | Chen Su, Elias Wang | chuanhao jin |
+| [CNCF - KubeStellar: Implement a WDS Backend to Support UI Frontend Operations (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/885239e6-6a95-410f-9aae-00fd8b4c5f09) | Andy Anderson, Braulio Dumba | Rahul Vishwakarma |
+| [CNCF - KubeStellar: Implement a WDS Frontend Supported by WDS Backend (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/e549191d-6880-4a98-8fd2-ec5fc47ecc92) | Andy Anderson, Braulio Dumba | Onkar Shelke |
+| [CNCF - KubeStellar: Implement an ITS Frontend Supported by ITS Backend Endpoints (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/b3805d32-03c4-4d5f-b56e-613ac24629c1) | Andy Anderson, Braulio Dumba | Rishi Mondal |
+| [CNCF - KubeStellar: Implement Binding Policy Backend to Support UI Frontend (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/d9f46954-3b56-4e42-b83c-dd3dee2b8b6d) | Andy Anderson, Braulio Dumba | Ashish Kumar |
+| [CNCF - KubeStellar: Implement Binding Policy Frontend with Backend Endpoints (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/8bbb76e3-07e5-404d-9335-28cc0d8ecf0c) | Andy Anderson, Braulio Dumba | Kunal Dugar |
+| [CNCF - Kyverno: Chainsaw Tests For New Policy Types (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/d9683d35-0ad4-4c32-b32d-f058d37cf94f) | Charles-Edouard Brétéché | Arnab Nandi |
+| [CNCF - Kyverno: Mutating Admission Policy Integration (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/1db4df12-49f2-467e-93c2-1625e462eb20) | Mariam Fahmy, Shuting Zhao | Kushal Agrawal |
+| [CNCF - Kyverno: Sample Policies For New Policy Types (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/59295005-33de-4665-82b5-d315d108da31) | Jim Bugwadia | Mohd Kamaal |
+| [CNCF - LitmusChaos: CI/CD Integration, SDK Development & Chaos-CI-Lib Revamp (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/445a6158-3ba7-429e-b0e1-f7417ff9a724) | Shubham Chaudhary, Vedant Shrotria | Akash Singh |
+| [CNCF - LitmusChaos: Expand Tutorials – Day 0, Day 1 & Day 2 User Flows (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/e10bdb01-ef2b-41c5-9a84-6891ecaf6364) | Sayan Mondal, Smriti Satyanarayana | Sindhu Sundar |
+| [CNCF - LitmusChaos: Improve code coverage for observability in LitmusChaos components (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/55d8f0a4-86d5-4a90-890b-e8750a27dc60) | Namkyu Park, Adarsh Kumar | Suhyen Im |
+| [CNCF - Meshery: Expanding end-to-end test coverage in Meshery using Playwright (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/abd10fed-e03f-4425-863e-157accfe354f) | Lee Calcote, Aabid Sofi | Ali Mohd |
+| [CNCF - Meshery: Hands-on tutorials using Meshery Playground (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/4cca92b8-ede6-4396-8d3f-68cfa2ec911c) | Lee Calcote, James Horti | Sumit Narayan |
+| [CNCF - Meshery: Meshery Model Support for kro ResourceGraphDefinitions (RGDs) (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/2ce4cf0b-05e0-430a-b9e1-3df46d917ef6) | Lee Calcote, Mia Grenell | Amit Amrutya |
+| [CNCF - Microcks: Community-Driven Docs for Deploying Microcks in Cloud Production (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/1b766ba2-3de6-4eb4-8e0d-f79105b000b0) | Yacine Kheddache, Laurent Broudoux | Md Khurshid Alam |
+| [CNCF - Microcks: Expand Microcks Hub Sandbox & Mocking for Key Industry APIs (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/04da9d38-b9f8-435f-9200-8359f55ccf92) | Yacine Kheddache, Laurent Broudoux | Vicky Besra |
+| [CNCF - Microcks: Expanding Microcks community documentation for advanced installations (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/6b4c516d-fc01-4ab3-8147-13273fcde76b) | Yacine Kheddache, Laurent Broudoux | Krishi Agrawal |
+| [CNCF - Microcks: Improve delivery & validation with GitHub Actions CI deployment tests (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/0c667baa-94bf-405c-ada6-c2bea3bf3e56) | Yacine Kheddache, Laurent Broudoux | Meet Soni |
+| [CNCF - Microcks: Improving Microcks CLI (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/7ceac2ef-6290-4e2a-87aa-db93d909b27b) | Yacine Kheddache, Laurent Broudoux | Harshvardhan Parmar |
+| [CNCF - Microcks: Streamlining Microcks Deployment on AWS Marketplace (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/51c0d803-95ea-48c1-b966-5946b8599662) | Yacine Kheddache, Laurent Broudoux | Vaishnav Kale |
+| [CNCF - Microcks: Update the Microcks Hub frontend and make it deployable on-premises (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/faccb875-1d96-44f5-aef7-95c53403d636) | Yacine Kheddache, Laurent Broudoux | Mohd Aquib |
+| [CNCF - OpenKruise: Implement Fuzz testing for OpenKruise (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/82bfa5b9-67a9-41ce-ba8b-f027cda4521e) | Zhang Zhen, Zhao Mingshan | Jun Kana, 淳 叶 |
+| [CNCF - Prometheus: Get PrometheusRemoteWriteReceiver in OTel-Collector to Alpha Maturity (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/47603a7d-4dc7-48f0-968f-21c2f18f4e3c) | Arthur Sens | Jonathan Silva |
+| [CNCF - Prometheus: UX Research: How users expect to use OTLP Resource Attributes in Prometheus (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/36e3f336-ce78-4074-b833-012015eb59be) | Arthur Sens, Amy Super, Andrej Kiripolsky | Victoria Nduka |
+| [CNCF - Thanos: Add support for new PromQL aggregations (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/d58c0d26-e276-4ca5-b2ca-21e6582fbcf7) | Giedrius Statkevičius, Saswata Mukherjee | Saumya Shah |
+| [CNCF - TUF: Metadata Repository Visualization (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/ea1a5098-29ce-4799-82e0-07416ab4b56a) | Lukas Pühringer, Jussi Kukkonen | Desh Deepak Kant |
+| [CNCF - Vitess: Develop an FAQ Chatbot for Vitess using Retrieval-Augmented Generation (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/077e714c-63ad-477d-8124-e879a7ea8fe2) | Rohit Nayak, Manan Gupta | Sakshi Kumar |
+| [CNCF - Vitess: Enhance flag support across Vitess Components (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/2bb1bdc0-3fd7-4537-b44f-9afde27ed9fe) | Deepthi Sigireddi, Rohit Nayak | Mounica Sruthi |
+| [CNCF - Volcano: Coordinate descheduler and Volcano to support resource defragmentation (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/607246c3-f48b-446c-a7cc-10c0068c553f) | Xuzheng Chang, Zicong Chen | Yichen Jiang |
+| [CNCF - Volcano: Volcano dashboard feature enhancements (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/438c1fec-d3d3-4ab0-82ce-499993f8b681) | Xuzheng Chang, Zicong Chen | Shruti Murthy |
+| [CNCF - Volcano: Volcano supports queue-level scheduling policies (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/a785c059-fb70-41aa-88a2-62692ab2ca98) | Xuzheng Chang, Zicong Chen | Yuqi Wu |
+| [CNCF - WasmEdge: Create a Japanese translation agent for CNCF videos (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/5ba528fe-9704-4e11-b46d-607a5ad1e838) | Michael Yuan, Miley Fu, Vivian Hu | Ai Nozaki |
+| [CNCF - WasmEdge: Implement a new WasmEdge installer in Rust (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/79119ceb-7c52-4b9f-b1f2-694b9d1117e3) | Hung-Ying Tai | Li-Lun Lin |
+| [CNCF - WasmEdge: Implement component model's validator (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/97f77900-7f5c-45e4-9b0c-638c2db6a8e4) | Lîm Tsú-thuàn | Sridhar Sivakumar |
+| [CNCF - WasmEdge: Improve the WasmEdge-based Rust coding assistant for inference-time scaling (2025 Term 1)](https://mentorship.lfx.linuxfoundation.org/project/626ca1e4-9869-4401-8e45-68041ebc98cf) | Michael Yuan | Arnav Raj |
 
 #### 2024
 
