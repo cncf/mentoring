@@ -1542,5 +1542,5 @@ CNCF - kube-burner: Enhancements around k8s performance testing (2025 Term 2)
   -  Vishnu Challa (@vishnuchalla, vchalla@redhat.com) 
   -  Raul Sevilla (@rsevilla87, rsevilla@redhat.com)
 - Upstream Issues: https://github.com/kube-burner/kube-burner/issues 
-- LFX URL: 
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/fa247b88-8f80-4b1e-97b3-903ae3ea2be5
 
