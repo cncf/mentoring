@@ -1,7 +1,6 @@
 ## Template
 
 ```
-
 ### CNCF Project Name
 
 #### Mentorship project Title
@@ -18,5 +17,3 @@
 ---
 
 ## Proposed Project ideas
-
-

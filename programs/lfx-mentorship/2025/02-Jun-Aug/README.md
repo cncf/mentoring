@@ -65,6 +65,8 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   * [OpenTelemetry is an AI Gateway’s Best Friend: Extending Observability to kgateway’s AI Extensions](#opentelemetry-is-an-ai-gateways-best-friend-extending-observability-to-kgateways-ai-extensions)
 * [Krkn](#krkn)
   * [Chaos scenario rollback feature](#chaos-scenario-rollback-feature)
+* [kube-burner](#kube-burner)
+  * [Enhancements around k8s performance testing](#enhancements-around-k8s-performance-testing) 
 * [KubeEdge](#kubeedge)
   * [Automatically generate unit tests and e2e tests based on LLM](#automatically-generate-unit-tests-and-e2e-tests-based-on-llm)
   * [Device Anomaly Detection Framework Based on KubeEdge](#device-anomaly-detection-framework-based-on-kubeedge)
@@ -1521,3 +1523,24 @@ CNCF - Cilium: Document technical outcomes on website (2025 Term 2)
     - Bill Mulligan(xmulligan, <bill.mulligan@isovalent.com>)
 - Upstream Issue: <https://github.com/cilium/cilium.io/issues/492>
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8c677ed1-cec0-44b7-93aa-60f90ddb7949
+
+### kube-burner
+
+#### Enhancements around k8s performance testing
+
+CNCF - kube-burner: Enhancements around k8s performance testing (2025 Term 2)
+
+- Description:
+  We intend to get some help around open issues in the repository and also come up with new use cases and scenarios for performance testing any kubernetes distribution. We love new perspectives and are always open to new ideas alongside what we have as tracked work in github issues.
+- Expected Outcome:
+  The knock down some of open critical issues and bring in new perspective to the project.
+- Recommended Skills:
+  - Golang
+  - Kubernetes
+  - Cloud Platforms
+- Mentor(s):
+  -  Vishnu Challa (@vishnuchalla, vchalla@redhat.com) 
+  -  Raul Sevilla (@rsevilla87, rsevilla@redhat.com)
+- Upstream Issues: https://github.com/kube-burner/kube-burner/issues 
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/fa247b88-8f80-4b1e-97b3-903ae3ea2be5
+
