@@ -1299,6 +1299,7 @@ Recommended Skills: UX design, UI design, user research, Figma or similar tools
 Mentor(s):
 - Joaquim Rocha (@joaquimrocha, joaquimm@microsoft.com)
 - Ivelisse Capellan Heyer (@ivelisseca, ivelisseca@microsoft.com)
+- Grant Florence (@Gflo3, gflorence@microsoft.com)
 
 Upstream Issue: https://github.com/kubernetes-sigs/headlamp/issues/3233
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/4d736149-aa95-4f31-b01c-a54c754614d0
