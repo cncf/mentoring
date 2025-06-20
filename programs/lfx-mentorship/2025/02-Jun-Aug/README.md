@@ -436,6 +436,7 @@ This project focuses on creating a comprehensive plugin marketplace UI for KubeS
 - Mentor
   - Rishi Mondal (@MAVRICK-1 , mavrickrishi@gmail.com)
   - Andy Anderson (@clubanderson , andy@clubanderson.com)
+  - Onkar Shelke (@onkar717, onkarwork2234@gmail.com)
 
 - Upstream Issue: [https://github.com/kubestellar/ui/issues/615](https://github.com/kubestellar/ui/issues/615)
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a23f93b7-e384-4515-a165-c01e4ecd00ad
