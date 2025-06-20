@@ -81,6 +81,10 @@ The stipend guides and amounts are listed [here](https://docs.linuxfoundation.or
 
 Mentors are responsible for selecting and matching mentees to their projects.
 
+* Mentees must be chosen based on who is the best fit for the project. In addition to technical skills and qualifications, the person's ability to work well with others is a valid factor. Only if two candidates are equally qualified may a mentor use diversity-related considerations as a tie-breaker.
+
+* A mentor must not participate in selection of the mentee for a particular mentorship if there is a conflict of interest. A conflict of interest exists if a family member, member of the same household, close personal friend, or romantic partner has applied for the mentorship, or if there is any other reason why the mentor could not be deemed impartial in the selection process.
+
 Mentee candidates are required to provide cover letters (Statement of Purpose) while applying, so mentors may review them. In addition, mentors may also interview the candidates to understand their level of qualification before making the final decision.
 
 If you are a mentee, please note that you'll be asked to provide the Statement of Purpose letter after the mentor's selection. Please be patient.
