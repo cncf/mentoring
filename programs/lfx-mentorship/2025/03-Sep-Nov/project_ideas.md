@@ -45,4 +45,4 @@ Recommended Skills: Kubernetes, Cloud, Security, Monitoring
 Mentor(s):
 Jonah Kowall (@jkowall, jkowall@kowall.net)
 Yuri Shkuro (@yurishkuro, github@ysh.us)
-Upstream Issue: jaegertracing/jaeger#7115
+Upstream Issue: https://github.com/jaegertracing/jaeger/issues/7115
