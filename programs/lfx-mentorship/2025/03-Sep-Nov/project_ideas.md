@@ -28,3 +28,18 @@
 - Mentor(s):
   - Bill Mulligan (@xmulligan, bill@isovalent.com)
 - Upstream Issue: https://github.com/cilium/cilium.io/issues/633
+
+### KubeStellar
+
+#### Developer Relations & Community Growth for KubeStellar UI
+
+- Description: This Developer Relations project aims to accelerate KubeStellar UI adoption by building a vibrant community around this multi-cluster Kubernetes management interface. The mentee will establish KubeStellar's online presence across key platforms, create technical content showcasing multi-cluster management capabilities, produce regular demo livestreams, improve documentation for contributors, implement community feedback mechanisms, and represent the project at CNCF events.
+- Expected Outcome: Established social media presence for KubeStellar, daily technical blog series, weekly/bi-weekly livestream demos, improved contributor documentation, active GitHub Discussions, community feedback system with analytics, and at least one CNCF talk submission.
+- Recommended Skills: Technical writing for developer content, video production and demo skills, Kubernetes and multi-cluster management knowledge, community management experience, social media strategy, basic web analytics, public speaking, familiarity with open-source workflows
+- Mentor(s):
+  - Onkar Shelke (@onkar717, onkarwork2234@gmail.com)
+  - Andy Anderson (@clubanderson, andrew.anderson@ibm.com)
+  - Rishi Mondal (@MAVRICK-1, mavrickrishi@gmail.com)
+  - Aayush Saini (@AayushSaini101, kumaraayush9810@gmail.com)
+- Upstream Issue: https://github.com/kubestellar/ui/issues/1403
+- Paid intern positions: 1, unpaid intern positions: 2
