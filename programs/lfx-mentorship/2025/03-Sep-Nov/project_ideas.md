@@ -42,3 +42,4 @@
   - Rishi Mondal (@MAVRICK-1, mavrickrishi@gmail.com)
   - Aayush Saini (@AayushSaini101, kumaraayush9810@gmail.com)
 - Upstream Issue: https://github.com/kubestellar/ui/issues/1403
+- Paid intern positions: 1, unpaid intern positions: 2
