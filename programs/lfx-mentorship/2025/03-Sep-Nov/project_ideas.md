@@ -28,3 +28,18 @@
 - Mentor(s):
   - Bill Mulligan (@xmulligan, bill@isovalent.com)
 - Upstream Issue: https://github.com/cilium/cilium.io/issues/633
+
+### KubeStellar
+
+#### Model Context Protocol and A2A Communication Framework for KubeStellar
+
+- Description: This project focuses on implementing an enhanced Model Context Protocol (MCP) and AI-to-AI (A2A) communication framework for KubeStellar's Management Control Plane server. It builds upon the foundation MCP implementation to include advanced A2A coordination capabilities, distributed AI agent communication, and sophisticated context management for multi-cluster environments.
+- Expected Outcome: A fully specified Model Context Protocol with A2A communication extensions, implementation of protocol handlers in Python for the MCP server, A2A communication framework enabling AI agent coordination, context management system for KubeStellar state information, serialization mechanisms for cluster state, protocol extension mechanisms for different AI providers, performance optimizations, and comprehensive test suite.
+- Recommended Skills: Knowledge of KubeStellar's component architecture, protocol design and implementation experience, strong TypeScript or Python skills, familiarity with AI model interaction patterns, understanding of KubeStellar's object model, experience with serialization formats and data structures, distributed systems state management, and AI-to-AI communication patterns.
+- Mentor(s):
+  - Rishi Mondal (@MAVRICK-1, mavrickrishi@gmail.com)
+  - Andy Anderson (@clubanderson, andy@clubanderson.com)
+  - Onkar Shelke (@onkar717, onkarwork2234@gmail.com)
+  - Shivam (@btwshivam, shivam200446@gmail.com)
+- Upstream Issue: https://github.com/kubestellar/ui/issues/1481
+- Paid intern positions: 1, unpaid intern positions: 3
