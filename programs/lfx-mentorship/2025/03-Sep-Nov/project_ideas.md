@@ -44,7 +44,7 @@
 - Upstream Issue: https://github.com/kubestellar/ui/issues/1403
 - Paid intern positions: 1, unpaid intern positions: 2
 
-#### Model Context Protocol and AI-to-AI Communication Framework for KubeStellar
+#### Model Context Protocol and A2A Communication Framework for KubeStellar
 
 - Description: This project focuses on implementing an enhanced Model Context Protocol (MCP) and AI-to-AI (A2A) communication framework for KubeStellar's Management Control Plane server. It builds upon the foundation MCP implementation to include advanced A2A coordination capabilities, distributed AI agent communication, and sophisticated context management for multi-cluster environments.
 - Expected Outcome: A fully specified Model Context Protocol with A2A communication extensions, implementation of protocol handlers in Python for the MCP server, A2A communication framework enabling AI agent coordination, context management system for KubeStellar state information, serialization mechanisms for cluster state, protocol extension mechanisms for different AI providers, performance optimizations, and comprehensive test suite.
