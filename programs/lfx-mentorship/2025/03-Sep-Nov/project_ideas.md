@@ -46,3 +46,15 @@ Mentor(s):
 Jonah Kowall (@jkowall, jkowall@kowall.net)
 Yuri Shkuro (@yurishkuro, github@ysh.us)
 Upstream Issue: https://github.com/jaegertracing/jaeger/issues/7327
+
+### OpenCost
+
+#### Develop MCP Server for Agentic AI interaction with OpenCost
+
+- Description: We would like OpenCost to more effectively integrate with AI agents. To do this, we need to implement a Model Context Protocol (MCP) server to surface the information from the OpenCost API. This is a great opportunity to learn about MCP servers, and help us build an interface for AI agents to obtain reliable cost/usage information so that they can accomplish their business goals. 
+- Expected Outcome: We would like an MCP server integrated into OpenCost. This MCP server should support queries on allocations, assets, and cloud costs. The MCP server should support the full range of allocations, assets, and cloud cost query parameters. A demo video should be recorded showing an interaction with the MCP server, and used to obtain costing information in a conversational setting. In addition, integration tests must be created in the OpenCost Integration Tests repo that test all interactions with the MCP server
+- Recommended Skills: Golang, MCP, Comfort with OpenCost, Cost/Usage reporting, AI agent interfacing and usage, documentation writing
+- Mentors 
+  - Alex Meijer (@ameijer, alexander.meijer@ibm.com)
+  - Matt Bolt (@Mbolt35, matthew.bolt@ibm.com)
+- Upstream Issue: https://github.com/opencost/opencost/issues/3239
