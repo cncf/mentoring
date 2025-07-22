@@ -54,5 +54,5 @@
   - Andy Anderson (@clubanderson, andy@clubanderson.com)
   - Onkar Shelke (@onkar717, onkarwork2234@gmail.com)
   - Shivam (@btwshivam, shivam200446@gmail.com)
-- Upstream Issue: https://github.com/kubestellar/kubestellar/issues/3000
+- Upstream Issue: https://github.com/kubestellar/ui/issues/1481
 - Paid intern positions: 1, unpaid intern positions: 3
