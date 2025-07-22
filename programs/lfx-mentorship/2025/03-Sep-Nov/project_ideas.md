@@ -58,3 +58,13 @@ Upstream Issue: https://github.com/jaegertracing/jaeger/issues/7327
   - Alex Meijer (@ameijer, alexander.meijer@ibm.com)
   - Matt Bolt (@Mbolt35, matthew.bolt@ibm.com)
 - Upstream Issue: https://github.com/opencost/opencost/issues/3239
+
+####  OpenCost Data Model 2.0
+
+- Description: OpenCost's data model is now 6 years old, and we have learned a great deal long the way. Based on these learnings, we would like to revamp how OpenCost represents its cost and usage data across the stack. We want to set OpenCost up for the next set of features and scale by building a solid foundation for the way we represent data. 
+- Expected Outcome: We would make the UID of Kubernetes objects into a first class citizen. These UID based objects would then be grouped in a similar hierarchy to the way Kubernetes itself is organized. A successful conclusion of this project would see an additional emitter implemented in OpenCost, that emits data objects stored in compressed protobuf which reflect a hierarchy of Kubernetes objects. The mentors will help establish this hierarchy. This hierarchy should then be tested via integration tests against the existing objects, and key metrics compared to be equal across those. 
+- Recommended Skills: Golang, Object Oriented Design, Comfort with OpenCost, Cost/Usage reporting, Protobuf, Compression, Prometheus, documentation writing
+- Mentors 
+  - Alex Meijer (@ameijer, alexander.meijer@ibm.com)
+  - Sean Holcomb (@Sean-Holcomb, sean.holcomb@ibm.com)
+- Upstream Issue: https://github.com/opencost/opencost/issues/3240
