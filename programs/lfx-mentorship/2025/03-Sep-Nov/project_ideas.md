@@ -111,3 +111,32 @@ Upstream Issue: https://github.com/jaegertracing/jaeger/issues/7327
   - Onkar Shelke (@onkar717, onkarwork2234@gmail.com)
 - Upstream Issue: 
   [https://github.com/kubestellar/ui/issues/1334](https://github.com/kubestellar/ui/issues/1334)
+
+#### KubeStellar Design System Implementation and Cloud Hosting
+
+- Description:  
+  This LFX Term 3 project will transform the KubeStellar Design System foundations (created in Term 2) into a production-ready implementation using Next.js (Nextra or Mintlify) and deploy it on Oracle Cloud Infrastructure. The project will deliver a unified design language across all KubeStellar interfaces, featuring immersive animations and interactive components that enhance UX while maintaining performance and accessibility.
+- Expected Outcome:  
+  - Implement the complete KubeStellar Design System as a production-ready component library.
+  - Build an interactive documentation site using Nextra or Mintlify.
+  - Develop advanced 3D visualizations and micro-interactions using Three.js and animation libraries.
+  - Deploy the design system and documentation to Oracle Cloud with enterprise-grade reliability.
+  - Establish automated CI/CD pipelines for continuous deployment and semantic versioning.
+  - Provide seamless integration paths for all KubeStellar interfaces (web UI, docs, CLI tools).
+  - Ensure accessibility compliance while delivering visually engaging experiences.
+- Recommended Skills:  
+    - React & Next.js (Nextra, Mintlify) expertise.
+    - Design Systems: Token-based implementation at scale.
+    - 3D & Animation Development: Three.js, Framer Motion, GSAP, Lottie.
+    - TypeScript, Tailwind, CSS Modules expertise.
+    - Cloud Deployment: Oracle Cloud or similar experience.
+    - DevOps & CI/CD: GitHub Actions, Docker, Kubernetes.
+    - Accessibility & Performance Optimization.
+- Mentor(s):
+    - Saumya Kumar (@oksaumya, saumyakr2006@gmail.com)
+    - Shivam Kumar (@btwshivam, shivam200446@gmail.com) 
+    - Andrea Velázquez (@andreuxxxx, andrea@buoyant.io)
+    - Kevin Roche (@KPRoche, kproche@us.ibm.com)  
+- Upstream Issue:  
+    https://github.com/kubestellar/docs/issues/5
+  
