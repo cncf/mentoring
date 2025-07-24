@@ -68,3 +68,19 @@ Upstream Issue: https://github.com/jaegertracing/jaeger/issues/7327
   - Alex Meijer (@ameijer, alexander.meijer@ibm.com)
   - Sean Holcomb (@Sean-Holcomb, sean.holcomb@ibm.com)
 - Upstream Issue: https://github.com/opencost/opencost/issues/3240
+
+### OpenTelemetry
+
+#### Developing Guidelines for OTel Survey Analysis and Communication
+- Description: Various special interest groups (a.k.a. SIGs) in the OpenTelemetry project run surveys to understand the experience of the end-users better. To run surveys efficiently, SIG End-user provides guidelines and assistance to people running surveys. In the past, SIG End-user focused on providing guidelines around survey design. Now we would like to move forward and cover survey data analysis and communication findings. 
+- Expected Outcome: The mentee in this project will describe a step-by-step survey data analysis process and tools that OTel contributors without deep data analytics knowledge can leverage to analyze their survey data – from cleaning and coding of data, through descriptive statistics, cross-tabulation, to visualization. In addition, the mentee will come up with suggestions on how to improve existing and/or propose new ways to communicate survey findings from surveys to the OpenTelemetry community. [Bonus] The mentee might also execute one survey to test out the guidelines.
+- Recommended Skills
+  - Being comfortable to talk with end-users and stakeholders in English.
+  - Interest or currently working in UX, user research, or data analytics
+  - Familiarity with spreadsheets (Google Sheets, Excel)
+  - Basic understanding of databases and querying
+  - [Bonus] Familiarity with Python and its data science libraries (e.g., pandas, numpy)
+- Mentors
+  - Adriana Villela (@avillela, adriana.villela@gmail.com) 
+  - Andrej Kiripolsky (@AndrejKiri andrej.kiripolsky@gmail.com)
+
