@@ -111,3 +111,22 @@ Upstream Issue: https://github.com/jaegertracing/jaeger/issues/7327
   - Onkar Shelke (@onkar717, onkarwork2234@gmail.com)
 - Upstream Issue: 
   [https://github.com/kubestellar/ui/issues/1334](https://github.com/kubestellar/ui/issues/1334)
+
+### Prometheus
+
+#### Prototyping Prometheus for exploratory use cases
+
+- Description: Through a LFX Mentorship done in March-May, we performed [UX research](https://github.com/prometheus/prometheus/issues/15909) focusing on different ways Prometheus could deal with OpenTelemetry's Resource Attributes. One of the insights that this research showed us is that Prometheus and OpenTelemetry were primarily designed for different use-cases. While Prometheus focuses on monitoring metrics that the user knows that exist, one of OpenTelemetry's goals is to enable exploration of your data while the user doesn't really know what he/she is looking for. This mentorship will take the next steps on those research findings, exploring ideas about how Prometheus can enable the "Exploration" use case. 
+- Expected Outcome:
+    - Two or more sets of wireframes based on ideation workshop
+    - Spoken presentation and report summarizing the findings and deliverables
+    - Stretch goals:
+        - Apply to present findings at an upcoming conference
+- Recommended Skills:
+    - Interest or currently working in UX Research and Design.
+    - Familiarities with databases and querying.
+    - Being comfortable to talk with End-Users in English.
+- Mentors:
+    - Arthur Silva Sens (@ArthurSens, arthursens2005@gmail.com)
+    - Amy Super (@amy-super, amy.super@grafana.com) 
+- Upstream Issue: https://github.com/prometheus/prometheus/issues/16924
