@@ -68,3 +68,15 @@ Upstream Issue: https://github.com/jaegertracing/jaeger/issues/7327
   - Alex Meijer (@ameijer, alexander.meijer@ibm.com)
   - Sean Holcomb (@Sean-Holcomb, sean.holcomb@ibm.com)
 - Upstream Issue: https://github.com/opencost/opencost/issues/3240
+
+### KubeStellar
+
+#### Allow a WDS to work with more than one ITS
+
+- Description: Currently a Workload Description Space (WDS) has Binding objects that refer to inventory objects in exactly one Inventory and Transport Space (ITS). This mentorship project would generalize that, allowing references to inventory objects in multiple ITSes. Bear in mind scalability concerns.
+- Expected Outcome: generalized API and implementation as described.
+- Recommended Skills: Familiarity with Kubernetes and KubeStellar.
+- Mentor(s):
+  - Rainui Ly (@rxinui, rainui.ly@gmail.com)
+  - Mike Spreitzer (@Mike Spreitzer, mspreitz@us.ibm.com)
+- Upstream Issue: https://github.com/kubestellar/kubestellar/issues/3072
