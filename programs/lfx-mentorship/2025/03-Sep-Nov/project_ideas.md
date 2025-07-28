@@ -111,3 +111,49 @@ Upstream Issue: https://github.com/jaegertracing/jaeger/issues/7327
   - Onkar Shelke (@onkar717, onkarwork2234@gmail.com)
 - Upstream Issue: 
   [https://github.com/kubestellar/ui/issues/1334](https://github.com/kubestellar/ui/issues/1334)
+
+### KubeSlice
+
+#### Add Multus CNI Support to KubeSlice
+
+- Description: KubeSlice currently leverages **Network Service Mesh (NSM)** to provide dynamic, cross-cluster L3 connectivity for application slices. While this is ideal for multi-cluster communication, there is a growing need for **high-performance, multi-interface networking inside slices** — especially for **5G, telco, and edge workloads** that rely on **SR-IOV, DPDK, or other high-performance CNIs**.
+- Expected Outcome:
+    - Installation and configuration of **Multus CNI** in KubeSlice-managed worker clusters.
+    - Ability to attach secondary interfaces to pods (e.g., using SR-IOV CNI) alongside NSM interfaces.
+    - End-to-end demo showing a pod within a slice using **both NSM (for cross-cluster traffic)** and **Multus + SR-IOV/DPDK (for high-performance local traffic)**.
+    - Clear setup guide for enabling Multus in KubeSlice environments.
+- Recommended Skills: Go (Golang), Kubernetes Networking, CNI Plugins (Multus, NSM), Helm.
+- Mentor(s):
+    - Gourish Biradar (@gourishbiradar, biradar.gourish@gmail.com)
+    - Rahul Kumar (@Rahul-D78, rahulparida933@gmail.com)
+    - Prabhu Navali (@pnavali, prabhu@aveshasystems.com)
+- Upstream Issue: https://github.com/kubeslice/kubeslice/issues/57
+  
+#### Implement Comprehensive Unit & Integration Testing for kubeslice-cli
+
+- Description: The kubeslice-cli repository currently lacks comprehensive unit and integration tests making it hard to test the changes. This project aims to implement a robust testing framework to ensure the reliability and stability of the CLI tool. The Mentee will write unit tests for existing functions & integration tests for the CLI commands & also set up a continuous integration pipeline to run these tests automatically on every commit and pull request.
+- Expected Outcome:
+    - A fully configured testing framework for kubeslice-cli with unit and integration tests covering all critical functionalities.
+    - A CI/CD pipeline configuration (e.g., GitHub Actions) that automatically runs the tests on every pull request.
+    - Documentation on how to run these tests & add new ones.
+- Recommended Skills: Go (Golang), Go testing frameworks (testify), Kubernetes, CLI, CI/CD (GitHub Actions).
+- Mentor(s):
+    - Gourish Biradar (@gourishbiradar, biradar.gourish@gmail.com)
+    - Rahul Kumar (@Rahul-D78, rahulparida933@gmail.com)
+    - Prabhu Navali (@pnavali, prabhu@aveshasystems.com)
+- Upstream Issue: https://github.com/kubeslice/kubeslice-cli/issues/46
+
+#### Enhance and Automate End-to-End (E2E) Testing Across the KubeSlice Ecosystem
+
+- Description: The KubeSlice project consists of multiple repositories that work together to provide application connectivity and network services across Kubernetes clusters. Currently, our E2E tests are outdated and need significant improvement. This project aims to automate the E2E testing process by improving the current test suite and implementing new tests where necessary. This will ensure that the entire KubeSlice ecosystem works seamlessly together.
+- Expected Outcome:
+    - A comprehensive set of E2E tests covering all critical functionalities of KubeSlice.
+    - Integration of the E2E tests into the CI/CD pipeline to run automatically.
+    - Clear Documentation for running & extending the E2E tests.
+- Recommended Skills: Go (Golang), Kubernetes, E2E testing (kind, Ginkgo), CI/CD (GitHub Actions).
+- Mentor(s):
+    - Gourish Biradar (@gourishbiradar, biradar.gourish@gmail.com)
+    - Rahul Kumar (@Rahul-D78, rahulparida933@gmail.com)
+    - Prabhu Navali (@pnavali, prabhu@aveshasystems.com)
+- Upstream Issue: https://github.com/kubeslice/kubeslice/issues/56
+  
