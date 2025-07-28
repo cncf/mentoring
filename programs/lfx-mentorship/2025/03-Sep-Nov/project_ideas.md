@@ -83,4 +83,5 @@ Upstream Issue: https://github.com/jaegertracing/jaeger/issues/7327
 - Mentors
   - Adriana Villela (@avillela, adriana.villela@gmail.com) 
   - Andrej Kiripolsky (@AndrejKiri andrej.kiripolsky@gmail.com)
+- Upstream Issue: https://github.com/open-telemetry/sig-end-user/issues/143
 
