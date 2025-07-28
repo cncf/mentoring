@@ -206,3 +206,27 @@
     - Amy Super (@amy-super, amy.super@grafana.com) 
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/16924
 
+#### Podman Container Tools
+
+##### Implement flushing of conntrack entries in Netavark on network changes
+
+- Description:
+  This project will involve implementing conntrack entry clearing into Netavark, Podman's network management tool.
+  Stale conntrack entries can cause network traffic to be dropped if a UDP port is rebound while a container is running.
+  Netavark is written in Rust, but the Rust netlink bindings (located [here](https://github.com/rust-netlink/netlink-packet-netfilter)) presently do not include support for Conntrack.
+  As such, the first step of the project will be to expand these bindings to cover Conntrack.
+  Netavark can then make use of the bindings to flush Conntrack entries on network change, and tests implemented to verify this functionality.
+- Expected Outcome:
+  - Rust bindings for Conntrack implemented in the [rust-netlink](https://github.com/rust-netlink/netlink-packet-netfilter) library
+  - Netavark modified to use these bindings to drop Conntrack entries at appropriate times
+  - Tests in Netavark repository to verify this functionality
+- Recommended Skills:
+  - Rust
+  - Some C knowledge preferred
+  - Basic networking - knowledge of IP addresses, ports, etc
+- Mentor(s):
+  - Matthew Heon (@mheon, mheon@redhat.com) - primary
+  - Paul Holzinger (@Luap99, pholzing@redhat.com)
+- Upstream Issue (URL):
+  [containers/netavark#1045](https://github.com/containers/netavark/issues/1045)
+
