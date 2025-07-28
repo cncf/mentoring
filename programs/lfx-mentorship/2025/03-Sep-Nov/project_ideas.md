@@ -278,3 +278,33 @@ ensure such policy violation scenarios are avoided.
   - Manuel Rüger (@mrueg, manuel@rueg.eu)
 - Upstream Issue: https://github.com/kubernetes/kube-state-metrics/issues/2711
 
+### WasmEdge
+
+#### Pointer alignment checking for WASI host function arguments
+
+- Description: WasmEdge implemented a series of WASI host functions to support the official WASI APIs. There are some arguments of WASI APIs are in pointer types. According to the WASI document, the pointer values are expected to be aligned to the alignment of their pointee type, otherwise the the function shall trap. In this mentorship, the mentee should check all functions of WASI interface in WasmEdge, and implement the alignment checking of pointer type arguments.
+- Expected Outcome:
+  - Add the alignment checking to the pointee type of [WASI host functions in WasmEdge](https://github.com/WasmEdge/WasmEdge/blob/master/include/host/wasi/wasifunc.h), according to the [alignment requirement in WASI functions](https://github.com/WebAssembly/WASI/blob/main/legacy/preview1/docs.md#modules).
+  - Hand-write some basic WASM tests to prove the correctness of the implementation.
+- Recommended Skills:
+  - C/C++
+  - WebAssembly
+  - GitHub workflows
+- Mentor(s):
+  - YiYing He (@q82419 , yiying@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4280
+
+#### Implement the remaining features of wasmedgeup
+
+- Description: WasmEdge currently offers three installers—v0 (deprecated shell script), v1 (Python-based, Linux/macOS only), and v2 (bash-based, limited functionality). A new cross-platform installer, [wasmedgeup](https://github.com/WasmEdge/wasmedgeup), is being developed to unify installation across Linux, macOS, and Windows, simplifying setup and managing versions, dependencies, and hardware detection. Mentees need to implement these key features include uninstall commands, plugin management, and automatic system capability detection.
+- Expected Outcome:
+  - Implement the remaining features listed above in [wasmedgeup](https://github.com/WasmEdge/wasmedgeup).
+  - A document describing how to use.
+  - A CI workflow for verifying these new features and ensuring that they can be built and tested on Linux (Ubuntu, Fedora), macOS, and Windows.
+- Recommended Skills:
+  - Rust
+  - GitHub workflows
+  - Cross-platform development
+- Mentor(s):
+  - Hung-Ying, Tai (@hydai, hydai@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4283
