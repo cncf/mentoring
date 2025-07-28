@@ -33,19 +33,19 @@
 
 #### Next-Generation Jaeger Demo with OpenTelemetry and OpenSearch (2025 Term 3)
 
-Description: This project will create a Kubernetes deployment for the full stack: the OpenTelemetry Demo application, the Jaeger backend components (Collector, Query), and OpenSearch as a storage backend. The environment will be automatically redeployed weekly to ensure it is always fresh and to solve the problem of data retention. The entire stack will be hosted on a managed Kubernetes cluster (Oracle Kubernetes Engine) within an Oracle Cloud environment generously donated to the project.
-Expected Outcome:
--A working, publicly accessible Jaeger demo featuring the OpenTelemetry Demo application, deployed on Oracle Cloud.
--Fully automated, weekly deployments using the existing Helm-based automation and GitHub Actions.
--The entire environment defined as "Configuration as Code".
--A secure deployment following best practices for public-facing services.
--The UIs for Jaeger, the OTel Demo, the load generator, and OpenSearch Dashboards exposed -publicly via the existing demo.jaegertracing.io URL.
--Public-facing documentation on the Jaeger website explaining the demo architecture and linking to the automation code.
-Recommended Skills: Kubernetes, Cloud, Security, Monitoring
-Mentor(s):
-Jonah Kowall (@jkowall, jkowall@kowall.net)
-Yuri Shkuro (@yurishkuro, github@ysh.us)
-Upstream Issue: https://github.com/jaegertracing/jaeger/issues/7327
+- Description: This project will create a Kubernetes deployment for the full stack: the OpenTelemetry Demo application, the Jaeger backend components (Collector, Query), and OpenSearch as a storage backend. The environment will be automatically redeployed weekly to ensure it is always fresh and to solve the problem of data retention. The entire stack will be hosted on a managed Kubernetes cluster (Oracle Kubernetes Engine) within an Oracle Cloud environment generously donated to the project.
+- Expected Outcome:
+  - A working, publicly accessible Jaeger demo featuring the OpenTelemetry Demo application, deployed on Oracle Cloud.
+  - Fully automated, weekly deployments using the existing Helm-based automation and GitHub Actions.
+  - The entire environment defined as "Configuration as Code".
+  - A secure deployment following best practices for public-facing services.
+  - The UIs for Jaeger, the OTel Demo, the load generator, and OpenSearch Dashboards exposed -publicly via the existing demo.jaegertracing.io URL.
+  - Public-facing documentation on the Jaeger website explaining the demo architecture and linking to the automation code.
+- Recommended Skills: Kubernetes, Cloud, Security, Monitoring
+- Mentor(s):
+  - Jonah Kowall (@jkowall, jkowall@kowall.net)
+  - Yuri Shkuro (@yurishkuro, github@ysh.us)
+- Upstream Issue: https://github.com/jaegertracing/jaeger/issues/7327
 
 ### OpenCost
 
@@ -111,3 +111,16 @@ Upstream Issue: https://github.com/jaegertracing/jaeger/issues/7327
   - Onkar Shelke (@onkar717, onkarwork2234@gmail.com)
 - Upstream Issue: 
   [https://github.com/kubestellar/ui/issues/1334](https://github.com/kubestellar/ui/issues/1334)
+
+#### Developer Relations & Community Growth for KubeStellar UI
+
+- Description: This Developer Relations project aims to accelerate KubeStellar UI adoption by building a vibrant community around this multi-cluster Kubernetes management interface. The mentee will establish KubeStellar's online presence across key platforms, create technical content showcasing multi-cluster management capabilities, produce regular demo livestreams, improve documentation for contributors, implement community feedback mechanisms, and represent the project at CNCF events.
+- Expected Outcome: Established social media presence for KubeStellar, daily technical blog series, weekly/bi-weekly livestream demos, improved contributor documentation, active GitHub Discussions, community feedback system with analytics, and at least one CNCF talk submission.
+- Recommended Skills: Technical writing for developer content, video production and demo skills, Kubernetes and multi-cluster management knowledge, community management experience, social media strategy, basic web analytics, public speaking, familiarity with open-source workflows
+- Mentor(s):
+  - Onkar Shelke (@onkar717, onkarwork2234@gmail.com)
+  - Andy Anderson (@clubanderson, andrew.anderson@ibm.com)
+  - Rishi Mondal (@MAVRICK-1, mavrickrishi@gmail.com)
+  - Aayush Saini (@AayushSaini101, kumaraayush9810@gmail.com)
+- Upstream Issue: https://github.com/kubestellar/ui/issues/1403
+
