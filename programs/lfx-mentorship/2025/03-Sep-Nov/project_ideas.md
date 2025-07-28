@@ -111,3 +111,56 @@ Upstream Issue: https://github.com/jaegertracing/jaeger/issues/7327
   - Onkar Shelke (@onkar717, onkarwork2234@gmail.com)
 - Upstream Issue: 
   [https://github.com/kubestellar/ui/issues/1334](https://github.com/kubestellar/ui/issues/1334)
+
+### OpenKruise
+
+#### SidecarSet support setting sidecar resources adaptively 
+
+- Description: SidecarSet is an advance workload for sidecar container injection and upgrade. Currently the sidecar container resource must be set explicitely in the sidecar template, however in the cases of traffic proxy, log collection and device emulation etc, it is desirable to to set the resources according to resource of app container. The goal is to support the adaptively setting for sidecar resources and provide best practice for typical use cases.
+- Expected Outcome
+  - implementation for adaptively resources setting for sidecar in SidecarSet workload
+  - unit and integration tests 
+  - documentation for the function usage and typical use cases in the OpenKruise website
+- Recommended Skills: Golang, kubernetes operator development
+- Mentors
+  - Zhao Mingshan (@zmberg, berg.zms@gmail.com)
+- Upstream Issue: https://github.com/openkruise/kruise/issues/2123
+
+#### Promote kruise api version from v1alphal1 to v1beta1
+
+- Description: Many advance workloads in OpenKruise are widely used in production, however the API version of the workload is still in v1alpha1. The goal is to promote the API version of mostly used and mature workload to v1beta1 and optimize the CRD fields for better clarity. 
+- Expected Outcome
+  - API definition of v1beta1 resources and the implementation for conversion webhook to convert v1alpha1 resource to v1beta1 resource
+  - unit and integration tests
+  - documentation for the usage of v1beta1 resource in the OpenKruise website
+- Recommended Skills: Golang, kubernetes operator development
+- Mentors
+  - Zhang Zhen (@furykerry, furykerry@gmail.com)
+- Upstream Issue: https://github.com/openkruise/kruise/issues/2122
+
+
+#### Bring progressive delivery capability for native kubernetes DaemonSet
+
+- Description: OpenKruise Rollout already support the progressive delivery of OpenKruise advance DaemonSet, however switching workload is not an option for many users. The goal is to utilize the `OnDelete` updateStrategy of native kubernetes workload, and trigger the pod upgrade by deleting desired number of pods per Rollout specification. 
+- Expected Outcome
+  - implentation of progressive delivery for native kubernetes daemonset, and only basic multi-batch release is required. 
+  - unit and integration test    
+  - documentation for the function usage and typical use cases in the OpenKruise website
+- Recommended Skills: Golang, kubernetes operator development
+- Mentors
+  - Zhong Tianyun (@AiRanthem, airanthem666@gmail.com)
+- Upstream Issue: https://github.com/openkruise/rollouts/issues/297
+
+#### Enhance Robustness and Usability of Kruise-Game
+
+- Description: kruise-game is being used by many game companies. It is imperative to build the stability of kruise-game components. With the rapid iteration of project functions, the current test coverage has not met expectations, so we need to add more UT and E2E use cases to ensure that there will be no problems with our basic functions. In addition, in a large-scale cluster environment, kruise-game also needs more indicators to reveal the performance of the current controller.
+- Expected Outcome: 
+  - Expand End-to-End (E2E) Test Coverage
+  - Improve Unit Test (UT) Coverage
+  - Enhance Observability via Controller Metrics
+  - Improve Logging Contextualization
+- Recommended Skills: Golang, Kubernetes
+- Mentor:
+  - Qiuyang Liu (@chrisliu1995, [chrisliu1995@163.com](mailto:chrisliu1995@163.com))
+  - Zhongwei Liu (@ringtail, [zhongwei.lzw@alibaba-inc.com](mailto:zhongwei.lzw@alibaba-inc.com))
+- Upstream Issue: https://github.com/openkruise/kruise-game/issues/266
