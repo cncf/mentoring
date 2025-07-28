@@ -164,6 +164,30 @@
   - Shivam Kumar (@btwshivam, shivam200446@gmail.com)
 - Upstream Issue: https://github.com/kubestellar/ui/issues/1481
 
+#### Implement KubeStellar controller logic to map WECs resources status to READY state of corresponding resource definitions in WDSes
+
+- Description:  
+  This project aims to enhance the KubeStellar controller to reflect the readiness status of WEC resources in their corresponding WDS resource definitions. Currently, users must inspect status objects manually to determine propagation and readiness. This improvement is especially useful for tools like Argo CD, which rely on accurate READY status to show resources as synced.
+
+- Expected Outcome:  
+  - Design an efficient architecture to map the status of WEC resources back to their originating WDS resource.
+  - Implement the controller logic to update WDS resource readiness based on the aggregated readiness of all corresponding WECs.
+  - Ensure the updated WDS READY state integrates well with tools like Argo CD, showing accurate sync states.
+  - Validate and demonstrate that resources in WDS appear correctly synced post implementation.
+
+- Recommended Skills:  
+  - Golang  
+  - Kubernetes controllers and CRDs  
+  - Distributed systems basics  
+  - Familiarity with Argo CD (optional but preferred)
+
+- Mentor(s):  
+  - [Franco Stellari] (@francostellari, fstellari@gmail.com)
+  - [Rupam Manna] (@Rupam-It, mannarupam3@gmail.com)
+
+- Upstream Issue:  
+  https://github.com/kubestellar/kubestellar/issues/2809
+
 ### Prometheus
 
 #### Prototyping Prometheus for exploratory use cases
@@ -181,3 +205,4 @@
     - Arthur Silva Sens (@ArthurSens, arthursens2005@gmail.com)
     - Amy Super (@amy-super, amy.super@grafana.com) 
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/16924
+
