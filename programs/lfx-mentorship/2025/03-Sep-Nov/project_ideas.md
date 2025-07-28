@@ -116,11 +116,11 @@ Upstream Issue: https://github.com/jaegertracing/jaeger/issues/7327
 
 #### Add Multus CNI Support to KubeSlice
 
-- Description: KubeSlice currently leverages **Network Service Mesh (NSM)** to provide dynamic, cross-cluster L3 connectivity for application slices. While this is ideal for multi-cluster communication, there is a growing need for **high-performance, multi-interface networking inside slices** — especially for **5G, telco, and edge workloads** that rely on **SR-IOV, DPDK, or other high-performance CNIs**.
+- Description: KubeSlice currently leverages Network Service Mesh (NSM) to provide dynamic, cross-cluster L3 connectivity for application slices. While this is ideal for multi-cluster communication, there is a growing need for high-performance, multi-interface networking inside slices — especially for 5G, telco, and edge workloads that rely on SR-IOV, DPDK, or other high-performance CNIs.
 - Expected Outcome:
-    - Installation and configuration of **Multus CNI** in KubeSlice-managed worker clusters.
+    - Installation and configuration of Multus CNI in KubeSlice-managed worker clusters.
     - Ability to attach secondary interfaces to pods (e.g., using SR-IOV CNI) alongside NSM interfaces.
-    - End-to-end demo showing a pod within a slice using **both NSM (for cross-cluster traffic)** and **Multus + SR-IOV/DPDK (for high-performance local traffic)**.
+    - End-to-end demo showing a pod within a slice using both NSM (for cross-cluster traffic) and Multus + SR-IOV/DPDK (for high-performance local traffic).
     - Clear setup guide for enabling Multus in KubeSlice environments.
 - Recommended Skills: Go (Golang), Kubernetes Networking, CNI Plugins (Multus, NSM), Helm.
 - Mentor(s):
