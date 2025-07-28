@@ -56,6 +56,7 @@ Upstream Issue: https://github.com/jaegertracing/jaeger/issues/7327
 - Recommended Skills: Familiarity with CI/CD pipelines, basic scripting skills, understanding of versioning and changelog best practices, experience with GitHub Actions or similar CI/CD tools.
 - Mentor(s):
   - Pranshu Srivastava (@rexagod, rexagod@gmail.com)
+  - Manuel Rüger (@mrueg, manuel@rueg.eu)
 - Upstream Issue: https://github.com/kubernetes/kube-state-metrics/issues/2711
 
 ### OpenCost
