@@ -69,6 +69,75 @@
   - Sean Holcomb (@Sean-Holcomb, sean.holcomb@ibm.com)
 - Upstream Issue: https://github.com/opencost/opencost/issues/3240
 
+### KubeEdge 
+
+#### Deep integration of KubeEdge with AMD edge nodes
+
+- Description: AMD chips, with their powerful x86 architecture, exceptional computing performance, and advanced NPUs, demonstrate significant potential in fields such as industrial automation, in-vehicle systems, and high-performance edge computing. Introducing AMD's robust general-purpose and heterogeneous computing capabilities into the KubeEdge ecosystem is crucial for handling increasingly complex and latency-sensitive edge AI applications.However, the deep integration, performance optimization, and best practices between KubeEdge and AMD's high-performance edge platforms—particularly their built-in NPUs and other hardware acceleration units—still require systematic exploration and validation. This project aims to establish a complete link between KubeEdge and AMD edge nodes, building a comprehensive edge computing solution from hardware deployment to NPU acceleration, thereby greatly enriching KubeEdge's hardware ecosystem.
+- Expected Outcome: 
+  - Debug and support KubeEdge edge nodes running on AMD chips
+  - Successfully deploying and managing edge application Pods on AMD-based edge nodes
+  - Scheduling and managing AMD NPU resources through KubeEdge to achieve performance acceleration for edge AI inference applications.
+  - Implement monitoring and metric collection for nodes, applications, and NPUs
+  - Using KubeEdge to achieve the complete platform setup, configuration, and management from the cloud to AMD edge nodes
+  - Complete hardware compatibility testing and produce high-quality technical documentation or blogs
+- Recommended Skills: Go, Kubernetes, KubeEdge, Linux, Hardware Integration, AI/ML
+- Mentors:
+  - Hongbing Zhang (@HongbingZhang, hongbing.zhang@daocloud.io)
+  - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/6429 
+
+#### Industrial Embodied Intelligence Benchmarking Dataset for KubeEdge-Ianvs
+
+- Description: As industrial manufacturing accelerates its digital transformation through advancements in robotics, adaptive production lines, and smart testing systems, cloud-edge collaboration has emerged as a critical enabler for deploying embodied intelligence in complex operational environments. Contemporary industry requirements for embodied intelligence now extend beyond basic task execution to encompass multimodal perception and decision integration, dynamic environment adaptation, and distributed device orchestration. Existing benchmarking frameworks exhibit limitations in evaluating scenario-specific embodied attributes inherent to industrial settings. This initiative leverages the KubeEdge-Ianvs collaborative AI framework, integrating domain-specific test datasets, simulation environments, and quantitative metrics to establish a certified industrial-grade evaluation infrastructure for embodied intelligence systems.
+- Expected Outcome:
+  - Develop an industrial-grade embodied intelligence dataset through systematic classification and reorganization of existing resources/ examples
+  - Deploy baseline algorithms and introduce metrics to establish performance benchmarks within KubeEdge-Ianvs
+- Recommended Skills: Python, Benchmark, Dataset, Embodied Intelligence
+- Mentors:
+  - Zimu Zheng (@MooreZheng, zimu.zheng@huawei.com)
+  - Mengzhuo Chen (@IcyFeather233, icyfeather@foxmail.com)
+- Upstream Issue: https://github.com/kubeedge/ianvs/issues/197
+
+#### Comprehensive Example Restoration for KubeEdge Ianvs
+
+- Description: Ianvs serves as KubeEdge SIG AI distributed benchmark toolkit. As more and more contributors running, KubeEdge Ianvs now has 25 examples and the number is still increasing. KubeEdge Ianvs then faces mounting usability issues due to dependency evolution and validation mechanisms. As Python versions, third-party libraries, and Ianvs features advance, partial historical examples fail to execute. This has led to surging user-reported Issues from confused contributors, untested PRs breaking core functionality of legacy features, severely outdated documentation misaligning with actual capabilities. Without systematic intervention, the example risks becoming obsolete for edge-AI developers and especially newcomers. We then try to resurrect Ianvs’ usability with comprehensive example restoration.
+- Expected Outcome:
+  - Diagnose & fix bugs across examples, including dependency manifests, license scan and runtime configurations.
+  - Documentation Modernization, including revamp tutorials with reproducible step-by-step guides, publish developer-focused debugging playbooks for common failures
+  - Build a CI pipeline testing examples with GitHub Actions against multiple Python versions, critical Ianvs/upstream updates and block PRs that break validated examples
+- Recommended Skills: Python, Benchmark, KubeEdge-Ianvs, AI/ML
+- Mentors:
+  - Zimu Zheng (@MooreZheng, zimu.zheng@huawei.com)
+  - Shijing Hu (@hsj576, sjhu21@m.fudan.edu.cn)
+- Upstream Issue: https://github.com/kubeedge/ianvs/issues/230
+
+#### Research on Deploying Small Language Models with KubeEdge and Integrating with Enterprise AI Platforms
+
+- Description: KubeEdge, as a native edge computing platform built on the Kubernetes ecosystem, offers capabilities such as reliable cloud-edge communication, edge autonomy, and IoT device integration. However, its ability to support intelligent model execution at the edge has yet to be systematically validated and practiced in real-world scenarios. This research aims to explore the feasibility and performance of deploying and running small language models on edge nodes using KubeEdge
+- Expected Outcome:
+  - Verification of KubeEdge's model deployment capability at the edge. Deployment and testing of model engines such as vLLM and llama.cpp on edge nodes, along with providing practical examples and detailed documentation for deploying small language models.
+  - Exploration of integration schemes between KubeEdge and the OPEA platform. Connecting KubeEdge with OPEA’s model registry and workflow orchestrator to support automated model distribution and deployment from the cloud to edge nodes.
+- Recommended Skills: KubeEdge, LLM, Golang, Python
+- Mentors:
+  - Hongbing Zhang (@HongbingZhang, hongbing.zhang@daocloud.io)
+  - Elias Wang (@wbc6080, wangbincheng4@huawei.com)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/6428
+
+#### Device Anomaly Detection Framework Based on KubeEdge
+
+- Description: The current KubeEdge platform represents device states using three statuses: Desired, ObservedDesired, and Reported. The device states displayed on the platform are entirely reliant on the Mapper, which collects and reports data from the device side. However, due to limitations in the Mapper implementation, physical device malfunctions, network delays, and potential network attacks, the device states shown on the platform may not accurately reflect the actual state of the devices. In the KubeEdge platform, if applications depend on device states for decision-making, such inconsistencies in state representation may lead to undesirable outcomes. Therefore, this project aims to design a device state anomaly detection framework for KubeEdge. By exploring the causal relationships among device states, the framework will establish lightweight anomaly detection capabilities and provide a comprehensive toolchain encompassing data collection, model training, real-time anomaly detection, and results visualization.
+- Expected Outcome:
+  - A general-purpose device anomaly detection framework that supports user-defined detection algorithms
+  - A complete technical design document including model selection, training procedures, and detailed architecture diagrams for both training and online detection components
+  - A machine learning model and corresponding anomaly detection algorithm capable of capturing causal relationships among device states, trained and tested using standard frameworks
+  - An online anomaly detection module integrated into the KubeEdge device state reporting workflow, enabling real-time analysis through a model inference hook
+- Recommended Skills: KubeEdge, IoT, Machine Learning
+- Mentor(s):
+  - Liwei Shen (@meixiezichuan, shenliwei@fudan.edu.cn)
+  - Elias Wang (@wbc6080, wangbincheng4@huawei.com)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/6312
+
 ### KubeStellar
 
 #### Allow a WDS to work with more than one ITS
