@@ -266,3 +266,15 @@ ensure such policy violation scenarios are avoided.
 - Type: maintainer mentorship (only for maintainers to work on as part of a one-off LFX Project)
 - Upstream Issue: https://github.com/kubernetes/kubeadm/issues/2271
 
+### Kube State Metrics
+
+#### Automate the release process
+
+- Description: Build upon the stale patches that aim to automate the release process for Kube State Metrics. This project will focus on implementing a fully automated release pipeline that includes steps outlined in the subproject's [RELEASE.md](https://github.com/kubernetes/kube-state-metrics/blob/main/RELEASE.md). The mentee will work on integrating these features into the existing CI/CD workflow, ensuring that releases are consistent, reliable, and easy to manage.
+- Expected Outcome: A fully automated release process for Kube State Metrics, including versioning, changelog generation, and artifact creation (through k8s.io).
+- Recommended Skills: Familiarity with CI/CD pipelines, basic scripting skills, understanding of versioning and changelog best practices, experience with GitHub Actions or similar CI/CD tools.
+- Mentor(s):
+  - Pranshu Srivastava (@rexagod, rexagod@gmail.com)
+  - Manuel Rüger (@mrueg, manuel@rueg.eu)
+- Upstream Issue: https://github.com/kubernetes/kube-state-metrics/issues/2711
+
