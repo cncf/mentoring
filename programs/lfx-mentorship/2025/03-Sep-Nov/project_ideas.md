@@ -308,3 +308,56 @@ ensure such policy violation scenarios are avoided.
 - Mentor(s):
   - Hung-Ying, Tai (@hydai, hydai@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4283
+
+#### Rust Coder for Claude Code
+
+- Description:
+        This is a continuation of our past two LFX mentorship projects -- the Rust Coder.
+        https://www.cncf.io/blog/2025/01/10/rustcoder-ai-assisted-rust-learning/
+        https://github.com/cardea-mcp/RustCoder
+        Users of Rust Coder, which was originally a chatbot and then an MCP server, have told us that they wanted a modern approach like Claude Code. A new focus would also be to port existing Python / C++ projects to Rust, instead of creating Rust projects from scratch. This new proposed LFX mentorship project will
+        1 Fork or add to the open-source Claude Code project
+        2 Create new workflows to ask the user to import Python / C++ projects, make plans for how to port, and ask the user for preferred Rust crates
+        3 Use MCP to add Rust-specific prompts, knowledge base search tools, web-based documentation import tools etc
+        4 Use open source coding models to evaluate the results
+- Expected Outcome:
+  - A Claude Code add-on or fork that is specialized optimized for "rewriting in Rust".
+- Recommended Skills:
+  - Rust
+  - Python or C++
+  - Vibe coding tools (e.g., Claude Code, Qwen Coder etc)
+- Mentor(s):
+  - Michael Yuan (@juntao, michael@secondstate.io)
+  - Vivian Hu (@alabulei1, vivian@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4284
+
+#### Support the Responses API in Llama Nexus
+
+- Description:
+        The llama nexus project is an API proxy to provide OpenAI-compatible and unified API endpoints for multiple downstream API servers, including LLamaEdge API servers running open-source LLMs.
+
+        https://github.com/LlamaEdge/llama-nexus
+
+        Currently, the Llama Nexus supports the stateless /chat/completions API endpoint for LLMs. We would like to expand this to support the /responses stateful API from OpenAI as well.
+
+        https://platform.openai.com/docs/api-reference/responses
+
+        https://platform.openai.com/docs/guides/responses-vs-chat-completions
+
+        In particular, we aim to implement support for
+
+        MCP
+        Code interpreter
+        Web search
+        File search
+        Browser use (optional)
+- Expected Outcome:
+  - New features for the Llama Nexus proxy server.
+- Recommended Skills:
+  - Rust
+  - OpenAI API
+  - MCP Rust SDK
+- Mentor(s):
+  - Michael Yuan (@juntao, michael@secondstate.io)
+  - Sam Liu (@apepkuss, sam@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4286
