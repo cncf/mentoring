@@ -439,3 +439,62 @@ ensure such policy violation scenarios are avoided.
   - Aryan Sharma (@Aryan-sharma11, aryan1126.sharma@gmail.com)  
   - Ramakant Sharma (@rksharma95, ramakant@accuknox.com)  
   - Nishant Singh (@tesla59, talktonishantsingh.ns@gmail.com) 
+
+### kgateway 
+
+#### Improve kgateway ecosystem integrations documentation 
+
+- **Description:**
+This project aims to create clear, approachable documentation and blog posts that showcase how to integrate kgateway with key CNCF projects such as Argo, Istio, and KServe. These resources will make it easier for users to adopt kgateway in modern cloud-native environments and promote deeper integration across the CNCF ecosystem.
+
+- **Expected Outcome:**
+- A series of integration guides and tutorials for using kgateway with Argo Rollouts, Istio, and KServe.
+- Contribution of relevant improvements or examples back to the kgateway documentation site
+- Raised issues for any gaps or friction points discovered during testing
+- Demo integrations during kgateway community meetings
+- Fun!
+
+- **Recommended Skills:**
+- Strong written communication skills
+- Interest in learning and exploring new projects! 
+- Basic understanding of GitHub, Markdown, and technical blogging 
+- (Bonus) Experience using any of the following: Argo, Istio, KServe
+
+- **Mentors:** 
+Nina Polshakova (npolshakova)
+Lin Sun (linsun)
+
+- **Upstream Issue:** 
+https://github.com/kgateway-dev/kgateway.dev/issues/327 
+
+#### kgateway, agentgateway, and observability improvements
+
+- **Description:**
+This project focuses on enhancing observability in kgateway’s agentgateway integration by adding support for OpenTelemetry-based tracing, exposing Prometheus-compatible metrics, and configuring access logging. It builds on a previous LFX project that introduced tracing support for kgateway’s AI extproc server, extending those capabilities to support span propagation from agentgateway. 
+
+In addition to adding support for configuring the kgateway control plane to set agentgateway’s tracing configuration, we want to test exporting traces to OpenTelemetry-compatible backends such as the OpenTelemetry Collector and Jaeger, and create user-facing documentation for these integrations. 
+
+Beyond emitting basic spans, this project will also document how to enrich traces with authenticated user context derived from RBAC decisions, enabling more fine-grained debugging and attribution.
+
+- **Expected Outcome:**
+  - Translate the existing tracing and access logging APIs in kgateway to enable configuring tracing for the kgateway’s agentgateway integration
+  - Create end-to-end (e2e) tests to validate configuration and trace propagation
+  - Raise issues for any gaps or friction points discovered during testing
+  - Write documentation for plugin developers and end users
+  - Writing user-facing documentation and blogs on Otel tracing with agentgateway and kgateway integration with OpenTelemetry-compatible backends
+  - Gain hands-on experience with AI providers, OpenTelemetry, tracing platforms, MCP, a2a, Kubernetes, and kgateway while building real observability features!
+  - Fun! 
+
+- **Recommended Skills:**
+  - Golang
+  - Rust
+  - Otel
+  - Kubernetes
+  - Kubernetes Gateway API
+  - (Bonus) Familiarity with MCP and/or A2A 
+
+- **Mentor(s):**
+Nina Polshakova (npolshakova)
+Joe McGuire (jmcguire98)
+
+- **Upstream Issue:** https://github.com/kgateway-dev/kgateway/issues/11818 
