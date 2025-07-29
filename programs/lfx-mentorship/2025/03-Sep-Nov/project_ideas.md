@@ -221,6 +221,20 @@
     - Arthur Silva Sens (@ArthurSens, arthursens2005@gmail.com)
     - Amy Super (@amy-super, amy.super@grafana.com) 
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/16924
+  
+#### Prometheus Remote Write 2.0 stability
+
+- Description: In the past few quarters, a lot of work has gone into the new Remote Write 2.0 (PROM-35) proposal, and a new spec has been successfully established https://prometheus.io/docs/specs/prw/remote_write_spec_2_0/. But there is still a lot of work that needs to be done to declare it stable, in terms of stability and performance in Prometheus, and general adoption from the wider Prometheus ecosystem.
+- Expected Outcome: Since this is a large initiative, for this round of mentorship, we want to focus on the following tasks,
+  - Add 2.0 support to compliance test; make it easy to test write and receive implementations.
+  - Ensure RW new features works on agent mode (test for agent mode with metadata-wal-records and type-and-unit features).
+  - Ensure Prometheus uses the official RW client
+- Recommended Skills: Go, Prometheus
+- Mentor(s):
+  - Juraj Michalek (@jmichalek132, juraj.michalek132@gmail.com)
+  - Bartek Plotka (@bwplotka, bwplotka@gmail.com)
+  - Saswata Mukherjee (@saswatamcode, saswataminsta@yahoo.com)
+- Upstream Issue: https://github.com/prometheus/prometheus/issues/16945 
 
 #### Podman Container Tools
 
@@ -277,6 +291,154 @@ ensure such policy violation scenarios are avoided.
   - Pranshu Srivastava (@rexagod, rexagod@gmail.com)
   - Manuel Rüger (@mrueg, manuel@rueg.eu)
 - Upstream Issue: https://github.com/kubernetes/kube-state-metrics/issues/2711
+
+### CloudNativePG
+
+#### Rebuilding CloudNativePG Documentation for Multi-Version Support with Docusaurus
+
+- Description: The current documentation of CloudNativePG (a Kubernetes-native
+  Postgres operator) is statically built using `mkdocs` from Markdown sources,
+  which must live with the rest of the source code as they are part of it. We
+  want to modernise this process and introduce multi-version support, helping
+  users find accurate information for the version they are running in production.
+  This project aims to rebuild the documentation site using Docusaurus
+  (preferred) or an equivalent static site generator to enable multi-version
+  documentation and version selection. Additionally, any initiatives that improve
+  content structure, navigation, searchability, and clarity are welcome, provided
+  they enhance logical flow and maintainability while aligning with CNCF and user
+  expectations. The documentation is hosted on GitHub Pages under the
+  CloudNativePG website domain.
+
+- Expected Outcome:
+
+    - Incremental set of pull requests (PRs) with:
+
+       - Site built with Docusaurus (or equivalent) with version selector working.
+       - Content restructured for clarity and easier navigation.
+       - Clean, consistent navigation structure and enhanced search capabilities.
+       - Staging website capabilities.
+       - Deployment workflow to GitHub Pages using Dagger and GitHub Actions.
+
+    - A clear contributor guide explaining how maintainers can add or update
+      documentation for each version in the future.
+
+- Recommended Skills:
+
+    - Markdown
+    - Git and GitHub workflows
+    - Static site generators (preferably Docusaurus, Hugo, or MkDocs)
+    - Basic YAML/TOML configuration
+    - Familiarity with Kubernetes, PostgreSQL and CloudNativePG
+
+- Mentor(s):
+  - Gabriele Bartolini (@gbartolini, gabriele.bartolini@enterprisedb.com)
+  - Francesco Canovai (@fcanovai, francesco.canovai@enterprisedb.com)
+  - Leonardo Cecchi (@leonardoce, leonardo.cecchi@enterprisedb.com)
+
+- Upstream Issue: https://github.com/cloudnative-pg/cloudnative-pg/issues/8122
+
+
+#### Chaos Testing
+
+- Description: We want to expand the scope of the CloudNativePG tests,
+  introducing a full-fledged chaos testing framework that can be
+  used to better validate the resilience, fault tolerance and recovery
+  mechanisms of CloudNativePG.
+
+- Expected Outcome:
+  - Selection of a Kubernetes-native chaos testing framework (e.g., LitmusChaos or Chaos Mesh).
+  - Design and automation of an initial set of chaos experiments covering common failure scenarios.
+  - Integration of these experiments into CI/CD to ensure reproducible testing.
+  - Collection of clear observability metrics (e.g., failover time, data consistency) to assess resilience and recovery.
+  - Documentation and guidelines to help contributors create and run new chaos experiments safely.
+
+
+- Recommended Skills:
+
+  - Experience with chaos testing frameworks (preferably LitmusChaos or Chaos Mesh).
+  - Familiarity with Kubernetes, PostgreSQL, and CloudNativePG.
+  - Understanding of observability tools such as Prometheus or Grafana.
+
+- Mentors:
+  - Gabriele Bartolini (@gbartolini, gabriele.bartolini@enterprisedb.com)
+  - Francesco Canovai (@fcanovai, francesco.canovai@enterprisedb.com)
+  - Jonathan Gonzalez (@sxd, jonathan.gonzalez@enterprisedb.com)
+  - Marco Nenciarini (@mnencia, marco.nenciarini@enterprisedb.com)
+
+- Upstream issue: https://github.com/cloudnative-pg/cloudnative-pg/issues/8174
+
+#### Refresh cnpg-i-hello-world to align with the current state of CNPG-I
+
+- Description: The cnpg-i-hello-world project was created to help developers get
+  started with building plugins for CloudNativePG using the CNPG-I framework.
+  However, the project is now outdated and requires significant maintenance and
+  updates to reflect the current capabilities of CNPG-I. The goal is to bring it
+  in line with the latest state of the interface and ensure it serves as a solid
+  reference for:
+
+    - Understanding how to use CNPG-I
+    - Developing and prototyping new plugins
+
+- Expected Outcome:
+    - Review and update the codebase to match the latest CNPG-I interface and conventions
+    - Ensure it follows the latest best practices for plugin development
+    - Expand and improve examples as needed
+    - Integrate CNPG-I documentation where appropriate to provide better guidance for developers
+
+- Recommended Skills:
+    - Go programming
+    - Kubernetes
+    - CloudNativePG
+
+- Mentors:
+  - Gabriele Bartolini (@gbartolini, gabriele.bartolini@enterprisedb.com)
+  - Armando Ruocco (@armru, armando.ruocco@enterprisedb.com)
+  - Leonardo Cecchi (@leonardoce, leonardo.cecchi@enterprisedb.com)
+  - Marco Nenciarini (@mnencia, marco.nenciarini@enterprisedb.com)
+
+- Upstream issue: https://github.com/cloudnative-pg/cnpg-i-hello-world/issues/183
+
+### KubeArmor
+
+#### KubeArmor Observability Spectrum Enhancement
+
+- **Description:** This project focuses on improving KubeArmor's observability by integrating key Prometheus metrics. The goal is to offer simple explanations for security policy enforcement and alerting within Kubernetes clusters.  
+- **Key Metrics to Focus On:**  
+  - Number of Policies Applied  
+  - Number of Alerts Triggered  
+  - List of Active Policies  
+  - Policy Status (Active/Inactive)  
+- **Expected Outcome:** Successful integration of these Prometheus metrics, making them accessible via a Prometheus endpoint and adhering to best practices for metric exposition.  
+- **Upstream Issue:** https://github.com/kubearmor/KubeArmor/issues/1902  
+- **Associated Repository:** https://github.com/kubearmor/kubearmor-prometheus-exporter
+
+**Mentors:**  
+  - Rishabh Soni (@rootxrishabh, risrock02@gmail.com)  
+  - Aryan Sharma (@Aryan-sharma11, aryan1126.sharma@gmail.com)  
+  - Ramakant Sharma (@rksharma95, ramakant@accuknox.com)  
+  - Barun Acharya (@daemon1024, barun1024@gmail.com)  
+
+**Recommended Skills:** Go, Prometheus, Kubernetes, Git
+
+#### KubeArmor Unit Test Coverage Audit
+- **Description:** This project aims to systematically analyze and substantially improve KubeArmor's unit test coverage. It involves identifying untested code paths, designing and implementing new unit tests for crucial modules, and establishing a robust testing framework to boost code quality.  
+- **Goals:**  
+  - Measure Coverage: Accurately measure and report current unit test coverage for all Go packages.  
+  - Prioritized Test Implementation: Write new unit tests, prioritizing core modules like core, monitor, enforcer, log, and feeder, and addressing other packages with no test files.  
+  - Identify Untested Components: Pinpoint major untested functionalities and propose specific test scenarios.  
+  - Achieve Measurable Improvement: Submit pull requests that significantly increase overall unit test coverage.  
+- **Expected Outcome:** A detailed coverage report, a suite of new, effective unit tests, and a measurable improvement in test coverage, leading to enhanced code quality and reliability.  
+- **Upstream Issue:** https://github.com/kubearmor/KubeArmor/issues/2130  
+- **Associated Repository:** https://github.com/kubearmor/KubeArmor  
+- **Testing Guide Reference:** https://github.com/kubearmor/KubeArmor/blob/main/contribution/testing_guide.md  
+
+**Recommended Skills:** Go, Kubernetes, Testing Methodologies (unit testing, mocking), Git.  
+  
+**Mentors:**  
+  - Rishabh Soni (@rootxrishabh, risrock02@gmail.com)  
+  - Aryan Sharma (@Aryan-sharma11, aryan1126.sharma@gmail.com)  
+  - Ramakant Sharma (@rksharma95, ramakant@accuknox.com)  
+  - Nishant Singh (@tesla59, talktonishantsingh.ns@gmail.com) 
 
 ### Cartography
 
