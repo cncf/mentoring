@@ -29,6 +29,30 @@
   - Bill Mulligan (@xmulligan, bill@isovalent.com)
 - Upstream Issue: https://github.com/cilium/cilium.io/issues/633
 
+### Headlamp
+
+#### Kubeflow plugin for Headlamp
+
+- Description: A plugin for Headlamp (A Kubernetes UI) that integrates Kubeflow components such as Spark Operator, Pipelines, Trainer, Notebooks, and the Central Dashboard. It enables users to view lists and details of Kubeflow resources, embed or link to existing Kubeflow UI components, visualize metrics via Prometheus, and display resources in the Headlamp map view. This integration aims to streamline the observability and management of Kubeflow workloads within the broader Kubernetes ecosystem.
+
+- Expected Outcome:
+  Users will be able to:
+  - Discover and inspect Kubeflow resources directly in Headlamp.
+  - Visualize metrics from Kubeflow services using the Prometheus plugin.
+  - Navigate to or embed existing Kubeflow UI components.
+  - View Kubeflow resources in the Headlamp topology/map view.
+  - Benefit from a simplified local installation experience for Kubeflow.
+
+- Recommended Skills:
+  - React and TypeScript (for Headlamp plugin development)
+  - (Optional) Kubernetes and Kubeflow architecture
+  - (Optional) Prometheus metrics and visualization
+
+- Mentor(s):
+  - Rene Dudfield (@illume, renedudfield@microsoft.com)
+
+- Upstream Issue: https://github.com/kubernetes-sigs/headlamp/issues/3710
+
 ### Jaeger
 
 #### Next-Generation Jaeger Demo with OpenTelemetry and OpenSearch (2025 Term 3)
