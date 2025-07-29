@@ -230,3 +230,37 @@
 - Upstream Issue (URL):
   [containers/netavark#1045](https://github.com/containers/netavark/issues/1045)
 
+### KubeArmor
+
+#### KubeArmor Observability Spectrum Enhancement
+
+- **Description:** This project focuses on improving KubeArmor's observability by integrating key Prometheus metrics. The goal is to offer simple explanations for security policy enforcement and alerting within Kubernetes clusters.  
+- **Key Metrics to Focus On:**  
+  - Number of Policies Applied  
+  - Number of Alerts Triggered  
+  - List of Active Policies  
+  - Policy Status (Active/Inactive)  
+- **Expected Outcome:** Successful integration of these Prometheus metrics, making them accessible via a Prometheus endpoint and adhering to best practices for metric exposition.  
+- **Upstream Issue:** https://github.com/kubearmor/KubeArmor/issues/1902  
+- **Associated Repository:** https://github.com/kubearmor/kubearmor-prometheus-exporter  
+#### KubeArmor Unit Test Coverage Audit
+- **Description:** This project aims to systematically analyze and substantially improve KubeArmor's unit test coverage. It involves identifying untested code paths, designing and implementing new unit tests for crucial modules, and establishing a robust testing framework to boost code quality.  
+- **Goals:**  
+  - Measure Coverage: Accurately measure and report current unit test coverage for all Go packages.  
+  - Prioritized Test Implementation: Write new unit tests, prioritizing core modules like core, monitor, enforcer, log, and feeder, and addressing other packages with no test files.  
+  - Identify Untested Components: Pinpoint major untested functionalities and propose specific test scenarios.  
+  - Achieve Measurable Improvement: Submit pull requests that significantly increase overall unit test coverage.  
+- **Expected Outcome:** A detailed coverage report, a suite of new, effective unit tests, and a measurable improvement in test coverage, leading to enhanced code quality and reliability.  
+- **Upstream Issue:** https://github.com/kubearmor/KubeArmor/issues/2130  
+- **Associated Repository:** https://github.com/kubearmor/KubeArmor  
+- **Testing Guide Reference:** https://github.com/kubearmor/KubeArmor/blob/main/contribution/testing_guide.md  
+
+**Recommended Skills:** Go, Prometheus, Kubernetes, Testing Methodologies (unit testing, mocking), Git.  
+  
+**Mentors:**  
+  - Rishabh Soni (@rootxrishabh, risrock02@gmail.com)  
+  - Aryan Sharma (@Aryan-sharma11, aryan1126.sharma@gmail.com)  
+  - Ramakant Sharma (@rksharma95, ramakant@accuknox.com)  
+  - Nishant Singh (@tesla59, talktonishantsingh.ns@gmail.com)  
+  - Barun Acharya (@daemon1024, barun1024@gmail.com)  
+
