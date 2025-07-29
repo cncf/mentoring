@@ -242,7 +242,16 @@
   - Policy Status (Active/Inactive)  
 - **Expected Outcome:** Successful integration of these Prometheus metrics, making them accessible via a Prometheus endpoint and adhering to best practices for metric exposition.  
 - **Upstream Issue:** https://github.com/kubearmor/KubeArmor/issues/1902  
-- **Associated Repository:** https://github.com/kubearmor/kubearmor-prometheus-exporter  
+- **Associated Repository:** https://github.com/kubearmor/kubearmor-prometheus-exporter
+
+**Mentors:**  
+  - Rishabh Soni (@rootxrishabh, risrock02@gmail.com)  
+  - Aryan Sharma (@Aryan-sharma11, aryan1126.sharma@gmail.com)  
+  - Ramakant Sharma (@rksharma95, ramakant@accuknox.com)  
+  - Barun Acharya (@daemon1024, barun1024@gmail.com)  
+
+**Recommended Skills:** Go, Prometheus, Kubernetes, Git
+
 #### KubeArmor Unit Test Coverage Audit
 - **Description:** This project aims to systematically analyze and substantially improve KubeArmor's unit test coverage. It involves identifying untested code paths, designing and implementing new unit tests for crucial modules, and establishing a robust testing framework to boost code quality.  
 - **Goals:**  
@@ -255,12 +264,10 @@
 - **Associated Repository:** https://github.com/kubearmor/KubeArmor  
 - **Testing Guide Reference:** https://github.com/kubearmor/KubeArmor/blob/main/contribution/testing_guide.md  
 
-**Recommended Skills:** Go, Prometheus, Kubernetes, Testing Methodologies (unit testing, mocking), Git.  
+**Recommended Skills:** Go, Kubernetes, Testing Methodologies (unit testing, mocking), Git.  
   
 **Mentors:**  
   - Rishabh Soni (@rootxrishabh, risrock02@gmail.com)  
   - Aryan Sharma (@Aryan-sharma11, aryan1126.sharma@gmail.com)  
   - Ramakant Sharma (@rksharma95, ramakant@accuknox.com)  
   - Nishant Singh (@tesla59, talktonishantsingh.ns@gmail.com)  
-  - Barun Acharya (@daemon1024, barun1024@gmail.com)  
-
