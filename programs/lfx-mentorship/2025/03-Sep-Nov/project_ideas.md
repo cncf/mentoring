@@ -287,7 +287,7 @@ Implement Resource Permission Relationships for GCP and Azure
 - Description:
 Want to be a cloud hacker?
 
-In the cloud, answering the question "who has access to what" is surprisingly complex: we need to know what identities exist, what permission policies and controls apply to them, what resources (storage, compute, networking) exist, what permissions apply to those, and we need to tie those together. [Cartography](https://github.com/cartography-cncf/cartography) is an ambitious open source project that aims to tie all of these together.
+In the cloud, answering the question "who has access to what" is surprisingly complex: we need to know what identities exist, what permission policies and controls apply to them, what resources (storage, compute, networking) exist, what permissions apply to those, and we need to tie those together. [Cartography](https://github.com/cartography-cncf/cartography) is an ambitious open source project that aims to do just that.
 
 In this project, our goal is to model and map cloud IAM relationships in GCP and Azure so users can answer “who can access what resources” across multi-cloud environments.
 
