@@ -69,6 +69,22 @@
   - Sean Holcomb (@Sean-Holcomb, sean.holcomb@ibm.com)
 - Upstream Issue: https://github.com/opencost/opencost/issues/3240
 
+### OpenTelemetry
+
+#### Developing Guidelines for OTel Survey Analysis and Communication
+- Description: Various special interest groups (a.k.a. SIGs) in the OpenTelemetry project run surveys to understand the experience of the end-users better. To run surveys efficiently, SIG End-user provides guidelines and assistance to people running surveys. In the past, SIG End-user focused on providing guidelines around survey design. Now we would like to move forward and cover survey data analysis and communication findings. 
+- Expected Outcome: The mentee in this project will describe a step-by-step survey data analysis process and tools that OTel contributors without deep data analytics knowledge can leverage to analyze their survey data – from cleaning and coding of data, through descriptive statistics, cross-tabulation, to visualization. In addition, the mentee will come up with suggestions on how to improve existing and/or propose new ways to communicate survey findings from surveys to the OpenTelemetry community. [Bonus] The mentee might also execute one survey to test out the guidelines.
+- Recommended Skills
+  - Being comfortable to talk with end-users and stakeholders in English.
+  - Interest or currently working in UX, user research, or data analytics
+  - Familiarity with spreadsheets (Google Sheets, Excel)
+  - Basic understanding of databases and querying
+  - [Bonus] Familiarity with Python and its data science libraries (e.g., pandas, numpy)
+- Mentors
+  - Adriana Villela (@avillela, adriana.villela@gmail.com) 
+  - Andrej Kiripolsky (@AndrejKiri andrej.kiripolsky@gmail.com)
+- Upstream Issue: https://github.com/open-telemetry/sig-end-user/issues/143
+
 ### KubeStellar
 
 #### Allow a WDS to work with more than one ITS
@@ -205,6 +221,20 @@
     - Arthur Silva Sens (@ArthurSens, arthursens2005@gmail.com)
     - Amy Super (@amy-super, amy.super@grafana.com) 
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/16924
+  
+#### Prometheus Remote Write 2.0 stability
+
+- Description: In the past few quarters, a lot of work has gone into the new Remote Write 2.0 (PROM-35) proposal, and a new spec has been successfully established https://prometheus.io/docs/specs/prw/remote_write_spec_2_0/. But there is still a lot of work that needs to be done to declare it stable, in terms of stability and performance in Prometheus, and general adoption from the wider Prometheus ecosystem.
+- Expected Outcome: Since this is a large initiative, for this round of mentorship, we want to focus on the following tasks,
+  - Add 2.0 support to compliance test; make it easy to test write and receive implementations.
+  - Ensure RW new features works on agent mode (test for agent mode with metadata-wal-records and type-and-unit features).
+  - Ensure Prometheus uses the official RW client
+- Recommended Skills: Go, Prometheus
+- Mentor(s):
+  - Juraj Michalek (@jmichalek132, juraj.michalek132@gmail.com)
+  - Bartek Plotka (@bwplotka, bwplotka@gmail.com)
+  - Saswata Mukherjee (@saswatamcode, saswataminsta@yahoo.com)
+- Upstream Issue: https://github.com/prometheus/prometheus/issues/16945 
 
 #### Podman Container Tools
 
@@ -229,6 +259,38 @@
   - Paul Holzinger (@Luap99, pholzing@redhat.com)
 - Upstream Issue (URL):
   [containers/netavark#1045](https://github.com/containers/netavark/issues/1045)
+
+### Kubernetes
+
+#### Graduate the kubeadm feature gate ControlPlaneKubeletLocalMode to GA
+
+- Description: If the kubeadm feature gate ControlPlaneKubeletLocalMode
+is enabled, it tells the kubelet on a control plane node to communicate only with
+the local kube-apiserver running on the same node. If it is not enabled, the kubelets
+can try to reach out to a leading kube-apiserver trough the load balancer sitting
+in front of all control plane nodes. This can violate the Kubernetes version
+skew policy between kubelet and kube-apiserver during upgrade scenarios, leading
+to potential component failures. By graduating the feature gate to GA, kubeadm will
+ensure such policy violation scenarios are avoided. 
+- Expected Outcome: The feature gate is graduated to GA
+- Recommended Skills: golang, Kubernetes, kubeadm
+- Mentor(s):
+  - Shida Qiu (@SataQiu)
+  - Paco Xu (@pacoxu)
+- Type: maintainer mentorship (only for maintainers to work on as part of a one-off LFX Project)
+- Upstream Issue: https://github.com/kubernetes/kubeadm/issues/2271
+
+### Kube State Metrics
+
+#### Automate the release process
+
+- Description: Build upon the stale patches that aim to automate the release process for Kube State Metrics. This project will focus on implementing a fully automated release pipeline that includes steps outlined in the subproject's [RELEASE.md](https://github.com/kubernetes/kube-state-metrics/blob/main/RELEASE.md). The mentee will work on integrating these features into the existing CI/CD workflow, ensuring that releases are consistent, reliable, and easy to manage.
+- Expected Outcome: A fully automated release process for Kube State Metrics, including versioning, changelog generation, and artifact creation (through k8s.io).
+- Recommended Skills: Familiarity with CI/CD pipelines, basic scripting skills, understanding of versioning and changelog best practices, experience with GitHub Actions or similar CI/CD tools.
+- Mentor(s):
+  - Pranshu Srivastava (@rexagod, rexagod@gmail.com)
+  - Manuel Rüger (@mrueg, manuel@rueg.eu)
+- Upstream Issue: https://github.com/kubernetes/kube-state-metrics/issues/2711
 
 ### CloudNativePG
 
@@ -335,5 +397,4 @@
   - Marco Nenciarini (@mnencia, marco.nenciarini@enterprisedb.com)
 
 - Upstream issue: https://github.com/cloudnative-pg/cnpg-i-hello-world/issues/183
-
 
