@@ -47,18 +47,6 @@ Jonah Kowall (@jkowall, jkowall@kowall.net)
 Yuri Shkuro (@yurishkuro, github@ysh.us)
 Upstream Issue: https://github.com/jaegertracing/jaeger/issues/7327
 
-### Kube State Metrics
-
-#### Automate the release process
-
-- Description: Build upon the stale patches that aim to automate the release process for Kube State Metrics. This project will focus on implementing a fully automated release pipeline that includes steps outlined in the subproject's [RELEASE.md](https://github.com/kubernetes/kube-state-metrics/blob/main/RELEASE.md). The mentee will work on integrating these features into the existing CI/CD workflow, ensuring that releases are consistent, reliable, and easy to manage.
-- Expected Outcome: A fully automated release process for Kube State Metrics, including versioning, changelog generation, and artifact creation (through k8s.io).
-- Recommended Skills: Familiarity with CI/CD pipelines, basic scripting skills, understanding of versioning and changelog best practices, experience with GitHub Actions or similar CI/CD tools.
-- Mentor(s):
-  - Pranshu Srivastava (@rexagod, rexagod@gmail.com)
-  - Manuel Rüger (@mrueg, manuel@rueg.eu)
-- Upstream Issue: https://github.com/kubernetes/kube-state-metrics/issues/2711
-
 ### OpenCost
 
 #### Develop MCP Server for Agentic AI interaction with OpenCost
@@ -80,3 +68,16 @@ Upstream Issue: https://github.com/jaegertracing/jaeger/issues/7327
   - Alex Meijer (@ameijer, alexander.meijer@ibm.com)
   - Sean Holcomb (@Sean-Holcomb, sean.holcomb@ibm.com)
 - Upstream Issue: https://github.com/opencost/opencost/issues/3240
+
+### Kube State Metrics
+
+#### Automate the release process
+
+- Description: Build upon the stale patches that aim to automate the release process for Kube State Metrics. This project will focus on implementing a fully automated release pipeline that includes steps outlined in the subproject's [RELEASE.md](https://github.com/kubernetes/kube-state-metrics/blob/main/RELEASE.md). The mentee will work on integrating these features into the existing CI/CD workflow, ensuring that releases are consistent, reliable, and easy to manage.
+- Expected Outcome: A fully automated release process for Kube State Metrics, including versioning, changelog generation, and artifact creation (through k8s.io).
+- Recommended Skills: Familiarity with CI/CD pipelines, basic scripting skills, understanding of versioning and changelog best practices, experience with GitHub Actions or similar CI/CD tools.
+- Mentor(s):
+  - Pranshu Srivastava (@rexagod, rexagod@gmail.com)
+  - Manuel Rüger (@mrueg, manuel@rueg.eu)
+- Upstream Issue: https://github.com/kubernetes/kube-state-metrics/issues/2711
+
