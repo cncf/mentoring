@@ -230,3 +230,20 @@
 - Upstream Issue (URL):
   [containers/netavark#1045](https://github.com/containers/netavark/issues/1045)
 
+### PipeCD
+
+#### Prepare documentation for PipeCD v1 release
+
+- Description: Over time, the [plugin-arch pipecd](https://pipecd.dev/blog/2024/11/28/overview-of-the-plan-for-pluginnable-pipecd/) (some docs we call pipecdv1) has reached the final stages before release. Although most of the features of v0 are retained when moving to v1, some of the documentation and usage need to be updated to match v1. 
+- Expected Outcome:
+    - Refine pipecd documentation, ensure v0 and v1 coexist in parallel without causing confusion
+    - Prepare documentation for pipecd v1
+    - Support prepare developer guideline for making pipecd [plugins](https://github.com/pipe-cd/community-plugins/)
+- Recommended Skills:
+    - Create docs with [Hugo](https://gohugo.io/documentation/)
+    - English skill at professional level
+    - Knowledge on CI/CD, GitOps, Cloud vendors (such as GCP, AWS, etc)
+    - Golang programming language (to understand the codebase if needed)
+- Mentors:
+    - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
+- Upstream Issue: https://github.com/pipe-cd/pipecd/issues/6077
