@@ -221,6 +221,20 @@
     - Arthur Silva Sens (@ArthurSens, arthursens2005@gmail.com)
     - Amy Super (@amy-super, amy.super@grafana.com) 
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/16924
+  
+#### Prometheus Remote Write 2.0 stability
+
+- Description: In the past few quarters, a lot of work has gone into the new Remote Write 2.0 (PROM-35) proposal, and a new spec has been successfully established https://prometheus.io/docs/specs/prw/remote_write_spec_2_0/. But there is still a lot of work that needs to be done to declare it stable, in terms of stability and performance in Prometheus, and general adoption from the wider Prometheus ecosystem.
+- Expected Outcome: Since this is a large initiative, for this round of mentorship, we want to focus on the following tasks,
+  - Add 2.0 support to compliance test; make it easy to test write and receive implementations.
+  - Ensure RW new features works on agent mode (test for agent mode with metadata-wal-records and type-and-unit features).
+  - Ensure Prometheus uses the official RW client
+- Recommended Skills: Go, Prometheus
+- Mentor(s):
+  - Juraj Michalek (@jmichalek132, juraj.michalek132@gmail.com)
+  - Bartek Plotka (@bwplotka, bwplotka@gmail.com)
+  - Saswata Mukherjee (@saswatamcode, saswataminsta@yahoo.com)
+- Upstream Issue: https://github.com/prometheus/prometheus/issues/16945 
 
 #### Podman Container Tools
 
