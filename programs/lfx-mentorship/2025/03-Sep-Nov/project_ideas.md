@@ -47,112 +47,6 @@
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/7327
 
-### CloudNativePG
-
-#### Rebuilding CloudNativePG Documentation for Multi-Version Support with Docusaurus
-
-- Description: The current documentation of CloudNativePG (a Kubernetes-native
-  Postgres operator) is statically built using `mkdocs` from Markdown sources,
-  which must live with the rest of the source code as they are part of it. We
-  want to modernise this process and introduce multi-version support, helping
-  users find accurate information for the version they are running in production.
-  This project aims to rebuild the documentation site using Docusaurus
-  (preferred) or an equivalent static site generator to enable multi-version
-  documentation and version selection. Additionally, any initiatives that improve
-  content structure, navigation, searchability, and clarity are welcome, provided
-  they enhance logical flow and maintainability while aligning with CNCF and user
-  expectations. The documentation is hosted on GitHub Pages under the
-  CloudNativePG website domain.
-
-- Expected Outcome:
-
-    - Incremental set of pull requests (PRs) with:
-
-       - Site built with Docusaurus (or equivalent) with version selector working.
-       - Content restructured for clarity and easier navigation.
-       - Clean, consistent navigation structure and enhanced search capabilities.
-       - Staging website capabilities.
-       - Deployment workflow to GitHub Pages using Dagger and GitHub Actions.
-
-    - A clear contributor guide explaining how maintainers can add or update
-      documentation for each version in the future.
-
-- Recommended Skills:
-
-    - Markdown
-    - Git and GitHub workflows
-    - Static site generators (preferably Docusaurus, Hugo, or MkDocs)
-    - Basic YAML/TOML configuration
-    - Familiarity with Kubernetes, PostgreSQL and CloudNativePG
-
-- Mentor(s):
-  - Gabriele Bartolini (@gbartolini, gabriele.bartolini@enterprisedb.com)
-  - Francesco Canovai (@fcanovai, francesco.canovai@enterprisedb.com)
-  - Leonardo Cecchi (@leonardoce, leonardo.cecchi@enterprisedb.com)
-
-- Upstream Issue: https://github.com/cloudnative-pg/cloudnative-pg/issues/8122
-
-
-#### Chaos Testing
-
-- Description: We want to expand the scope of the CloudNativePG tests,
-  introducing a full-fledged chaos testing framework that can be
-  used to better validate the resilience, fault tolerance and recovery
-  mechanisms of CloudNativePG.
-
-- Expected Outcome:
-  - Selection of a Kubernetes-native chaos testing framework (e.g., LitmusChaos or Chaos Mesh).
-  - Design and automation of an initial set of chaos experiments covering common failure scenarios.
-  - Integration of these experiments into CI/CD to ensure reproducible testing.
-  - Collection of clear observability metrics (e.g., failover time, data consistency) to assess resilience and recovery.
-  - Documentation and guidelines to help contributors create and run new chaos experiments safely.
-
-
-- Recommended Skills:
-
-  - Experience with chaos testing frameworks (preferably LitmusChaos or Chaos Mesh).
-  - Familiarity with Kubernetes, PostgreSQL, and CloudNativePG.
-  - Understanding of observability tools such as Prometheus or Grafana.
-
-- Mentors:
-  - Gabriele Bartolini (@gbartolini, gabriele.bartolini@enterprisedb.com)
-  - Francesco Canovai (@fcanovai, francesco.canovai@enterprisedb.com)
-  - Jonathan Gonzalez (@sxd, jonathan.gonzalez@enterprisedb.com)
-  - Marco Nenciarini (@mnencia, marco.nenciarini@enterprisedb.com)
-
-- Upstream issue: https://github.com/cloudnative-pg/cloudnative-pg/issues/8174
-
-#### Refresh cnpg-i-hello-world to align with the current state of CNPG-I
-
-- Description: The cnpg-i-hello-world project was created to help developers get
-  started with building plugins for CloudNativePG using the CNPG-I framework.
-  However, the project is now outdated and requires significant maintenance and
-  updates to reflect the current capabilities of CNPG-I. The goal is to bring it
-  in line with the latest state of the interface and ensure it serves as a solid
-  reference for:
-
-    - Understanding how to use CNPG-I
-    - Developing and prototyping new plugins
-
-- Expected Outcome:
-    - Review and update the codebase to match the latest CNPG-I interface and conventions
-    - Ensure it follows the latest best practices for plugin development
-    - Expand and improve examples as needed
-    - Integrate CNPG-I documentation where appropriate to provide better guidance for developers
-
-- Recommended Skills:
-    - Go programming
-    - Kubernetes
-    - CloudNativePG
-
-- Mentors:
-  - Gabriele Bartolini (@gbartolini, gabriele.bartolini@enterprisedb.com)
-  - Armando Ruocco (@armru, armando.ruocco@enterprisedb.com)
-  - Leonardo Cecchi (@leonardoce, leonardo.cecchi@enterprisedb.com)
-  - Marco Nenciarini (@mnencia, marco.nenciarini@enterprisedb.com)
-
-- Upstream issue: https://github.com/cloudnative-pg/cnpg-i-hello-world/issues/183
-
 ### OpenCost
 
 #### Develop MCP Server for Agentic AI interaction with OpenCost
@@ -335,4 +229,111 @@
   - Paul Holzinger (@Luap99, pholzing@redhat.com)
 - Upstream Issue (URL):
   [containers/netavark#1045](https://github.com/containers/netavark/issues/1045)
+
+### CloudNativePG
+
+#### Rebuilding CloudNativePG Documentation for Multi-Version Support with Docusaurus
+
+- Description: The current documentation of CloudNativePG (a Kubernetes-native
+  Postgres operator) is statically built using `mkdocs` from Markdown sources,
+  which must live with the rest of the source code as they are part of it. We
+  want to modernise this process and introduce multi-version support, helping
+  users find accurate information for the version they are running in production.
+  This project aims to rebuild the documentation site using Docusaurus
+  (preferred) or an equivalent static site generator to enable multi-version
+  documentation and version selection. Additionally, any initiatives that improve
+  content structure, navigation, searchability, and clarity are welcome, provided
+  they enhance logical flow and maintainability while aligning with CNCF and user
+  expectations. The documentation is hosted on GitHub Pages under the
+  CloudNativePG website domain.
+
+- Expected Outcome:
+
+    - Incremental set of pull requests (PRs) with:
+
+       - Site built with Docusaurus (or equivalent) with version selector working.
+       - Content restructured for clarity and easier navigation.
+       - Clean, consistent navigation structure and enhanced search capabilities.
+       - Staging website capabilities.
+       - Deployment workflow to GitHub Pages using Dagger and GitHub Actions.
+
+    - A clear contributor guide explaining how maintainers can add or update
+      documentation for each version in the future.
+
+- Recommended Skills:
+
+    - Markdown
+    - Git and GitHub workflows
+    - Static site generators (preferably Docusaurus, Hugo, or MkDocs)
+    - Basic YAML/TOML configuration
+    - Familiarity with Kubernetes, PostgreSQL and CloudNativePG
+
+- Mentor(s):
+  - Gabriele Bartolini (@gbartolini, gabriele.bartolini@enterprisedb.com)
+  - Francesco Canovai (@fcanovai, francesco.canovai@enterprisedb.com)
+  - Leonardo Cecchi (@leonardoce, leonardo.cecchi@enterprisedb.com)
+
+- Upstream Issue: https://github.com/cloudnative-pg/cloudnative-pg/issues/8122
+
+
+#### Chaos Testing
+
+- Description: We want to expand the scope of the CloudNativePG tests,
+  introducing a full-fledged chaos testing framework that can be
+  used to better validate the resilience, fault tolerance and recovery
+  mechanisms of CloudNativePG.
+
+- Expected Outcome:
+  - Selection of a Kubernetes-native chaos testing framework (e.g., LitmusChaos or Chaos Mesh).
+  - Design and automation of an initial set of chaos experiments covering common failure scenarios.
+  - Integration of these experiments into CI/CD to ensure reproducible testing.
+  - Collection of clear observability metrics (e.g., failover time, data consistency) to assess resilience and recovery.
+  - Documentation and guidelines to help contributors create and run new chaos experiments safely.
+
+
+- Recommended Skills:
+
+  - Experience with chaos testing frameworks (preferably LitmusChaos or Chaos Mesh).
+  - Familiarity with Kubernetes, PostgreSQL, and CloudNativePG.
+  - Understanding of observability tools such as Prometheus or Grafana.
+
+- Mentors:
+  - Gabriele Bartolini (@gbartolini, gabriele.bartolini@enterprisedb.com)
+  - Francesco Canovai (@fcanovai, francesco.canovai@enterprisedb.com)
+  - Jonathan Gonzalez (@sxd, jonathan.gonzalez@enterprisedb.com)
+  - Marco Nenciarini (@mnencia, marco.nenciarini@enterprisedb.com)
+
+- Upstream issue: https://github.com/cloudnative-pg/cloudnative-pg/issues/8174
+
+#### Refresh cnpg-i-hello-world to align with the current state of CNPG-I
+
+- Description: The cnpg-i-hello-world project was created to help developers get
+  started with building plugins for CloudNativePG using the CNPG-I framework.
+  However, the project is now outdated and requires significant maintenance and
+  updates to reflect the current capabilities of CNPG-I. The goal is to bring it
+  in line with the latest state of the interface and ensure it serves as a solid
+  reference for:
+
+    - Understanding how to use CNPG-I
+    - Developing and prototyping new plugins
+
+- Expected Outcome:
+    - Review and update the codebase to match the latest CNPG-I interface and conventions
+    - Ensure it follows the latest best practices for plugin development
+    - Expand and improve examples as needed
+    - Integrate CNPG-I documentation where appropriate to provide better guidance for developers
+
+- Recommended Skills:
+    - Go programming
+    - Kubernetes
+    - CloudNativePG
+
+- Mentors:
+  - Gabriele Bartolini (@gbartolini, gabriele.bartolini@enterprisedb.com)
+  - Armando Ruocco (@armru, armando.ruocco@enterprisedb.com)
+  - Leonardo Cecchi (@leonardoce, leonardo.cecchi@enterprisedb.com)
+  - Marco Nenciarini (@mnencia, marco.nenciarini@enterprisedb.com)
+
+- Upstream issue: https://github.com/cloudnative-pg/cnpg-i-hello-world/issues/183
+
 
