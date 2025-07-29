@@ -234,7 +234,17 @@
   - Juraj Michalek (@jmichalek132, juraj.michalek132@gmail.com)
   - Bartek Plotka (@bwplotka, bwplotka@gmail.com)
   - Saswata Mukherjee (@saswatamcode, saswataminsta@yahoo.com)
-- Upstream Issue: https://github.com/prometheus/prometheus/issues/16945 
+- Upstream Issue: https://github.com/prometheus/prometheus/issues/16945
+
+#### Prometheus Native Summaries
+
+- Description: Prometheus Summaries are less but still widely used metric type. Currently, similar to classic histogram, a single summary is composed of multiple counter series. The native summary idea proposes to structure the summary type metric samples into a complex sample, similar to native histograms. As a result, bringing meanigful storage efficiency and transactionality gains. This project offers an opportunity to introduce relatively complex database change across Prometheus scraping, WAL, TSDB and querying; considering the precedense of native histograms. This project will allow mentee to learn about Prometheus, generally database internals as well as observabvility needs.
+- Expected Outcome: The proposal and demo Prometheus implementation is published.
+- Recommended Skills: Go, Prometheus
+- Mentor(s):
+  - Bartek Plotka (@bwplotka, bwplotka@gmail.com)
+  - Jonathan Silva (@perebaj, perebaj@gmail.com)
+- Upstream Issue: https://github.com/prometheus/prometheus/issues/16949
 
 #### Podman Container Tools
 
@@ -439,66 +449,3 @@ ensure such policy violation scenarios are avoided.
   - Aryan Sharma (@Aryan-sharma11, aryan1126.sharma@gmail.com)  
   - Ramakant Sharma (@rksharma95, ramakant@accuknox.com)  
   - Nishant Singh (@tesla59, talktonishantsingh.ns@gmail.com) 
-
-### Cartography
-
-#### IAM Whatever You Say IAM - GCP and Azure edition
-
-Implement Resource Permission Relationships for GCP and Azure
-
-- Description:
-Want to be a cloud hacker?
-
-In the cloud, answering the question "who has access to what" is surprisingly complex: we need to know what identities exist, what permission policies and controls apply to them, what resources (storage, compute, networking) exist, what permissions apply to those, and we need to tie those together. [Cartography](https://github.com/cartography-cncf/cartography) is an ambitious open source project that aims to do just that.
-
-In this project, our goal is to model and map cloud IAM relationships in GCP and Azure so users can answer “who can access what resources” across multi-cloud environments.
-
-We previously did this in AWS as seen in [“IAM: Whatever You Say I Am”](https://eng.lyft.com/iam-whatever-you-say-iam-febce59d1e3b), and we would love to complete our coverage of this across the major cloud providers.
-
-- Expected Outcome:
-  - Design and implement support for evaluating permission objects in GCP and Azure to draw paths such as `(:GCPUser)-[:CAN_READ]->(:GCPBucket)` or `(:AzureServicePrincipal)-[:CAN_READ]->(:StorageAccount)`.
-  - Bonus: opportunity to author or co-author a blog post or video demo
-
-- Recommended Skills:
-  - Python
-  - Ability to handle feedback gracefully is required
-  - Familiarity with cloud security permissions and interest in information security strongly preferred
-  - Familiarity with cloud IAM (GCP or Azure or AWS)
-  - Strong written and verbal communication skills in English required
-  - Basic Neo4j/Cypher knowledge a plus but not necessary
-
-- Mentor(s):
-  - Alex Chantavy (@achantavy, chantavy@gmail.com)
-  - Kunaal Sikka (@kunaals, kunaal@subimage.io)
-
-- Upstream Issues:
-  - https://github.com/cartography-cncf/cartography/issues/1734
-  - https://github.com/cartography-cncf/cartography/issues/1735
-
-
-#### Make map of Azure and Google Compute Cloud resources
-Vibe-code your way to making the world's most complete infra map.
-
-- Description:
-[Cartography](https://github.com/cartography-cncf/cartography) makes maps of the cloud so that security and devops teams can find and fix problems. Think about it like the [Maurauder's Map](https://simple.wikipedia.org/wiki/Marauder%27s_Map) from Harry Potter.
-
-Cartography has very good AWS coverage, but lacks support for many Azure and GCP resources. With your help, we can fix this! Companies around the world use Cartography to better understand their infra, and you can be a part of this. Most of these modules should be conducive to coding with agents (we have a well-documented [AGENTS.md](https://github.com/cartography-cncf/cartography/blob/master/AGENTS.md)!), so if you enjoy writing in Python, want to learn about information security/devops, and moving fast, this is the project for you.
-
-- Expected Outcome:
-  - Design and implement graph schemas for missing Azure and AWS objects in Cartography
-
-- Mentor(s):
-  - Alex Chantavy (@achantavy, chantavy@gmail.com)
-  - Kunaal Sikka (@kunaals, kunaal@subimage.io)
-
-- Recommended Skills:
-  - Python
-  - Ability to handle feedback gracefully is required
-  - Strong written and verbal communication skills in English required
-  - Interest in cloud security or devops is a plus
-  - Basic Neo4j/Cypher knowledge a plus but not necessary
-  - Familiarity with LLM-based coding tools is a plus but not necessary
-
-Upstream issues
-- https://github.com/cartography-cncf/cartography/issues/1736
-- https://github.com/cartography-cncf/cartography/issues/415
