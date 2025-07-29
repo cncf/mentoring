@@ -246,3 +246,23 @@
 - Upstream Issue (URL):
   [containers/netavark#1045](https://github.com/containers/netavark/issues/1045)
 
+### Kubernetes
+
+#### Graduate the kubeadm feature gate ControlPlaneKubeletLocalMode to GA
+
+- Description: If the kubeadm feature gate ControlPlaneKubeletLocalMode
+is enabled, it tells the kubelet on a control plane node to communicate only with
+the local kube-apiserver running on the same node. If it is not enabled, the kubelets
+can try to reach out to a leading kube-apiserver trough the load balancer sitting
+in front of all control plane nodes. This can violate the Kubernetes version
+skew policy between kubelet and kube-apiserver during upgrade scenarios, leading
+to potential component failures. By graduating the feature gate to GA, kubeadm will
+ensure such policy violation scenarios are avoided. 
+- Expected Outcome: The feature gate is graduated to GA
+- Recommended Skills: golang, Kubernetes, kubeadm
+- Mentor(s):
+  - Shida Qiu (@SataQiu)
+  - Paco Xu (@pacoxu)
+- Type: maintainer mentorship (only for maintainers to work on as part of a one-off LFX Project)
+- Upstream Issue: https://github.com/kubernetes/kubeadm/issues/2271
+
