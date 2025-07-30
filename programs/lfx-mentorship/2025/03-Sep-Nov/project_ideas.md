@@ -234,7 +234,17 @@
   - Juraj Michalek (@jmichalek132, juraj.michalek132@gmail.com)
   - Bartek Plotka (@bwplotka, bwplotka@gmail.com)
   - Saswata Mukherjee (@saswatamcode, saswataminsta@yahoo.com)
-- Upstream Issue: https://github.com/prometheus/prometheus/issues/16945 
+- Upstream Issue: https://github.com/prometheus/prometheus/issues/16945
+
+#### Prometheus Native Summaries
+
+- Description: Prometheus Summaries are less but still widely used metric type. Currently, similar to classic histogram, a single summary is composed of multiple counter series. The native summary idea proposes to structure the summary type metric samples into a complex sample, similar to native histograms. As a result, bringing meanigful storage efficiency and transactionality gains. This project offers an opportunity to introduce relatively complex database change across Prometheus scraping, WAL, TSDB and querying; considering the precedense of native histograms. This project will allow mentee to learn about Prometheus, generally database internals as well as observabvility needs.
+- Expected Outcome: The proposal and demo Prometheus implementation is published.
+- Recommended Skills: Go, Prometheus
+- Mentor(s):
+  - Bartek Plotka (@bwplotka, bwplotka@gmail.com)
+  - Jonathan Silva (@perebaj, perebaj@gmail.com)
+- Upstream Issue: https://github.com/prometheus/prometheus/issues/16949
 
 #### Podman Container Tools
 
