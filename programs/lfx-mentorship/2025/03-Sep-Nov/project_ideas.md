@@ -503,6 +503,167 @@ Upstream issues
 - https://github.com/cartography-cncf/cartography/issues/1736
 - https://github.com/cartography-cncf/cartography/issues/415
 
+### KubeSlice
+
+#### Implement Dynamic IPAM for the Slice Overlay Network
+
+- Description:  In the current KubeSlice design, IP address management (IPAM) for slice overlay networks is static and inefficient. A predefined CIDR block (e.g., 10.1.0.0/16) is divided into a fixed number of subnets regardless of how many clusters participate in the slice, leading to significant IP space wastage.  
+  This project aims to implement a dynamic IPAM system that allocates IP subnets to clusters on demand and reclaims unused ranges when clusters leave the slice. It will ensure efficient address utilization, synchronization across clusters, and integration with the KubeSlice control plane.
+
+- Expected Outcome:
+    - A dynamic IPAM allocator integrated with the KubeSlice controller or sidecar component.
+    - Support for on-demand IP allocation and subnet reclamation when clusters join or leave a slice.
+    - Conflict resolution and state synchronization across clusters using CRDs or distributed storage.
+    - Documentation on how the system works, configuration options, and edge case behaviour.
+
+- Recommended Skills:  
+  Go (Golang), Kubernetes controllers and CRDs, IPAM concepts, networking (CIDRs, subnets).
+
+- Mentor(s):
+    - Gourish Biradar (@gourishbiradar, biradar.gourish@gmail.com)
+    - Rahul Kumar (@Rahul-D78, rahulparida933@gmail.com)
+    - Prabhu Navali (@pnavali, prabhu@aveshasystems.com)
+
+- Upstream Issue:  https://github.com/kubeslice/kubeslice-controller/issues/252
+
+#### Implement Custom Topology Definition for a Slice
+
+- Description:  KubeSlice currently uses a full-mesh topology for the slice overlay network, where every cluster connects to every other cluster in the slice. This results in unnecessary tunnel creation and resource consumption.  
+  This project proposes a topology-aware design, allowing users to define custom connectivity matrices for slices. Users can specify partial meshes. Additionally, the project will support configuring each cluster's VPN deployment type (client/server) to accommodate network constraints such as firewalls or NAT.
+
+- Expected Outcome:
+    - Extension of the Slice CRD to support custom topology and VPN role definitions.
+    - Logic to establish tunnels based only on the defined connectivity matrix.
+    - Support for various deployment topologies (full-mesh, partial mesh, hub-spoke).
+    - Sample configurations and documentation on how to define and validate topologies.
+
+- Recommended Skills:  
+  Go (Golang), Kubernetes CRDs and controllers, VPN networking concepts (client/server), overlay networking.
+
+- Mentor(s):
+    - Gourish Biradar (@gourishbiradar, biradar.gourish@gmail.com)
+    - Rahul Kumar (@Rahul-D78, rahulparida933@gmail.com)
+    - Prabhu Navali (@pnavali, prabhu@aveshasystems.com)
+
+- Upstream Issue: https://github.com/kubeslice/kubeslice-controller/issues/253
+
+  
+#### Implement Comprehensive Unit & Integration Testing for kubeslice-cli
+
+- Description: The kubeslice-cli repository currently lacks comprehensive unit and integration tests making it hard to test the changes. This project aims to implement a robust testing framework to ensure the reliability and stability of the CLI tool. The Mentee will write unit tests for existing functions & integration tests for the CLI commands & also set up a continuous integration pipeline to run these tests automatically on every commit and pull request.
+- Expected Outcome:
+    - A fully configured testing framework for kubeslice-cli with unit and integration tests covering all critical functionalities.
+    - A CI/CD pipeline configuration (e.g., GitHub Actions) that automatically runs the tests on every pull request.
+    - Documentation on how to run these tests & add new ones.
+- Recommended Skills: Go (Golang), Go testing frameworks (testify), Kubernetes, CLI, CI/CD (GitHub Actions).
+- Mentor(s):
+    - Gourish Biradar (@gourishbiradar, biradar.gourish@gmail.com)
+    - Rahul Kumar (@Rahul-D78, rahulparida933@gmail.com)
+    - Prabhu Navali (@pnavali, prabhu@aveshasystems.com)
+- Upstream Issue: https://github.com/kubeslice/kubeslice-cli/issues/46
+
+#### Enhance and Automate End-to-End (E2E) Testing Across the KubeSlice Ecosystem
+
+- Description: The KubeSlice project consists of multiple repositories that work together to provide application connectivity and network services across Kubernetes clusters. Currently, our E2E tests are outdated and need significant improvement. This project aims to automate the E2E testing process by improving the current test suite and implementing new tests where necessary. This will ensure that the entire KubeSlice ecosystem works seamlessly together.
+- Expected Outcome:
+    - A comprehensive set of E2E tests covering all critical functionalities of KubeSlice.
+    - Integration of the E2E tests into the CI/CD pipeline to run automatically.
+    - Clear Documentation for running & extending the E2E tests.
+- Recommended Skills: Go (Golang), Kubernetes, E2E testing (kind, Ginkgo), CI/CD (GitHub Actions).
+- Mentor(s):
+    - Gourish Biradar (@gourishbiradar, biradar.gourish@gmail.com)
+    - Rahul Kumar (@Rahul-D78, rahulparida933@gmail.com)
+    - Prabhu Navali (@pnavali, prabhu@aveshasystems.com)
+- Upstream Issue: https://github.com/kubeslice/kubeslice/issues/56
+
+### OpenKruise
+
+#### SidecarSet support setting sidecar resources adaptively 
+
+- Description: SidecarSet is an advance workload for sidecar container injection and upgrade. Currently the sidecar container resource must be set explicitely in the sidecar template, however in the cases of traffic proxy, log collection and device emulation etc, it is desirable to to set the resources according to resource of app container. The goal is to support the adaptively setting for sidecar resources and provide best practice for typical use cases.
+- Expected Outcome
+  - implementation for adaptively resources setting for sidecar in SidecarSet workload
+  - unit and integration tests 
+  - documentation for the function usage and typical use cases in the OpenKruise website
+- Recommended Skills: Golang, kubernetes operator development
+- Mentors
+  - Zhao Mingshan (@zmberg, berg.zms@gmail.com)
+- Upstream Issue: https://github.com/openkruise/kruise/issues/2123
+
+#### Promote kruise api version from v1alphal1 to v1beta1
+
+- Description: Many advance workloads in OpenKruise are widely used in production, however the API version of the workload is still in v1alpha1. The goal is to promote the API version of mostly used and mature workload to v1beta1 and optimize the CRD fields for better clarity. 
+- Expected Outcome
+  - API definition of v1beta1 resources and the implementation for conversion webhook to convert v1alpha1 resource to v1beta1 resource
+  - unit and integration tests
+  - documentation for the usage of v1beta1 resource in the OpenKruise website
+- Recommended Skills: Golang, kubernetes operator development
+- Mentors
+  - Zhang Zhen (@furykerry, furykerry@gmail.com)
+- Upstream Issue: https://github.com/openkruise/kruise/issues/2122
+
+
+#### Bring progressive delivery capability for native kubernetes DaemonSet
+
+- Description: OpenKruise Rollout already support the progressive delivery of OpenKruise advance DaemonSet, however switching workload is not an option for many users. The goal is to utilize the `OnDelete` updateStrategy of native kubernetes workload, and trigger the pod upgrade by deleting desired number of pods per Rollout specification. 
+- Expected Outcome
+  - implentation of progressive delivery for native kubernetes daemonset, and only basic multi-batch release is required. 
+  - unit and integration test    
+  - documentation for the function usage and typical use cases in the OpenKruise website
+- Recommended Skills: Golang, kubernetes operator development
+- Mentors
+  - Zhong Tianyun (@AiRanthem, airanthem666@gmail.com)
+- Upstream Issue: https://github.com/openkruise/rollouts/issues/297
+
+#### Enhance Robustness and Usability of Kruise-Game
+
+- Description: kruise-game is being used by many game companies. It is imperative to build the stability of kruise-game components. With the rapid iteration of project functions, the current test coverage has not met expectations, so we need to add more UT and E2E use cases to ensure that there will be no problems with our basic functions. In addition, in a large-scale cluster environment, kruise-game also needs more indicators to reveal the performance of the current controller.
+- Expected Outcome: 
+  - Expand End-to-End (E2E) Test Coverage
+  - Improve Unit Test (UT) Coverage
+  - Enhance Observability via Controller Metrics
+  - Improve Logging Contextualization
+- Recommended Skills: Golang, Kubernetes
+- Mentor:
+  - Qiuyang Liu (@chrisliu1995, [chrisliu1995@163.com](mailto:chrisliu1995@163.com))
+  - Zhongwei Liu (@ringtail, [zhongwei.lzw@alibaba-inc.com](mailto:zhongwei.lzw@alibaba-inc.com))
+- Upstream Issue: https://github.com/openkruise/kruise-game/issues/266
+
+### Kmesh
+
+#### Improving Ipsec's Stability and Ease of Use
+
+- Description:
+  Communication encryption is an important functional feature of the Service Mesh to ensure communication security. Kmesh uses IPsec to implement this feature. However, Kmesh lacks the reliability maintenance and ease of use enhancements for Kmesh. Therefore, we should optimize the reliability and ease of use of IPsec in addition to its implementation.
+- Expected Outcome:
+  - Reduce IPsec configuration steps according to users' actual usage scenarios. It is best to realize one-click configuration for users.
+  - Sorting out Ipsec code and refactoring where it affects stability and performance.
+  - UT overlay with enhanced IPSec features
+- Recommended Skills:
+  - Golang
+  - Some C knowledge about eBPF and IPsec
+  - Basic networking knowledge
+- Metor(s):
+  - ZhenCheng Li(@LiZhenCheng9527, leezhencheng6@gmail.com),
+  - Zhonghu Xu(@hzxuzhonghu, zhhxu@163@gmail.com)
+- Upstream Issue: https://github.com/kmesh-net/kmesh/issues/1457
+
+#### Kmesh Orion replace waypopint
+
+- Description:
+  Kmesh, as a high-performance service mesh data plane, does have a performance advantage when compared to other service mesh data planes. However, in high-concurrency scenarios with application-layer protocols such as HTTP, it is held back by the waypoint. Therefore, we developed Orion to replace the waypoint. However, there is still some adaptive functionality development and testing that needs to be done before we can replace it.
+- Expected Outcomes:
+  - Testing of Orion's key functions for waypoints such as communication with control surfaces, authorization policy, etc.
+  - If there is missing functionality, it needs to be adapted and supplemented.
+  - Provides a way to install Orion via Kmeshctl.
+- Recommended Skills:
+  - Rust
+  - Basic service mesh knowledge
+- Metor(s):
+  - Zengzeng Yao(@yaozengzeng, yaozengzeng@huawei.com)
+  - Zhonghu Xu(@hzxuzhonghu, zhhxu@163@gmail.com)
+- Upstream Issue: https://github.com/kmesh-net/kmesh/issues/1450
+
 ### Kyverno
 
 ##### Convert Kyverno Sample Policies to Use New CEL-Based Policy Types
