@@ -628,3 +628,38 @@ Upstream issues
   - Qiuyang Liu (@chrisliu1995, [chrisliu1995@163.com](mailto:chrisliu1995@163.com))
   - Zhongwei Liu (@ringtail, [zhongwei.lzw@alibaba-inc.com](mailto:zhongwei.lzw@alibaba-inc.com))
 - Upstream Issue: https://github.com/openkruise/kruise-game/issues/266
+
+### Kmesh
+
+#### Improving Ipsec's Stability and Ease of Use
+
+- Description:
+  Communication encryption is an important functional feature of the Service Mesh to ensure communication security. Kmesh uses IPsec to implement this feature. However, Kmesh lacks the reliability maintenance and ease of use enhancements for Kmesh. Therefore, we should optimize the reliability and ease of use of IPsec in addition to its implementation.
+- Expected Outcome:
+  - Reduce IPsec configuration steps according to users' actual usage scenarios. It is best to realize one-click configuration for users.
+  - Sorting out Ipsec code and refactoring where it affects stability and performance.
+  - UT overlay with enhanced IPSec features
+- Recommended Skills:
+  - Golang
+  - Some C knowledge about eBPF and IPsec
+  - Basic networking knowledge
+- Metor(s):
+  - ZhenCheng Li(@LiZhenCheng9527, leezhencheng6@gmail.com),
+  - Zhonghu Xu(@hzxuzhonghu, zhhxu@163@gmail.com)
+- Upstream Issue: https://github.com/kmesh-net/kmesh/issues/1457
+
+#### Kmesh Orion replace waypopint
+
+- Description:
+  Kmesh, as a high-performance service mesh data plane, does have a performance advantage when compared to other service mesh data planes. However, in high-concurrency scenarios with application-layer protocols such as HTTP, it is held back by the waypoint. Therefore, we developed Orion to replace the waypoint. However, there is still some adaptive functionality development and testing that needs to be done before we can replace it.
+- Expected Outcomes:
+  - Testing of Orion's key functions for waypoints such as communication with control surfaces, authorization policy, etc.
+  - If there is missing functionality, it needs to be adapted and supplemented.
+  - Provides a way to install Orion via Kmeshctl.
+- Recommended Skills:
+  - Rust
+  - Basic service mesh knowledge
+- Metor(s):
+  - Zengzeng Yao(@yaozengzeng, yaozengzeng@huawei.com)
+  - Zhonghu Xu(@hzxuzhonghu, zhhxu@163@gmail.com)
+- Upstream Issue: https://github.com/kmesh-net/kmesh/issues/1450
