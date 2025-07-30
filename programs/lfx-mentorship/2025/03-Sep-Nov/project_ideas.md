@@ -449,3 +449,364 @@ ensure such policy violation scenarios are avoided.
   - Aryan Sharma (@Aryan-sharma11, aryan1126.sharma@gmail.com)  
   - Ramakant Sharma (@rksharma95, ramakant@accuknox.com)  
   - Nishant Singh (@tesla59, talktonishantsingh.ns@gmail.com) 
+
+### Cartography
+
+#### IAM Whatever You Say IAM - GCP and Azure edition
+
+Implement Resource Permission Relationships for GCP and Azure
+
+- Description:
+Want to be a cloud hacker?
+
+In the cloud, answering the question "who has access to what" is surprisingly complex: we need to know what identities exist, what permission policies and controls apply to them, what resources (storage, compute, networking) exist, what permissions apply to those, and we need to tie those together. [Cartography](https://github.com/cartography-cncf/cartography) is an ambitious open source project that aims to do just that.
+
+In this project, our goal is to model and map cloud IAM relationships in GCP and Azure so users can answer “who can access what resources” across multi-cloud environments.
+
+We previously did this in AWS as seen in [“IAM: Whatever You Say I Am”](https://eng.lyft.com/iam-whatever-you-say-iam-febce59d1e3b), and we would love to complete our coverage of this across the major cloud providers.
+
+- Expected Outcome:
+  - Design and implement support for evaluating permission objects in GCP and Azure to draw paths such as `(:GCPUser)-[:CAN_READ]->(:GCPBucket)` or `(:AzureServicePrincipal)-[:CAN_READ]->(:StorageAccount)`.
+  - Bonus: opportunity to author or co-author a blog post or video demo
+
+- Recommended Skills:
+  - Python
+  - Ability to handle feedback gracefully is required
+  - Familiarity with cloud security permissions and interest in information security strongly preferred
+  - Familiarity with cloud IAM (GCP or Azure or AWS)
+  - Strong written and verbal communication skills in English required
+  - Basic Neo4j/Cypher knowledge a plus but not necessary
+
+- Mentor(s):
+  - Alex Chantavy (@achantavy, chantavy@gmail.com)
+  - Kunaal Sikka (@kunaals, kunaal@subimage.io)
+
+- Upstream Issues:
+  - https://github.com/cartography-cncf/cartography/issues/1734
+  - https://github.com/cartography-cncf/cartography/issues/1735
+
+
+#### Make map of Azure and Google Compute Cloud resources
+Vibe-code your way to making the world's most complete infra map.
+
+- Description:
+[Cartography](https://github.com/cartography-cncf/cartography) makes maps of the cloud so that security and devops teams can find and fix problems. Think about it like the [Maurauder's Map](https://simple.wikipedia.org/wiki/Marauder%27s_Map) from Harry Potter.
+
+Cartography has very good AWS coverage, but lacks support for many Azure and GCP resources. With your help, we can fix this! Companies around the world use Cartography to better understand their infra, and you can be a part of this. Most of these modules should be conducive to coding with agents (we have a well-documented [AGENTS.md](https://github.com/cartography-cncf/cartography/blob/master/AGENTS.md)!), so if you enjoy writing in Python, want to learn about information security/devops, and moving fast, this is the project for you.
+
+- Expected Outcome:
+  - Design and implement graph schemas for missing Azure and AWS objects in Cartography
+
+- Mentor(s):
+  - Alex Chantavy (@achantavy, chantavy@gmail.com)
+  - Kunaal Sikka (@kunaals, kunaal@subimage.io)
+
+- Recommended Skills:
+  - Python
+  - Ability to handle feedback gracefully is required
+  - Strong written and verbal communication skills in English required
+  - Interest in cloud security or devops is a plus
+  - Basic Neo4j/Cypher knowledge a plus but not necessary
+  - Familiarity with LLM-based coding tools is a plus but not necessary
+
+Upstream issues
+- https://github.com/cartography-cncf/cartography/issues/1736
+- https://github.com/cartography-cncf/cartography/issues/415
+
+### KubeSlice
+
+#### Implement Dynamic IPAM for the Slice Overlay Network
+
+- Description:  In the current KubeSlice design, IP address management (IPAM) for slice overlay networks is static and inefficient. A predefined CIDR block (e.g., 10.1.0.0/16) is divided into a fixed number of subnets regardless of how many clusters participate in the slice, leading to significant IP space wastage.  
+  This project aims to implement a dynamic IPAM system that allocates IP subnets to clusters on demand and reclaims unused ranges when clusters leave the slice. It will ensure efficient address utilization, synchronization across clusters, and integration with the KubeSlice control plane.
+
+- Expected Outcome:
+    - A dynamic IPAM allocator integrated with the KubeSlice controller or sidecar component.
+    - Support for on-demand IP allocation and subnet reclamation when clusters join or leave a slice.
+    - Conflict resolution and state synchronization across clusters using CRDs or distributed storage.
+    - Documentation on how the system works, configuration options, and edge case behaviour.
+
+- Recommended Skills:  
+  Go (Golang), Kubernetes controllers and CRDs, IPAM concepts, networking (CIDRs, subnets).
+
+- Mentor(s):
+    - Gourish Biradar (@gourishbiradar, biradar.gourish@gmail.com)
+    - Rahul Kumar (@Rahul-D78, rahulparida933@gmail.com)
+    - Prabhu Navali (@pnavali, prabhu@aveshasystems.com)
+
+- Upstream Issue:  https://github.com/kubeslice/kubeslice-controller/issues/252
+
+#### Implement Custom Topology Definition for a Slice
+
+- Description:  KubeSlice currently uses a full-mesh topology for the slice overlay network, where every cluster connects to every other cluster in the slice. This results in unnecessary tunnel creation and resource consumption.  
+  This project proposes a topology-aware design, allowing users to define custom connectivity matrices for slices. Users can specify partial meshes. Additionally, the project will support configuring each cluster's VPN deployment type (client/server) to accommodate network constraints such as firewalls or NAT.
+
+- Expected Outcome:
+    - Extension of the Slice CRD to support custom topology and VPN role definitions.
+    - Logic to establish tunnels based only on the defined connectivity matrix.
+    - Support for various deployment topologies (full-mesh, partial mesh, hub-spoke).
+    - Sample configurations and documentation on how to define and validate topologies.
+
+- Recommended Skills:  
+  Go (Golang), Kubernetes CRDs and controllers, VPN networking concepts (client/server), overlay networking.
+
+- Mentor(s):
+    - Gourish Biradar (@gourishbiradar, biradar.gourish@gmail.com)
+    - Rahul Kumar (@Rahul-D78, rahulparida933@gmail.com)
+    - Prabhu Navali (@pnavali, prabhu@aveshasystems.com)
+
+- Upstream Issue: https://github.com/kubeslice/kubeslice-controller/issues/253
+
+  
+#### Implement Comprehensive Unit & Integration Testing for kubeslice-cli
+
+- Description: The kubeslice-cli repository currently lacks comprehensive unit and integration tests making it hard to test the changes. This project aims to implement a robust testing framework to ensure the reliability and stability of the CLI tool. The Mentee will write unit tests for existing functions & integration tests for the CLI commands & also set up a continuous integration pipeline to run these tests automatically on every commit and pull request.
+- Expected Outcome:
+    - A fully configured testing framework for kubeslice-cli with unit and integration tests covering all critical functionalities.
+    - A CI/CD pipeline configuration (e.g., GitHub Actions) that automatically runs the tests on every pull request.
+    - Documentation on how to run these tests & add new ones.
+- Recommended Skills: Go (Golang), Go testing frameworks (testify), Kubernetes, CLI, CI/CD (GitHub Actions).
+- Mentor(s):
+    - Gourish Biradar (@gourishbiradar, biradar.gourish@gmail.com)
+    - Rahul Kumar (@Rahul-D78, rahulparida933@gmail.com)
+    - Prabhu Navali (@pnavali, prabhu@aveshasystems.com)
+- Upstream Issue: https://github.com/kubeslice/kubeslice-cli/issues/46
+
+#### Enhance and Automate End-to-End (E2E) Testing Across the KubeSlice Ecosystem
+
+- Description: The KubeSlice project consists of multiple repositories that work together to provide application connectivity and network services across Kubernetes clusters. Currently, our E2E tests are outdated and need significant improvement. This project aims to automate the E2E testing process by improving the current test suite and implementing new tests where necessary. This will ensure that the entire KubeSlice ecosystem works seamlessly together.
+- Expected Outcome:
+    - A comprehensive set of E2E tests covering all critical functionalities of KubeSlice.
+    - Integration of the E2E tests into the CI/CD pipeline to run automatically.
+    - Clear Documentation for running & extending the E2E tests.
+- Recommended Skills: Go (Golang), Kubernetes, E2E testing (kind, Ginkgo), CI/CD (GitHub Actions).
+- Mentor(s):
+    - Gourish Biradar (@gourishbiradar, biradar.gourish@gmail.com)
+    - Rahul Kumar (@Rahul-D78, rahulparida933@gmail.com)
+    - Prabhu Navali (@pnavali, prabhu@aveshasystems.com)
+- Upstream Issue: https://github.com/kubeslice/kubeslice/issues/56
+
+### OpenKruise
+
+#### SidecarSet support setting sidecar resources adaptively 
+
+- Description: SidecarSet is an advance workload for sidecar container injection and upgrade. Currently the sidecar container resource must be set explicitely in the sidecar template, however in the cases of traffic proxy, log collection and device emulation etc, it is desirable to to set the resources according to resource of app container. The goal is to support the adaptively setting for sidecar resources and provide best practice for typical use cases.
+- Expected Outcome
+  - implementation for adaptively resources setting for sidecar in SidecarSet workload
+  - unit and integration tests 
+  - documentation for the function usage and typical use cases in the OpenKruise website
+- Recommended Skills: Golang, kubernetes operator development
+- Mentors
+  - Zhao Mingshan (@zmberg, berg.zms@gmail.com)
+- Upstream Issue: https://github.com/openkruise/kruise/issues/2123
+
+#### Promote kruise api version from v1alphal1 to v1beta1
+
+- Description: Many advance workloads in OpenKruise are widely used in production, however the API version of the workload is still in v1alpha1. The goal is to promote the API version of mostly used and mature workload to v1beta1 and optimize the CRD fields for better clarity. 
+- Expected Outcome
+  - API definition of v1beta1 resources and the implementation for conversion webhook to convert v1alpha1 resource to v1beta1 resource
+  - unit and integration tests
+  - documentation for the usage of v1beta1 resource in the OpenKruise website
+- Recommended Skills: Golang, kubernetes operator development
+- Mentors
+  - Zhang Zhen (@furykerry, furykerry@gmail.com)
+- Upstream Issue: https://github.com/openkruise/kruise/issues/2122
+
+
+#### Bring progressive delivery capability for native kubernetes DaemonSet
+
+- Description: OpenKruise Rollout already support the progressive delivery of OpenKruise advance DaemonSet, however switching workload is not an option for many users. The goal is to utilize the `OnDelete` updateStrategy of native kubernetes workload, and trigger the pod upgrade by deleting desired number of pods per Rollout specification. 
+- Expected Outcome
+  - implentation of progressive delivery for native kubernetes daemonset, and only basic multi-batch release is required. 
+  - unit and integration test    
+  - documentation for the function usage and typical use cases in the OpenKruise website
+- Recommended Skills: Golang, kubernetes operator development
+- Mentors
+  - Zhong Tianyun (@AiRanthem, airanthem666@gmail.com)
+- Upstream Issue: https://github.com/openkruise/rollouts/issues/297
+
+#### Enhance Robustness and Usability of Kruise-Game
+
+- Description: kruise-game is being used by many game companies. It is imperative to build the stability of kruise-game components. With the rapid iteration of project functions, the current test coverage has not met expectations, so we need to add more UT and E2E use cases to ensure that there will be no problems with our basic functions. In addition, in a large-scale cluster environment, kruise-game also needs more indicators to reveal the performance of the current controller.
+- Expected Outcome: 
+  - Expand End-to-End (E2E) Test Coverage
+  - Improve Unit Test (UT) Coverage
+  - Enhance Observability via Controller Metrics
+  - Improve Logging Contextualization
+- Recommended Skills: Golang, Kubernetes
+- Mentor:
+  - Qiuyang Liu (@chrisliu1995, [chrisliu1995@163.com](mailto:chrisliu1995@163.com))
+  - Zhongwei Liu (@ringtail, [zhongwei.lzw@alibaba-inc.com](mailto:zhongwei.lzw@alibaba-inc.com))
+- Upstream Issue: https://github.com/openkruise/kruise-game/issues/266
+
+### Kmesh
+
+#### Improving Ipsec's Stability and Ease of Use
+
+- Description:
+  Communication encryption is an important functional feature of the Service Mesh to ensure communication security. Kmesh uses IPsec to implement this feature. However, Kmesh lacks the reliability maintenance and ease of use enhancements for Kmesh. Therefore, we should optimize the reliability and ease of use of IPsec in addition to its implementation.
+- Expected Outcome:
+  - Reduce IPsec configuration steps according to users' actual usage scenarios. It is best to realize one-click configuration for users.
+  - Sorting out Ipsec code and refactoring where it affects stability and performance.
+  - UT overlay with enhanced IPSec features
+- Recommended Skills:
+  - Golang
+  - Some C knowledge about eBPF and IPsec
+  - Basic networking knowledge
+- Metor(s):
+  - ZhenCheng Li(@LiZhenCheng9527, leezhencheng6@gmail.com),
+  - Zhonghu Xu(@hzxuzhonghu, zhhxu@163@gmail.com)
+- Upstream Issue: https://github.com/kmesh-net/kmesh/issues/1457
+
+#### Kmesh Orion replace waypopint
+
+- Description:
+  Kmesh, as a high-performance service mesh data plane, does have a performance advantage when compared to other service mesh data planes. However, in high-concurrency scenarios with application-layer protocols such as HTTP, it is held back by the waypoint. Therefore, we developed Orion to replace the waypoint. However, there is still some adaptive functionality development and testing that needs to be done before we can replace it.
+- Expected Outcomes:
+  - Testing of Orion's key functions for waypoints such as communication with control surfaces, authorization policy, etc.
+  - If there is missing functionality, it needs to be adapted and supplemented.
+  - Provides a way to install Orion via Kmeshctl.
+- Recommended Skills:
+  - Rust
+  - Basic service mesh knowledge
+- Metor(s):
+  - Zengzeng Yao(@yaozengzeng, yaozengzeng@huawei.com)
+  - Zhonghu Xu(@hzxuzhonghu, zhhxu@163@gmail.com)
+- Upstream Issue: https://github.com/kmesh-net/kmesh/issues/1450
+
+### Kyverno
+
+##### Convert Kyverno Sample Policies to Use New CEL-Based Policy Types
+
+- Description: Kyverno has introduced new CEL-based policy types in the `v1alpha1` API version that provide enhanced expressiveness, better performance, and native Kubernetes integration. These new policy types include ValidatingPolicy, MutatingPolicy, ImageValidatingPolicy, GeneratingPolicy, and DeletingPolicy. The goal of this project is to convert existing sample policies from the traditional Kyverno policy format to the new CEL-based format, ensuring they maintain the same functionality while leveraging the benefits of the new API.
+- Expected Outcome:
+  - Convert existing sample policies from traditional Kyverno format to new CEL-based policy types
+  - Ensure functional equivalence between old and new policy formats
+  - Write tests to validate the conversions and ensure reliability
+  - Help users understand how to migrate from traditional policies to CEL-based format
+- Recommended Skills:
+  - Go programming language
+  - Kubernetes API and admission controllers
+  - CEL (Common Expression Language)
+  - YAML/JSON configuration
+  - Testing and documentation
+- Mentors:
+  - Mariam Fahmy (@MariamFahmy98, mariam.fahmy@nirmata.com)
+  - Shuting Zhao (@realshuting, shuting@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/13709
+
+##### Support Namespaced CEL-Based Policies
+
+- Description: Kyverno currently supports cluster-wide CEL-based policy types (ValidatingPolicy, MutatingPolicy, ImageValidatingPolicy, GeneratingPolicy, and DeletingPolicy), but lacks namespaced versions. This creates challenges for namespace owners who need to manage policies within their namespaces without requiring cluster-wide permissions. The goal of this project is to implement namespaced versions of all five CEL-based policy types to provide better RBAC control, security, and lifecycle management for namespace-scoped policy management.
+- Expected Outcome:
+  - Implement namespaced versions of all five CEL-based policy types:
+  - Ensure proper RBAC integration for namespace-scoped policy management
+  - Create comprehensive documentation and examples for namespaced policies
+  - Write tests to validate namespaced policy functionality
+- Recommended Skills:
+  - Go programming language
+  - Kubernetes API and admission controllers
+  - CEL (Common Expression Language)
+  - Kubernetes RBAC and security models
+  - YAML/JSON configuration
+  - Testing and documentation
+- Mentors:
+  - Charles-Edouard Brétéché (@eddycharly, charled.breteche@gmail.com)
+  - Frank Jogeleit (@fjogeleit, frank.jogeleit@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/13185
+
+#### Enhance Kyverno Documentation
+
+- Description: Kyverno has evolved significantly with the introduction of new CEL-based policy types in the `v1alpha1` API version. The current documentation and website need to be updated to reflect these advancements and position Kyverno appropriately in the policy engine landscape. This project aims to enhance Kyverno's documentation, website content, and overall positioning to showcase the new capabilities while maintaining clear guidance for users transitioning from traditional policies to CEL-based formats.
+- Expected Outcome:
+  - Update and enhance Kyverno's website to reflect new CEL-based policy capabilities
+  - Ensure comprehensive documentation for all new policy types
+  - Update Kyverno's positioning in the policy engine ecosystem
+  - Update comparison charts and feature matrices
+  - Enhance user experience with better navigation and search functionality
+  - Update API reference documentation with new policy types
+- Recommended Skills
+  - Technical writing and documentation
+  - Kubernetes and policy engine knowledge
+  - CEL (Common Expression Language) understanding
+  - Markdown and documentation tools
+- Mentors:
+  -  Cortney Nickerson (@CortNick, cortney.nickerson@nirmata.com)
+  - Luc Chmielowski (@lucchmielowski, luc.chmielowski@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/13710
+
+#### kube-burner
+
+##### Enhancements around k8s performance testing
+
+- Description:
+  We intend to get some help around open issues in the repository and also come up with new use cases and scenarios for performance testing any kubernetes distribution. We love new perspectives and are always open to new ideas alongside what we have as tracked work in github issues.
+- Expected Outcome:
+  To knock down some of open critical issues and bring in new perspective to the project. There are no restrictions while working with issues/enhancements.
+- Recommended Skills:
+  - Golang
+  - Kubernetes
+  - Cloud Platforms
+- Mentor(s):
+  -  Vishnu Challa (@vishnuchalla, vchalla@redhat.com) 
+  -  Raul Sevilla (@rsevilla87, rsevilla@redhat.com)
+- Upstream Issues: (https://github.com/kube-burner/kube-burner/issues)
+
+### kgateway
+
+#### Improve kgateway ecosystem integrations documentation 
+
+- **Description:**
+This project aims to create clear, approachable documentation and blog posts that showcase how to integrate kgateway with key CNCF projects such as Argo, Istio, and KServe. These resources will make it easier for users to adopt kgateway in modern cloud-native environments and promote deeper integration across the CNCF ecosystem.
+
+- **Expected Outcome:**
+- A series of integration guides and tutorials for using kgateway with Argo Rollouts, Istio, and KServe.
+- Contribution of relevant improvements or examples back to the kgateway documentation site
+- Raised issues for any gaps or friction points discovered during testing
+- Demo integrations during kgateway community meetings
+- Fun!
+
+- **Recommended Skills:**
+- Strong written communication skills
+- Interest in learning and exploring new projects! 
+- Basic understanding of GitHub, Markdown, and technical blogging 
+- (Bonus) Experience using any of the following: Argo, Istio, KServe
+
+- **Mentors:** 
+Nina Polshakova (npolshakova)
+Lin Sun (linsun)
+
+- **Upstream Issue:** 
+https://github.com/kgateway-dev/kgateway.dev/issues/327 
+
+#### kgateway, agentgateway, and observability improvements
+
+- **Description:**
+This project focuses on enhancing observability in kgateway’s agentgateway integration by adding support for OpenTelemetry-based tracing, exposing Prometheus-compatible metrics, and configuring access logging. It builds on a previous LFX project that introduced tracing support for kgateway’s AI extproc server, extending those capabilities to support span propagation from agentgateway. 
+
+In addition to adding support for configuring the kgateway control plane to set agentgateway’s tracing configuration, we want to test exporting traces to OpenTelemetry-compatible backends such as the OpenTelemetry Collector and Jaeger, and create user-facing documentation for these integrations. 
+
+Beyond emitting basic spans, this project will also document how to enrich traces with authenticated user context derived from RBAC decisions, enabling more fine-grained debugging and attribution.
+
+- **Expected Outcome:**
+  - Translate the existing tracing and access logging APIs in kgateway to enable configuring tracing for the kgateway’s agentgateway integration
+  - Create end-to-end (e2e) tests to validate configuration and trace propagation
+  - Raise issues for any gaps or friction points discovered during testing
+  - Write documentation for plugin developers and end users
+  - Writing user-facing documentation and blogs on Otel tracing with agentgateway and kgateway integration with OpenTelemetry-compatible backends
+  - Gain hands-on experience with AI providers, OpenTelemetry, tracing platforms, MCP, a2a, Kubernetes, and kgateway while building real observability features!
+  - Fun! 
+
+- **Recommended Skills:**
+  - Golang
+  - Rust
+  - Otel
+  - Kubernetes
+  - Kubernetes Gateway API
+  - (Bonus) Familiarity with MCP and/or A2A 
+
+- **Mentor(s):**
+Nina Polshakova (npolshakova)
+Joe McGuire (jmcguire98)
+
+- **Upstream Issue:** https://github.com/kgateway-dev/kgateway/issues/11818 
