@@ -502,3 +502,76 @@ Cartography has very good AWS coverage, but lacks support for many Azure and GCP
 Upstream issues
 - https://github.com/cartography-cncf/cartography/issues/1736
 - https://github.com/cartography-cncf/cartography/issues/415
+
+### KubeSlice
+
+#### Implement Dynamic IPAM for the Slice Overlay Network
+
+- Description:  In the current KubeSlice design, IP address management (IPAM) for slice overlay networks is static and inefficient. A predefined CIDR block (e.g., 10.1.0.0/16) is divided into a fixed number of subnets regardless of how many clusters participate in the slice, leading to significant IP space wastage.  
+  This project aims to implement a dynamic IPAM system that allocates IP subnets to clusters on demand and reclaims unused ranges when clusters leave the slice. It will ensure efficient address utilization, synchronization across clusters, and integration with the KubeSlice control plane.
+
+- Expected Outcome:
+    - A dynamic IPAM allocator integrated with the KubeSlice controller or sidecar component.
+    - Support for on-demand IP allocation and subnet reclamation when clusters join or leave a slice.
+    - Conflict resolution and state synchronization across clusters using CRDs or distributed storage.
+    - Documentation on how the system works, configuration options, and edge case behaviour.
+
+- Recommended Skills:  
+  Go (Golang), Kubernetes controllers and CRDs, IPAM concepts, networking (CIDRs, subnets).
+
+- Mentor(s):
+    - Gourish Biradar (@gourishbiradar, biradar.gourish@gmail.com)
+    - Rahul Kumar (@Rahul-D78, rahulparida933@gmail.com)
+    - Prabhu Navali (@pnavali, prabhu@aveshasystems.com)
+
+- Upstream Issue:  https://github.com/kubeslice/kubeslice-controller/issues/252
+
+#### Implement Custom Topology Definition for a Slice
+
+- Description:  KubeSlice currently uses a full-mesh topology for the slice overlay network, where every cluster connects to every other cluster in the slice. This results in unnecessary tunnel creation and resource consumption.  
+  This project proposes a topology-aware design, allowing users to define custom connectivity matrices for slices. Users can specify partial meshes. Additionally, the project will support configuring each cluster's VPN deployment type (client/server) to accommodate network constraints such as firewalls or NAT.
+
+- Expected Outcome:
+    - Extension of the Slice CRD to support custom topology and VPN role definitions.
+    - Logic to establish tunnels based only on the defined connectivity matrix.
+    - Support for various deployment topologies (full-mesh, partial mesh, hub-spoke).
+    - Sample configurations and documentation on how to define and validate topologies.
+
+- Recommended Skills:  
+  Go (Golang), Kubernetes CRDs and controllers, VPN networking concepts (client/server), overlay networking.
+
+- Mentor(s):
+    - Gourish Biradar (@gourishbiradar, biradar.gourish@gmail.com)
+    - Rahul Kumar (@Rahul-D78, rahulparida933@gmail.com)
+    - Prabhu Navali (@pnavali, prabhu@aveshasystems.com)
+
+- Upstream Issue: https://github.com/kubeslice/kubeslice-controller/issues/253
+
+  
+#### Implement Comprehensive Unit & Integration Testing for kubeslice-cli
+
+- Description: The kubeslice-cli repository currently lacks comprehensive unit and integration tests making it hard to test the changes. This project aims to implement a robust testing framework to ensure the reliability and stability of the CLI tool. The Mentee will write unit tests for existing functions & integration tests for the CLI commands & also set up a continuous integration pipeline to run these tests automatically on every commit and pull request.
+- Expected Outcome:
+    - A fully configured testing framework for kubeslice-cli with unit and integration tests covering all critical functionalities.
+    - A CI/CD pipeline configuration (e.g., GitHub Actions) that automatically runs the tests on every pull request.
+    - Documentation on how to run these tests & add new ones.
+- Recommended Skills: Go (Golang), Go testing frameworks (testify), Kubernetes, CLI, CI/CD (GitHub Actions).
+- Mentor(s):
+    - Gourish Biradar (@gourishbiradar, biradar.gourish@gmail.com)
+    - Rahul Kumar (@Rahul-D78, rahulparida933@gmail.com)
+    - Prabhu Navali (@pnavali, prabhu@aveshasystems.com)
+- Upstream Issue: https://github.com/kubeslice/kubeslice-cli/issues/46
+
+#### Enhance and Automate End-to-End (E2E) Testing Across the KubeSlice Ecosystem
+
+- Description: The KubeSlice project consists of multiple repositories that work together to provide application connectivity and network services across Kubernetes clusters. Currently, our E2E tests are outdated and need significant improvement. This project aims to automate the E2E testing process by improving the current test suite and implementing new tests where necessary. This will ensure that the entire KubeSlice ecosystem works seamlessly together.
+- Expected Outcome:
+    - A comprehensive set of E2E tests covering all critical functionalities of KubeSlice.
+    - Integration of the E2E tests into the CI/CD pipeline to run automatically.
+    - Clear Documentation for running & extending the E2E tests.
+- Recommended Skills: Go (Golang), Kubernetes, E2E testing (kind, Ginkgo), CI/CD (GitHub Actions).
+- Mentor(s):
+    - Gourish Biradar (@gourishbiradar, biradar.gourish@gmail.com)
+    - Rahul Kumar (@Rahul-D78, rahulparida933@gmail.com)
+    - Prabhu Navali (@pnavali, prabhu@aveshasystems.com)
+- Upstream Issue: https://github.com/kubeslice/kubeslice/issues/56
