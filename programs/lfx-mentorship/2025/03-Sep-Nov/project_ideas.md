@@ -18,6 +18,48 @@
 
 ## Proposed Project ideas
 
+### Karmada
+
+### Support TFJob and PyTorchJob in Karmada via Default Resource Interpreters
+
+- Description: Implement default resource interpreters for TFJob and PyTorchJob workloads in Karmada.
+- Expected Outcome: This includes writing the interpreter logic in Golang and Lua, ensuring proper scheduling and propagation of these workloads across member clusters. Additionally, create documentation on how to run TFJob and PyTorchJob on Karmada, and introduce the integration and best practices to the Kubeflow community.
+- Recommended Skills: Golang, Lua, Basic understanding of Karmada, Familiarity with TFJob Job and PyTorchJob workloads.
+- Mentors
+  - Yiheng Ci (@lfbear, lfbear@gmail.com)
+  - Hongcai Ren (@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: https://github.com/karmada-io/karmada/issues/6586
+
+### Support TrainJob and SparkApplication in Karmada via Default Resource Interpreters
+
+- Description: Develop default resource interpreters for TrainJob and SparkApplication workloads in Karmada.
+- Expected Outcome: The task involves implementing interpreter logic, validating scheduling/propagation, and documenting the process of running these workloads on Karmada. Share the practice and integration details with the Kubeflow and Spark communities.
+- Recommended Skills: Golang, Lua, Basic understanding of Karmada, Familiarity with TrainJob Job and SparkApplication workloads.
+- Mentors
+  - Zhuang Zhang (@zhzhuang-zju, m17799853869@163.com)
+  - Hongcai Ren (@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: https://github.com/karmada-io/karmada/issues/6587
+
+### Support RayCluster and RayJob in Karmada via Default Resource Interpreters
+
+- Description: Implement default resource interpreters for RayCluster and RayJob workloads in Karmada.
+- Expected Outcome: This includes interpreter development, validation, and comprehensive documentation on deploying and managing Ray workloads with Karmada. Present the integration and usage guide to the KubeRay community.
+- Recommended Skills: Golang, Lua, Basic understanding of Karmada, Familiarity with RayCluster Job and RayJob workloads.
+- Mentors
+  - Junhua He (@whitewindmills, jayfantasyhjh@gmail.com)
+  - Hongcai Ren (@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: https://github.com/karmada-io/karmada/issues/6588
+
+#### Support Volcano Job and Notebook in Karmada via Default Resource Interpreters
+
+- Description: Implement default resource interpreters for Volcano Job and Notebook workloads in Karmada.
+- Expected Outcome: This includes developing interpreter logic in Golang and Lua, ensuring correct scheduling and propagation of these workloads across member clusters. Additionally, create documentation on how to run Volcano Job and Notebook on Karmada, and introduce the integration and best practices to the Volcano and Kubeflow communities.
+- Recommended Skills: Golang, Lua, Basic understanding of Karmada, Familiarity with Volcano Job and Notebook workloads.
+- Mentors
+  - Zhen Chang (@XiShanYongYe-Chang, changzhen5@huawei.com)
+  - Hongcai Ren (@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: https://github.com/karmada-io/karmada/issues/6589
+
 ### WasmEdge
 
 #### Pointer alignment checking for WASI host function arguments
