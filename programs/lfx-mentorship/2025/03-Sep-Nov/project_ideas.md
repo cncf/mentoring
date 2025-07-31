@@ -18,3 +18,86 @@
 
 ## Proposed Project ideas
 
+### WasmEdge
+
+#### Pointer alignment checking for WASI host function arguments
+
+- Description: WasmEdge implemented a series of WASI host functions to support the official WASI APIs. There are some arguments of WASI APIs are in pointer types. According to the WASI document, the pointer values are expected to be aligned to the alignment of their pointee type, otherwise the the function shall trap. In this mentorship, the mentee should check all functions of WASI interface in WasmEdge, and implement the alignment checking of pointer type arguments.
+- Expected Outcome:
+  - Add the alignment checking to the pointee type of [WASI host functions in WasmEdge](https://github.com/WasmEdge/WasmEdge/blob/master/include/host/wasi/wasifunc.h), according to the [alignment requirement in WASI functions](https://github.com/WebAssembly/WASI/blob/main/legacy/preview1/docs.md#modules).
+  - Hand-write some basic WASM tests to prove the correctness of the implementation.
+- Recommended Skills:
+  - C/C++
+  - WebAssembly
+  - GitHub workflows
+- Mentor(s):
+  - YiYing He (@q82419 , yiying@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4280
+
+#### Implement the remaining features of wasmedgeup
+
+- Description: WasmEdge currently offers three installers—v0 (deprecated shell script), v1 (Python-based, Linux/macOS only), and v2 (bash-based, limited functionality). A new cross-platform installer, [wasmedgeup](https://github.com/WasmEdge/wasmedgeup), is being developed to unify installation across Linux, macOS, and Windows, simplifying setup and managing versions, dependencies, and hardware detection. Mentees need to implement these key features include uninstall commands, plugin management, and automatic system capability detection.
+- Expected Outcome:
+  - Implement the remaining features listed above in [wasmedgeup](https://github.com/WasmEdge/wasmedgeup).
+  - A document describing how to use.
+  - A CI workflow for verifying these new features and ensuring that they can be built and tested on Linux (Ubuntu, Fedora), macOS, and Windows.
+- Recommended Skills:
+  - Rust
+  - GitHub workflows
+  - Cross-platform development
+- Mentor(s):
+  - Hung-Ying, Tai (@hydai, hydai@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4283
+
+#### Rust Coder for Claude Code
+
+- Description:
+        This is a continuation of our past two LFX mentorship projects -- the Rust Coder.
+        https://www.cncf.io/blog/2025/01/10/rustcoder-ai-assisted-rust-learning/
+        https://github.com/cardea-mcp/RustCoder
+        Users of Rust Coder, which was originally a chatbot and then an MCP server, have told us that they wanted a modern approach like Claude Code. A new focus would also be to port existing Python / C++ projects to Rust, instead of creating Rust projects from scratch. This new proposed LFX mentorship project will
+        1 Fork or add to the open-source Claude Code project
+        2 Create new workflows to ask the user to import Python / C++ projects, make plans for how to port, and ask the user for preferred Rust crates
+        3 Use MCP to add Rust-specific prompts, knowledge base search tools, web-based documentation import tools etc
+        4 Use open source coding models to evaluate the results
+- Expected Outcome:
+  - A Claude Code add-on or fork that is specialized optimized for "rewriting in Rust".
+- Recommended Skills:
+  - Rust
+  - Python or C++
+  - Vibe coding tools (e.g., Claude Code, Qwen Coder etc)
+- Mentor(s):
+  - Michael Yuan (@juntao, michael@secondstate.io)
+  - Vivian Hu (@alabulei1, vivian@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4284
+
+#### Support the Responses API in Llama Nexus
+
+- Description:
+        The llama nexus project is an API proxy to provide OpenAI-compatible and unified API endpoints for multiple downstream API servers, including LLamaEdge API servers running open-source LLMs.
+
+        https://github.com/LlamaEdge/llama-nexus
+
+        Currently, the Llama Nexus supports the stateless /chat/completions API endpoint for LLMs. We would like to expand this to support the /responses stateful API from OpenAI as well.
+
+        https://platform.openai.com/docs/api-reference/responses
+
+        https://platform.openai.com/docs/guides/responses-vs-chat-completions
+
+        In particular, we aim to implement support for
+
+        MCP
+        Code interpreter
+        Web search
+        File search
+        Browser use (optional)
+- Expected Outcome:
+  - New features for the Llama Nexus proxy server.
+- Recommended Skills:
+  - Rust
+  - OpenAI API
+  - MCP Rust SDK
+- Mentor(s):
+  - Michael Yuan (@juntao, michael@secondstate.io)
+  - Sam Liu (@apepkuss, sam@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4286
