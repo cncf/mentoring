@@ -52,8 +52,6 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   * [Prometheus Native Summaries](#prometheus-native-summaries)
   * [Podman Container Tools](#podman-container-tools)
     * [Implement flushing of conntrack entries in Netavark on network changes](#implement-flushing-of-conntrack-entries-in-netavark-on-network-changes)
-* [Kubernetes](#kubernetes)
-  * [Graduate the kubeadm feature gate ControlPlaneKubeletLocalMode to GA](#graduate-the-kubeadm-feature-gate-controlplanekubeletlocalmode-to-ga)
 * [Kube State Metrics](#kube-state-metrics)
   * [Automate the release process](#automate-the-release-process)
 * [CloudNativePG](#cloudnativepg)
@@ -355,27 +353,6 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Upstream Issue (URL):
   [containers/netavark#1045](https://github.com/containers/netavark/issues/1045)
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/07efb861-3c5b-4bc2-9986-593656750ffc
-
-### Kubernetes
-
-#### Graduate the kubeadm feature gate ControlPlaneKubeletLocalMode to GA
-
-- Description: If the kubeadm feature gate ControlPlaneKubeletLocalMode
-is enabled, it tells the kubelet on a control plane node to communicate only with
-the local kube-apiserver running on the same node. If it is not enabled, the kubelets
-can try to reach out to a leading kube-apiserver trough the load balancer sitting
-in front of all control plane nodes. This can violate the Kubernetes version
-skew policy between kubelet and kube-apiserver during upgrade scenarios, leading
-to potential component failures. By graduating the feature gate to GA, kubeadm will
-ensure such policy violation scenarios are avoided. 
-- Expected Outcome: The feature gate is graduated to GA
-- Recommended Skills: golang, Kubernetes, kubeadm
-- Mentor(s):
-  - Shida Qiu (@SataQiu)
-  - Paco Xu (@pacoxu)
-- Type: maintainer mentorship (only for maintainers to work on as part of a one-off LFX Project)
-- Upstream Issue: https://github.com/kubernetes/kubeadm/issues/2271
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/21325f56-cdfc-4d0f-ae26-9d3a2b4f5627
 
 ### Kube State Metrics
 
