@@ -129,6 +129,25 @@
   - Elias Wang (@wbc6080, wangbincheng4@huawei.com)
 - Upstream Issue: https://github.com/kubeedge/kubeedge/issues/6312
 
+### Kubernetes
+
+#### Improve Kubernetes Reference Docs Generator
+
+- Description: The reference documentation for the Kubernetes API is generated at the end of every release cycle. Due to difficulties with the tools used to do this, and the state of that tool's documentation, intimate knowledge of how the tool works is required and generating the reference docs can only reliably be performed by one specific person. Currently, it is possible for the generator to fail at multiple points in the process. Many of these failures are entirely undocumented and without any error handling.
+- Expected Outcome: A measurable improvement in the usability of the reference docs generator, through some combination of an improvement in documentation, error handling, and code refactoring. It should be possible for other contributors to follow instructions and reliably produce the reference API docs, with solutions to any remaining common failure modes thoroughly documented. 
+- Recommended Skills:
+  - Go
+  - Bash
+  - Python
+  - Technical Writing
+  - Patience when faced with undocumented failure modes
+- Mentor(s):
+  - Kat Cosgrove (@katcosgrove, kat.cosgrove@gmail.com)
+  - Nate Waddington (@nate-double-u, natew@cncf.io)
+  - Xander Grzywinski (@salaxander, xandergrzyw@gmail.com)
+  - Rey Lejano (@reylejano, rlejano@gmail.com)
+- Upstream Issue: https://github.com/kubernetes-sigs/reference-docs/issues/398
+
 ### WasmEdge
 
 #### Pointer alignment checking for WASI host function arguments
