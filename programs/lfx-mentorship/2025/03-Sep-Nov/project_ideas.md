@@ -278,6 +278,7 @@
     - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
     - Shinnosuke Sawada-Dazai (@Warashi, shin@warashi.dev)
     - Yoshiki Fujikane (@ffjlabo, ffjlabo@gmail.com)
+    - Tetsuya Kikuchi (@t-kikuc, tkikuchi07f@gmail.com)
 - Upstream Issue: https://github.com/pipe-cd/pipecd/issues/6077
 
 ### Kubernetes
