@@ -157,6 +157,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Recommended Skills: Golang, Object Oriented Design, Comfort with OpenCost, Cost/Usage reporting, Protobuf, Compression, Prometheus, documentation writing
 - Mentors 
   - Alex Meijer (@ameijer, alexander.meijer@ibm.com)
+  - Niko Kovacevic (@nikovacevic, nicholas.kovacevic@ibm.com)
   - Sean Holcomb (@Sean-Holcomb, sean.holcomb@ibm.com)
 - Upstream Issue: https://github.com/opencost/opencost/issues/3240
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/c64774be-9c42-4405-9536-1e77977a5414
