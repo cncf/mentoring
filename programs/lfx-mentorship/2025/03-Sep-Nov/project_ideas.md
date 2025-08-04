@@ -37,3 +37,27 @@
 - Upstream Issue: https://github.com/knative/ux/issues/196
 - LFX URL: 
 
+### OpenYurt
+
+#### OpenYurt Docker Extension for Simplified Deployment
+
+- Description:
+  OpenYurt is an open-source edge cloud-native platform designed to streamline application management in edge computing scenarios. However, the current installation process can be complex for newcomers, creating a barrier to adoption. This project aims to significantly improve the user experience by creating a Docker Extension for OpenYurt. The extension will enable users to install and configure a complete OpenYurt environment, including the yurt-dashboard, with a single click directly from the Docker Desktop interface. This will dramatically lower the entry barrier, allowing developers and edge computing enthusiasts to quickly set up a local development and testing environment, thereby fostering greater community engagement and accelerating innovation on the platform.
+- Expected Outcome:
+  - Docker Extension Development: Develop a functional Docker Extension using the Docker Extension SDK that can be installed in Docker Desktop.
+  - One-Click Deployment: Package OpenYurt's core components (yurt-manager, yurt-hub, etc.) and dependencies into the extension to automate the setup of a single-node OpenYurt cluster.
+  - Dashboard Integration: Provide seamless access to the Yurt Dashboard directly from the extension's UI within Docker Desktop, for example, through an "Open Dashboard" button.
+  - User Guide and Documentation: Create comprehensive documentation detailing how to install, use, and troubleshoot the OpenYurt Docker Extension.
+- Recommended Skills:
+  - Familiarity with Docker and the Docker Extension SDK.
+  - Experience with frontend development (e.g., React/TypeScript, Vue) for building the extension's user interface.
+  - Proficiency in shell scripting (Bash) or Golang for automating the installation and configuration scripts.
+  - A solid understanding of Kubernetes concepts and the OpenYurt architecture.
+- Mentor(s):
+  - Lu Chen (@luc99hen, luc99.en@gmail.com)
+  - Bingchang Tang (@zyjhtangtang, bingchang07@gmail.com)
+  - Karan karanngi (@karanngi, karann.git@gmail.com)
+- Upstream Issue:
+  [https://github.com/openyurtio/openyurt/issues/2422](https://github.com/openyurtio/openyurt/issues/2422)
+- LFX URL: 
+
