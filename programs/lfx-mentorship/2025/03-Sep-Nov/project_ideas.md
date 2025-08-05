@@ -44,7 +44,7 @@ This internship focuses on significantly expanding the breadth and depth of Mesh
 
 #### Solutions Architecture of Popular Cloud Native Deployments
 
-CNCF - Meshery: Solutions architecture for cloud-native deployments (2025 Term 2)
+CNCF - Meshery: Solutions architecture for cloud-native deployments (2025 Term 3)
 
 - Description: Learning paths with hands-on labs are a crucial resource for DevOps engineers and cloud-native practitioners. The Meshery Playground provides a live cluster environment, making it an ideal platform for learning every kind of cloud and cloud native technology. Meshery Docs is in need of comprehensive tutorials and scenarios covering common infrastructure management use cases. Mission is to create and publish a series of hands-on tutorials using Meshery Playground. Each tutorial will include step-by-step guides, live demonstrations, and interactive labs using the Playground allowing learners to apply their knowledge directly without the hassle of any configuration.These tutorials will be reviewed by various project maintainers and then published in guides/tutorials.
 - Expected Outcome:
