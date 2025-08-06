@@ -51,7 +51,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   * [Prometheus Remote Write 2.0 stability](#prometheus-remote-write-20-stability)
   * [Prometheus Native Summaries](#prometheus-native-summaries)
 * [Podman Container Tools](#podman-container-tools)
-    * [Implement flushing of conntrack entries in Netavark on network changes](#implement-flushing-of-conntrack-entries-in-netavark-on-network-changes)
+  * [Implement flushing of conntrack entries in Netavark on network changes](#implement-flushing-of-conntrack-entries-in-netavark-on-network-changes)
 * [Kube State Metrics](#kube-state-metrics)
   * [Automate the release process](#automate-the-release-process)
 * [CloudNativePG](#cloudnativepg)
