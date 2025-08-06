@@ -115,6 +115,9 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   * [Extend Harbor's Pluggable Scanner API for Runtime Behavior Profiles](#extend-harbors-pluggable-scanner-api-for-runtime-behavior-profiles)
   * [Harbor Satellite: Q&A and Docs](#harbor-satellite-qa-and-docs)
   * [Harbor Satellite: Implementing a Eventing System for Satellite](#harbor-satellite-implementing-a-eventing-system-for-satellite)
+* [Meshery](#meshery)
+  * [Relationships for AWS services](#relationships-for-aws-services)
+
 
 ### Cilium
 
