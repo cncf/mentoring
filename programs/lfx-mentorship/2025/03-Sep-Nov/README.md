@@ -30,15 +30,53 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 ---
 
+* [Cartography](#cartography)
+  * [IAM Whatever You Say IAM - GCP and Azure edition](#iam-whatever-you-say-iam---gcp-and-azure-edition)
+  * [Make map of Azure and Google Compute Cloud resources](#make-map-of-azure-and-google-compute-cloud-resources)
 * [Cilium](#cilium)
   * [Evaluate SEO, AEO, and AIO for cilium.io](#evaluate-seo-aeo-and-aio-for-ciliumio)
+* [CloudNativePG](#cloudnativepg)
+  * [Rebuilding CloudNativePG Documentation for Multi-Version Support with Docusaurus](#rebuilding-cloudnativepg-documentation-for-multi-version-support-with-docusaurus)
+  * [Chaos Testing](#chaos-testing)
+  * [Refresh cnpg-i-hello-world to align with the current state of CNPG-I](#refresh-cnpg-i-hello-world-to-align-with-the-current-state-of-cnpg-i)
+* [Harbor](#harbor)
+  * [Harbor CLI - System Settings and Configuration](#harbor-cli---system-settings-and-configuration)
+  * [Extend Harbor's Pluggable Scanner API for Runtime Behavior Profiles](#extend-harbors-pluggable-scanner-api-for-runtime-behavior-profiles)
+  * [Harbor Satellite: Q&A and Docs](#harbor-satellite-qa-and-docs)
+  * [Harbor Satellite: Implementing a Eventing System for Satellite](#harbor-satellite-implementing-a-eventing-system-for-satellite)
 * [Jaeger](#jaeger)
   * [Next-Generation Jaeger Demo with OpenTelemetry and OpenSearch (2025 Term 3)](#next-generation-jaeger-demo-with-opentelemetry-and-opensearch-2025-term-3)
-* [OpenCost](#opencost)
-  * [Develop MCP Server for Agentic AI interaction with OpenCost](#develop-mcp-server-for-agentic-ai-interaction-with-opencost)
-  * [OpenCost Data Model 2.0](#opencost-data-model-20)
-* [OpenTelemetry](#opentelemetry)
-  * [Developing Guidelines for OTel Survey Analysis and Communication](#developing-guidelines-for-otel-survey-analysis-and-communication)
+* [Kagent](#kagent)
+  * [Building cloud native agents for Kagent](#building-cloud-native-agents-for-kagent)
+* [Karmada](#karmada)
+  * [Support TFJob and PyTorchJob in Karmada via Default Resource Interpreters](#support-tfjob-and-pytorchjob-in-karmada-via-default-resource-interpreters)
+  * [Support TrainJob and SparkApplication in Karmada via Default Resource Interpreters](#support-trainjob-and-sparkapplication-in-karmada-via-default-resource-interpreters)
+  * [Support RayCluster and RayJob in Karmada via Default Resource Interpreters](#support-raycluster-and-rayjob-in-karmada-via-default-resource-interpreters)
+  * [Support Volcano Job and Notebook in Karmada via Default Resource Interpreters](#support-volcano-job-and-notebook-in-karmada-via-default-resource-interpreters)
+* [kgateway](#kgateway)
+  * [Improve kgateway ecosystem integrations documentation](#improve-kgateway-ecosystem-integrations-documentation-)
+  * [kgateway, agentgateway, and observability improvements](#kgateway-agentgateway-and-observability-improvements)
+* [Kmesh](#kmesh)
+  * [Improving Ipsec's Stability and Ease of Use](#improving-ipsecs-stability-and-ease-of-use)
+  * [Kmesh Orion replace waypopint](#kmesh-orion-replace-waypopint)
+* [Knative](#knative)
+  * [Enhancing the Knative func CLI Experience](#enhancing-the-knative-func-cli-experience)
+* [Kube State Metrics](#kube-state-metrics)
+  * [Automate the release process](#automate-the-release-process)
+* [KubeArmor](#kubearmor)
+  * [KubeArmor Observability Spectrum Enhancement](#kubearmor-observability-spectrum-enhancement)
+  * [KubeArmor Unit Test Coverage Audit](#kubearmor-unit-test-coverage-audit)
+* [KubeEdge](#kubeedge-)
+  * [Deep integration of KubeEdge with AMD edge nodes](#deep-integration-of-kubeedge-with-amd-edge-nodes)
+  * [Industrial Embodied Intelligence Benchmarking Dataset for KubeEdge-Ianvs](#industrial-embodied-intelligence-benchmarking-dataset-for-kubeedge-ianvs)
+  * [Comprehensive Example Restoration for KubeEdge Ianvs](#comprehensive-example-restoration-for-kubeedge-ianvs)
+  * [Research on Deploying Small Language Models with KubeEdge and Integrating with Enterprise AI Platforms](#research-on-deploying-small-language-models-with-kubeedge-and-integrating-with-enterprise-ai-platforms)
+  * [Device Anomaly Detection Framework Based on KubeEdge](#device-anomaly-detection-framework-based-on-kubeedge)
+* [KubeSlice](#kubeslice)
+  * [Implement Dynamic IPAM for the Slice Overlay Network](#implement-dynamic-ipam-for-the-slice-overlay-network)
+  * [Implement Custom Topology Definition for a Slice](#implement-custom-topology-definition-for-a-slice)
+  * [Implement Comprehensive Unit & Integration Testing for kubeslice-cli](#implement-comprehensive-unit--integration-testing-for-kubeslice-cli)
+  * [Enhance and Automate End-to-End (E2E) Testing Across the KubeSlice Ecosystem](#enhance-and-automate-end-to-end-e2e-testing-across-the-kubeslice-ecosystem)
 * [KubeStellar](#kubestellar)
   * [Allow a WDS to work with more than one ITS](#allow-a-wds-to-work-with-more-than-one-its)
   * [Implementing End-to-End Playwright Testing for KubeStellar UI](#implementing-end-to-end-playwright-testing-for-kubestellar-ui)
@@ -46,78 +84,43 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   * [Developer Relations & Community Growth for KubeStellar UI](#developer-relations--community-growth-for-kubestellar-ui)
   * [Model Context Protocol and A2A Communication Framework for KubeStellar UI](#model-context-protocol-and-a2a-communication-framework-for-kubestellar-ui)
   * [Implement KubeStellar controller logic to map WECs resources status to READY state of corresponding resource definitions in WDSes](#implement-kubestellar-controller-logic-to-map-wecs-resources-status-to-ready-state-of-corresponding-resource-definitions-in-wdses)
-* [Prometheus](#prometheus)
-  * [Prototyping Prometheus for exploratory use cases](#prototyping-prometheus-for-exploratory-use-cases)
-  * [Prometheus Remote Write 2.0 stability](#prometheus-remote-write-20-stability)
-  * [Prometheus Native Summaries](#prometheus-native-summaries)
-* [Podman Container Tools](#podman-container-tools)
-  * [Implement flushing of conntrack entries in Netavark on network changes](#implement-flushing-of-conntrack-entries-in-netavark-on-network-changes)
-* [Kube State Metrics](#kube-state-metrics)
-  * [Automate the release process](#automate-the-release-process)
-* [CloudNativePG](#cloudnativepg)
-  * [Rebuilding CloudNativePG Documentation for Multi-Version Support with Docusaurus](#rebuilding-cloudnativepg-documentation-for-multi-version-support-with-docusaurus)
-  * [Chaos Testing](#chaos-testing)
-  * [Refresh cnpg-i-hello-world to align with the current state of CNPG-I](#refresh-cnpg-i-hello-world-to-align-with-the-current-state-of-cnpg-i)
-* [KubeArmor](#kubearmor)
-  * [KubeArmor Observability Spectrum Enhancement](#kubearmor-observability-spectrum-enhancement)
-  * [KubeArmor Unit Test Coverage Audit](#kubearmor-unit-test-coverage-audit)
-* [Cartography](#cartography)
-  * [IAM Whatever You Say IAM - GCP and Azure edition](#iam-whatever-you-say-iam---gcp-and-azure-edition)
-  * [Make map of Azure and Google Compute Cloud resources](#make-map-of-azure-and-google-compute-cloud-resources)
-* [KubeSlice](#kubeslice)
-  * [Implement Dynamic IPAM for the Slice Overlay Network](#implement-dynamic-ipam-for-the-slice-overlay-network)
-  * [Implement Custom Topology Definition for a Slice](#implement-custom-topology-definition-for-a-slice)
-  * [Implement Comprehensive Unit & Integration Testing for kubeslice-cli](#implement-comprehensive-unit--integration-testing-for-kubeslice-cli)
-  * [Enhance and Automate End-to-End (E2E) Testing Across the KubeSlice Ecosystem](#enhance-and-automate-end-to-end-e2e-testing-across-the-kubeslice-ecosystem)
-* [OpenKruise](#openkruise)
-  * [SidecarSet support setting sidecar resources adaptively](#sidecarset-support-setting-sidecar-resources-adaptively-)
-  * [Promote kruise api version from v1alphal1 to v1beta1](#promote-kruise-api-version-from-v1alphal1-to-v1beta1)
-  * [Bring progressive delivery capability for native kubernetes DaemonSet](#bring-progressive-delivery-capability-for-native-kubernetes-daemonset)
-  * [Enhance Robustness and Usability of Kruise-Game](#enhance-robustness-and-usability-of-kruise-game)
-* [Kmesh](#kmesh)
-  * [Improving Ipsec's Stability and Ease of Use](#improving-ipsecs-stability-and-ease-of-use)
-  * [Kmesh Orion replace waypopint](#kmesh-orion-replace-waypopint)
+* [Kubernetes](#kubernetes)
+  * [Improve Kubernetes Reference Docs Generator](#improve-kubernetes-reference-docs-generator)
 * [Kyverno](#kyverno)
     * [Convert Kyverno Sample Policies to Use New CEL-Based Policy Types](#convert-kyverno-sample-policies-to-use-new-cel-based-policy-types)
     * [Support Namespaced CEL-Based Policies](#support-namespaced-cel-based-policies)
   * [Enhance Kyverno Documentation](#enhance-kyverno-documentation)
   * [kube-burner](#kube-burner)
     * [Enhancements around k8s performance testing](#enhancements-around-k8s-performance-testing)
-* [kgateway](#kgateway)
-  * [Improve kgateway ecosystem integrations documentation](#improve-kgateway-ecosystem-integrations-documentation-)
-  * [kgateway, agentgateway, and observability improvements](#kgateway-agentgateway-and-observability-improvements)
-* [Karmada](#karmada)
-  * [Support TFJob and PyTorchJob in Karmada via Default Resource Interpreters](#support-tfjob-and-pytorchjob-in-karmada-via-default-resource-interpreters)
-  * [Support TrainJob and SparkApplication in Karmada via Default Resource Interpreters](#support-trainjob-and-sparkapplication-in-karmada-via-default-resource-interpreters)
-  * [Support RayCluster and RayJob in Karmada via Default Resource Interpreters](#support-raycluster-and-rayjob-in-karmada-via-default-resource-interpreters)
-  * [Support Volcano Job and Notebook in Karmada via Default Resource Interpreters](#support-volcano-job-and-notebook-in-karmada-via-default-resource-interpreters)
-* [KubeEdge](#kubeedge-)
-  * [Deep integration of KubeEdge with AMD edge nodes](#deep-integration-of-kubeedge-with-amd-edge-nodes)
-  * [Industrial Embodied Intelligence Benchmarking Dataset for KubeEdge-Ianvs](#industrial-embodied-intelligence-benchmarking-dataset-for-kubeedge-ianvs)
-  * [Comprehensive Example Restoration for KubeEdge Ianvs](#comprehensive-example-restoration-for-kubeedge-ianvs)
-  * [Research on Deploying Small Language Models with KubeEdge and Integrating with Enterprise AI Platforms](#research-on-deploying-small-language-models-with-kubeedge-and-integrating-with-enterprise-ai-platforms)
-  * [Device Anomaly Detection Framework Based on KubeEdge](#device-anomaly-detection-framework-based-on-kubeedge)
-* [Kubernetes](#kubernetes)
-  * [Improve Kubernetes Reference Docs Generator](#improve-kubernetes-reference-docs-generator)
+* [Meshery](#meshery)
+  * [Relationships for AWS services](#relationships-for-aws-services)
+  * [Relationships for GCP services](#relationships-for-gcp-services)
+  * [Solutions Architecture of Popular Cloud Native Deployments](#solutions-architecture-of-popular-cloud-native-deployments)
+* [OpenCost](#opencost)
+  * [Develop MCP Server for Agentic AI interaction with OpenCost](#develop-mcp-server-for-agentic-ai-interaction-with-opencost)
+  * [OpenCost Data Model 2.0](#opencost-data-model-20)
+* [OpenKruise](#openkruise)
+  * [SidecarSet support setting sidecar resources adaptively](#sidecarset-support-setting-sidecar-resources-adaptively-)
+  * [Promote kruise api version from v1alphal1 to v1beta1](#promote-kruise-api-version-from-v1alphal1-to-v1beta1)
+  * [Bring progressive delivery capability for native kubernetes DaemonSet](#bring-progressive-delivery-capability-for-native-kubernetes-daemonset)
+  * [Enhance Robustness and Usability of Kruise-Game](#enhance-robustness-and-usability-of-kruise-game)
+* [OpenTelemetry](#opentelemetry)
+  * [Developing Guidelines for OTel Survey Analysis and Communication](#developing-guidelines-for-otel-survey-analysis-and-communication)
+* [OpenYurt](#openyurt)
+  * [OpenYurt Docker Extension for Simplified Deployment](#openyurt-docker-extension-for-simplified-deployment)
+* [PipeCD](#pipecd)
+  * [Prepare documentation for PipeCD v1 release](#prepare-documentation-for-pipecd-v1-release)
+* [Podman Container Tools](#podman-container-tools)
+  * [Implement flushing of conntrack entries in Netavark on network changes](#implement-flushing-of-conntrack-entries-in-netavark-on-network-changes)
+* [Prometheus](#prometheus)
+  * [Prototyping Prometheus for exploratory use cases](#prototyping-prometheus-for-exploratory-use-cases)
+  * [Prometheus Remote Write 2.0 stability](#prometheus-remote-write-20-stability)
+  * [Prometheus Native Summaries](#prometheus-native-summaries)
 * [WasmEdge](#wasmedge)
   * [Pointer alignment checking for WASI host function arguments](#pointer-alignment-checking-for-wasi-host-function-arguments)
   * [Implement the remaining features of wasmedgeup](#implement-the-remaining-features-of-wasmedgeup)
   * [Rust Coder for Claude Code](#rust-coder-for-claude-code)
   * [Support the Responses API in Llama Nexus](#support-the-responses-api-in-llama-nexus)
-* [Knative](#knative)
-  * [Enhancing the Knative func CLI Experience](#enhancing-the-knative-func-cli-experience)
-* [OpenYurt](#openyurt)
-  * [OpenYurt Docker Extension for Simplified Deployment](#openyurt-docker-extension-for-simplified-deployment)
-* [PipeCD](#pipecd)
-  * [Prepare documentation for PipeCD v1 release](#prepare-documentation-for-pipecd-v1-release)
-* [Harbor](#harbor)
-  * [Harbor CLI - System Settings and Configuration](#harbor-cli---system-settings-and-configuration)
-  * [Extend Harbor's Pluggable Scanner API for Runtime Behavior Profiles](#extend-harbors-pluggable-scanner-api-for-runtime-behavior-profiles)
-  * [Harbor Satellite: Q&A and Docs](#harbor-satellite-qa-and-docs)
-  * [Harbor Satellite: Implementing a Eventing System for Satellite](#harbor-satellite-implementing-a-eventing-system-for-satellite)
-* [Meshery](#meshery)
-  * [Relationships for AWS services](#relationships-for-aws-services)
-
 
 ### Cilium
 
@@ -362,9 +365,9 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/16949
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/6bd5c5e0-25fc-4214-89ca-a48456d477b9
 
-#### Podman Container Tools
+### Podman Container Tools
 
-##### Implement flushing of conntrack entries in Netavark on network changes
+#### Implement flushing of conntrack entries in Netavark on network changes
 
 - Description:
   This project will involve implementing conntrack entry clearing into Netavark, Podman's network management tool.
@@ -1344,3 +1347,63 @@ This internship focuses on significantly expanding the breadth and depth of Mesh
 - Mentor(s): Mia Grenell (@miacycle, mia.grenell2337@gmail.com), Lee Calcote (@leecalcote, leecalcote@gmail.com), Sangram Rath (@sangramrath, sangram.rath@gmail.com)
 - Issue: https://github.com/meshery/meshery/issues/15518
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/6c0bb714-9858-43b0-9c04-2f4b14d6c263
+
+#### Relationships for GCP services
+
+CNCF - Meshery: Relationships for GCP services (2025 Term 3)
+
+- Description:
+Meshery Models are declarative representations of infrastructure and applications. Within these models, Relationships define how different Components (e.g., Kubernetes resources, Cloud services) interact and depend on each other. These relationships are crucial for visualizing, understanding, and managing complex cloud native systems.
+
+This internship focuses on significantly expanding the breadth and depth of Meshery Relationships across a wide array of technologies supported by Meshery. As Meshery continues to integrate with more cloud-native technologies (Kubernetes, public clouds, and all CNCF projects), there's a growing need to accurately model the intricate relationships between their components - vital for providing users with comprehensive insights and control over their deployments.
+
+- Recommended Skills: DevOps, systems administration, solutions architecture. Experience with Kubernetes, GCP and its services.
+- Responsibilities:
+  - Research and Analyze Technologies: Dive deep into various cloud-native technologies (e.g., different compute services, databases, messaging systems, network services, etc.) to understand their components and how they interconnect.
+  - Develop Relationship Definitions: Create and contribute relationship definitions, typically in JSON or YAML format, to the Meshery models. 
+  - Model Inter-Technology Interactions: Focus particularly on defining relationships between components from different technologies (e.g., how a Kubernetes deployment relates to an GCP Spanner instance, or how a Linkerd service interacts with a Prometheus monitoring component).
+  - Document New Relationships: Clearly document the newly defined relationships, their purpose, and how they are represented within Meshery designs, contributing to the official Meshery documentation.
+- Expected Outcome:
+  - A multitude of new relationships defined both intra and inter GCP services.
+  - Policy Contribution: For advanced interns, there may be opportunities to contribute to the Rego policies that evaluate and enforce these relationships.
+- Mentor(s): James Horton (hortison, james.horton2337@gmail.com), Lee Calcote (@leecalcote, leecalcote@gmail.com)
+- Upstream Issue: https://github.com/meshery/meshery/issues/15531
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ed9d4af5-823a-4127-afdf-643c2b623f22
+
+#### Solutions Architecture of Popular Cloud Native Deployments
+
+CNCF - Meshery: Solutions architecture for cloud-native deployments (2025 Term 3)
+
+- Description: Learning paths with hands-on labs are a crucial resource for DevOps engineers and cloud-native practitioners. The Meshery Playground provides a live cluster environment, making it an ideal platform for learning every kind of cloud and cloud native technology. Meshery Docs is in need of comprehensive tutorials and scenarios covering common infrastructure management use cases. Mission is to create and publish a series of hands-on tutorials using Meshery Playground. Each tutorial will include step-by-step guides, live demonstrations, and interactive labs using the Playground allowing learners to apply their knowledge directly without the hassle of any configuration.These tutorials will be reviewed by various project maintainers and then published in guides/tutorials.
+- Expected Outcome:
+  - 10+ new solution architectures (designs) published in Meshery Catalog
+  - Each design is ideally adjoined with an interactive tutorial (using Meshery Playground), guiding users through infrastructure.
+  - Tutorials should vary in complexity, catering to beginners and advanced learners.
+- Recommended Skills: written English, Markdown, Kubernetes, DevOps, and hands-on experience with cloud-native tools
+- Mentor(s): Rian Cteulp (ritzorama, rian.cteulp@gmail.com), Lee Calcote (@leecalcote, leecalcote@gmail.com), Sangram Rath (@sangramrath, sangram.rath@gmail.com)
+- Upstream Issue: https://github.com/meshery/meshery/issues/15532
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a183c51e-22c6-473b-93f4-6c286993e435
+
+### Kagent
+
+#### Building cloud native agents for Kagent
+
+- Description: Kagent is an open-source framework for DevOps and platform engineers to run AI agents in Kubernetes, automating complex operations and troubleshooting tasks. We have a few agents for kagents (Kubernetes, Istio, Cilium, Argo, Prometheus, Grafana etc) and would love to build more agents for other CNCF graduated or incubation projects so users can use conversation style to chat with the agents to either learn or troubleshooting or operating these projects.
+  
+- Expected Outcome: Able to build at least 2-3 agents for CNCF graduated or incubation projects. Able to write a blog for the work and produce associated docs as well.
+  
+- Recommended Skills:
+  - Python
+  - Kubernetes
+  - familar with cloud native, Docker and some CNCF graduated or incubation projects
+  - Basic understanding of AI agents and LLMs.
+  - Understand how open source contribution works, familar with GitHub.
+    
+- Mentor(s):
+  - Lin Sun(@linsun, linsun@solo.io) & Eitan Yarmush(@EItanya, eitan.yarmush@solo.io) - please use the same email address as you use on the LFX Mentorship Platform at https://mentorship.lfx.linuxfoundation.org
+    
+- Upstream Issue:
+  - https://github.com/kagent-dev/kagent/issues/662
+  - https://github.com/kagent-dev/kagent/issues/664
+
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/cda38f44-e4b4-4f86-8b5a-a89bc08ac34a
