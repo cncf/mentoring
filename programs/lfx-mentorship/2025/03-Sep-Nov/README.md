@@ -831,6 +831,7 @@ Upstream issues
 - Mentors:
   - Charles-Edouard Brétéché (@eddycharly, charled.breteche@gmail.com)
   - Frank Jogeleit (@fjogeleit, frank.jogeleit@nirmata.com)
+  - Yugandhar (@yrsuthari, ysuthari@gmail.com)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/13185
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/6ad81eb7-295b-4ec8-b9b4-db20e1f3a346
 
