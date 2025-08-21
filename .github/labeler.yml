@@ -40,6 +40,12 @@
   - programs/lfx-mentorship/2025/*
   - programs/lfx-mentorship/2025/**/*
 
+# Add '2026' to any change to 2025 project files
+2026:
+  - programs/summerofcode/2026.md
+  - programs/lfx-mentorship/2026/*
+  - programs/lfx-mentorship/2026/**/*
+
 # Add 'Term 1: March-May' label to files for that term
 'Term 1: March-May':
   - programs/lfx-mentorship/2023/01-Mar-May/*
@@ -48,6 +54,8 @@
   - programs/lfx-mentorship/2024/01-Mar-May/**/*
   - programs/lfx-mentorship/2025/01-Mar-May/*
   - programs/lfx-mentorship/2025/01-Mar-May/**/*
+  - programs/lfx-mentorship/2026/01-Mar-May/*
+  - programs/lfx-mentorship/2026/01-Mar-May/**/*
 
 # Add 'Term 2: June-Aug' label to files for that term
 'Term 2: June-Aug':
@@ -57,6 +65,8 @@
   - programs/lfx-mentorship/2024/02-Jun-Aug/**/*
   - programs/lfx-mentorship/2025/02-Jun-Aug/*
   - programs/lfx-mentorship/2025/02-Jun-Aug/**/*
+  - programs/lfx-mentorship/2026/02-Jun-Aug/*
+  - programs/lfx-mentorship/2026/02-Jun-Aug/**/*
 
 # Add 'Term 3: Sept-Nov' label to files for that term
 'Term 3: Sept-Nov':
@@ -66,3 +76,5 @@
   - programs/lfx-mentorship/2024/03-Sep-Nov/**/*
   - programs/lfx-mentorship/2025/03-Sep-Nov/*
   - programs/lfx-mentorship/2025/03-Sep-Nov/**/*
+  - programs/lfx-mentorship/2026/03-Sep-Nov/*
+  - programs/lfx-mentorship/2026/03-Sep-Nov/**/*
