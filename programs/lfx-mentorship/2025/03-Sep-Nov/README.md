@@ -61,6 +61,8 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   * [Kmesh Orion replace waypopint](#kmesh-orion-replace-waypopint)
 * [Knative](#knative)
   * [Enhancing the Knative func CLI Experience](#enhancing-the-knative-func-cli-experience)
+* [Krkn](#krkn)
+  * [Implementing the resiliency score feature](#implementing-the-resiliency-score-feature)
 * [Kube State Metrics](#kube-state-metrics)
   * [Automate the release process](#automate-the-release-process)
 * [KubeArmor](#kubearmor)
@@ -1182,6 +1184,24 @@ Joe McGuire (jmcguire98)
   - Calum Murray (@Cali0707, cmurray@redhat.com)
 - Upstream Issue: https://github.com/knative/ux/issues/196
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/42557ffb-deb4-4b9f-a0b2-78f7f397216c
+
+### Krkn
+
+#### Implementing the resiliency score feature
+
+- Description: The idea is to define criteria to measure the resiliency score of a cluster after a set of chaos scenarios.
+- Expected Outcome:
+  - a page in our documentation website clearly explaining the scoring algorithm implemented and the best practices to leverage it on the user's environment
+  - a set of functions in our API library to easily collect data and calculate the score
+  - the implementation of the scoring method across all Krkn scenarios, and an update to our telemetry data structures to include the resiliency score to allow the collection by downstream observability systems
+- Mentor(s):
+  -  Tullio Sebastiani (@tsebastiani, tsebasti@redhat.com) 
+  -  Naga Ravi Chaitanya Elluri (@chaitanyaenr, nelluri@redhat.com)
+  -  Paige Patton (@paigerube14, ppatton@redhat.com)
+- Upstream Issue: https://github.com/krkn-chaos/krkn/issues/125
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/e3a6c68a-d3c5-414d-91a2-3681f4bc4473
+
+
 
 ### OpenYurt
 
