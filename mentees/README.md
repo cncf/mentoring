@@ -116,7 +116,7 @@ Selecting a project according to: *(paragraph needed)*
 * reviewing graduate profiles and communications such as blogs, Tweets and **Success Stories** to learn more about individual experiences. 
 
 ***Developing as a professional alongside your mentor***
-Your technical experience will be critical to your work during your mentorship. Professional excellence however can only be achieved by balancing that knowledge with 
+Your technical experience will be critical to your work during your mentorship. Professional excellence however can only be achieved by balancing that knowledge with strong soft skills.
 
 Whether you are a developer, designer, or anything in between, there is a place for you in mentoring programs on offer, and your unique skills and perspectives will be valuable assets to any project you choose to contribute to.
 
@@ -241,7 +241,7 @@ Check out the eligibility guide for full information.
 
 ## **Full List FAQs** (final TBC)
 1. I'm new to Open Source and CNCF, where should I start?
-1. What is 'Contribution' (in all its forms?)
+1. What is a 'Contribution' (in all its forms?)
 1. Can I contribute if I don't have a tech background?
 1. What's the best way to communicate with the community or get support with questions?
 1. What are the benefits to becoming a Mentee?
