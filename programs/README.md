@@ -1,7 +1,12 @@
-# CNCF Mentoring: Programs for 2022 - 2024
+# CNCF Mentoring: Programs for 2022 - 2026
 
 - [LFX](#lfx)
+  - [2026](#2026)
+    - [Term 3: Sep-Nov](#2026-term-3-september---november)
+    - [Term 2: Jun-Aug](#2026-term-2-june---august)
+    - [Term 1: Mar-May](#2026-term-1-march---may)
   - [2025](#2025)
+    - [Term 3: Sep-Nov](#2025-term-3-september---november)
     - [Term 2: Jun-Aug](#2025-term-2-june---august)
     - [Term 1: Mar-May](#2025-term-1-march---may)
   - [2024](#2024)
@@ -19,11 +24,39 @@
 
 ### LFX
 
+#### 2026
+
+##### 2026 Term 3: September - November
+
+Status: Planning
+
+[Planning](lfx-mentorship/2026/03-Sep-Nov/README.md)
+
+##### 2026 Term 2: June - August
+
+Status: Planning
+
+[Planning](lfx-mentorship/2026/02-Jun-Aug/README.md)
+
+##### 2026 Term 1: March - May
+
+Status: Planning
+
+[Planning](lfx-mentorship/2026/01-Mar-May/README.md)
+
 #### 2025
 
-##### 2024 Term 2: June - August
+##### 2025 Term 3: September - November
 
-[Planning](lfx-mentorship/2025/02-Jun-Aug/README.md)
+Status: Completed
+
+[Projects](lfx-mentorship/2025/03-Sep-Nov/README.md)
+
+##### 2025 Term 2: June - August
+
+Status: Completed
+
+[Projects](lfx-mentorship/2025/02-Jun-Aug/README.md)
 
 ##### 2025 Term 1: March - May
 
