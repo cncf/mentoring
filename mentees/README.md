@@ -1,51 +1,29 @@
 # Become a Mentee
 
-Congratulations on choosing to take part in a mentorship program available with the CNCF and some of its valued members. Contributing as a mentee can be a rewarding and fulfilling experience that connects you with a range of experts and development opportunities unique to these programs. 
-
-In addition to providing a high-quality learning experience that can help to kickstart your career, while adding tangible value to one of CNCF's 140+ open source projects; participating in mentorship programs also offer a range of other benefits that help both yourself and the CNCF community:
-* **Community:** Your contribution matters! Participating in mentorship programs can help to strengthen the community and its work by fostering innovation and collaboration while improving overall project quality.
-* **Network:** Learn and work alongside experts developing some of the most influential open source technologies in the world, as well as other passionate mentees eager to help bring these projects to life. 
-* **Recognition:** Many programs offer stipends and other incentives to support your contribution. Amounts can be based on varying factors including your location or specific projects. 
-
-Becoming a mentee in a CNCF mentorship program provides numerous benefits, including access to experienced professionals in the field, opportunities for personal and professional growth, and a supportive network for guidance and feedback. It can also help you to acquire new skills and knowledge, develop a deeper understanding of the industry, and increase your chances of success in your career.
+CNCF mentorship programs offer a rewarding opportunity to contribute to open source projects while gaining valuable skills and experience. As a mentee, you'll work alongside industry experts, contribute to CNCF projects, and join a supportive global community—all while receiving financial support through program stipends.
 
 
 ## Mentee Expectations
 
-Participating in a mentorship program can require a lot of time, effort and dedication. In exchange for that commitment, a seasoned mentor offers their valuable time and expertise to aid your learning and development. 
+To ensure a positive experience for everyone involved:
 
-To ensure the experience is positive for everyone involved, there are a few key things you as a mentee can do to maximise your opportunity:
-
-* **Make sure you can devote yourself to the minimum required hours throughout the program.** This can vary between projects, but often you will be expected to invest a significant amount of time on a weekly basis to your work.
-To avoid confusion, *be realistic about how much time you can put into the program*, and communicate openly with your mentor to confirm your proposed commitment is also feasible for them.
-
-* **Be open about your skill level.** Applying for opportunities that exceed your level of skill or experience can mean more work, and possibly frustration, for those involved as the program progresses. 
-Even if you are selected for a project, it's important to have a transparent and honest conversation with your mentor(s) about the level of difficulty involved. This can help to establish a clear understanding and agreement about your ability to complete set tasks, and ensure you have the necessary resources to succeed. 
-
-*Overall, having a positive experience in any mentorship program will be dependent on good communication, diligence and taking initiative.* Your mentors and the wider community are invested in your success, so being proactive and assuming responsibility for your progress is essential. 
+* **Commit to the required time**: Be realistic about your availability and communicate openly with your mentor about your schedule.
+* **Be honest about your skill level**: Have transparent conversations about the project difficulty to ensure you have the resources needed to succeed.
+* **Take initiative**: Good communication, diligence, and proactive engagement are essential for a successful mentorship. 
 
 ## Support Networks
 
-Having a solid support network provides a safe and productive environment for mentees to seek advice and receive guidance and feedback. It can be critical in navigating challenges and obstacles, building confidence, and feeling encouraged to continue your personal and professional growth.
+You'll have access to multiple support systems:
 
-* **Your relationship with your mentor** will be your most important connection throughout your program. In addition to providing valuable new skills and coaching, mentors can also support your professional networking and overall guidance in your career. Communicating any barriers to your learning or commitments and working together to find solutions can go a long way to developing a good working rapport.
-* **Communication channels, groups and forums** such as Slack can be a great way to find solutions to common problems you'll likely encounter on your journey. Some popular options include:
+* **Your mentor**: Your primary resource for guidance, technical expertise, and career advice.
+* **Communication channels**: [CNCF Slack](https://slack.cncf.io) (#mentoring, #new-contributors, project-specific channels) and [Community Groups](https://community.cncf.io/).
 
-[CNCF Slack channels](https://slack.cncf.io) such as **#mentoring**; where you can engage to share your knowledge to solve specific problems.
+***Note:*** *For contribution guidance, see the [FAQ section](#what-is-contribution) below.*
 
-***Important Note:*** *It is not recommended to request general guidance or to express interest in working on issues that might be raised on these channels. Refer to the '[What is Contribution?](#what-is-contribution)' section in FAQs for the preferred process.*
-
-[CNCF Community Groups and events](https://community.cncf.io/) - Conferences, workshops, and other events such as Meetups bring together individuals from the Cloud Native community to collaborate and share knowledge.
-
-These and other support networks can provide you with opportunities to connect with others in the field, learn from experienced professionals, and gain a deeper understanding of cloud native technologies. 
-
-Mentorship programs can be highly rewarding, yet challenging commitments to undertake. To make the most of your experience and improve your chances of success, be sure to reach out if:
-* You're unsure about next steps in your mentorship or its requirements
-* You're having doubts about your ability to complete your work
-* You're looking for other development opportunties to support your work
-* You're struggling to balancing your commitments, especially if they're affecting your health and well-being 
-
-In summary, there are multiple contacts and resources available to guide you, and a supportive network can play a crucial role in the success and fulfillment of your mentorship experience.
+Reach out if you need help with:
+* Understanding mentorship requirements or next steps
+* Managing workload or balancing commitments
+* Finding additional development opportunities
 
 ## Programs
 
@@ -71,24 +49,16 @@ The [Google Summer of Code](https://summerofcode.withgoogle.com/), often abbrevi
 
 ### Selecting a program
 
-If you're struggling to choose which program to apply for, there's a number of considerations to factor: 
+Consider these factors when choosing a program:
 
-1. ***Goals and expectations*** 
-Determine what you hope to accomplish with the program and seek out opportunities that align with your aspirations and interests.
-2. ***Industry expertise*** 
-Choose a program that specializes in your preferred industry and offers mentors with relevant experience. Be sure to carefully review the required skills to ensure you can manage the workload.
-3. ***Mentor-mentee fit*** 
-Choose a program that matches you with a mentor whose skills, experience, and personality ideally align with your needs and goals. It can also help to study the project or company that mentor represents to gain an understanding of their values and the nature of their work.
-4. ***Program structure*** 
-Consider the program's format, length, and frequency of meetings to determine if it will provide the level of support and structure that you need. This is also important in deciding whether you can balance the time commitment with any existing responsibilities you might have.
-5. ***Availability and accessibility*** 
-Ensure that the program is accessible and that mentors are available to provide support and guidance. Consider things like location, timezones and potential language barriers which might impact your participation and development.
-6. ***Feedback and evaluation:*** 
-Look for programs that provide regular feedback and evaluations to help you track your progress and adjust your goals as needed.
+1. **Goals and expectations**: Align the program with your aspirations and interests
+2. **Industry expertise**: Match with mentors who have relevant experience in your area
+3. **Mentor-mentee fit**: Ensure skills, experience, and personality alignment
+4. **Program structure**: Evaluate format, length, and time commitment
+5. **Availability**: Consider location, timezones, and language barriers
+6. **Feedback**: Look for regular evaluations to track progress
 
-As a final note, reach out to program graduates via the channels listed in the **'Support Networks'** section for guidance; or review related blogs, articles or videos to help inform your decision. 
-
-To maximize the benefits of a mentorship program, it is important to choose one that aligns with your personal goals and objectives. Each program has its own unique strengths and benefits, so by applying and learning more about the experience as it progresses, you can ensure that you select the best program for your needs.
+For additional guidance, connect with program graduates via the channels in the Support Networks section above.
 
 
 ## Remuneration
@@ -173,92 +143,242 @@ The CNCF Contributor website is a great starting point for new contributors.
 
 #### Can I contribute if I don't have a tech background?
 
-Absolutely. In addition to the countless code-based efforts available in the open source community, there are also numerous roles and opportunties to contribute that don't require specific technical experience.
+Absolutely! In addition to code-based efforts, there are numerous roles and opportunities that don't require specific technical experience.
 
-Documentation, community engagement, project management and even blogging about your experiences in the space are all beneficial to the overall growth and sustainability of the community.
+Non-Code Contributions:
+* Documentation: Writing, editing, and improving project documentation
+* Community Management: Organizing events, managing communications, welcoming newcomers
+* Project Management: Coordinating releases, managing roadmaps, facilitating meetings
+* Design: Creating graphics, improving user interfaces, developing brand materials
+* Content Creation: Writing blogs, creating tutorials, producing videos
+* Translation: Making projects accessible in different languages
+* User Support: Helping users in forums, Slack channels, and issue trackers
 
-Take some time to explore [relevant articles and resources] that can provide more clarity in different options available to you.
+Programs for Non-Technical Contributors:
+* Google Season of Docs: Specifically focused on documentation improvements
+* Outreachy: Includes projects in design, documentation, marketing, and event planning
+* LFX Mentorship: Offers both technical and non-technical project opportunities
 
-Example reference(s): TBC
+For more information, explore the [CNCF Contributor Guide](https://contribute.cncf.io/contributors/) and the [Non-Code Contributions Guide](https://contribute.cncf.io/contributors/getting-started/).
 
 ---
 
 #### What's the best way to communicate with the community or get support with questions?
 
-There are various communication channels/platforms the open source community uses to interact (Slack, Discussion Boards etc.); whether providing support, coordinating work or recognising contribution for instance.
+Use these communication channels:
 
-To ensure that any responses to your questions don’t get split across platforms, stick to one channel at a time so answers can be collected in one space and are easier for others to reference in the future.
+* **[CNCF Slack](https://slack.cncf.io)**: #mentoring, #new-contributors, and project-specific channels
+* **GitHub**: Issues and Discussions for technical questions and bug reports
+* **[Community Calendar](https://community.cncf.io/)**: Project meetings and working groups
 
-**I'm excited about contributing to Open Source with CNCF but overwhelmed by its complexity. How else can I build my understanding?**
-OS can be jargon-heavy, getting familiar with the vocab/terminology can be helpful
-If in doubt, reach out - the community is built upon supportive relationships
-Example reference(s): (Paragraph) CNCF Glossary
+**Tips**: Search before asking, stick to one channel per question, be specific, and be patient—community members volunteer across timezones. When you learn something, help others with similar questions.
 
-**What are the benefits to becoming a Mentee?**
-* Skills, experience and confidence
-* Guidance from industry experts
-* Internationally-recognised programs
-* Networking opportunity; employers and community
+**If overwhelmed**: Use the [CNCF Glossary](https://glossary.cncf.io/) for terminology and project documentation for guidance.
 
 ---
 
-**How do I apply?** 
-*(see 'Programs' section)*
+#### What are the benefits to becoming a Mentee?
+
+* **Professional Development**: Real-world experience, skill development, and portfolio building
+* **Financial Support**: Stipends (LFX, GSoC, Outreachy) and equipment allowances
+* **Networking**: Connect globally with mentors, contributors, and potential employers
+* **Career Growth**: Resume enhancement, job opportunities, and continued mentorship relationships
+* **Community**: Join a welcoming, diverse community with recognition for your contributions
 
 ---
 
-**What if I'm not skilled/experienced enough to participate yet?**
-Suggest complementary short courses to upskill
-Continue to interact with the community to build experience and understanding
+#### How do I apply?
 
-**What support is available during mentorships?**
-Mentorship programs such as LFX and Google Summer of Code are coordinated by various Maintainers who help to facilitate your experience.
+**LFX Mentorship** - Three terms annually (Mar-May, Jun-Aug, Sep-Nov)
+1. Review [projects](../programs/lfx-mentorship/) and [eligibility](https://docs.linuxfoundation.org/lfx/mentorship/mentees/eligibility-requirements)
+2. Create [LFX account](https://lfx.linuxfoundation.org/) and complete profile
+3. Connect with mentors via GitHub issues or Slack
+4. Submit during application window (typically 2-week periods)
 
-Questions, feedback, liaising between involved parties
-Mentors provide guidance, encouragement and expertise
-Community e.g. other mentees
-Support system in ongoing development according to identified need
+**Google Summer of Code** - Annual summer program
+1. Check if CNCF is participating (announced ~February)
+2. Review [project ideas](../programs/summerofcode/) and [GSoC guide](https://summerofcode.withgoogle.com/)
+3. Start contributing before applying
+4. Submit proposal (applications typically March-April)
 
-**I'm applying for LFX and am interested in a project, but am stuck on next steps. What should I do?**
-[Looking through the projects] (link needed) will highlight suggested skills, so hopefully, something in this resource will match your skillset.
+**Google Season of Docs** - For technical writers
+- Check CNCF participation at [Season of Docs](https://developers.google.com/season-of-docs)
+- Review [documentation projects](../programs/archive/seasonofdocs/)
 
-Each project has a link to a corresponding GitHub issue, so if you see something interesting, use this to reach out to the relevant project Maintainers. This will help you both get a sense of your suitability and what is needed to progress.
+**Outreachy** - Two cohorts yearly (May-Aug, Dec-Mar)
+1. Verify [eligibility](https://www.outreachy.org/apply/eligibility/) (for underrepresented groups)
+2. Complete initial application
+3. Make required contributions during contribution period
+4. Submit final application
 
-**Are mentorships suitable for career changers?**
-LFX eligbility criteria requires that you are not a maintainer, recurring contributor, etc. with more than minimal involvement with the open source project that offers a mentorship program.
+**Tips**: Start early, engage with community, make contributions first, be specific about your interest and skills.
 
-Check out the eligibility guide for full information.
+See [programs folder](../programs/) for current deadlines.
 
-**I think I've missed the deadline to apply! Can I still submit my application?**
-*State date flexibility or not? - Especially re LFX* (TBC)
-(Additional miscellaneous)
+---
 
-* Support tickets for specfic issues e.g. application process
-* Career Paths
+#### What if I'm not skilled/experienced enough to participate yet?
 
+Build your skills through:
+* **Free courses**: [LF Beginner's Guide](https://trainingportal.linuxfoundation.org/learn/course/a-beginners-guide-to-open-source-software-development-lfc102/), [Intro to Kubernetes](https://www.edx.org/course/introduction-to-kubernetes)
+* **Practice**: Use [CLOTributor](https://clotributor.dev/) for beginner tasks, contribute to documentation
+* **Learn**: Review [CNCF Glossary](https://glossary.cncf.io/), study pull requests from others
 
-(Additional miscellaneous)
+Start small, contribute regularly, and engage with the community. Mentorships are designed for learning—you don't need to be an expert to apply!
 
-## **Full List FAQs** (final TBC)
-1. I'm new to Open Source and CNCF, where should I start?
-1. What is a 'Contribution' (in all its forms?)
-1. Can I contribute if I don't have a tech background?
-1. What's the best way to communicate with the community or get support with questions?
-1. What are the benefits to becoming a Mentee?
-1. How do I apply to programs? 
-1. What if I'm not skilled/experienced enough to participate yet?
-1. I'm applying for LFX and am interested in a project, but am stuck on next steps. What should I do?
-1. What support is available during mentorships?
-1. Are mentorships suitable for career changers?
-1. I think I've missed the deadline to apply! Can I still submit my application?
-1. Are roles in Open Source typically for teams or individuals?
-1. What sort of companies would be looking for these roles?
-1. What is the scope of income that is possible in the different roles?
-1. What are common skills needed for various roles (vs. mentorships specifically) e.g. technical and personal?
-1. What is the training pathway, certifications or internships needed for each role?
-1. Are qualifications essential to obtain work?
-1. I've tried reaching out in Slack communities, but it's confusing/overwhelming/intimidating. How can I better navigate this space?
-1. I've attended meetings, but I don't feel experienced enough to participate. How can I better interact with this aspect of the community?
-1. What's the best piece of advice for someone starting out?
+---
+
+#### What support is available during mentorships?
+
+* **Your Mentor(s)**: Regular meetings, code reviews, career guidance
+* **Program Administrators**: Platform support, stipend coordination, evaluations
+* **Community**: Project maintainers, fellow mentees, Slack channels, office hours
+* **Resources**: Documentation, contribution guides, FAQs
+
+**Need help?** Contact your mentor first, then program administrators if needed. For serious concerns, reach out to the CNCF Code of Conduct team.
+
+---
+
+#### I'm applying for LFX and am interested in a project, but am stuck on next steps. What should I do?
+
+1. **Review project details**: Check [LFX project ideas](../programs/lfx-mentorship/) for requirements and deliverables
+2. **Assess fit**: Can you commit the time? Do you have (or can learn) the required skills?
+3. **Connect**: Read the GitHub issue, join project Slack channels, attend meetings
+4. **Engage mentors**: Ask specific questions like "I have experience with X. Can you suggest starter issues?"
+5. **Contribute first**: Make small contributions to demonstrate genuine interest
+6. **Apply**: Complete your LFX profile, propose a timeline, highlight relevant experience
+
+**Avoid**: Generic messages ("please assign me"), applying without reading documentation, waiting until the last day.
+
+**Still stuck?** Ask in #mentoring on [CNCF Slack](https://slack.cncf.io) or attend Mentoring Working Group meetings.
+
+---
+
+#### Are mentorships suitable for career changers?
+
+Yes! Mentorships welcome career changers.
+
+**Eligibility**: LFX requires you're NOT already a maintainer/recurring contributor. Most programs have no specific degree requirements. Check [LFX](https://docs.linuxfoundation.org/lfx/mentorship/mentees/eligibility-requirements), [GSoC](https://summerofcode.withgoogle.com/), and [Outreachy](https://www.outreachy.org/apply/eligibility/) requirements.
+
+**Advantages**: Fresh perspective, transferable skills (project management, communication), demonstrable portfolio, professional networking.
+
+**Success tips**: Highlight transferable skills, be honest about your background, make contributions before applying, leverage your unique perspective, network actively.
+
+---
+
+#### I think I've missed the deadline to apply! Can I still submit my application?
+
+No, deadlines are firm. However, CNCF runs multiple programs:
+* LFX: Three terms (Mar-May, Jun-Aug, Sep-Nov)
+* GSoC: Annual (applications ~Feb-Apr)
+* Outreachy: Two cohorts (May-Aug, Dec-Mar)
+
+Use the time to contribute to projects, engage on Slack, and prepare for the next term. See [programs folder](../programs) for deadlines.
+
+---
+
+#### I've tried reaching out in Slack communities, but it's confusing/overwhelming/intimidating. How can I better navigate this space?
+
+**Start small**: Join [CNCF Slack](https://slack.cncf.io), begin with #mentoring and #new-contributors. Set notifications to "mentions only." Observe before engaging.
+
+**Tips**: Use threads, search before asking, be specific, be patient (volunteers across timezones). Start with emoji reactions, then introduce yourself.
+
+**Feeling overwhelmed?** Try project-specific channels—they're smaller and more focused.
+
+---
+
+#### I've attended meetings, but I don't feel experienced enough to participate. How can I better interact with this aspect of the community?
+
+**Before**: Review the agenda, prepare questions.
+
+**During**: Listen and observe (that's valuable!), use chat for questions, take notes. Remember: asking for clarification helps others too.
+
+**Contribute**: Volunteer for small tasks (note-taking, documentation), share your newcomer perspective.
+
+**Build confidence**: Attend regularly, connect with others on Slack. Your fresh perspective highlights areas for improvement!
+
+---
+
+#### Are roles in Open Source typically for teams or individuals?
+
+Both! Bug fixes and documentation can be solo work. Major features involve team collaboration. Most successful contributors balance independent work with community collaboration through code reviews, discussions, and meetings.
+
+---
+
+#### What sort of companies hire for open source roles?
+
+* **Tech companies**: AWS, Google Cloud, Microsoft Azure, Red Hat, SUSE, Canonical, HashiCorp, GitLab, Docker
+* **CNCF members**: [800+ organizations](https://www.cncf.io/about/members/)
+* **Startups to enterprises**: Companies building on or using cloud native technologies
+* **Foundations**: Linux Foundation, CNCF, Apache Software Foundation
+
+**Roles**: Software Engineers, Developer Advocates, Community Managers, Technical Writers, Project Managers, DevOps/SRE, Security Specialists
+
+---
+
+#### What is the scope of income that is possible in the different roles?
+
+Entry-level salaries align with standard software engineer roles in your region. Senior/specialized maintainers at top tech companies earn competitive salaries. Some contributors receive grants or sponsorships (e.g., GitHub Sponsors), though full-time employment is most common.
+
+---
+
+#### What are common skills needed for open source roles?
+
+**Technical**: Go, Python, Rust, JavaScript/TypeScript; Kubernetes, Docker, Git/GitHub, CI/CD (GitHub Actions, Jenkins), Infrastructure as Code (Terraform, Helm)  
+**Role-Specific**: Developers (distributed systems), Technical Writers (documentation tools), DevOps/SRE (monitoring, automation), Community Managers (event planning, engagement)  
+**Soft Skills**: Communication, collaboration, problem-solving, time management, adaptability, giving/receiving feedback  
+**Community**: Open source governance, asynchronous work, inclusive communication
+
+Mentorship programs help you develop both technical and soft skills progressively.
+
+---
+
+#### What is the training pathway, certifications or internships needed for each role?
+
+There's no single pathway. Many learn by doing—reading code, fixing bugs, and studying documentation. [CNCF Certifications](https://www.cncf.io/training/certification/) (CKA, CKAD, KCNA) are valued for skill validation. Programs like LFX and GSoC bridge learning and professional employment.
+
+---
+
+#### Are qualifications essential to obtain work?
+
+Formal degrees (like Computer Science) rarely act as strict barriers in open source. Demonstrable skills—GitHub contributions, merged PRs, technical writing—often carry more weight than academic credentials.
+
+---
+
+#### What is the best piece of advice for someone starting out?
+
+Just start. You don't need permission to contribute. Find a small typo, broken link, or missing explanation in docs and fix it. Regular small contributions build reputation and network faster than waiting for one "perfect" feature idea.
+
+---
+
+## Full List of FAQs
+
+### Getting Started
+1. [I'm new to Open Source and CNCF, where should I start?](#im-new-to-open-source-and-cncf-where-should-i-start)
+2. [What is a 'Contribution' (in all its forms)?](#what-is-contribution)
+3. [Can I contribute if I don't have a tech background?](#can-i-contribute-if-i-dont-have-a-tech-background)
+4. [What's the best way to communicate with the community or get support with questions?](#whats-the-best-way-to-communicate-with-the-community-or-get-support-with-questions)
+
+### Mentorship Programs
+5. [What are the benefits to becoming a Mentee?](#what-are-the-benefits-to-becoming-a-mentee)
+6. [How do I apply to programs?](#how-do-i-apply)
+7. [What if I'm not skilled/experienced enough to participate yet?](#what-if-im-not-skilledexperienced-enough-to-participate-yet)
+8. [I'm applying for LFX and am interested in a project, but am stuck on next steps. What should I do?](#im-applying-for-lfx-and-am-interested-in-a-project-but-am-stuck-on-next-steps-what-should-i-do)
+9. [What support is available during mentorships?](#what-support-is-available-during-mentorships)
+10. [Are mentorships suitable for career changers?](#are-mentorships-suitable-for-career-changers)
+11. [I think I've missed the deadline to apply! Can I still submit my application?](#i-think-ive-missed-the-deadline-to-apply-can-i-still-submit-my-application)
+
+### Community Engagement
+12. [I've tried reaching out in Slack communities, but it's confusing/overwhelming/intimidating. How can I better navigate this space?](#ive-tried-reaching-out-in-slack-communities-but-its-confusingoverwhelmingintimdating-how-can-i-better-navigate-this-space)
+13. [I've attended meetings, but I don't feel experienced enough to participate. How can I better interact with this aspect of the community?](#ive-attended-meetings-but-i-dont-feel-experienced-enough-to-participate-how-can-i-better-interact-with-this-aspect-of-the-community)
+
+### Career Development
+14. [Are roles in Open Source typically for teams or individuals?](#are-roles-in-open-source-typically-for-teams-or-individuals)
+15. [What sort of companies hire for open source roles?](#what-sort-of-companies-hire-for-open-source-roles)
+16. [What is the scope of income that is possible in the different roles?](#what-is-the-scope-of-income-that-is-possible-in-the-different-roles)
+17. [What are common skills needed for open source roles?](#what-are-common-skills-needed-for-open-source-roles)
+18. [What is the training pathway, certifications or internships needed for each role?](#what-is-the-training-pathway-certifications-or-internships-needed-for-each-role)
+19. [Are qualifications essential to obtain work?](#are-qualifications-essential-to-obtain-work)
+20. [What is the best piece of advice for someone starting out?](#what-is-the-best-piece-of-advice-for-someone-starting-out)
 
 ---
