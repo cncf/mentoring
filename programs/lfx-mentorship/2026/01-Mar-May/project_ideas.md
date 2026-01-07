@@ -33,8 +33,6 @@
 
 ---
 
-### Jaeger
-
 #### Upgrading Core Routing and State Management in Jaeger UI
 
 - Description: This project focuses on modernizing the Jaeger-UI by upgrading its foundational routing and state management libraries. The primary goals are to migrate from legacy react-router patterns to React Router v7 and replace the deprecated history package and older Redux integration patterns with modern standards like redux-first-history. This refactoring will improve long-term maintainability, enhance performance, and simplify the code for one of the industry's most critical observability tools.
