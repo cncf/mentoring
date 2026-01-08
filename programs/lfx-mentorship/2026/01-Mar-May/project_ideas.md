@@ -1,4 +1,3 @@
-```
 ### KubeStellar
 
 #### Community Building and User Success Manager
@@ -28,6 +27,28 @@
   - Saumya Kumar (@oksaumya, saumyakr2006@gmail.com)
 - Upstream Issue: https://github.com/kubestellar/kubestellar/issues/3525
 
-```
+#### Content Creation and Developer Advocacy
 
----
+- Description: Create high-quality technical content that drives inbound interest in KubeStellar and demonstrates its value to potential users. The mentee will develop and execute a content strategy including blog posts, video tutorials, technical deep-dives, and presentations at meetups or webinars. Content should address real user problems, showcase KubeStellar capabilities, and provide actionable guidance. This program emphasizes technical writing, video production, public speaking, and understanding what content resonates with the Kubernetes community. The mentee may recruit 1-3 volunteer team members to assist with video editing, social media management, or technical review.
+- Expected Outcome:
+  - 12 blog posts published across various platforms
+  - 6 video tutorials covering key KubeStellar topics
+  - 1-2 presentations delivered at meetups, webinars, or conferences
+  - 1 technical deep-dive article of 2000+ words
+  - 40 social media posts driving engagement and awareness
+  - Content playbook documenting strategy and best practices
+  - 5,000 total content views across all channels
+  - Measurable inbound interest and signups attributed to content
+  - User engagement: 10 GitHub issues filed by content-driven users, 3 PRs or PR reviews contributed by content-driven users
+- Recommended Skills:
+  - Strong technical writing and storytelling ability
+  - Video production and editing skills
+  - Kubernetes and cloud native expertise
+  - Public speaking and presentation skills
+  - Understanding of SEO and content distribution
+  - Existing following or audience helpful but not required
+- Mentor(s):
+  - Sagar Utekar (@Sagar2366, sagarutekar2366@gmail.com)
+  - Naman Jain (@naman9271, namanjain9271@gmail.com)
+  - Onkar Shelke (@onkar717, onkarwork2234@gmail.com)
+- Upstream Issue: https://github.com/kubestellar/kubestellar/issues/3500
