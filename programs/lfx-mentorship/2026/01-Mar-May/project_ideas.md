@@ -30,13 +30,12 @@
 - Recommended Skills: Strong verbal and written communication, Kubernetes and multi-cluster concepts knowledge, Comfortable conducting video calls and presentations, Persistent and resilient personality, DevOps or SRE background a plus
 
 - Mentor(s):
-
-- Mentor(s):
   - Rishi Mondal (@MAVRICK-1, mavrickrishi@gmail.com)
   - Shivam Kumar (@btwshivam, shivam200446@gmail.com) 
   - Andy Anderson (@clubanderson, andy@clubanderson.com)  
   - Rupam Manna (@Rupam-It, mannarupam3@gmail.com)
-
+    
+- Upstream Issue: https://github.com/kubestellar/kubestellar/issues/3500
 
 
 #### Integration and Ecosystem Development Specialist
@@ -53,4 +52,7 @@
   - Andy Anderson (@clubanderson, andy@clubanderson.com) 
   - Kunal Dugar  (@kunal-511, kunal0204.dugar@gmail.com) 
   - Hemanshu Baviskar (@@Per0x1de-1337, )
+ 
+- Upstream Issue: https://github.com/kubestellar/kubestellar/issues/3501
+
 
