@@ -24,7 +24,9 @@
   - Customer success or support experience helpful
 - Mentor(s):
   - Sagar Utekar (@Sagar2366, sagarutekar2366@gmail.com)
-- Upstream Issue:
+  - Naman Jain (@naman9271, namanjain9271@gmail.com)
+  - Saumya Kumar (@oksaumya, saumyakr2006@gmail.com)
+- Upstream Issue: https://github.com/kubestellar/kubestellar/issues/3525
 
 ```
 
