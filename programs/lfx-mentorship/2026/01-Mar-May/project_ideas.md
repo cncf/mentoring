@@ -37,11 +37,10 @@
   - Produce and submit documentation improvements upstream in one or both projects. These may include conceptual explanations, practical guides, examples, diagrams, and cross-project references.
   - Establish basic criteria or methods to evaluate documentation effectiveness during the mentorship.
 - Recommended Skills:
-  - Strong interest in pursuing a career in technical writing.
-  - Prior experience with technical writing or clear motivation to develop writing skills.
+  - Prior experience with technical writing or clear motivation to pursue a Tech Writing career.
   - Familiarity with Git and contributing via pull requests.
 - Mentor(s):
   - Arthur Silva Sens (@arthursens, arthursens2005@gmail.com)
   - Tiffany Hrabusa (@tiffany76, tiffany.hrabusa@gmail.com)
   - Victoria Nduka (@nwanduka, ndukavictoria7@gmail.com)
-- Upstream Issue: TBD
+- Upstream Issue: https://github.com/prometheus/prometheus/issues/17823
