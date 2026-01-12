@@ -16,7 +16,6 @@
 
 ---
 
-
 ## Proposed Project ideas
 
 ### Jaeger
@@ -31,8 +30,6 @@
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/7832
 
----
-
 #### Upgrading Core Routing and State Management in Jaeger UI
 
 - Description: This project focuses on modernizing the Jaeger-UI by upgrading its foundational routing and state management libraries. The primary goals are to migrate from legacy react-router patterns to React Router v7 and replace the deprecated history package and older Redux integration patterns with modern standards like redux-first-history. This refactoring will improve long-term maintainability, enhance performance, and simplify the code for one of the industry's most critical observability tools.
@@ -42,3 +39,30 @@
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
 - Upstream Issue: https://github.com/jaegertracing/jaeger-ui/issues/3313
+
+### Prometheus
+
+#### Improving Documentation for Prometheus and OpenTelemetry Interoperability
+
+- Description:
+  Prometheus and OpenTelemetry are commonly deployed together, yet many users struggle to understand how the two systems interoperate — especially around concepts such as resource attributes, label mapping, attribute promotion, and recommended integration patterns.
+
+  [Prior UX research](https://opentelemetry.io/blog/2025/ux-research-prometheus-otel/) identified documentation gaps as a primary source of confusion, and [ongoing community discussions](https://opentelemetry.io/blog/2026/slack-community-insights/) continue to surface similar questions. While both projects provide extensive documentation, guidance is often fragmented, highly technical, or lacks practical end-to-end explanations for real-world usage.
+
+  This mentorship focuses on improving the clarity, usability, and consistency of documentation that explains how Prometheus and OpenTelemetry work together. The mentee will analyze existing documentation across both projects, identify high-impact gaps or friction points, and collaborate with mentors to design and deliver meaningful documentation improvements upstream.
+
+  The project is intentionally exploratory and iterative. Part of the mentorship is learning how to evaluate documentation quality, prioritize improvements, and define ways to measure the impact of documentation changes made during the program.
+- Expected Outcome:
+  - Review and audit existing Prometheus and OpenTelemetry documentation related to interoperability.
+  - Define a prioritized documentation improvement plan together with the mentors.
+  - Produce and submit documentation improvements upstream in one or both projects. These may include conceptual explanations, practical guides, examples, diagrams, and cross-project references.
+  - Establish basic criteria or methods to evaluate documentation effectiveness during the mentorship.
+- Recommended Skills:
+  - Prior experience with technical writing or clear motivation to pursue a Tech Writing career.
+  - Familiarity with Git and contributing via pull requests.
+- Mentor(s):
+  - Arthur Silva Sens (@arthursens, arthursens2005@gmail.com)
+  - Tiffany Hrabusa (@tiffany76, tiffany.hrabusa@gmail.com)
+  - Victoria Nduka (@nwanduka, ndukavictoria7@gmail.com)
+- Upstream Issue: https://github.com/prometheus/prometheus/issues/17823
+
