@@ -33,7 +33,6 @@
   - Rishi Mondal (@MAVRICK-1, mavrickrishi@gmail.com)
   - Shivam Kumar (@btwshivam, shivam200446@gmail.com) 
   - Andy Anderson (@clubanderson, andy@clubanderson.com)  
-  - Rupam Manna (@Rupam-It, mannarupam3@gmail.com)
     
 - Upstream Issue: https://github.com/kubestellar/kubestellar/issues/3500
 
