@@ -144,3 +144,53 @@ This project serves as the continuation of that work and is divided into two mai
   - Tiffany Hrabusa (@tiffany76, tiffany.hrabusa@gmail.com)
   - Victoria Nduka (@nwanduka, ndukavictoria7@gmail.com)
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/17823
+
+### WasmEdge
+
+#### Extend sub-command of WasmEdge CLI tool
+
+- Description: WasmEdge command line tool currently supports only the sub-command about run and compile the WASM files. As a WebAssembly runtime tool, it's welcome to have more functions about verifying the WASM files. In this mentorship, we expect the mentee to plan and implement the functionality of WasmEdge command line tool about parsing, validating, and instantiating WASM files, which developers can do with WasmEdge C API.
+- Expected Outcome:
+  - Extend the sub-commands for WasmEdge CLI tool contains not only `parse`, `validate`, or `instantiate`, etc.
+  - Provide the test cases to verify your implementation.
+  - Use WasmEdge C API to trigger the WasmEdge CLI tools for further test cases.
+- Recommended Skills:
+  - C/C++
+  - WebAssembly
+  - GitHub workflows
+- Mentor(s):
+  - YiYing He (@q82419, yiying@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4513
+
+#### Module instance dependency tree in WASM store
+
+- Description: It's common that there are several modules and linking when running a WebAssemly program. WasmEdge provides the APIs to handle the cases about loading and importing the WASM binaries and register the module instances into store in runtime. But in some complicated cases, the dependencies between module instances occurs. There may be requests to unregister and delete the module instances in store to release the space. In that case, the dependency of module instances should be considered to prevent from causing crash after deleting a module instance. In this mentorship, we expect the mentee to implement the dependency tree and the methodology to handle the module deletion in WasmEdge runtime.
+- Expected Outcome:
+  - Implement the module instance dependency tree and the maintainance methodology.
+  - Design the multiple module instances test cases to verify the implementation.
+- Recommended Skills:
+  - C/C++
+  - WebAssembly
+  - GitHub workflows
+- Mentor(s):
+  - YiYing He (@q82419, yiying@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4514
+
+#### Enable JIT mode support for per-function compilation
+
+- Description: WasmEdge's JIT mode attempts to compile the entire module before execution, which also includes compiling unused functions in the specific workload. To reduce compilation time and improve performance, we aim to enable compilation on a per-function basis, focusing only on those functions actually used in the workload.
+- Expected Outcome:
+  - A series of test cases that verify the behavior and demonstrate the difference between entire module compilation and per-function basis compilation.
+  - A series of PRs that implement the per-function compilation behavior.
+  - An option to control the behavior between entire module and per-function compilation.
+  - A document explaining how the new approach works and how to use it.
+- Recommended Skills:
+  - C++
+  - WebAssembly
+  - LLVM
+  - JIT
+- Mentor(s):
+  - Hung-Ying Tai (@hydai, hydai@secondstate.io)
+  - Shen-Ta Hsieh (@ibmibmibm, beststeve@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4516
+
