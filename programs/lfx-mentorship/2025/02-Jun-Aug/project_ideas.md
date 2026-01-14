@@ -15,3 +15,5 @@
 ```
 
 ---
+
+## Proposed Project ideas
