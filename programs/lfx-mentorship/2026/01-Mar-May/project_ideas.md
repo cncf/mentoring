@@ -40,6 +40,46 @@
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
 - Upstream Issue: https://github.com/jaegertracing/jaeger-ui/issues/3313
 
+### Knative
+
+#### Enhancing the Knative Educational Game with Advanced EDA Patterns and Web Deployment
+
+- Description: Knative provides a powerful event-driven platform, but learning its concepts, especially brokers and EDA patterns, can be challenging for beginners. The Knative Educational Game aims to simplify this learning curve through interactive gameplay that visually and conceptually demonstrates Knative components and event-driven patterns. 
+
+An overview of the project was presented at the [KubeCon NA 2024](https://youtu.be/TTBKh6F4v-g?si=MRmx6a2YJsl7y0Q-), and several technical sketches, gameplay patterns, and level designs were created and implemented during the [LFX Mentorship of Spring 2025](https://github.com/knative-extensions/educational-game/blob/main/Levels/brainstorm.md).
+
+This project serves as the continuation of that work and is divided into two main parts:
+  - The first part focuses on expanding and enhancing the game by implementing existing level designs, introducing advanced EDA patterns (like Outbox and DataRef patterns), designing assets as needed, and improving interactivity.
+  - The second part focuses on deploying the game to the web, making it easily accessible for learners to try and share.
+
+
+- Expected Outcome:
+  - A fully implemented and web-deployed Knative Educational Game by completing previously designed levels, and newly added EDA patterns (DataRef and Outbox).
+  - Improved learning experience through interactive animations, sounds, and clear visualizations that make Knative Eventing concepts and real-world patterns easier to understand.
+  - A Netlify hosted web deployment integrated into the Knative website.
+
+- Recommended Skills: Godot, Game Development, Event Driven Architecture, Graphic Design.
+
+- Mentor(s):
+  - Ankita Jana (@ankitajana21 , ankitajana60@gmail.com)
+  - Prajjwal Yadav (@prajjwalyd, prajjwalyd@gmail.com)
+
+- Upstream Issue: https://github.com/knative-extensions/educational-game/issues/52
+
+### Kubernetes
+
+#### Cluster API Provider AWS (CAPA)
+
+##### Add OpenTelemetry support
+
+- Description: Cluster API Provider AWS (CAPA) enables the creation of Kubernetes clusters in AWS with Cluster API. With increasing adoption of Cluster API (CAPI) in general and of CAPA we want to improve the supportability of CAPA, especially for production environments. The first part of this is to add telemetry/tracing using OpenTelemetry so that we can understand and visualize the flow of reconciliation within the provider. This will enable the project and its end users to understand the behavior of reconciliation (including API services called) and will help diagnose issues and performance problems.
+- Expected Outcome: An implementation of OpenTelemetry in CAPA with associated documentation that has been released in a new version of CAPA.
+- Recommended Skills: Golang, Kubernetes, AWS
+- Mentor(s):
+  - Richard Case (@richardcase, richmcase@gmail.com)
+  - Daniel Lipovetsky (@dlipovetsky, daniel.lipovetsky@gmail.com )
+- Upstream Issue: https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/2178
+
 ### KubeStellar
 
 #### Documentation and Self-Service Enablement Specialist
@@ -54,6 +94,19 @@
   - Nupur Shivani (@Nupurshivani, nupurjha.me@gmail.com)
   - Andy Anderson (@clubanderson, andy@clubanderson.com)
 - Upstream Issue: https://github.com/kubestellar/kubestellar/issues/3521
+
+### OpenCost
+
+#### OpenCost UI Revamp
+
+- Description: OpenCost has helped a lot of people save a lot of money on their infrastructure. We like to think that this has contributed to things like engineering headcounts not getting reduced, small businesses and startups surviving longer, and so on. The OpenCost UI is a key part of this - it lets people visualize their spend, find inefficiencies, and so on. It's time to uplevel the OpenCost UI to enable the next generation of savings!
+- Expected Outcome: We would like all pages of the OpenCost app to be implemented in Carbon or similar modern design system. We would like dashboarding functionality and a unified color scheme. All implementations should be delivered with unit and end-to-end tests. All existing functionality of the UI should be present in the revamped design.
+- Recommended Skills: React, UX Design, Frontend Development, APIs, Carbon Design System
+- Mentors 
+  - Alex Meijer (@ameijer, alexander.meijer@ibm.com)
+  - Warwick Peatey (@peatey, warwick.peatey@ibm.com)
+- Upstream Issue: https://github.com/opencost/opencost-ui/issues/155
+- LFX URL: 
 
 ### OpenYurt
 
@@ -119,16 +172,51 @@
   - Victoria Nduka (@nwanduka, ndukavictoria7@gmail.com)
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/17823
 
-### Kubernetes
+### WasmEdge
 
-#### Cluster API Provider AWS (CAPA)
+#### Extend sub-command of WasmEdge CLI tool
 
-##### Add OpenTelemetry support
-
-- Description: Cluster API Provider AWS (CAPA) enables the creation of Kubernetes clusters in AWS with Cluster API. With increasing adoption of Cluster API (CAPI) in general and of CAPA we want to improve the supportability of CAPA, especially for production environments. The first part of this is to add telemetry/tracing using OpenTelemetry so that we can understand and visualize the flow of reconciliation within the provider. This will enable the project and its end users to understand the behavior of reconciliation (including API services called) and will help diagnose issues and performance problems.
-- Expected Outcome: An implementation of OpenTelemetry in CAPA with associated documentation that has been released in a new version of CAPA.
-- Recommended Skills: Golang, Kubernetes, AWS
+- Description: WasmEdge command line tool currently supports only the sub-command about run and compile the WASM files. As a WebAssembly runtime tool, it's welcome to have more functions about verifying the WASM files. In this mentorship, we expect the mentee to plan and implement the functionality of WasmEdge command line tool about parsing, validating, and instantiating WASM files, which developers can do with WasmEdge C API.
+- Expected Outcome:
+  - Extend the sub-commands for WasmEdge CLI tool contains not only `parse`, `validate`, or `instantiate`, etc.
+  - Provide the test cases to verify your implementation.
+  - Use WasmEdge C API to trigger the WasmEdge CLI tools for further test cases.
+- Recommended Skills:
+  - C/C++
+  - WebAssembly
+  - GitHub workflows
 - Mentor(s):
-  - Richard Case (@richardcase, richmcase@gmail.com)
-  - Daniel Lipovetsky (@dlipovetsky, daniel.lipovetsky@gmail.com )
-- Upstream Issue: https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/2178
+  - YiYing He (@q82419, yiying@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4513
+
+#### Module instance dependency tree in WASM store
+
+- Description: It's common that there are several modules and linking when running a WebAssemly program. WasmEdge provides the APIs to handle the cases about loading and importing the WASM binaries and register the module instances into store in runtime. But in some complicated cases, the dependencies between module instances occurs. There may be requests to unregister and delete the module instances in store to release the space. In that case, the dependency of module instances should be considered to prevent from causing crash after deleting a module instance. In this mentorship, we expect the mentee to implement the dependency tree and the methodology to handle the module deletion in WasmEdge runtime.
+- Expected Outcome:
+  - Implement the module instance dependency tree and the maintainance methodology.
+  - Design the multiple module instances test cases to verify the implementation.
+- Recommended Skills:
+  - C/C++
+  - WebAssembly
+  - GitHub workflows
+- Mentor(s):
+  - YiYing He (@q82419, yiying@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4514
+
+#### Enable JIT mode support for per-function compilation
+
+- Description: WasmEdge's JIT mode attempts to compile the entire module before execution, which also includes compiling unused functions in the specific workload. To reduce compilation time and improve performance, we aim to enable compilation on a per-function basis, focusing only on those functions actually used in the workload.
+- Expected Outcome:
+  - A series of test cases that verify the behavior and demonstrate the difference between entire module compilation and per-function basis compilation.
+  - A series of PRs that implement the per-function compilation behavior.
+  - An option to control the behavior between entire module and per-function compilation.
+  - A document explaining how the new approach works and how to use it.
+- Recommended Skills:
+  - C++
+  - WebAssembly
+  - LLVM
+  - JIT
+- Mentor(s):
+  - Hung-Ying Tai (@hydai, hydai@secondstate.io)
+  - Shen-Ta Hsieh (@ibmibmibm, beststeve@secondstate.io)
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4516
