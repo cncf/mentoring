@@ -66,6 +66,20 @@ This project serves as the continuation of that work and is divided into two mai
 
 - Upstream Issue: https://github.com/knative-extensions/educational-game/issues/52
 
+### Kubernetes
+
+#### Cluster API Provider AWS (CAPA)
+
+##### Add OpenTelemetry support
+
+- Description: Cluster API Provider AWS (CAPA) enables the creation of Kubernetes clusters in AWS with Cluster API. With increasing adoption of Cluster API (CAPI) in general and of CAPA we want to improve the supportability of CAPA, especially for production environments. The first part of this is to add telemetry/tracing using OpenTelemetry so that we can understand and visualize the flow of reconciliation within the provider. This will enable the project and its end users to understand the behavior of reconciliation (including API services called) and will help diagnose issues and performance problems.
+- Expected Outcome: An implementation of OpenTelemetry in CAPA with associated documentation that has been released in a new version of CAPA.
+- Recommended Skills: Golang, Kubernetes, AWS
+- Mentor(s):
+  - Richard Case (@richardcase, richmcase@gmail.com)
+  - Daniel Lipovetsky (@dlipovetsky, daniel.lipovetsky@gmail.com )
+- Upstream Issue: https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/2178
+
 ### KubeStellar
 
 #### Documentation and Self-Service Enablement Specialist
@@ -206,4 +220,3 @@ This project serves as the continuation of that work and is divided into two mai
   - Hung-Ying Tai (@hydai, hydai@secondstate.io)
   - Shen-Ta Hsieh (@ibmibmibm, beststeve@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4516
-
