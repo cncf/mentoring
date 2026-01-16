@@ -174,7 +174,7 @@
 
 ### Volcano
 #### Volcano Documentation & Website Revamp with Docusaurus
-- Description: The Volcano project currently uses Hugo for building its official website. However, current hugo version of the website is pretty old and lacks modern features and flexibility, 
+- Description: The Volcano project currently uses Hugo for building its official website. However, current Hugo version of the website is pretty old and lacks modern features and flexibility, 
 especially it is difficult to extend styles such as secondary menus, and there are problems such as invalid rendering of new markdown syntax. Docusaurus is a modern documentation framework that provides better support for versioning, localization, and theming.
 This mentorship focuses on modernizing the Volcano website by migrating it to Docusaurus, improving documentation structure, maintainability, and overall user experience. 
 The project will involve replicating and enhancing the existing theme, restructuring documentation, improving navigation, and aligning the site with CNCF documentation best practices. 
