@@ -220,3 +220,27 @@
   - Hung-Ying Tai (@hydai, hydai@secondstate.io)
   - Shen-Ta Hsieh (@ibmibmibm, beststeve@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4516
+
+
+#### Natural Language–Based Chaos Scenario Discovery
+- Description: The objective of this internship task is to design and implement a feature of the
+[`[krknctl](https://github.com/krkn-chaos/krknctl)`](https://github.com/krkn-chaos/krknctl) tool that enables users to explore the project’s functionality by submitting queries in **natural language**.
+The tool will analyze the user’s request and Identify the most relevant **chaos scenario**, if any.
+
+- Expected Outcome:
+  - A **deterministic and lightweight solution** for natural language scenario discovery.
+  - Improved robustness to vocabulary, phrasing, and semantic variations in user queries.
+  - A measurable and extensible evaluation framework to support future improvements.
+  - Clear documentation enabling future contributors to iterate on or extend the approach.
+- Recommended Skills:
+  - Python and Go programming
+  - Basic knowledge of **Natural Language Processing (NLP)**
+  - Experience with **machine learning models for text classification or similarity**
+  - Familiarity with **Docker** and containerized applications
+  - Ability to write clean, testable, and well-documented code
+- Mentor(s):
+  - Paige Patton (ppatton@redhat.com)
+  - Naga Ravi Chaitanya Elluri (nelluri@redhat.com)
+  - Tullio Sebastiani (tsebasti@redhat.com)
+- Upstream Issue: https://github.com/krkn-chaos/krkn/issues/1051
+
