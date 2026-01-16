@@ -220,3 +220,73 @@
   - Hung-Ying Tai (@hydai, hydai@secondstate.io)
   - Shen-Ta Hsieh (@ibmibmibm, beststeve@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4516
+
+### OpenKruise
+
+#### OpenKruise: Promote API Version to v1beta1 part 2
+
+- Description: Many advance workloads in OpenKruise are widely used in production, however the API version of the workload is still in v1alpha1. The goal is to promote the API version of mostly used and mature workload to v1beta1 and optimize the CRD fields for better clarity. This is a follow-up of [previous project](https://mentorship.lfx.linuxfoundation.org/project/7426f5d7-1879-46cc-a933-880ee790d0eb), and target API is the advance operation and resilience policy.
+- Expected Outcome:
+  1. API definition of v1beta1 resources and the implementation for conversion webhook to convert v1alpha1 resource to v1beta1 resource
+  2. Unit and integration tests
+  3. Documentation for the usage of v1beta1 resource in the OpenKruise website
+- Recommended Skills: Golang, kubernetes operator development
+- Mentor(s):
+  - Zhang Zhen (@furykerry, furykerry@gmail.com)
+  - Zhong Tianyun (@AiRanthem, airanthem666@gmail.com)
+- Upstream Issue:
+  - https://github.com/openkruise/kruise/issues/2287
+
+
+#### OpenKruise: Progressive Configmap Inplace Reloading
+
+- Description: Native kubernetes configmap can reload dynamically but lack progressive rollout capability. OpenKruise community had comes up with the [design of new workload](https://github.com/openkruise/kruise/pull/1948) for configmap rolling update, and the [initial implementation](https://github.com/openkruise/kruise/pull/2149) has been running in one end user environment. However the current implementation is not generic enough and had many limitations. The goal is to complete the implementation in a more generic way and to support many configuration reloading strategies.
+- Expected Outcome:
+  1. The code for dynamic configmap rollout controller (ConfigMapSet)
+  2. Unit and integration tests
+  3. Documentation for the usage of ConfigMapSet
+- Recommended Skills: Golang, kubernetes operator development
+- Mentor(s):
+  - Yuxing Yuan(@ABNER-1, abner199709@gmail.com)
+  - Hao Wu(@Placeboy, psychoogopher@gmail.com) 
+- Upstream Issue:
+  - https://github.com/openkruise/kruise/issues/2288
+
+#### OpenKruise: Rolling update for agent sandbox warm pool
+
+- Description: OpenKruise Agents is a new sub-project of OpenKruise for agent sandbox lifecycle management. Warm pool is a key technology of OpenKruise Agents to ensure the fast sandbox provision. However existing warm pool lacks rolling update capability which makes the warm pool hard to maintain. The goal is to design and implement the basic rolling update capability for SandboxSet, the CRD for sandbox warm pool.
+- Expected Outcome:
+  1. The code for warm pool rolling update in SandboxSet
+  2. Unit and integration tests
+  3. Documentation for the usage of rolling update in SandboxSet
+- Recommended Skills: Golang, kubernetes operator development
+- Mentor(s):
+  - Zhao Mingshan (@zmberg, berg.zms@gmail.com)
+  - Zhang Jinghui (@sivanzcw, sivanzcwzhang@gmail.com)
+- Upstream Issue:
+  - https://github.com/openkruise/agents/issues/76
+
+#### KruiseGame Cloud-Hosted Version Development
+
+- Description: OKG has attracted many large game companies to embrace cloud-native transformation. However, for many small and medium-sized game companies, they are not familiar with the container and Kubernetes ecosystem. Due to their smaller team sizes, they have relatively weak infrastructure management capabilities. To democratize cloud-native technology for more game companies, OKG plans to launch a cloud-hosted version. Users can deploy the runtime environment with one click and complete game service integration based on the official SDK. This will reduce the complexity of using infrastructure for game companies and adapt to multi-cloud environments.
+
+- Expected Outcome:
+  - Cloud Provider Abstraction Layer Design and Implementation
+  - One-Click Deployment Tool/CLI Development
+  - Official Game Service SDK Development
+  - Multi-Cloud Environment Adaptation (AWS, Alibaba Cloud, etc.)
+  - Simplified Configuration Management System
+  - Comprehensive Documentation and Integration Guides
+
+- Recommended Skills:
+  - Golang
+  - Kubernetes
+  - Cloud Provider SDKs (AWS/Alibaba Cloud)
+  - Infrastructure as Code (Terraform/Pulumi)
+
+- Mentor:
+  - Qiuyang Liu (@chrisliu1995, [chrisliu1995@163.com](mailto:chrisliu1995@163.com))
+  - Zhongwei Liu (@ringtail, [zhongwei.lzw@alibaba-inc.com](mailto:zhongwei.lzw@alibaba-inc.com))
+
+- Upstream Issue:
+  - https://github.com/openkruise/kruise-game/issues/304
