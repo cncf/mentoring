@@ -22,21 +22,6 @@
 
 ### KubeStellar
 
-#### User Acquisition and Production Deployment Specialist
-- Description: Lead efforts to acquire KubeStellar's first production users through direct outreach, discovery calls, product demonstrations, and deployment support. This role focuses on understanding user needs, communicating KubeStellar's value proposition, and ensuring successful production deployments. The mentee will conduct discovery interviews with platform engineers and SREs managing multiple Kubernetes clusters, deliver product demonstrations, provide hands-on deployment assistance, and document user success stories through detailed case studies.
-
-- Expected Outcome: 3+ production deployments at real companies, 160 personalized outreach messages to qualified prospects, 20 discovery calls with potential users, 10 product demonstrations delivered, 3 detailed case studies documenting user value and deployment journey, User interview database with feedback and learnings, Pipeline of 3 warm opportunities for continued engagement, User contributions: 5 GitHub issues and 3 PRs/reviews from adopters
-
-- Recommended Skills: Strong verbal and written communication, Kubernetes and multi-cluster concepts knowledge, Comfortable conducting video calls and presentations, Persistent and resilient personality, DevOps or SRE background a plus
-
-- Mentor(s):
-  - Rishi Mondal (@MAVRICK-1, mavrickrishi@gmail.com)
-  - Shivam Kumar (@btwshivam, shivam200446@gmail.com) 
-  - Andy Anderson (@clubanderson, andy@clubanderson.com)  
-    
-- Upstream Issue: https://github.com/kubestellar/kubestellar/issues/3500
-
-
 #### Integration and Ecosystem Development Specialist
    
 
@@ -51,6 +36,7 @@
   - Andy Anderson (@clubanderson, andy@clubanderson.com) 
   - Kunal Dugar  (@kunal-511, kunal0204.dugar@gmail.com) 
   - Hemanshu Baviskar (@@Per0x1de-1337, baviskarhd9@gmail.com)
+  - Onkar Shelke (@onkar717, onkarwork2234@gmail.com)
  
 - Upstream Issue: https://github.com/kubestellar/kubestellar/issues/3501
 
