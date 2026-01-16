@@ -172,6 +172,84 @@
   - Victoria Nduka (@nwanduka, ndukavictoria7@gmail.com)
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/17823
 
+### Volcano
+#### Volcano Documentation & Website Revamp with Docusaurus
+- Description: The Volcano project currently uses Hugo for building its official website. However, current hugo version of the website is pretty old and lacks modern features and flexibility, 
+especially it is difficult to extend styles such as secondary menus, and there are problems such as invalid rendering of new markdown syntax. Docusaurus is a modern documentation framework that provides better support for versioning, localization, and theming.
+This mentorship focuses on modernizing the Volcano website by migrating it to Docusaurus, improving documentation structure, maintainability, and overall user experience. 
+The project will involve replicating and enhancing the existing theme, restructuring documentation, improving navigation, and aligning the site with CNCF documentation best practices. 
+The mentorship will also explore long-term maintainability and contributor-friendliness of the documentation workflow, especially to ensure that the documentation in the Volcano website is automatically synchronized with the documentation in Volcano's other codes repos, 
+using some automated tools like agents to keep the Volcano website up-to-date.
+- Expected Outcome:
+  - Successful migration of the Volcano website from Hugo to Docusaurus
+  - Improved documentation structure, navigation, and UX
+  - A maintainable and contributor-friendly documentation setup
+  - Clear contribution guidelines for future documentation updates
+  - Automated synchronization of documentation between the Volcano website and other code repositories.
+- Recommended Skills:
+  - Basic knowledge of JavaScript/TypeScript
+  - Familiarity with React (preferred)
+  - Experience with static site generators (Docusaurus/Hugo preferred)
+  - Markdown and documentation best practices
+  - Git and GitHub workflow
+  - Basic understanding of Kubernetes and Volcano concepts
+- Mentor(s):
+  - Jesse Stutler (@JesseStutler, jessestutler97@gmail.com)
+  - Kuldeep (@de6p, de6p97@gmail.com)
+- Upstream Issue:
+  - https://github.com/volcano-sh/website/issues/398
+  - https://github.com/volcano-sh/website/issues/427
+  - https://github.com/volcano-sh/website/issues/425
+
+#### E2E Test Suite for Volcano-global
+- Description: Volcano-global is a multi-cluster scheduling project designed for cross-cluster resource management. 
+Currently, the project lacks a comprehensive end-to-end (e2e) test suite to ensure stability across complex multi-cluster environments. 
+This project aims to build a reproducible e2e test framework using Ginkgo and Kind, ensure each features of Volcano-global is covered by test cases.
+- Expected Outcome:
+    - A functional e2e test framework integrated with GitHub Actions workflows.
+    - Scripts for automated deployment of Volcano-global and bootstrapping of Karmada multi-cluster environments.
+    - Test cases covering key scenarios: resource quota & priority, cross-cluster vcjob scheduling, data dependency aware scheduling, and hyperjob scheduling.
+    - Comprehensive documentation, including test design docs and guidelines for extending e2e tests in the future.
+- Recommended Skills:
+    - Familiarity with Kubernetes concepts.
+    - Understanding of Karmada and Volcano-global.
+    - Ability to write e2e test cases using testing frameworks like Ginkgo.
+    - Proficiency with kind and kubectl.
+    - Experience with writing Workflows (CI/CD) and Makefiles.
+- Mentor(s):
+    - Jesse Stutler (@JesseStutler, jessestutler97@gmail.com)
+    - FanXu (@fx147, 1473623795@qq.com)
+- Upstream Issue:
+    - https://github.com/volcano-sh/volcano-global/issues/35
+
+#### E2E Test Suite for Volcano Agent Scheduling
+- Description: Volcano has introduced Agent Scheduling feature that supports fast scheduling for AI agent workloads. This includes ShardingController for shard management, agent scheduler for agent workloads scheduling, and enhanced existing Volcano batch scheduler with sharding support to coordinated scheduling with agent scheduler. To ensure correctness and stability of this new scheduling mechanism, we need to build a comprehensive end-to-end (e2e) test suite. Test cases should cover key scenarios including shard creation, node assignment across shards, agent scheduler scheduling in different sharding modes, etc.
+
+- Expected Outcome:
+    - A comprehensive e2e test suite using Ginkgo framework covering all agent scheduling scenarios.
+    - Test cases for ShardingController: shard creation, node assignment, node addition/removal, configuration changes, and node stability across shards. 
+    - Test cases for Agent Scheduler: scheduling in no-sharding, hard-sharding, and soft-sharding modes, shard reconfiguration, and multi-worker scenarios.
+    - Test cases for Volcano scheduler with sharding: validation of allocate, preempt, reclaim, and backfill actions under different sharding configurations.
+    - Integration with CI/CD workflows for automated testing.
+    - Comprehensive documentation including test design, coverage reports, and guidelines for extending tests.
+- Recommended Skills:
+    - Strong understanding of Kubernetes concepts and Volcano scheduler architecture.
+    - Familiarity with Volcano agent scheduling design and shard management mechanisms.
+    - Proficiency in writing e2e test cases using Ginkgo testing framework.
+    - Experience with Go programming language.
+    - Knowledge of kubectl and Kubernetes testing best practices.
+    - Experience with CI/CD workflows and test automation.
+- Mentor(s):
+    - Jesse Stutler (@JesseStutler, jessestutler97@gmail.com)
+    - Qi Min (@qi-min, qim_34@163.com)
+- Upstream Issue:
+    - https://github.com/volcano-sh/volcano/issues/4881
+    - https://github.com/volcano-sh/volcano/issues/4882
+    - https://github.com/volcano-sh/volcano/issues/4883
+- Background:
+    - https://github.com/volcano-sh/volcano/issues/4722
+
+
 ### WasmEdge
 
 #### Extend sub-command of WasmEdge CLI tool
