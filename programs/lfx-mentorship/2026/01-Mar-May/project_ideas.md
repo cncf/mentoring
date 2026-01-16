@@ -178,7 +178,7 @@
 especially it is difficult to extend styles such as secondary menus, and there are problems such as invalid rendering of new markdown syntax. Docusaurus is a modern documentation framework that provides better support for versioning, localization, and theming.
 This mentorship focuses on modernizing the Volcano website by migrating it to Docusaurus, improving documentation structure, maintainability, and overall user experience. 
 The project will involve replicating and enhancing the existing theme, restructuring documentation, improving navigation, and aligning the site with CNCF documentation best practices. 
-The mentorship will also explore long-term maintainability and contributor-friendliness of the documentation workflow, especially to ensure that the documentation in the Volcano website is automatically synchronized with the documentation in Volcano's other codes repos, 
+The mentorship will also explore long-term maintainability and contributor-friendliness of the documentation workflow, especially to ensure that the documentation in the Volcano website is automatically synchronized with the documentation in Volcano's other code repos, 
 using some automated tools like agents to keep the Volcano website up-to-date.
 - Expected Outcome:
   - Successful migration of the Volcano website from Hugo to Docusaurus
