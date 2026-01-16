@@ -204,7 +204,7 @@ using some automated tools like agents to keep the Volcano website up-to-date.
 #### E2E Test Suite for Volcano-global
 - Description: Volcano-global is a multi-cluster scheduling project designed for cross-cluster resource management. 
 Currently, the project lacks a comprehensive end-to-end (e2e) test suite to ensure stability across complex multi-cluster environments. 
-This project aims to build a reproducible e2e test framework using Ginkgo and Kind, ensure each features of Volcano-global is covered by test cases.
+This project aims to build a reproducible e2e test framework using Ginkgo and Kind, ensure each feature of Volcano-global is covered by test cases.
 - Expected Outcome:
     - A functional e2e test framework integrated with GitHub Actions workflows.
     - Scripts for automated deployment of Volcano-global and bootstrapping of Karmada multi-cluster environments.
