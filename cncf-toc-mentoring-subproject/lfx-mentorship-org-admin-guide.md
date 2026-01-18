@@ -142,6 +142,7 @@ Tasks:
 * [Announce](#announcements) program completion and successful mentees.
 * Collect feedback from mentors and mentees via surveys.
 * Run a retrospective with other admins to identify improvements.
+* Check if mentees have written a blog post about their experience. Encourage them to use the [Mentee Blog Post Template](../../MENTEE_BLOGPOST_TEMPLATE.md).
 * Compile program statistics for reporting.
 * Archive the term's documentation.
 * Begin preparation for the next term.
