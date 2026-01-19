@@ -18,6 +18,18 @@
 
 ## Proposed Project ideas
 
+### Antrea
+
+#### Compare Antrea BPF generation for PacketCapture to tcpdump / libpcap
+
+- Description: Antrea's [PacketCapture feature](https://github.com/antrea-io/antrea/blob/main/docs/packetcapture-guide.md) includes custom BPF code generation for packet filters defined in the PacketCapture CRD. The code is currently tested using manually-generated test cases, which is tedious, error-prone, and limits testing coverage. Given that the code attempts to mimic the BPF generation done by tcpdump, we should improve the testing approach by: 1) using AI to generate comprehensive test inputs, 2) using tcpdump to generate reference BPF code for the inputs, 3) comparing our generated BPF with the tcpdump reference, 4) analyzing any differences to determine if our BPF is incorrect or equivalent, 5) updating our BPF generation to match tcpdump when possible, and 6) committing all test cases to run in CI.
+- Expected Outcome: A comprehensive test suite for the PacketCapture BPF generation code that uses tcpdump-generated BPF as a reference. The test suite should be integrated into CI and should increase testing coverage compared to the current manually-generated test cases. Any discrepancies between Antrea's BPF generation and tcpdump's should be analyzed and resolved, with the BPF generation code updated as needed to match tcpdump's output when appropriate.
+- Recommended Skills: Golang, familiarity with BPF (Berkeley Packet Filter), basic understanding of packet filtering and tcpdump/libpcap. We encourage using AI tools to generate test cases and improve the BPF code generation, but we expect careful review of generated artifacts before submitting them for review.
+- Mentor(s):
+  - Antonin Bas (@antoninbas, antonin.bas@gmail.com)
+  - Hang Yan (@hangyan, hang.yan@hotmail.com)
+- Upstream Issue: https://github.com/antrea-io/antrea/issues/7701
+
 ### Cilium
 
 #### Cilium Project Pillar Pages
