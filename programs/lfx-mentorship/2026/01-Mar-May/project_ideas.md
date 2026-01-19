@@ -232,3 +232,15 @@
   - Hung-Ying Tai (@hydai, hydai@secondstate.io)
   - Shen-Ta Hsieh (@ibmibmibm, beststeve@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4516
+
+### krkn - Chaos
+
+#### Enhancing Krkn-AI Result Analysis with Interactive Visualization and Insights
+
+- Description: [Krkn-AI](https://github.com/krkn-chaos/krkn-ai) generates rich but complex experiment outputs (JSON, CSV, YAML, graphs, and tables) capturing fitness scores, SLOs, health checks, and other metrics, which can be difficult for engineers to interpret and compare across experiments. Although recent work using LLMs to produce high-level textual summaries is helpful, text alone limits deeper exploration. This feature change proposes building an interactive analysis and visualization layer for Krkn-AI that transforms raw chaos experiment data into intuitive, explorable visual representations, enabling users to quickly understand system behavior, detect anomalies, and focus on the most impactful failure signals.
+- Expected Outcome: The outcome is to deliver a simple web-based GUI or generated report built from Krkn-AI result artifacts (JSON, CSV, YAML), featuring interactive visualizations for key metrics such as fitness scores, SLOs, and health checks, along with clear highlighting of important or abnormal results to guide users’ attention.
+- Recommended Skills: Python, Data Analysis and Visualization tools (e.g: pandas, matplotlib), Kubernetes (Basics)
+- Mentor(s):
+  - Rahul Shetty (@rh-rahulshetty , rashetty@redhat.com) 
+  - Naga Ravi Chaitanya Elluri (@chaitanyaenr , nelluri@redhat.com)
+- Upstream Issue: https://github.com/krkn-chaos/krkn-ai/issues/74
