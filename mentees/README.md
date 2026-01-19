@@ -239,26 +239,20 @@ Check out the eligibility guide for full information.
 
 (Additional miscellaneous)
 
-## **Full List FAQs** (final TBC)
-1. I'm new to Open Source and CNCF, where should I start?
-1. What is a 'Contribution' (in all its forms?)
-1. Can I contribute if I don't have a tech background?
-1. What's the best way to communicate with the community or get support with questions?
-1. What are the benefits to becoming a Mentee?
-1. How do I apply to programs? 
-1. What if I'm not skilled/experienced enough to participate yet?
-1. I'm applying for LFX and am interested in a project, but am stuck on next steps. What should I do?
-1. What support is available during mentorships?
-1. Are mentorships suitable for career changers?
-1. I think I've missed the deadline to apply! Can I still submit my application?
-1. Are roles in Open Source typically for teams or individuals?
-1. What sort of companies would be looking for these roles?
-1. What is the scope of income that is possible in the different roles?
-1. What are common skills needed for various roles (vs. mentorships specifically) e.g. technical and personal?
-1. What is the training pathway, certifications or internships needed for each role?
-1. Are qualifications essential to obtain work?
-1. I've tried reaching out in Slack communities, but it's confusing/overwhelming/intimidating. How can I better navigate this space?
-1. I've attended meetings, but I don't feel experienced enough to participate. How can I better interact with this aspect of the community?
-1. What's the best piece of advice for someone starting out?
+## Full List FAQs
+
+Below is a consolidated list of frequently asked questions for mentees.
+Detailed answers are provided in the sections above.
+
+1. I’m new to Open Source and CNCF. Where should I start?
+2. What does “Contribution” mean in the CNCF ecosystem?
+3. Can I contribute if I don’t have a technical background?
+4. What are the benefits of becoming a mentee?
+5. How do I apply for mentorship programs?
+6. What if I don’t feel skilled or experienced enough yet?
+7. What support is available during mentorships?
+8. I’m interested in an LFX project but unsure about next steps. What should I do?
+9. Are mentorships suitable for career changers?
+10. What if I miss the application deadline?
 
 ---
