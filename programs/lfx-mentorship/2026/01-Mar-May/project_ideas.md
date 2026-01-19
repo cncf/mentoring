@@ -239,8 +239,8 @@ The tool will analyze the user’s request and Identify the most relevant **chao
   - Familiarity with **Docker** and containerized applications
   - Ability to write clean, testable, and well-documented code
 - Mentor(s):
-  - Paige Patton (ppatton@redhat.com)
-  - Naga Ravi Chaitanya Elluri (nelluri@redhat.com)
-  - Tullio Sebastiani (tsebasti@redhat.com)
+  - Paige Patton (@chaitanyaenr, ppatton@redhat.com)
+  - Naga Ravi Chaitanya Elluri (@chaitanyaenr, nelluri@redhat.com)
+  - Tullio Sebastiani (@tsebastiani, tsebasti@redhat.com)
 - Upstream Issue: https://github.com/krkn-chaos/krkn/issues/1051
 
