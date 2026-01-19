@@ -18,6 +18,18 @@
 
 ## Proposed Project ideas
 
+### Antrea
+
+#### Compare Antrea BPF generation for PacketCapture to tcpdump / libpcap
+
+- Description: Antrea's [PacketCapture feature](https://github.com/antrea-io/antrea/blob/main/docs/packetcapture-guide.md) includes custom BPF code generation for packet filters defined in the PacketCapture CRD. The code is currently tested using manually-generated test cases, which is tedious, error-prone, and limits testing coverage. Given that the code attempts to mimic the BPF generation done by tcpdump, we should improve the testing approach by: 1) using AI to generate comprehensive test inputs, 2) using tcpdump to generate reference BPF code for the inputs, 3) comparing our generated BPF with the tcpdump reference, 4) analyzing any differences to determine if our BPF is incorrect or equivalent, 5) updating our BPF generation to match tcpdump when possible, and 6) committing all test cases to run in CI.
+- Expected Outcome: A comprehensive test suite for the PacketCapture BPF generation code that uses tcpdump-generated BPF as a reference. The test suite should be integrated into CI and should increase testing coverage compared to the current manually-generated test cases. Any discrepancies between Antrea's BPF generation and tcpdump's should be analyzed and resolved, with the BPF generation code updated as needed to match tcpdump's output when appropriate.
+- Recommended Skills: Golang, familiarity with BPF (Berkeley Packet Filter), basic understanding of packet filtering and tcpdump/libpcap. We encourage using AI tools to generate test cases and improve the BPF code generation, but we expect careful review of generated artifacts before submitting them for review.
+- Mentor(s):
+  - Antonin Bas (@antoninbas, antonin.bas@gmail.com)
+  - Hang Yan (@hangyan, hang.yan@hotmail.com)
+- Upstream Issue: https://github.com/antrea-io/antrea/issues/7701
+
 ### Jaeger
 
 #### AI-Powered Trace Analysis with Local LLM Support
@@ -94,6 +106,23 @@
   - Nupur Shivani (@Nupurshivani, nupurjha.me@gmail.com)
   - Andy Anderson (@clubanderson, andy@clubanderson.com)
 - Upstream Issue: https://github.com/kubestellar/kubestellar/issues/3521
+
+#### Integration and Ecosystem Development Specialist
+
+- Description: Reduce adoption friction by building integrations between KubeStellar and popular Kubernetes ecosystem tools. The mentee will survey early users to identify integration priorities, design integration architectures, develop working integrations with tools like GitOps platforms, Terraform, CI/CD systems, or monitoring solutions, create comprehensive documentation and examples, and validate integrations with real users. This program emphasizes software development, API integration, understanding ecosystem tools, and creating seamless user experiences.
+
+- Expected Outcome: 2 production-ready integrations with popular Kubernetes tools, Integration documentation with clear setup guides for each, 2 demo videos demonstrating integration value and setup, Sample implementations and templates for common scenarios, 3 users actively adopting each integration, Submissions to relevant tool marketplaces where applicable, Integration maintenance guide for ongoing support, User feedback on integration quality and usefulness, User engagement: 6 GitHub issues filed by integration users, 4 PRs or PR reviews contributed by integration users
+
+- Recommended Skills: Strong programming skills (Go preferred), Experience with GitOps/CI/CD/infrastructure tools, API integration and software development experience, Understanding of Kubernetes ecosystem and tooling, Technical documentation writing, Open source contribution experience helpful
+
+- Mentor(s): 
+  - Rishi Mondal (@MAVRICK-1, mavrickrishi@gmail.com)
+  - Andy Anderson (@clubanderson, andy@clubanderson.com) 
+  - Kunal Dugar  (@kunal-511, kunal0204.dugar@gmail.com) 
+  - Hemanshu Baviskar (@@Per0x1de-1337, baviskarhd9@gmail.com)
+  - Onkar Shelke (@onkar717, onkarwork2234@gmail.com)
+ 
+- Upstream Issue: https://github.com/kubestellar/kubestellar/issues/3501
 
 ### OpenCost
 
@@ -172,6 +201,84 @@
   - Victoria Nduka (@nwanduka, ndukavictoria7@gmail.com)
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/17823
 
+### Volcano
+#### Volcano Documentation & Website Revamp with Docusaurus
+- Description: The Volcano project currently uses Hugo for building its official website. However, current Hugo version of the website is pretty old and lacks modern features and flexibility, 
+especially it is difficult to extend styles such as secondary menus, and there are problems such as invalid rendering of new markdown syntax. Docusaurus is a modern documentation framework that provides better support for versioning, localization, and theming.
+This mentorship focuses on modernizing the Volcano website by migrating it to Docusaurus, improving documentation structure, maintainability, and overall user experience. 
+The project will involve replicating and enhancing the existing theme, restructuring documentation, improving navigation, and aligning the site with CNCF documentation best practices. 
+The mentorship will also explore long-term maintainability and contributor-friendliness of the documentation workflow, especially to ensure that the documentation in the Volcano website is automatically synchronized with the documentation in Volcano's other code repos, 
+using some automated tools like agents to keep the Volcano website up-to-date.
+- Expected Outcome:
+  - Successful migration of the Volcano website from Hugo to Docusaurus
+  - Improved documentation structure, navigation, and UX
+  - A maintainable and contributor-friendly documentation setup
+  - Clear contribution guidelines for future documentation updates
+  - Automated synchronization of documentation between the Volcano website and other code repositories.
+- Recommended Skills:
+  - Basic knowledge of JavaScript/TypeScript
+  - Familiarity with React (preferred)
+  - Experience with static site generators (Docusaurus/Hugo preferred)
+  - Markdown and documentation best practices
+  - Git and GitHub workflow
+  - Basic understanding of Kubernetes and Volcano concepts
+- Mentor(s):
+  - Jesse Stutler (@JesseStutler, jessestutler97@gmail.com)
+  - Kuldeep (@de6p, de6p97@gmail.com)
+- Upstream Issue:
+  - https://github.com/volcano-sh/website/issues/398
+  - https://github.com/volcano-sh/website/issues/427
+  - https://github.com/volcano-sh/website/issues/425
+
+#### E2E Test Suite for Volcano-global
+- Description: Volcano-global is a multi-cluster scheduling project designed for cross-cluster resource management. 
+Currently, the project lacks a comprehensive end-to-end (e2e) test suite to ensure stability across complex multi-cluster environments. 
+This project aims to build a reproducible e2e test framework using Ginkgo and Kind, ensure each feature of Volcano-global is covered by test cases.
+- Expected Outcome:
+    - A functional e2e test framework integrated with GitHub Actions workflows.
+    - Scripts for automated deployment of Volcano-global and bootstrapping of Karmada multi-cluster environments.
+    - Test cases covering key scenarios: resource quota & priority, cross-cluster vcjob scheduling, data dependency aware scheduling, and hyperjob scheduling.
+    - Comprehensive documentation, including test design docs and guidelines for extending e2e tests in the future.
+- Recommended Skills:
+    - Familiarity with Kubernetes concepts.
+    - Understanding of Karmada and Volcano-global.
+    - Ability to write e2e test cases using testing frameworks like Ginkgo.
+    - Proficiency with kind and kubectl.
+    - Experience with writing Workflows (CI/CD) and Makefiles.
+- Mentor(s):
+    - Jesse Stutler (@JesseStutler, jessestutler97@gmail.com)
+    - FanXu (@fx147, 1473623795@qq.com)
+- Upstream Issue:
+    - https://github.com/volcano-sh/volcano-global/issues/35
+
+#### E2E Test Suite for Volcano Agent Scheduling
+- Description: Volcano has introduced Agent Scheduling feature that supports fast scheduling for AI agent workloads. This includes ShardingController for shard management, agent scheduler for agent workloads scheduling, and enhanced existing Volcano batch scheduler with sharding support to coordinated scheduling with agent scheduler. To ensure correctness and stability of this new scheduling mechanism, we need to build a comprehensive end-to-end (e2e) test suite. Test cases should cover key scenarios including shard creation, node assignment across shards, agent scheduler scheduling in different sharding modes, etc.
+
+- Expected Outcome:
+    - A comprehensive e2e test suite using Ginkgo framework covering all agent scheduling scenarios.
+    - Test cases for ShardingController: shard creation, node assignment, node addition/removal, configuration changes, and node stability across shards. 
+    - Test cases for Agent Scheduler: scheduling in no-sharding, hard-sharding, and soft-sharding modes, shard reconfiguration, and multi-worker scenarios.
+    - Test cases for Volcano scheduler with sharding: validation of allocate, preempt, reclaim, and backfill actions under different sharding configurations.
+    - Integration with CI/CD workflows for automated testing.
+    - Comprehensive documentation including test design, coverage reports, and guidelines for extending tests.
+- Recommended Skills:
+    - Strong understanding of Kubernetes concepts and Volcano scheduler architecture.
+    - Familiarity with Volcano agent scheduling design and shard management mechanisms.
+    - Proficiency in writing e2e test cases using Ginkgo testing framework.
+    - Experience with Go programming language.
+    - Knowledge of kubectl and Kubernetes testing best practices.
+    - Experience with CI/CD workflows and test automation.
+- Mentor(s):
+    - Jesse Stutler (@JesseStutler, jessestutler97@gmail.com)
+    - Qi Min (@qi-min, qim_34@163.com)
+- Upstream Issue:
+    - https://github.com/volcano-sh/volcano/issues/4881
+    - https://github.com/volcano-sh/volcano/issues/4882
+    - https://github.com/volcano-sh/volcano/issues/4883
+- Background:
+    - https://github.com/volcano-sh/volcano/issues/4722
+
+
 ### WasmEdge
 
 #### Extend sub-command of WasmEdge CLI tool
@@ -245,3 +352,73 @@ The tool will analyze the user’s request and Identify the most relevant **chao
   - Tullio Sebastiani (@tsebastiani, tsebasti@redhat.com)
 - Upstream Issue: https://github.com/krkn-chaos/krkn/issues/1051
 
+
+### OpenKruise
+
+#### OpenKruise: Promote API Version to v1beta1 part 2
+
+- Description: Many advance workloads in OpenKruise are widely used in production, however the API version of the workload is still in v1alpha1. The goal is to promote the API version of mostly used and mature workload to v1beta1 and optimize the CRD fields for better clarity. This is a follow-up of [previous project](https://mentorship.lfx.linuxfoundation.org/project/7426f5d7-1879-46cc-a933-880ee790d0eb), and target API is the advance operation and resilience policy.
+- Expected Outcome:
+  1. API definition of v1beta1 resources and the implementation for conversion webhook to convert v1alpha1 resource to v1beta1 resource
+  2. Unit and integration tests
+  3. Documentation for the usage of v1beta1 resource in the OpenKruise website
+- Recommended Skills: Golang, kubernetes operator development
+- Mentor(s):
+  - Zhang Zhen (@furykerry, furykerry@gmail.com)
+  - Zhong Tianyun (@AiRanthem, airanthem666@gmail.com)
+- Upstream Issue:
+  - https://github.com/openkruise/kruise/issues/2287
+
+
+#### OpenKruise: Progressive Configmap Inplace Reloading
+
+- Description: Native kubernetes configmap can reload dynamically but lack progressive rollout capability. OpenKruise community had comes up with the [design of new workload](https://github.com/openkruise/kruise/pull/1948) for configmap rolling update, and the [initial implementation](https://github.com/openkruise/kruise/pull/2149) has been running in one end user environment. However the current implementation is not generic enough and had many limitations. The goal is to complete the implementation in a more generic way and to support many configuration reloading strategies.
+- Expected Outcome:
+  1. The code for dynamic configmap rollout controller (ConfigMapSet)
+  2. Unit and integration tests
+  3. Documentation for the usage of ConfigMapSet
+- Recommended Skills: Golang, kubernetes operator development
+- Mentor(s):
+  - Yuxing Yuan(@ABNER-1, abner199709@gmail.com)
+  - Hao Wu(@Placeboy, psychoogopher@gmail.com) 
+- Upstream Issue:
+  - https://github.com/openkruise/kruise/issues/2288
+
+#### OpenKruise: Rolling update for agent sandbox warm pool
+
+- Description: OpenKruise Agents is a new sub-project of OpenKruise for agent sandbox lifecycle management. Warm pool is a key technology of OpenKruise Agents to ensure the fast sandbox provision. However existing warm pool lacks rolling update capability which makes the warm pool hard to maintain. The goal is to design and implement the basic rolling update capability for SandboxSet, the CRD for sandbox warm pool.
+- Expected Outcome:
+  1. The code for warm pool rolling update in SandboxSet
+  2. Unit and integration tests
+  3. Documentation for the usage of rolling update in SandboxSet
+- Recommended Skills: Golang, kubernetes operator development
+- Mentor(s):
+  - Zhao Mingshan (@zmberg, berg.zms@gmail.com)
+  - Zhang Jinghui (@sivanzcw, sivanzcwzhang@gmail.com)
+- Upstream Issue:
+  - https://github.com/openkruise/agents/issues/76
+
+#### KruiseGame Cloud-Hosted Version Development
+
+- Description: OKG has attracted many large game companies to embrace cloud-native transformation. However, for many small and medium-sized game companies, they are not familiar with the container and Kubernetes ecosystem. Due to their smaller team sizes, they have relatively weak infrastructure management capabilities. To democratize cloud-native technology for more game companies, OKG plans to launch a cloud-hosted version. Users can deploy the runtime environment with one click and complete game service integration based on the official SDK. This will reduce the complexity of using infrastructure for game companies and adapt to multi-cloud environments.
+
+- Expected Outcome:
+  - Cloud Provider Abstraction Layer Design and Implementation
+  - One-Click Deployment Tool/CLI Development
+  - Official Game Service SDK Development
+  - Multi-Cloud Environment Adaptation (AWS, Alibaba Cloud, etc.)
+  - Simplified Configuration Management System
+  - Comprehensive Documentation and Integration Guides
+
+- Recommended Skills:
+  - Golang
+  - Kubernetes
+  - Cloud Provider SDKs (AWS/Alibaba Cloud)
+  - Infrastructure as Code (Terraform/Pulumi)
+
+- Mentor:
+  - Qiuyang Liu (@chrisliu1995, [chrisliu1995@163.com](mailto:chrisliu1995@163.com))
+  - Zhongwei Liu (@ringtail, [zhongwei.lzw@alibaba-inc.com](mailto:zhongwei.lzw@alibaba-inc.com))
+
+- Upstream Issue:
+  - https://github.com/openkruise/kruise-game/issues/304
