@@ -184,6 +184,32 @@
   - Victoria Nduka (@nwanduka, ndukavictoria7@gmail.com)
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/17823
 
+
+### CloudNativePG
+
+#### Improve CloudNativePG Landing Page UX
+
+- Description:
+  This project focuses on improving the CloudNativePG landing page to better communicate the project’s value, improve usability, and enhance visual clarity for new users.
+  
+- Expected Outcome:
+  - Clearer messaging and layout
+  - Improved visual design and calls to action
+  - Merged landing page improvements on the official website
+  
+- Recommended Skills:
+  - HTML, CSS
+  - Basic UX/UI design
+  - Git & GitHub
+  
+- Mentor(s):
+  - Gabriele Bartolini (@gbartolini, gabriele.bartolini@enterprisedb.com)
+  - Jonathan Gonzalez (@sxd, jonathan.gonzalez@enterprisedb.com)
+  - Floor Drees (@FloorD, floordrees@gmail.com)
+  
+- Upstream Issue: https://github.com/cloudnative-pg/cloudnative-pg.github.io/issues/359
+
+
 ### WasmEdge
 
 #### Extend sub-command of WasmEdge CLI tool
