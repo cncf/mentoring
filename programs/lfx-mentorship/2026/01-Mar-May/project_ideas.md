@@ -30,6 +30,38 @@
   - Adarsh Kumar (@Adarshkumar14, adarsh.kumar@harness.io)
 - Upstream Issue: https://github.com/litmuschaos/litmus/issues/5338
 
+### etcd
+
+#### Dive deep into etcd by contributing to the self-Assessment of etcd
+
+
+- Description:
+  This project continues the work initiated in the [etcd - technical scope of the assessment](https://docs.google.com/document/d/1RTXffyDJ8hLoHl_Mo-frQheRQ-8QIVQJ6mqAw69zcP4/edit?pli=1&tab=t.0). The goal is to dive deep into etcd's architecture in depth by completing and publishing the self-assessment for SIG-Security review. The project has two key components: (1) collaborating with mentors, project maintainers, and Special Interest Groups (SIGs) to investigate etcd and kube-apiserver internals, particularly the lifecycle of requests and consensus mechanisms, and (2) updating and enhancing the [etcd.io website](https://etcd.io/) documentation by creating new pages, refining existing content, and publishing blog posts to ensure the documentation reflects current architecture and best practices.
+  Whether you're a new contributor, already active in the community, or simply curious about etcd, we welcome you to join this project!
+
+- Expected Outcome:
+  - Complete the etcd self-assessment draft currently in progress in this [document](https://docs.google.com/document/d/1RTXffyDJ8hLoHl_Mo-frQheRQ-8QIVQJ6mqAw69zcP4/edit?pli=1&tab=t.0) and prepare it for review by SIG-Security and etcd maintainers.
+  - Publish the finalized self-assessment in the SIG-Security repository (see [example format](https://github.com/kubernetes/sig-security/blob/main/sig-security-assessments/cluster-api/self-assessment.md)).
+  - Develop comprehensive understanding of etcd internals including read and write flows, Raft consensus algorithm, high availability mechanisms, data stores, and data flow diagrams within Kubernetes environments.
+  - Update the etcd.io website with improved documentation, new pages covering architectural insights, and blog posts highlighting key findings from the assessment work.
+  - Coordinate a full SIG-Security review process.
+  - Actively participate in project SIG meetings, communication channels, and SIG Security discussions.
+
+- Recommended Skills:
+  - Golang
+  - Understanding of distributed systems (etcd, kube-apiserver) and systems architecture
+  - Cybersecurity knowledge
+  - Open Source Mindset
+  - Familiarity with Git and contributing via pull requests
+  - Participation in project SIG meetings, SIG communication channels
+
+- Mentors:
+  - Ronald Ngounou (@ronaldngounou, ronald.ngounou@yahoo.com)
+  - Siyuan Zhang (@siyuanfoundation, physicsbug@gmail.com)
+  - Carol Valencia (@krol3, carol.valencia@konghq.com)
+- Upstream Issue:
+  - https://github.com/etcd-io/etcd/issues/21159
+
 ### Antrea
 
 #### Compare Antrea BPF generation for PacketCapture to tcpdump / libpcap
