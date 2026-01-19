@@ -30,6 +30,17 @@
   - Hang Yan (@hangyan, hang.yan@hotmail.com)
 - Upstream Issue: https://github.com/antrea-io/antrea/issues/7701
 
+### Cilium
+
+#### Cilium Project Pillar Pages
+
+- Description: cilium.io could benefit from SEO pillar pages that capture higher level problems that people will search for. Each page should deep dive into a comprehensive overview of the topic and contain high quality architectural images and diagrams that will also be discovered in search. These pages will capture high-intent search traffic and guide users from "Curious" to "Installed."
+- Expected Outcome: 8 pillar pages with content and images deployed on the website
+- Recommended Skills: Markdown, Figma, Writing
+- Mentor(s):
+  - Bill Mulligan (@xmulligan, bill@isovalent.com)
+- Upstream Issue: https://github.com/cilium/cilium.io/issues/841
+
 ### Jaeger
 
 #### AI-Powered Trace Analysis with Local LLM Support
