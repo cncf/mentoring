@@ -184,6 +184,35 @@
   - Victoria Nduka (@nwanduka, ndukavictoria7@gmail.com)
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/17823
 
+### Volcano
+
+#### Add Volcano to Headlamp: Job and Queue Management UI
+
+- Description:
+  Volcano is a batch scheduling system for Kubernetes. This project will create a Headlamp plugin that adds first-class UI support for Volcano resources and workflows. The plugin will help users discover, inspect, and manage Volcano objects (e.g., queues, jobs, podgroups) directly inside Headlamp, making batch/HPC-style scheduling easier to operate from a Kubernetes UI. The idea is aligned with maintainer interest in a Volcano-focused Headlamp plugin. 
+
+- Expected Outcome:
+  - A working Headlamp plugin that can list and display key Volcano CRDs (e.g., Queue, Job, PodGroup) with meaningful status and relationships. Relevant Volcano related metrics displayed (on map and overview/detail pages).
+  - Detail pages for Volcano resources with common actions (where appropriate) such as viewing events, related pods, and logs.
+  - UX that fits Headlamp’s plugin patterns (navigation, list/detail views, and resource integration) and is packaged in a way consistent with the Headlamp plugin ecosystem. [1](https://github.com/headlamp-k8s/plugins), [2](https://headlamp.dev/docs/latest/development/plugins/)
+  - Documentation covering installation, development workflow, and how to test against a cluster with Volcano installed.
+  - Blog post on Kubernetes Blog about the project
+
+- Recommended Skills:
+  - TypeScript + React 
+  - (Optional) Headlamp UI/plugin development, or other open source development
+  - (Optional) Kubernetes fundamentals (CRDs, controllers, RBAC)
+  - (Optional) Familiarity with Volcano concepts (queues, batch scheduling semantics)
+
+- Mentor(s):
+  - Santhosh Nagaraj (@yolossn, sannagaraj@microsoft.com)
+  - Rene Dudfield (@illume, renedudfield@microsoft.com)
+  - Ashu Ghildiyal (@ashu8912, ashu.ghildiyal@microsoft.com)
+  - Jesse Stutler (@JesseStutler, jessestutler97@gmail.com)
+
+- Upstream Issue:
+  https://github.com/kubernetes-sigs/headlamp/issues/4359
+
 ### WasmEdge
 
 #### Extend sub-command of WasmEdge CLI tool
