@@ -328,6 +328,31 @@ This project aims to build a reproducible e2e test framework using Ginkgo and Ki
   - Shen-Ta Hsieh (@ibmibmibm, beststeve@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4516
 
+### krkn - Chaos
+
+#### Natural Language–Based Chaos Scenario Discovery
+- Description: The objective of this internship task is to design and implement a feature of the
+[`[krknctl](https://github.com/krkn-chaos/krknctl)`](https://github.com/krkn-chaos/krknctl) tool that enables users to explore the project’s functionality by submitting queries in **natural language**.
+The tool will analyze the user’s request and Identify the most relevant **chaos scenario**, if any.
+
+- Expected Outcome:
+  - A **deterministic and lightweight solution** for natural language scenario discovery.
+  - Improved robustness to vocabulary, phrasing, and semantic variations in user queries.
+  - A measurable and extensible evaluation framework to support future improvements.
+  - Clear documentation enabling future contributors to iterate on or extend the approach.
+- Recommended Skills:
+  - Python and Go programming
+  - Basic knowledge of **Natural Language Processing (NLP)**
+  - Experience with **machine learning models for text classification or similarity**
+  - Familiarity with **Docker** and containerized applications
+  - Ability to write clean, testable, and well-documented code
+- Mentor(s):
+  - Paige Patton (@paigerube14, ppatton@redhat.com)
+  - Naga Ravi Chaitanya Elluri (@chaitanyaenr, nelluri@redhat.com)
+  - Tullio Sebastiani (@tsebastiani, tsebasti@redhat.com)
+- Upstream Issue: https://github.com/krkn-chaos/krkn/issues/1051
+
+
 ### OpenKruise
 
 #### OpenKruise: Promote API Version to v1beta1 part 2
