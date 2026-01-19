@@ -221,6 +221,7 @@
   - Shen-Ta Hsieh (@ibmibmibm, beststeve@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4516
 
+### krkn - Chaos
 
 #### Natural Language–Based Chaos Scenario Discovery
 - Description: The objective of this internship task is to design and implement a feature of the
