@@ -141,6 +141,33 @@ CNCF - Fluid: Extend cache runtime interface for full data lifecycle (2026 Term 
    - Yang Che (@cheyang, [cheyang52@gmail.com](mailto:cheyang52@gmail.com))
 - Upstream Issues: https://github.com/fluid-cloudnative/fluid/issues/5412
 
+### Headlamp
+
+#### Polish Knative support in Headlamp: Serverless Workload Management UI
+
+- Description:  
+  Knative enables serverless on Kubernetes (scale-to-zero, traffic splitting). This project finishes and polishes a Headlamp plugin so operators can **view, inspect, and manage Knative Services, Revisions, Configurations, and Routes** from Headlamp, complementing the `kn` CLI. Builds on an existing plugin.
+
+- Expected Outcome:
+  - Fully functional Knative plugin: in the Headlamp repo with a "Knative" sidebar. List KServices across namespaces with key columns (name, URL, traffic %, latest revision status) matching existing tools.
+  - Service detail pages: showing URL, traffic split, concurrency/scaling, conditions; UI actions to adjust traffic, edit config/env/concurrency, and trigger redeploys via forms/modals with feedback and RBAC checks.
+  - Related resources: list/link Revisions, Configurations, HTTPRoute/Knative Route; optional read-only revision/config views.
+  - Headlamp-consistent UX: Map/metrics integration, bug fixes, basic tests, packaged metadata, ArtifactHub releases, README, and a kubernetes blog post with a short demo.
+
+- Recommended Skills:
+  - TypeScript and React
+  - (Optional) **Kubernetes and Knative** – understanding concepts like Knative Service, Revision, traffic splitting, autoscaling, and how they are represented in "CRDs"
+  - (Optional) Design and UX
+
+- Mentor(s):
+  - Kahiro Okina (@kahirokunn, okinakahiro@gmail.com)
+  - Santhosh Nagaraj (@yolossn, sannagaraj@microsoft.com)
+  - Rene Dudfield (@illume, renedudfield@microsoft.com)
+  - Ashu Ghildiyal (@ashu8912, ashu.ghildiyal@microsoft.com)
+
+- Upstream Issue:  
+  https://github.com/headlamp-k8s/plugins/issues/486
+
 ### Jaeger
 
 #### AI-Powered Trace Analysis with Local LLM Support
