@@ -57,7 +57,7 @@
 
 - Mentor(s):
   - Zhihao Xu (@TrafalgarZZZ， [trafalgarz@outlook.com](mailto:trafalgarz@outlook.com))
-   - Yang Che (@cheyang, [cheyang52@gmail.com](mailto:cheyang52@gmail.com))
+  - Yang Che (@cheyang, [cheyang52@gmail.com](mailto:cheyang52@gmail.com))
 
 #### Unify and Modernize Fluid’s Unit Testing Framework and enhance testing coverage
 
