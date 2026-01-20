@@ -27,5 +27,6 @@
 - Expected Outcome: Public Grafana dashboard for LitmusChaos observability
 - Recommended Skills: Golang, Kubernetes, Prometheus, Chaos Engineering
 - Mentor(s):
-  - Shubham Chaudhary (@ispeakc0de, shubham.chaudhary@harness.io) 
+  - Shubham Chaudhary (@ispeakc0de, shubham.chaudhary@harness.io)
+  - Adarsh Kumar (@Adarshkumar14, adarsh.kumar@harness.io)
 - Upstream Issue: https://github.com/litmuschaos/litmus/issues/5338
