@@ -41,6 +41,49 @@
   - Bill Mulligan (@xmulligan, bill@isovalent.com)
 - Upstream Issue: https://github.com/cilium/cilium.io/issues/841
 
+### Fluid
+
+#### Design and implement a CLI tool to help easily use Fluid
+
+- Description: Fluid manages Kubernetes resources (Statefulsets, PersistentVolumeClaims & PersistentVolume, etc.) under two Fluid custom resources CR called `Dataset` and `Runtime`. Given a pair of Dataset and Runtime CR, users may want to inspect the underlying resources, check their status and diagnose which part is going wrong. A CLI tool (e.g. a kubectl plugin) for Fluid would be a straightforward way for Fluid's users to easily get such information.
+
+- Expected Outcome:
+  - Design and implement a CLI tool for Fluid
+  - Support `inspect` subcommand: list resource status given a Fluid Dataset CR.
+  - Support `diagnose` subcommand: collect related information (e.g. logs, pod status, etc.) to help diagnose what's going wrong.
+  - Implement a framework to diagnose Fluid with LLM/AI. (The collected information can be put into the context of an AI inference request)
+
+- Recommended Skills: Fluid, Go, CLI tool development, LangChain(or other alternative LLM frameworks)
+
+- Mentor(s):
+  - Zhihao Xu (@TrafalgarZZZ， [trafalgarz@outlook.com](mailto:trafalgarz@outlook.com))
+   - Yang Che (@cheyang, [cheyang52@gmail.com](mailto:cheyang52@gmail.com))
+
+#### Unify and Modernize Fluid’s Unit Testing Framework and enhance testing coverage
+
+- Description: To enhance code quality, maintainability, and developer experience, Fluid plans to migrate its unit testing framework from Testify to Ginkgo + Gomega—a more expressive and behavior-driven testing stack widely adopted in the Go ecosystem. Concurrently, we aim to significantly improve unit test (UT) coverage, raising it from the current 57% to at least 75%, thereby reducing regression risks and strengthening overall system reliability
+- Expected Outcome: 
+   - Deliver comprehensive migration guidelines, coding best practices, and hands-on team training for Ginkgo + Gomega adoption.
+   - Achieve a measurable increase in unit test coverage—from 57% to 75%—across core modules of the Fluid codebase.
+- Recommended Skills:  Fluid, Go, unit testing frameworks (gomonkey, ginkgo, gomega, testify)
+- Mentor(s):
+   - Zhihao Xu (@TrafalgarZZZ， [trafalgarz@outlook.com](mailto:trafalgarz@outlook.com))
+   - Yang Che (@cheyang, [cheyang52@gmail.com](mailto:cheyang52@gmail.com))
+- Upstream Issues: https://github.com/fluid-cloudnative/fluid/issues/5407
+
+#### Extend Cache Runtime Interface to Support Full Data Lifecycle and In-Place Operations
+
+- Description：Fluid’s existing Generic Cache Runtime interface will be extended to support the complete lifecycle of data operations, including data loading, data processing workflows, and cache-aware data mutations. Additionally, the interface will be enhanced to enable in-place cache upgrades and in-place cache rebuilds—allowing runtime updates and recovery without disrupting workloads or requiring dataset re-provisioning.
+- Expected Outcomes:
+  - Extended Cache Runtime interface covering data load, data operation lifecycle, and state transitions.
+  - Working reference adapters for Curvine and Alluxio
+  - Support for in-place upgrade (e.g., engine version update) and in-place cache rebuild (e.g., after node failure or config change).
+- Recommended Skills:  Fluid, Go, kubernetes operator development
+- Mentor(s):
+   - Tongyu Guo (@Syspretor，[guotongyu.gty@alibaba-inc.com](mailto:guotongyu.gty@alibaba-inc.com))
+   - Yang Che (@cheyang, [cheyang52@gmail.com](mailto:cheyang52@gmail.com))
+- Upstream Issues: https://github.com/fluid-cloudnative/fluid/issues/5412
+
 ### Jaeger
 
 #### AI-Powered Trace Analysis with Local LLM Support
