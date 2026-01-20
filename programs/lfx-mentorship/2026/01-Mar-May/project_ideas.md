@@ -129,7 +129,7 @@
 - Mentor(s): 
   - Rishi Mondal (@MAVRICK-1, mavrickrishi@gmail.com)
   - Andy Anderson (@clubanderson, andy@clubanderson.com) 
-  - Kunal Dugar  (@kunal-511, kunal0204.dugar@gmail.com) 
+  - Shivam Kumar (@btwshivam, shivam200446@gmail.com)
   - Naman Jain (@naman9271, namanjain9271@gmail.com)
   - Onkar Shelke (@onkar717, onkarwork2234@gmail.com)
  
