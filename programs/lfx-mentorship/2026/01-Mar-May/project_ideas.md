@@ -103,6 +103,15 @@
   - Daniel Lipovetsky (@dlipovetsky, daniel.lipovetsky@gmail.com )
 - Upstream Issue: https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/2178
 
+##### Improve AMI Publication and Maintenance
+
+- Description: Cluster API Provider AWS (CAPA) enables the creation of Kubernetes clusters in AWS with Cluster API. CAPA allows you create EKS and non-EKS based Kubernetes clusters. When creating a non-EKS cluster we must use AMIs for the nodes in the cluster. The project publishes some AMIs for non-production use. However, the process for publishing the AMIs needs improvment. Firstly we want to fully automate the publication of new AMIs when there is a new Kubernetes version available. Secondly, we need to implement the "AMI Publication Policy" for the project which will involve automated house keeping of AMIs. And thirdly we want to add back support for base operating systems that where temporarily dropped.
+- Expected Outcome: Automated AMI publication and deletion inline with the projects policy. Support for additional operating systems.
+- Recommended Skills: AWS, GitHub Actions, Packer, Ansible, Kubernetes
+- Mentor(s):  
+  - Richard Case (@richardcase, <richmcase@gmail.com>)
+- Upstream Issue: <https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/5836>
+
 ### KubeStellar
 
 #### Documentation and Self-Service Enablement Specialist
