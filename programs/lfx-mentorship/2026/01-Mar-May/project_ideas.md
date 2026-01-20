@@ -141,6 +141,37 @@ CNCF - Fluid: Extend cache runtime interface for full data lifecycle (2026 Term 
    - Yang Che (@cheyang, [cheyang52@gmail.com](mailto:cheyang52@gmail.com))
 - Upstream Issues: https://github.com/fluid-cloudnative/fluid/issues/5412
 
+### Headlamp
+
+#### Add Strimzi to Headlamp: Kubernetes Kafka Management UI
+
+- Description:
+ Strimzi is a Kubernetes Operator for running Apache Kafka. This project builds a Headlamp plugin that adds a **Strimzi** section to Headlamp, surfacing Strimzi CRDs so operators can **view and manage Kafka clusters, topics, users, and connectors** from the Headlamp UI. The plugin follows Headlamp UX patterns with list and detail views, links between related resources, and optional metrics embedding.
+
+- Expected Outcome:
+  - Plugin exposes key Strimzi CRDs: Kafka, KafkaTopic, KafkaUser, KafkaConnect, and KafkaConnector.
+  - List views, with summary columns (name, namespace, brokers, partitions, replication, status).
+  - Detail pages, showing config, status conditions, sub-resources (broker pods, connectors), and basic actions (create/edit topic, regenerate user creds).
+  - Relational navigation, cluster → topics/users; topic → cluster.
+  - Consistent Headlamp UX, icons, tables, detail layouts, Map view enhancements.
+  - Structured config display (collapsible sections/YAML toggle), humanized statuses, validated forms for mutating actions.
+  - README with prerequisites and limitations; blog post demoing usage.
+
+- Recommended Skills:
+  - TypeScript and React
+  - (Optional) Familiarity with Kubernetes CRDs and Operators
+  - (Optional) Knowledge of Apache Kafka concepts
+  - (Optional) UX design sensibilities
+
+- Mentor(s):
+  - Rene Dudfield (@illume, renedudfield@microsoft.com)
+  - Jakub Scholz (@scholzj, github@scholzj.com)
+  - Santhosh Nagaraj (@yolossn, sannagaraj@microsoft.com)
+  - Ashu Ghildiyal (@ashu8912, ashu.ghildiyal@microsoft.com)
+
+- Upstream Issue:  
+  https://github.com/headlamp-k8s/plugins/issues/488
+
 ### Jaeger
 
 #### AI-Powered Trace Analysis with Local LLM Support
