@@ -433,3 +433,61 @@ The tool will analyze the user’s request and Identify the most relevant **chao
 
 - Upstream Issue:
   - https://github.com/openkruise/kruise-game/issues/304
+
+### Kyverno
+
+
+#### Test Enhancements -  Testing Framework / Toolset for integration tests
+
+- Description: Currently Kyverno uses Chainsaw as the primary testing tool, which executes end-to-end tests on a real cluster. While this provides a large test coverage, it takes a long time to be executed and is also used to test very basic/simple cases. This project is about creating a framework to allow and simplify the creation of integration tests on the code level, without spinning up an actual cluster. This allows easier and faster testing locally as well as in our CI pipelines.
+
+- Recommended Skills: 
+  - Go tests
+  - CLI 
+- Mentor(s): 
+  - Frank Jogeleit (@fjogeleit, frank.jogeleit@nirmata.com)
+  - Ammar Yasser (@aerosouund, ammar.yasser@nirmata.com)
+
+- Upstream Issue: 
+  - https://github.com/kyverno/kyverno/issues/14725
+
+#### Test Enhancements -  Kyverno CLI Tests - envtest, fake client 
+
+- Description: The Kyverno CLI should be flexible enough to perform real variable substitutions when CEL libraries are used in policies, in addition to static substitutions. This enhancement would enable comprehensive policy testing without requiring a real Kubernetes cluster, significantly speeding up development and CI/CD pipelines.
+
+- Recommended Skills: 
+  - Golang
+  - Kubebernetes
+  - Cobra
+  - fake client
+  - envTest
+
+- Mentor(s): Shuting Zhao (@realshuting, shuting@nirmata.com)
+
+- Upstream Issue: 
+  - https://github.com/kyverno/kyverno/issues/14629
+
+#### DevRel
+
+- Description: 
+  Option 1: General Junior DevRel Mentorship
+
+  This mentorship is designed for a junior Developer Relations or community-focused contributor who wants hands-on experience supporting a fast-growing open source project in the cloud native ecosystem. The mentee will work closely with the Kyverno maintainers and community to improve the overall developer and end-user experience through better documentation, tutorials, example content, and community-facing resources.
+
+  The mentee will contribute upstream to Kyverno by helping create clear getting-started guides, improving existing documentation, supporting educational content such as blogs or walkthroughs, and assisting with community enablement initiatives. The mentorship focuses on foundational DevRel skills including technical communication, open source contribution workflows, user empathy, and translating complex technical concepts into approachable learning materials, while building a visible portfolio of real-world open source contributions. 
+
+  Option 2: Concise Version of the CEL-Focused Mentorship (1–2 Paragraphs)
+  This mentorship offers a junior DevRel contributor the opportunity to work directly with the Kyverno community to support the adoption of Kyverno’s new CEL-based policy capabilities. The mentee will help create and refine documentation, tutorials, and example content that make it easier for new users to get started with CEL policies and for existing users to migrate from traditional policy types to CEL policies.
+
+  Working upstream with Kyverno maintainers, the mentee will gain hands-on experience with Kubernetes policy, developer education, and open source collaboration, while learning core DevRel skills such as technical storytelling, community-focused documentation, and content-driven adoption.
+
+- Recommended Skills:  
+  - Technical communication
+  - Documentation and content creation
+  - Kubernetes policy knowledge
+
+- Mentor(s): 
+  - Cortney Nickerson (@CortNick, cortney.nickerson@nirmata.com)
+  - Mariam Fahmy (@MariamFahmy98, mariamfahmy66@gmail.com)
+
+- Upstream Issue:  https://github.com/kyverno/kyverno/issues/14726
