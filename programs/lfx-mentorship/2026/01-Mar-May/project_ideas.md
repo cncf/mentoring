@@ -433,3 +433,35 @@ The tool will analyze the user’s request and Identify the most relevant **chao
 
 - Upstream Issue:
   - https://github.com/openkruise/kruise-game/issues/304
+
+#### Drasi for IoT: MQTT Integration and Real-Time Sensor Monitoring
+
+- Description: Drasi is a Data Change Processing platform that enables developers to detect and react to meaningful data changes using declarative Cypher queries. Drasi excels at complex change detection with unique features like `drasi.trueFor()` (detecting conditions that persist over time) and absence-of-change detection (alerting when expected events don't occur). However, it currently lacks native connectivity to IoT protocols.
+
+  Drasi Lib provides Drasi's powerful graph-aware decision engine as an embeddable Rust library that can run completely offline on constrained hardware—enabling edge computing scenarios where logic runs directly on sensors and gateways. IoT applications fundamentally need to detect state transitions, but developers typically must write boilerplate code and manage state persistence manually. Drasi's diff-engine handles state management and change computation automatically, emitting events only when meaningful changes occur.
+
+  MQTT (Message Queuing Telemetry Transport) is the de-facto standard protocol for IoT, used by AWS IoT Core, Azure IoT Hub, and virtually every IoT deployment. Adding MQTT support to Drasi Lib will unlock the entire IoT ecosystem for Drasi users.
+
+  In this project, the mentee will build a suite of lightweight Rust crates that enable Drasi Lib to communicate with MQTT brokers. They will create connectors to ingest sensor data (MQTT Source), execute local actions (Shell Reaction), and close the control loop (MQTT Reaction). Finally, they will demonstrate the complete stack with a demo showcasing Drasi's unique temporal capabilities for IoT.
+
+  The mentee will gain hands-on experience with async Rust (tokio), IoT protocols (MQTT), stream processing concepts, and graph-based data modeling.
+
+- Expected Outcome:
+  - Build MQTT Source Plugin - A new Rust crate that enables Drasi to ingest data from MQTT brokers
+  - Build Shell/Command Reaction - A new Rust crate that enables Drasi to execute local system commands based on query results
+  - Build MQTT Reaction Plugin - A new Rust crate that enables Drasi to publish alerts/commands to MQTT topics
+  - Create IoT Demo Scenario - A complete, runnable demonstration showing Drasi's power for IoT use cases
+  - Create Documentation & Tutorial - Comprehensive guide for IoT developers to adopt Drasi
+  - (Stretch Goal) Build InfluxDB Source - Enables Drasi to ingest from InfluxDB, unlocking Telegraf's 200+ input plugins for IoT
+- Recommended Skills:
+  - Rust (intermediate level: ownership, traits, async/await with tokio)
+  - Basic understanding of IoT concepts (MQTT protocol, pub/sub patterns)
+  - Git and GitHub workflow
+  - (Helpful) Docker and Docker Compose for testing
+  - (Helpful) Basic understanding of graph concepts or Cypher query language
+  - (Helpful) Experience with message brokers (MQTT, Kafka, etc.)
+- Mentor(s):
+  - Aman Singh (@amansinghoriginal, singh.amandeep@microsoft.com) - Primary
+  - Allen Jones (@agentofreality, Jones.Allen@microsoft.com)
+- Upstream Issue: https://github.com/drasi-project/drasi-core/issues/155
+
