@@ -433,3 +433,57 @@ The tool will analyze the user’s request and Identify the most relevant **chao
 
 - Upstream Issue:
   - https://github.com/openkruise/kruise-game/issues/304
+
+
+### PipeCD
+
+#### GCP Cloud Run plugin for Pipedv1
+
+- Description: PipeCD v1 - the new version based on a plugin architecture (ref: [PipeCD plugin-arch overview blog](https://pipecd.dev/blog/2024/11/28/overview-of-the-plan-for-pluginnable-pipecd/)), has released an alpha version, and we are rapidly adding features supported in v0. We need to develop a plugin for PipeCD v1 to support [GCP Cloud Run](https://cloud.google.com/run) deployment.
+- Expected Outcome:
+  - CloudRun plugin for PipeCD
+  - Possible update plugin SDK while develop the plugin
+  - Possible update docs how to develop PipeCD plugin
+  - Blog about how to develop a PipeCD plugin on [https://pipecd.dev/blog/](https://pipecd.dev/blog/)
+- Recommended Skills:
+  - Golang
+  - GCP Cloud Run
+  - GitOps
+  - Contrinous Delivery (CD)
+- Mentor(s):
+  - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
+  - Shinnosuke Sawada-Dazai (@Warashi, shin@warashi.dev)
+- Upstream Issue:
+  - https://github.com/pipe-cd/pipecd/issues/6114
+
+#### Amazon ECS plugin for Pipedv1
+
+- Description: PipeCD v1 - the new version based on a plugin architecture (ref: [PipeCD plugin-arch overview blog](https://pipecd.dev/blog/2024/11/28/overview-of-the-plan-for-pluginnable-pipecd/)), has released an alpha version, and we are rapidly adding features supported in v0. We need to develop a plugin for PipeCD v1 to support [Amazon ECS](https://aws.amazon.com/ecs) deployment.
+- Expected Outcome:
+  - ECS plugin for PipeCD
+  - Possible update plugin SDK while develop the plugin
+  - Possible update docs how to develop PipeCD plugin
+  - Blog about how to develop a PipeCD plugin on [https://pipecd.dev/blog/](https://pipecd.dev/blog/)
+- Recommended Skills:
+  - Golang
+  - Amazon ECS
+  - GitOps
+  - Contrinous Delivery (CD)
+- Mentor(s):
+  - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
+  - Shinnosuke Sawada-Dazai (@Warashi, shin@warashi.dev)
+- Upstream Issue:
+  - https://github.com/pipe-cd/pipecd/issues/6443
+
+#### Community Building and Social Media Growth for PipeCD
+
+- Description: The release of PipeCD v1 introduced a plugin-based architecture that enables deployments on any platform. This is a significant evolution in the project's capabilities, but community awareness and adoption haven't kept pace with the technical progress. This project focuses on growing PipeCD's community through consistent content creation across developer platforms, producing technical content around the v1 release, improving documentation for users and contributors, and engaging with the community through demos and discussions. The mentee will work closely with maintainers to translate PipeCD's technical strengths into accessible content that drives adoption and contributions.
+
+- Expected Outcome: Established social media presence for PipeCD across key developer platforms, along with technical content covering v1 features, plugin development, and real-world deployment patterns. Demo content including video walkthroughs and livestreams that make the project easier to adopt. Improved contributor documentation and onboarding materials, with active community engagement through GitHub Discussions and other channels. At least one CNCF talk or meetup presentation delivered.
+
+- Mentor(s):
+    - Eeshaan Sawant (@EeshaanSA, eeshaans1@gmail.com)
+    - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
+
+- Upstream Issue: https://github.com/pipe-cd/pipecd/issues/6441
+
