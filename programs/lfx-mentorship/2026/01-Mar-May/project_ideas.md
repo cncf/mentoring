@@ -63,6 +63,76 @@
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
 - Upstream Issue: https://github.com/jaegertracing/jaeger-ui/issues/3313
 
+### Karmada
+
+#### Protect Karmada Component Flags from Unexpected Changes
+
+- Description: The Karmada project consists of several components (e.g., controller-manager, scheduler, karmada-search, etc.), each accepting various command-line flags for configuration. These flags come from multiple sources: third-party dependencies (e.g., Kubernetes, controller-runtime) and custom flags defined by Karmada itself. During dependency upgrades or internal refactoring, flags can be unexpectedly added, removed, or modified, potentially impacting users who rely on specific configurations. This project aims to create comprehensive documentation and tooling to track and document all flags for Karmada's maintained components, establishing a baseline to detect and manage flag changes carefully.
+- Expected Outcome: 
+  - Comprehensive flag documentation for all Karmada components (controller-manager, scheduler, karmada-search, webhook, aggregated-apiserver, descheduler, metrics-adapter, scheduler-estimator)
+  - Automated flag extraction and documentation generation tool
+  - CI/CD pipeline integration to detect and alert on flag changes
+  - Documentation of flag lifecycle management (deprecation, removal)
+- Recommended Skills: 
+  - Go programming language
+  - Kubernetes and its flag management patterns
+  - Bash/shell scripting
+  - CI/CD systems (GitHub Actions)
+  - Documentation tools and best practices
+- Mentor(s):
+  - Zhen Chang (@XiShanYongYe-Chang, changzhen5@huawei.com)
+  - Hongcai Ren (@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: https://github.com/karmada-io/community/issues/170#issuecomment-3728029454
+
+#### Enhance Karmada's Quick Start Experience and Incorporate macOS Support
+
+- Description: The initial interaction for many users with a project often begins with its "Quick Start" guide. Ensuring this guide is of high quality and up-to-date is crucial. Currently, the community offers several quick start methods, including a one-click setup script (hack/local-up-karmada.sh), installation tools such as Helm, karmadactl, and the operator, alongside learning tutorials on Killercoda.
+Although the community's CI effectively maintains these installation methods, it lacks support for different operating systems, notably macOS. Furthermore, some Killercoda tutorials are outdated and do not reflect the latest features and best practices. This project aims to ease the entry barrier for new users by enhancing the quick start process, ensuring cross-platform compatibility, and updating educational content.
+- Expected Outcome:
+  - Verify the feasibility of installing hack/local-up-karmada.sh on macOS environments, including both macOS ARM and Intel and address any issues that arise.
+  - Implement a new CI workflow in GitHub Actions to test Karmada's installation and basic functionalities on macOS. GitHub Actions can select specific environments through runs-on, covering both macOS ARM and Intel.
+  - Revise existing outdated scenarios on Killercoda and develop valuable new scenarios to guide users through current features. This includes:
+    - Extracting common functions from various scenarios to reduce code duplication.
+    - Updating the course information of existing scenarios by correcting outdated content and optimizing the material to enhance learning outcomes.
+    - Adding new scenarios, such as:
+      - A tutorial on FHPA usage.
+      - An application-level failover guide.
+      - Multi-component workload scheduling (support for workloads common in AI and big data).
+- Recommended Skills:
+  - Go programming language
+  - Familiarity with macOS
+  - Bash/shell scripting
+  - CI/CD systems (e.g., GitHub Actions)
+  - Documentation tools and best practices
+- Mentor(s): 
+  - Zhuang Zhang (@zhzhuang-zju, m17799853869@163.com)
+  - Hongcai Ren (@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: https://github.com/karmada-io/community/issues/170#issuecomment-3736732294
+
+#### OmniControl for Karmada Dashboard
+
+- Description: We have already implemented management for all types of resources on the control plane and for particial resources on member clusters in the Karmada Dashboard. However, resource management is currently atomic, and the relationships between resources are not presented intuitively. As a result, users may find it difficult to understand and manage relationship across resources.
+For example:
+1. On the control plane, after a user creates a ResourceTemplate, it is not easy to tell which Policy matched that ResourceTemplate and then generated the corresponding ResourceBinding and subsequent Work resources.
+2. Across the control plane and member clusters plane, users cannot easily see which member clusters a ResourceTemplate has been propagated to, or the status of the distributed resources in each member cluster.
+Therefore, we aim to provide a unified management and control capability (OmniControl). From the perspective of ResourceTemplate, users should be able to view the resource’s status on both the control plane and member clusters plane, building on the existing atomic capabilities. This will help users understand the end-to-end status of resources more intuitively and quickly identify and resolve issues when propagation or distribution failures occur.
+- Expected Outcome:
+  - Comprehensive design and API documentation
+  - Topology visualization of Karmada core resources and Kubernetes resources ([Karmada architecture diagram](https://karmada.io/docs/core-concepts/architecture/))
+  - Control-plane resource integration: users can view details of policy resources and multi-cloud resources by clicking the corresponding nodes in the topology graph (read-only)
+  - Member-cluster resource integration: users can view details of Kubernetes resources (including workloads, configs, and services) with the same UX
+  - A demo showcasing abnormal resource distribution cases (e.g., insufficient GPU resources; one example is sufficient)
+- Recommended Skills:
+  - Go
+  - Kubernetes
+  - React
+  - CI/CD systems (GitHub Actions)
+  - Documentation tools and best practices
+- Mentor(s): 
+  - Wenjiang Ding (@warjiang, 1096409085@qq.com)
+  - Hongcai Ren (@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: https://github.com/karmada-io/dashboard/issues/227
+
 ### Knative
 
 #### Enhancing the Knative Educational Game with Advanced EDA Patterns and Web Deployment
