@@ -301,3 +301,38 @@ This workflow should remove the need for maintainers to manually create and mana
 
 - Upstream Issue:  
   https://github.com/headlamp-k8s/plugins/issues/488
+
+### Kubernetes SIG Docs – Localization Subproject
+
+#### AI-Era Localization Automation for SIG Docs Contributors & Reviewers
+
+- Description:
+
+This project focuses on improving localization workflows in Kubernetes SIG Docs by strengthening visibility, prioritization, and traceability across English and localized documentation. The enhanced workflows will benefit to reducing review burden and coordination costs that arise in environments where upstream content changes and subsequent localization efforts occur asynchronously. The project also explores practical approaches to achieving measurable productivity gains by adopting AI-assisted tools within established human workflows.
+
+Mentees work with mentors in SIG Docs localization to improve existing localization review and coordination processes, such as label-based coordination and review signals implemented through Prow/CI. The project focuses on the following core areas: improving traceability between frequently changing English content and localized documentation, continuously tracking and notifying review priorities for translation updates, and maintaining visibility into localization coverage and prioritization based on document importance. All outcomes are designed to integrate naturally into existing SIG Docs GitHub workflows and practices while preserving and supporting human-led review and decision-making.
+
+- Expected Outcome:
+  - Reusable Prow/CI automation prototypes
+    - Review-assist jobs and bots designed to be reusable across SIG Docs localization workflows.
+
+  - Extensible architecture
+    - Clear separation between core workflow logic and language-specific rules.
+
+  - Best practices documentation
+    - Guidance on improving localization workflows through supportive tooling and operational practices, while preserving human review, contributor growth, and community sustainability.
+
+- Recommended Skills:
+  - Basic understanding of Kubernetes documentation structure and contribution flow.
+  - Git/GitHub workflows (issues, pull requests, review comments).
+  - Familiarity with at least one programming or scripting language for automation (e.g., Go, Python, JavaScript).
+  - Experience contributing to documentation localization (translation, review, or L10n process improvements).
+  - Curious about improving productivity on documentation and localization through tools (e.g., linters, AI-assisted tools), workflows, and process improvements.
+
+- Mentor(s)
+  - Ian Y. Choi (@ianychoi, ianyrchoi@gmail.com)
+  - Wonyong Hwang (@wonyongg, kakaohwy@gmail.com)
+  - Eunjeong Park (@Eundms, eunjeongpark.eundms@gmail.com)
+
+- Upstream Issue: https://github.com/kubernetes/website/issues/54075
+
