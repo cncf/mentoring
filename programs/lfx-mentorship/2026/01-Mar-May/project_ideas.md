@@ -84,6 +84,37 @@
    - Yang Che (@cheyang, [cheyang52@gmail.com](mailto:cheyang52@gmail.com))
 - Upstream Issues: https://github.com/fluid-cloudnative/fluid/issues/5412
 
+### Headlamp
+
+#### Add Kubeflow to Headlamp: Machine Learning Workflow Management UI
+
+- Description:
+ Build a Headlamp plugin to surface Kubeflow resources (Pipelines, Katib, PipelineRuns, Notebooks, TFJob/PyTorchJob/TrainJob, Spark) so operators and ML engineers can discover, monitor, and manage ML workloads alongside standard K8s resources. Link to Kubeflow UIs when deeper functionality is needed.
+
+- Expected Outcome:
+  - New Kubeflow sidebar with cross-namespace lists for Pipelines (Experiments, Runs), Katib experiments, Notebook servers, Training and Spark jobs.
+  - Detail pages per resource showing metadata, status, metrics, logs and common actions (start Run, open Jupyter, view best hyperparams).
+  - Links/embed to Kubeflow Central Dashboard or Pipelines UI for advanced tasks.
+  - Headlamp Map integration: show relations to Deployments/Pods, Argo workflows, Spark driver/executors.
+  - Metrics via Prometheus or /metrics: basic charts for experiment objectives and pod resource use.
+  - Polished UX: icons, pagination, filtering, error handling.
+  - Outreach: README/User Guide and a demo blog post with screenshots.
+
+- Recommended Skills:
+  - TypeScript + React
+  - (Optional) Kubernetes fundamentals.
+  - (Optional) Knowledge of Kubeflow and its sub-projects (Pipelines, Katib, etc.).
+  - (Optional) Basic understanding of Prometheus metrics.
+
+- Mentor(s):
+  - Rene Dudfield (@illume, renedudfield@microsoft.com)
+  - Adwait Godbole (@adwait-godbole, adwaitngodbole@gmail.com)
+  - Santhosh Nagaraj (@yolossn, sannagaraj@microsoft.com)
+  - Ashu Ghildiyal (@ashu8912, ashu.ghildiyal@microsoft.com)
+
+- Upstream Issue:  
+  - https://github.com/kubernetes-sigs/headlamp/issues/3710
+
 ### Jaeger
 
 #### AI-Powered Trace Analysis with Local LLM Support
