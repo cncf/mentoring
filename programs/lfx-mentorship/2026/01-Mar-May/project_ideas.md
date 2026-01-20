@@ -155,8 +155,8 @@
 - Recommended Skills: Kubernetes deployment and troubleshooting, strong technical writing, Markdown-based documentation tools (Docusaurus/Nextra), user-centric documentation design video, DevOps or DevRel background a plus
 - Mentor(s):  
   - Shivam Kumar (@btwshivam, shivam200446@gmail.com)
-  - Rupam Manna (@Rupam-It, mannarupam3@gmail.com)
   - Rishi Mondal (@MAVRICK-1, mavrickrishi@gmail.com)
+  - Saumya Kumar (@oksaumya, saumyakr2006@gmail.com)
   - Nupur Shivani (@Nupurshivani, nupurjha.me@gmail.com)
   - Andy Anderson (@clubanderson, andy@clubanderson.com)
 - Upstream Issue: https://github.com/kubestellar/kubestellar/issues/3521
