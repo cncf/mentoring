@@ -141,6 +141,35 @@ CNCF - Fluid: Extend cache runtime interface for full data lifecycle (2026 Term 
    - Yang Che (@cheyang, [cheyang52@gmail.com](mailto:cheyang52@gmail.com))
 - Upstream Issues: https://github.com/fluid-cloudnative/fluid/issues/5412
 
+### Headlamp
+
+#### Add Cluster API to Headlamp: Cluster Lifecycle Management UI
+
+- Description:
+ Cluster API (CAPI) provides declarative APIs and tooling to provision, upgrade, and operate Kubernetes clusters. This project continues an existing Headlamp plugin to deliver first-class UI support for CAPI resources (Clusters, Machines, MachineDeployments, KubeadmControlPlanes). The plugin will let operators discover, inspect, and manage cluster lifecycle objects in Headlamp, visualizing hierarchical relationships and closing gaps in the plugin.
+
+- Expected Outcome:
+  - Sidebar and Map: List key CAPI CRs in the sidebar and Map view; show Clusters with Machines, MachineSets/Deployments, and control planes.  
+  - Resource details: Dedicated pages with CAPI-specific fields (conditions, infra refs, provider info, control plane refs, node pools, cluster membership, provider status).
+  - UI integration: Map visualization, sidebar icons, on-hover "Glance" tooltips.  
+  - Robustness and tests: Fix runtime errors, human-friendly fields (e.g., "2d5h"), add automated tests.  
+  - Polish and delivery: Refined tables, icons, clickable "Controlled by" links; packaged in Headlamp’s plugin repo with install and developer docs; Kubernetes Blog post showcasing benefits.
+
+- Recommended Skills:
+  - TypeScript + React
+  - (Optional) Headlamp UI/plugin development, or other open source development
+  - (Optional) Kubernetes fundamentals (CRDs, controllers, RBAC)
+  - (Optional) Familiarity with Cluster API concepts (Cluster, Machine, MachineDeployment, etc.)
+
+- Mentor(s):
+  - Matt.Boersma (@mboersma, Matt.Boersma@microsoft.com)
+  - Santhosh Nagaraj (@yolossn, sannagaraj@microsoft.com)
+  - Rene Dudfield (@illume, renedudfield@microsoft.com)
+  - Ashu Ghildiyal (@ashu8912, ashu.ghildiyal@microsoft.com)
+
+- Upstream Issue:  
+  https://github.com/headlamp-k8s/plugins/issues/485
+
 ### Jaeger
 
 #### AI-Powered Trace Analysis with Local LLM Support
