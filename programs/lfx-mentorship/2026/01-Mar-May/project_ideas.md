@@ -172,8 +172,8 @@
 - Mentor(s): 
   - Rishi Mondal (@MAVRICK-1, mavrickrishi@gmail.com)
   - Andy Anderson (@clubanderson, andy@clubanderson.com) 
-  - Kunal Dugar  (@kunal-511, kunal0204.dugar@gmail.com) 
-  - Hemanshu Baviskar (@@Per0x1de-1337, baviskarhd9@gmail.com)
+  - Shivam Kumar (@btwshivam, shivam200446@gmail.com)
+  - Naman Jain (@naman9271, namanjain9271@gmail.com)
   - Onkar Shelke (@onkar717, onkarwork2234@gmail.com)
  
 - Upstream Issue: https://github.com/kubestellar/kubestellar/issues/3501
