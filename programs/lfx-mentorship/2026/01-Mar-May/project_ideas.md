@@ -449,7 +449,7 @@ The tool will analyze the user’s request and Identify the most relevant **chao
   - Golang
   - GCP Cloud Run
   - GitOps
-  - Contrinous Delivery (CD)
+  - Continuous Delivery (CD)
 - Mentor(s):
   - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
   - Shinnosuke Sawada-Dazai (@Warashi, shin@warashi.dev)
