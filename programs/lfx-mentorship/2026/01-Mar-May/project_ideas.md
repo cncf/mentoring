@@ -245,6 +245,35 @@ Examples of integrations and tutorials include:
 
 - Upstream Issue: https://github.com/kgateway-dev/kgateway.dev/issues/606
 
+### Modernize and improve kgateway end-to-end testing
+
+- Description: Kgateway has a large number of end-to-end (e2e) tests that functionally test the full end-to-end flow of various routing and policy features present for both supported dataplane proxies, Envoy and agentgateway.
+
+  However, these tests have been implemented with a custom e2e framework which is starting to show some cracks, notably around the speed of execution and general obtuseness of the framework.
+
+  This project will contain two main phases:
+  1. Analyze the gaps of the current custom e2e framework and work with kgateway maintainers to decide whether or not it is worth migrating to an alternative solution
+  2. Depending on the outcome of phase 1, identify a set of e2e tests to either migrate to the new framework or improve the execution of in the current framework
+
+  This project will provide exposure to a wide range of features in kgateway as well as real-world experience with ensuring the kgateway project is providing rock solid reliability for its users!
+
+- Expected Outcome:
+  - An approved design doc with a decision on whether to use the existing custom E2E framework vs. using an alternative approach
+  - A set of e2e tests that have been migrated or modernized that will run as part of the kgateway CI pipeline
+  - A well-defined pattern that can be followed for e2e tests that have not been worked on as part of this project
+
+- Recommended Skills:
+  - Go
+  - Kubernetes
+  - Kubernetes Gateway API
+  - End-to-end testing experience
+
+- Mentor(s):
+  - Primary Mentor: Seth Heidkamp (@sheidkamp, seth.heidkamp@solo.io)
+  - Secondary Mentor: Lawrence Gadban (@lgadban, lawrence.gadban@solo.io)
+
+- Upstream Issue: https://github.com/kgateway-dev/kgateway/issues/13351
+
 ### Knative
 
 #### Enhancing the Knative Educational Game with Advanced EDA Patterns and Web Deployment
