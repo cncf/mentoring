@@ -18,6 +18,18 @@
 
 ## Proposed Project ideas
 
+### LitmusChaos
+
+#### Add Prometheus Metrics to LitmusChaos Control Plane Service 
+
+- Description: Expose service health, API observability and experiment execution data as prometheus metrics in the chaos manager/litmusportal server
+- Expected Outcome: Public Grafana dashboard for LitmusChaos observability
+- Recommended Skills: Golang, Kubernetes, Prometheus, Chaos Engineering
+- Mentor(s):
+  - Shubham Chaudhary (@ispeakc0de, shubham.chaudhary@harness.io)
+  - Adarsh Kumar (@Adarshkumar14, adarsh.kumar@harness.io)
+- Upstream Issue: https://github.com/litmuschaos/litmus/issues/5338
+
 ### Antrea
 
 #### Compare Antrea BPF generation for PacketCapture to tcpdump / libpcap
@@ -29,6 +41,60 @@
   - Antonin Bas (@antoninbas, antonin.bas@gmail.com)
   - Hang Yan (@hangyan, hang.yan@hotmail.com)
 - Upstream Issue: https://github.com/antrea-io/antrea/issues/7701
+
+### Cilium
+
+#### Cilium Project Pillar Pages
+
+- Description: cilium.io could benefit from SEO pillar pages that capture higher level problems that people will search for. Each page should deep dive into a comprehensive overview of the topic and contain high quality architectural images and diagrams that will also be discovered in search. These pages will capture high-intent search traffic and guide users from "Curious" to "Installed."
+- Expected Outcome: 8 pillar pages with content and images deployed on the website
+- Recommended Skills: Markdown, Figma, Writing
+- Mentor(s):
+  - Bill Mulligan (@xmulligan, bill@isovalent.com)
+- Upstream Issue: https://github.com/cilium/cilium.io/issues/841
+
+### Fluid
+
+#### Design and implement a CLI tool to help easily use Fluid
+
+- Description: Fluid manages Kubernetes resources (Statefulsets, PersistentVolumeClaims & PersistentVolume, etc.) under two Fluid custom resources CR called `Dataset` and `Runtime`. Given a pair of Dataset and Runtime CR, users may want to inspect the underlying resources, check their status and diagnose which part is going wrong. A CLI tool (e.g. a kubectl plugin) for Fluid would be a straightforward way for Fluid's users to easily get such information.
+
+- Expected Outcome:
+  - Design and implement a CLI tool for Fluid
+  - Support `inspect` subcommand: list resource status given a Fluid Dataset CR.
+  - Support `diagnose` subcommand: collect related information (e.g. logs, pod status, etc.) to help diagnose what's going wrong.
+  - Implement a framework to diagnose Fluid with LLM/AI. (The collected information can be put into the context of an AI inference request)
+
+- Recommended Skills: Fluid, Go, CLI tool development, LangChain(or other alternative LLM frameworks)
+
+- Mentor(s):
+  - Zhihao Xu (@TrafalgarZZZ， [trafalgarz@outlook.com](mailto:trafalgarz@outlook.com))
+  - Yang Che (@cheyang, [cheyang52@gmail.com](mailto:cheyang52@gmail.com))
+
+#### Unify and Modernize Fluid’s Unit Testing Framework and enhance testing coverage
+
+- Description: To enhance code quality, maintainability, and developer experience, Fluid plans to migrate its unit testing framework from Testify to Ginkgo + Gomega—a more expressive and behavior-driven testing stack widely adopted in the Go ecosystem. Concurrently, we aim to significantly improve unit test (UT) coverage, raising it from the current 57% to at least 75%, thereby reducing regression risks and strengthening overall system reliability
+- Expected Outcome: 
+   - Deliver comprehensive migration guidelines, coding best practices, and hands-on team training for Ginkgo + Gomega adoption.
+   - Achieve a measurable increase in unit test coverage—from 57% to 75%—across core modules of the Fluid codebase.
+- Recommended Skills:  Fluid, Go, unit testing frameworks (gomonkey, ginkgo, gomega, testify)
+- Mentor(s):
+   - Zhihao Xu (@TrafalgarZZZ， [trafalgarz@outlook.com](mailto:trafalgarz@outlook.com))
+   - Yang Che (@cheyang, [cheyang52@gmail.com](mailto:cheyang52@gmail.com))
+- Upstream Issues: https://github.com/fluid-cloudnative/fluid/issues/5407
+
+#### Extend Cache Runtime Interface to Support Full Data Lifecycle and In-Place Operations
+
+- Description：Fluid’s existing Generic Cache Runtime interface will be extended to support the complete lifecycle of data operations, including data loading, data processing workflows, and cache-aware data mutations. Additionally, the interface will be enhanced to enable in-place cache upgrades and in-place cache rebuilds—allowing runtime updates and recovery without disrupting workloads or requiring dataset re-provisioning.
+- Expected Outcomes:
+  - Extended Cache Runtime interface covering data load, data operation lifecycle, and state transitions.
+  - Working reference adapters for Curvine and Alluxio
+  - Support for in-place upgrade (e.g., engine version update) and in-place cache rebuild (e.g., after node failure or config change).
+- Recommended Skills:  Fluid, Go, kubernetes operator development
+- Mentor(s):
+   - Tongyu Guo (@Syspretor，[guotongyu.gty@alibaba-inc.com](mailto:guotongyu.gty@alibaba-inc.com))
+   - Yang Che (@cheyang, [cheyang52@gmail.com](mailto:cheyang52@gmail.com))
+- Upstream Issues: https://github.com/fluid-cloudnative/fluid/issues/5412
 
 ### Jaeger
 
@@ -101,11 +167,28 @@
 - Recommended Skills: Kubernetes deployment and troubleshooting, strong technical writing, Markdown-based documentation tools (Docusaurus/Nextra), user-centric documentation design video, DevOps or DevRel background a plus
 - Mentor(s):  
   - Shivam Kumar (@btwshivam, shivam200446@gmail.com)
-  - Rupam Manna (@Rupam-It, mannarupam3@gmail.com)
   - Rishi Mondal (@MAVRICK-1, mavrickrishi@gmail.com)
+  - Saumya Kumar (@oksaumya, saumyakr2006@gmail.com)
   - Nupur Shivani (@Nupurshivani, nupurjha.me@gmail.com)
   - Andy Anderson (@clubanderson, andy@clubanderson.com)
 - Upstream Issue: https://github.com/kubestellar/kubestellar/issues/3521
+
+#### Integration and Ecosystem Development Specialist
+
+- Description: Reduce adoption friction by building integrations between KubeStellar and popular Kubernetes ecosystem tools. The mentee will survey early users to identify integration priorities, design integration architectures, develop working integrations with tools like GitOps platforms, Terraform, CI/CD systems, or monitoring solutions, create comprehensive documentation and examples, and validate integrations with real users. This program emphasizes software development, API integration, understanding ecosystem tools, and creating seamless user experiences.
+
+- Expected Outcome: 2 production-ready integrations with popular Kubernetes tools, Integration documentation with clear setup guides for each, 2 demo videos demonstrating integration value and setup, Sample implementations and templates for common scenarios, 3 users actively adopting each integration, Submissions to relevant tool marketplaces where applicable, Integration maintenance guide for ongoing support, User feedback on integration quality and usefulness, User engagement: 6 GitHub issues filed by integration users, 4 PRs or PR reviews contributed by integration users
+
+- Recommended Skills: Strong programming skills (Go preferred), Experience with GitOps/CI/CD/infrastructure tools, API integration and software development experience, Understanding of Kubernetes ecosystem and tooling, Technical documentation writing, Open source contribution experience helpful
+
+- Mentor(s): 
+  - Rishi Mondal (@MAVRICK-1, mavrickrishi@gmail.com)
+  - Andy Anderson (@clubanderson, andy@clubanderson.com) 
+  - Shivam Kumar (@btwshivam, shivam200446@gmail.com)
+  - Naman Jain (@naman9271, namanjain9271@gmail.com)
+  - Onkar Shelke (@onkar717, onkarwork2234@gmail.com)
+ 
+- Upstream Issue: https://github.com/kubestellar/kubestellar/issues/3501
 
 ### OpenCost
 
@@ -184,6 +267,111 @@
   - Victoria Nduka (@nwanduka, ndukavictoria7@gmail.com)
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/17823
 
+### Volcano
+
+#### Add Volcano to Headlamp: Job and Queue Management UI
+
+- Description:
+  Volcano is a batch scheduling system for Kubernetes. This project will create a Headlamp plugin that adds first-class UI support for Volcano resources and workflows. The plugin will help users discover, inspect, and manage Volcano objects (e.g., queues, jobs, podgroups) directly inside Headlamp, making batch/HPC-style scheduling easier to operate from a Kubernetes UI. The idea is aligned with maintainer interest in a Volcano-focused Headlamp plugin. 
+
+- Expected Outcome:
+  - A working Headlamp plugin that can list and display key Volcano CRDs (e.g., Queue, Job, PodGroup) with meaningful status and relationships. Relevant Volcano related metrics displayed (on map and overview/detail pages).
+  - Detail pages for Volcano resources with common actions (where appropriate) such as viewing events, related pods, and logs.
+  - UX that fits Headlamp’s plugin patterns (navigation, list/detail views, and resource integration) and is packaged in a way consistent with the Headlamp plugin ecosystem. [1](https://github.com/headlamp-k8s/plugins), [2](https://headlamp.dev/docs/latest/development/plugins/)
+  - Documentation covering installation, development workflow, and how to test against a cluster with Volcano installed.
+  - Blog post on Kubernetes Blog about the project
+
+- Recommended Skills:
+  - TypeScript + React 
+  - (Optional) Headlamp UI/plugin development, or other open source development
+  - (Optional) Kubernetes fundamentals (CRDs, controllers, RBAC)
+  - (Optional) Familiarity with Volcano concepts (queues, batch scheduling semantics)
+
+- Mentor(s):
+  - Santhosh Nagaraj (@yolossn, sannagaraj@microsoft.com)
+  - Rene Dudfield (@illume, renedudfield@microsoft.com)
+  - Ashu Ghildiyal (@ashu8912, ashu.ghildiyal@microsoft.com)
+  - Jesse Stutler (@JesseStutler, jessestutler97@gmail.com)
+
+- Upstream Issue:
+  https://github.com/kubernetes-sigs/headlamp/issues/4359
+
+#### Volcano Documentation & Website Revamp with Docusaurus
+- Description: The Volcano project currently uses Hugo for building its official website. However, current Hugo version of the website is pretty old and lacks modern features and flexibility, 
+especially it is difficult to extend styles such as secondary menus, and there are problems such as invalid rendering of new markdown syntax. Docusaurus is a modern documentation framework that provides better support for versioning, localization, and theming.
+This mentorship focuses on modernizing the Volcano website by migrating it to Docusaurus, improving documentation structure, maintainability, and overall user experience. 
+The project will involve replicating and enhancing the existing theme, restructuring documentation, improving navigation, and aligning the site with CNCF documentation best practices. 
+The mentorship will also explore long-term maintainability and contributor-friendliness of the documentation workflow, especially to ensure that the documentation in the Volcano website is automatically synchronized with the documentation in Volcano's other code repos, 
+using some automated tools like agents to keep the Volcano website up-to-date.
+- Expected Outcome:
+  - Successful migration of the Volcano website from Hugo to Docusaurus
+  - Improved documentation structure, navigation, and UX
+  - A maintainable and contributor-friendly documentation setup
+  - Clear contribution guidelines for future documentation updates
+  - Automated synchronization of documentation between the Volcano website and other code repositories.
+- Recommended Skills:
+  - Basic knowledge of JavaScript/TypeScript
+  - Familiarity with React (preferred)
+  - Experience with static site generators (Docusaurus/Hugo preferred)
+  - Markdown and documentation best practices
+  - Git and GitHub workflow
+  - Basic understanding of Kubernetes and Volcano concepts
+- Mentor(s):
+  - Jesse Stutler (@JesseStutler, jessestutler97@gmail.com)
+  - Kuldeep (@de6p, de6p97@gmail.com)
+- Upstream Issue:
+  - https://github.com/volcano-sh/website/issues/398
+  - https://github.com/volcano-sh/website/issues/427
+  - https://github.com/volcano-sh/website/issues/425
+
+#### E2E Test Suite for Volcano-global
+- Description: Volcano-global is a multi-cluster scheduling project designed for cross-cluster resource management. 
+Currently, the project lacks a comprehensive end-to-end (e2e) test suite to ensure stability across complex multi-cluster environments. 
+This project aims to build a reproducible e2e test framework using Ginkgo and Kind, ensure each feature of Volcano-global is covered by test cases.
+- Expected Outcome:
+    - A functional e2e test framework integrated with GitHub Actions workflows.
+    - Scripts for automated deployment of Volcano-global and bootstrapping of Karmada multi-cluster environments.
+    - Test cases covering key scenarios: resource quota & priority, cross-cluster vcjob scheduling, data dependency aware scheduling, and hyperjob scheduling.
+    - Comprehensive documentation, including test design docs and guidelines for extending e2e tests in the future.
+- Recommended Skills:
+    - Familiarity with Kubernetes concepts.
+    - Understanding of Karmada and Volcano-global.
+    - Ability to write e2e test cases using testing frameworks like Ginkgo.
+    - Proficiency with kind and kubectl.
+    - Experience with writing Workflows (CI/CD) and Makefiles.
+- Mentor(s):
+    - Jesse Stutler (@JesseStutler, jessestutler97@gmail.com)
+    - FanXu (@fx147, 1473623795@qq.com)
+- Upstream Issue:
+    - https://github.com/volcano-sh/volcano-global/issues/35
+
+#### E2E Test Suite for Volcano Agent Scheduling
+- Description: Volcano has introduced Agent Scheduling feature that supports fast scheduling for AI agent workloads. This includes ShardingController for shard management, agent scheduler for agent workloads scheduling, and enhanced existing Volcano batch scheduler with sharding support to coordinated scheduling with agent scheduler. To ensure correctness and stability of this new scheduling mechanism, we need to build a comprehensive end-to-end (e2e) test suite. Test cases should cover key scenarios including shard creation, node assignment across shards, agent scheduler scheduling in different sharding modes, etc.
+
+- Expected Outcome:
+    - A comprehensive e2e test suite using Ginkgo framework covering all agent scheduling scenarios.
+    - Test cases for ShardingController: shard creation, node assignment, node addition/removal, configuration changes, and node stability across shards. 
+    - Test cases for Agent Scheduler: scheduling in no-sharding, hard-sharding, and soft-sharding modes, shard reconfiguration, and multi-worker scenarios.
+    - Test cases for Volcano scheduler with sharding: validation of allocate, preempt, reclaim, and backfill actions under different sharding configurations.
+    - Integration with CI/CD workflows for automated testing.
+    - Comprehensive documentation including test design, coverage reports, and guidelines for extending tests.
+- Recommended Skills:
+    - Strong understanding of Kubernetes concepts and Volcano scheduler architecture.
+    - Familiarity with Volcano agent scheduling design and shard management mechanisms.
+    - Proficiency in writing e2e test cases using Ginkgo testing framework.
+    - Experience with Go programming language.
+    - Knowledge of kubectl and Kubernetes testing best practices.
+    - Experience with CI/CD workflows and test automation.
+- Mentor(s):
+    - Jesse Stutler (@JesseStutler, jessestutler97@gmail.com)
+    - Qi Min (@qi-min, qim_34@163.com)
+- Upstream Issue:
+    - https://github.com/volcano-sh/volcano/issues/4881
+    - https://github.com/volcano-sh/volcano/issues/4882
+    - https://github.com/volcano-sh/volcano/issues/4883
+- Background:
+    - https://github.com/volcano-sh/volcano/issues/4722
+
 ### WasmEdge
 
 #### Extend sub-command of WasmEdge CLI tool
@@ -235,6 +423,28 @@
 
 ### krkn - Chaos
 
+#### Natural Language–Based Chaos Scenario Discovery
+- Description: The objective of this internship task is to design and implement a feature of the
+[`[krknctl](https://github.com/krkn-chaos/krknctl)`](https://github.com/krkn-chaos/krknctl) tool that enables users to explore the project’s functionality by submitting queries in **natural language**.
+The tool will analyze the user’s request and Identify the most relevant **chaos scenario**, if any.
+
+- Expected Outcome:
+  - A **deterministic and lightweight solution** for natural language scenario discovery.
+  - Improved robustness to vocabulary, phrasing, and semantic variations in user queries.
+  - A measurable and extensible evaluation framework to support future improvements.
+  - Clear documentation enabling future contributors to iterate on or extend the approach.
+- Recommended Skills:
+  - Python and Go programming
+  - Basic knowledge of **Natural Language Processing (NLP)**
+  - Experience with **machine learning models for text classification or similarity**
+  - Familiarity with **Docker** and containerized applications
+  - Ability to write clean, testable, and well-documented code
+- Mentor(s):
+  - Paige Patton (@paigerube14, ppatton@redhat.com)
+  - Naga Ravi Chaitanya Elluri (@chaitanyaenr, nelluri@redhat.com)
+  - Tullio Sebastiani (@tsebastiani, tsebasti@redhat.com)
+- Upstream Issue: https://github.com/krkn-chaos/krkn/issues/1051
+
 #### Enhancing Krkn-AI Result Analysis with Interactive Visualization and Insights
 
 - Description: [Krkn-AI](https://github.com/krkn-chaos/krkn-ai) generates rich but complex experiment outputs (JSON, CSV, YAML, graphs, and tables) capturing fitness scores, SLOs, health checks, and other metrics, which can be difficult for engineers to interpret and compare across experiments. Although recent work using LLMs to produce high-level textual summaries is helpful, text alone limits deeper exploration. This feature change proposes building an interactive analysis and visualization layer for Krkn-AI that transforms raw chaos experiment data into intuitive, explorable visual representations, enabling users to quickly understand system behavior, detect anomalies, and focus on the most impactful failure signals.
@@ -244,3 +454,93 @@
   - Rahul Shetty (@rh-rahulshetty , rashetty@redhat.com) 
   - Naga Ravi Chaitanya Elluri (@chaitanyaenr , nelluri@redhat.com)
 - Upstream Issue: https://github.com/krkn-chaos/krkn-ai/issues/74
+
+
+### OpenKruise
+
+#### OpenKruise: Promote API Version to v1beta1 part 2
+
+- Description: Many advance workloads in OpenKruise are widely used in production, however the API version of the workload is still in v1alpha1. The goal is to promote the API version of mostly used and mature workload to v1beta1 and optimize the CRD fields for better clarity. This is a follow-up of [previous project](https://mentorship.lfx.linuxfoundation.org/project/7426f5d7-1879-46cc-a933-880ee790d0eb), and target API is the advance operation and resilience policy.
+- Expected Outcome:
+  1. API definition of v1beta1 resources and the implementation for conversion webhook to convert v1alpha1 resource to v1beta1 resource
+  2. Unit and integration tests
+  3. Documentation for the usage of v1beta1 resource in the OpenKruise website
+- Recommended Skills: Golang, kubernetes operator development
+- Mentor(s):
+  - Zhang Zhen (@furykerry, furykerry@gmail.com)
+  - Zhong Tianyun (@AiRanthem, airanthem666@gmail.com)
+- Upstream Issue:
+  - https://github.com/openkruise/kruise/issues/2287
+
+
+#### OpenKruise: Progressive Configmap Inplace Reloading
+
+- Description: Native kubernetes configmap can reload dynamically but lack progressive rollout capability. OpenKruise community had comes up with the [design of new workload](https://github.com/openkruise/kruise/pull/1948) for configmap rolling update, and the [initial implementation](https://github.com/openkruise/kruise/pull/2149) has been running in one end user environment. However the current implementation is not generic enough and had many limitations. The goal is to complete the implementation in a more generic way and to support many configuration reloading strategies.
+- Expected Outcome:
+  1. The code for dynamic configmap rollout controller (ConfigMapSet)
+  2. Unit and integration tests
+  3. Documentation for the usage of ConfigMapSet
+- Recommended Skills: Golang, kubernetes operator development
+- Mentor(s):
+  - Yuxing Yuan(@ABNER-1, abner199709@gmail.com)
+  - Hao Wu(@Placeboy, psychoogopher@gmail.com) 
+- Upstream Issue:
+  - https://github.com/openkruise/kruise/issues/2288
+
+#### OpenKruise: Rolling update for agent sandbox warm pool
+
+- Description: OpenKruise Agents is a new sub-project of OpenKruise for agent sandbox lifecycle management. Warm pool is a key technology of OpenKruise Agents to ensure the fast sandbox provision. However existing warm pool lacks rolling update capability which makes the warm pool hard to maintain. The goal is to design and implement the basic rolling update capability for SandboxSet, the CRD for sandbox warm pool.
+- Expected Outcome:
+  1. The code for warm pool rolling update in SandboxSet
+  2. Unit and integration tests
+  3. Documentation for the usage of rolling update in SandboxSet
+- Recommended Skills: Golang, kubernetes operator development
+- Mentor(s):
+  - Zhao Mingshan (@zmberg, berg.zms@gmail.com)
+  - Zhang Jinghui (@sivanzcw, sivanzcwzhang@gmail.com)
+- Upstream Issue:
+  - https://github.com/openkruise/agents/issues/76
+
+#### KruiseGame Cloud-Hosted Version Development
+
+- Description: OKG has attracted many large game companies to embrace cloud-native transformation. However, for many small and medium-sized game companies, they are not familiar with the container and Kubernetes ecosystem. Due to their smaller team sizes, they have relatively weak infrastructure management capabilities. To democratize cloud-native technology for more game companies, OKG plans to launch a cloud-hosted version. Users can deploy the runtime environment with one click and complete game service integration based on the official SDK. This will reduce the complexity of using infrastructure for game companies and adapt to multi-cloud environments.
+
+- Expected Outcome:
+  - Cloud Provider Abstraction Layer Design and Implementation
+  - One-Click Deployment Tool/CLI Development
+  - Official Game Service SDK Development
+  - Multi-Cloud Environment Adaptation (AWS, Alibaba Cloud, etc.)
+  - Simplified Configuration Management System
+  - Comprehensive Documentation and Integration Guides
+
+- Recommended Skills:
+  - Golang
+  - Kubernetes
+  - Cloud Provider SDKs (AWS/Alibaba Cloud)
+  - Infrastructure as Code (Terraform/Pulumi)
+
+- Mentor:
+  - Qiuyang Liu (@chrisliu1995, [chrisliu1995@163.com](mailto:chrisliu1995@163.com))
+  - Zhongwei Liu (@ringtail, [zhongwei.lzw@alibaba-inc.com](mailto:zhongwei.lzw@alibaba-inc.com))
+
+- Upstream Issue:
+  - https://github.com/openkruise/kruise-game/issues/304
+
+#### kube-burner
+
+##### Enhancements around k8s performance testing
+
+- Description:
+  We intend to get some help around open issues in the repository and also come up with new use cases and scenarios for performance testing any kubernetes distribution. We love new perspectives and are always open to new ideas alongside what we have as tracked work in github issues. 
+
+  For the purpose of this mentorship program term, we have created an umbrella issue that outlines some of the critical enhancements to the project.
+- Expected Outcome:
+  To knock down some of open critical issues and bring in new perspective to the project. There are no restrictions while working with issues/enhancements.
+- Recommended Skills:
+  - Golang
+  - Kubernetes
+  - Cloud Platforms
+- Mentor(s):
+  -  Vishnu Challa (@vishnuchalla, vchalla@redhat.com) 
+  -  Raul Sevilla (@rsevilla87, rsevilla@redhat.com)
+- Upstream Issues: (https://github.com/kube-burner/kube-burner/issues/1079)
