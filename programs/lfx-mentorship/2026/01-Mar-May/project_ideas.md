@@ -703,3 +703,32 @@ The tool will analyze the user’s request and Identify the most relevant **chao
   -  Vishnu Challa (@vishnuchalla, vchalla@redhat.com) 
   -  Raul Sevilla (@rsevilla87, rsevilla@redhat.com)
 - Upstream Issues: (https://github.com/kube-burner/kube-burner/issues/1079)
+
+
+### Cartography
+
+#### Model and Parse AWS IAM Policy Conditions for Accurate Permission Analysis
+
+- Description:
+  [Cartography](https://github.com/cartography-cncf/cartography) currently models AWS IAM policies and their relationships to principals and resources, but does not parse or represent IAM policy _conditions_. This means permission analysis overstates effective access: a policy that only allows access from a specific IP range or requires MFA is treated the same as an unrestricted policy.
+  
+  This project will extend Cartography's IAM module to parse common condition keys (e.g., `aws:SourceIp`, `aws:MultiFactorAuthPresent`, `aws:PrincipalOrgID`, `aws:PrincipalTag`) and model them in the graph, enabling downstream tools to build more accurate attack paths and permission analysis.
+
+- Expected Outcome:
+  - Work with mentor to design way to model IAM policy conditions, including nodes/properties for condition operators and keys
+  - Parse IAM policy condition blocks covering the top 10 most common condition keys
+  - Update relationships between IAM policies and principals/resources that surface condition constraints
+  - Unit and integration tests with realistic IAM policies
+  - Documentation and example queries demonstrating condition-aware permission analysis
+
+- Recommended Skills:
+  - Python
+  - AWS IAM policies and condition grammar (or willingness to learn)
+  - Neo4j / graph data modeling (or willingness to learn)
+  - Familiarity with Cartography's codebase (helpful but not required)
+
+- Mentor(s):
+  - Alex Chantavy (@achantavy, alex@subimage.io)
+
+- Upstream Issue:
+  - https://github.com/cartography-cncf/cartography/issues/2250
