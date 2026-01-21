@@ -604,6 +604,51 @@ The tool will analyze the user’s request and Identify the most relevant **chao
   - Tullio Sebastiani (@tsebastiani, tsebasti@redhat.com)
 - Upstream Issue: https://github.com/krkn-chaos/krkn/issues/1051
 
+### volcano/kthena
+
+#### E2E Test Suite for Kthena
+
+- Description: kthena now has components such as router, ModelServing controller, etc. However, it lacks necessary e2e test coverage.
+- Expected Outcome:
+  - 1.E2E Test of modelserving Router and modelBooster.
+  - 2.Write an E2E test for each of the three on GitHub workflows. Run them separately.
+  - 3.Developer Guide of How to run and expend E2E test 
+- Recommended Skills: go, kind, docker
+- Mentor(s):
+  - Zengzeng Yao(@YaoZengzeng, yaozengzeng@huawei.com), 
+  - ZhenCheng Li(@LiZhenCheng9527, lizhencheng6@huawei.com),
+- Upstream Issue: https://github.com/volcano-sh/kthena/issues/662
+
+#### Optimising Kthena's autoscaler
+
+- Description: Kthena already possesses an autoscaler, but lacks ecosystem integration with peripherals such as HPA and KEDA. Consequently, users may harbour reservations when employing it. Therefore, there is a desire to optimise Kthena's autoscaler.
+- Expected outcome:
+  - 1.The ecological integration of HPA and KEDA.
+  - 2.Scaling capability of replicas for servingGroup and role
+  - 3.Transition of HPA configuration
+  - 4.UserGuide and Proposal
+  - 5.Unit test and e2e test for the new feature
+- Recommended Skills: go, kind, docker, HPA
+- Mentor(s):
+  - ZhenCheng Li(@LiZhenCheng9527, lizhencheng6@huawei.com),
+  - Zhonghu xu(@hzxuzhonghu, zhhxu2011@gmail.com),
+- Upstream Issue: https://github.com/volcano-sh/kthena/issues/663
+
+### Volcano/AgentCube
+
+#### Establishing agentCube's authentication and authorisation capabilities
+
+- Description: AgentCube is a proposed subproject in the Volcano community. It is designed to extend Volcano's capabilities to natively support and manage AI Agent workloads. At present, agentCube lacks authentication and authorisation capabilities. Therefore, it is hoped that basic authentication and authorisation capabilities for request identities can be established.
+- Expected Outcome:
+  - 1. The ability to authenticate and authorise requests. Such as Token, JWT, OAuth, Cookie...
+  - 2. Documentation containing the proposal and user guide
+  - 3. Unit test and E2E test for the feature
+- Recommended Skills: go, kind, docker, authorization and authentication
+- Mentor(s):
+  - Zengzeng Yao(@YaoZengzeng, yaozengzeng@huawei.com), 
+  - Zhonghu xu(@hzxuzhonghu, zhhxu2011@gmail.com),
+- Upstream Issue: https://github.com/volcano-sh/agentcube/issues/156
+
 #### Enhancing Krkn-AI Result Analysis with Interactive Visualization and Insights
 
 - Description: [Krkn-AI](https://github.com/krkn-chaos/krkn-ai) generates rich but complex experiment outputs (JSON, CSV, YAML, graphs, and tables) capturing fitness scores, SLOs, health checks, and other metrics, which can be difficult for engineers to interpret and compare across experiments. Although recent work using LLMs to produce high-level textual summaries is helpful, text alone limits deeper exploration. This feature change proposes building an interactive analysis and visualization layer for Krkn-AI that transforms raw chaos experiment data into intuitive, explorable visual representations, enabling users to quickly understand system behavior, detect anomalies, and focus on the most impactful failure signals.
