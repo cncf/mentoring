@@ -18,6 +18,18 @@
 
 ## Proposed Project ideas
 
+### LitmusChaos
+
+#### Add Prometheus Metrics to LitmusChaos Control Plane Service 
+
+- Description: Expose service health, API observability and experiment execution data as prometheus metrics in the chaos manager/litmusportal server
+- Expected Outcome: Public Grafana dashboard for LitmusChaos observability
+- Recommended Skills: Golang, Kubernetes, Prometheus, Chaos Engineering
+- Mentor(s):
+  - Shubham Chaudhary (@ispeakc0de, shubham.chaudhary@harness.io)
+  - Adarsh Kumar (@Adarshkumar14, adarsh.kumar@harness.io)
+- Upstream Issue: https://github.com/litmuschaos/litmus/issues/5338
+
 ### Antrea
 
 #### Compare Antrea BPF generation for PacketCapture to tcpdump / libpcap
@@ -41,6 +53,49 @@
   - Bill Mulligan (@xmulligan, bill@isovalent.com)
 - Upstream Issue: https://github.com/cilium/cilium.io/issues/841
 
+### Fluid
+
+#### Design and implement a CLI tool to help easily use Fluid
+
+- Description: Fluid manages Kubernetes resources (Statefulsets, PersistentVolumeClaims & PersistentVolume, etc.) under two Fluid custom resources CR called `Dataset` and `Runtime`. Given a pair of Dataset and Runtime CR, users may want to inspect the underlying resources, check their status and diagnose which part is going wrong. A CLI tool (e.g. a kubectl plugin) for Fluid would be a straightforward way for Fluid's users to easily get such information.
+
+- Expected Outcome:
+  - Design and implement a CLI tool for Fluid
+  - Support `inspect` subcommand: list resource status given a Fluid Dataset CR.
+  - Support `diagnose` subcommand: collect related information (e.g. logs, pod status, etc.) to help diagnose what's going wrong.
+  - Implement a framework to diagnose Fluid with LLM/AI. (The collected information can be put into the context of an AI inference request)
+
+- Recommended Skills: Fluid, Go, CLI tool development, LangChain(or other alternative LLM frameworks)
+
+- Mentor(s):
+  - Zhihao Xu (@TrafalgarZZZ， [trafalgarz@outlook.com](mailto:trafalgarz@outlook.com))
+  - Yang Che (@cheyang, [cheyang52@gmail.com](mailto:cheyang52@gmail.com))
+
+#### Unify and Modernize Fluid’s Unit Testing Framework and enhance testing coverage
+
+- Description: To enhance code quality, maintainability, and developer experience, Fluid plans to migrate its unit testing framework from Testify to Ginkgo + Gomega—a more expressive and behavior-driven testing stack widely adopted in the Go ecosystem. Concurrently, we aim to significantly improve unit test (UT) coverage, raising it from the current 57% to at least 75%, thereby reducing regression risks and strengthening overall system reliability
+- Expected Outcome: 
+   - Deliver comprehensive migration guidelines, coding best practices, and hands-on team training for Ginkgo + Gomega adoption.
+   - Achieve a measurable increase in unit test coverage—from 57% to 75%—across core modules of the Fluid codebase.
+- Recommended Skills:  Fluid, Go, unit testing frameworks (gomonkey, ginkgo, gomega, testify)
+- Mentor(s):
+   - Zhihao Xu (@TrafalgarZZZ， [trafalgarz@outlook.com](mailto:trafalgarz@outlook.com))
+   - Yang Che (@cheyang, [cheyang52@gmail.com](mailto:cheyang52@gmail.com))
+- Upstream Issues: https://github.com/fluid-cloudnative/fluid/issues/5407
+
+#### Extend Cache Runtime Interface to Support Full Data Lifecycle and In-Place Operations
+
+- Description：Fluid’s existing Generic Cache Runtime interface will be extended to support the complete lifecycle of data operations, including data loading, data processing workflows, and cache-aware data mutations. Additionally, the interface will be enhanced to enable in-place cache upgrades and in-place cache rebuilds—allowing runtime updates and recovery without disrupting workloads or requiring dataset re-provisioning.
+- Expected Outcomes:
+  - Extended Cache Runtime interface covering data load, data operation lifecycle, and state transitions.
+  - Working reference adapters for Curvine and Alluxio
+  - Support for in-place upgrade (e.g., engine version update) and in-place cache rebuild (e.g., after node failure or config change).
+- Recommended Skills:  Fluid, Go, kubernetes operator development
+- Mentor(s):
+   - Tongyu Guo (@Syspretor，[guotongyu.gty@alibaba-inc.com](mailto:guotongyu.gty@alibaba-inc.com))
+   - Yang Che (@cheyang, [cheyang52@gmail.com](mailto:cheyang52@gmail.com))
+- Upstream Issues: https://github.com/fluid-cloudnative/fluid/issues/5412
+
 ### Jaeger
 
 #### AI-Powered Trace Analysis with Local LLM Support
@@ -62,6 +117,133 @@
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
 - Upstream Issue: https://github.com/jaegertracing/jaeger-ui/issues/3313
+
+### Karmada
+
+#### Protect Karmada Component Flags from Unexpected Changes
+
+- Description: The Karmada project consists of several components (e.g., controller-manager, scheduler, karmada-search, etc.), each accepting various command-line flags for configuration. These flags come from multiple sources: third-party dependencies (e.g., Kubernetes, controller-runtime) and custom flags defined by Karmada itself. During dependency upgrades or internal refactoring, flags can be unexpectedly added, removed, or modified, potentially impacting users who rely on specific configurations. This project aims to create comprehensive documentation and tooling to track and document all flags for Karmada's maintained components, establishing a baseline to detect and manage flag changes carefully.
+- Expected Outcome: 
+  - Comprehensive flag documentation for all Karmada components (controller-manager, scheduler, karmada-search, webhook, aggregated-apiserver, descheduler, metrics-adapter, scheduler-estimator)
+  - Automated flag extraction and documentation generation tool
+  - CI/CD pipeline integration to detect and alert on flag changes
+  - Documentation of flag lifecycle management (deprecation, removal)
+- Recommended Skills: 
+  - Go programming language
+  - Kubernetes and its flag management patterns
+  - Bash/shell scripting
+  - CI/CD systems (GitHub Actions)
+  - Documentation tools and best practices
+- Mentor(s):
+  - Zhen Chang (@XiShanYongYe-Chang, changzhen5@huawei.com)
+  - Hongcai Ren (@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: https://github.com/karmada-io/community/issues/170#issuecomment-3728029454
+
+#### Enhance Karmada's Quick Start Experience and Incorporate macOS Support
+
+- Description: The initial interaction for many users with a project often begins with its "Quick Start" guide. Ensuring this guide is of high quality and up-to-date is crucial. Currently, the community offers several quick start methods, including a one-click setup script (hack/local-up-karmada.sh), installation tools such as Helm, karmadactl, and the operator, alongside learning tutorials on Killercoda.
+Although the community's CI effectively maintains these installation methods, it lacks support for different operating systems, notably macOS. Furthermore, some Killercoda tutorials are outdated and do not reflect the latest features and best practices. This project aims to ease the entry barrier for new users by enhancing the quick start process, ensuring cross-platform compatibility, and updating educational content.
+- Expected Outcome:
+  - Verify the feasibility of installing hack/local-up-karmada.sh on macOS environments, including both macOS ARM and Intel and address any issues that arise.
+  - Implement a new CI workflow in GitHub Actions to test Karmada's installation and basic functionalities on macOS. GitHub Actions can select specific environments through runs-on, covering both macOS ARM and Intel.
+  - Revise existing outdated scenarios on Killercoda and develop valuable new scenarios to guide users through current features. This includes:
+    - Extracting common functions from various scenarios to reduce code duplication.
+    - Updating the course information of existing scenarios by correcting outdated content and optimizing the material to enhance learning outcomes.
+    - Adding new scenarios, such as:
+      - A tutorial on FHPA usage.
+      - An application-level failover guide.
+      - Multi-component workload scheduling (support for workloads common in AI and big data).
+- Recommended Skills:
+  - Go programming language
+  - Familiarity with macOS
+  - Bash/shell scripting
+  - CI/CD systems (e.g., GitHub Actions)
+  - Documentation tools and best practices
+- Mentor(s): 
+  - Zhuang Zhang (@zhzhuang-zju, m17799853869@163.com)
+  - Hongcai Ren (@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: https://github.com/karmada-io/community/issues/170#issuecomment-3736732294
+
+#### OmniControl for Karmada Dashboard
+
+- Description: We have already implemented management for all types of resources on the control plane and for particial resources on member clusters in the Karmada Dashboard. However, resource management is currently atomic, and the relationships between resources are not presented intuitively. As a result, users may find it difficult to understand and manage relationship across resources.
+For example:
+1. On the control plane, after a user creates a ResourceTemplate, it is not easy to tell which Policy matched that ResourceTemplate and then generated the corresponding ResourceBinding and subsequent Work resources.
+2. Across the control plane and member clusters plane, users cannot easily see which member clusters a ResourceTemplate has been propagated to, or the status of the distributed resources in each member cluster.
+Therefore, we aim to provide a unified management and control capability (OmniControl). From the perspective of ResourceTemplate, users should be able to view the resource’s status on both the control plane and member clusters plane, building on the existing atomic capabilities. This will help users understand the end-to-end status of resources more intuitively and quickly identify and resolve issues when propagation or distribution failures occur.
+- Expected Outcome:
+  - Comprehensive design and API documentation
+  - Topology visualization of Karmada core resources and Kubernetes resources ([Karmada architecture diagram](https://karmada.io/docs/core-concepts/architecture/))
+  - Control-plane resource integration: users can view details of policy resources and multi-cloud resources by clicking the corresponding nodes in the topology graph (read-only)
+  - Member-cluster resource integration: users can view details of Kubernetes resources (including workloads, configs, and services) with the same UX
+  - A demo showcasing abnormal resource distribution cases (e.g., insufficient GPU resources; one example is sufficient)
+- Recommended Skills:
+  - Go
+  - Kubernetes
+  - React
+  - CI/CD systems (GitHub Actions)
+  - Documentation tools and best practices
+- Mentor(s): 
+  - Wenjiang Ding (@warjiang, 1096409085@qq.com)
+  - Hongcai Ren (@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: https://github.com/karmada-io/dashboard/issues/227
+
+### kgateway 
+
+#### Add support for Chaos Engineering/Fault Injection
+
+- Description: This project focuses on adding fault injection support in kgateway, enabling platform operators and developers to test system resiliency under controlled failure scenarios. Fault injection allows teams to proactively identify weaknesses by introducing network latency, service errors, or resource constraints. This project will involve designing a configuration API for specifying fault injection rules, implementing support in the kgateway plugin framework, integrating with Envoy’s native fault injection capabilities, and creating documentation and examples to demonstrate practical use cases in Kubernetes environments.
+
+Expected Outcome:
+- Create a design doc outlining the proposed API for fault injection and present at a community meeting
+- Implement the fault injection plugin in kgateway, leveraging Envoy capabilities
+- Develop e2e tests to validate fault injection scenarios
+- Write developer-facing documentation with example configurations
+- Create blogs and tutorials demonstrating how to use Chaos Engineering in kgateway
+- Demo fault injection features during kgateway community meetings
+
+Recommended Skills:
+- Go
+- Kubernetes
+- Kubernetes Gateway API
+- Envoy
+
+Mentor(s):
+- Primary Mentor: Omar Hammami (@puertomontt, omar.hammami@solo.io)
+- Secondary Mentor: Tim Flannagan (@timflannagan, tim.flannagan@solo.io)
+
+- Upstream Issue: https://github.com/kgateway-dev/kgateway/issues/11188 
+
+#### Ecosystem Integrations & Tutorials for kgateway's AI Gateway
+
+- Description: This project focuses on creating clear, approachable, and practical documentation that shows how to integrate kgateway’s AI Gateway (agentgateway) with popular AI tools, developer UIs, and other CNCF ecosystem projects. Its aim is to make kgateway’s documentation more practical, discoverable, and reflective of real ecosystem usage, so users can better understand what’s possible and how kgateway fits into the broader AI and cloud-native landscape.
+
+Examples of integrations and tutorials include:
+- Open WebUI / OpenAI Codex / Claude Code: Step-by-step guides showing how to connect agentgateway to interactive UIs for testing, demos, and common integration patterns
+- Demonstrate how agentgateway fits into the CNCF ecosystem by integrating with tools such as:
+	- Argo Rollouts: Update the Argo Rollout Gateway API guides with the latest agentgateway example config. Create docs using Argo Rollouts with AgentgatewayBackends for LLM providers and MCP servers. 
+  - KServe: Using agentgateway as an ingress for model serving, enabling rate limiting, authentication, and observability
+  - Knative: Add a guide for setting up kgateway with agentgateway as a custom ingress gateway
+
+- Expected Outcome:
+- A series of integration guides and tutorials demonstrating how to use kgateway with AI developer tools and CNCF ecosystem projects
+- New examples, improvements, and documentation pages contributed to the kgateway documentation site
+- GitHub issues opened for usability gaps, missing documentation, and friction points discovered during hands-on testing
+- Live or recorded demo integrations presented during kgateway community meetings
+- Fun! 🎉
+
+- Recommended Skills:
+- Strong written communication skills
+- Interest in learning and exploring new projects! 
+- Basic understanding of GitHub, Markdown, and technical blogging 
+- (Bonus) Experience using any of the following: Open WebUI, OpenAI Codex, Claude Code
+- (Bonus) Experience with CNCF projects like Argo Rollouts, KServe and Knative 
+
+- Mentor(s):
+  - Primary Mentor: Nina Polshakova (@npolshakova, ninapolshakova@gmail.com)
+  - Secondary Mentor: Art Berger (@artberger, art.berger@solo.io)
+
+- Upstream Issue: https://github.com/kgateway-dev/kgateway.dev/issues/606
 
 ### Knative
 
@@ -112,8 +294,8 @@
 - Recommended Skills: Kubernetes deployment and troubleshooting, strong technical writing, Markdown-based documentation tools (Docusaurus/Nextra), user-centric documentation design video, DevOps or DevRel background a plus
 - Mentor(s):  
   - Shivam Kumar (@btwshivam, shivam200446@gmail.com)
-  - Rupam Manna (@Rupam-It, mannarupam3@gmail.com)
   - Rishi Mondal (@MAVRICK-1, mavrickrishi@gmail.com)
+  - Saumya Kumar (@oksaumya, saumyakr2006@gmail.com)
   - Nupur Shivani (@Nupurshivani, nupurjha.me@gmail.com)
   - Andy Anderson (@clubanderson, andy@clubanderson.com)
 - Upstream Issue: https://github.com/kubestellar/kubestellar/issues/3521
@@ -129,8 +311,8 @@
 - Mentor(s): 
   - Rishi Mondal (@MAVRICK-1, mavrickrishi@gmail.com)
   - Andy Anderson (@clubanderson, andy@clubanderson.com) 
-  - Kunal Dugar  (@kunal-511, kunal0204.dugar@gmail.com) 
-  - Hemanshu Baviskar (@@Per0x1de-1337, baviskarhd9@gmail.com)
+  - Shivam Kumar (@btwshivam, shivam200446@gmail.com)
+  - Naman Jain (@naman9271, namanjain9271@gmail.com)
   - Onkar Shelke (@onkar717, onkarwork2234@gmail.com)
  
 - Upstream Issue: https://github.com/kubestellar/kubestellar/issues/3501
@@ -213,6 +395,34 @@
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/17823
 
 ### Volcano
+
+#### Add Volcano to Headlamp: Job and Queue Management UI
+
+- Description:
+  Volcano is a batch scheduling system for Kubernetes. This project will create a Headlamp plugin that adds first-class UI support for Volcano resources and workflows. The plugin will help users discover, inspect, and manage Volcano objects (e.g., queues, jobs, podgroups) directly inside Headlamp, making batch/HPC-style scheduling easier to operate from a Kubernetes UI. The idea is aligned with maintainer interest in a Volcano-focused Headlamp plugin. 
+
+- Expected Outcome:
+  - A working Headlamp plugin that can list and display key Volcano CRDs (e.g., Queue, Job, PodGroup) with meaningful status and relationships. Relevant Volcano related metrics displayed (on map and overview/detail pages).
+  - Detail pages for Volcano resources with common actions (where appropriate) such as viewing events, related pods, and logs.
+  - UX that fits Headlamp’s plugin patterns (navigation, list/detail views, and resource integration) and is packaged in a way consistent with the Headlamp plugin ecosystem. [1](https://github.com/headlamp-k8s/plugins), [2](https://headlamp.dev/docs/latest/development/plugins/)
+  - Documentation covering installation, development workflow, and how to test against a cluster with Volcano installed.
+  - Blog post on Kubernetes Blog about the project
+
+- Recommended Skills:
+  - TypeScript + React 
+  - (Optional) Headlamp UI/plugin development, or other open source development
+  - (Optional) Kubernetes fundamentals (CRDs, controllers, RBAC)
+  - (Optional) Familiarity with Volcano concepts (queues, batch scheduling semantics)
+
+- Mentor(s):
+  - Santhosh Nagaraj (@yolossn, sannagaraj@microsoft.com)
+  - Rene Dudfield (@illume, renedudfield@microsoft.com)
+  - Ashu Ghildiyal (@ashu8912, ashu.ghildiyal@microsoft.com)
+  - Jesse Stutler (@JesseStutler, jessestutler97@gmail.com)
+
+- Upstream Issue:
+  https://github.com/kubernetes-sigs/headlamp/issues/4359
+
 #### Volcano Documentation & Website Revamp with Docusaurus
 - Description: The Volcano project currently uses Hugo for building its official website. However, current Hugo version of the website is pretty old and lacks modern features and flexibility, 
 especially it is difficult to extend styles such as secondary menus, and there are problems such as invalid rendering of new markdown syntax. Docusaurus is a modern documentation framework that provides better support for versioning, localization, and theming.
@@ -289,7 +499,6 @@ This project aims to build a reproducible e2e test framework using Ginkgo and Ki
 - Background:
     - https://github.com/volcano-sh/volcano/issues/4722
 
-
 ### WasmEdge
 
 #### Extend sub-command of WasmEdge CLI tool
@@ -363,6 +572,48 @@ The tool will analyze the user’s request and Identify the most relevant **chao
   - Tullio Sebastiani (@tsebastiani, tsebasti@redhat.com)
 - Upstream Issue: https://github.com/krkn-chaos/krkn/issues/1051
 
+#### Enhancing Krkn-AI Result Analysis with Interactive Visualization and Insights
+
+- Description: [Krkn-AI](https://github.com/krkn-chaos/krkn-ai) generates rich but complex experiment outputs (JSON, CSV, YAML, graphs, and tables) capturing fitness scores, SLOs, health checks, and other metrics, which can be difficult for engineers to interpret and compare across experiments. Although recent work using LLMs to produce high-level textual summaries is helpful, text alone limits deeper exploration. This feature change proposes building an interactive analysis and visualization layer for Krkn-AI that transforms raw chaos experiment data into intuitive, explorable visual representations, enabling users to quickly understand system behavior, detect anomalies, and focus on the most impactful failure signals.
+- Expected Outcome: The outcome is to deliver a simple web-based GUI or generated report built from Krkn-AI result artifacts (JSON, CSV, YAML), featuring interactive visualizations for key metrics such as fitness scores, SLOs, and health checks, along with clear highlighting of important or abnormal results to guide users’ attention.
+- Recommended Skills: Python, Data Analysis and Visualization tools (e.g: pandas, matplotlib), Kubernetes (Basics)
+- Mentor(s):
+  - Rahul Shetty (@rh-rahulshetty , rashetty@redhat.com) 
+  - Naga Ravi Chaitanya Elluri (@chaitanyaenr , nelluri@redhat.com)
+- Upstream Issue: https://github.com/krkn-chaos/krkn-ai/issues/74
+
+
+### Harbor
+
+#### Harbor CLI
+
+- Description: Harbor CLI is the official command-line interface for Harbor container registry. This project focuses on improving CLI user experience by porting the remaining complex commands such as job service dashboard and audit logs streaming, and enhancing the release pipeline for simplicity and security.
+- Expected Outcome:
+  - Implement job service dashboard commands in CLI
+  - Add audit logs streaming functionality
+  - Improve and secure the release pipeline
+  - Enhance overall CLI usability
+- Recommended Skills: Golang, spf13/cobra
+- Mentor(s):
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
+- Upstream Issue: https://github.com/goharbor/harbor-cli/issues
+
+#### Harbor Satellite
+
+- Description: Harbor Satellite is a lightweight OCI-compliant registry designed for edge devices. This project focuses on implementing SPIFFE/SPIRE-based authentication for satellite identity management, improving the release pipeline and developer workflow, and ensuring cloud-agnostic compatibility across Kubernetes, Docker, VMs, and bare metal environments.
+- Expected Outcome:
+  - Implement SPIFFE/SPIRE authentication for satellite identity
+  - Improve release pipeline and developer workflow
+  - Validate and test deployment across Kubernetes, Docker, VMs, and bare metal
+  - Ensure edge/IoT compatibility and stability
+- Recommended Skills: Golang, Containers, SPIFFE/SPIRE, Edge Computing, OCI Spec
+- Mentor(s):
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
+- Upstream Issue: https://github.com/container-registry/harbor-satellite/issues
 
 ### OpenKruise
 
@@ -434,7 +685,6 @@ The tool will analyze the user’s request and Identify the most relevant **chao
 - Upstream Issue:
   - https://github.com/openkruise/kruise-game/issues/304
 
-
 ### PipeCD
 
 #### GCP Cloud Run plugin for Pipedv1
@@ -491,3 +741,21 @@ The tool will analyze the user’s request and Identify the most relevant **chao
 
 - Upstream Issue: https://github.com/pipe-cd/pipecd/issues/6441
 
+#### kube-burner
+
+##### Enhancements around k8s performance testing
+
+- Description:
+  We intend to get some help around open issues in the repository and also come up with new use cases and scenarios for performance testing any kubernetes distribution. We love new perspectives and are always open to new ideas alongside what we have as tracked work in github issues. 
+
+  For the purpose of this mentorship program term, we have created an umbrella issue that outlines some of the critical enhancements to the project.
+- Expected Outcome:
+  To knock down some of open critical issues and bring in new perspective to the project. There are no restrictions while working with issues/enhancements.
+- Recommended Skills:
+  - Golang
+  - Kubernetes
+  - Cloud Platforms
+- Mentor(s):
+  -  Vishnu Challa (@vishnuchalla, vchalla@redhat.com) 
+  -  Raul Sevilla (@rsevilla87, rsevilla@redhat.com)
+- Upstream Issues: (https://github.com/kube-burner/kube-burner/issues/1079)
