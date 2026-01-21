@@ -687,24 +687,25 @@ The tool will analyze the user’s request and Identify the most relevant **chao
 
 ### PipeCD
 
-#### GCP Cloud Run plugin for Pipedv1
+#### Multi-cluster Kubernetes plugin for Pipedv1
 
-- Description: PipeCD v1 - the new version based on a plugin architecture (ref: [PipeCD plugin-arch overview blog](https://pipecd.dev/blog/2024/11/28/overview-of-the-plan-for-pluginnable-pipecd/)), has released an alpha version, and we are rapidly adding features supported in v0. We need to develop a plugin for PipeCD v1 to support [GCP Cloud Run](https://cloud.google.com/run) deployment.
+- Description: PipeCD v1 - the new version based on a plugin architecture (ref: [PipeCD plugin-arch overview blog](https://pipecd.dev/blog/2024/11/28/overview-of-the-plan-for-pluginnable-pipecd/)), has released an alpha version, and we are rapidly adding features supported in v0. With a better architecture, support for multi-cluster Kubernetes deployments is a natural extension. This project will focus on developing the Piped v1 plugin to support multi-cluster Kubernetes deployments.
+
 - Expected Outcome:
-  - CloudRun plugin for PipeCD
+  - Multi-cluster Kubernetes plugin for PipeCD
   - Possible update plugin SDK while develop the plugin
   - Possible update docs how to develop PipeCD plugin
   - Blog about how to develop a PipeCD plugin on [https://pipecd.dev/blog/](https://pipecd.dev/blog/)
 - Recommended Skills:
   - Golang
-  - GCP Cloud Run
+  - Kubernetes
   - GitOps
   - Continuous Delivery (CD)
 - Mentor(s):
   - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
   - Shinnosuke Sawada-Dazai (@Warashi, shin@warashi.dev)
 - Upstream Issue:
-  - https://github.com/pipe-cd/pipecd/issues/6114
+  - https://github.com/pipe-cd/pipecd/issues/6446
 
 #### Amazon ECS plugin for Pipedv1
 
