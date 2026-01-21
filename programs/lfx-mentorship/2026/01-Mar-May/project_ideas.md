@@ -421,6 +421,7 @@ This project aims to build a reproducible e2e test framework using Ginkgo and Ki
   - Shen-Ta Hsieh (@ibmibmibm, beststeve@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4516
 
+
 ### krkn - Chaos
 
 #### Natural Language–Based Chaos Scenario Discovery
@@ -515,3 +516,22 @@ The tool will analyze the user’s request and Identify the most relevant **chao
 
 - Upstream Issue:
   - https://github.com/openkruise/kruise-game/issues/304
+
+#### kube-burner
+
+##### Enhancements around k8s performance testing
+
+- Description:
+  We intend to get some help around open issues in the repository and also come up with new use cases and scenarios for performance testing any kubernetes distribution. We love new perspectives and are always open to new ideas alongside what we have as tracked work in github issues. 
+
+  For the purpose of this mentorship program term, we have created an umbrella issue that outlines some of the critical enhancements to the project.
+- Expected Outcome:
+  To knock down some of open critical issues and bring in new perspective to the project. There are no restrictions while working with issues/enhancements.
+- Recommended Skills:
+  - Golang
+  - Kubernetes
+  - Cloud Platforms
+- Mentor(s):
+  -  Vishnu Challa (@vishnuchalla, vchalla@redhat.com) 
+  -  Raul Sevilla (@rsevilla87, rsevilla@redhat.com)
+- Upstream Issues: (https://github.com/kube-burner/kube-burner/issues/1079)
