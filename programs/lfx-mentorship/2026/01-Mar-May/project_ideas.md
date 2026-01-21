@@ -480,7 +480,11 @@ The tool will analyze the user’s request and Identify the most relevant **chao
 - Description: The release of PipeCD v1 introduced a plugin-based architecture that enables deployments on any platform. This is a significant evolution in the project's capabilities, but community awareness and adoption haven't kept pace with the technical progress. This project focuses on growing PipeCD's community through consistent content creation across developer platforms, producing technical content around the v1 release, improving documentation for users and contributors, and engaging with the community through demos and discussions. The mentee will work closely with maintainers to translate PipeCD's technical strengths into accessible content that drives adoption and contributions.
 
 - Expected Outcome: Established social media presence for PipeCD across key developer platforms, along with technical content covering v1 features, plugin development, and real-world deployment patterns. Demo content including video walkthroughs and livestreams that make the project easier to adopt. Improved contributor documentation and onboarding materials, with active community engagement through GitHub Discussions and other channels. At least one CNCF talk or meetup presentation delivered.
-
+- Recommended Skills:
+  - Technical writing and documentation
+  - Experience with Git, CI/CD, GitOps, and deployment workflows
+  - Content creation (written and video) and social media
+  - Public speaking and community engagement
 - Mentor(s):
     - Eeshaan Sawant (@EeshaanSA, eeshaans1@gmail.com)
     - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
