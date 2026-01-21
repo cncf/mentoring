@@ -30,6 +30,38 @@
   - Adarsh Kumar (@Adarshkumar14, adarsh.kumar@harness.io)
 - Upstream Issue: https://github.com/litmuschaos/litmus/issues/5338
 
+### etcd
+
+#### Dive deep into etcd by contributing to the self-Assessment of etcd
+
+
+- Description:
+  This project continues the work initiated in the [etcd - technical scope of the assessment](https://docs.google.com/document/d/1RTXffyDJ8hLoHl_Mo-frQheRQ-8QIVQJ6mqAw69zcP4/edit?pli=1&tab=t.0). The goal is to dive deep into etcd's architecture in depth by completing and publishing the self-assessment for SIG-Security review. The project has two key components: (1) collaborating with mentors, project maintainers, and Special Interest Groups (SIGs) to investigate etcd and kube-apiserver internals, particularly the lifecycle of requests and consensus mechanisms, and (2) updating and enhancing the [etcd.io website](https://etcd.io/) documentation by creating new pages, refining existing content, and publishing blog posts to ensure the documentation reflects current architecture and best practices.
+  Whether you're a new contributor, already active in the community, or simply curious about etcd, we welcome you to join this project!
+
+- Expected Outcome:
+  - Complete the etcd self-assessment draft currently in progress in this [document](https://docs.google.com/document/d/1RTXffyDJ8hLoHl_Mo-frQheRQ-8QIVQJ6mqAw69zcP4/edit?pli=1&tab=t.0) and prepare it for review by SIG-Security and etcd maintainers.
+  - Publish the finalized self-assessment in the SIG-Security repository (see [example format](https://github.com/kubernetes/sig-security/blob/main/sig-security-assessments/cluster-api/self-assessment.md)).
+  - Develop comprehensive understanding of etcd internals including read and write flows, Raft consensus algorithm, high availability mechanisms, data stores, and data flow diagrams within Kubernetes environments.
+  - Update the etcd.io website with improved documentation, new pages covering architectural insights, and blog posts highlighting key findings from the assessment work.
+  - Coordinate a full SIG-Security review process.
+  - Actively participate in project SIG meetings, communication channels, and SIG Security discussions.
+
+- Recommended Skills:
+  - Golang
+  - Understanding of distributed systems (etcd, kube-apiserver) and systems architecture
+  - Cybersecurity knowledge
+  - Open Source Mindset
+  - Familiarity with Git and contributing via pull requests
+  - Participation in project SIG meetings, SIG communication channels
+
+- Mentors:
+  - Ronald Ngounou (@ronaldngounou, ronald.ngounou@yahoo.com)
+  - Siyuan Zhang (@siyuanfoundation, physicsbug@gmail.com)
+  - Carol Valencia (@krol3, carol.valencia@konghq.com)
+- Upstream Issue:
+  - https://github.com/etcd-io/etcd/issues/21159
+
 ### Antrea
 
 #### Compare Antrea BPF generation for PacketCapture to tcpdump / libpcap
@@ -742,6 +774,206 @@ The tool will analyze the user’s request and Identify the most relevant **chao
 
 - Upstream Issue:  https://github.com/kyverno/kyverno/issues/14726
 
+### Drasi
+
+#### Drasi for IoT: MQTT Integration and Real-Time Sensor Monitoring
+
+- Description: Drasi is a Data Change Processing platform that enables developers to detect and react to meaningful data changes using declarative Cypher queries. Drasi excels at complex change detection with unique features like `drasi.trueFor()` (detecting conditions that persist over time) and absence-of-change detection (alerting when expected events don't occur). However, it currently lacks native connectivity to IoT protocols.
+
+  Drasi Lib provides Drasi's powerful graph-aware decision engine as an embeddable Rust library that can run completely offline on constrained hardware—enabling edge computing scenarios where logic runs directly on sensors and gateways. IoT applications fundamentally need to detect state transitions, but developers typically must write boilerplate code and manage state persistence manually. Drasi's diff-engine handles state management and change computation automatically, emitting events only when meaningful changes occur.
+
+  MQTT (Message Queuing Telemetry Transport) is the de-facto standard protocol for IoT, used by AWS IoT Core, Azure IoT Hub, and virtually every IoT deployment. Adding MQTT support to Drasi Lib will unlock the entire IoT ecosystem for Drasi users.
+
+  In this project, the mentee will build a suite of lightweight Rust crates that enable Drasi Lib to communicate with MQTT brokers. They will create connectors to ingest sensor data (MQTT Source), execute local actions (Shell Reaction), and close the control loop (MQTT Reaction). Finally, they will demonstrate the complete stack with a demo showcasing Drasi's unique temporal capabilities for IoT.
+
+  The mentee will gain hands-on experience with async Rust (tokio), IoT protocols (MQTT), stream processing concepts, and graph-based data modeling.
+
+- Expected Outcome:
+  - Build MQTT Source Plugin - A new Rust crate that enables Drasi to ingest data from MQTT brokers
+  - Build Shell/Command Reaction - A new Rust crate that enables Drasi to execute local system commands based on query results
+  - Build MQTT Reaction Plugin - A new Rust crate that enables Drasi to publish alerts/commands to MQTT topics
+  - Create IoT Demo Scenario - A complete, runnable demonstration showing Drasi's power for IoT use cases
+  - Create Documentation & Tutorial - Comprehensive guide for IoT developers to adopt Drasi
+  - (Stretch Goal) Build InfluxDB Source - Enables Drasi to ingest from InfluxDB, unlocking Telegraf's 200+ input plugins for IoT
+- Recommended Skills:
+  - Rust (intermediate level: ownership, traits, async/await with tokio)
+  - Basic understanding of IoT concepts (MQTT protocol, pub/sub patterns)
+  - Git and GitHub workflow
+  - (Helpful) Docker and Docker Compose for testing
+  - (Helpful) Basic understanding of graph concepts or Cypher query language
+  - (Helpful) Experience with message brokers (MQTT, Kafka, etc.)
+- Mentor(s):
+  - Aman Singh (@amansinghoriginal, singh.amandeep@microsoft.com) - Primary
+  - Allen Jones (@agentofreality, Jones.Allen@microsoft.com)
+- Upstream Issue: https://github.com/drasi-project/drasi-core/issues/155
+
+### urunc
+
+#### Optimizing Rootfs Handling with block-based snapshotters in `urunc`
+
+- Description:
+
+When `urunc` is used together with a block-based snapshotter, it can take
+advantage of block-device backed container root filesystem and pass it
+directly to the sandbox as a disk image. This approach avoids filesystem
+conversion and enables efficient access to the container root filesystem.
+
+However, in order to spawn the sandbox, urunc requires access to the guest
+kernel and the initrd (if present). Since these files are part of the
+container rootfs, `urunc` must first extract and store them elsewhere before
+attaching the block-based root filesystem to the sandbox. As a result, this
+process introduces unnecessary file copies and additional I/O overhead.
+
+A more efficient approach is to leverage read-only (view) snapshots. Instead of
+copying files, `urunc` could request a read-only snapshot of the container root
+filesystem and mount it separately. The kernel binary and other required
+artifacts could then be read directly from this snapshot without modifying or
+duplicating data. Since view snapshots simply redirect read requests to the
+underlying snapshot layers, this approach is expected to introduce little to no
+additional storage overhead while simplifying the runtime flow.
+
+- Expected Outcome:
+  - A document explaining block-based snapshots in containerd, along with the
+    respective APIs to snapshot creation and management.
+  - An implementation in `urunc` that requests and mounts a read-only snapshot
+    of the container root filesystem.
+  - Evaluation of performance, storage overhead, and limitations of the
+    snapshot-based approach.
+
+- Recommended Skills:
+  - Go
+  - Familiarity with containerd
+  - Familiarity with Linux filesystems and block devices
+- Mentor(s):
+  - Charalampos Mainas (@cmainas, cmainas@nubificus.co.uk)
+  - Anastassios Nanos (@ananos, ananos@nubificus.co.uk)
+- Upstream Issue: https://github.com/urunc-dev/urunc/issues/43
+
+#### Investigate missing custom OCI Annotations in urunc containers
+
+- Description:
+
+In order to pass sandbox-specific configuration, such as the guest type,
+monitor type, rootfs information and others, `urunc` relies on a set of [custom
+OCI annotations](https://urunc.io/package/#annotations). However, these
+annotations are missing from the container's configuration in
+non-Kubernetes-deployments. To work around this issue, a `urunc.json` file
+containing the same information is currently injected into the container’s
+root filesystem. This works aims to investigate the OCI image build and runtime
+flow to understand where and why these custom annotations are dropped or
+ignored in non-Kubernetes setups.
+
+- Expected Outcome:
+  - A clear summary of the investigation, including where and why the custom
+    annotations are lost.
+  - A proposed solution enabling `urunc` to correctly consume its custom OCI
+    annotations.
+  - Alternatively, the design and implementation of a cleaner mechanism than
+    injecting a file into the container’s root filesystem.
+
+- Recommended Skills:
+  - Go
+  - Familiarity with container tools (docker, nerdctl, skopeo etc.)
+  - Familiarity with container runtimes (containerd, runc, urunc)
+  - familiarity with the OCI specification
+- Mentor(s):
+  - Charalampos Mainas (@cmainas, cmainas@nubificus.co.uk)
+  - Anastassios Nanos (@ananos, ananos@nubificus.co.uk)
+- Upstream Issue: https://github.com/urunc-dev/urunc/issues/12
+
+#### Create a dashboard and a notification system for CI testing in `urunc`
+
+- Description:
+
+GitHub Actions provides detailed views of CI workflows at the repository level,
+but it can be difficult for maintainers to quickly track the overall status of
+recurring workflows, such as nightly tests, over time. Important
+information, like historical failures or trends, often requires manual
+inspection of individual workflow runs.
+
+This work aims to improve CI observability for `urunc` by creating a
+centralized dashboard that presents an aggregated view of its nightly (and
+other CI) test workflows. The dashboard will provide maintainers with a clear
+overview of recent runs, success and failure states, and relevant metadata in a
+single place.
+
+In addition to visualization, this work includes the design and implementation of a
+notification mechanism that alerts maintainers when tests fail. This
+will help ensure that regressions are noticed quickly and addressed in a timely
+manner, improving overall project reliability.
+
+- Expected Outcome:
+  - Design and implementation of a dashboard summarizing nightly (and CI) test results.
+  - Clear visualization of workflow status and execution history.
+  - Implementation of a notification system for nightly test failures.
+  - Documentation describing the dashboard, notification setup, and maintenance.
+
+- Recommended Skills:
+  - Basic understanding of CI/CD, GitHub Actions and GitHub API.
+  - Experience with a suitable programming language (e.g., Go, Python, JavaScript)
+
+- Mentor(s):
+  - Charalampos Mainas (@cmainas, cmainas@nubificus.co.uk)
+  - Panagiotis Mavrikos (@panosmaurikos, pmavrikos@nubificus.co.uk)
+
+- Upstream Issue: https://github.com/urunc-dev/urunc/issues/106
+
+### PipeCD
+
+#### Multi-cluster Kubernetes plugin for Pipedv1
+
+- Description: PipeCD v1 - the new version based on a plugin architecture (ref: [PipeCD plugin-arch overview blog](https://pipecd.dev/blog/2024/11/28/overview-of-the-plan-for-pluginnable-pipecd/)), has released an alpha version, and we are rapidly adding features supported in v0. With a better architecture, support for multi-cluster Kubernetes deployments is a natural extension. This project will focus on developing the Piped v1 plugin to support multi-cluster Kubernetes deployments.
+
+- Expected Outcome:
+  - Multi-cluster Kubernetes plugin for PipeCD
+  - Possible update plugin SDK while develop the plugin
+  - Possible update docs how to develop PipeCD plugin
+  - Blog about how to develop a PipeCD plugin on [https://pipecd.dev/blog/](https://pipecd.dev/blog/)
+- Recommended Skills:
+  - Golang
+  - Kubernetes
+  - GitOps
+  - Continuous Delivery (CD)
+- Mentor(s):
+  - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
+  - Shinnosuke Sawada-Dazai (@Warashi, shin@warashi.dev)
+- Upstream Issue:
+  - https://github.com/pipe-cd/pipecd/issues/6446
+
+#### Amazon ECS plugin for Pipedv1
+
+- Description: PipeCD v1 - the new version based on a plugin architecture (ref: [PipeCD plugin-arch overview blog](https://pipecd.dev/blog/2024/11/28/overview-of-the-plan-for-pluginnable-pipecd/)), has released an alpha version, and we are rapidly adding features supported in v0. We need to develop a plugin for PipeCD v1 to support [Amazon ECS](https://aws.amazon.com/ecs) deployment.
+- Expected Outcome:
+  - ECS plugin for PipeCD
+  - Possible update plugin SDK while develop the plugin
+  - Possible update docs how to develop PipeCD plugin
+  - Blog about how to develop a PipeCD plugin on [https://pipecd.dev/blog/](https://pipecd.dev/blog/)
+- Recommended Skills:
+  - Golang
+  - Amazon ECS
+  - GitOps
+  - Continuous Delivery (CD)
+- Mentor(s):
+  - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
+  - Shinnosuke Sawada-Dazai (@Warashi, shin@warashi.dev)
+- Upstream Issue:
+  - https://github.com/pipe-cd/pipecd/issues/6443
+
+#### Community Building and Social Media Growth for PipeCD
+
+- Description: The release of PipeCD v1 introduced a plugin-based architecture that enables deployments on any platform. This is a significant evolution in the project's capabilities, but community awareness and adoption haven't kept pace with the technical progress. This project focuses on growing PipeCD's community through consistent content creation across developer platforms, producing technical content around the v1 release, improving documentation for users and contributors, and engaging with the community through demos and discussions. The mentee will work closely with maintainers to translate PipeCD's technical strengths into accessible content that drives adoption and contributions.
+
+- Expected Outcome: Established social media presence for PipeCD across key developer platforms, along with technical content covering v1 features, plugin development, and real-world deployment patterns. Demo content including video walkthroughs and livestreams that make the project easier to adopt. Improved contributor documentation and onboarding materials, with active community engagement through GitHub Discussions and other channels. At least one CNCF talk or meetup presentation delivered.
+- Recommended Skills:
+  - Technical writing and documentation
+  - Experience with Git, CI/CD, GitOps, and deployment workflows
+  - Content creation (written and video) and social media
+  - Public speaking and community engagement
+- Mentor(s):
+    - Eeshaan Sawant (@EeshaanSA, eeshaans1@gmail.com)
+    - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
+
+- Upstream Issue: https://github.com/pipe-cd/pipecd/issues/6441
 
 #### kube-burner
 
