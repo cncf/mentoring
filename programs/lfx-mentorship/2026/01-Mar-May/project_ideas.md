@@ -729,6 +729,7 @@ The tool will analyze the user’s request and Identify the most relevant **chao
 
 - Mentor(s):
   - Alex Chantavy (@achantavy, alex@subimage.io)
+  - Kunaal Sikka (@kunaals, kunaal@subimage.io)
 
 - Upstream Issue:
   - https://github.com/cartography-cncf/cartography/issues/2250
