@@ -717,6 +717,63 @@ The tool will analyze the user’s request and Identify the most relevant **chao
 - Upstream Issue:
   - https://github.com/openkruise/kruise-game/issues/304
 
+### PipeCD
+
+#### Multi-cluster Kubernetes plugin for Pipedv1
+
+- Description: PipeCD v1 - the new version based on a plugin architecture (ref: [PipeCD plugin-arch overview blog](https://pipecd.dev/blog/2024/11/28/overview-of-the-plan-for-pluginnable-pipecd/)), has released an alpha version, and we are rapidly adding features supported in v0. With a better architecture, support for multi-cluster Kubernetes deployments is a natural extension. This project will focus on developing the Piped v1 plugin to support multi-cluster Kubernetes deployments.
+
+- Expected Outcome:
+  - Multi-cluster Kubernetes plugin for PipeCD
+  - Possible update plugin SDK while develop the plugin
+  - Possible update docs how to develop PipeCD plugin
+  - Blog about how to develop a PipeCD plugin on [https://pipecd.dev/blog/](https://pipecd.dev/blog/)
+- Recommended Skills:
+  - Golang
+  - Kubernetes
+  - GitOps
+  - Continuous Delivery (CD)
+- Mentor(s):
+  - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
+  - Shinnosuke Sawada-Dazai (@Warashi, shin@warashi.dev)
+- Upstream Issue:
+  - https://github.com/pipe-cd/pipecd/issues/6446
+
+#### Amazon ECS plugin for Pipedv1
+
+- Description: PipeCD v1 - the new version based on a plugin architecture (ref: [PipeCD plugin-arch overview blog](https://pipecd.dev/blog/2024/11/28/overview-of-the-plan-for-pluginnable-pipecd/)), has released an alpha version, and we are rapidly adding features supported in v0. We need to develop a plugin for PipeCD v1 to support [Amazon ECS](https://aws.amazon.com/ecs) deployment.
+- Expected Outcome:
+  - ECS plugin for PipeCD
+  - Possible update plugin SDK while develop the plugin
+  - Possible update docs how to develop PipeCD plugin
+  - Blog about how to develop a PipeCD plugin on [https://pipecd.dev/blog/](https://pipecd.dev/blog/)
+- Recommended Skills:
+  - Golang
+  - Amazon ECS
+  - GitOps
+  - Continuous Delivery (CD)
+- Mentor(s):
+  - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
+  - Shinnosuke Sawada-Dazai (@Warashi, shin@warashi.dev)
+- Upstream Issue:
+  - https://github.com/pipe-cd/pipecd/issues/6443
+
+#### Community Building and Social Media Growth for PipeCD
+
+- Description: The release of PipeCD v1 introduced a plugin-based architecture that enables deployments on any platform. This is a significant evolution in the project's capabilities, but community awareness and adoption haven't kept pace with the technical progress. This project focuses on growing PipeCD's community through consistent content creation across developer platforms, producing technical content around the v1 release, improving documentation for users and contributors, and engaging with the community through demos and discussions. The mentee will work closely with maintainers to translate PipeCD's technical strengths into accessible content that drives adoption and contributions.
+
+- Expected Outcome: Established social media presence for PipeCD across key developer platforms, along with technical content covering v1 features, plugin development, and real-world deployment patterns. Demo content including video walkthroughs and livestreams that make the project easier to adopt. Improved contributor documentation and onboarding materials, with active community engagement through GitHub Discussions and other channels. At least one CNCF talk or meetup presentation delivered.
+- Recommended Skills:
+  - Technical writing and documentation
+  - Experience with Git, CI/CD, GitOps, and deployment workflows
+  - Content creation (written and video) and social media
+  - Public speaking and community engagement
+- Mentor(s):
+    - Eeshaan Sawant (@EeshaanSA, eeshaans1@gmail.com)
+    - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
+
+- Upstream Issue: https://github.com/pipe-cd/pipecd/issues/6441
+
 #### kube-burner
 
 ##### Enhancements around k8s performance testing
