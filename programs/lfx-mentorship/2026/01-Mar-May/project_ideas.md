@@ -513,6 +513,38 @@ The tool will analyze the user’s request and Identify the most relevant **chao
 - Upstream Issue: https://github.com/krkn-chaos/krkn-ai/issues/74
 
 
+### Harbor
+
+#### Harbor CLI
+
+- Description: Harbor CLI is the official command-line interface for Harbor container registry. This project focuses on improving CLI user experience by porting the remaining complex commands such as job service dashboard and audit logs streaming, and enhancing the release pipeline for simplicity and security.
+- Expected Outcome:
+  - Implement job service dashboard commands in CLI
+  - Add audit logs streaming functionality
+  - Improve and secure the release pipeline
+  - Enhance overall CLI usability
+- Recommended Skills: Golang, spf13/cobra
+- Mentor(s):
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
+- Upstream Issue: https://github.com/goharbor/harbor-cli/issues
+
+#### Harbor Satellite
+
+- Description: Harbor Satellite is a lightweight OCI-compliant registry designed for edge devices. This project focuses on implementing SPIFFE/SPIRE-based authentication for satellite identity management, improving the release pipeline and developer workflow, and ensuring cloud-agnostic compatibility across Kubernetes, Docker, VMs, and bare metal environments.
+- Expected Outcome:
+  - Implement SPIFFE/SPIRE authentication for satellite identity
+  - Improve release pipeline and developer workflow
+  - Validate and test deployment across Kubernetes, Docker, VMs, and bare metal
+  - Ensure edge/IoT compatibility and stability
+- Recommended Skills: Golang, Containers, SPIFFE/SPIRE, Edge Computing, OCI Spec
+- Mentor(s):
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
+- Upstream Issue: https://github.com/container-registry/harbor-satellite/issues
+
 ### OpenKruise
 
 #### OpenKruise: Promote API Version to v1beta1 part 2
