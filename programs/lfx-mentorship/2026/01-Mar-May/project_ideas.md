@@ -118,6 +118,63 @@
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
 - Upstream Issue: https://github.com/jaegertracing/jaeger-ui/issues/3313
 
+### kgateway 
+
+#### Add support for Chaos Engineering/Fault Injection
+
+- Description: This project focuses on adding fault injection support in kgateway, enabling platform operators and developers to test system resiliency under controlled failure scenarios. Fault injection allows teams to proactively identify weaknesses by introducing network latency, service errors, or resource constraints. This project will involve designing a configuration API for specifying fault injection rules, implementing support in the kgateway plugin framework, integrating with Envoy’s native fault injection capabilities, and creating documentation and examples to demonstrate practical use cases in Kubernetes environments.
+
+Expected Outcome:
+- Create a design doc outlining the proposed API for fault injection and present at a community meeting
+- Implement the fault injection plugin in kgateway, leveraging Envoy capabilities
+- Develop e2e tests to validate fault injection scenarios
+- Write developer-facing documentation with example configurations
+- Create blogs and tutorials demonstrating how to use Chaos Engineering in kgateway
+- Demo fault injection features during kgateway community meetings
+
+Recommended Skills:
+- Go
+- Kubernetes
+- Kubernetes Gateway API
+- Envoy
+
+Mentor(s):
+- Primary Mentor: Omar Hammami (@puertomontt, omar.hammami@solo.io)
+- Secondary Mentor: Tim Flannagan (@timflannagan, tim.flannagan@solo.io)
+
+- Upstream Issue: https://github.com/kgateway-dev/kgateway/issues/11188 
+
+#### Ecosystem Integrations & Tutorials for kgateway's AI Gateway
+
+- Description: This project focuses on creating clear, approachable, and practical documentation that shows how to integrate kgateway’s AI Gateway (agentgateway) with popular AI tools, developer UIs, and other CNCF ecosystem projects. Its aim is to make kgateway’s documentation more practical, discoverable, and reflective of real ecosystem usage, so users can better understand what’s possible and how kgateway fits into the broader AI and cloud-native landscape.
+
+Examples of integrations and tutorials include:
+- Open WebUI / OpenAI Codex / Claude Code: Step-by-step guides showing how to connect agentgateway to interactive UIs for testing, demos, and common integration patterns
+- Demonstrate how agentgateway fits into the CNCF ecosystem by integrating with tools such as:
+	- Argo Rollouts: Update the Argo Rollout Gateway API guides with the latest agentgateway example config. Create docs using Argo Rollouts with AgentgatewayBackends for LLM providers and MCP servers. 
+  - KServe: Using agentgateway as an ingress for model serving, enabling rate limiting, authentication, and observability
+  - Knative: Add a guide for setting up kgateway with agentgateway as a custom ingress gateway
+
+- Expected Outcome:
+- A series of integration guides and tutorials demonstrating how to use kgateway with AI developer tools and CNCF ecosystem projects
+- New examples, improvements, and documentation pages contributed to the kgateway documentation site
+- GitHub issues opened for usability gaps, missing documentation, and friction points discovered during hands-on testing
+- Live or recorded demo integrations presented during kgateway community meetings
+- Fun! 🎉
+
+- Recommended Skills:
+- Strong written communication skills
+- Interest in learning and exploring new projects! 
+- Basic understanding of GitHub, Markdown, and technical blogging 
+- (Bonus) Experience using any of the following: Open WebUI, OpenAI Codex, Claude Code
+- (Bonus) Experience with CNCF projects like Argo Rollouts, KServe and Knative 
+
+- Mentor(s):
+  - Primary Mentor: Nina Polshakova (@npolshakova, ninapolshakova@gmail.com)
+  - Secondary Mentor: Art Berger (@artberger, art.berger@solo.io)
+
+- Upstream Issue: https://github.com/kgateway-dev/kgateway.dev/issues/606
+
 ### Knative
 
 #### Enhancing the Knative Educational Game with Advanced EDA Patterns and Web Deployment
