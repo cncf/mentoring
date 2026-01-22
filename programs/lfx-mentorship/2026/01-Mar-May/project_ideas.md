@@ -330,23 +330,6 @@ Examples of integrations and tutorials include:
 - Upstream Issue: https://github.com/opencost/opencost-ui/issues/155
 - LFX URL: 
 
-### OpenTelemetry
-
-#### Tooling for detecting impact of behavioral changes in Go libraries
-
-- Description:
-  Maintenance of a stable Go library often involves value-judgement calls regarding what changes can impact downstream consumers. While some existing tooling like [apidiff](https://pkg.go.dev/golang.org/x/exp/apidiff) can go some way towards preventing breakage, these tools work purely in terms of API-level breakage such as changing the type of a symbol. Inspired by [tooling in other language ecosystems such as Rust](https://github.com/rust-lang/crater) this proposal sets out to build a tool that can give statistical information about the impact of any change on downstream consumers by running the build pipelines and test suites of dependents before and after a particular change. This would empower maintainers to make better informed choices about changes and foster an ecosystem. We think this is specially important for the OpenTelemetry project since the OpenTelemetry Go modules and the OpenTelemetry Collector modules are foundational modules used within the CNCF on other projects (e.g Kubernetes, Jaeger) as well as outside of it. The intent is to build a tool that could be used as well by other CNCF projects since Go is the *lingua franca* of the foundation, enabling all projects to have a flourishing ecosystem.
-- Expected Outcome:
-  We would like to have a tool written in Go that is able to (i) gather all publicly-listed dependencies of a module, (ii) safely run the test suite of dependencies for a given version of the code and (iii) compare two test suites and provide a statistical summary of the differences between the two to help in decision-making.
-- Recommended Skills: 
-   - Working Golang skills including testing and building Go code
-   - Working knowledge of CI/CD systems
-   - Containerization and securely running untrusted code
-- Mentor(s):
-  - Pablo Baeyens (@mx-psi, pbaeyens31+github@gmail.com)
-  - Damien Mathieu (@dmathieu, damien.mathieu@elastic.co)
-- Upstream Issue: https://github.com/open-telemetry/opentelemetry-go-build-tools/issues/1528
-
 ### OpenYurt
 
 #### Implement Label-Driven Automated Installation and Uninstallation of YurtHub on Edge Nodes
@@ -720,3 +703,22 @@ The tool will analyze the user’s request and Identify the most relevant **chao
   -  Vishnu Challa (@vishnuchalla, vchalla@redhat.com) 
   -  Raul Sevilla (@rsevilla87, rsevilla@redhat.com)
 - Upstream Issues: (https://github.com/kube-burner/kube-burner/issues/1079)
+
+### OpenTelemetry
+
+#### Tooling for detecting impact of behavioral changes in Go libraries
+
+- Description:
+  Maintenance of a stable Go library often involves value-judgement calls regarding what changes can impact downstream consumers. While some existing tooling like [apidiff](https://pkg.go.dev/golang.org/x/exp/apidiff) can go some way towards preventing breakage, these tools work purely in terms of API-level breakage such as changing the type of a symbol. Inspired by [tooling in other language ecosystems such as Rust](https://github.com/rust-lang/crater) this proposal sets out to build a tool that can give statistical information about the impact of any change on downstream consumers by running the build pipelines and test suites of dependents before and after a particular change. This would empower maintainers to make better informed choices about changes and foster an ecosystem. We think this is specially important for the OpenTelemetry project since the OpenTelemetry Go modules and the OpenTelemetry Collector modules are foundational modules used within the CNCF on other projects (e.g Kubernetes, Jaeger) as well as outside of it. The intent is to build a tool that could be used as well by other CNCF projects since Go is the *lingua franca* of the foundation, enabling all projects to have a flourishing ecosystem.
+- Expected Outcome:
+  We would like to have a tool written in Go that is able to (i) gather all publicly-listed dependencies of a module, (ii) safely run the test suite of dependencies for a given version of the code and (iii) compare two test suites and provide a statistical summary of the differences between the two to help in decision-making.
+- Recommended Skills: 
+   - Working Golang skills including testing and building Go code
+   - Working knowledge of CI/CD systems
+   - Containerization and securely running untrusted code
+- Mentor(s):
+  - Pablo Baeyens (@mx-psi, pbaeyens31+github@gmail.com)
+  - Damien Mathieu (@dmathieu, damien.mathieu@elastic.co)
+- Upstream Issue: https://github.com/open-telemetry/opentelemetry-go-build-tools/issues/1528
+
+
