@@ -499,6 +499,28 @@ CNCF - Prometheus: Improve docs for Prometheus & OpenTelemetry interoperability 
   - Victoria Nduka (@nwanduka, ndukavictoria7@gmail.com)
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/17823
 
+#### Start scraping immediately on startup without waiting for WAL replay to finish
+
+CNCF - Prometheus: Start scraping immediately on startup without waiting for WAL replay to finish (2026 Term 1)
+
+- Description:
+  When a large Prometheus is running in HA mode (i.e. 2 identical Prometheus scraping same targets) and it needs to be restarted (for upgrades, etc), there can be a temporary gap in queries when the second Prometheus is restarting. This is because the first Prometheus did not scrape any metrics when it was restarting (this is the gap), and when second Prometheus is restarting, only the first Prometheus is serving queries.
+
+  To mitigate this, we want to start scraping targets as soon as Prometheus starts up, without waiting for it to complete the WAL replay and restore the old in-memory state. However, querying is still only enabled after WAL replay is over, but there won't be gaps in scraped data anymore.
+
+  This project includes careful designing of low level technical challenges, including ensuring the correct handling of WAL records and seamlessly stitching together the new scraped data and the data restored from WAL without a lot of memory overhead.
+- Expected Outcome:
+  - Design the correct handling of WAL records where the series information lines up between the old WAL and newly scraped data.
+  - Design a low overhead method to stitch together the scraped data and the data restored from WAL.
+  - Production ready PR with comprehensive test coverage. Ideally we will do the review iterations and merge the PR within this timeline.
+- Recommended Skills:
+  - Basic understanding of Go.
+  - Comfortable diving deep into low level system code.
+  - Familiarity with unit testing.
+- Mentor(s):
+  - Ganesh Vernekar (@codesome, ganeshvern@gmail.com)
+- Upstream Issue: https://github.com/prometheus/prometheus/issues/17058
+
 ### Volcano
 
 #### Add Volcano to Headlamp: Job and Queue Management UI
