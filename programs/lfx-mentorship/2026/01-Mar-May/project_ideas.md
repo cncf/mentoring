@@ -697,6 +697,18 @@ The tool will analyze the user’s request and Identify the most relevant **chao
   - Tullio Sebastiani (@tsebastiani, tsebasti@redhat.com)
 - Upstream Issue: https://github.com/krkn-chaos/krkn/issues/1051
 
+#### Enhancing Krkn-AI Result Analysis with Interactive Visualization and Insights
+
+CNCF - krkn - Chaos: Krkn-AI Result Analysis with Visualization and Insights (2026 Term 1)
+
+- Description: [Krkn-AI](https://github.com/krkn-chaos/krkn-ai) generates rich but complex experiment outputs (JSON, CSV, YAML, graphs, and tables) capturing fitness scores, SLOs, health checks, and other metrics, which can be difficult for engineers to interpret and compare across experiments. Although recent work using LLMs to produce high-level textual summaries is helpful, text alone limits deeper exploration. This feature change proposes building an interactive analysis and visualization layer for Krkn-AI that transforms raw chaos experiment data into intuitive, explorable visual representations, enabling users to quickly understand system behavior, detect anomalies, and focus on the most impactful failure signals.
+- Expected Outcome: The outcome is to deliver a simple web-based GUI or generated report built from Krkn-AI result artifacts (JSON, CSV, YAML), featuring interactive visualizations for key metrics such as fitness scores, SLOs, and health checks, along with clear highlighting of important or abnormal results to guide users’ attention.
+- Recommended Skills: Python, Data Analysis and Visualization tools (e.g: pandas, matplotlib), Kubernetes (Basics)
+- Mentor(s):
+  - Rahul Shetty (@rh-rahulshetty , rashetty@redhat.com)
+  - Naga Ravi Chaitanya Elluri (@chaitanyaenr , nelluri@redhat.com)
+- Upstream Issue: https://github.com/krkn-chaos/krkn-ai/issues/74
+
 ### volcano/kthena
 
 #### E2E Test Suite for Kthena
@@ -747,18 +759,6 @@ CNCF - Volcano: AgentCube: Establish authentication and authorization (2026 Term
   - Zengzeng Yao(@YaoZengzeng, yaozengzeng@huawei.com), 
   - Zhonghu xu(@hzxuzhonghu, zhhxu2011@gmail.com),
 - Upstream Issue: https://github.com/volcano-sh/agentcube/issues/156
-
-#### Enhancing Krkn-AI Result Analysis with Interactive Visualization and Insights
-
-CNCF - Volcano: AgentCube: Krkn-AI Result Analysis with Visualization and Insights (2026 Term 1)
-
-- Description: [Krkn-AI](https://github.com/krkn-chaos/krkn-ai) generates rich but complex experiment outputs (JSON, CSV, YAML, graphs, and tables) capturing fitness scores, SLOs, health checks, and other metrics, which can be difficult for engineers to interpret and compare across experiments. Although recent work using LLMs to produce high-level textual summaries is helpful, text alone limits deeper exploration. This feature change proposes building an interactive analysis and visualization layer for Krkn-AI that transforms raw chaos experiment data into intuitive, explorable visual representations, enabling users to quickly understand system behavior, detect anomalies, and focus on the most impactful failure signals.
-- Expected Outcome: The outcome is to deliver a simple web-based GUI or generated report built from Krkn-AI result artifacts (JSON, CSV, YAML), featuring interactive visualizations for key metrics such as fitness scores, SLOs, and health checks, along with clear highlighting of important or abnormal results to guide users’ attention.
-- Recommended Skills: Python, Data Analysis and Visualization tools (e.g: pandas, matplotlib), Kubernetes (Basics)
-- Mentor(s):
-  - Rahul Shetty (@rh-rahulshetty , rashetty@redhat.com) 
-  - Naga Ravi Chaitanya Elluri (@chaitanyaenr , nelluri@redhat.com)
-- Upstream Issue: https://github.com/krkn-chaos/krkn-ai/issues/74
 
 ### Harbor
 
