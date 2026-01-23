@@ -44,6 +44,9 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - [Fluid](#fluid)
   - [Extend Cache Runtime Interface to Support Full Data Lifecycle and In-Place Operations](#extend-cache-runtime-interface-to-support-full-data-lifecycle-and-in-place-operations)
   - [Unify and Modernize Fluid’s Unit Testing Framework and enhance testing coverage](#unify-and-modernize-fluids-unit-testing-framework-and-enhance-testing-coverage)
+- [Harbor](#harbor)
+  - [Harbor CLI](#harbor-cli)
+  - [Harbor Satellite](#harbor-satellite)
 - [Jaeger](#jaeger)
   - [AI-Powered Trace Analysis with Local LLM Support](#ai-powered-trace-analysis-with-local-llm-support)
   - [Upgrading Core Routing and State Management in Jaeger UI](#upgrading-core-routing-and-state-management-in-jaeger-ui)
@@ -72,6 +75,11 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - [Add Prometheus Metrics to LitmusChaos Control Plane Service](#add-prometheus-metrics-to-litmuschaos-control-plane-service)
 - [OpenCost](#opencost)
   - [OpenCost UI Revamp](#opencost-ui-revamp)
+- [OpenKruise](#openkruise)
+  - [KruiseGame Cloud-Hosted Version Development](#kruisegame-cloud-hosted-version-development)
+  - [OpenKruise: Progressive Configmap Inplace Reloading](#openkruise-progressive-configmap-inplace-reloading)
+  - [OpenKruise: Promote API Version to v1beta1 part 2](#openkruise-promote-api-version-to-v1beta1-part-2)
+  - [OpenKruise: Rolling update for agent sandbox warm pool](#openkruise-rolling-update-for-agent-sandbox-warm-pool)
 - [OpenTelemetry](#opentelemetry)
   - [Tooling for detecting impact of behavioral changes in Go libraries](#tooling-for-detecting-impact-of-behavioral-changes-in-go-libraries)
 - [OpenYurt](#openyurt)
@@ -258,6 +266,46 @@ CNCF - Fluid: Modernize unit testing framework and increase UT coverage (2026 Te
    - Yang Che (@cheyang, [cheyang52@gmail.com](mailto:cheyang52@gmail.com))
 - Upstream Issues: https://github.com/fluid-cloudnative/fluid/issues/5407
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/daf54f56-a7e6-48a8-ab9f-45915d05a203
+
+
+### Harbor
+
+#### Harbor CLI
+
+CNCF - Harbor: Harbor CLI (2026 Term 1)
+
+- Description: Harbor CLI is the official command-line interface for Harbor container registry. This project focuses on improving CLI user experience by porting the remaining complex commands such as job service dashboard and audit logs streaming, and enhancing the release pipeline for simplicity and security.
+- Expected Outcome:
+  - Implement job service dashboard commands in CLI
+  - Add audit logs streaming functionality
+  - Improve and secure the release pipeline
+  - Enhance overall CLI usability
+- Recommended Skills: Golang, spf13/cobra
+- Mentor(s):
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
+- Upstream Issue: https://github.com/goharbor/harbor-cli/issues
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/89a4b97d-77c7-4b57-907b-6bc746389b87
+
+
+#### Harbor Satellite
+
+CNCF - Harbor: Harbor Satellite (2026 Term 1)
+
+- Description: Harbor Satellite is a lightweight OCI-compliant registry designed for edge devices. This project focuses on implementing SPIFFE/SPIRE-based authentication for satellite identity management, improving the release pipeline and developer workflow, and ensuring cloud-agnostic compatibility across Kubernetes, Docker, VMs, and bare metal environments.
+- Expected Outcome:
+  - Implement SPIFFE/SPIRE authentication for satellite identity
+  - Improve release pipeline and developer workflow
+  - Validate and test deployment across Kubernetes, Docker, VMs, and bare metal
+  - Ensure edge/IoT compatibility and stability
+- Recommended Skills: Golang, Containers, SPIFFE/SPIRE, Edge Computing, OCI Spec
+- Mentor(s):
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
+- Upstream Issue: https://github.com/container-registry/harbor-satellite/issues
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/6e2de11e-5baf-4c55-b3ea-4bec95e16fc2
 
 
 ### Jaeger
@@ -674,6 +722,91 @@ CNCF - OpenCost: OpenCost UI Revamp (2026 Term 1)
   - Warwick Peatey (@peatey, warwick.peatey@ibm.com)
 - Upstream Issue: https://github.com/opencost/opencost-ui/issues/155
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ee1610ae-5850-4aa2-b3aa-edf39fded503
+
+
+### OpenKruise
+
+#### KruiseGame Cloud-Hosted Version Development
+
+CNCF - OpenKruise: KruiseGame cloud-hosted version development (2026 Term 1)
+
+- Description: OKG has attracted many large game companies to embrace cloud-native transformation. However, for many small and medium-sized game companies, they are not familiar with the container and Kubernetes ecosystem. Due to their smaller team sizes, they have relatively weak infrastructure management capabilities. To democratize cloud-native technology for more game companies, OKG plans to launch a cloud-hosted version. Users can deploy the runtime environment with one click and complete game service integration based on the official SDK. This will reduce the complexity of using infrastructure for game companies and adapt to multi-cloud environments.
+
+- Expected Outcome:
+  - Cloud Provider Abstraction Layer Design and Implementation
+  - One-Click Deployment Tool/CLI Development
+  - Official Game Service SDK Development
+  - Multi-Cloud Environment Adaptation (AWS, Alibaba Cloud, etc.)
+  - Simplified Configuration Management System
+  - Comprehensive Documentation and Integration Guides
+
+- Recommended Skills:
+  - Golang
+  - Kubernetes
+  - Cloud Provider SDKs (AWS/Alibaba Cloud)
+  - Infrastructure as Code (Terraform/Pulumi)
+
+- Mentor:
+  - Qiuyang Liu (@chrisliu1995, [chrisliu1995@163.com](mailto:chrisliu1995@163.com))
+  - Zhongwei Liu (@ringtail, [zhongwei.lzw@alibaba-inc.com](mailto:zhongwei.lzw@alibaba-inc.com))
+
+- Upstream Issue:
+  - https://github.com/openkruise/kruise-game/issues/304
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/d1e7cffe-6363-4439-8715-33019490da7f
+
+
+#### OpenKruise: Progressive Configmap Inplace Reloading
+
+CNCF - OpenKruise: Progressive ConfigMap inplace reloading (2026 Term 1)
+
+- Description: Native kubernetes configmap can reload dynamically but lack progressive rollout capability. OpenKruise community had comes up with the [design of new workload](https://github.com/openkruise/kruise/pull/1948) for configmap rolling update, and the [initial implementation](https://github.com/openkruise/kruise/pull/2149) has been running in one end user environment. However the current implementation is not generic enough and had many limitations. The goal is to complete the implementation in a more generic way and to support many configuration reloading strategies.
+- Expected Outcome:
+  1. The code for dynamic configmap rollout controller (ConfigMapSet)
+  2. Unit and integration tests
+  3. Documentation for the usage of ConfigMapSet
+- Recommended Skills: Golang, kubernetes operator development
+- Mentor(s):
+  - Yuxing Yuan(@ABNER-1, abner199709@gmail.com)
+  - Hao Wu(@Placeboy, psychoogopher@gmail.com) 
+- Upstream Issue:
+  - https://github.com/openkruise/kruise/issues/2288
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/174fea66-b624-4642-8b07-5910176bee0d
+
+
+#### OpenKruise: Promote API Version to v1beta1 part 2
+
+CNCF - OpenKruise: Promote API version to v1beta1 (part 2) (2026 Term 1)
+
+- Description: Many advance workloads in OpenKruise are widely used in production, however the API version of the workload is still in v1alpha1. The goal is to promote the API version of mostly used and mature workload to v1beta1 and optimize the CRD fields for better clarity. This is a follow-up of [previous project](https://mentorship.lfx.linuxfoundation.org/project/7426f5d7-1879-46cc-a933-880ee790d0eb), and target API is the advance operation and resilience policy.
+- Expected Outcome:
+  1. API definition of v1beta1 resources and the implementation for conversion webhook to convert v1alpha1 resource to v1beta1 resource
+  2. Unit and integration tests
+  3. Documentation for the usage of v1beta1 resource in the OpenKruise website
+- Recommended Skills: Golang, kubernetes operator development
+- Mentor(s):
+  - Zhang Zhen (@furykerry, furykerry@gmail.com)
+  - Zhong Tianyun (@AiRanthem, airanthem666@gmail.com)
+- Upstream Issue:
+  - https://github.com/openkruise/kruise/issues/2287
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/b2d7982d-47c2-4adc-93b0-98f260106e86
+
+
+#### OpenKruise: Rolling update for agent sandbox warm pool
+
+CNCF - OpenKruise: Rolling update for agent sandbox warm pool (2026 Term 1)
+
+- Description: OpenKruise Agents is a new sub-project of OpenKruise for agent sandbox lifecycle management. Warm pool is a key technology of OpenKruise Agents to ensure the fast sandbox provision. However existing warm pool lacks rolling update capability which makes the warm pool hard to maintain. The goal is to design and implement the basic rolling update capability for SandboxSet, the CRD for sandbox warm pool.
+- Expected Outcome:
+  1. The code for warm pool rolling update in SandboxSet
+  2. Unit and integration tests
+  3. Documentation for the usage of rolling update in SandboxSet
+- Recommended Skills: Golang, kubernetes operator development
+- Mentor(s):
+  - Zhao Mingshan (@zmberg, berg.zms@gmail.com)
+  - Zhang Jinghui (@sivanzcw, sivanzcwzhang@gmail.com)
+- Upstream Issue:
+  - https://github.com/openkruise/agents/issues/76
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/fdfeb5fd-0636-4f9a-a196-adc1ce3b7835
 
 
 ### OpenTelemetry
