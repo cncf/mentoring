@@ -33,6 +33,8 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 - [Antrea](#antrea)
   - [Compare Antrea BPF generation for PacketCapture to tcpdump / libpcap](#compare-antrea-bpf-generation-for-packetcapture-to-tcpdump-libpcap)
+- [Cartography](#cartography)
+  - [Model and Parse AWS IAM Policy Conditions for Accurate Permission Analysis](#model-and-parse-aws-iam-policy-conditions-for-accurate-permission-analysis)
 - [Cilium](#cilium)
   - [Cilium Project Pillar Pages](#cilium-project-pillar-pages)
 - [etcd](#etcd)
@@ -53,12 +55,28 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - [Modernize and improve kgateway end-to-end testing](#modernize-and-improve-kgateway-end-to-end-testing)
 - [Knative](#knative)
   - [Enhancing the Knative Educational Game with Advanced EDA Patterns and Web Deployment](#enhancing-the-knative-educational-game-with-advanced-eda-patterns-and-web-deployment)
+- [kube-burner](#kube-burner)
+  - [kube-burner](#kube-burner)
 - [Kubernetes](#kubernetes)
   - [#Add OpenTelemetry support](#add-opentelemetry-support)
 - [KubeStellar](#kubestellar)
   - [Documentation and Self-Service Enablement Specialist](#documentation-and-self-service-enablement-specialist)
+  - [Integration and Ecosystem Development Specialist](#integration-and-ecosystem-development-specialist)
 - [LitmusChaos](#litmuschaos)
   - [Add Prometheus Metrics to LitmusChaos Control Plane Service](#add-prometheus-metrics-to-litmuschaos-control-plane-service)
+- [OpenCost](#opencost)
+  - [OpenCost UI Revamp](#opencost-ui-revamp)
+- [OpenTelemetry](#opentelemetry)
+  - [Tooling for detecting impact of behavioral changes in Go libraries](#tooling-for-detecting-impact-of-behavioral-changes-in-go-libraries)
+- [OpenYurt](#openyurt)
+  - [Implement Label-Driven Automated Installation and Uninstallation of YurtHub on Edge Nodes](#implement-label-driven-automated-installation-and-uninstallation-of-yurthub-on-edge-nodes)
+- [PipeCD](#pipecd)
+  - [Amazon ECS plugin for Pipedv1](#amazon-ecs-plugin-for-pipedv1)
+
+  - [Community Building and Social Media Growth for PipeCD](#community-building-and-social-media-growth-for-pipecd)
+  - [Multi-cluster Kubernetes plugin for Pipedv1](#multi-cluster-kubernetes-plugin-for-pipedv1)
+- [Prometheus](#prometheus)
+  - [Improving Documentation for Prometheus and OpenTelemetry Interoperability](#improving-documentation-for-prometheus-and-opentelemetry-interoperability)
 
 ## Accepted Projects
 
@@ -76,6 +94,39 @@ CNCF - Antrea: Compare PacketCapture BPF generation vs tcpdump/libpcap (2026 Ter
   - Hang Yan (@hangyan, hang.yan@hotmail.com)
 - Upstream Issue: https://github.com/antrea-io/antrea/issues/7701
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/39be2843-94f8-4ac6-aa0a-3537631aca86
+
+
+### Cartography
+
+#### Model and Parse AWS IAM Policy Conditions for Accurate Permission Analysis
+
+CNCF - Cartography: Model and parse AWS IAM policy conditions for permission analysis (2026 Term 1)
+
+- Description:
+  [Cartography](https://github.com/cartography-cncf/cartography) currently models AWS IAM policies and their relationships to principals and resources, but does not parse or represent IAM policy _conditions_. This means permission analysis overstates effective access: a policy that only allows access from a specific IP range or requires MFA is treated the same as an unrestricted policy.
+  
+  This project will extend Cartography's IAM module to parse common condition keys (e.g., `aws:SourceIp`, `aws:MultiFactorAuthPresent`, `aws:PrincipalOrgID`, `aws:PrincipalTag`) and model them in the graph, enabling downstream tools to build more accurate attack paths and permission analysis.
+
+- Expected Outcome:
+  - Work with mentor to design way to model IAM policy conditions, including nodes/properties for condition operators and keys
+  - Parse IAM policy condition blocks covering the top 10 most common condition keys
+  - Update relationships between IAM policies and principals/resources that surface condition constraints
+  - Unit and integration tests with realistic IAM policies
+  - Documentation and example queries demonstrating condition-aware permission analysis
+
+- Recommended Skills:
+  - Python
+  - AWS IAM policies and condition grammar (or willingness to learn)
+  - Neo4j / graph data modeling (or willingness to learn)
+  - Familiarity with Cartography's codebase (helpful but not required)
+
+- Mentor(s):
+  - Alex Chantavy (@achantavy, alex@subimage.io)
+  - Kunaal Sikka (@kunaals, kunaal@subimage.io)
+
+- Upstream Issue:
+  - https://github.com/cartography-cncf/cartography/issues/2250
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a5407d4c-6496-4715-a785-3d9fa862c174
 
 
 ### Cilium
@@ -396,6 +447,29 @@ CNCF - Knative: Enhance Knative Educational Game & web deployment (2026 Term 1)
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/414b7749-fe19-4874-a260-b6017c2c3242
 
 
+### kube-burner
+
+#### Enhancements around k8s performance testing
+
+CNCF - kube-burner: Enhancements around Kubernetes performance testing (2026 Term 1)
+
+- Description:
+  We intend to get some help around open issues in the repository and also come up with new use cases and scenarios for performance testing any kubernetes distribution. We love new perspectives and are always open to new ideas alongside what we have as tracked work in github issues. 
+
+  For the purpose of this mentorship program term, we have created an umbrella issue that outlines some of the critical enhancements to the project.
+- Expected Outcome:
+  To knock down some of open critical issues and bring in new perspective to the project. There are no restrictions while working with issues/enhancements.
+- Recommended Skills:
+  - Golang
+  - Kubernetes
+  - Cloud Platforms
+- Mentor(s):
+  -  Vishnu Challa (@vishnuchalla, vchalla@redhat.com) 
+  -  Raul Sevilla (@rsevilla87, rsevilla@redhat.com)
+- Upstream Issues: (https://github.com/kube-burner/kube-burner/issues/1079)
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8f651e4b-a0bf-468a-ab2b-a8167bd85e87
+
+
 ### Kubernetes
 
 
@@ -433,6 +507,27 @@ CNCF - KubeStellar: Documentation and self-service enablement specialist (2026 T
 - Upstream Issue: https://github.com/kubestellar/kubestellar/issues/3521
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/7a1357be-6d84-439a-8cad-4f9b90d491c9
 
+#### Integration and Ecosystem Development Specialist
+
+CNCF - KubeStellar: Integration and ecosystem development specialist (2026 Term 1)
+
+- Description: Reduce adoption friction by building integrations between KubeStellar and popular Kubernetes ecosystem tools. The mentee will survey early users to identify integration priorities, design integration architectures, develop working integrations with tools like GitOps platforms, Terraform, CI/CD systems, or monitoring solutions, create comprehensive documentation and examples, and validate integrations with real users. This program emphasizes software development, API integration, understanding ecosystem tools, and creating seamless user experiences.
+
+- Expected Outcome: 2 production-ready integrations with popular Kubernetes tools, Integration documentation with clear setup guides for each, 2 demo videos demonstrating integration value and setup, Sample implementations and templates for common scenarios, 3 users actively adopting each integration, Submissions to relevant tool marketplaces where applicable, Integration maintenance guide for ongoing support, User feedback on integration quality and usefulness, User engagement: 6 GitHub issues filed by integration users, 4 PRs or PR reviews contributed by integration users
+
+- Recommended Skills: Strong programming skills (Go preferred), Experience with GitOps/CI/CD/infrastructure tools, API integration and software development experience, Understanding of Kubernetes ecosystem and tooling, Technical documentation writing, Open source contribution experience helpful
+
+- Mentor(s): 
+  - Rishi Mondal (@MAVRICK-1, mavrickrishi@gmail.com)
+  - Andy Anderson (@clubanderson, andy@clubanderson.com) 
+  - Shivam Kumar (@btwshivam, shivam200446@gmail.com)
+  - Naman Jain (@naman9271, namanjain9271@gmail.com)
+  - Onkar Shelke (@onkar717, onkarwork2234@gmail.com)
+ 
+- Upstream Issue: https://github.com/kubestellar/kubestellar/issues/3501
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/1cf30f20-dea9-42ae-a115-2747d6755d9c
+
+
 ### LitmusChaos
 
 #### Add Prometheus Metrics to LitmusChaos Control Plane Service 
@@ -449,4 +544,181 @@ CNCF - LitmusChaos: Add Prometheus Metrics to Control Plane Service (2026 Term 1
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/9e3e1e1c-e04b-401e-8eba-edc5894fdf9f
 
 
+### OpenCost
+
+#### OpenCost UI Revamp
+
+CNCF - OpenCost: OpenCost UI Revamp (2026 Term 1)
+
+- Description: OpenCost has helped a lot of people save a lot of money on their infrastructure. We like to think that this has contributed to things like engineering headcounts not getting reduced, small businesses and startups surviving longer, and so on. The OpenCost UI is a key part of this - it lets people visualize their spend, find inefficiencies, and so on. It's time to uplevel the OpenCost UI to enable the next generation of savings!
+- Expected Outcome: We would like all pages of the OpenCost app to be implemented in Carbon or similar modern design system. We would like dashboarding functionality and a unified color scheme. All implementations should be delivered with unit and end-to-end tests. All existing functionality of the UI should be present in the revamped design.
+- Recommended Skills: React, UX Design, Frontend Development, APIs, Carbon Design System
+- Mentors 
+  - Alex Meijer (@ameijer, alexander.meijer@ibm.com)
+  - Warwick Peatey (@peatey, warwick.peatey@ibm.com)
+- Upstream Issue: https://github.com/opencost/opencost-ui/issues/155
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ee1610ae-5850-4aa2-b3aa-edf39fded503
+
+
+### OpenTelemetry
+
+#### Tooling for detecting impact of behavioral changes in Go libraries
+
+CNCF - OpenTelemetry: Tooling for detecting impact of behavioral changes in Go lib (2026 Term 1)
+
+- Description:
+  Maintenance of a stable Go library often involves value-judgement calls regarding what changes can impact downstream consumers. While some existing tooling like [apidiff](https://pkg.go.dev/golang.org/x/exp/apidiff) can go some way towards preventing breakage, these tools work purely in terms of API-level breakage such as changing the type of a symbol. Inspired by [tooling in other language ecosystems such as Rust](https://github.com/rust-lang/crater) this proposal sets out to build a tool that can give statistical information about the impact of any change on downstream consumers by running the build pipelines and test suites of dependents before and after a particular change. This would empower maintainers to make better informed choices about changes and foster an ecosystem. We think this is specially important for the OpenTelemetry project since the OpenTelemetry Go modules and the OpenTelemetry Collector modules are foundational modules used within the CNCF on other projects (e.g Kubernetes, Jaeger) as well as outside of it. The intent is to build a tool that could be used as well by other CNCF projects since Go is the *lingua franca* of the foundation, enabling all projects to have a flourishing ecosystem.
+- Expected Outcome:
+  We would like to have a tool written in Go that is able to (i) gather all publicly-listed dependencies of a module, (ii) safely run the test suite of dependencies for a given version of the code and (iii) compare two test suites and provide a statistical summary of the differences between the two to help in decision-making.
+- Recommended Skills: 
+   - Working Golang skills including testing and building Go code
+   - Working knowledge of CI/CD systems
+   - Containerization and securely running untrusted code
+- Mentor(s):
+  - Pablo Baeyens (@mx-psi, pbaeyens31+github@gmail.com)
+  - Damien Mathieu (@dmathieu, damien.mathieu@elastic.co)
+- Upstream Issue: https://github.com/open-telemetry/opentelemetry-go-build-tools/issues/1528
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/5f537fc2-548b-487a-99ed-c61f7e8bcd47
+
+
+### OpenYurt
+
+#### Implement Label-Driven Automated Installation and Uninstallation of YurtHub on Edge Nodes
+
+CNCF - OpenYurt: Label-driven install/uninstall of YurtHub on edge nodes (2026 Term 1)
+
+- Description:
+  Currently, in OpenYurt, the core component YurtHub—which acts as a transparent proxy between edge node system components (e.g., kubelet, CNI, CoreDNS, kube-proxy) and the Kubernetes API server—is deployed as a systemd service on each edge node. The installation is performed exclusively via the community-provided tool YurtAdm during node joining.
+  This approach imposes a significant limitation: users must use YurtAdm to onboard nodes, making it impossible to install YurtHub on existing Kubernetes nodes that were not initially provisioned with YurtAdm. To improve flexibility and user experience, the community aims to support a label-driven, declarative installation mechanism:
+  - When a specific label (e.g., openyurt.io/is-edge-worker=true) is added to a node, YurtHub should be automatically installed and started on that node.
+  - Conversely, when the label is removed, YurtHub should be gracefully uninstalled and its resources cleaned up.
+  This enhancement will enable seamless integration of OpenYurt into existing Kubernetes clusters without requiring re-onboarding of nodes.
+
+- Expected Outcome:
+  - Design and implement a controller/operator that watches for node labels and triggers YurtHub lifecycle operations.
+  - Develop an installation/uninstallation mechanism that:
+    - Installs YurtHub as a systemd service.
+    - Ensures idempotency and handles failures gracefully.
+    - Cleans up all YurtHub-related files, configurations, and services upon label removal.
+  - Ensure compatibility with existing YurtAdm-based deployments.
+  - Provide comprehensive documentation, including:
+    - User guide for enabling label-driven YurtHub management.
+    - Design rationale and architecture diagram.
+  - Add e2e tests covering both installation and uninstallation scenarios in a real cluster environment.
+
+- Recommended Skills:
+  - Strong proficiency in Go programming language.
+  - Solid understanding of Kubernetes architecture, especially node lifecycle, kubelet, and API machinery.
+  - Experience with Kubernetes controllers/operators (client-go, controller-runtime).
+  - Familiarity with systemd and Linux system service management (for interacting with systemd during install/uninstall).
+  - Knowledge of OpenYurt architecture (especially YurtHub and YurtAdm) is a plus but not mandatory.
+  - Experience writing unit and e2e tests for Kubernetes components.
+  - Good communication and documentation skills.
+
+- Mentor(s):
+  - Rambohe (@rambohe-ch, rambohe.ch@gmail.com)
+  - Bingchang Tang (@zyjhtangtang, bingchang07@gmail.com)
+  - Lu Chen (@luc99hen, luc99.en@gmail.com)
+- Upstream Issue:
+  https://github.com/openyurtio/openyurt/issues/2494
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/d92d9590-63ea-4551-93b7-047f32ae2b17
+
+
+### PipeCD
+
+#### Amazon ECS plugin for Pipedv1
+
+CNCF - PipeCD: Amazon ECS plugin for Pipedv1 (2026 Term 1)
+
+- Description: PipeCD v1 - the new version based on a plugin architecture (ref: [PipeCD plugin-arch overview blog](https://pipecd.dev/blog/2024/11/28/overview-of-the-plan-for-pluginnable-pipecd/)), has released an alpha version, and we are rapidly adding features supported in v0. We need to develop a plugin for PipeCD v1 to support [Amazon ECS](https://aws.amazon.com/ecs) deployment.
+- Expected Outcome:
+  - ECS plugin for PipeCD
+  - Possible update plugin SDK while develop the plugin
+  - Possible update docs how to develop PipeCD plugin
+  - Blog about how to develop a PipeCD plugin on [https://pipecd.dev/blog/](https://pipecd.dev/blog/)
+- Recommended Skills:
+  - Golang
+  - Amazon ECS
+  - GitOps
+  - Continuous Delivery (CD)
+- Mentor(s):
+  - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
+  - Shinnosuke Sawada-Dazai (@Warashi, shin@warashi.dev)
+- Upstream Issue:
+  - https://github.com/pipe-cd/pipecd/issues/6443
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2d9f66f5-4c10-435c-98f9-160e7caa0989
+
+
+#### Community Building and Social Media Growth for PipeCD
+
+CNCF - PipeCD: Community building and social media growth (2026 Term 1)
+
+- Description: The release of PipeCD v1 introduced a plugin-based architecture that enables deployments on any platform. This is a significant evolution in the project's capabilities, but community awareness and adoption haven't kept pace with the technical progress. This project focuses on growing PipeCD's community through consistent content creation across developer platforms, producing technical content around the v1 release, improving documentation for users and contributors, and engaging with the community through demos and discussions. The mentee will work closely with maintainers to translate PipeCD's technical strengths into accessible content that drives adoption and contributions.
+
+- Expected Outcome: Established social media presence for PipeCD across key developer platforms, along with technical content covering v1 features, plugin development, and real-world deployment patterns. Demo content including video walkthroughs and livestreams that make the project easier to adopt. Improved contributor documentation and onboarding materials, with active community engagement through GitHub Discussions and other channels. At least one CNCF talk or meetup presentation delivered.
+- Recommended Skills:
+  - Technical writing and documentation
+  - Experience with Git, CI/CD, GitOps, and deployment workflows
+  - Content creation (written and video) and social media
+  - Public speaking and community engagement
+- Mentor(s):
+    - Eeshaan Sawant (@EeshaanSA, eeshaans1@gmail.com)
+    - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
+
+- Upstream Issue: https://github.com/pipe-cd/pipecd/issues/6441
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/59990960-32be-4bb7-937f-4c749c02e715
+
+
+#### Multi-cluster Kubernetes plugin for Pipedv1
+
+CNCF - PipeCD: Multi-cluster Kubernetes plugin for Pipedv1 (2026 Term 1)
+
+- Description: PipeCD v1 - the new version based on a plugin architecture (ref: [PipeCD plugin-arch overview blog](https://pipecd.dev/blog/2024/11/28/overview-of-the-plan-for-pluginnable-pipecd/)), has released an alpha version, and we are rapidly adding features supported in v0. With a better architecture, support for multi-cluster Kubernetes deployments is a natural extension. This project will focus on developing the Piped v1 plugin to support multi-cluster Kubernetes deployments.
+
+- Expected Outcome:
+  - Multi-cluster Kubernetes plugin for PipeCD
+  - Possible update plugin SDK while develop the plugin
+  - Possible update docs how to develop PipeCD plugin
+  - Blog about how to develop a PipeCD plugin on [https://pipecd.dev/blog/](https://pipecd.dev/blog/)
+- Recommended Skills:
+  - Golang
+  - Kubernetes
+  - GitOps
+  - Continuous Delivery (CD)
+- Mentor(s):
+  - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
+  - Shinnosuke Sawada-Dazai (@Warashi, shin@warashi.dev)
+- Upstream Issue:
+  - https://github.com/pipe-cd/pipecd/issues/6446
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/d1c5f444-3679-4102-b0a8-dd66e225dc65
+
+
+### Prometheus
+
+#### Improving Documentation for Prometheus and OpenTelemetry Interoperability
+
+CNCF - Prometheus: Improve docs for Prometheus & OpenTelemetry interoperability (2026 Term 1)
+
+- Description:
+  Prometheus and OpenTelemetry are commonly deployed together, yet many users struggle to understand how the two systems interoperate — especially around concepts such as resource attributes, label mapping, attribute promotion, and recommended integration patterns.
+
+  [Prior UX research](https://opentelemetry.io/blog/2025/ux-research-prometheus-otel/) identified documentation gaps as a primary source of confusion, and [ongoing community discussions](https://opentelemetry.io/blog/2026/slack-community-insights/) continue to surface similar questions. While both projects provide extensive documentation, guidance is often fragmented, highly technical, or lacks practical end-to-end explanations for real-world usage.
+
+  This mentorship focuses on improving the clarity, usability, and consistency of documentation that explains how Prometheus and OpenTelemetry work together. The mentee will analyze existing documentation across both projects, identify high-impact gaps or friction points, and collaborate with mentors to design and deliver meaningful documentation improvements upstream.
+
+  The project is intentionally exploratory and iterative. Part of the mentorship is learning how to evaluate documentation quality, prioritize improvements, and define ways to measure the impact of documentation changes made during the program.
+- Expected Outcome:
+  - Review and audit existing Prometheus and OpenTelemetry documentation related to interoperability.
+  - Define a prioritized documentation improvement plan together with the mentors.
+  - Produce and submit documentation improvements upstream in one or both projects. These may include conceptual explanations, practical guides, examples, diagrams, and cross-project references.
+  - Establish basic criteria or methods to evaluate documentation effectiveness during the mentorship.
+- Recommended Skills:
+  - Prior experience with technical writing or clear motivation to pursue a Tech Writing career.
+  - Familiarity with Git and contributing via pull requests.
+- Mentor(s):
+  - Arthur Silva Sens (@arthursens, arthursens2005@gmail.com)
+  - Tiffany Hrabusa (@tiffany76, tiffany.hrabusa@gmail.com)
+  - Victoria Nduka (@nwanduka, ndukavictoria7@gmail.com)
+- Upstream Issue: https://github.com/prometheus/prometheus/issues/17823
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/b703834b-9250-4413-b056-76a8ad885ea2
 
