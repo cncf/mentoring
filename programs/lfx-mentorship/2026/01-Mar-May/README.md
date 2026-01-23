@@ -1,6 +1,6 @@
 # Term 01 - 2026 March - May
 
-Status: Mentee Applications Open
+Status: Planning
 
 Mentorship duration - three months (full-time schedule)
 
