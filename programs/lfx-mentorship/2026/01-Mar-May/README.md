@@ -51,6 +51,12 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - [Add support for Chaos Engineering/Fault Injection](#add-support-for-chaos-engineeringfault-injection)
   - [Ecosystem Integrations & Tutorials for kgateway's AI Gateway](#ecosystem-integrations-tutorials-for-kgateways-ai-gateway)
   - [Modernize and improve kgateway end-to-end testing](#modernize-and-improve-kgateway-end-to-end-testing)
+- [Knative](#knative)
+  - [Enhancing the Knative Educational Game with Advanced EDA Patterns and Web Deployment](#enhancing-the-knative-educational-game-with-advanced-eda-patterns-and-web-deployment)
+- [Kubernetes](#kubernetes)
+  - [#Add OpenTelemetry support](#add-opentelemetry-support)
+- [KubeStellar](#kubestellar)
+  - [Documentation and Self-Service Enablement Specialist](#documentation-and-self-service-enablement-specialist)
 - [LitmusChaos](#litmuschaos)
   - [Add Prometheus Metrics to LitmusChaos Control Plane Service](#add-prometheus-metrics-to-litmuschaos-control-plane-service)
 
@@ -360,6 +366,72 @@ CNCF - kgateway: Modernize and improve end-to-end testing (2026 Term 1)
 - Upstream Issue: https://github.com/kgateway-dev/kgateway/issues/13351
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/4343c10e-7c14-416f-b26b-6094312aa397
 
+
+### Knative
+
+#### Enhancing the Knative Educational Game with Advanced EDA Patterns and Web Deployment
+
+CNCF - Knative: Enhance Knative Educational Game & web deployment (2026 Term 1)
+
+- Description: Knative provides a powerful event-driven platform, but learning its concepts, especially brokers and EDA patterns, can be challenging for beginners. The Knative Educational Game aims to simplify this learning curve through interactive gameplay that visually and conceptually demonstrates Knative components and event-driven patterns. 
+
+  An overview of the project was presented at the [KubeCon NA 2024](https://youtu.be/TTBKh6F4v-g?si=MRmx6a2YJsl7y0Q-), and several technical sketches, gameplay patterns, and level designs were created and implemented during the [LFX Mentorship of Spring 2025](https://github.com/knative-extensions/educational-game/blob/main/Levels/brainstorm.md).
+
+  This project serves as the continuation of that work and is divided into two main parts:
+    - The first part focuses on expanding and enhancing the game by implementing existing level designs, introducing advanced EDA patterns (like Outbox and DataRef patterns), designing assets as needed, and improving interactivity.
+    - The second part focuses on deploying the game to the web, making it easily accessible for learners to try and share.
+
+- Expected Outcome:
+  - A fully implemented and web-deployed Knative Educational Game by completing previously designed levels, and newly added EDA patterns (DataRef and Outbox).
+  - Improved learning experience through interactive animations, sounds, and clear visualizations that make Knative Eventing concepts and real-world patterns easier to understand.
+  - A Netlify hosted web deployment integrated into the Knative website.
+
+- Recommended Skills: Godot, Game Development, Event Driven Architecture, Graphic Design.
+
+- Mentor(s):
+  - Ankita Jana (@ankitajana21 , ankitajana60@gmail.com)
+  - Prajjwal Yadav (@prajjwalyd, prajjwalyd@gmail.com)
+
+- Upstream Issue: https://github.com/knative-extensions/educational-game/issues/52
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/414b7749-fe19-4874-a260-b6017c2c3242
+
+
+### Kubernetes
+
+
+#### Cluster API Provider AWS (CAPA)
+
+##### Add OpenTelemetry support
+
+CNCF - Kubernetes: CAPA: Add OpenTelemetry support (2026 Term 1)
+
+- Description: Cluster API Provider AWS (CAPA) enables the creation of Kubernetes clusters in AWS with Cluster API. With increasing adoption of Cluster API (CAPI) in general and of CAPA we want to improve the supportability of CAPA, especially for production environments. The first part of this is to add telemetry/tracing using OpenTelemetry so that we can understand and visualize the flow of reconciliation within the provider. This will enable the project and its end users to understand the behavior of reconciliation (including API services called) and will help diagnose issues and performance problems.
+- Expected Outcome: An implementation of OpenTelemetry in CAPA with associated documentation that has been released in a new version of CAPA.
+- Recommended Skills: Golang, Kubernetes, AWS
+- Mentor(s):
+  - Richard Case (@richardcase, richmcase@gmail.com)
+  - Daniel Lipovetsky (@dlipovetsky, daniel.lipovetsky@gmail.com )
+- Upstream Issue: https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/2178
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/e60d11ff-bf0a-47d6-a873-0583428c8cb3
+
+
+### KubeStellar
+
+#### Documentation and Self-Service Enablement Specialist
+
+CNCF - KubeStellar: Documentation and self-service enablement specialist (2026 Term 1)
+
+- Description: : KubeStellar is a Kubernetes-native multi-cluster synchronization platform. This project focuses on creating a frictionless onboarding experience, enabling first-time users to deploy KubeStellar end-to-end in under 30 minutes using only self-service documentation. The work includes deployment audits, Quickstart optimization, interactive tutorials, video guides, and structured troubleshooting, use-case, and migration documentation to improve adoption and reduce support overhead.  
+- Expected Outcome: A validated ≤30-minute Quickstart guide, an interactive hands-on tutorial with automated checks, a 5–7 module video series, a 20-issue troubleshooting guide, 5 production-ready use-case patterns, 3 migration guides from common multi-cluster setups, and measurable onboarding success (≤30 min time-to-first-success, ≥4/5 user satisfaction).  
+- Recommended Skills: Kubernetes deployment and troubleshooting, strong technical writing, Markdown-based documentation tools (Docusaurus/Nextra), user-centric documentation design video, DevOps or DevRel background a plus
+- Mentor(s):  
+  - Shivam Kumar (@btwshivam, shivam200446@gmail.com)
+  - Rishi Mondal (@MAVRICK-1, mavrickrishi@gmail.com)
+  - Saumya Kumar (@oksaumya, saumyakr2006@gmail.com)
+  - Nupur Shivani (@Nupurshivani, nupurjha.me@gmail.com)
+  - Andy Anderson (@clubanderson, andy@clubanderson.com)
+- Upstream Issue: https://github.com/kubestellar/kubestellar/issues/3521
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/7a1357be-6d84-439a-8cad-4f9b90d491c9
 
 ### LitmusChaos
 
