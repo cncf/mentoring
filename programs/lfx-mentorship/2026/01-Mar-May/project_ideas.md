@@ -519,6 +519,7 @@ CNCF - Prometheus: Start scraping immediately on startup without waiting for WAL
   - Familiarity with unit testing.
 - Mentor(s):
   - Ganesh Vernekar (@codesome, ganeshvern@gmail.com)
+  - Bryan Boreham (@bboreham, bjboreham@gmail.com)
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/17058
 
 ### Volcano
