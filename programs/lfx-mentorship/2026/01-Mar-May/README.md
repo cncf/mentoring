@@ -37,6 +37,8 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - [Model and Parse AWS IAM Policy Conditions for Accurate Permission Analysis](#model-and-parse-aws-iam-policy-conditions-for-accurate-permission-analysis)
 - [Cilium](#cilium)
   - [Cilium Project Pillar Pages](#cilium-project-pillar-pages)
+- [Drasi](#drasi)
+  - [Drasi for IoT: MQTT Integration and Real-Time Sensor Monitoring](#drasi-for-iot-mqtt-integration-and-real-time-sensor-monitoring)
 - [etcd](#etcd)
   - [Dive deep into etcd by contributing to the self-Assessment of etcd](#dive-deep-into-etcd-by-contributing-to-the-self-assessment-of-etcd)
 - [Fluid](#fluid)
@@ -62,6 +64,10 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - [KubeStellar](#kubestellar)
   - [Documentation and Self-Service Enablement Specialist](#documentation-and-self-service-enablement-specialist)
   - [Integration and Ecosystem Development Specialist](#integration-and-ecosystem-development-specialist)
+- [Kyverno](#kyverno)
+  - [DevRel](#devrel)
+  - [Test Enhancements -  Kyverno CLI Tests - envtest, fake client](#test-enhancements---kyverno-cli-tests---envtest-fake-client)
+  - [Test Enhancements -  Testing Framework / Toolset for integration tests](#test-enhancements---testing-framework-toolset-for-integration-tests)
 - [LitmusChaos](#litmuschaos)
   - [Add Prometheus Metrics to LitmusChaos Control Plane Service](#add-prometheus-metrics-to-litmuschaos-control-plane-service)
 - [OpenCost](#opencost)
@@ -77,7 +83,11 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - [Multi-cluster Kubernetes plugin for Pipedv1](#multi-cluster-kubernetes-plugin-for-pipedv1)
 - [Prometheus](#prometheus)
   - [Improving Documentation for Prometheus and OpenTelemetry Interoperability](#improving-documentation-for-prometheus-and-opentelemetry-interoperability)
+- [urunc](#urunc)
+  - [Create a dashboard and a notification system for CI testing in `urunc`](#create-a-dashboard-and-a-notification-system-for-ci-testing-in-urunc)
 
+  - [Investigate missing custom OCI Annotations in urunc containers](#investigate-missing-custom-oci-annotations-in-urunc-containers)
+  - [Optimizing Rootfs Handling with block-based snapshotters in `urunc`](#optimizing-rootfs-handling-with-block-based-snapshotters-in-urunc)
 ## Accepted Projects
 
 ### Antrea
@@ -142,6 +152,43 @@ CNCF - Cilium: Cilium Project Pillar Pages (2026 Term 1)
   - Bill Mulligan (@xmulligan, bill@isovalent.com)
 - Upstream Issue: https://github.com/cilium/cilium.io/issues/841
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/854310e3-e1ac-472c-945f-97bb16bc1aca
+
+
+### Drasi
+
+#### Drasi for IoT: MQTT Integration and Real-Time Sensor Monitoring
+
+CNCF - Drasi: IoT: MQTT integration and real-time sensor monitoring (2026 Term 1)
+
+- Description: Drasi is a Data Change Processing platform that enables developers to detect and react to meaningful data changes using declarative Cypher queries. Drasi excels at complex change detection with unique features like `drasi.trueFor()` (detecting conditions that persist over time) and absence-of-change detection (alerting when expected events don't occur). However, it currently lacks native connectivity to IoT protocols.
+
+  Drasi Lib provides Drasi's powerful graph-aware decision engine as an embeddable Rust library that can run completely offline on constrained hardware—enabling edge computing scenarios where logic runs directly on sensors and gateways. IoT applications fundamentally need to detect state transitions, but developers typically must write boilerplate code and manage state persistence manually. Drasi's diff-engine handles state management and change computation automatically, emitting events only when meaningful changes occur.
+
+  MQTT (Message Queuing Telemetry Transport) is the de-facto standard protocol for IoT, used by AWS IoT Core, Azure IoT Hub, and virtually every IoT deployment. Adding MQTT support to Drasi Lib will unlock the entire IoT ecosystem for Drasi users.
+
+  In this project, the mentee will build a suite of lightweight Rust crates that enable Drasi Lib to communicate with MQTT brokers. They will create connectors to ingest sensor data (MQTT Source), execute local actions (Shell Reaction), and close the control loop (MQTT Reaction). Finally, they will demonstrate the complete stack with a demo showcasing Drasi's unique temporal capabilities for IoT.
+
+  The mentee will gain hands-on experience with async Rust (tokio), IoT protocols (MQTT), stream processing concepts, and graph-based data modeling.
+
+- Expected Outcome:
+  - Build MQTT Source Plugin - A new Rust crate that enables Drasi to ingest data from MQTT brokers
+  - Build Shell/Command Reaction - A new Rust crate that enables Drasi to execute local system commands based on query results
+  - Build MQTT Reaction Plugin - A new Rust crate that enables Drasi to publish alerts/commands to MQTT topics
+  - Create IoT Demo Scenario - A complete, runnable demonstration showing Drasi's power for IoT use cases
+  - Create Documentation & Tutorial - Comprehensive guide for IoT developers to adopt Drasi
+  - (Stretch Goal) Build InfluxDB Source - Enables Drasi to ingest from InfluxDB, unlocking Telegraf's 200+ input plugins for IoT
+- Recommended Skills:
+  - Rust (intermediate level: ownership, traits, async/await with tokio)
+  - Basic understanding of IoT concepts (MQTT protocol, pub/sub patterns)
+  - Git and GitHub workflow
+  - (Helpful) Docker and Docker Compose for testing
+  - (Helpful) Basic understanding of graph concepts or Cypher query language
+  - (Helpful) Experience with message brokers (MQTT, Kafka, etc.)
+- Mentor(s):
+  - Aman Singh (@amansinghoriginal, singh.amandeep@microsoft.com) - Primary
+  - Allen Jones (@agentofreality, Jones.Allen@microsoft.com)
+- Upstream Issue: https://github.com/drasi-project/drasi-core/issues/155
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/febb9f7b-8516-41b5-8815-770d333ac978
 
 
 ### etcd
@@ -528,6 +575,75 @@ CNCF - KubeStellar: Integration and ecosystem development specialist (2026 Term 
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/1cf30f20-dea9-42ae-a115-2747d6755d9c
 
 
+### Kyverno
+
+#### DevRel
+
+CNCF - Kyverno: DevRel (junior) mentorship (2026 Term 1)
+
+- Description: 
+  Option 1: General Junior DevRel Mentorship
+
+  This mentorship is designed for a junior Developer Relations or community-focused contributor who wants hands-on experience supporting a fast-growing open source project in the cloud native ecosystem. The mentee will work closely with the Kyverno maintainers and community to improve the overall developer and end-user experience through better documentation, tutorials, example content, and community-facing resources.
+
+  The mentee will contribute upstream to Kyverno by helping create clear getting-started guides, improving existing documentation, supporting educational content such as blogs or walkthroughs, and assisting with community enablement initiatives. The mentorship focuses on foundational DevRel skills including technical communication, open source contribution workflows, user empathy, and translating complex technical concepts into approachable learning materials, while building a visible portfolio of real-world open source contributions. 
+
+  Option 2: Concise Version of the CEL-Focused Mentorship (1–2 Paragraphs)
+  This mentorship offers a junior DevRel contributor the opportunity to work directly with the Kyverno community to support the adoption of Kyverno’s new CEL-based policy capabilities. The mentee will help create and refine documentation, tutorials, and example content that make it easier for new users to get started with CEL policies and for existing users to migrate from traditional policy types to CEL policies.
+
+  Working upstream with Kyverno maintainers, the mentee will gain hands-on experience with Kubernetes policy, developer education, and open source collaboration, while learning core DevRel skills such as technical storytelling, community-focused documentation, and content-driven adoption.
+
+- Recommended Skills:  
+  - Technical communication
+  - Documentation and content creation
+  - Kubernetes policy knowledge
+
+- Mentor(s): 
+  - Cortney Nickerson (@CortNick, cortney.nickerson@nirmata.com)
+  - Mariam Fahmy (@MariamFahmy98, mariamfahmy66@gmail.com)
+
+- Upstream Issue:  https://github.com/kyverno/kyverno/issues/14726
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/5c1581e3-04c2-40ed-ab50-b888e02f973f
+
+
+#### Test Enhancements -  Kyverno CLI Tests - envtest, fake client
+
+CNCF - Kyverno: Test enhancements: Kyverno CLI tests with envtest/fake client (2026 Term 1)
+
+- Description: The Kyverno CLI should be flexible enough to perform real variable substitutions when CEL libraries are used in policies, in addition to static substitutions. This enhancement would enable comprehensive policy testing without requiring a real Kubernetes cluster, significantly speeding up development and CI/CD pipelines.
+
+- Recommended Skills: 
+  - Golang
+  - Kubebernetes
+  - Cobra
+  - fake client
+  - envTest
+
+- Mentor(s): Shuting Zhao (@realshuting, shuting@nirmata.com)
+
+- Upstream Issue: 
+  - https://github.com/kyverno/kyverno/issues/14629
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/206776e3-e3c2-4418-8536-2ce9642302eb
+
+
+#### Test Enhancements -  Testing Framework / Toolset for integration tests
+
+CNCF - Kyverno: Test enhancements: integration test framework/toolset (2026 Term 1)
+
+- Description: Currently Kyverno uses Chainsaw as the primary testing tool, which executes end-to-end tests on a real cluster. While this provides a large test coverage, it takes a long time to be executed and is also used to test very basic/simple cases. This project is about creating a framework to allow and simplify the creation of integration tests on the code level, without spinning up an actual cluster. This allows easier and faster testing locally as well as in our CI pipelines.
+
+- Recommended Skills: 
+  - Go tests
+  - CLI 
+- Mentor(s): 
+  - Frank Jogeleit (@fjogeleit, frank.jogeleit@nirmata.com)
+  - Ammar Yasser (@aerosouund, ammar.yasser@nirmata.com)
+
+- Upstream Issue: 
+  - https://github.com/kyverno/kyverno/issues/14725
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/72445950-34e9-4e80-82ef-251882464336
+
+
 ### LitmusChaos
 
 #### Add Prometheus Metrics to LitmusChaos Control Plane Service 
@@ -721,4 +837,125 @@ CNCF - Prometheus: Improve docs for Prometheus & OpenTelemetry interoperability 
   - Victoria Nduka (@nwanduka, ndukavictoria7@gmail.com)
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/17823
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/b703834b-9250-4413-b056-76a8ad885ea2
+### urunc
+
+#### Create a dashboard and a notification system for CI testing in `urunc`
+
+CNCF - urunc: Dashboard and notification system for CI testing (2026 Term 1)
+
+- Description:
+
+GitHub Actions provides detailed views of CI workflows at the repository level,
+but it can be difficult for maintainers to quickly track the overall status of
+recurring workflows, such as nightly tests, over time. Important
+information, like historical failures or trends, often requires manual
+inspection of individual workflow runs.
+
+This work aims to improve CI observability for `urunc` by creating a
+centralized dashboard that presents an aggregated view of its nightly (and
+other CI) test workflows. The dashboard will provide maintainers with a clear
+overview of recent runs, success and failure states, and relevant metadata in a
+single place.
+
+In addition to visualization, this work includes the design and implementation of a
+notification mechanism that alerts maintainers when tests fail. This
+will help ensure that regressions are noticed quickly and addressed in a timely
+manner, improving overall project reliability.
+
+- Expected Outcome:
+  - Design and implementation of a dashboard summarizing nightly (and CI) test results.
+  - Clear visualization of workflow status and execution history.
+  - Implementation of a notification system for nightly test failures.
+  - Documentation describing the dashboard, notification setup, and maintenance.
+
+- Recommended Skills:
+  - Basic understanding of CI/CD, GitHub Actions and GitHub API.
+  - Experience with a suitable programming language (e.g., Go, Python, JavaScript)
+
+- Mentor(s):
+  - Charalampos Mainas (@cmainas, cmainas@nubificus.co.uk)
+  - Panagiotis Mavrikos (@panosmaurikos, pmavrikos@nubificus.co.uk)
+
+- Upstream Issue: https://github.com/urunc-dev/urunc/issues/106
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/6d6e52c9-d4a0-4d0d-a3d8-f289935d9906
+
+
+#### Investigate missing custom OCI Annotations in urunc containers
+
+CNCF - urunc: Investigate missing custom OCI annotations in urunc containers (2026 Term 1)
+
+- Description:
+
+In order to pass sandbox-specific configuration, such as the guest type,
+monitor type, rootfs information and others, `urunc` relies on a set of [custom
+OCI annotations](https://urunc.io/package/#annotations). However, these
+annotations are missing from the container's configuration in
+non-Kubernetes-deployments. To work around this issue, a `urunc.json` file
+containing the same information is currently injected into the container’s
+root filesystem. This works aims to investigate the OCI image build and runtime
+flow to understand where and why these custom annotations are dropped or
+ignored in non-Kubernetes setups.
+
+- Expected Outcome:
+  - A clear summary of the investigation, including where and why the custom
+    annotations are lost.
+  - A proposed solution enabling `urunc` to correctly consume its custom OCI
+    annotations.
+  - Alternatively, the design and implementation of a cleaner mechanism than
+    injecting a file into the container’s root filesystem.
+
+- Recommended Skills:
+  - Go
+  - Familiarity with container tools (docker, nerdctl, skopeo etc.)
+  - Familiarity with container runtimes (containerd, runc, urunc)
+  - familiarity with the OCI specification
+- Mentor(s):
+  - Charalampos Mainas (@cmainas, cmainas@nubificus.co.uk)
+  - Anastassios Nanos (@ananos, ananos@nubificus.co.uk)
+- Upstream Issue: https://github.com/urunc-dev/urunc/issues/12
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/f1fb6914-eab7-481b-85ce-78f095ad4989
+
+
+#### Optimizing Rootfs Handling with block-based snapshotters in `urunc`
+
+CNCF - urunc: Optimize rootfs handling with block-based snapshotters (2026 Term 1)
+
+- Description:
+
+When `urunc` is used together with a block-based snapshotter, it can take
+advantage of block-device backed container root filesystem and pass it
+directly to the sandbox as a disk image. This approach avoids filesystem
+conversion and enables efficient access to the container root filesystem.
+
+However, in order to spawn the sandbox, urunc requires access to the guest
+kernel and the initrd (if present). Since these files are part of the
+container rootfs, `urunc` must first extract and store them elsewhere before
+attaching the block-based root filesystem to the sandbox. As a result, this
+process introduces unnecessary file copies and additional I/O overhead.
+
+A more efficient approach is to leverage read-only (view) snapshots. Instead of
+copying files, `urunc` could request a read-only snapshot of the container root
+filesystem and mount it separately. The kernel binary and other required
+artifacts could then be read directly from this snapshot without modifying or
+duplicating data. Since view snapshots simply redirect read requests to the
+underlying snapshot layers, this approach is expected to introduce little to no
+additional storage overhead while simplifying the runtime flow.
+
+- Expected Outcome:
+  - A document explaining block-based snapshots in containerd, along with the
+    respective APIs to snapshot creation and management.
+  - An implementation in `urunc` that requests and mounts a read-only snapshot
+    of the container root filesystem.
+  - Evaluation of performance, storage overhead, and limitations of the
+    snapshot-based approach.
+
+- Recommended Skills:
+  - Go
+  - Familiarity with containerd
+  - Familiarity with Linux filesystems and block devices
+- Mentor(s):
+  - Charalampos Mainas (@cmainas, cmainas@nubificus.co.uk)
+  - Anastassios Nanos (@ananos, ananos@nubificus.co.uk)
+- Upstream Issue: https://github.com/urunc-dev/urunc/issues/43
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/59a4a90b-fc38-4aae-a712-b622eab55d61
 
