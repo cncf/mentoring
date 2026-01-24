@@ -248,7 +248,7 @@ This workflow should remove the need for maintainers to manually create and mana
 - Upstream Issue:  
   - https://github.com/kubernetes-sigs/headlamp/issues/3710
 
-#### Polish Knative support in Headlamp: Serverless Workload Management UI
+##### Polish Knative support in Headlamp: Serverless Workload Management UI
 
 - Description:  
   Knative enables serverless on Kubernetes (scale-to-zero, traffic splitting). This project finishes and polishes a Headlamp plugin so operators can **view, inspect, and manage Knative Services, Revisions, Configurations, and Routes** from Headlamp, complementing the `kn` CLI. Builds on an existing plugin.
@@ -272,3 +272,32 @@ This workflow should remove the need for maintainers to manually create and mana
 
 - Upstream Issue:  
   https://github.com/headlamp-k8s/plugins/issues/486
+
+##### Add Strimzi to Headlamp: Kubernetes Kafka Management UI
+
+- Description:
+ Strimzi is a Kubernetes Operator for running Apache Kafka. This project builds a Headlamp plugin that adds a **Strimzi** section to Headlamp, surfacing Strimzi CRDs so operators can **view and manage Kafka clusters, topics, users, and connectors** from the Headlamp UI. The plugin follows Headlamp UX patterns with list and detail views, links between related resources, and optional metrics embedding.
+
+- Expected Outcome:
+  - Plugin exposes key Strimzi CRDs: Kafka, KafkaTopic, KafkaUser, KafkaConnect, and KafkaConnector.
+  - List views, with summary columns (name, namespace, brokers, partitions, replication, status).
+  - Detail pages, showing config, status conditions, sub-resources (broker pods, connectors), and basic actions (create/edit topic, regenerate user creds).
+  - Relational navigation, cluster → topics/users; topic → cluster.
+  - Consistent Headlamp UX, icons, tables, detail layouts, Map view enhancements.
+  - Structured config display (collapsible sections/YAML toggle), humanized statuses, validated forms for mutating actions.
+  - README with prerequisites and limitations; blog post demoing usage.
+
+- Recommended Skills:
+  - TypeScript and React
+  - (Optional) Familiarity with Kubernetes CRDs and Operators
+  - (Optional) Knowledge of Apache Kafka concepts
+  - (Optional) UX design sensibilities
+
+- Mentor(s):
+  - Rene Dudfield (@illume, renedudfield@microsoft.com)
+  - Jakub Scholz (@scholzj, github@scholzj.com)
+  - Santhosh Nagaraj (@yolossn, sannagaraj@microsoft.com)
+  - Ashu Ghildiyal (@ashu8912, ashu.ghildiyal@microsoft.com)
+
+- Upstream Issue:  
+  https://github.com/headlamp-k8s/plugins/issues/488
