@@ -38,6 +38,24 @@ CNCF - Fluid: Design and implement a CLI tool for Fluid (2026 Term 1)
   - Zhihao Xu (@TrafalgarZZZ， [trafalgarz@outlook.com](mailto:trafalgarz@outlook.com))
   - Yang Che (@cheyang, [cheyang52@gmail.com](mailto:cheyang52@gmail.com))
 
+### Kubernetes
+
+#### Kubespray
+
+##### Automate building OS images for supported/CI tested distribution
+
+- Description: This feature request aims to automate the building and publishing of OS images that are used in Kubespray CI testing. Currently, these images (defined in `test-infra/image-builder/roles/kubevirt-images/defaults/main.yml`) must be manually created and pushed by maintainers. Automating this process would reduce manual work, eliminate bottlenecks when maintainers are unavailable, and could include automatic cleanup of outdated or unused images, while still retaining images needed for older supported release branches. 
+- Expected Outcome: A CI job (likely post-merge and possibly periodic) that automatically:
+	1.	Builds the required Kubespray OS images used in CI for tested distributions.
+	2.	Pushes these built images to the appropriate registry.
+	3.	Cleans up old or no longer needed images but retains those required for supported release branches.
+This workflow should remove the need for maintainers to manually create and manage these images.
+- Recommended Skills: Ansible, GitLab CI, Python
+- Mentor(s):
+  - ChengHao Yang (@tico88612, tico88612@gmail.com)
+  - Kay Yan (@yankay, yankaycom@gmail.com)
+  - Max Gautier (@VannTen, mg@max.gautier.name)
+- Upstream Issue: https://github.com/kubernetes-sigs/kubespray/issues/12383
 
 ### Meshery
 
