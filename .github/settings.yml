@@ -56,6 +56,10 @@ labels:
     color: 0052CC
   - name: '2026'
     color: 0052CC
+  - name: discussion
+    color: af17d7
+  - name: administration
+    color: e3ead3
   # one "blank" line
   - name: blank
 
