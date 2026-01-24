@@ -44,6 +44,8 @@ CNCF - Fluid: Design and implement a CLI tool for Fluid (2026 Term 1)
 
 ##### Automate building OS images for supported/CI tested distribution
 
+CNCF - Kubernetes: Kubespray: Automate OS image pipeline for CI (2026 Term 1)
+
 - Description: This feature request aims to automate the building and publishing of OS images that are used in Kubespray CI testing. Currently, these images (defined in `test-infra/image-builder/roles/kubevirt-images/defaults/main.yml`) must be manually created and pushed by maintainers. Automating this process would reduce manual work, eliminate bottlenecks when maintainers are unavailable, and could include automatic cleanup of outdated or unused images, while still retaining images needed for older supported release branches. 
 - Expected Outcome: A CI job (likely post-merge and possibly periodic) that automatically:
 	1.	Builds the required Kubespray OS images used in CI for tested distributions.
@@ -61,6 +63,8 @@ This workflow should remove the need for maintainers to manually create and mana
 
 ##### Improve AMI Publication and Maintenance
 
+CNCF - Kubernetes: CAPA: Improve AMI publication and maintenance (2026 Term 1)
+
 - Description: Cluster API Provider AWS (CAPA) enables the creation of Kubernetes clusters in AWS with Cluster API. CAPA allows you create EKS and non-EKS based Kubernetes clusters. When creating a non-EKS cluster we must use AMIs for the nodes in the cluster. The project publishes some AMIs for non-production use. However, the process for publishing the AMIs needs improvment. Firstly we want to fully automate the publication of new AMIs when there is a new Kubernetes version available. Secondly, we need to implement the "AMI Publication Policy" for the project which will involve automated house keeping of AMIs. And thirdly we want to add back support for base operating systems that where temporarily dropped.
 - Expected Outcome: Automated AMI publication and deletion inline with the projects policy. Support for additional operating systems.
 - Recommended Skills: AWS, GitHub Actions, Packer, Ansible, Kubernetes
@@ -71,6 +75,8 @@ This workflow should remove the need for maintainers to manually create and mana
 #### Headlamp
 
 ##### Add Cluster API to Headlamp: Cluster Lifecycle Management UI
+
+CNCF - Headlamp: Add Cluster API to Headlamp: Cluster lifecycle management UI (2026 Term 1)
 
 - Description:
  Cluster API (CAPI) provides declarative APIs and tooling to provision, upgrade, and operate Kubernetes clusters. This project continues an existing Headlamp plugin to deliver first-class UI support for CAPI resources (Clusters, Machines, MachineDeployments, KubeadmControlPlanes). The plugin will let operators discover, inspect, and manage cluster lifecycle objects in Headlamp, visualizing hierarchical relationships and closing gaps in the plugin.
@@ -98,6 +104,8 @@ This workflow should remove the need for maintainers to manually create and mana
   https://github.com/headlamp-k8s/plugins/issues/485
   
 ##### Add Kubeflow to Headlamp: Machine Learning Workflow Management UI
+
+CNCF - Headlamp: Add Kubeflow to Headlamp: ML workflow management UI (2026 Term 1)
 
 - Description:
  Build a Headlamp plugin to surface Kubeflow resources (Pipelines, Katib, PipelineRuns, Notebooks, TFJob/PyTorchJob/TrainJob, Spark) so operators and ML engineers can discover, monitor, and manage ML workloads alongside standard K8s resources. Link to Kubeflow UIs when deeper functionality is needed.
@@ -128,6 +136,8 @@ This workflow should remove the need for maintainers to manually create and mana
 
 ##### Polish Knative support in Headlamp: Serverless Workload Management UI
 
+CNCF - Headlamp: Polish Knative support in Headlamp: Serverless workload management UI (2026 Term 1)
+
 - Description:  
   Knative enables serverless on Kubernetes (scale-to-zero, traffic splitting). This project finishes and polishes a Headlamp plugin so operators can **view, inspect, and manage Knative Services, Revisions, Configurations, and Routes** from Headlamp, complementing the `kn` CLI. Builds on an existing plugin.
 
@@ -152,6 +162,8 @@ This workflow should remove the need for maintainers to manually create and mana
   https://github.com/headlamp-k8s/plugins/issues/486
 
 ##### Add Strimzi to Headlamp: Kubernetes Kafka Management UI
+
+CNCF - Headlamp: Add Strimzi to Headlamp: Kubernetes Kafka management UI (2026 Term 1)
 
 - Description:
  Strimzi is a Kubernetes Operator for running Apache Kafka. This project builds a Headlamp plugin that adds a **Strimzi** section to Headlamp, surfacing Strimzi CRDs so operators can **view and manage Kafka clusters, topics, users, and connectors** from the Headlamp UI. The plugin follows Headlamp UX patterns with list and detail views, links between related resources, and optional metrics embedding.
