@@ -67,6 +67,13 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - [kube-burner](#kube-burner)
 - [Kubernetes](#kubernetes)
   - [#Add OpenTelemetry support](#add-opentelemetry-support)
+  - [Cluster API Provider AWS (CAPA)](#cluster-api-provider-aws-capa)
+  - [Kubespray](#kubespray)
+  - [Headlamp](#headlamp-1)
+    - [Add Cluster API to Headlamp: Cluster Lifecycle Management UI](#add-cluster-api-to-headlamp-cluster-lifecycle-management-ui)
+    - [Add Kubeflow to Headlamp: Machine Learning Workflow Management UI](#add-kubeflow-to-headlamp-machine-learning-workflow-management-ui)
+    - [Add Strimzi to Headlamp: Kubernetes Kafka Management UI](#add-strimzi-to-headlamp-kubernetes-kafka-management-ui)
+    - [Polish Knative support in Headlamp: Serverless Workload Management UI](#polish-knative-support-in-headlamp-serverless-workload-management-ui)
 - [KubeStellar](#kubestellar)
   - [Documentation and Self-Service Enablement Specialist](#documentation-and-self-service-enablement-specialist)
   - [Integration and Ecosystem Development Specialist](#integration-and-ecosystem-development-specialist)
@@ -650,6 +657,170 @@ CNCF - Kubernetes: CAPA: Add OpenTelemetry support (2026 Term 1)
   - Daniel Lipovetsky (@dlipovetsky, daniel.lipovetsky@gmail.com )
 - Upstream Issue: https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/2178
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/e60d11ff-bf0a-47d6-a873-0583428c8cb3
+
+
+#### Cluster API Provider AWS (CAPA)
+
+##### Improve AMI Publication and Maintenance
+
+CNCF - Kubernetes: CAPA: Improve AMI publication and maintenance (2026 Term 1)
+
+- Description: Cluster API Provider AWS (CAPA) enables the creation of Kubernetes clusters in AWS with Cluster API. CAPA allows you create EKS and non-EKS based Kubernetes clusters. When creating a non-EKS cluster we must use AMIs for the nodes in the cluster. The project publishes some AMIs for non-production use. However, the process for publishing the AMIs needs improvment. Firstly we want to fully automate the publication of new AMIs when there is a new Kubernetes version available. Secondly, we need to implement the "AMI Publication Policy" for the project which will involve automated house keeping of AMIs. And thirdly we want to add back support for base operating systems that where temporarily dropped.
+- Expected Outcome: Automated AMI publication and deletion inline with the projects policy. Support for additional operating systems.
+- Recommended Skills: AWS, GitHub Actions, Packer, Ansible, Kubernetes
+- Mentor(s):  
+  - Richard Case (@richardcase, <richmcase@gmail.com>)
+- Upstream Issue: <https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/5836>
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/396fa725-9739-4f83-ac99-314ef1952e35
+
+
+#### Kubespray
+
+##### Automate building OS images for supported/CI tested distribution
+
+CNCF - Kubernetes: Kubespray: Automate OS image pipeline for CI (2026 Term 1)
+
+- Description: This feature request aims to automate the building and publishing of OS images that are used in Kubespray CI testing. Currently, these images (defined in `test-infra/image-builder/roles/kubevirt-images/defaults/main.yml`) must be manually created and pushed by maintainers. Automating this process would reduce manual work, eliminate bottlenecks when maintainers are unavailable, and could include automatic cleanup of outdated or unused images, while still retaining images needed for older supported release branches. 
+- Expected Outcome: A CI job (likely post-merge and possibly periodic) that automatically:
+	1.	Builds the required Kubespray OS images used in CI for tested distributions.
+	2.	Pushes these built images to the appropriate registry.
+	3.	Cleans up old or no longer needed images but retains those required for supported release branches.
+This workflow should remove the need for maintainers to manually create and manage these images.
+- Recommended Skills: Ansible, GitLab CI, Python
+- Mentor(s):
+  - ChengHao Yang (@tico88612, tico88612@gmail.com)
+  - Kay Yan (@yankay, yankaycom@gmail.com)
+  - Max Gautier (@VannTen, mg@max.gautier.name)
+- Upstream Issue: https://github.com/kubernetes-sigs/kubespray/issues/12383
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/d90c31a1-4027-4602-a318-48459008d3a7
+
+
+#### Headlamp
+
+##### Add Kubeflow to Headlamp: Machine Learning Workflow Management UI
+
+CNCF - Headlamp: Add Kubeflow to Headlamp: ML workflow management UI (2026 Term 1)
+
+- Description:
+ Build a Headlamp plugin to surface Kubeflow resources (Pipelines, Katib, PipelineRuns, Notebooks, TFJob/PyTorchJob/TrainJob, Spark) so operators and ML engineers can discover, monitor, and manage ML workloads alongside standard K8s resources. Link to Kubeflow UIs when deeper functionality is needed.
+
+- Expected Outcome:
+  - New Kubeflow sidebar with cross-namespace lists for Pipelines (Experiments, Runs), Katib experiments, Notebook servers, Training and Spark jobs.
+  - Detail pages per resource showing metadata, status, metrics, logs and common actions (start Run, open Jupyter, view best hyperparams).
+  - Links/embed to Kubeflow Central Dashboard or Pipelines UI for advanced tasks.
+  - Headlamp Map integration: show relations to Deployments/Pods, Argo workflows, Spark driver/executors.
+  - Metrics via Prometheus or /metrics: basic charts for experiment objectives and pod resource use.
+  - Polished UX: icons, pagination, filtering, error handling.
+  - Outreach: README/User Guide and a demo blog post with screenshots.
+
+- Recommended Skills:
+  - TypeScript + React
+  - (Optional) Kubernetes fundamentals.
+  - (Optional) Knowledge of Kubeflow and its sub-projects (Pipelines, Katib, etc.).
+  - (Optional) Basic understanding of Prometheus metrics.
+
+- Mentor(s):
+  - Rene Dudfield (@illume, renedudfield@microsoft.com)
+  - Adwait Godbole (@adwait-godbole, adwaitngodbole@gmail.com)
+  - Santhosh Nagaraj (@yolossn, sannagaraj@microsoft.com)
+  - Ashu Ghildiyal (@ashu8912, ashu.ghildiyal@microsoft.com)
+
+- Upstream Issue:  
+  - https://github.com/kubernetes-sigs/headlamp/issues/3710
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/abe20383-80fd-496c-8a5a-453fcb732f55
+
+
+##### Add Strimzi to Headlamp: Kubernetes Kafka Management UI
+
+CNCF - Headlamp: Add Strimzi to Headlamp: Kubernetes Kafka management UI (2026 Term 1)
+
+- Description:
+ Strimzi is a Kubernetes Operator for running Apache Kafka. This project builds a Headlamp plugin that adds a **Strimzi** section to Headlamp, surfacing Strimzi CRDs so operators can **view and manage Kafka clusters, topics, users, and connectors** from the Headlamp UI. The plugin follows Headlamp UX patterns with list and detail views, links between related resources, and optional metrics embedding.
+
+- Expected Outcome:
+  - Plugin exposes key Strimzi CRDs: Kafka, KafkaTopic, KafkaUser, KafkaConnect, and KafkaConnector.
+  - List views, with summary columns (name, namespace, brokers, partitions, replication, status).
+  - Detail pages, showing config, status conditions, sub-resources (broker pods, connectors), and basic actions (create/edit topic, regenerate user creds).
+  - Relational navigation, cluster → topics/users; topic → cluster.
+  - Consistent Headlamp UX, icons, tables, detail layouts, Map view enhancements.
+  - Structured config display (collapsible sections/YAML toggle), humanized statuses, validated forms for mutating actions.
+  - README with prerequisites and limitations; blog post demoing usage.
+
+- Recommended Skills:
+  - TypeScript and React
+  - (Optional) Familiarity with Kubernetes CRDs and Operators
+  - (Optional) Knowledge of Apache Kafka concepts
+  - (Optional) UX design sensibilities
+
+- Mentor(s):
+  - Rene Dudfield (@illume, renedudfield@microsoft.com)
+  - Jakub Scholz (@scholzj, github@scholzj.com)
+  - Santhosh Nagaraj (@yolossn, sannagaraj@microsoft.com)
+  - Ashu Ghildiyal (@ashu8912, ashu.ghildiyal@microsoft.com)
+
+- Upstream Issue:  
+  https://github.com/headlamp-k8s/plugins/issues/488
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2f08a480-7e37-46f0-ab29-f3d18669dd17
+
+
+##### Add Cluster API to Headlamp: Cluster Lifecycle Management UI
+
+CNCF - Headlamp: Add Cluster API to Headlamp: Cluster lifecycle management UI (2026 Term 1)
+
+- Description:
+ Cluster API (CAPI) provides declarative APIs and tooling to provision, upgrade, and operate Kubernetes clusters. This project continues an existing Headlamp plugin to deliver first-class UI support for CAPI resources (Clusters, Machines, MachineDeployments, KubeadmControlPlanes). The plugin will let operators discover, inspect, and manage cluster lifecycle objects in Headlamp, visualizing hierarchical relationships and closing gaps in the plugin.
+
+- Expected Outcome:
+  - Sidebar and Map: List key CAPI CRs in the sidebar and Map view; show Clusters with Machines, MachineSets/Deployments, and control planes.  
+  - Resource details: Dedicated pages with CAPI-specific fields (conditions, infra refs, provider info, control plane refs, node pools, cluster membership, provider status).
+  - UI integration: Map visualization, sidebar icons, on-hover "Glance" tooltips.  
+  - Robustness and tests: Fix runtime errors, human-friendly fields (e.g., "2d5h"), add automated tests.  
+  - Polish and delivery: Refined tables, icons, clickable "Controlled by" links; packaged in Headlamp’s plugin repo with install and developer docs; Kubernetes Blog post showcasing benefits.
+
+- Recommended Skills:
+  - TypeScript + React
+  - (Optional) Headlamp UI/plugin development, or other open source development
+  - (Optional) Kubernetes fundamentals (CRDs, controllers, RBAC)
+  - (Optional) Familiarity with Cluster API concepts (Cluster, Machine, MachineDeployment, etc.)
+
+- Mentor(s):
+  - Matt.Boersma (@mboersma, Matt.Boersma@microsoft.com)
+  - Santhosh Nagaraj (@yolossn, sannagaraj@microsoft.com)
+  - Rene Dudfield (@illume, renedudfield@microsoft.com)
+  - Ashu Ghildiyal (@ashu8912, ashu.ghildiyal@microsoft.com)
+
+- Upstream Issue:  
+  https://github.com/headlamp-k8s/plugins/issues/485
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/250e2884-e196-4788-b8dd-fe9c5edb237d
+
+
+##### Polish Knative support in Headlamp: Serverless Workload Management UI
+
+CNCF - Headlamp: Polish Knative support in Headlamp: Serverless workload management UI (2026 Term 1)
+
+- Description:  
+  Knative enables serverless on Kubernetes (scale-to-zero, traffic splitting). This project finishes and polishes a Headlamp plugin so operators can **view, inspect, and manage Knative Services, Revisions, Configurations, and Routes** from Headlamp, complementing the `kn` CLI. Builds on an existing plugin.
+
+- Expected Outcome:
+  - Fully functional Knative plugin: in the Headlamp repo with a "Knative" sidebar. List KServices across namespaces with key columns (name, URL, traffic %, latest revision status) matching existing tools.
+  - Service detail pages: showing URL, traffic split, concurrency/scaling, conditions; UI actions to adjust traffic, edit config/env/concurrency, and trigger redeploys via forms/modals with feedback and RBAC checks.
+  - Related resources: list/link Revisions, Configurations, HTTPRoute/Knative Route; optional read-only revision/config views.
+  - Headlamp-consistent UX: Map/metrics integration, bug fixes, basic tests, packaged metadata, ArtifactHub releases, README, and a kubernetes blog post with a short demo.
+
+- Recommended Skills:
+  - TypeScript and React
+  - (Optional) **Kubernetes and Knative** – understanding concepts like Knative Service, Revision, traffic splitting, autoscaling, and how they are represented in "CRDs"
+  - (Optional) Design and UX
+
+- Mentor(s):
+  - Kahiro Okina (@kahirokunn, okinakahiro@gmail.com)
+  - Santhosh Nagaraj (@yolossn, sannagaraj@microsoft.com)
+  - Rene Dudfield (@illume, renedudfield@microsoft.com)
+  - Ashu Ghildiyal (@ashu8912, ashu.ghildiyal@microsoft.com)
+
+- Upstream Issue:  
+  https://github.com/headlamp-k8s/plugins/issues/486
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/b6178852-f18d-41e2-b352-c839b8570eae
 
 
 ### KubeStellar
