@@ -38,24 +38,6 @@ CNCF - Fluid: Design and implement a CLI tool for Fluid (2026 Term 1)
   - Zhihao Xu (@TrafalgarZZZ， [trafalgarz@outlook.com](mailto:trafalgarz@outlook.com))
   - Yang Che (@cheyang, [cheyang52@gmail.com](mailto:cheyang52@gmail.com))
 
-### Kubernetes
-
-#### Kubespray
-
-##### Automate building OS images for supported/CI tested distribution
-
-- Description: This feature request aims to automate the building and publishing of OS images that are used in Kubespray CI testing. Currently, these images (defined in `test-infra/image-builder/roles/kubevirt-images/defaults/main.yml`) must be manually created and pushed by maintainers. Automating this process would reduce manual work, eliminate bottlenecks when maintainers are unavailable, and could include automatic cleanup of outdated or unused images, while still retaining images needed for older supported release branches. 
-- Expected Outcome: A CI job (likely post-merge and possibly periodic) that automatically:
-	1.	Builds the required Kubespray OS images used in CI for tested distributions.
-	2.	Pushes these built images to the appropriate registry.
-	3.	Cleans up old or no longer needed images but retains those required for supported release branches.
-This workflow should remove the need for maintainers to manually create and manage these images.
-- Recommended Skills: Ansible, GitLab CI, Python
-- Mentor(s):
-  - ChengHao Yang (@tico88612, tico88612@gmail.com)
-  - Kay Yan (@yankay, yankaycom@gmail.com)
-  - Max Gautier (@VannTen, mg@max.gautier.name)
-- Upstream Issue: https://github.com/kubernetes-sigs/kubespray/issues/12383
 
 ### Meshery
 
@@ -176,3 +158,34 @@ CNCF - Prometheus: Start scraping immediately on startup without waiting for WAL
   - Ganesh Vernekar (@codesome, ganeshvern@gmail.com)
   - Bryan Boreham (@bboreham, bjboreham@gmail.com)
 - Upstream Issue: https://github.com/prometheus/prometheus/issues/17058
+
+
+### Kubernetes
+
+#### Kubespray
+
+##### Automate building OS images for supported/CI tested distribution
+
+- Description: This feature request aims to automate the building and publishing of OS images that are used in Kubespray CI testing. Currently, these images (defined in `test-infra/image-builder/roles/kubevirt-images/defaults/main.yml`) must be manually created and pushed by maintainers. Automating this process would reduce manual work, eliminate bottlenecks when maintainers are unavailable, and could include automatic cleanup of outdated or unused images, while still retaining images needed for older supported release branches. 
+- Expected Outcome: A CI job (likely post-merge and possibly periodic) that automatically:
+	1.	Builds the required Kubespray OS images used in CI for tested distributions.
+	2.	Pushes these built images to the appropriate registry.
+	3.	Cleans up old or no longer needed images but retains those required for supported release branches.
+This workflow should remove the need for maintainers to manually create and manage these images.
+- Recommended Skills: Ansible, GitLab CI, Python
+- Mentor(s):
+  - ChengHao Yang (@tico88612, tico88612@gmail.com)
+  - Kay Yan (@yankay, yankaycom@gmail.com)
+  - Max Gautier (@VannTen, mg@max.gautier.name)
+- Upstream Issue: https://github.com/kubernetes-sigs/kubespray/issues/12383
+
+#### Cluster API Provider AWS (CAPA)
+
+##### Improve AMI Publication and Maintenance
+
+- Description: Cluster API Provider AWS (CAPA) enables the creation of Kubernetes clusters in AWS with Cluster API. CAPA allows you create EKS and non-EKS based Kubernetes clusters. When creating a non-EKS cluster we must use AMIs for the nodes in the cluster. The project publishes some AMIs for non-production use. However, the process for publishing the AMIs needs improvment. Firstly we want to fully automate the publication of new AMIs when there is a new Kubernetes version available. Secondly, we need to implement the "AMI Publication Policy" for the project which will involve automated house keeping of AMIs. And thirdly we want to add back support for base operating systems that where temporarily dropped.
+- Expected Outcome: Automated AMI publication and deletion inline with the projects policy. Support for additional operating systems.
+- Recommended Skills: AWS, GitHub Actions, Packer, Ansible, Kubernetes
+- Mentor(s):  
+  - Richard Case (@richardcase, <richmcase@gmail.com>)
+- Upstream Issue: <https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/5836>
