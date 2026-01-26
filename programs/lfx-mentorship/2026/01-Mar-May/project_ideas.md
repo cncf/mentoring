@@ -333,6 +333,6 @@ Mentees work with mentors in SIG Docs localization to improve existing localizat
   - Ian Y. Choi (@ianychoi, ianyrchoi@gmail.com)
   - Wonyong Hwang (@wonyongg, kakaohwy@gmail.com)
   - Eunjeong Park (@Eundms, eunjeongpark.eundms@gmail.com)
-
+  - Seokho Son (@seokho-son, shsongist@gmail.com)
 - Upstream Issue: https://github.com/kubernetes/website/issues/54075
 
