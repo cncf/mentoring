@@ -45,6 +45,8 @@ CNCF - Fluid: Design and implement a CLI tool for Fluid (2026 Term 1)
 
 ##### AI-Era Localization Automation for SIG Docs Contributors & Reviewers
 
+CNCF - Kubernetes: SIG Docs Localization: AI-era localization automation (2026 Term 1)
+
 - Description:
 
 This project focuses on improving localization workflows in Kubernetes SIG Docs by strengthening visibility, prioritization, and traceability across English and localized documentation. The enhanced workflows will benefit to reducing review burden and coordination costs that arise in environments where upstream content changes and subsequent localization efforts occur asynchronously. The project also explores practical approaches to achieving measurable productivity gains by adopting AI-assisted tools within established human workflows.
@@ -80,6 +82,8 @@ Mentees work with mentors in SIG Docs localization to improve existing localizat
 
 #### Kmesh supports multi-clusters
 
+CNCF - Kmesh: Support multi-clusters (2026 Term 1)
+
 - Description: Kmesh, as a high-performance service mesh data plane, is now only supported for use in a single cluster. However, now that multi-cluster support for istiod has been realized, we are able to move forward with the multi-cluster adaptation of Kmesh to support the use of Kmesh in multi-cluster environments. Adaptation to the current multi-cluster production environment with LLM and large data.
 - Expected Outcome:
   - 1.Code for implementing the Kmesh multi-cluster feature
@@ -101,6 +105,8 @@ Mentees work with mentors in SIG Docs localization to improve existing localizat
 
 #### Optimize long connection load balance and support more load balance algorithm
 
+CNCF - Kmesh: Optimize long connection load balancing (2026 Term 1)
+
 - Description: Kmesh employs eBPF for load balancing. However, at present it only supports short-lived connections and offers a limited range of load balancing algorithms. Consequently, we aim to support a broader range of load balancing capabilities.
 - Expected Outcome:
   - 1.Load balancing with load-dependent connections via eBPF.
@@ -121,6 +127,8 @@ Mentees work with mentors in SIG Docs localization to improve existing localizat
 
 #### Cloud-Edge Simulation Benchmark for LLM Speculative Decoding in KubeEdge-Ianvs
 
+CNCF - KubeEdge: Ianvs: Cloud-edge benchmark for LLM speculative decoding (2026 Term 1)
+
 - Description: 
   LLM inference acceleration is increasingly important for cloud-edge collaborative AI deployments. Speculative decoding can improve end-to-end generation speed by using a lightweight draft model to propose token candidates and a larger target model to verify them, but its real-world gains depend heavily on cloud-edge constraints such as network latency, bandwidth limits, and heterogeneous compute. 
   Ianvs provides a unified benchmarking framework, and KubeEdge scenarios often require evaluating AI workloads under cloud-edge conditions. This project proposes a single-host cloud-edge simulation benchmark in Ianvs to evaluate speculative decoding for LLM inference. The benchmark will simulate edge (draft) and cloud (verify) roles as separate processes, inject configurable network constraints, and report standardized throughput and latency metrics, enabling reproducible comparison between baseline decoding and speculative decoding under different cloud-edge budgets.
@@ -136,6 +144,8 @@ Mentees work with mentors in SIG Docs localization to improve existing localizat
 
 #### Comprehensive Example Restoration for KubeEdge Ianvs
 
+CNCF - KubeEdge: Ianvs: Comprehensive example restoration (2026 Term 1)
+
 - Description: Ianvs serves as the KubeEdge SIG AI distributed benchmark toolkit. As more and more contributors running, KubeEdge Ianvs now has 25 examples, and the number is still increasing. KubeEdge Ianvs then faces mounting usability issues due to dependency evolution and validation mechanisms. As Python versions, third-party libraries, and Ianvs features advance, partial historical examples fail to execute. This has led to surging user-reported Issues from confused contributors, untested PRs breaking core functionality of legacy features, and severely outdated documentation misaligning with actual capabilities. Without systematic intervention, the example risks becoming obsolete for edge-AI developers and especially newcomers. We then try to resurrect Ianvs’ usability with a comprehensive example restoration.
 - Expected Outcome: 
   - Diagnose & fix bugs across examples, including dependency manifests, license scan, and runtime configurations.
@@ -150,6 +160,8 @@ Mentees work with mentors in SIG Docs localization to improve existing localizat
 
 #### Batch Enable/Disable of EdgeHub on Edge Nodes via kubeedge/keadm
 
+CNCF - KubeEdge: Keadm: Batch enable/disable EdgeHub on edge nodes (2026 Term 1)
+
 - Description: In bandwidth limited environments, as the cluster size expands, communication between cloud and edge nodes in KubeEdge consumes a significant amount of network resources, which may interfere with upper layer business applications. To alleviate this issue, it is necessary to implement batch enable or disable the EdgeHub edge node feature in keadm. Administrators can temporarily take edge nodes offline by turning off the EdgeHub switch, thereby releasing the bandwidth required for critical services. This feature should support adding subcommands in keadm for implementation.
 - Expected Outcome: A keadm extension that provides commands or APIs to batch enable/disable the EdgeHub switch on specified edge nodes.
 - Recommended Skills: Golang, KubeEdge
@@ -159,6 +171,8 @@ Mentees work with mentors in SIG Docs localization to improve existing localizat
 - Upstream Issue: https://github.com/kubeedge/kubeedge/issues/6609
 
 #### Enable and Verify KubeEdge Support on RISC-V Architecture 
+
+CNCF - KubeEdge: Enable and verify KubeEdge support on RISC-V (2026 Term 1)
 
 - Description: With the rapid growth of the RISC-V ecosystem, an increasing number of eage computing devices and IoT boards are adopting RISC-V. In very early versions of KubeEgde, we briefly verified compatibility with RISC-V. However, this has not been continuously validated in recent releases. As the codebase has evolved significantly, we need to re-establish and solidify support for this architecture to ensure KubeEdge can run seamlessly on the next generation of open hardware.
 - Expected Outcome:
