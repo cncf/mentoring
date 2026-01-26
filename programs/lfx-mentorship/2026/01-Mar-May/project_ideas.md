@@ -302,9 +302,9 @@ This workflow should remove the need for maintainers to manually create and mana
 - Upstream Issue:  
   https://github.com/headlamp-k8s/plugins/issues/488
 
-### Kubernetes SIG Docs – Localization Subproject
+#### Kubernetes SIG Docs – Localization Subproject
 
-#### AI-Era Localization Automation for SIG Docs Contributors & Reviewers
+##### AI-Era Localization Automation for SIG Docs Contributors & Reviewers
 
 - Description:
 
@@ -336,3 +336,43 @@ Mentees work with mentors in SIG Docs localization to improve existing localizat
   - Seokho Son (@seokho-son, shsongist@gmail.com)
 - Upstream Issue: https://github.com/kubernetes/website/issues/54075
 
+
+### Kmesh
+
+#### Kmesh supports multi-clusters
+
+- Description: Kmesh, as a high-performance service mesh data plane, is now only supported for use in a single cluster. However, now that multi-cluster support for istiod has been realized, we are able to move forward with the multi-cluster adaptation of Kmesh to support the use of Kmesh in multi-cluster environments. Adaptation to the current multi-cluster production environment with LLM and large data.
+- Expected Outcome:
+  - 1.Code for implementing the Kmesh multi-cluster feature
+    - 1.1. Adapting to the Istio Multi-Cluster Function API
+    - 1.2. Traffic Management in multi-cluster scenarios
+    - 1.3. Use IPsec to ensure the security of node communication.
+  - 2.userguide doc
+    - 2.1. proposal
+    - 2.2. userguide
+  - 3.e2e test
+    - 3.1. Unit Test of Feature Function
+    - 3.2. E2E test code
+- Recommended Skills: go, docker , kind, service mesh
+- Mentor(s):
+  - Mentor Name:
+  - zhonghu xu(@hzxuzhonghu, zhhxu2011@gmail.com),
+  - changye wu(@nlgwcy, wuchangye@huawei.com),
+- Upstream Issue: https://github.com/kmesh-net/kmesh/issues/1570
+
+#### Optimize long connection load balance and support more load balance algorithm
+
+- Description: Kmesh employs eBPF for load balancing. However, at present it only supports short-lived connections and offers a limited range of load balancing algorithms. Consequently, we aim to support a broader range of load balancing capabilities.
+- Expected Outcome:
+  - 1.Load balancing with load-dependent connections via eBPF.
+  - 2.Support as many load balancing algorithms as possible
+    - 2.1 Sticky Round Robin
+    - 2.2 Weighted Round Robin
+    - 2.3 ...
+  - 3.Userguide and Proposal
+  - 4.Unit Test and E2E test
+- Recommended Skills: go, docker , kind, service mesh
+- Mentor(s):
+  - xin liu(@bitcoffeeiux, liuxin350@huawei.com),
+  - mingyi zhang(@lec-bit, zhangmingyi5@huawei.com)
+- Upstream Issue: https://github.com/kmesh-net/kmesh/issues/1571
