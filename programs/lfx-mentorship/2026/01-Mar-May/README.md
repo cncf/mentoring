@@ -812,6 +812,7 @@ CNCF - Headlamp: Add Kubeflow to Headlamp: ML workflow management UI (2026 Term 
   - Adwait Godbole (@adwait-godbole, adwaitngodbole@gmail.com)
   - Santhosh Nagaraj (@yolossn, sannagaraj@microsoft.com)
   - Ashu Ghildiyal (@ashu8912, ashu.ghildiyal@microsoft.com)
+  - Tarek Abouzeid (@tarekabouzeid, tarek.abouzeid91@gmail.com)
 
 - Upstream Issue:  
   - https://github.com/kubernetes-sigs/headlamp/issues/3710
