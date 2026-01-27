@@ -33,8 +33,6 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 - [Antrea](#antrea)
   - [Compare Antrea BPF generation for PacketCapture to tcpdump / libpcap](#compare-antrea-bpf-generation-for-packetcapture-to-tcpdump-libpcap)
-- [Cartography](#cartography)
-  - [Model and Parse AWS IAM Policy Conditions for Accurate Permission Analysis](#model-and-parse-aws-iam-policy-conditions-for-accurate-permission-analysis)
 - [Cilium](#cilium)
   - [Cilium Project Pillar Pages](#cilium-project-pillar-pages)
 - [Drasi](#drasi)
@@ -153,39 +151,6 @@ CNCF - Antrea: Compare PacketCapture BPF generation vs tcpdump/libpcap (2026 Ter
   - Hang Yan (@hangyan, hang.yan@hotmail.com)
 - Upstream Issue: https://github.com/antrea-io/antrea/issues/7701
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/39be2843-94f8-4ac6-aa0a-3537631aca86
-
-
-### Cartography
-
-#### Model and Parse AWS IAM Policy Conditions for Accurate Permission Analysis
-
-CNCF - Cartography: Model and parse AWS IAM policy conditions for permission analysis (2026 Term 1)
-
-- Description:
-  [Cartography](https://github.com/cartography-cncf/cartography) currently models AWS IAM policies and their relationships to principals and resources, but does not parse or represent IAM policy _conditions_. This means permission analysis overstates effective access: a policy that only allows access from a specific IP range or requires MFA is treated the same as an unrestricted policy.
-  
-  This project will extend Cartography's IAM module to parse common condition keys (e.g., `aws:SourceIp`, `aws:MultiFactorAuthPresent`, `aws:PrincipalOrgID`, `aws:PrincipalTag`) and model them in the graph, enabling downstream tools to build more accurate attack paths and permission analysis.
-
-- Expected Outcome:
-  - Work with mentor to design way to model IAM policy conditions, including nodes/properties for condition operators and keys
-  - Parse IAM policy condition blocks covering the top 10 most common condition keys
-  - Update relationships between IAM policies and principals/resources that surface condition constraints
-  - Unit and integration tests with realistic IAM policies
-  - Documentation and example queries demonstrating condition-aware permission analysis
-
-- Recommended Skills:
-  - Python
-  - AWS IAM policies and condition grammar (or willingness to learn)
-  - Neo4j / graph data modeling (or willingness to learn)
-  - Familiarity with Cartography's codebase (helpful but not required)
-
-- Mentor(s):
-  - Alex Chantavy (@achantavy, alex@subimage.io)
-  - Kunaal Sikka (@kunaals, kunaal@subimage.io)
-
-- Upstream Issue:
-  - https://github.com/cartography-cncf/cartography/issues/2250
-- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a5407d4c-6496-4715-a785-3d9fa862c174
 
 
 ### Cilium
