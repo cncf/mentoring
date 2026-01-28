@@ -18,3 +18,4 @@ Organization admins for specific mentorship programs are listed on the program's
 ## Organization admin guides
 
 * [Google Summer of Code organization admin guide](gsoc-org-admin-guide.md)
+* [LFX Mentorship organization admin guide](lfx-mentorship-org-admin-guide.md)
