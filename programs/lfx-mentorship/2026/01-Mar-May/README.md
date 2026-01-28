@@ -42,6 +42,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - [Fluid](#fluid)
   - [Extend Cache Runtime Interface to Support Full Data Lifecycle and In-Place Operations](#extend-cache-runtime-interface-to-support-full-data-lifecycle-and-in-place-operations)
   - [Unify and Modernize Fluid’s Unit Testing Framework and enhance testing coverage](#unify-and-modernize-fluids-unit-testing-framework-and-enhance-testing-coverage)
+  - [Design and implement a CLI tool to help easily use Fluid](#design-and-implement-a-cli-tool-to-help-easily-use-fluid)
 - [Harbor](#harbor)
   - [Harbor CLI](#harbor-cli)
   - [Harbor Satellite](#harbor-satellite)
@@ -272,6 +273,27 @@ CNCF - Fluid: Modernize unit testing framework and increase UT coverage (2026 Te
    - Yang Che (@cheyang, [cheyang52@gmail.com](mailto:cheyang52@gmail.com))
 - Upstream Issues: https://github.com/fluid-cloudnative/fluid/issues/5407
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/daf54f56-a7e6-48a8-ab9f-45915d05a203
+
+#### Design and implement a CLI tool to help easily use Fluid
+
+CNCF - Fluid: Design and implement a CLI tool for Fluid (2026 Term 1)
+
+- Description: Fluid manages Kubernetes resources (Statefulsets, PersistentVolumeClaims & PersistentVolume, etc.) under two Fluid custom resources CR called `Dataset` and `Runtime`. Given a pair of Dataset and Runtime CR, users may want to inspect the underlying resources, check their status and diagnose which part is going wrong. A CLI tool (e.g. a kubectl plugin) for Fluid would be a straightforward way for Fluid's users to easily get such information.
+
+- Expected Outcome:
+  - Design and implement a CLI tool for Fluid
+  - Support `inspect` subcommand: list resource status given a Fluid Dataset CR.
+  - Support `diagnose` subcommand: collect related information (e.g. logs, pod status, etc.) to help diagnose what's going wrong.
+  - Implement a framework to diagnose Fluid with LLM/AI. (The collected information can be put into the context of an AI inference request)
+
+- Recommended Skills: Fluid, Go, CLI tool development, LangChain(or other alternative LLM frameworks)
+
+- Mentor(s):
+  - Zhihao Xu (@TrafalgarZZZ， [trafalgarz@outlook.com](mailto:trafalgarz@outlook.com))
+  - Yang Che (@cheyang, [cheyang52@gmail.com](mailto:cheyang52@gmail.com))
+
+- Upstream Issues: https://github.com/fluid-cloudnative/fluid/issues/5567
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/26709fdd-cf31-4643-ba12-88c0a47530ca
 
 
 ### Harbor
