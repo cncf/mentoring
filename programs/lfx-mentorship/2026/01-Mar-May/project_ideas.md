@@ -38,3 +38,4 @@ CNCF - Fluid: Design and implement a CLI tool for Fluid (2026 Term 1)
   - Zhihao Xu (@TrafalgarZZZ， [trafalgarz@outlook.com](mailto:trafalgarz@outlook.com))
   - Yang Che (@cheyang, [cheyang52@gmail.com](mailto:cheyang52@gmail.com))
 
+- Upstream Issues: https://github.com/fluid-cloudnative/fluid/issues/5567
