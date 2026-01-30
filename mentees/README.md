@@ -124,9 +124,15 @@ Whether you are a developer, designer, or anything in between, there is a place 
 * Dependent on individual projects, subject to change over time
 * Emphasise soft skills such as communication; critical regardless of technical expertise required
 
-## Success Stories
 
-*(Refer to existing repo content; additions as required)*
+## Sharing your experience
+
+We highly encourage mentees to share their experience by writing a blog post or recording a video upon completion of their mentorship. This helps to:
+* Showcase your work and achievements.
+* Help other aspiring mentees understand the program.
+* Provide feedback to the community.
+
+You can use the [Mentee Blog Post Template](../../MENTEE_BLOGPOST_TEMPLATE.md) as a starting point for your blog post.
 
 ---
 
