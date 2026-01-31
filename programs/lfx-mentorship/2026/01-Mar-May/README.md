@@ -235,7 +235,7 @@ CNCF - etcd: Contribute to etcd Self-Assessment (2026 Term 1)
 - Mentors:
   - Ronald Ngounou (@ronaldngounou, ronald.ngounou@yahoo.com)
   - Siyuan Zhang (@siyuanfoundation, physicsbug@gmail.com)
-  - Carol Valencia (@krol3, carol.valencia@konghq.com)
+  - Carol Valencia (@krol3, valencia0.carol@gmail.com)
 - Upstream Issue:
   - https://github.com/etcd-io/etcd/issues/21159
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/90bcea22-62eb-4e81-aa0f-89b517b2a620
