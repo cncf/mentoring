@@ -140,6 +140,7 @@ Tasks:
     * Analyze data
     * Retrospective session for GSoC admins
 * Fill Google's feedback survey.
+* Check if mentees have written a blog post about their experience. Encourage them to use the [Mentee Blog Post Template](../../MENTEE_BLOGPOST_TEMPLATE.md).
 * [Announce](#Announcements) the results.
 
 ### Additional tasks
