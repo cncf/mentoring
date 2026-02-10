@@ -582,8 +582,7 @@ CNCF - Kmesh: Optimize long connection load balancing (2026 Term 1)
   - 4.Unit Test and E2E test
 - Recommended Skills: go, docker , kind, service mesh
 - Mentor(s):
-  - xin liu(@bitcoffeeiux, liuxin350@huawei.com),
-  - mingyi zhang(@lec-bit, zhangmingyi5@huawei.com)
+  - ZhenCheng Li(@LiZhenCheng9527, lizhencheng6@huawei.com),
 - Upstream Issue: https://github.com/kmesh-net/kmesh/issues/1571
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2df8e950-a1cc-4c2b-9cbe-15574ce001ad
 
