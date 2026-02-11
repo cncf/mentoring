@@ -40,3 +40,4 @@ CNCF - Harbor: Harbor Satellite: HW-backed zero-trust device identity via PARSEC
   - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
   - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
 - Upstream Issue: https://github.com/container-registry/harbor-satellite/issues
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/b0ef2748-ab96-4c81-b824-14a400c29b5c
