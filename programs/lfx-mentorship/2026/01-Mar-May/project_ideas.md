@@ -25,6 +25,8 @@
 
 #### Harbor Satellite - Hardware-Backed Zero-Trust Device Identity via PARSEC
 
+CNCF - Harbor: Harbor Satellite: HW-backed zero-trust device identity via PARSEC (2026 Term 1)
+
 - Description: Harbor Satellite provides software-based config encryption and device fingerprinting for edge registries. This project hardens the security model by integrating CNCF PARSEC to enable hardware-backed zero-trust provisioning (ZTP), X.509 device certificates, and device identity. Mentees will implement a secure backend toward a hardware root of trust to enable device attestation via PARSEC's platform-agnostic API, hardware-sealed config encryption with graceful software fallback, and verifiable device identity that Ground Control can cryptographically validate. The work extends the existing SPIFFE/SPIRE authentication with hardware root-of-trust, advancing Harbor Satellite toward a fully zero-trust edge registry with hardware-attested device enrollment.
 - Expected Outcome:
   - Integrate CNCF PARSEC for hardware-backed device attestation via its platform-agnostic API
