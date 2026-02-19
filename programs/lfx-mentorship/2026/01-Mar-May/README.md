@@ -10,6 +10,8 @@ Mentorship duration - three months (full-time schedule)
 |-------------------------------------|--------------------------------------------------------------------------|
 | **Project Proposals Open**          | Wednesday, January 7 – Tuesday, January 20, 2026                         |
 | **Mentee Applications Open**        | Monday, January 26 – Tuesday, February 10, 2026, 11AM PST (19:00 UTC)    |
+| **Mentee Candidate Info Session – Americas** | Tue, Jan 27, 2026 |
+| **Mentee Candidate Info Session – Europe & APAC** | Wed, Jan 28, 2026 |
 | **Application Review Period**       | Wednesday, February 11 – Tuesday, February 24, 2026, 11AM PST (19:00 UTC)|
 | **Selection Notifications**         | Thursday, February 26, 2026                                              |
 | **Mentorship Program Begins**       | Monday, March 2, 2026                                                    |
