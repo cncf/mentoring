@@ -42,8 +42,8 @@ These and other support networks can provide you with opportunities to connect w
 Mentorship programs can be highly rewarding, yet challenging commitments to undertake. To make the most of your experience and improve your chances of success, be sure to reach out if:
 * You're unsure about next steps in your mentorship or its requirements
 * You're having doubts about your ability to complete your work
-* You're looking for other development opportunties to support your work
-* You're struggling to balancing your commitments, especially if they're affecting your health and well-being 
+* You're looking for other development opportunities to support your work
+* You're struggling to balance your commitments, especially if they're affecting your health and well-being 
 
 In summary, there are multiple contacts and resources available to guide you, and a supportive network can play a crucial role in the success and fulfillment of your mentorship experience.
 
@@ -146,7 +146,7 @@ There are however a few proven areas you can check out to get the ball rolling:
 * **If you have some basic experience**, check out the following for different opportunities:
     * Many sites related to CNCF and its projects, like the [CNCF Contributor page](https://contribute.cncf.io/contributors/), will have Contributor guides which outline tasks; as well as lists with several actions you can take to begin your contributor journey.
     * [CLOTributor](https://clotributor.dev/) is a searchable database with dozens of tasks from [Cloud Native projects](https://www.cncf.io/projects/) you can tackle to build your experience.
-    This can be a great way to familiarise yourself with various projects before choosing to commit to one offered in a specific mentorship program.
+    This can be a great way to familiarize yourself with various projects before choosing to commit to one offered in a specific mentorship program.
     * Look for issues labeled 'good first issue'. You may also want to start with some of the documentation projects (like the website itself). This is often a good place to start when learning about a new project and looking to contribute.
 
 **Final piece of advice:** The best way to start is contribute immediately; make mistakes and learn from them. This will help you to get familiar with different processes and community members as your work is reviewed, evaluated or approved. 
@@ -173,7 +173,7 @@ The CNCF Contributor website is a great starting point for new contributors.
 
 #### Can I contribute if I don't have a tech background?
 
-Absolutely. In addition to the countless code-based efforts available in the open source community, there are also numerous roles and opportunties to contribute that don't require specific technical experience.
+Absolutely. In addition to the countless code-based efforts available in the open source community, there are also numerous roles and opportunities to contribute that don't require specific technical experience.
 
 Documentation, community engagement, project management and even blogging about your experiences in the space are all beneficial to the overall growth and sustainability of the community.
 
