@@ -8,7 +8,6 @@ Mentorship duration - three months (full-time schedule)
 
 | Activity | Dates (2026) |
 |--------------|------------------|
-| Mentor & Maintainer Info Session | Wed, Mar 18, 2026 |
 | Project Proposals Open | Wed, Apr 1 – Tue, Apr 28, 2026, 11:00 AM PDT (18:00 UTC) |
 | Mentee Candidate Info Session – Americas | Tue, Apr 21, 2026 |
 | Mentee Candidate Info Session – Europe & APAC | Wed, Apr 22, 2026 |
