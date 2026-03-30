@@ -40,7 +40,7 @@
   - programs/lfx-mentorship/2025/*
   - programs/lfx-mentorship/2025/**/*
 
-# Add '2026' to any change to 2025 project files
+# Add '2026' to any change to 2026 project files
 2026:
   - programs/summerofcode/2026.md
   - programs/lfx-mentorship/2026/*
