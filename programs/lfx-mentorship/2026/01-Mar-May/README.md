@@ -1004,8 +1004,6 @@ CNCF - KubeStellar: Documentation and self-service enablement specialist (2026 T
 - Expected Outcome: A validated ≤30-minute Quickstart guide, an interactive hands-on tutorial with automated checks, a 5–7 module video series, a 20-issue troubleshooting guide, 5 production-ready use-case patterns, 3 migration guides from common multi-cluster setups, and measurable onboarding success (≤30 min time-to-first-success, ≥4/5 user satisfaction).  
 - Recommended Skills: Kubernetes deployment and troubleshooting, strong technical writing, Markdown-based documentation tools (Docusaurus/Nextra), user-centric documentation design video, DevOps or DevRel background a plus
 - Mentor(s):  
-  - Shivam Kumar (@btwshivam, shivam200446@gmail.com)
-  - Rishi Mondal (@MAVRICK-1, mavrickrishi@gmail.com)
   - Saumya Kumar (@oksaumya, saumyakr2006@gmail.com)
   - Nupur Shivani (@Nupurshivani, nupurjha.me@gmail.com)
   - Andy Anderson (@clubanderson, andy@clubanderson.com)
@@ -1023,9 +1021,7 @@ CNCF - KubeStellar: Integration and ecosystem development specialist (2026 Term 
 - Recommended Skills: Strong programming skills (Go preferred), Experience with GitOps/CI/CD/infrastructure tools, API integration and software development experience, Understanding of Kubernetes ecosystem and tooling, Technical documentation writing, Open source contribution experience helpful
 
 - Mentor(s): 
-  - Rishi Mondal (@MAVRICK-1, mavrickrishi@gmail.com)
   - Andy Anderson (@clubanderson, andy@clubanderson.com) 
-  - Shivam Kumar (@btwshivam, shivam200446@gmail.com)
   - Naman Jain (@naman9271, namanjain9271@gmail.com)
   - Onkar Shelke (@onkar717, onkarwork2234@gmail.com)
  
