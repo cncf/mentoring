@@ -38,6 +38,7 @@
 - Recommended Skills: Analytical mindset for error triage and root cause analysis, basic familiarity with React/TypeScript and web error handling, experience using advanced AI coding agents, familiarity with GitHub Actions and browser developer tools, understanding of Kubernetes concepts helpful but not required.
 - Mentor(s):
   - Andy Anderson (@clubanderson, andy@clubanderson.com)
+  - Ghanshyam Singh (@ghanshyam2005singh, ghanshyam2005singh@gmail.com)
 - Upstream Issue: https://github.com/kubestellar/console/issues/4190
 
 #### AI-driven operational knowledge base and mission control testing for KubeStellar Console
