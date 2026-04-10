@@ -61,7 +61,7 @@ Mentorship programs can be highly rewarding, yet challenging commitments to unde
 * You're unsure about next steps in your mentorship or its requirements
 * You're having doubts about your ability to complete your work
 * You're looking for other development opportunities to support your work
-* You're struggling to balancing your commitments, especially if they're affecting your health and well-being 
+* You're struggling to balance your commitments, especially if they're affecting your health and well-being 
 
 In summary, there are multiple contacts and resources available to guide you, and a supportive network can play a crucial role in the success and fulfillment of your mentorship experience.
 
