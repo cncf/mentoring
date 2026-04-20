@@ -22,7 +22,9 @@ Mentors are expected to:
 - Help mentees learn some soft skills, such as communication, teamwork, time management, and community mechanics
 - Provide feedback on the mentee's work
 
-Every mentorship program CNCF participates in or organise is a full-time mentorship program. While the mentees are expected to spend 30-40 hours per week on the programs, mentors are expected to spend 3-6 hours per week per mentee. This includes time spent on project ideas, reviewing proposals, answering questions, and providing feedback. Each project, mentee, and mentor is unique in their own way, and the time commitment may vary. Collaborating with fellow mentors can assist in distributing the time commitment.
+Mentors are encouraged to evaluate candidates based both on their technical skills and their ability to work well with others. It’s important that mentees demonstrate potential to become active contributors and "good citizens" of open source. This means contributing to a positive environment, following the CNCF Code of Conduct, being respectful and professional, and demonstrating a willingness to help others.
+
+Every mentorship program CNCF participates in or organizes is a full-time mentorship program. While the mentees are expected to spend 30-40 hours per week on the programs, mentors are expected to spend 3-6 hours per week per mentee. This includes time spent on project ideas, reviewing proposals, answering questions, and providing feedback. Each project, mentee, and mentor is unique in their own way, and the time commitment may vary. Collaborating with fellow mentors can assist in distributing the time commitment.
 
 In general, anyone can become a mentor; however, we do require that you possess substantial experience with the project you are mentoring for and familiarity with the community and its processes. Additionally, you should be capable of answering questions and providing guidance to the mentees.
 
@@ -51,24 +53,6 @@ While the processes may vary from program to program, you will receive detailed 
 ## Programs
 
 For the up-to-date list of programs, please check the [CNCF mentoring repository](https://github.com/cncf/mentoring).
-
-## Example mentoring timeline
-
-* GSoC at CNCF 2023 is [announced](https://github.com/cncf/mentoring/discussions/848)
-  * Mentors send their project idea PRs ([example](https://github.com/cncf/mentoring/pull/810))
-* Mentee applications start ([announcement](https://github.com/cncf/mentoring/discussions/892))
-  * Mentee candidates interact with the community and the mentors
-  * Mentee candidates submit their proposals to the GSoC platform
-*  Mentee applications close ([announcement](https://github.com/cncf/mentoring/discussions/918))
-  * Mentors review the proposals and provide feedback
-* Accepted mentees are [announced](https://github.com/cncf/mentoring/discussions/954)
-  * Mentees bond with the community and the mentors
-  * Mentors and mentees start working on their projects
-* TBA: (we're in the middle of the program)
-
-## Success Stories
-
-TBD
 
 ## Best Practices
 
@@ -127,7 +111,6 @@ In addition to Google Summer of Code [official documentation](https://summerofco
 - [GSoC FAQ for Mentors](https://developers.google.com/open-source/gsoc/faq#mentorsorganization_administrators)
 - [GSoC Mentor Responsibilities](https://developers.google.com/open-source/gsoc/help/responsibilities#mentor_responsibilities)
 
-
 ### LFX Mentorship
 
 LFX Mentorship [official documentation](https://docs.linuxfoundation.org/lfx/mentorship) has specific information for mentors. We encourage you to check out the following documents:
@@ -135,6 +118,3 @@ LFX Mentorship [official documentation](https://docs.linuxfoundation.org/lfx/men
 - [LFX Mentorship - Mentor Information](https://docs.linuxfoundation.org/lfx/mentorship/mentors)
 - [LFX Mentorship - Mentor Guide](https://docs.linuxfoundation.org/lfx/mentorship/mentor-guide)
 
-### Outreachy
-
-Outreachy's [mentor CFP page](https://www.outreachy.org/communities/cfp/) has all the information specific to mentors.
