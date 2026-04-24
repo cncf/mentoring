@@ -9,8 +9,9 @@ In addition to providing a high-quality learning experience that can help to kic
 
 Becoming a mentee in a CNCF mentorship program provides numerous benefits, including access to experienced professionals in the field, opportunities for personal and professional growth, and a supportive network for guidance and feedback. It can also help you to acquire new skills and knowledge, develop a deeper understanding of the industry, and increase your chances of success in your career.
 
-
 ## Mentee Expectations
+
+Our program aims to cultivate the next generation of open source leaders and maintainers. Therefore, applicants for mentee roles are expected to be good open source citizens. This means contributing to a positive environment, collaborating well with others, always being respectful and professional when interacting in CNCF community and project spaces, and following the [CNCF Code of Conduct](https://github.com/cncf/foundation/blob/main/code-of-conduct.md).
 
 Participating in a mentorship program can require a lot of time, effort and dedication. In exchange for that commitment, a seasoned mentor offers their valuable time and expertise to aid your learning and development. 
 
@@ -18,18 +19,35 @@ To ensure the experience is positive for everyone involved, there are a few key 
 
 * **Make sure you can devote yourself to the minimum required hours throughout the program.** This can vary between projects, but often you will be expected to invest a significant amount of time on a weekly basis to your work.
 To avoid confusion, *be realistic about how much time you can put into the program*, and communicate openly with your mentor to confirm your proposed commitment is also feasible for them.
-
 * **Be open about your skill level.** Applying for opportunities that exceed your level of skill or experience can mean more work, and possibly frustration, for those involved as the program progresses. 
 Even if you are selected for a project, it's important to have a transparent and honest conversation with your mentor(s) about the level of difficulty involved. This can help to establish a clear understanding and agreement about your ability to complete set tasks, and ensure you have the necessary resources to succeed. 
 
 *Overall, having a positive experience in any mentorship program will be dependent on good communication, diligence and taking initiative.* Your mentors and the wider community are invested in your success, so being proactive and assuming responsibility for your progress is essential. 
+
+## Mentee Eligibility Requirements
+
+Before applying for a CNCF mentorship program, please review the full eligibility criteria to ensure you meet all requirements.
+
+*   **Code of Conduct Compliance:** **No violations of the Code of Conduct of the Linux Foundation or any Linux Foundation project within the last 12 months.**
+*   **Detailed Eligibility:** For the most up-to-date and complete eligibility details, especially for the LFX Mentorship program, please consult the official documentation:
+    *   [Am I Eligible?](https://docs.linuxfoundation.org/lfx/mentorship/mentee-guide/am-i-eligible)
+    *   [LFX Mentorship Program Details](https://docs.linuxfoundation.org/lfx/mentorship/mentees)
+
+## Understanding the Mentee Selection Process
+
+Please understand that our mentorship programs are highly competitive, often receiving hundreds of applications for a limited number of spots. When there are several well-qualified candidates, our mentors have hard decisions to make.
+
+*   **Selection Criteria:** Each individual project sets its own criteria for candidate selection. There is a [Mentor Code of Conduct](https://docs.linuxfoundation.org/lfx/mentorship/mentor-guide/code-of-conduct), and we encourage mentors to consider diversity in selections as a tie-breaker when there are two or more equally qualified candidates, but ultimately each project selects a candidate who best fits their specific needs.
+*   **Experience Level:** CNCF LFX Mentorships are open to students and working professionals alike. We [don't limit our programs to just students](https://docs.linuxfoundation.org/lfx/mentorship/mentee-guide/am-i-eligible); they are open to all. Some of our projects involve very complex software, and therefore, more experienced candidates may have an advantage in certain roles.
+*   **Prior Contribution:** Selecting a candidate with few or no contributions to a project before applying is not discouraged, as we are committed to growing our communities and understand that all contributors need to start somewhere.
+*   **If You Are Not Selected:** Not being selected is not a reflection of your worth as a contributor. We encourage you to seek and respond to feedback gracefully, continue contributing to projects that interest you, and apply again in future terms. Please note that comparing your qualifications to those of a selected candidate is not grounds for an appeal. Mentors evaluate many factors—some of which may not be visible in a public profile—and their decisions are final.
 
 ## Support Networks
 
 Having a solid support network provides a safe and productive environment for mentees to seek advice and receive guidance and feedback. It can be critical in navigating challenges and obstacles, building confidence, and feeling encouraged to continue your personal and professional growth.
 
 * **Your relationship with your mentor** will be your most important connection throughout your program. In addition to providing valuable new skills and coaching, mentors can also support your professional networking and overall guidance in your career. Communicating any barriers to your learning or commitments and working together to find solutions can go a long way to developing a good working rapport.
-* **Communication channels, groups and forums** such as Slack can be a great way to find solutions to common problems you'll likely encounter on your journey. Some popular options include:
+* **Communication channels, groups and forums**, such as Slack, can be a great way to find solutions to common problems you'll likely encounter on your journey. Some popular options include:
 
 [CNCF Slack channels](https://slack.cncf.io) such as **#mentoring**; where you can engage to share your knowledge to solve specific problems.
 
@@ -51,7 +69,8 @@ In summary, there are multiple contacts and resources available to guide you, an
 
 There are numerous open source mentoring and internship programs available, with each emphasising different criteria such as specific skillsets, demographics, industries and specialisations. 
 
-Currently, the CNCF concentrates on a limited selection of such programs; featuring a range of projects to encourage interest from a broad pool of talent and backgrounds. 
+Currently, the CNCF concentrates on a limited selection of such programs, featuring a range of projects to encourage interest from a broad pool of talent and backgrounds. 
+
 These are as follows:
 
 **LFX**  
@@ -59,13 +78,8 @@ The [Linux Foundation Mentorship program](https://docs.linuxfoundation.org/lfx/m
 Through the program, mentees are paired with mentors based on their skills and interests to gain valuable experience by participating in and contributing to open source projects, all while [getting paid for it](https://docs.linuxfoundation.org/lfx/mentorship/mentees).
  
 **Google Summer of Code**  
-The [Google Summer of Code](https://summerofcode.withgoogle.com/), often abbreviated to GSoC, is an international annual program in which Google awards stipends to contributors who successfully complete a free and open-source software coding project during the summer. 
+The [Google Summer of Code](https://summerofcode.withgoogle.com/), often abbreviated to GSoC, is an international annual program in which Google awards stipends to contributors who successfully complete a free and open-source software coding project during the summer. In addition to CNCF eligibility requirements, GSoC also has their own eligibility requirements. Be sure to plan your mentorship path so you don’t lock yourself out of a program by participating in another one first.
 
-**Google Season of Docs**  
-[Google Season of Docs](https://developers.google.com/season-of-docs/docs/organization-application-hints) is the ideal opportunity for aspiring and professional technical writers interested in non-code contribution, providing support for open source projects to improve their documentation. 
-
-**Outreachy**  
-[Outreachy](https://www.outreachy.org/apply/) has internship projects in both open source and open science, and is aimed at people subject to systemic bias or underrepresented in the technical industry where they are living. Projects may include programming, research, user experience, documentation, graphical design, data science, marketing, user advocacy and event planning.
 
 *If you're interested in applying for one of these programs, be sure to read through the application details outlined in the links provided to determine your eligibility.*
 
@@ -78,7 +92,7 @@ Determine what you hope to accomplish with the program and seek out opportunitie
 2. ***Industry expertise*** 
 Choose a program that specializes in your preferred industry and offers mentors with relevant experience. Be sure to carefully review the required skills to ensure you can manage the workload.
 3. ***Mentor-mentee fit*** 
-Choose a program that matches you with a mentor whose skills, experience, and personality ideally align with your needs and goals. It can also help to study the project or company that mentor represents to gain an understanding of their values and the nature of their work.
+Choose a program that matches you with a mentor whose skills, experience, and personality ideally align with your needs and goals. It can also help to study the project or company that the mentor represents to gain an understanding of their values and the nature of their work.
 4. ***Program structure*** 
 Consider the program's format, length, and frequency of meetings to determine if it will provide the level of support and structure that you need. This is also important in deciding whether you can balance the time commitment with any existing responsibilities you might have.
 5. ***Availability and accessibility*** 
@@ -89,7 +103,6 @@ Look for programs that provide regular feedback and evaluations to help you trac
 As a final note, reach out to program graduates via the channels listed in the **'Support Networks'** section for guidance; or review related blogs, articles or videos to help inform your decision. 
 
 To maximize the benefits of a mentorship program, it is important to choose one that aligns with your personal goals and objectives. Each program has its own unique strengths and benefits, so by applying and learning more about the experience as it progresses, you can ensure that you select the best program for your needs.
-
 
 ## Remuneration
 
@@ -120,16 +133,11 @@ Your technical experience will be critical to your work during your mentorship. 
 
 Whether you are a developer, designer, or anything in between, there is a place for you in mentoring programs on offer, and your unique skills and perspectives will be valuable assets to any project you choose to contribute to.
 
-* Provide general overview of skills common in recent LFX projects e.g. Go (provide link to skills map or similar resource from previous intake as indication?)
+* Provide a general overview of skills common in recent LFX projects e.g. Go (provide link to skills map or similar resource from previous intake as indication?)
 * Dependent on individual projects, subject to change over time
 * Emphasise soft skills such as communication; critical regardless of technical expertise required
 
-## Success Stories
-
-*(Refer to existing repo content; additions as required)*
-
 ---
-
 
 # FAQs
 
@@ -146,14 +154,15 @@ There are however a few proven areas you can check out to get the ball rolling:
 * **If you have some basic experience**, check out the following for different opportunities:
     * Many sites related to CNCF and its projects, like the [CNCF Contributor page](https://contribute.cncf.io/contributors/), will have Contributor guides which outline tasks; as well as lists with several actions you can take to begin your contributor journey.
     * [CLOTributor](https://clotributor.dev/) is a searchable database with dozens of tasks from [Cloud Native projects](https://www.cncf.io/projects/) you can tackle to build your experience.
-    This can be a great way to familiarize yourself with various projects before choosing to commit to one offered in a specific mentorship program.
+    This can be a great way to familiarise yourself with various projects before choosing to commit to one offered in a specific mentorship program.
     * Look for issues labeled 'good first issue'. You may also want to start with some of the documentation projects (like the website itself). This is often a good place to start when learning about a new project and looking to contribute.
 
-**Final piece of advice:** The best way to start is contribute immediately; make mistakes and learn from them. This will help you to get familiar with different processes and community members as your work is reviewed, evaluated or approved. 
+**Final piece of advice:** The best way to start is to contribute immediately; make mistakes and learn from them. This will help you to get familiar with different processes and community members as your work is reviewed, evaluated or approved. 
 
 ---
 
 #### What is 'Contribution'?
+
 Simply put, contribution is about adding value by giving back. The open source community thrives on the efforts of its millions of members globally to help shape, develop and maintain its systems and infrastructure, one incremental step at a time.
 
 Whether you're fixing a minor typo in documentation, or your code is helping to create the next game-changing project, every (approved!) action you make towards development is a critical piece of a bigger puzzle.
@@ -220,45 +229,20 @@ Community e.g. other mentees
 Support system in ongoing development according to identified need
 
 **I'm applying for LFX and am interested in a project, but am stuck on next steps. What should I do?**
-[Looking through the projects] (link needed) will highlight suggested skills, so hopefully, something in this resource will match your skillset.
+Browse the [current and past mentorship projects](../programs) to find one that matches your background
 
 Each project has a link to a corresponding GitHub issue, so if you see something interesting, use this to reach out to the relevant project Maintainers. This will help you both get a sense of your suitability and what is needed to progress.
 
-**Are mentorships suitable for career changers?**
-LFX eligbility criteria requires that you are not a maintainer, recurring contributor, etc. with more than minimal involvement with the open source project that offers a mentorship program.
 
-Check out the eligibility guide for full information.
+**Are mentorships suitable for career changers?**
+Yes. CNCF mentorships are open to students and working professionals at all stages, including career changers. The LFX Mentorship program is specifically designed for people who are newer to a project — in fact, eligibility requires that you are *not* already a maintainer or recurring contributor with more than minimal involvement in the project offering the mentorship.
+
+For full eligibility details, see the [Am I Eligible?](https://docs.linuxfoundation.org/lfx/mentorship/mentee-guide/am-i-eligible) guide.
 
 **I think I've missed the deadline to apply! Can I still submit my application?**
 *State date flexibility or not? - Especially re LFX* (TBC)
 (Additional miscellaneous)
 
-* Support tickets for specfic issues e.g. application process
+* Support tickets for specific issues e.g. application process
 * Career Paths
 
-
-(Additional miscellaneous)
-
-## **Full List FAQs** (final TBC)
-1. I'm new to Open Source and CNCF, where should I start?
-1. What is a 'Contribution' (in all its forms?)
-1. Can I contribute if I don't have a tech background?
-1. What's the best way to communicate with the community or get support with questions?
-1. What are the benefits to becoming a Mentee?
-1. How do I apply to programs? 
-1. What if I'm not skilled/experienced enough to participate yet?
-1. I'm applying for LFX and am interested in a project, but am stuck on next steps. What should I do?
-1. What support is available during mentorships?
-1. Are mentorships suitable for career changers?
-1. I think I've missed the deadline to apply! Can I still submit my application?
-1. Are roles in Open Source typically for teams or individuals?
-1. What sort of companies would be looking for these roles?
-1. What is the scope of income that is possible in the different roles?
-1. What are common skills needed for various roles (vs. mentorships specifically) e.g. technical and personal?
-1. What is the training pathway, certifications or internships needed for each role?
-1. Are qualifications essential to obtain work?
-1. I've tried reaching out in Slack communities, but it's confusing/overwhelming/intimidating. How can I better navigate this space?
-1. I've attended meetings, but I don't feel experienced enough to participate. How can I better interact with this aspect of the community?
-1. What's the best piece of advice for someone starting out?
-
----
