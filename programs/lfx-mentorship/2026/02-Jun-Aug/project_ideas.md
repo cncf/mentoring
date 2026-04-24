@@ -78,3 +78,25 @@
   - Ansuman Sahoo (@unsuman, anshumansahoo500@gmail.com)
 
 - Upstream Issues: https://github.com/lima-vm/lima/issues/4852, https://github.com/lima-vm/lima/issues/4820, https://github.com/lima-vm/lima/issues/4819
+
+### OpenEverest
+
+#### Transform everestctl into a Powerful Database Management CLI
+
+- Description: OpenEverest is an open-source cloud-native database platform that helps developers deploy and manage PostgreSQL, MySQL, MongoDB, and other databases on Kubernetes. Currently, `everestctl` serves primarily as an installation tool for deploying and deleting OpenEverest itself. However, users increasingly need a powerful command-line interface to manage their databases, clusters, and integrations directly from the terminal. This project aims to transform `everestctl` from a basic deployment tool into a comprehensive CLI for managing OpenEverest resources. The mentee will design and implement a modern, user-friendly CLI experience that allows users to provision databases, manage Kubernetes clusters, interact with OpenEverest plugins, and automate database operations — all without leaving their terminal. The project will involve working with Go, Kubernetes APIs, OpenEverest's plugin architecture, and modern CLI frameworks like Cobra.
+
+- Expected Outcome:
+  - Core database management commands: `everestctl db list`, `create`, `delete`, `get`, `logs` for PostgreSQL, MySQL, and MongoDB
+  - Cluster management: `everestctl cluster list`, `register`, `status` for managing Kubernetes clusters
+  - Plugin integration: `everestctl plugin list`, `install`, `configure` for OpenEverest plugins
+  - Shell completion scripts (bash, zsh, fish)
+  - Unit and integration tests with >80% coverage
+  - Comprehensive documentation with usage examples
+
+- Recommended Skills: Go, Kubernetes (CRDs, operators, client-go), Cobra CLI framework, REST/gRPC APIs, database fundamentals (PostgreSQL/MySQL/MongoDB), Git/GitHub workflow
+
+- Mentor(s):
+  - Sergey Pronin (@spron-in, sp@solanica.io)
+  - Diogo Recharte (@recharte, diogo.recharte@solanica.io)
+
+- Upstream Issue: https://github.com/openeverest/openeverest/issues/1818
