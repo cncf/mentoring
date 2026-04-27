@@ -17,7 +17,3 @@
 ---
 
 ## Proposed Project ideas
-
-### Fluid
-
-
