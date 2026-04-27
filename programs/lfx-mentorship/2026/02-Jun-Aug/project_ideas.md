@@ -158,6 +158,22 @@ Alongside this, the mentee will improve documentation experience for contributor
 
 - Upstream Issue: https://github.com/openeverest/openeverest/issues/1818
 
+### OpenTelemetry
+
+#### UX Research & Information Architecture: How Users Discover and Use OpenTelemetry Instrumentation Information
+
+- Description: The [Ecosystem Explorer](https://explorer.opentelemetry.io) helps users discover and get detailed documentation around various OpenTelemetry components. As the project expands to more ecosystems (Python, JavaScript, GenAI), information density will increase significantly, requiring patterns and approaches tailored to more than just the initial Java Agent use case. This mentorship involves conducting UX research to understand how users actually want to consume and use this information, covering: how users currently find information about components or instrumentation (LLMs, GitHub, docs, vendor sites, trial and error); what questions they are trying to answer (what telemetry will I get, how do I configure it, what changed between versions); what personas exist (app developers instrumenting code, platform engineers running collectors, SREs debugging production); how similar tools present dense technical information (npm registry, crates.io, Go pkg site, Docker Hub); and how LLMs are being used in this area and what the experience has been with them. The research will inform how we structure information, what features to prioritize, and how to present complex telemetry data in an accessible way.
+- Expected Outcome:
+  - User Interviews Report: Summarized findings from 3-5 user interviews covering different user types and key tasks
+  - Competitive Analysis Report: Findings from reviewing 2-3 similar tools (e.g., package registries, API documentation sites) on how they present component information
+  - Information Architecture Recommendations: Proposed structure for presenting a specific type of component data (e.g., "instrumentation" or "collector components")
+  - Wireframes/mockups (stretch goal): Visual concepts for key user flows
+- Recommended Skills: UX research (user interviews, synthesis), information architecture, competitive/comparative analysis, technical writing, wireframing or prototyping tools (helpful), familiarity with developer tools or documentation sites
+- Mentor(s):
+  - Jay DeLuca (@jaydeluca, jay.deluca@grafana.com)
+  - Andrej Kiripolsky (@AndrejKiri, andrej.kiripolsky@grafana.com)
+  - Amy Super (@amy-super, amy.super@grafana.com)
+- Upstream Issue: https://github.com/open-telemetry/opentelemetry-ecosystem-explorer/issues/309
 ### WasmEdge
 
 #### Memory alignment in WASM instructions
