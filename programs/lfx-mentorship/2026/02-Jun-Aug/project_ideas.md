@@ -19,6 +19,32 @@
 
 ## Proposed Project ideas
 
+### PipeCD
+
+### Plugin Development Book, Docs DX, and Adoption Growth
+
+- Description: PipeCD v1 introduced a plugin-based architecture enabling deployments on any platform. While the technical capabilities have evolved significantly, resources for building plugins are currently only available in Japanese. This project focuses on translating and expanding the existing [PipeCD Plugin Development Book](https://zenn.dev/warashi/books/try-and-learn-pipecd-plugin) into English and hosting it within PipeCD's docs, making plugin development accessible to the global contributor community.
+As part of the project, [examples of pipedv1 will also be created](https://github.com/pipe-cd/pipecd/issues/6266) practical, real-world deployment patterns built around PipeCD's new plugin architecture to help adopters get started.
+Alongside this, the mentee will improve documentation experience for contributors and adopters, produce technical content (blogs, articles and walkthrough videos) tied to the book chapters, and grow community awareness through talks and outreach.
+
+- Expected Outcome: English Plugin Development Book published within PipeCD docs, v1 examples completed, improved contributor and adopter onboarding experience, better docs usability and content discoverability, walkthrough videos (2–4) and blog posts tied to book chapters, and measurable community and social media growth.
+
+- Recommended Skills:
+  - Technical writing and documentation
+  - Community Management
+  - Familiarity with Go and PipeCD's plugin architecture
+  - Experience with Git, CI/CD, GitOps, and deployment workflows
+  - Content creation (written and video) and social media
+  - Public speaking and community engagement
+
+- Mentor(s):
+  - Eeshaan Sawant (@eeshaanSA, eeshaans1@gmail.com)
+  - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
+
+- Upstream Issue(s):
+  - [pipe-cd/pipecd#6679](https://github.com/pipe-cd/pipecd/issues/6679)
+  - [pipe-cd/pipecd#6266](https://github.com/pipe-cd/pipecd/issues/6266)
+
 ### Jaeger
 
 #### Jaeger for GenAI Observability: Specialized Trace Visualization
@@ -148,3 +174,20 @@
   - Andrej Kiripolsky (@AndrejKiri, andrej.kiripolsky@grafana.com)
   - Amy Super (@amy-super, amy.super@grafana.com)
 - Upstream Issue: https://github.com/open-telemetry/opentelemetry-ecosystem-explorer/issues/309
+### WasmEdge
+
+#### Memory alignment in WASM instructions
+
+- Description: Although WasmEdge checked the memory alignment when accessing the memory instances in WASI functions, the same situation occurs for instructions which would access the addresses on memory instances. For the pointer types, the offset for load/store from/to memory instances should be aligned as 4 in WASM32. In this mentorship, the mentee should collect all the possible situations for alignment checking in WASM instructions, and resolve the related issues.
+- Expected Outcome:
+  - Fix the memory alignment checking when accessing the memory instances.
+  - Add some WASM binary tests for verifying the implementation.
+  - Fix the issues: WasmEdge2694, WasmEdge2733, WasmEdge2881
+- Recommended Skills:
+  - C++
+  - WebAssembly
+  - Git workflows
+- Mentor(s):
+  - YiYing He (@q82419 , yiying@secondstate.io )
+  - Hung-Ying, Tai (@hydai , hydai@secondstate.io )
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4820
