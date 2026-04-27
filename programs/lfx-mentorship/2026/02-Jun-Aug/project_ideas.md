@@ -149,7 +149,7 @@
 - Recommended Skills: React, TypeScript, MUI, YAML, Content Security Policy, REST/gRPC APIs, familiarity with Kubernetes CRDs helpful but not required
 
 - Mentor(s):
-  - Iaroslavna Soloveva (@solovevayaroslavna, iaroslavna@solanica.io)
+  - Iaroslavna Soloveva (@solovevayaroslavna, iaroslavna.soloveva@solanica.io)
   - Sergey Pronin (@spron-in, sp@solanica.io)
 
 - Upstream Issue: https://github.com/openeverest/openeverest/issues/2059
