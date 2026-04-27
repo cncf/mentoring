@@ -131,3 +131,26 @@
   - Diogo Recharte (@recharte, diogo.recharte@solanica.io)
 
 - Upstream Issue: https://github.com/openeverest/openeverest/issues/1818
+
+#### Plugin Developer Playground: Interactive UI Schema Editor with Live Preview
+
+- Description: OpenEverest is an open-source cloud-native database platform that helps developers deploy and manage PostgreSQL, MySQL, MongoDB, and other databases on Kubernetes. In V2 it uses a plugin architecture where database providers define their UI through declarative YAML schemas (UISchema in Provider CRD). Currently, plugin developers have no integrated tool for developing and testing these schemas — the only way to see the rendered result is to deploy a full Provider CRD into a running Kubernetes cluster, making the development cycle slow and error-prone. This project aims to build a Plugin Developer Playground — a page inside OpenEverest where plugin developers can write UISchema YAML, see the rendered form in real time, validate the schema structure, inspect the post-processed API payload, and save/share schemas, all without deploying to a cluster. The mentee must solve the CSP compatibility problem by either choosing a CSP-compliant code editor or proposing an isolation architecture (e.g., sandboxed iframe) that keeps the main application's strict security posture intact.
+
+- Expected Outcome:
+  - Split-pane YAML editor with syntax highlighting and live form preview using the existing `UIGenerator` component
+  - Real-time schema validation: YAML parsing errors and structural validation against the `TopologyUISchemas` type, with inline error markers in the editor
+  - Live form rendering with stepper navigation through schema sections and topology switching
+  - Dynamic field support: existing API provider fields load real data from the running OpenEverest instance; new/unknown provider types can be mocked
+  - Output panel displaying the JSON payload after form data post-processing
+  - CSP-compliant solution
+  - Unit tests for core logic (schema validation, persistence, mock data injection) and component tests for key panels
+  - Plugin developer guide for using the playground and the UISchema format
+
+- Recommended Skills: React, TypeScript, MUI, YAML, Content Security Policy, REST/gRPC APIs, familiarity with Kubernetes CRDs helpful but not required
+
+- Mentor(s):
+  - Iaroslavna Soloveva (@iaroslavna, iaroslavna@solanica.io)
+  - Sergey Pronin (@spron-in, sp@solanica.io)
+
+- Upstream Issue: https://github.com/openeverest/openeverest/issues/2059
+
