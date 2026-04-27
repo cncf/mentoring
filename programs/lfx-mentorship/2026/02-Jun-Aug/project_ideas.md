@@ -131,3 +131,21 @@
   - Diogo Recharte (@recharte, diogo.recharte@solanica.io)
 
 - Upstream Issue: https://github.com/openeverest/openeverest/issues/1818
+
+### WasmEdge
+
+#### Memory alignment in WASM instructions
+
+- Description: Although WasmEdge checked the memory alignment when accessing the memory instances in WASI functions, the same situation occurs for instructions which would access the addresses on memory instances. For the pointer types, the offset for load/store from/to memory instances should be aligned as 4 in WASM32. In this mentorship, the mentee should collect all the possible situations for alignment checking in WASM instructions, and resolve the related issues.
+- Expected Outcome:
+  - Fix the memory alignment checking when accessing the memory instances.
+  - Add some WASM binary tests for verifying the implementation.
+  - Fix the issues: WasmEdge2694, WasmEdge2733, WasmEdge2881
+- Recommended Skills:
+  - C++
+  - WebAssembly
+  - Git workflows
+- Mentor(s):
+  - YiYing He (@q82419 , yiying@secondstate.io )
+  - Hung-Ying, Tai (@hydai , hydai@secondstate.io )
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4820
