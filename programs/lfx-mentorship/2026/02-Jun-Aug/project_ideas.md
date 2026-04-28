@@ -208,6 +208,36 @@ Alongside this, the mentee will improve documentation experience for contributor
   - Andrej Kiripolsky (@AndrejKiri, andrej.kiripolsky@grafana.com)
   - Amy Super (@amy-super, amy.super@grafana.com)
 - Upstream Issue: https://github.com/open-telemetry/opentelemetry-ecosystem-explorer/issues/309
+
+### Volcano
+
+#### Support Namespace-scoped Queue in Volcano
+
+- Description: Volcano's `Queue` is a cluster-scoped resource, which means only cluster admins can create or update it. This is a barrier for multi-tenant scenarios, where tenants usually only own their own namespaces and want to leverage Volcano's queue capabilities (resource sharing, capability/guarantee/deserved, hierarchy, etc.) for their own workloads without requesting changes from a cluster admin. This project adds a namespace-scoped `NamespaceQueue` to Volcano. A `NamespaceQueue` is derived from a cluster-scoped `Queue` and behaves consistently with it, so tenants can create and use queues within their own namespace and associate `PodGroup`/`Job` with a `NamespaceQueue` exactly as they would with a cluster `Queue`. The existing cluster `Queue` semantics and APIs remain unchanged for users who do not opt in.
+
+- Expected Outcome:
+  - A namespace-scoped `NamespaceQueue` CRD derived from cluster-scoped `Queue`, with consistent semantics for fields such as `capability`, `guarantee`, `deserved`, and hierarchy.
+  - Tenants can create and manage `NamespaceQueue` within their own namespace without cluster-admin permission.
+  - `PodGroup`/`Job` can reference a `NamespaceQueue` and be scheduled with the same behavior as referencing a cluster `Queue`.
+  - Resource accounting, status, and events for `NamespaceQueue` work end-to-end through Volcano's existing queue management path.
+  - Compatibility with the existing cluster `Queue` and the `scheduling.volcano.sh/queue-name` annotation, with a clear migration story for existing users.
+  - E2E tests covering core `NamespaceQueue` flows, including negative cases.
+  - User-facing documentation on the Volcano website and the repository.
+
+- Recommended Skills:
+  - Go
+  - Kubernetes (CRDs, controllers, RBAC)
+  - Familiarity with Volcano (scheduler, queue, PodGroup/Job)
+  - E2E testing (Ginkgo)
+  - GitHub workflow and shell scripting
+
+- Mentor(s):
+  - Jesse Stutler (@JesseStutler, jessestutler97@gmail.com)
+  - Hajnal Máté (@hajnalmt, hajnalmt@gmail.com) 
+  - João Azevedo (@devzizu, jazevedo960@gmail.com)
+
+- Upstream Issue: https://github.com/volcano-sh/volcano/issues/5251
+
 ### WasmEdge
 
 #### Memory alignment in WASM instructions
