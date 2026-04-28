@@ -255,3 +255,178 @@ Alongside this, the mentee will improve documentation experience for contributor
   - YiYing He (@q82419 , yiying@secondstate.io )
   - Hung-Ying, Tai (@hydai , hydai@secondstate.io )
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4820
+
+### urunc
+
+#### Integration of urunc's sandbox execution with Argo
+
+- Description:
+
+While urunc has successfully enabled the use of unikernels and single
+application kernels within Kubernetes environments, its integration with other
+CNCF projects has been less seamless. A notable example is Argo, a widely
+adopted platform for defining and managing workflows, complex pipelines, and
+distributed applications on Kubernetes.
+
+In urunc's execution model, untrusted components of a deployment run inside
+sandboxed environments as unikernels or single-application kernels, while
+trusted components run as standard containers. Although this separation enables
+fine-grained workload isolation, it introduces friction in deployments like Argo,
+since it breaks pod-level assumptions (e.g. shared networking, storage).
+
+This project aims to bridge that gap between Argo deployments and urunc's sandboxed
+execution model by enabling compatibility at the runtime and workflow
+levels. The expected outcome is that users can easily choose which parts of
+their Argo deployment run in isolated urunc sandboxes.
+
+- Expected Outcome:
+  - A document describing the architecture of Argo and the execution model of
+    urunc, including a clear breakdown of the main incompatibilities.
+  - A working integration with the necessary changes required in urunc and its
+    components.
+  - A tutorial showing how to deploy and run Argo workflows using urunc,
+    including setup, configuration, and example use cases.
+
+- Recommended Skills:
+  - Good understanding of Kubernetes.
+  - Familiarity with Argo and its architecture.
+  - Basic understanding of container runtimes and OCI concepts.
+  - Experience with Go.
+
+- Mentor(s):
+  - Charalampos Mainas (@cmainas, cmainas@nubificus.co.uk)
+  - Panagiotis Mavrikos (@panosmaurikos, pmavrikos@nubificus.co.uk)
+  - Anastassios Nanos (@ananos, ananos@nubificus.co.uk)
+
+- Upstream Issue: https://github.com/urunc-dev/urunc/issues/573
+
+#### Improve lifecycle management of sandbox monitors
+
+- Description:
+
+Currently, urunc launches sandbox monitors, such as Firecracker and QEMU
+through command-line invocations. This approach offers limited control over the
+sandbox lifecycle once the process is started. On the other hand, most
+monitors expose remote management interfaces, typically through a socket-based
+API.
+
+These interfaces provide access to the same operations currently performed via
+CLI, but also enable further control over the sandbox lifecycle. In particular,
+they allow more fine-grained lifecycle management of the sandbox, including
+querying and monitoring its state, performing device hotplug and unplug
+operations and interacting with the guest.
+
+This project aims to extend urunc's sandbox integration layer to support remote
+management interfaces and to explore each monitor's capabilities in order to
+extend the functionalities of urunc sandboxed containers.
+
+- Expected Outcome:
+  - A design document describing the updated architecture and workflow for
+    spawning and managing sandbox monitors in urunc.
+  - Implementation of the necessary changes in urunc to manage sandbox monitors
+    through their respective APIs.
+
+- Recommended Skills:
+  - Basic understanding of container runtimes and OCI concepts.
+  - Good understanding of Linux systems programming (IPC, process management, etc.)
+  - Experience with Go.
+  - Familiarity with virtual machine monitors.
+
+- Mentor(s):
+  - Charalampos Mainas (@cmainas, cmainas@nubificus.co.uk)
+  - Anastassios Nanos (@ananos, ananos@nubificus.co.uk)
+
+- Upstream Issue: https://github.com/urunc-dev/urunc/issues/112
+
+#### Extensive evaluation of urunc's sandboxing execution model
+
+- Description:
+
+According to urunc's execution model, the application executes inside a
+VM-based or software-based sandbox. While this model strengthens isolation
+boundaries, it can introduce performance overhead and additional resource
+consumption compared to standard containers. Over the past years, evaluations
+of urunc have focused primarily on spawn time and container density and less
+on other aspects, such as CPU and memory usage, storage overhead I/O
+performance and network latency.
+
+As a result, it is necessary to conduct a thorough performance evaluation of
+urunc across multiple metrics. The evaluation should span across
+microbenchmarks, macrobenchmarks, and representative real-world workloads.
+Apart from the evaluation itself, it is also important to create a reproducible
+benchmarking suite, with all scripts, tools and documentation, so that anyone
+can extend and reproduce the experiments across different environments and
+versions.
+
+- Expected Outcome:
+  - A comprehensive evaluation report covering startup latency, CPU and memory
+    consumption, storage overhead, I/O throughput, and network performance
+    across multiple sandboxes (monitor / guest combinations).
+  - A reproducible evaluation suite, including all scripts, tools,
+    configurations and documentation required to repeat and extend the
+    benchmarks.
+  - A blogpost summarizing the methodology and the findings of the evaluation.
+
+- Recommended Skills:
+  - Good understanding of benchmarking methodologies and tools (e.g. fio, perf)
+  - Experience with scripting (e.g. Bash, Python) for automation of benchmarks.
+  - Basic understanding of virtualization and container runtimes concepts.
+  - Familiarity with Kubernetes.
+
+- Mentor(s):
+  - Charalampos Mainas (@cmainas, cmainas@nubificus.co.uk)
+  - Anastassios Nanos (@ananos, ananos@nubificus.co.uk)
+  - Anastasia Mallikopoulou (@amallikopoulou, amallik@nubificus.co.uk)
+
+- Upstream Issue: https://github.com/urunc-dev/urunc/issues/574
+
+#### Improving DNS and localhost based networking compatibility for urunc across CNIs
+
+- Description:
+
+In a standard container setup, the container shares the network namespace with
+its host environment, meaning localhost inside the container refers to the same
+loopback interface as the host's network namespace. Many CNI plugins and
+container networking services rely on this assumption. For instance, Docker
+sets up an internal DNS server listening on localhost within each container's
+network namespace and configures `/etc/resolv.conf` accordingly. Similarly,
+service meshes (e.g., Istio, Linkerd) inject sidecar proxies that listen on
+localhost, and certain CNI plugins expose health checks or metrics endpoints on
+the loopback interface.
+ 
+ In urunc, however, workloads execute inside a sandboxed environment
+with its own isolated network stack. As a result,
+localhost inside the sandbox does not refer to the host's network namespace
+loopback interface but to the sandbox's own. This breaks any service that
+relies on localhost-based communication between the container and host-level
+components.
+
+This project aims to investigate and implement mechanisms to bridge localhost
+communication between the host network namespace and the sandbox. The mentee
+will survey the landscape of CNI plugins and networking services that rely on
+localhost, categorize the different communication patterns, and design a
+solution that restores compatibility while preserving the
+isolation guarantees that urunc provides.
+
+- Expected Outcome:
+  - A survey and categorization of CNI plugins and networking services that
+    rely on localhost communication, documenting the specific patterns and
+    assumptions each makes.
+  - A design proposal of one or more mechanisms to bridge localhost traffic
+    between the host network namespace and the sandbox.
+  - Implementation of the proposed solution in urunc, with DNS resolution as
+    the primary use case.
+  - Evaluation of the new mechanism.
+
+- Recommended Skills:
+  - Good understanding of Linux networking concepts (network namespaces,
+    loopback interfaces, DNS resolution).
+  - Basic understanding of container networking (CNI plugin model,
+    bridge/overlay networks).
+  - Experience with low-level networking tools (iptables, tc, eBPF).
+
+- Mentor(s):
+  - Charalampos Mainas (@cmainas, cmainas@nubificus.co.uk)
+  - Anastassios Nanos (@ananos, ananos@nubificus.co.uk)
+
+- Upstream Issue: https://github.com/urunc-dev/urunc/issues/574
