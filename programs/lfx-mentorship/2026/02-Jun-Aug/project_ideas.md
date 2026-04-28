@@ -19,6 +19,17 @@
 
 ## Proposed Project ideas
 
+### Volcano
+
+#### Scheduler Configuration & Plugin Management UI
+
+- Description: Volcano ships with 20+ scheduler plugins (`drf`, `binpack`, `gang`, `numaaware`, `sla`, `task-topology`, `rescheduling`, `overcommit`, and more) and 7 scheduler actions (`allocate`, `backfill`, `enqueue`, `preempt`, `reclaim`, `shuffle`). All configuration lives in a Kubernetes ConfigMap edited by hand. This project adds a Scheduler Config page that reads the active scheduler ConfigMap, renders plugin/action toggles and argument fields, validates changes, and writes them back, removing the need for raw `kubectl`.
+- Expected Outcome: A `/scheduler/config` page that renders the active `volcano-scheduler-configmap` as a structured form: ordered list of enabled actions (drag-to-reorder), plugin toggles with per-plugin argument fields and documentation links, live YAML preview, and a Save button that patches the ConfigMap via the Kubernetes API.
+- Recommended Skills: TypeScript, React, Kubernetes ConfigMap API, YAML parsing, tRPC, form development
+- Mentor(s):
+  - Jesse Stutler (@JesseStutler, jessestutler97@gmail.com)
+  - Kuldeep (@de6p, de6p97@gmail.com)
+
 ### PipeCD
 
 ### Plugin Development Book, Docs DX, and Adoption Growth
