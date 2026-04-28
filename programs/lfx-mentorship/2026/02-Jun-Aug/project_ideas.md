@@ -191,3 +191,25 @@ Alongside this, the mentee will improve documentation experience for contributor
   - YiYing He (@q82419 , yiying@secondstate.io )
   - Hung-Ying, Tai (@hydai , hydai@secondstate.io )
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4820
+
+### Kyverno
+
+#### Address findings from the Kyverno CNCF TAG Security & Compliance assessment
+
+- Description: Kyverno recently completed a security assessment by the CNCF TAG Security & Compliance group, which produced a set of findings spanning documentation, threat modeling, network policies, global context cache bounds, API server authentication, SAST tooling, and other hardening improvements. The findings are tracked in a single umbrella issue. In this mentorship, the mentee will work through the open findings, propose and implement fixes across the Kyverno codebase, docs, and Helm charts, and help close out the assessment. Work includes implementing cache bounds for the Global Context, restricting Global Context access in namespaced policies, adding API server request authentication for the admission webhook, generating sample/network-policy templates and a CLI command to produce a Kyverno NetworkPolicy, integrating SAST tooling (e.g. semgrep, Nancy) into CI, updating the threat model and architecture diagrams, and improving the security documentation on kyverno.io.
+- Expected Outcome:
+  - Resolve the open findings tracked in [kyverno/kyverno#15335](https://github.com/kyverno/kyverno/issues/15335).
+  - Implement Global Context cache bounds and access restrictions for namespaced policies (kyverno/kyverno#15359).
+  - Add admission webhook authentication of requests from the API server.
+  - Refresh the threat model (including CLI and other deployment options) and the architecture diagram to separate logical and physical components.
+  - Update the Kyverno security documentation: fix the audits page links, document risks of external data lookups, and link to published security advisories.
+  - Add tests covering the new behaviors and document the changes in the Kyverno docs site.
+- Recommended Skills:
+  - Go
+  - Kubernetes (admission controllers, CRDs, NetworkPolicy, client-go / controller-runtime)
+  - Familiarity with security concepts (threat modeling, SAST, webhook authentication)
+  - Technical writing
+  - Git workflows
+- Mentor(s):
+  - Shuting Zhao (@realshuting, shutingz@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/15335
