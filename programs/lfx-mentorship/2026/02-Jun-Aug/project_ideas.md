@@ -212,7 +212,9 @@ Alongside this, the mentee will improve documentation experience for contributor
   - Git workflows
 - Mentor(s):
   - Shuting Zhao (@realshuting, shutingz@nirmata.com)
-- Upstream Issue: https://github.com/kyverno/kyverno/issues/15335
+- Upstream Issue: 
+  - https://github.com/kyverno/kyverno/issues/15335
+  - https://github.com/kyverno/kyverno/issues/15473
 
 
 #### Kyverno Technical Outcomes
