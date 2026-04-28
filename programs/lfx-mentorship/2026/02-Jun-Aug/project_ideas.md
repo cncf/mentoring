@@ -191,3 +191,101 @@ Alongside this, the mentee will improve documentation experience for contributor
   - YiYing He (@q82419 , yiying@secondstate.io )
   - Hung-Ying, Tai (@hydai , hydai@secondstate.io )
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4820
+
+### KubeEdge
+
+#### Building an Edge-Cloud Collaborative Framework for Embodied AI Applications with KubeEdge
+
+- Description: This project aims to explore how KubeEdge can support real-world embodied AI applications, where intelligent devices such as robots, inspection systems, or autonomous mobile platforms need to perceive, process, and respond in edge environments.
+The mentee will select a representative embodied AI scenario and build an end-to-end edge-cloud collaboration solution with KubeEdge. The solution should cover device or data source access, edge-side data processing, lightweight AI inference, cloud-edge synchronization, and system behavior under unstable network conditions.
+Through this project, the community will gain a reproducible reference implementation that demonstrates how KubeEdge can be used as the infrastructure foundation for embodied AI workloads.
+- Expected Outcome:
+  - Select a specific scenario related to embodied intelligence.
+  - Set up the KubeEdge edge-cloud environment: complete the deployment and configuration of CloudCore and EdgeCore, enable edge node access, and verify status synchronization and basic communication capabilities.
+  - Implement a closed loop for device access and edge AI inference: complete device or data source access, data collection, device status modeling, deployment of edge-side AI inference services, and inference result reporting.
+  - Verify edge-cloud collaboration and edge autonomy: implement cloud-side model delivery, configuration updates, and data aggregation, and verify continuous edge operation and recovery synchronization under weak network or disconnected scenarios.
+  - Provide reproducible engineering assets and evaluation documents, including architecture diagrams, KubeEdge configuration files, deployment and validation scripts, sample data, running instructions, and performance and reliability evaluation reports.
+- Recommended Skills: Kubernetes, KubeEdge, Go, Python, Edge Computing, Edge AI
+- Mentor(s):
+  - Hongbing Zhang (@HongbingZhang, hongbing.zhang@daocloud.io)
+  - Chen Su (@ghosind, ghosind@gmail.com)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/6755
+
+#### Comprehensive Example Restoration for KubeEdge Ianvs: Phase III
+
+- Description: Ianvs serves as the KubeEdge SIG AI distributed benchmark toolkit. As more and more contributors running, KubeEdge Ianvs now has up to 30 examples, and the number is still increasing. KubeEdge Ianvs then faces mounting usability issues due to dependency evolution and validation mechanisms. As Python versions, third-party libraries, and Ianvs features advance, partial historical examples fail to execute. This has led to surging user-reported Issues from confused contributors, untested PRs breaking core functionality of legacy features, and severely outdated documentation misaligning with actual capabilities. Without systematic intervention, the example risks becoming obsolete for edge-AI developers and especially newcomers. We then try to resurrect Ianvs’ usability with a comprehensive example restoration.
+- Expected Outcome:
+  - Diagnose & fix bugs across examples, including dependency manifests, license scan, and runtime configurations.
+  - Documentation Modernization, including revamp tutorials with reproducible step-by-step guides, publish developer-focused debugging playbooks for common failures. Write and upload the corresponding blog to the KubeEdge Website.
+  - Advanced: Build a CI pipeline testing examples with GitHub Actions against multiple Python versions, critical Ianvs/upstream updates, and block PRs that break validated examples
+- Recommended Skills: Python, Benchmark, KubeEdge-Ianvs, AI/ML
+- Mentor(s):
+  - Zimu Zheng (@MooreZheng, zimu.zheng@huawei.com)
+  - hsj576 (@hsj576, sjhu21@m.fudan.edu.cn)
+- Upstream Issue: https://github.com/kubeedge/ianvs/issues/230
+
+#### Enabling Edge-Native Inference for Lightweight Large Language Models with KubeEdge
+
+- Description: This project focuses on validating KubeEdge as an edge-native infrastructure for lightweight large language model inference. As more AI services move from the cloud to edge devices, lightweight LLMs provide a practical way to reduce latency, protect data privacy, and support local intelligence under limited resources.
+The mentee will deploy one or more lightweight LLMs on KubeEdge edge nodes and evaluate the complete workflow, including model packaging, workload scheduling, service exposure, lifecycle management, and performance measurement.
+The project is expected to produce a practical reference for running generative AI workloads on edge nodes managed by KubeEdge.
+- Expected Outcome:
+  - Successfully deploy and run one or more small-parameter large models on KubeEdge edge nodes, and complete end-to-end inference workflow validation.
+  - Explore deployment methods and best practices for managing lightweight model services based on KubeEdge.
+  - Evaluate basic performance on edge devices, including startup time, memory usage, inference latency, and runtime stability.
+  - Fix issues discovered during validation, and submit PRs to KubeEdge or related example repositories when necessary.
+  - Publish a blog or document to kubeedge/website introducing how to deploy and run small-parameter large models based on KubeEdge.
+  - Optional: complete example validation with a lightweight scenario, such as local Q&A, document summarization, or lightweight multimodal inference.
+- Recommended Skills: Kubernetes, KubeEdge, Python, Go, LLM Inference, Edge AI, Model Deployment
+- Mentor(s):
+  - Chuanhao Jin (@DoisLONG, 15221580643@163.com)
+  - Chen Su (@ghosind, ghosind@gmail.com)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/6756
+
+#### Exploring AI PCs as KubeEdge-Managed Edge Nodes for Intelligent Workload Orchestration
+
+- Description: This project explores how AI PCs can be integrated into the KubeEdge ecosystem as a new type of edge node. With built-in heterogeneous computing capabilities such as CPUs, GPUs, and NPUs, AI PCs are becoming suitable platforms for local AI inference, privacy-sensitive applications, and low-latency intelligent services.
+The mentee will connect one or more AI PCs to KubeEdge, deploy representative AI workloads, and explore resource monitoring and workload orchestration patterns for AI PC environments.
+The project will summarize practical experience and provide reference documentation for using KubeEdge to manage AI PCs as edge computing infrastructure.
+- Expected Outcome:
+  - Connect one or more AI PCs to KubeEdge as edge nodes and verify their basic management capabilities.
+  - Deploy and run representative AI workloads on AI PCs through KubeEdge, such as lightweight large model inference, vision models, or multimodal services.
+  - Explore monitoring methods for local resources and AI-related metrics on AI PCs, such as CPU/GPU/NPU utilization, memory usage, and inference service health status.
+  - Summarize best practices for workload deployment, resource management, and edge-cloud collaboration for AI PCs.
+  - Fix issues discovered during validation, and submit PRs to KubeEdge, example repositories, or related documentation when necessary.
+  - Publish a blog or document to kubeedge/website introducing how to use AI PCs together with KubeEdge.
+  - Optional: explore an example scenario combining cloud-side collaboration and device-side inference, focusing on low-latency or privacy-sensitive tasks.
+- Recommended Skills: Kubernetes, KubeEdge, Edge AI, AI PC, Heterogeneous Computing, Resource Monitoring, Python, Go
+- Mentor(s):
+  - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
+  - Hongbing Zhang (@HongbingZhang, hongbing.zhang@daocloud.io)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/6757
+
+#### Scaling KubeEdge Test Coverage via LLM-Driven Agentic Workflows
+
+- Description: We will design a Self-Healing Test Agent. Automatically identify low-coverage areas or missing E2E scenarios using coverage analysis tools ; Utilize LLMs (e.g., DeepSeek-V3/R1) to analyze code logic, generate complex mocks, and implement test cases (Unit/E2E).
+The Agent executes the generated tests. If they fail (compilation errors, runtime panics, or assertion failures), the Agent captures the logs/tracebacks, reasons about the cause, and iteratively refines the test code until it passes.
+Only validated, passing test cases are bundled into a Pull Request for human review.
+While LLMs can generate code snippets, "Raw LLM output" often lacks the context of complex projects like KubeEdge, leading to broken tests that increase the burden on maintainers. Manual test writing remains a bottleneck for project velocity.
+By implementing a Self-Healing loop, we ensure that the automation tool acts as a "Junior Test Engineer" rather than a simple script. This reduces "PR noise" and ensures that every AI-generated PR is functionally sound and compatible with the current codebase, significantly lowering the barrier for maintaining high-quality KubeEdge releases.
+- Expected Outcome:
+  - Agentic Framework Implementation: A workflow engine that handles the Test -> Fail -> Fix -> Test cycle autonomously.
+  - Context-Aware Prompt Engineering: Advanced prompt templates that include project-specific structures, interfaces, and Mock patterns (specifically for KubeEdge components like CloudCore/EdgeCore).
+  - CI/CD Pipeline Integration: A GitHub Action or independent service that triggers on specific events (e.g., weekly scheduled runs or PRs to key modules).
+  - Self-Healing Logic: Proven capability of the Agent to resolve at least 60-70% of common test failures (like missing imports or incorrect mock signatures) without human intervention.
+  - Measurable Coverage Increase: Successfully merge PRs that increase the unit/e2e coverage of selected KubeEdge modules by a target percentage.
+- Recommended Skills: Golang, LLM & Agent Framework,Kubernetes & KubeEdge Ecosystem, DevOps & CI/CD
+- Mentor(s):
+  - Yue Li (@liyuerich, yue.li@daocloud.io)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/6750
+
+#### Exploring Alternatives to iptableManager: Optimizing Edge-Cloud Request Forwarding via Apiserver Redirection to cloudcore
+
+- Description: Currently, in KubeEdge, the cloudstream component utilizes iptables to redirect requests from the apiserver intended for the edge node's KubeletEndpoint to port 10003 of the cloudcore to which that edge node is connected. The request is then routed through cloudstream to edgestream, ultimately accessing the KubeletEndpoint port on the edged. This requires the iptableManager to use iptables for interception and forwarding every 10 seconds. Since this mechanism depends on iptables, a proposal has been made to explore whether it's possible to have the Apiserver redirect to cloudcore directly, thereby replacing the iptableManager.
+- Expected Outcome:
+  - Submit a design proposal.
+  - Complete the feature development and ultimately meet the requirements for merging the code into the main repository.
+- Recommended Skills: Go, Kubernetes, Client-go
+- Mentor(s):
+  - Zhijia Yang (@luomengY, 2938893385@qq.com)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/6754
