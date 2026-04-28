@@ -45,6 +45,40 @@ Alongside this, the mentee will improve documentation experience for contributor
   - [pipe-cd/pipecd#6679](https://github.com/pipe-cd/pipecd/issues/6679)
   - [pipe-cd/pipecd#6266](https://github.com/pipe-cd/pipecd/issues/6266)
 
+### Harbor
+
+#### Harbor CLI: Bubbletea v2 TUI Refactor and OIDC Device-Flow Login
+
+- Description: Harbor CLI needs two foundational improvements this term. First, migrate the TUI from Bubbletea v1 to v2 and refactor the fragmented list/table/selection models into a unified `loadingtablelist` abstraction with consistent loading, pagination, and error states across all commands. Second, replace static credentials with an OAuth 2.0 Device Authorization Grant (RFC 8628) and OIDC login flow so users and CI/CD pipelines can authenticate against Harbor through their identity provider without long-lived secrets.
+- Expected Outcome:
+  - Bubbletea v2 upgrade and unified `loadingtablelist` model adopted across all list-style commands
+  - `harbor login --sso` device-code flow plus a non-interactive CI/CD path with short-lived tokens
+  - Encrypted local token storage with automatic refresh and provider-agnostic OIDC config
+  - Tests for TUI state transitions and a mock OIDC provider covering device flow and refresh
+  - Updated docs covering the new TUI patterns and OIDC setup for common providers
+- Recommended Skills: Golang, Charmbracelet Bubbletea, OAuth 2.0 / OIDC, spf13/cobra, testing
+- Mentor(s):
+  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+- Upstream Issue: https://github.com/goharbor/harbor-cli/issues/821
+
+#### Harbor Satellite: Ground Control CLI and Kubernetes Fleet Operator
+
+- Description: Harbor Satellite needs first-class fleet management on top of the new Swagger-first Ground Control API. The mentee will build a `groundctl` CLI generated from the OpenAPI spec covering satellite lifecycle, user management, and a GitOps-style `apply -f` workflow, and pair it with a lightweight Kubernetes operator that manages Satellite instances as custom resources so fleets can be driven through ArgoCD or Flux on edge clusters (k3s, RKE2, microk8s).
+- Expected Outcome:
+  - Finalized Ground Control OpenAPI spec and generated Go client
+  - `groundctl` CLI for satellite lifecycle (register, list, inspect, update-config, delete), users, and `apply -f` GitOps mode
+  - `Satellite` CRD plus controller reconciling against Ground Control and deploying via the existing Helm chart
+  - Status subresource reporting registration, sync, and cache health back to the cluster
+  - End-to-end tests on kind/k3d deploying multiple satellites via CRD; CLI and operator docs with ArgoCD/Flux examples
+- Recommended Skills: Golang, OpenAPI/Swagger, spf13/cobra, Kubernetes (CRDs, controller-runtime, kubebuilder), Helm, GitOps
+- Mentor(s):
+  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+- Upstream Issue: https://github.com/container-registry/harbor-satellite/issues/375
+
 ### Jaeger
 
 #### Jaeger for GenAI Observability: Specialized Trace Visualization
