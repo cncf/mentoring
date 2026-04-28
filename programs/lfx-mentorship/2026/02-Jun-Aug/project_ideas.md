@@ -191,3 +191,34 @@ Alongside this, the mentee will improve documentation experience for contributor
   - YiYing He (@q82419 , yiying@secondstate.io )
   - Hung-Ying, Tai (@hydai , hydai@secondstate.io )
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4820
+
+### krkn - Chaos
+
+#### Dynamic Cluster-Aware Configuration Generation for Krkn-AI
+
+- Description: Krkn-AI's [discover command](https://krkn-chaos.dev/docs/krkn_ai/discover/) connects to a Kubernetes/OpenShift cluster and generates a static configuration file by enumerating cluster components (namespaces, pods, services, PVCs, nodes). While useful, the generated config still requires significant manual work before it can actually be used. Health check URLs are commented-out placeholders, the fitness function defaults to a single hardcoded PromQL query, and scenario selection is static regardless of what exists in the cluster. This issue proposes enhancing discover to produce a dynamic, cluster-aware configuration that is closer to runnable out-of-the-box. By inspecting routes, ingresses, services, and available Prometheus metrics during discovery, we can auto-populate health check URLs, suggest relevant fitness function queries scoped to discovered namespaces, and intelligently enable only the scenarios that apply to the discovered infrastructure.
+- Expected Outcome: 
+  - Auto-discover OpenShift Routes, Kubernetes Ingresses, and Services to populate health check URLs in the generated configuration.
+  - Query Prometheus for available metrics to suggest namespace-scoped fitness function queries instead of hardcoded defaults.
+  - Intelligently enable chaos scenarios based on discovered cluster components (e.g., PVC, VMI, network interfaces).
+
+- Recommended Skills: Python, Kubernetes/OpenShift (client libraries, API concepts like Routes, Ingresses, Services), Prometheus/PromQL basics
+- Mentor(s):
+  - Rahul Shetty (@rh-rahulshetty , rashetty@redhat.com)
+  - Naga Ravi Chaitanya Elluri (@chaitanyaenr , nelluri@redhat.com)
+- Upstream Issue: https://github.com/krkn-chaos/krkn-ai/issues/188
+
+#### Automated Documentation Sync Bot for Krkn-Chaos Projects
+
+- Description: The krkn-chaos/website repository hosts the unified documentation for the entire krkn-chaos ecosystem (krkn, krkn-hub, krknctl, krkn-ai, krkn-operator, cerberus, etc.) as a Hugo/Docsy site deployed at krkn-chaos.dev. Currently, when changes are made to any of these upstream projects — such as adding a new scenario, modifying configuration options, or updating CLI flags — someone must manually open a PR against the website repo to update the corresponding docs. This is tedious, easy to forget, and often leads to documentation drift where the docs no longer match the actual tool behavior. This issue proposes building a bot or GitHub Action-based workflow that detects documentation-impacting changes in upstream krkn-chaos repositories and automatically creates a draft PR on the website repo with the relevant documentation updates. The bot would analyze the scope of the change (e.g., new config fields, updated parameters, new scenario) and generate or update the corresponding Hugo content files, following the existing content structure and conventions (tabbed scenario layouts, parameter tables, etc.).
+- Expected Outcome: 
+  - Build a GitHub Action or bot that triggers on merged PRs in upstream krkn-chaos repos and automatically creates draft documentation PRs on the website repository following existing Hugo/Docsy content conventions.
+  - Support common change types including new or updated config fields, CLI flag changes, new chaos scenarios, and modified parameter tables.
+  - Enable interactive refinement of generated documentation PRs through review comments, similar to code review bots like CodeRabbit.
+
+- Recommended Skills: Python, GitHub Actions/Workflows, Hugo static site basics, LLM, Agent development
+- Mentor(s):
+  - Rahul Shetty (@rh-rahulshetty , rashetty@redhat.com)
+  - Naga Ravi Chaitanya Elluri (@chaitanyaenr , nelluri@redhat.com)
+  - Darshan Jain (@ddjain , darjain@redhat.com)
+- Upstream Issue: https://github.com/krkn-chaos/website/issues/320
