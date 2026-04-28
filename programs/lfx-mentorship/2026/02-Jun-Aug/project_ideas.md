@@ -21,11 +21,19 @@
 
 ### Volcano
 
-#### Scheduler Configuration & Plugin Management UI
+#### Scheduler Management, Observability & Log Explorer UI
 
-- Description: Volcano ships with 20+ scheduler plugins (`drf`, `binpack`, `gang`, `numaaware`, `sla`, `task-topology`, `rescheduling`, `overcommit`, and more) and 7 scheduler actions (`allocate`, `backfill`, `enqueue`, `preempt`, `reclaim`, `shuffle`). All configuration lives in a Kubernetes ConfigMap edited by hand. This project adds a Scheduler Config page that reads the active scheduler ConfigMap, renders plugin/action toggles and argument fields, validates changes, and writes them back, removing the need for raw `kubectl`.
-- Expected Outcome: A `/scheduler/config` page that renders the active `volcano-scheduler-configmap` as a structured form: ordered list of enabled actions (drag-to-reorder), plugin toggles with per-plugin argument fields and documentation links, live YAML preview, and a Save button that patches the ConfigMap via the Kubernetes API.
-- Recommended Skills: TypeScript, React, Kubernetes ConfigMap API, YAML parsing, tRPC, form development
+- Description: Volcano's scheduler has no presence in the dashboard today. Three critical operator workflows are missing: 
+(1) Configuration — the entire scheduling policy (6 actions, 22 plugins, per-plugin toggles and arguments) lives in a raw Kubernetes ConfigMap edited only via `kubectl`, with no validation or UI; 
+(2) Observability — Volcano exposes rich Prometheus metrics (scheduling latency, preemption counts, unschedulable job/task counts) that the dashboard never queries, leaving operators dependent on a separate Grafana stack; 
+(3) Logs — debugging scheduling issues requires `kubectl logs` against pods in `volcano-system`; the dashboard has no log viewing capability at all. This project adds a `/scheduler` section with three tabs: a Config tab that reads and writes the `volcano-scheduler-configmap` as a structured form, a Metrics tab that proxies and visualizes the scheduler's Prometheus `/metrics` endpoint, and a Logs tab that streams live logs from any Volcano system component (`volcano-scheduler`, `volcano-controller-manager`, `volcano-webhook-manager`, `volcano-agent`) — all backed by new tRPC procedures using the existing `CoreV1Api` client in `packages/trpc/server/utils/k8s.ts`.
+- Expected Outcome:
+  - Config tab: draggable action pipeline editor, plugin tier editor with per-plugin `enabled` toggles and typed argument fields, live YAML diff preview, and a Save button that patches the ConfigMap via `CoreV1Api.patchNamespacedConfigMap`.
+  - Metrics tab: stat cards for unschedulable jobs/tasks and total preemptions; line chart for e2e and per-plugin scheduling latency; bar chart for per-action latency — all from a new `getMetrics` tRPC procedure querying the scheduler's `/metrics` endpoint.
+  - Logs tab: component selector dropdown (`scheduler`, `controller-manager`, `webhook-manager`, `agent`), `tailLines` control, keyword filter/highlight, and real-time log streaming via `CoreV1Api.readNamespacedPodLog` with a Server-Sent Events or polling transport.
+  - Updated RBAC in `deployment/volcano-dashboard.yaml` for ConfigMap `get`/`update` and Pod logs in `volcano-system`.
+  - Tests and user-facing documentation.
+- Recommended Skills: TypeScript, React, Next.js, tRPC, Zod, Kubernetes API (`@kubernetes/client-node`), Prometheus metrics parsing, YAML (`js-yaml`), Server-Sent Events or streaming APIs
 - Mentor(s):
   - Jesse Stutler (@JesseStutler, jessestutler97@gmail.com)
   - Kuldeep (@de6p, de6p97@gmail.com)
