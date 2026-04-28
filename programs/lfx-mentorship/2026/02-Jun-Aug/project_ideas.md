@@ -16,7 +16,6 @@
 
 ---
 
-
 ## Proposed Project ideas
 
 ### PipeCD
@@ -24,12 +23,13 @@
 ### Plugin Development Book, Docs DX, and Adoption Growth
 
 - Description: PipeCD v1 introduced a plugin-based architecture enabling deployments on any platform. While the technical capabilities have evolved significantly, resources for building plugins are currently only available in Japanese. This project focuses on translating and expanding the existing [PipeCD Plugin Development Book](https://zenn.dev/warashi/books/try-and-learn-pipecd-plugin) into English and hosting it within PipeCD's docs, making plugin development accessible to the global contributor community.
-As part of the project, [examples of pipedv1 will also be created](https://github.com/pipe-cd/pipecd/issues/6266) practical, real-world deployment patterns built around PipeCD's new plugin architecture to help adopters get started.
-Alongside this, the mentee will improve documentation experience for contributors and adopters, produce technical content (blogs, articles and walkthrough videos) tied to the book chapters, and grow community awareness through talks and outreach.
+  As part of the project, [examples of pipedv1 will also be created](https://github.com/pipe-cd/pipecd/issues/6266) practical, real-world deployment patterns built around PipeCD's new plugin architecture to help adopters get started.
+  Alongside this, the mentee will improve documentation experience for contributors and adopters, produce technical content (blogs, articles and walkthrough videos) tied to the book chapters, and grow community awareness through talks and outreach.
 
 - Expected Outcome: English Plugin Development Book published within PipeCD docs, v1 examples completed, improved contributor and adopter onboarding experience, better docs usability and content discoverability, walkthrough videos (2–4) and blog posts tied to book chapters, and measurable community and social media growth.
 
 - Recommended Skills:
+
   - Technical writing and documentation
   - Community Management
   - Familiarity with Go and PipeCD's plugin architecture
@@ -38,8 +38,9 @@ Alongside this, the mentee will improve documentation experience for contributor
   - Public speaking and community engagement
 
 - Mentor(s):
-  - Eeshaan Sawant (@eeshaanSA, eeshaans1@gmail.com)
-  - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
+
+  - Eeshaan Sawant (@eeshaanSA, <eeshaans1@gmail.com>)
+  - Khanh Tran (@khanhtc1202, <khanhtc1202@gmail.com>)
 
 - Upstream Issue(s):
   - [pipe-cd/pipecd#6679](https://github.com/pipe-cd/pipecd/issues/6679)
@@ -58,9 +59,9 @@ Alongside this, the mentee will improve documentation experience for contributor
   - More compact table view of multiple traces on the Search page
 - Recommended Skills: React, TypeScript, Ant Design components, OpenTelemetry Semantic Conventions (specifically for GenAI), basic knowledge of LLM application patterns (prompting, RAG, tool use)
 - Mentor(s):
-  - Yuri Shkuro (@yurishkuro, github@ysh.us)
-  - Jonah Kowall (@jkowall, jkowall@kowall.net)
-- Upstream Issue: https://github.com/jaegertracing/jaeger/issues/8401
+  - Yuri Shkuro (@yurishkuro, <github@ysh.us>)
+  - Jonah Kowall (@jkowall, <jkowall@kowall.net>)
+- Upstream Issue: <https://github.com/jaegertracing/jaeger/issues/8401>
 
 ### Kubescape
 
@@ -77,8 +78,8 @@ Alongside this, the mentee will improve documentation experience for contributor
   - Unit + integration tests for the Go side, plugin tests for the UI, and end-to-end verification against a running cluster.
 - Recommended Skills: Go, Kubernetes (controllers, CRDs, client-go / controller-runtime, dynamic client), TypeScript/React (for the Headlamp plugin).
 - Mentor(s):
-  - Matthias Bertschy (@matthyx, matthiasb@armosec.io) - primary
-  - Ben Hirschberg (@slashben, ben@armosec.io)
+  - Matthias Bertschy (@matthyx, <matthiasb@armosec.io>) - primary
+  - Ben Hirschberg (@slashben, <ben@armosec.io>)
 - Upstream Issue: [kubescape/kubescape#1982](https://github.com/kubescape/kubescape/issues/1982)
 
 ### KubeStellar
@@ -89,9 +90,9 @@ Alongside this, the mentee will improve documentation experience for contributor
 - Expected Outcome: Playwright E2E tests covering 15-20 core user flows, Vitest component tests for all 30+ card types, test matrix covering 3 browsers x 2 screen sizes x 2 modes (demo/live), all E2E tests stable enough to be CI-blocking, coverage dashboard with >=70% target, >=15 bugs discovered and filed, GitHub Actions workflow that auto-generates tests for new untested components via AI agent, nightly test health workflow that detects flaky tests and auto-files issues, coverage regression gate blocking PRs that drop coverage, documented test authoring guide for future contributors, 2 community call presentations (midpoint + final).
 - Recommended Skills: Test design and quality assurance principles, basic familiarity with React/TypeScript, experience using advanced AI coding agents, familiarity with GitHub Actions, understanding of Kubernetes concepts helpful but not required.
 - Mentor(s):
-  - Andy Anderson (@clubanderson, andy@clubanderson.com)
-  - Arpit Srivastava (@Arpit529Srivastava, arpitsrivastava529@gmail.com)
-- Upstream Issue: https://github.com/kubestellar/console/issues/4189
+  - Andy Anderson (@clubanderson, <andy@clubanderson.com>)
+  - Arpit Srivastava (@Arpit529Srivastava, <arpitsrivastava529@gmail.com>)
+- Upstream Issue: <https://github.com/kubestellar/console/issues/4189>
 
 #### AI-driven bug discovery and remediation architect for KubeStellar Console
 
@@ -99,9 +100,9 @@ Alongside this, the mentee will improve documentation experience for contributor
 - Expected Outcome: Triage and root-cause analysis of all existing GA4 errors, >=25 bugs discovered/filed/fixed with regression tests, >=50% reduction in production GA4 error rate, weekly automated bug sweep GitHub Actions workflow using AI agent to scan for error patterns and auto-file issues, GA4 error regression workflow that auto-detects week-over-week spikes, auto-triage workflow that investigates new errors and proposes fix PRs via AI agent, public Console Quality Dashboard tracking error trends and bug fix rates, improved error states across all card types (blank cards replaced with actionable messages), documented bug-hunting playbook for future contributors, 2 community call presentations (midpoint + final).
 - Recommended Skills: Analytical mindset for error triage and root cause analysis, basic familiarity with React/TypeScript and web error handling, experience using advanced AI coding agents, familiarity with GitHub Actions and browser developer tools, understanding of Kubernetes concepts helpful but not required.
 - Mentor(s):
-  - Andy Anderson (@clubanderson, andy@clubanderson.com)
-  - Ghanshyam Singh (@ghanshyam2005singh, ghanshyam2005singh@gmail.com)
-- Upstream Issue: https://github.com/kubestellar/console/issues/4190
+  - Andy Anderson (@clubanderson, <andy@clubanderson.com>)
+  - Ghanshyam Singh (@ghanshyam2005singh, <ghanshyam2005singh@gmail.com>)
+- Upstream Issue: <https://github.com/kubestellar/console/issues/4190>
 
 #### AI-driven operational knowledge base and mission control testing for KubeStellar Console
 
@@ -109,8 +110,8 @@ Alongside this, the mentee will improve documentation experience for contributor
 - Expected Outcome: Runbooks covering all common operations (install, upgrade, rollback, disaster recovery, multi-cluster sync failures), library of validated YAML templates and fixes for known issues, end-to-end mission control pipeline tests (user query → KB → command generation → successful cluster execution), nightly GitHub Actions workflow that re-validates all KB content against live clusters and auto-files issues on failures, KB gap analysis with auto-generated drafts for missing content, >=90% of KB operational content validated as working on current KubeStellar versions, documented KB contribution guide for future contributors, 2 community call presentations (midpoint + final).
 - Recommended Skills: Familiarity with Kubernetes operations (kubectl, helm, YAML), technical writing ability for operational documentation, experience using advanced AI coding agents, familiarity with GitHub Actions and CI/CD, understanding of multi-cluster Kubernetes concepts helpful but not required.
 - Mentor(s):
-  - Andy Anderson (@clubanderson, andy@clubanderson.com)
-- Upstream Issue: https://github.com/kubestellar/console/issues/4196
+  - Andy Anderson (@clubanderson, <andy@clubanderson.com>)
+- Upstream Issue: <https://github.com/kubestellar/console/issues/4196>
 
 ### Lima
 
@@ -127,14 +128,14 @@ Alongside this, the mentee will improve documentation experience for contributor
     - Investigate and decide between Hyper-V and HCS for the native driver: HCS is the basis of WSL2 and may be available in Windows 11 Home Edition, while Hyper-V is only available in Pro/Enterprise editions. Research availability and integration feasibility.
     - Potentially integrate the chosen driver (Hyper-V or HCS) as an [external VM driver](https://lima-vm.io/docs/dev/drivers/).
   - Tertiary Goals (if time permits): Upgrade the existing WSL2 driver to drop image restrictions and allow users to run multiple instances, as well as exploring a simple graphical interface (`limagui.exe`) to launch virtual machines.
-  
 - Recommended Skills: Go, QEMU, Hyper-V, Windows Developer Environment, Systems programming
 
 - Mentor(s):
-  - Akihiro Suda (@AkihiroSuda, suda.kyoto@gmail.com)
-  - Ansuman Sahoo (@unsuman, anshumansahoo500@gmail.com)
 
-- Upstream Issues: https://github.com/lima-vm/lima/issues/4852, https://github.com/lima-vm/lima/issues/4820, https://github.com/lima-vm/lima/issues/4819
+  - Akihiro Suda (@AkihiroSuda, <suda.kyoto@gmail.com>)
+  - Ansuman Sahoo (@unsuman, <anshumansahoo500@gmail.com>)
+
+- Upstream Issues: <https://github.com/lima-vm/lima/issues/4852>, <https://github.com/lima-vm/lima/issues/4820>, <https://github.com/lima-vm/lima/issues/4819>
 
 ### OpenEverest
 
@@ -143,6 +144,7 @@ Alongside this, the mentee will improve documentation experience for contributor
 - Description: OpenEverest is an open-source cloud-native database platform that helps developers deploy and manage PostgreSQL, MySQL, MongoDB, and other databases on Kubernetes. Currently, `everestctl` serves primarily as an installation tool for deploying and deleting OpenEverest itself. However, users increasingly need a powerful command-line interface to manage their databases, clusters, and integrations directly from the terminal. This project aims to transform `everestctl` from a basic deployment tool into a comprehensive CLI for managing OpenEverest resources. The mentee will design and implement a modern, user-friendly CLI experience that allows users to provision databases, manage Kubernetes clusters, interact with OpenEverest plugins, and automate database operations — all without leaving their terminal. The project will involve working with Go, Kubernetes APIs, OpenEverest's plugin architecture, and modern CLI frameworks like Cobra.
 
 - Expected Outcome:
+
   - Core database management commands: `everestctl db list`, `create`, `delete`, `get`, `logs` for PostgreSQL, MySQL, and MongoDB
   - Cluster management: `everestctl cluster list`, `register`, `status` for managing Kubernetes clusters
   - Plugin integration: `everestctl plugin list`, `install`, `configure` for OpenEverest plugins
@@ -153,10 +155,37 @@ Alongside this, the mentee will improve documentation experience for contributor
 - Recommended Skills: Go, Kubernetes (CRDs, operators, client-go), Cobra CLI framework, REST/gRPC APIs, database fundamentals (PostgreSQL/MySQL/MongoDB), Git/GitHub workflow
 
 - Mentor(s):
-  - Sergey Pronin (@spron-in, sp@solanica.io)
-  - Diogo Recharte (@recharte, diogo.recharte@solanica.io)
 
-- Upstream Issue: https://github.com/openeverest/openeverest/issues/1818
+  - Sergey Pronin (@spron-in, <sp@solanica.io>)
+  - Diogo Recharte (@recharte, <diogo.recharte@solanica.io>)
+
+- Upstream Issue: <https://github.com/openeverest/openeverest/issues/1818>
+
+#### Community Building and Developer Adoption for OpenEverest
+
+- Description: OpenEverest is an open-source cloud-native database platform that enables developers to deploy, scale, and manage databases such as PostgreSQL, MySQL, MongoDB, and other data services on Kubernetes with greater control over infrastructure, configuration, and cost. While the platform offers strong technical capabilities, broader community awareness, contributor onboarding, and educational resources have significant room to grow.
+
+- This project focuses on improving OpenEverest’s adoption by strengthening its community presence, enhancing documentation, and creating high-quality technical content for users and contributors. The mentee will work closely with maintainers to simplify onboarding, showcase real-world use cases, and build a sustainable developer outreach strategy through blogs, demos, tutorials, and community engagement. The goal is to make OpenEverest easier to discover, easier to learn, and easier to contribute to.
+
+Expected Outcome:
+
+- Improved onboarding and “Getting Started” documentation for users
+- Contributor guide for first-time open source contributors
+- Technical blog posts covering OpenEverest architecture, deployment workflows, scaling, backups, and observability
+- Demo content including video walkthroughs and live sessions
+- Increased engagement through GitHub Discussions and community channels
+- Social media/community content plan for releases, tutorials, and updates
+- At least one public presentation, meetup talk, or CNCF community session about OpenEverest
+- Final report with adoption/community growth metrics and recommendations
+
+- Recommended Skills: Technical writing, content creation, Kubernetes basics, databases (PostgreSQL/MySQL/MongoDB), Git/GitHub workflow, open source collaboration, communication skills, community engagement
+
+- Mentor(s):
+
+  - Sergey Pronin (@spron-in, <sp@solanica.io>)
+  - Diogo Recharte (@recharte, <diogo.recharte@solanica.io>)
+
+- Upstream Issue: <https://github.com/openeverest/openeverest/issues/2071>
 
 ### OpenTelemetry
 
@@ -170,10 +199,11 @@ Alongside this, the mentee will improve documentation experience for contributor
   - Wireframes/mockups (stretch goal): Visual concepts for key user flows
 - Recommended Skills: UX research (user interviews, synthesis), information architecture, competitive/comparative analysis, technical writing, wireframing or prototyping tools (helpful), familiarity with developer tools or documentation sites
 - Mentor(s):
-  - Jay DeLuca (@jaydeluca, jay.deluca@grafana.com)
-  - Andrej Kiripolsky (@AndrejKiri, andrej.kiripolsky@grafana.com)
-  - Amy Super (@amy-super, amy.super@grafana.com)
-- Upstream Issue: https://github.com/open-telemetry/opentelemetry-ecosystem-explorer/issues/309
+  - Jay DeLuca (@jaydeluca, <jay.deluca@grafana.com>)
+  - Andrej Kiripolsky (@AndrejKiri, <andrej.kiripolsky@grafana.com>)
+  - Amy Super (@amy-super, <amy.super@grafana.com>)
+- Upstream Issue: <https://github.com/open-telemetry/opentelemetry-ecosystem-explorer/issues/309>
+
 ### WasmEdge
 
 #### Memory alignment in WASM instructions
@@ -188,6 +218,6 @@ Alongside this, the mentee will improve documentation experience for contributor
   - WebAssembly
   - Git workflows
 - Mentor(s):
-  - YiYing He (@q82419 , yiying@secondstate.io )
-  - Hung-Ying, Tai (@hydai , hydai@secondstate.io )
-- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4820
+  - YiYing He (@q82419 , <yiying@secondstate.io> )
+  - Hung-Ying, Tai (@hydai , <hydai@secondstate.io> )
+- Upstream Issue: <https://github.com/WasmEdge/WasmEdge/issues/4820>
