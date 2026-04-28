@@ -62,6 +62,21 @@ Alongside this, the mentee will improve documentation experience for contributor
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/8401
 
+### Volcano/AgentCube
+
+#### Support multi-AgentCube Capability
+
+- Description: At present, AgentCube launches a single agent for both Code Interpretation and agent runtime. However, we have now entered the era of multi-agent collaboration. Consequently, AgentCube aims to support multi-AgentCube orchestration, enabling multiple agents to collaborate on a single task, with AgentCube providing unified management of the lifecycle of these agents.
+- Expected Outcome:
+  1. Proposal
+  2. Code(Including Unit test and E2E test)
+  3. User guide and another related docs.
+- Recommended Skills:
+  - Go, Kubernetes, agent
+- Mentor(s):
+  - Zhonghu xu(@hzxuzhonghu, zhhxu2011@gmail.com)
+- Upstream Issue: https://github.com/volcano-sh/agentcube/issues/301
+
 ### Kubescape
 
 #### In-cluster, GitOps-native SecurityException CRD for Kubescape, with Headlamp plugin support
