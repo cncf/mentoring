@@ -192,7 +192,7 @@ Alongside this, the mentee will improve documentation experience for contributor
   - Familiarity with Git and GitHub workflows
 - Mentor(s):
   - Kemal Akkoyun (@kakkoyun, kakkoyun@gmail.com)
-  - Dario Castañé (@darccio)
+  - Dario Castañé (@darccio, d@rio.hn)
 - Acknowledgement: Initial project framing was drafted with help from Azhar Momin (@amazingakai).
 - Upstream Issue: https://github.com/open-telemetry/opentelemetry-go-compile-instrumentation/issues/446
 
