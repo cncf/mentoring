@@ -191,3 +191,33 @@ Alongside this, the mentee will improve documentation experience for contributor
   - YiYing He (@q82419 , yiying@secondstate.io )
   - Hung-Ying, Tai (@hydai , hydai@secondstate.io )
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4820
+
+### Karmada
+
+#### Build Karmada Agent Skills
+
+- Description: Karmada is a multi-cluster orchestration system, but AI coding agents still lack a Karmada-specific skill set. Without a dedicated skill repository, agents often need to search scattered documentation, infer policy structure from incomplete context, and may produce incorrect `PropagationPolicy`, `OverridePolicy`, or troubleshooting guidance. This project aims to build the Karmada skill set for AI coding agents. The design follows mature multi-skill repository patterns, with a shared knowledge base, focused workflow skills, and deterministic helpers for schema-sensitive tasks.
+- Expected Outcome:
+  - A shared knowledge base for policy APIs, policy patterns, troubleshooting cases, component guides, and reusable examples.
+  - Initial skills:
+    - karmada-knowledge
+    - karmada-create-policy
+    - karmada-audit-policy
+    - karmada-explain-placement
+    - karmada-debug-propagation
+    - karmada-search
+    - karmada-controller-manager
+  - Deterministic helper scripts, fixtures, and example scenarios for policy generation, policy review, placement explanation, propagation debugging, and multi-country cluster management.
+  - Contributor documentation for adding new skills, examples, and knowledge files under hack/agent-skills/.
+- Recommended Skills:
+  - Kubernetes and multi-cluster orchestration concepts
+  - Familiarity with Karmada policies and components
+  - YAML and Markdown authoring
+  - Python or Go for helper scripts
+  - Bash/shell scripting
+  - CI/testing for open-source repositories
+  - Experience using AI coding agents or designing agent skills
+- Mentor(s):
+  - Zhen Chang (@XiShanYongYe-Chang, changzhen5@huawei.com)
+  - Hongcai Ren (@RainbowMango, qdurenhongcai@gmail.com)
+- Upstream Issue: https://github.com/karmada-io/community/issues/190#issuecomment-4248950867
