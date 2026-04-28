@@ -256,3 +256,26 @@ Alongside this, the mentee will improve documentation experience for contributor
   - TBD (@tbd, tbd@email)
 - Upstream Issue: https://github.com/Kuadrant/mcp-gateway/issues/809
 
+#### Transform Kuadrant Policy YAML Editors into Interactive Form Views
+
+- Description: The Kuadrant Console Plugin provides a web interface for managing API gateway policies in OpenShift, but currently relies heavily on YAML editing for most policy types. While DNSPolicy and TLSPolicy already have user-friendly form-based interfaces with dual Form/YAML views, validation, and guided workflows, the remaining core policies (RateLimitPolicy, TokenRateLimitPolicy, AuthPolicy, Plan, and OIDC) still require users to manually write YAML. This creates a steep learning curve and error-prone configuration experience. This project aims to bring RateLimitPolicy, TokenRateLimitPolicy, AuthPolicy, Plan, and OIDC policies to feature parity with the existing DNS and TLS form implementations. Form designs will be provided by the Kuadrant team. The mentee will implement these designs as PatternFly-based form interfaces following the established patterns from the DNS and TLS policy forms. These forms will allow users to configure policies through validated form fields while maintaining the flexibility to switch to YAML view for advanced use cases. The forms must support both creation and editing of policies, include proper field validation, handle complex nested structures (such as rate limit configurations and authentication rules), and synchronize seamlessly between form and YAML representations using the same patterns already proven in the DNS and TLS implementations.
+
+- Expected Outcome:
+  - Form-based creation and editing interfaces for RateLimitPolicy, TokenRateLimitPolicy, AuthPolicy, Plan, and OIDC policies implemented using the same patterns, components, and structure as the existing DNSPolicy and TLSPolicy forms
+  - Dual view toggle (Form View / YAML View) with bidirectional synchronization using js-yaml for all five policy types
+  - Field validation following the established validation pattern covering required fields, numeric constraints, conditional dependencies, and Kubernetes resource naming conventions
+  - PatternFly component integration matching existing forms: expandable sections for complex nested configurations, validated text inputs, dropdowns for enum fields, and reuse of gateway selection components
+  - Policy-specific form fields for: rate limit units and counters (RateLimitPolicy), token-based rate limiting (TokenRateLimitPolicy), authentication strategies and credentials (AuthPolicy), plan tiers and quotas (Plan), and OIDC provider configurations (OIDC)
+  - Error handling using the existing error modal and inline validation message patterns
+  - Internationalization support for all form labels and validation messages using i18next following the existing localization structure
+  - Both create (`/~new`) and edit (`/:name/edit`) routes for each policy type matching the DNS/TLS routing pattern
+  - Unit and component tests covering form validation, YAML synchronization, and error states following the established testing patterns
+
+- Recommended Skills: TypeScript, React, PatternFly framework, Kubernetes concepts (CRDs, policies, gateways), OpenShift Console SDK, dynamic plugin development, YAML parsing, form state management
+
+- Mentor(s):
+  - Rachel Lawton (@R-Lawton, rlawton@redhat.com)
+  - Emma Roche (@emmaaroche, eroche@redhat.com)
+
+- Upstream Issue: https://github.com/Kuadrant/kuadrant-console-plugin/issues/378
+
