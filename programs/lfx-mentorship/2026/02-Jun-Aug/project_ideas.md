@@ -1017,3 +1017,38 @@ The project will summarize practical experience and provide reference documentat
   - Zhiqiang ZHOU (@STRRL, im@strrl.dev)
   - Andrewmatilde (@Andrewmatilde, davis6813585853062@gmail.com)
 - Upstream Issue: https://github.com/chaos-mesh/chaos-mesh/issues/4903
+
+### Kubernetes SIGs: node-readiness-controller
+
+#### Advanced Observability: Per-Rule Metrics and Headlamp Plugin
+
+- Description: As clusters grow, understanding why a node is not "Ready" becomes complex. This project aims to improve visibility into the `node-readiness-controller`'s operations by enhancing its Prometheus metrics and providing a visual interface. The mentee will extend the internal metrics system to expose granular data for individual `NodeReadinessRule` objects and taint states. Additionally, the mentee will develop a plugin for Headlamp (the extensible Kubernetes UI) to visualize these readiness rules, showing real-time “node-availability” status and failure reasons directly in the dashboard.
+- Expected Outcome: New Prometheus metrics (e.g., rule evaluation duration, per-rule pass/fail counts); a functional Headlamp plugin for the project; and a pre-configured Grafana dashboard template.
+- Recommended Skills: Go, Prometheus, TypeScript/React (for the Headlamp plugin).
+- Mentor(s):
+  - Avinesh Tripathi (@AvineshTripathi, avineshtripathi1@gmail.com)
+  - Karthik K N (@Karthik-K-N, karthikkn1997@gmail.com)
+  - Ajay Sundar Karuppasamy (@ajaysundark, ajaysundar.k@gmail.com)
+- Upstream Issue: [sigs.k8s.io/node-readiness-controller#182](https://github.com/kubernetes-sigs/node-readiness-controller/issues/182)
+
+#### Helm Charts for Streamlined Deployment
+
+- Description: Currently, the `node-readiness-controller` primarily uses Kustomize for resource management and deployment. While effective, many enterprise users and Kubernetes distributions prefer Helm for its advanced templating and lifecycle management capabilities. This project involves creating a high-quality, production-ready Helm chart that mirrors the existing Kustomize manifests. The mentee will ensure that all configurations (RBAC, Webhooks, Controller Manager) are properly templated, implement automated chart testing using tools like `ct` (Chart Testing) or `Helm UnitTest`, and document the installation process for various environments.
+- Expected Outcome: A fully functional Helm chart hosted in the project repository; integration of the chart into existing CI/CD pipelines for linting and testing; and comprehensive documentation on deploying the controller via Helm.
+- Recommended Skills: Kubernetes, Helm, YAML, basic shell scripting.
+- Mentor(s):
+  - Sreeram Venkitesh (@sreeram-venkitesh, sreeramvenkitesh@gmail.com)
+  - Priyanka Saggu (@Priyankasaggu11929, priyankasaggu11929@gmail.com)
+  - Ajay Sundar Karuppasamy (@ajaysundark, ajaysundar.k@gmail.com)
+- Upstream Issue: [sigs.k8s.io/node-readiness-controller#26](https://github.com/kubernetes-sigs/node-readiness-controller/issues/26)
+
+#### Scalability Testing and Release Reliability
+
+- Description: For a controller that manages node readiness, reliable performance at scale is critical. This project aims to improve the project's test framework across three key areas: building a comprehensive scale-test suite using `kwok` to simulate clusters with 1,000+ nodes, hardening the release pipeline to automate versioning and promotion to [`registry.k8s.io`](https://registry.k8s.io), and refactoring the E2E test suite in `test/e2e` to be environment-agnostic and more reliable.
+- Expected Outcome: A scalable test harness using `kwok`; automated Prow job configurations; and a benchmark report detailing the controller's performance limits.
+- Recommended Skills: Kubernetes, Prow, kwok, Go, Shell scripting.
+- Mentor(s):
+  - Karthik K N (@Karthik-K-N, karthikkn1997@gmail.com)
+  - Priyanka Saggu (@Priyankasaggu11929, priyankasaggu11929@gmail.com)
+  - Ajay Sundar Karuppasamy (@ajaysundark, ajaysundar.k@gmail.com)
+- Upstream Issue: [sigs.k8s.io/node-readiness-controller#151](https://github.com/kubernetes-sigs/node-readiness-controller/issues/151)
