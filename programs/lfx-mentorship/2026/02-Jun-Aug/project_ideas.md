@@ -19,6 +19,66 @@
 
 ## Proposed Project ideas
 
+### PipeCD
+
+### Plugin Development Book, Docs DX, and Adoption Growth
+
+- Description: PipeCD v1 introduced a plugin-based architecture enabling deployments on any platform. While the technical capabilities have evolved significantly, resources for building plugins are currently only available in Japanese. This project focuses on translating and expanding the existing [PipeCD Plugin Development Book](https://zenn.dev/warashi/books/try-and-learn-pipecd-plugin) into English and hosting it within PipeCD's docs, making plugin development accessible to the global contributor community.
+As part of the project, [examples of pipedv1 will also be created](https://github.com/pipe-cd/pipecd/issues/6266) practical, real-world deployment patterns built around PipeCD's new plugin architecture to help adopters get started.
+Alongside this, the mentee will improve documentation experience for contributors and adopters, produce technical content (blogs, articles and walkthrough videos) tied to the book chapters, and grow community awareness through talks and outreach.
+
+- Expected Outcome: English Plugin Development Book published within PipeCD docs, v1 examples completed, improved contributor and adopter onboarding experience, better docs usability and content discoverability, walkthrough videos (2–4) and blog posts tied to book chapters, and measurable community and social media growth.
+
+- Recommended Skills:
+  - Technical writing and documentation
+  - Community Management
+  - Familiarity with Go and PipeCD's plugin architecture
+  - Experience with Git, CI/CD, GitOps, and deployment workflows
+  - Content creation (written and video) and social media
+  - Public speaking and community engagement
+
+- Mentor(s):
+  - Eeshaan Sawant (@eeshaanSA, eeshaans1@gmail.com)
+  - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
+
+- Upstream Issue(s):
+  - [pipe-cd/pipecd#6679](https://github.com/pipe-cd/pipecd/issues/6679)
+  - [pipe-cd/pipecd#6266](https://github.com/pipe-cd/pipecd/issues/6266)
+
+### Harbor
+
+#### Harbor CLI: Bubbletea v2 TUI Refactor and OIDC Device-Flow Login
+
+- Description: Harbor CLI needs two foundational improvements this term. First, migrate the TUI from Bubbletea v1 to v2 and refactor the fragmented list/table/selection models into a unified `loadingtablelist` abstraction with consistent loading, pagination, and error states across all commands. Second, replace static credentials with an OAuth 2.0 Device Authorization Grant (RFC 8628) and OIDC login flow so users and CI/CD pipelines can authenticate against Harbor through their identity provider without long-lived secrets.
+- Expected Outcome:
+  - Bubbletea v2 upgrade and unified `loadingtablelist` model adopted across all list-style commands
+  - `harbor login --sso` device-code flow plus a non-interactive CI/CD path with short-lived tokens
+  - Encrypted local token storage with automatic refresh and provider-agnostic OIDC config
+  - Tests for TUI state transitions and a mock OIDC provider covering device flow and refresh
+  - Updated docs covering the new TUI patterns and OIDC setup for common providers
+- Recommended Skills: Golang, Charmbracelet Bubbletea, OAuth 2.0 / OIDC, spf13/cobra, testing
+- Mentor(s):
+  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+- Upstream Issue: https://github.com/goharbor/harbor-cli/issues/821
+
+#### Harbor Satellite: Ground Control CLI and Kubernetes Fleet Operator
+
+- Description: Harbor Satellite needs first-class fleet management on top of the new Swagger-first Ground Control API. The mentee will build a `groundctl` CLI generated from the OpenAPI spec covering satellite lifecycle, user management, and a GitOps-style `apply -f` workflow, and pair it with a lightweight Kubernetes operator that manages Satellite instances as custom resources so fleets can be driven through ArgoCD or Flux on edge clusters (k3s, RKE2, microk8s).
+- Expected Outcome:
+  - Finalized Ground Control OpenAPI spec and generated Go client
+  - `groundctl` CLI for satellite lifecycle (register, list, inspect, update-config, delete), users, and `apply -f` GitOps mode
+  - `Satellite` CRD plus controller reconciling against Ground Control and deploying via the existing Helm chart
+  - Status subresource reporting registration, sync, and cache health back to the cluster
+  - End-to-end tests on kind/k3d deploying multiple satellites via CRD; CLI and operator docs with ArgoCD/Flux examples
+- Recommended Skills: Golang, OpenAPI/Swagger, spf13/cobra, Kubernetes (CRDs, controller-runtime, kubebuilder), Helm, GitOps
+- Mentor(s):
+  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+- Upstream Issue: https://github.com/container-registry/harbor-satellite/issues/375
+
 ### Jaeger
 
 #### Jaeger for GenAI Observability: Specialized Trace Visualization
@@ -131,6 +191,70 @@
   - Diogo Recharte (@recharte, diogo.recharte@solanica.io)
 
 - Upstream Issue: https://github.com/openeverest/openeverest/issues/1818
+
+### OpenTelemetry
+
+#### UX Research & Information Architecture: How Users Discover and Use OpenTelemetry Instrumentation Information
+
+- Description: The [Ecosystem Explorer](https://explorer.opentelemetry.io) helps users discover and get detailed documentation around various OpenTelemetry components. As the project expands to more ecosystems (Python, JavaScript, GenAI), information density will increase significantly, requiring patterns and approaches tailored to more than just the initial Java Agent use case. This mentorship involves conducting UX research to understand how users actually want to consume and use this information, covering: how users currently find information about components or instrumentation (LLMs, GitHub, docs, vendor sites, trial and error); what questions they are trying to answer (what telemetry will I get, how do I configure it, what changed between versions); what personas exist (app developers instrumenting code, platform engineers running collectors, SREs debugging production); how similar tools present dense technical information (npm registry, crates.io, Go pkg site, Docker Hub); and how LLMs are being used in this area and what the experience has been with them. The research will inform how we structure information, what features to prioritize, and how to present complex telemetry data in an accessible way.
+- Expected Outcome:
+  - User Interviews Report: Summarized findings from 3-5 user interviews covering different user types and key tasks
+  - Competitive Analysis Report: Findings from reviewing 2-3 similar tools (e.g., package registries, API documentation sites) on how they present component information
+  - Information Architecture Recommendations: Proposed structure for presenting a specific type of component data (e.g., "instrumentation" or "collector components")
+  - Wireframes/mockups (stretch goal): Visual concepts for key user flows
+- Recommended Skills: UX research (user interviews, synthesis), information architecture, competitive/comparative analysis, technical writing, wireframing or prototyping tools (helpful), familiarity with developer tools or documentation sites
+- Mentor(s):
+  - Jay DeLuca (@jaydeluca, jay.deluca@grafana.com)
+  - Andrej Kiripolsky (@AndrejKiri, andrej.kiripolsky@grafana.com)
+  - Amy Super (@amy-super, amy.super@grafana.com)
+- Upstream Issue: https://github.com/open-telemetry/opentelemetry-ecosystem-explorer/issues/309
+
+### Volcano
+
+#### Support Namespace-scoped Queue in Volcano
+
+- Description: Volcano's `Queue` is a cluster-scoped resource, which means only cluster admins can create or update it. This is a barrier for multi-tenant scenarios, where tenants usually only own their own namespaces and want to leverage Volcano's queue capabilities (resource sharing, capability/guarantee/deserved, hierarchy, etc.) for their own workloads without requesting changes from a cluster admin. This project adds a namespace-scoped `NamespaceQueue` to Volcano. A `NamespaceQueue` is derived from a cluster-scoped `Queue` and behaves consistently with it, so tenants can create and use queues within their own namespace and associate `PodGroup`/`Job` with a `NamespaceQueue` exactly as they would with a cluster `Queue`. The existing cluster `Queue` semantics and APIs remain unchanged for users who do not opt in.
+
+- Expected Outcome:
+  - A namespace-scoped `NamespaceQueue` CRD derived from cluster-scoped `Queue`, with consistent semantics for fields such as `capability`, `guarantee`, `deserved`, and hierarchy.
+  - Tenants can create and manage `NamespaceQueue` within their own namespace without cluster-admin permission.
+  - `PodGroup`/`Job` can reference a `NamespaceQueue` and be scheduled with the same behavior as referencing a cluster `Queue`.
+  - Resource accounting, status, and events for `NamespaceQueue` work end-to-end through Volcano's existing queue management path.
+  - Compatibility with the existing cluster `Queue` and the `scheduling.volcano.sh/queue-name` annotation, with a clear migration story for existing users.
+  - E2E tests covering core `NamespaceQueue` flows, including negative cases.
+  - User-facing documentation on the Volcano website and the repository.
+
+- Recommended Skills:
+  - Go
+  - Kubernetes (CRDs, controllers, RBAC)
+  - Familiarity with Volcano (scheduler, queue, PodGroup/Job)
+  - E2E testing (Ginkgo)
+  - GitHub workflow and shell scripting
+
+- Mentor(s):
+  - Jesse Stutler (@JesseStutler, jessestutler97@gmail.com)
+  - Hajnal Máté (@hajnalmt, hajnalmt@gmail.com) 
+  - João Azevedo (@devzizu, jazevedo960@gmail.com)
+
+- Upstream Issue: https://github.com/volcano-sh/volcano/issues/5251
+
+### WasmEdge
+
+#### Memory alignment in WASM instructions
+
+- Description: Although WasmEdge checked the memory alignment when accessing the memory instances in WASI functions, the same situation occurs for instructions which would access the addresses on memory instances. For the pointer types, the offset for load/store from/to memory instances should be aligned as 4 in WASM32. In this mentorship, the mentee should collect all the possible situations for alignment checking in WASM instructions, and resolve the related issues.
+- Expected Outcome:
+  - Fix the memory alignment checking when accessing the memory instances.
+  - Add some WASM binary tests for verifying the implementation.
+  - Fix the issues: WasmEdge2694, WasmEdge2733, WasmEdge2881
+- Recommended Skills:
+  - C++
+  - WebAssembly
+  - Git workflows
+- Mentor(s):
+  - YiYing He (@q82419 , yiying@secondstate.io )
+  - Hung-Ying, Tai (@hydai , hydai@secondstate.io )
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4820
 
 ### urunc
 
@@ -306,4 +430,3 @@ isolation guarantees that urunc provides.
   - Anastassios Nanos (@ananos, ananos@nubificus.co.uk)
 
 - Upstream Issue: https://github.com/urunc-dev/urunc/issues/574
-
