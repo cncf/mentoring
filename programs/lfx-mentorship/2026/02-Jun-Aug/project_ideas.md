@@ -112,6 +112,19 @@ Alongside this, the mentee will improve documentation experience for contributor
   - Andy Anderson (@clubanderson, andy@clubanderson.com)
 - Upstream Issue: https://github.com/kubestellar/console/issues/4196
 
+### volcano/kthena
+
+#### Kthena Router supports APIs for third-party models
+
+- Description: At present, the Kthena router provides robust support for routing within the cluster. However, during discussions with customers, some users have expressed a need for the ability to integrate with external large language model APIs. Consequently, the Kthena community plans to use this LFX to enable the router to access third-party LLM APIs.
+- Expected OUtcome:
+  1. Proposal
+  2. Code(Include unit test. It would be even better if end-to-end testing were included. However, external LLM APIs are unlikely to offer stable, long-term free access, so end-to-end testing is not a prerequisite.)
+  3. User Guide and related documents.
+- Recommended: Go, Kubernetes, Network, LLM.
+- Mentor(s): Zengzeng Yao(@yaozengzeng, yaozengzeng@huawei.com)
+- Upstream Issue: https://github.com/volcano-sh/kthena/issues/939
+
 ### Lima
 
 #### Improve Windows support (host and guest)
