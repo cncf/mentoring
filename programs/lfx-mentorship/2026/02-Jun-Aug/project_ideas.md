@@ -19,43 +19,31 @@
 
 ## Proposed Project ideas
 
-### Chaos Mesh
+### PipeCD
 
-#### Refactor PodChaos and NetworkChaos E2E Tests into Gherkin-based BDD Scenarios
+### Plugin Development Book, Docs DX, and Adoption Growth
 
-- Description: Chaos Mesh has an existing Go-based E2E test suite for validating chaos behavior on Kubernetes. The current tests are effective, but many scenarios mix test intent, fixture setup, Chaos Mesh custom resource creation, probing logic, assertions, and cleanup in Go code. This makes the E2E suite harder to read and extend, especially for new contributors who need to understand both the user-facing chaos behavior and the underlying Kubernetes test implementation at the same time. This project will introduce a Gherkin + Godog based BDD layer for selected Chaos Mesh E2E tests. The mentee will migrate the existing PodChaos and NetworkChaos E2E tests into executable Gherkin feature files backed by reusable Go step definitions. The new feature files should preserve Chaos Mesh-specific behavior and network/pod verification details, rather than hiding them behind overly broad user-story wording.
-- Expected Outcome:
-  - A Godog-based BDD test layer that can run Chaos Mesh E2E scenarios from Gherkin feature files
-  - Gherkin feature files for all existing PodChaos E2E scenarios
-  - Gherkin feature files for all existing NetworkChaos E2E scenarios
-  - Reusable Go step definitions for common E2E operations such as preparing workloads, applying Chaos Mesh custom resources, probing pod/network behavior, checking expected failure or delay, and verifying recovery
-  - Integration with the existing E2E development workflow, with exact command and CI integration decided during implementation
-  - Documentation explaining the Gherkin scenario style, step definition conventions, and migration guidance for other Chaos Mesh E2E tests
-- Recommended Skills: Go, Kubernetes, Kubernetes E2E testing, Ginkgo/Gomega, Gherkin, Godog, Chaos Mesh usage, test refactoring
+- Description: PipeCD v1 introduced a plugin-based architecture enabling deployments on any platform. While the technical capabilities have evolved significantly, resources for building plugins are currently only available in Japanese. This project focuses on translating and expanding the existing [PipeCD Plugin Development Book](https://zenn.dev/warashi/books/try-and-learn-pipecd-plugin) into English and hosting it within PipeCD's docs, making plugin development accessible to the global contributor community.
+As part of the project, [examples of pipedv1 will also be created](https://github.com/pipe-cd/pipecd/issues/6266) practical, real-world deployment patterns built around PipeCD's new plugin architecture to help adopters get started.
+Alongside this, the mentee will improve documentation experience for contributors and adopters, produce technical content (blogs, articles and walkthrough videos) tied to the book chapters, and grow community awareness through talks and outreach.
+
+- Expected Outcome: English Plugin Development Book published within PipeCD docs, v1 examples completed, improved contributor and adopter onboarding experience, better docs usability and content discoverability, walkthrough videos (2–4) and blog posts tied to book chapters, and measurable community and social media growth.
+
+- Recommended Skills:
+  - Technical writing and documentation
+  - Community Management
+  - Familiarity with Go and PipeCD's plugin architecture
+  - Experience with Git, CI/CD, GitOps, and deployment workflows
+  - Content creation (written and video) and social media
+  - Public speaking and community engagement
+
 - Mentor(s):
-  - Yue Yang (@g1eny0ung, g1enyy0ung@gmail.com)
-  - Zhiqiang ZHOU (@STRRL, github@strrl.dev)
-  - Andrewmatilde (@Andrewmatilde, N/A)
-- Upstream Issue: https://github.com/chaos-mesh/chaos-mesh/issues/4902
+  - Eeshaan Sawant (@eeshaanSA, eeshaans1@gmail.com)
+  - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
 
-#### Runtime Fact Checker for Chaos Mesh Experiments
-
-- Description: Chaos Mesh can report the lifecycle and status of a chaos experiment, but users often still need to manually verify whether the real runtime behavior matches the intended chaos behavior. For example, a user may want to know whether a PodChaos experiment actually affected the selected pods, whether a DNSChaos experiment actually changed DNS responses, or whether a NetworkChaos experiment actually changed connectivity or latency between workloads. This project will build a runtime fact checker for Chaos Mesh experiments. The first version should be a standalone CLI prototype where users specify one Chaos Mesh custom resource to check. The tool will collect runtime evidence from Kubernetes resources, Chaos Mesh status, events, and active probes when needed, then compare the observed behavior with the expected behavior implied by the Chaos CR. Core matching logic should be implemented by deterministic collectors, probes, and rules. LLM support, if added, should only summarize or explain collected facts; it should not be the source of truth for the verdict.
-- Expected Outcome:
-  - A standalone CLI prototype for checking one specified Chaos Mesh experiment
-  - Runtime fact checking support for PodChaos, DNSChaos, and NetworkChaos
-  - Evidence collectors for Kubernetes resources, Chaos Mesh CR spec/status, events, pod/container lifecycle, and target matching
-  - Active probes for DNSChaos and NetworkChaos, because Kubernetes status alone cannot prove DNS or network behavior
-  - A verdict model with at least matched, mismatched, inconclusive, and unsupported states
-  - Human-readable reports that explain observed facts, expected behavior, verdict, and uncertainty
-  - Structured JSON output for future integration with CI, Chaos Dashboard, or a Kubernetes report CRD
-  - Documentation covering usage, supported chaos types, limitations, and future integration paths
-- Recommended Skills: Go, Kubernetes, Kubernetes client-go/controller-runtime, Chaos Mesh custom resources, networking basics, DNS basics, CLI development, testing
-- Mentor(s):
-  - Yue Yang (@g1eny0ung, g1enyy0ung@gmail.com)
-  - Zhiqiang ZHOU (@STRRL, github@strrl.dev)
-  - Andrewmatilde (@Andrewmatilde, N/A)
-- Upstream Issue: https://github.com/chaos-mesh/chaos-mesh/issues/4903
+- Upstream Issue(s):
+  - [pipe-cd/pipecd#6679](https://github.com/pipe-cd/pipecd/issues/6679)
+  - [pipe-cd/pipecd#6266](https://github.com/pipe-cd/pipecd/issues/6266)
 
 ### Jaeger
 
@@ -169,3 +157,75 @@
   - Diogo Recharte (@recharte, diogo.recharte@solanica.io)
 
 - Upstream Issue: https://github.com/openeverest/openeverest/issues/1818
+
+### OpenTelemetry
+
+#### UX Research & Information Architecture: How Users Discover and Use OpenTelemetry Instrumentation Information
+
+- Description: The [Ecosystem Explorer](https://explorer.opentelemetry.io) helps users discover and get detailed documentation around various OpenTelemetry components. As the project expands to more ecosystems (Python, JavaScript, GenAI), information density will increase significantly, requiring patterns and approaches tailored to more than just the initial Java Agent use case. This mentorship involves conducting UX research to understand how users actually want to consume and use this information, covering: how users currently find information about components or instrumentation (LLMs, GitHub, docs, vendor sites, trial and error); what questions they are trying to answer (what telemetry will I get, how do I configure it, what changed between versions); what personas exist (app developers instrumenting code, platform engineers running collectors, SREs debugging production); how similar tools present dense technical information (npm registry, crates.io, Go pkg site, Docker Hub); and how LLMs are being used in this area and what the experience has been with them. The research will inform how we structure information, what features to prioritize, and how to present complex telemetry data in an accessible way.
+- Expected Outcome:
+  - User Interviews Report: Summarized findings from 3-5 user interviews covering different user types and key tasks
+  - Competitive Analysis Report: Findings from reviewing 2-3 similar tools (e.g., package registries, API documentation sites) on how they present component information
+  - Information Architecture Recommendations: Proposed structure for presenting a specific type of component data (e.g., "instrumentation" or "collector components")
+  - Wireframes/mockups (stretch goal): Visual concepts for key user flows
+- Recommended Skills: UX research (user interviews, synthesis), information architecture, competitive/comparative analysis, technical writing, wireframing or prototyping tools (helpful), familiarity with developer tools or documentation sites
+- Mentor(s):
+  - Jay DeLuca (@jaydeluca, jay.deluca@grafana.com)
+  - Andrej Kiripolsky (@AndrejKiri, andrej.kiripolsky@grafana.com)
+  - Amy Super (@amy-super, amy.super@grafana.com)
+- Upstream Issue: https://github.com/open-telemetry/opentelemetry-ecosystem-explorer/issues/309
+### WasmEdge
+
+#### Memory alignment in WASM instructions
+
+- Description: Although WasmEdge checked the memory alignment when accessing the memory instances in WASI functions, the same situation occurs for instructions which would access the addresses on memory instances. For the pointer types, the offset for load/store from/to memory instances should be aligned as 4 in WASM32. In this mentorship, the mentee should collect all the possible situations for alignment checking in WASM instructions, and resolve the related issues.
+- Expected Outcome:
+  - Fix the memory alignment checking when accessing the memory instances.
+  - Add some WASM binary tests for verifying the implementation.
+  - Fix the issues: WasmEdge2694, WasmEdge2733, WasmEdge2881
+- Recommended Skills:
+  - C++
+  - WebAssembly
+  - Git workflows
+- Mentor(s):
+  - YiYing He (@q82419 , yiying@secondstate.io )
+  - Hung-Ying, Tai (@hydai , hydai@secondstate.io )
+- Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4820
+
+### Chaos Mesh
+
+#### Refactor PodChaos and NetworkChaos E2E Tests into Gherkin-based BDD Scenarios
+
+- Description: Chaos Mesh has an existing Go-based E2E test suite for validating chaos behavior on Kubernetes. The current tests are effective, but many scenarios mix test intent, fixture setup, Chaos Mesh custom resource creation, probing logic, assertions, and cleanup in Go code. This makes the E2E suite harder to read and extend, especially for new contributors who need to understand both the user-facing chaos behavior and the underlying Kubernetes test implementation at the same time. This project will introduce a Gherkin + Godog based BDD layer for selected Chaos Mesh E2E tests. The mentee will migrate the existing PodChaos and NetworkChaos E2E tests into executable Gherkin feature files backed by reusable Go step definitions. The new feature files should preserve Chaos Mesh-specific behavior and network/pod verification details, rather than hiding them behind overly broad user-story wording.
+- Expected Outcome:
+  - A Godog-based BDD test layer that can run Chaos Mesh E2E scenarios from Gherkin feature files
+  - Gherkin feature files for all existing PodChaos E2E scenarios
+  - Gherkin feature files for all existing NetworkChaos E2E scenarios
+  - Reusable Go step definitions for common E2E operations such as preparing workloads, applying Chaos Mesh custom resources, probing pod/network behavior, checking expected failure or delay, and verifying recovery
+  - Integration with the existing E2E development workflow, with exact command and CI integration decided during implementation
+  - Documentation explaining the Gherkin scenario style, step definition conventions, and migration guidance for other Chaos Mesh E2E tests
+- Recommended Skills: Go, Kubernetes, Kubernetes E2E testing, Ginkgo/Gomega, Gherkin, Godog, Chaos Mesh usage, test refactoring
+- Mentor(s):
+  - Yue Yang (@g1eny0ung, g1enyy0ung@gmail.com)
+  - Zhiqiang ZHOU (@STRRL, github@strrl.dev)
+  - Andrewmatilde (@Andrewmatilde, N/A)
+- Upstream Issue: https://github.com/chaos-mesh/chaos-mesh/issues/4902
+
+#### Runtime Fact Checker for Chaos Mesh Experiments
+
+- Description: Chaos Mesh can report the lifecycle and status of a chaos experiment, but users often still need to manually verify whether the real runtime behavior matches the intended chaos behavior. For example, a user may want to know whether a PodChaos experiment actually affected the selected pods, whether a DNSChaos experiment actually changed DNS responses, or whether a NetworkChaos experiment actually changed connectivity or latency between workloads. This project will build a runtime fact checker for Chaos Mesh experiments. The first version should be a standalone CLI prototype where users specify one Chaos Mesh custom resource to check. The tool will collect runtime evidence from Kubernetes resources, Chaos Mesh status, events, and active probes when needed, then compare the observed behavior with the expected behavior implied by the Chaos CR. Core matching logic should be implemented by deterministic collectors, probes, and rules. LLM support, if added, should only summarize or explain collected facts; it should not be the source of truth for the verdict.
+- Expected Outcome:
+  - A standalone CLI prototype for checking one specified Chaos Mesh experiment
+  - Runtime fact checking support for PodChaos, DNSChaos, and NetworkChaos
+  - Evidence collectors for Kubernetes resources, Chaos Mesh CR spec/status, events, pod/container lifecycle, and target matching
+  - Active probes for DNSChaos and NetworkChaos, because Kubernetes status alone cannot prove DNS or network behavior
+  - A verdict model with at least matched, mismatched, inconclusive, and unsupported states
+  - Human-readable reports that explain observed facts, expected behavior, verdict, and uncertainty
+  - Structured JSON output for future integration with CI, Chaos Dashboard, or a Kubernetes report CRD
+  - Documentation covering usage, supported chaos types, limitations, and future integration paths
+- Recommended Skills: Go, Kubernetes, Kubernetes client-go/controller-runtime, Chaos Mesh custom resources, networking basics, DNS basics, CLI development, testing
+- Mentor(s):
+  - Yue Yang (@g1eny0ung, g1enyy0ung@gmail.com)
+  - Zhiqiang ZHOU (@STRRL, github@strrl.dev)
+  - Andrewmatilde (@Andrewmatilde, N/A)
+- Upstream Issue: https://github.com/chaos-mesh/chaos-mesh/issues/4903
