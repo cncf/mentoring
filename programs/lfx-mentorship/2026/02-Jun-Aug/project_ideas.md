@@ -213,3 +213,45 @@ Alongside this, the mentee will improve documentation experience for contributor
 - Mentor(s):
   - Shuting Zhao (@realshuting, shutingz@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/15335
+
+
+#### Kyverno Technical Outcomes
+
+- Description:
+On the Kyverno website, we want to introduce and document a set of technical outcomes that users can achieve by adopting Kyverno. These outcomes should group together Kyverno’s policy capabilities (validate, mutate, generate, verify images, cleanup) into clear, high-level goals that resonate with platform engineers, security teams, and developers.
+
+Rather than focusing on individual features, this work will highlight what teams can accomplish with Kyverno in real-world environments.
+
+Proposed technical outcomes include:
+* Secure-by-Default Kubernetes – Enforce security and compliance policies across clusters automatically
+* Policy-Driven Platform Engineering – Enable golden paths and self-service infrastructure using policy as code
+* Automated Governance & Compliance – Continuously audit, report, and enforce organizational standards
+* Software Supply Chain Security – Verify images, enforce provenance, and reduce risk in CI/CD pipelines
+* Kubernetes Configuration Automation – Use mutation and generation to reduce manual configuration overhead
+* Multi-Cluster Policy Management – Apply consistent governance across distributed and multi-cloud environments
+* AI & Agent Governance – Apply policy controls to AI workloads and agent-driven infrastructure workflows
+
+Each outcome should connect Kyverno capabilities to real-world use cases, supported by artifacts from the community such as blog posts, talks, policy examples, and reference architectures.
+
+- Expected Outcome:
+  * A new section of the Kyverno website dedicated to Technical Outcomes, where each outcome includes:
+  * A clear description of the problem space and desired outcome
+  * Mapping to Kyverno capabilities and policy types
+  * Links to supporting resources (blogs, videos, talks, GitHub examples, policy libraries)
+  * Optional diagrams or visual flows illustrating how Kyverno enables the outcome
+
+This section should serve as:
+* A learning and onboarding resource for new users
+* A messaging bridge between technical features and business value
+* A foundation for future content, including case studies, solution briefs, and AI-driven policy generation experiences
+
+- Recommended Skills:
+  * Technical writing and storytelling
+  * Basic understanding of Kubernetes and cloud-native concepts
+  * Familiarity with policy-as-code and/or security/compliance workflows (helpful but not required)
+  * Willingness to learn Kyverno concepts and ecosystem
+  * Experience with documentation or developer-focused content
+
+- Mentor(s):
+  - Cortney Nickerson (@CortNick, cortney.nickerson@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/15990
