@@ -191,3 +191,29 @@ Alongside this, the mentee will improve documentation experience for contributor
   - YiYing He (@q82419 , yiying@secondstate.io )
   - Hung-Ying, Tai (@hydai , hydai@secondstate.io )
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4820
+
+### kgateway
+
+#### Documentation improvements for OIDC and JWT IdPs integrations
+
+- Description: The goal of this project is to test and document common 
+JWT validation scenarios (e.g., JWKS, multiple issuers, and claim-based validation)
+and demonstrate kgateway integration with multiple OAuth identity providers.
+
+- Expected Outcome: 
+  - Design a repeatable documentation pattern for identity providers
+  - A set of documentation guides for integrating kgateway with popular IdPs
+  - A det of documentation guides covering common JWT validation scenarios
+  - Working, reproducible configuration examples (YAML manifests) that users can directly apply
+
+- Recommended Skills:
+  - Technical writing
+  - Kubernetes
+  - Understanding of authentication/authorization concepts (JWT, OAuth2, etc.)
+  - Git 
+
+- Mentor(s):
+  - Art Berger (@artberger, art.berger@solo.io)  
+  - Nina Polshakova (@npolshakova, ninapolshakova@gmail.com)
+
+- Upstream Issue: https://github.com/kgateway-dev/kgateway.dev/issues/725 
