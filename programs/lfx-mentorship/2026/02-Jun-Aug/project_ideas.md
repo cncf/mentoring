@@ -112,6 +112,32 @@ Alongside this, the mentee will improve documentation experience for contributor
   - Andy Anderson (@clubanderson, andy@clubanderson.com)
 - Upstream Issue: https://github.com/kubestellar/console/issues/4196
 
+### KubeVela
+
+#### LRU Cache Eviction for the Native Helm Provider
+
+- Description: KubeVela's native Helm provider currently uses a plain `sync.Map` to cache fetched charts on the controller, keyed by chart-version with TTL-based expiry (24h immutable / 5m mutable). Because the reconciler is stateless and re-renders every Application on every 5-minute resync, this cache sits on the hot path for every reconcile. At scale — 100+ Applications consuming different charts — the unbounded `sync.Map` grows monotonically until the controller pod is OOM-killed. Parsed `*chart.Chart` Go objects are 2–10MB each, so 200 cached charts can mean 1–2GB of memory with no eviction until TTL expires. Deleted Applications' charts also linger for the full TTL window, and there is no mechanism to reclaim memory under pressure. This mentorship will design and implement an LRU eviction layer with configurable byte-size limits, packaged as a generic, Helm-agnostic cache in `pkg/utils/cache/` so it can be reused by the workflow engine and other providers. The mentee will build a generic `LRUByteStore` on top of `hashicorp/golang-lru/v2` with per-entry TTL, byte accounting, and three eviction triggers: synchronous byte-pressure on `Put`, lazy TTL check on `Get`, and a periodic background sweep. The Helm provider will switch from caching parsed `*chart.Chart` objects to compressed `.tgz` bytes (~20–25× memory reduction), with `chartutil.Save` / `loader.LoadArchive` handled in the provider so the cache stays opaque. New controller flags (`--helm-cache-max-bytes`, `--helm-cache-sweep-interval`) will be wired through Helm chart values, and the immutable-version TTL extended from 24h to 30d now that LRU handles memory pressure. `OnEvicted` callbacks will feed Prometheus metrics for hits, misses (by reason), and current cache bytes. The result is a production-ready, reusable cache package that closes a real OOM risk in KubeVela deployments today, with hands-on exposure to Kubernetes controller patterns, Go concurrency, Helm internals, and CUE-driven configuration.
+- Expected Outcome:
+  - Generic `LRUByteStore` package in `pkg/utils/cache/` built on `hashicorp/golang-lru/v2`, with per-entry TTL, byte accounting, byte-pressure eviction on `Put`, lazy TTL check on `Get`, and a periodic background sweep
+  - Helm provider migration from in-memory parsed `*chart.Chart` objects to compressed `.tgz` bytes (~20–25× memory reduction), with `chartutil.Save` / `loader.LoadArchive` encapsulated in the provider so the cache remains opaque
+  - New controller flags `--helm-cache-max-bytes` (default 256MB) and `--helm-cache-sweep-interval` (default 60s), wired through Helm chart values; immutable-version TTL extended from 24h to 30d
+  - Prometheus metrics fed by `OnEvicted` callbacks: cache hits, misses (by reason: expired/evicted/absent), and current cache bytes
+  - Ginkgo/Gomega test suite covering TTL expiry, byte-pressure eviction order, oversized entries, concurrent access, OnEvict callback correctness, and clean goroutine shutdown
+  - Migration of existing usages and documentation/sizing guidance for operators
+- Recommended Skills:
+  - Go (idiomatic Go, structs, interfaces, generics, `sync` primitives)
+  - Kubernetes (controllers, reconcile loops, controller-runtime)
+  - Helm (chart fetching, OCI/repo sources, `chartutil`, `loader`)
+  - Caching concepts (LRU vs LFU, TTL, byte accounting, eviction triggers)
+  - Testing in Go (Ginkgo/Gomega, table-driven tests, race detection)
+  - Git and GitHub workflow (PRs, code review, rebasing)
+  - Curiosity and follow-through on open-ended design problems
+  - Async communication and open-source etiquette
+  - Clear technical writing for design docs and user-facing documentation
+- Mentor(s):
+  - Ayush Kumar (@roguepikachu, ayushshyamkumar888@gmail.com)
+- Upstream Issue: https://github.com/kubevela/kubevela/issues/7106
+
 ### Lima
 
 #### Improve Windows support (host and guest)
