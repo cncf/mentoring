@@ -207,8 +207,8 @@ Alongside this, the mentee will improve documentation experience for contributor
 - Recommended Skills: Go, Kubernetes, Kubernetes E2E testing, Ginkgo/Gomega, Gherkin, Godog, Chaos Mesh usage, test refactoring
 - Mentor(s):
   - Yue Yang (@g1eny0ung, g1enyy0ung@gmail.com)
-  - Zhiqiang ZHOU (@STRRL, github@strrl.dev)
-  - Andrewmatilde (@Andrewmatilde, N/A)
+  - Zhiqiang ZHOU (@STRRL, im@strrl.dev)
+  - Andrewmatilde (@Andrewmatilde, davis6813585853062@gmail.com)
 - Upstream Issue: https://github.com/chaos-mesh/chaos-mesh/issues/4902
 
 #### Runtime Fact Checker for Chaos Mesh Experiments
@@ -226,6 +226,6 @@ Alongside this, the mentee will improve documentation experience for contributor
 - Recommended Skills: Go, Kubernetes, Kubernetes client-go/controller-runtime, Chaos Mesh custom resources, networking basics, DNS basics, CLI development, testing
 - Mentor(s):
   - Yue Yang (@g1eny0ung, g1enyy0ung@gmail.com)
-  - Zhiqiang ZHOU (@STRRL, github@strrl.dev)
-  - Andrewmatilde (@Andrewmatilde, N/A)
+  - Zhiqiang ZHOU (@STRRL, im@strrl.dev)
+  - Andrewmatilde (@Andrewmatilde, davis6813585853062@gmail.com)
 - Upstream Issue: https://github.com/chaos-mesh/chaos-mesh/issues/4903
