@@ -293,6 +293,8 @@ Alongside this, the mentee will improve documentation experience for contributor
   - Jesse Stutler (@JesseStutler, jessestutler97@gmail.com)
   - Kuldeep (@de6p, de6p97@gmail.com)
 
+- Upstream Issue: https://github.com/volcano-sh/dashboard/issues/197
+
 ### WasmEdge
 
 #### Memory alignment in WASM instructions
