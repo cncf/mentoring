@@ -45,6 +45,40 @@ Alongside this, the mentee will improve documentation experience for contributor
   - [pipe-cd/pipecd#6679](https://github.com/pipe-cd/pipecd/issues/6679)
   - [pipe-cd/pipecd#6266](https://github.com/pipe-cd/pipecd/issues/6266)
 
+### Harbor
+
+#### Harbor CLI: Bubbletea v2 TUI Refactor and OIDC Device-Flow Login
+
+- Description: Harbor CLI needs two foundational improvements this term. First, migrate the TUI from Bubbletea v1 to v2 and refactor the fragmented list/table/selection models into a unified `loadingtablelist` abstraction with consistent loading, pagination, and error states across all commands. Second, replace static credentials with an OAuth 2.0 Device Authorization Grant (RFC 8628) and OIDC login flow so users and CI/CD pipelines can authenticate against Harbor through their identity provider without long-lived secrets.
+- Expected Outcome:
+  - Bubbletea v2 upgrade and unified `loadingtablelist` model adopted across all list-style commands
+  - `harbor login --sso` device-code flow plus a non-interactive CI/CD path with short-lived tokens
+  - Encrypted local token storage with automatic refresh and provider-agnostic OIDC config
+  - Tests for TUI state transitions and a mock OIDC provider covering device flow and refresh
+  - Updated docs covering the new TUI patterns and OIDC setup for common providers
+- Recommended Skills: Golang, Charmbracelet Bubbletea, OAuth 2.0 / OIDC, spf13/cobra, testing
+- Mentor(s):
+  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+- Upstream Issue: https://github.com/goharbor/harbor-cli/issues/821
+
+#### Harbor Satellite: Ground Control CLI and Kubernetes Fleet Operator
+
+- Description: Harbor Satellite needs first-class fleet management on top of the new Swagger-first Ground Control API. The mentee will build a `groundctl` CLI generated from the OpenAPI spec covering satellite lifecycle, user management, and a GitOps-style `apply -f` workflow, and pair it with a lightweight Kubernetes operator that manages Satellite instances as custom resources so fleets can be driven through ArgoCD or Flux on edge clusters (k3s, RKE2, microk8s).
+- Expected Outcome:
+  - Finalized Ground Control OpenAPI spec and generated Go client
+  - `groundctl` CLI for satellite lifecycle (register, list, inspect, update-config, delete), users, and `apply -f` GitOps mode
+  - `Satellite` CRD plus controller reconciling against Ground Control and deploying via the existing Helm chart
+  - Status subresource reporting registration, sync, and cache health back to the cluster
+  - End-to-end tests on kind/k3d deploying multiple satellites via CRD; CLI and operator docs with ArgoCD/Flux examples
+- Recommended Skills: Golang, OpenAPI/Swagger, spf13/cobra, Kubernetes (CRDs, controller-runtime, kubebuilder), Helm, GitOps
+- Mentor(s):
+  - Prasanth Baskar (@bupd, bupdprasanth@gmail.com)
+  - Vadim Bauer (@vad1mo, vb@container-registry.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+- Upstream Issue: https://github.com/container-registry/harbor-satellite/issues/375
+
 ### Jaeger
 
 #### Jaeger for GenAI Observability: Specialized Trace Visualization
@@ -158,6 +192,29 @@ Alongside this, the mentee will improve documentation experience for contributor
 
 - Upstream Issue: https://github.com/openeverest/openeverest/issues/1818
 
+#### Plugin Developer Playground: Interactive UI Schema Editor with Live Preview
+
+- Description: OpenEverest is an open-source cloud-native database platform that helps developers deploy and manage PostgreSQL, MySQL, MongoDB, and other databases on Kubernetes. In V2 it uses a plugin architecture where database providers define their UI through declarative YAML schemas (UISchema in Provider CRD). Currently, plugin developers have no integrated tool for developing and testing these schemas — the only way to see the rendered result is to deploy a full Provider CRD into a running Kubernetes cluster, making the development cycle slow and error-prone. This project aims to build a Plugin Developer Playground — a page inside OpenEverest where plugin developers can write UISchema YAML, see the rendered form in real time, validate the schema structure, inspect the post-processed API payload, and save/share schemas, all without deploying to a cluster. The mentee must solve the CSP compatibility problem by either choosing a CSP-compliant code editor or proposing an isolation architecture (e.g., sandboxed iframe) that keeps the main application's strict security posture intact.
+
+- Expected Outcome:
+  - Split-pane YAML editor with syntax highlighting and live form preview using the existing `UIGenerator` component
+  - Real-time schema validation: YAML parsing errors and structural validation against the `TopologyUISchemas` type, with inline error markers in the editor
+  - Live form rendering with stepper navigation through schema sections and topology switching
+  - Dynamic field support: existing API provider fields load real data from the running OpenEverest instance; new/unknown provider types can be mocked
+  - Output panel displaying the JSON payload after form data post-processing
+  - CSP-compliant solution
+  - Unit tests for core logic (schema validation, persistence, mock data injection) and component tests for key panels
+  - Plugin developer guide for using the playground and the UISchema format
+
+- Recommended Skills: React, TypeScript, MUI, YAML, Content Security Policy, REST/gRPC APIs, familiarity with Kubernetes CRDs helpful but not required
+
+- Mentor(s):
+  - Iaroslavna Soloveva (@solovevayaroslavna, iaroslavna.soloveva@solanica.io)
+  - Sergey Pronin (@spron-in, sp@solanica.io)
+
+- Upstream Issue: https://github.com/openeverest/openeverest/issues/2059
+
+
 ### OpenTelemetry
 
 #### UX Research & Information Architecture: How Users Discover and Use OpenTelemetry Instrumentation Information
@@ -174,6 +231,36 @@ Alongside this, the mentee will improve documentation experience for contributor
   - Andrej Kiripolsky (@AndrejKiri, andrej.kiripolsky@grafana.com)
   - Amy Super (@amy-super, amy.super@grafana.com)
 - Upstream Issue: https://github.com/open-telemetry/opentelemetry-ecosystem-explorer/issues/309
+
+### Volcano
+
+#### Support Namespace-scoped Queue in Volcano
+
+- Description: Volcano's `Queue` is a cluster-scoped resource, which means only cluster admins can create or update it. This is a barrier for multi-tenant scenarios, where tenants usually only own their own namespaces and want to leverage Volcano's queue capabilities (resource sharing, capability/guarantee/deserved, hierarchy, etc.) for their own workloads without requesting changes from a cluster admin. This project adds a namespace-scoped `NamespaceQueue` to Volcano. A `NamespaceQueue` is derived from a cluster-scoped `Queue` and behaves consistently with it, so tenants can create and use queues within their own namespace and associate `PodGroup`/`Job` with a `NamespaceQueue` exactly as they would with a cluster `Queue`. The existing cluster `Queue` semantics and APIs remain unchanged for users who do not opt in.
+
+- Expected Outcome:
+  - A namespace-scoped `NamespaceQueue` CRD derived from cluster-scoped `Queue`, with consistent semantics for fields such as `capability`, `guarantee`, `deserved`, and hierarchy.
+  - Tenants can create and manage `NamespaceQueue` within their own namespace without cluster-admin permission.
+  - `PodGroup`/`Job` can reference a `NamespaceQueue` and be scheduled with the same behavior as referencing a cluster `Queue`.
+  - Resource accounting, status, and events for `NamespaceQueue` work end-to-end through Volcano's existing queue management path.
+  - Compatibility with the existing cluster `Queue` and the `scheduling.volcano.sh/queue-name` annotation, with a clear migration story for existing users.
+  - E2E tests covering core `NamespaceQueue` flows, including negative cases.
+  - User-facing documentation on the Volcano website and the repository.
+
+- Recommended Skills:
+  - Go
+  - Kubernetes (CRDs, controllers, RBAC)
+  - Familiarity with Volcano (scheduler, queue, PodGroup/Job)
+  - E2E testing (Ginkgo)
+  - GitHub workflow and shell scripting
+
+- Mentor(s):
+  - Jesse Stutler (@JesseStutler, jessestutler97@gmail.com)
+  - Hajnal Máté (@hajnalmt, hajnalmt@gmail.com) 
+  - João Azevedo (@devzizu, jazevedo960@gmail.com)
+
+- Upstream Issue: https://github.com/volcano-sh/volcano/issues/5251
+
 ### WasmEdge
 
 #### Memory alignment in WASM instructions
@@ -207,7 +294,182 @@ Alongside this, the mentee will improve documentation experience for contributor
   - Testcontainers
   - basic understanding of CLI UX and Docker
 - Mentor(s):
-  - Laurent Broudoux (@lbroudoux, )
-  - Yacine Kheddache (@yada, )
+  - Laurent Broudoux (@lbroudoux, laurent@microcks.io)
+  - Yacine Kheddache (@yada, yacine@microcks.io)
   - Harshvardhan Parmar (@Harsh4902, harshparmar4902@gmail.com)
 - Upstream Issue: https://github.com/microcks/microcks-cli/issues/255
+
+### urunc
+
+#### Integration of urunc's sandbox execution with Argo
+
+- Description:
+
+While urunc has successfully enabled the use of unikernels and single
+application kernels within Kubernetes environments, its integration with other
+CNCF projects has been less seamless. A notable example is Argo, a widely
+adopted platform for defining and managing workflows, complex pipelines, and
+distributed applications on Kubernetes.
+
+In urunc's execution model, untrusted components of a deployment run inside
+sandboxed environments as unikernels or single-application kernels, while
+trusted components run as standard containers. Although this separation enables
+fine-grained workload isolation, it introduces friction in deployments like Argo,
+since it breaks pod-level assumptions (e.g. shared networking, storage).
+
+This project aims to bridge that gap between Argo deployments and urunc's sandboxed
+execution model by enabling compatibility at the runtime and workflow
+levels. The expected outcome is that users can easily choose which parts of
+their Argo deployment run in isolated urunc sandboxes.
+
+- Expected Outcome:
+  - A document describing the architecture of Argo and the execution model of
+    urunc, including a clear breakdown of the main incompatibilities.
+  - A working integration with the necessary changes required in urunc and its
+    components.
+  - A tutorial showing how to deploy and run Argo workflows using urunc,
+    including setup, configuration, and example use cases.
+
+- Recommended Skills:
+  - Good understanding of Kubernetes.
+  - Familiarity with Argo and its architecture.
+  - Basic understanding of container runtimes and OCI concepts.
+  - Experience with Go.
+
+- Mentor(s):
+  - Charalampos Mainas (@cmainas, cmainas@nubificus.co.uk)
+  - Panagiotis Mavrikos (@panosmaurikos, pmavrikos@nubificus.co.uk)
+  - Anastassios Nanos (@ananos, ananos@nubificus.co.uk)
+
+- Upstream Issue: https://github.com/urunc-dev/urunc/issues/573
+
+#### Improve lifecycle management of sandbox monitors
+
+- Description:
+
+Currently, urunc launches sandbox monitors, such as Firecracker and QEMU
+through command-line invocations. This approach offers limited control over the
+sandbox lifecycle once the process is started. On the other hand, most
+monitors expose remote management interfaces, typically through a socket-based
+API.
+
+These interfaces provide access to the same operations currently performed via
+CLI, but also enable further control over the sandbox lifecycle. In particular,
+they allow more fine-grained lifecycle management of the sandbox, including
+querying and monitoring its state, performing device hotplug and unplug
+operations and interacting with the guest.
+
+This project aims to extend urunc's sandbox integration layer to support remote
+management interfaces and to explore each monitor's capabilities in order to
+extend the functionalities of urunc sandboxed containers.
+
+- Expected Outcome:
+  - A design document describing the updated architecture and workflow for
+    spawning and managing sandbox monitors in urunc.
+  - Implementation of the necessary changes in urunc to manage sandbox monitors
+    through their respective APIs.
+
+- Recommended Skills:
+  - Basic understanding of container runtimes and OCI concepts.
+  - Good understanding of Linux systems programming (IPC, process management, etc.)
+  - Experience with Go.
+  - Familiarity with virtual machine monitors.
+
+- Mentor(s):
+  - Charalampos Mainas (@cmainas, cmainas@nubificus.co.uk)
+  - Anastassios Nanos (@ananos, ananos@nubificus.co.uk)
+
+- Upstream Issue: https://github.com/urunc-dev/urunc/issues/112
+
+#### Extensive evaluation of urunc's sandboxing execution model
+
+- Description:
+
+According to urunc's execution model, the application executes inside a
+VM-based or software-based sandbox. While this model strengthens isolation
+boundaries, it can introduce performance overhead and additional resource
+consumption compared to standard containers. Over the past years, evaluations
+of urunc have focused primarily on spawn time and container density and less
+on other aspects, such as CPU and memory usage, storage overhead I/O
+performance and network latency.
+
+As a result, it is necessary to conduct a thorough performance evaluation of
+urunc across multiple metrics. The evaluation should span across
+microbenchmarks, macrobenchmarks, and representative real-world workloads.
+Apart from the evaluation itself, it is also important to create a reproducible
+benchmarking suite, with all scripts, tools and documentation, so that anyone
+can extend and reproduce the experiments across different environments and
+versions.
+
+- Expected Outcome:
+  - A comprehensive evaluation report covering startup latency, CPU and memory
+    consumption, storage overhead, I/O throughput, and network performance
+    across multiple sandboxes (monitor / guest combinations).
+  - A reproducible evaluation suite, including all scripts, tools,
+    configurations and documentation required to repeat and extend the
+    benchmarks.
+  - A blogpost summarizing the methodology and the findings of the evaluation.
+
+- Recommended Skills:
+  - Good understanding of benchmarking methodologies and tools (e.g. fio, perf)
+  - Experience with scripting (e.g. Bash, Python) for automation of benchmarks.
+  - Basic understanding of virtualization and container runtimes concepts.
+  - Familiarity with Kubernetes.
+
+- Mentor(s):
+  - Charalampos Mainas (@cmainas, cmainas@nubificus.co.uk)
+  - Anastassios Nanos (@ananos, ananos@nubificus.co.uk)
+  - Anastasia Mallikopoulou (@amallikopoulou, amallik@nubificus.co.uk)
+
+- Upstream Issue: https://github.com/urunc-dev/urunc/issues/574
+
+#### Improving DNS and localhost based networking compatibility for urunc across CNIs
+
+- Description:
+
+In a standard container setup, the container shares the network namespace with
+its host environment, meaning localhost inside the container refers to the same
+loopback interface as the host's network namespace. Many CNI plugins and
+container networking services rely on this assumption. For instance, Docker
+sets up an internal DNS server listening on localhost within each container's
+network namespace and configures `/etc/resolv.conf` accordingly. Similarly,
+service meshes (e.g., Istio, Linkerd) inject sidecar proxies that listen on
+localhost, and certain CNI plugins expose health checks or metrics endpoints on
+the loopback interface.
+ 
+ In urunc, however, workloads execute inside a sandboxed environment
+with its own isolated network stack. As a result,
+localhost inside the sandbox does not refer to the host's network namespace
+loopback interface but to the sandbox's own. This breaks any service that
+relies on localhost-based communication between the container and host-level
+components.
+
+This project aims to investigate and implement mechanisms to bridge localhost
+communication between the host network namespace and the sandbox. The mentee
+will survey the landscape of CNI plugins and networking services that rely on
+localhost, categorize the different communication patterns, and design a
+solution that restores compatibility while preserving the
+isolation guarantees that urunc provides.
+
+- Expected Outcome:
+  - A survey and categorization of CNI plugins and networking services that
+    rely on localhost communication, documenting the specific patterns and
+    assumptions each makes.
+  - A design proposal of one or more mechanisms to bridge localhost traffic
+    between the host network namespace and the sandbox.
+  - Implementation of the proposed solution in urunc, with DNS resolution as
+    the primary use case.
+  - Evaluation of the new mechanism.
+
+- Recommended Skills:
+  - Good understanding of Linux networking concepts (network namespaces,
+    loopback interfaces, DNS resolution).
+  - Basic understanding of container networking (CNI plugin model,
+    bridge/overlay networks).
+  - Experience with low-level networking tools (iptables, tc, eBPF).
+
+- Mentor(s):
+  - Charalampos Mainas (@cmainas, cmainas@nubificus.co.uk)
+  - Anastassios Nanos (@ananos, ananos@nubificus.co.uk)
+
+- Upstream Issue: https://github.com/urunc-dev/urunc/issues/574
