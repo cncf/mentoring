@@ -16,6 +16,8 @@
 
 ---
 
+## Proposed Project ideas
+
 ### KubeVela
 
 #### Native Secret-Sourced HTTP Headers and CRD-Based Config Management with Server-Side Validation
@@ -47,8 +49,6 @@
 - Upstream Issues:
   - https://github.com/kubevela/kubevela/issues/7104
   - https://github.com/kubevela/kubevela/issues/7105
-
-## Proposed Project ideas
 
 ### PipeCD
 
