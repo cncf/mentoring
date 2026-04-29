@@ -127,7 +127,7 @@ Alongside this, the mentee will improve documentation experience for contributor
     - Investigate and decide between Hyper-V and HCS for the native driver: HCS is the basis of WSL2 and may be available in Windows 11 Home Edition, while Hyper-V is only available in Pro/Enterprise editions. Research availability and integration feasibility.
     - Potentially integrate the chosen driver (Hyper-V or HCS) as an [external VM driver](https://lima-vm.io/docs/dev/drivers/).
   - Tertiary Goals (if time permits): Upgrade the existing WSL2 driver to drop image restrictions and allow users to run multiple instances, as well as exploring a simple graphical interface (`limagui.exe`) to launch virtual machines.
-  
+
 - Recommended Skills: Go, QEMU, Hyper-V, Windows Developer Environment, Systems programming
 
 - Mentor(s):
@@ -260,24 +260,6 @@ The project will summarize practical experience and provide reference documentat
   - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
   - Hongbing Zhang (@HongbingZhang, hongbing.zhang@daocloud.io)
 - Upstream Issue: https://github.com/kubeedge/kubeedge/issues/6757
-
-#### Scaling KubeEdge Test Coverage via LLM-Driven Agentic Workflows
-
-- Description: We will design a Self-Healing Test Agent. Automatically identify low-coverage areas or missing E2E scenarios using coverage analysis tools ; Utilize LLMs (e.g., DeepSeek-V3/R1) to analyze code logic, generate complex mocks, and implement test cases (Unit/E2E).
-The Agent executes the generated tests. If they fail (compilation errors, runtime panics, or assertion failures), the Agent captures the logs/tracebacks, reasons about the cause, and iteratively refines the test code until it passes.
-Only validated, passing test cases are bundled into a Pull Request for human review.
-While LLMs can generate code snippets, "Raw LLM output" often lacks the context of complex projects like KubeEdge, leading to broken tests that increase the burden on maintainers. Manual test writing remains a bottleneck for project velocity.
-By implementing a Self-Healing loop, we ensure that the automation tool acts as a "Junior Test Engineer" rather than a simple script. This reduces "PR noise" and ensures that every AI-generated PR is functionally sound and compatible with the current codebase, significantly lowering the barrier for maintaining high-quality KubeEdge releases.
-- Expected Outcome:
-  - Agentic Framework Implementation: A workflow engine that handles the Test -> Fail -> Fix -> Test cycle autonomously.
-  - Context-Aware Prompt Engineering: Advanced prompt templates that include project-specific structures, interfaces, and Mock patterns (specifically for KubeEdge components like CloudCore/EdgeCore).
-  - CI/CD Pipeline Integration: A GitHub Action or independent service that triggers on specific events (e.g., weekly scheduled runs or PRs to key modules).
-  - Self-Healing Logic: Proven capability of the Agent to resolve at least 60-70% of common test failures (like missing imports or incorrect mock signatures) without human intervention.
-  - Measurable Coverage Increase: Successfully merge PRs that increase the unit/e2e coverage of selected KubeEdge modules by a target percentage.
-- Recommended Skills: Golang, LLM & Agent Framework,Kubernetes & KubeEdge Ecosystem, DevOps & CI/CD
-- Mentor(s):
-  - Yue Li (@liyuerich, yue.li@daocloud.io)
-- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/6750
 
 #### Exploring Alternatives to iptableManager: Optimizing Edge-Cloud Request Forwarding via Apiserver Redirection to cloudcore
 
