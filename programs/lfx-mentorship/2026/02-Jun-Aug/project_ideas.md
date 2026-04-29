@@ -183,7 +183,7 @@ Alongside this, the mentee will improve documentation experience for contributor
   - Akihiro Suda (@AkihiroSuda, suda.kyoto@gmail.com)
   - Ansuman Sahoo (@unsuman, anshumansahoo500@gmail.com)
 
-- Upstream Issues: https://github.com/lima-vm/lima/issues/4852, https://github.com/lima-vm/lima/issues/4820, https://github.com/lima-vm/lima/issues/4819
+- Upstream Issues: https://github.com/lima-vm/lima/issues/4907
 
 ### OpenEverest
 
