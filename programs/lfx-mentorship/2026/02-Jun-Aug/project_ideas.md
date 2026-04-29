@@ -453,3 +453,72 @@ isolation guarantees that urunc provides.
   - Anastassios Nanos (@ananos, ananos@nubificus.co.uk)
 
 - Upstream Issue: https://github.com/urunc-dev/urunc/issues/574
+
+### Kyverno
+
+#### Address findings from the Kyverno CNCF TAG Security & Compliance and General Technical Review assessments
+
+- Description: Kyverno recently completed two CNCF assessments: a security assessment by the CNCF TAG Security & Compliance group and a General Technical Review by the CNCF TOC Project Reviews subproject. Together they produced a set of findings spanning documentation, threat modeling, network policies, global context cache bounds, API server authentication, SAST tooling, API stability and non-goals, UX/adopter research, webhook cert issuance/rotation guidance, "safe-mode" / temporary disable patterns, SLOs/SLIs and alerting/runbooks, dependency lifecycle and SCA workflows, third-party notices, and the security response process. The findings are tracked in umbrella issues for each assessment. In this mentorship, the mentee will work through the open findings from **both** the TAG Security & Compliance assessment and the General Technical Review, propose and implement fixes across the Kyverno codebase, docs, and Helm charts, and help close out both assessments. Work includes implementing cache bounds for the Global Context, restricting Global Context access in namespaced policies, adding API server request authentication for the admission webhook, generating sample/network-policy templates and a CLI command to produce a Kyverno NetworkPolicy, integrating SAST tooling (e.g. semgrep, Nancy) into CI, updating the threat model and architecture diagrams, documenting core CRDs/API stability, webhook cert rotation, safe-mode/incident playbooks, SLOs/SLIs and reference dashboards, the SCA/dependency lifecycle workflow, and improving the security documentation on kyverno.io.
+- Expected Outcome:
+  - Resolve the open findings tracked in [kyverno/kyverno#15335](https://github.com/kyverno/kyverno/issues/15335) (TAG Security & Compliance assessment) and [kyverno/kyverno#15473](https://github.com/kyverno/kyverno/issues/15473) (General Technical Review assessment).
+  - Implement Global Context cache bounds and access restrictions for namespaced policies (kyverno/kyverno#15359).
+  - Add admission webhook authentication of requests from the API server.
+  - Refresh the threat model (including CLI and other deployment options) and the architecture diagram to separate logical and physical components.
+  - Document core CRDs/APIs and per-API-group stability policy, webhook cert issuance/rotation guidance, recommended "temporary disable" / safe-mode patterns, SLOs/SLIs with reference dashboards/runbooks, and the end-to-end dependency/SCA workflow.
+  - Update the Kyverno security documentation: fix the audits page links, document risks of external data lookups, link to published security advisories, and link the current security response process.
+  - Add tests covering the new behaviors and document the changes in the Kyverno docs site.
+- Recommended Skills:
+  - Go
+  - Kubernetes (admission controllers, CRDs, NetworkPolicy, client-go / controller-runtime)
+  - Familiarity with security concepts (threat modeling, SAST, webhook authentication)
+  - Technical writing
+  - Git workflows
+- Mentor(s):
+  - Shuting Zhao (@realshuting, shutingz@nirmata.com)
+  - Cortney Nickerson (@CortNick, cortney.nickerson@nirmata.com)
+- Upstream Issue: 
+  - https://github.com/kyverno/kyverno/issues/15335
+  - https://github.com/kyverno/kyverno/issues/15473
+
+
+#### Kyverno Technical Outcomes
+
+- Description:
+On the Kyverno website, we want to introduce and document a set of technical outcomes that users can achieve by adopting Kyverno. These outcomes should group together Kyverno’s policy capabilities (validate, mutate, generate, verify images, cleanup) into clear, high-level goals that resonate with platform engineers, security teams, and developers.
+
+Rather than focusing on individual features, this work will highlight what teams can accomplish with Kyverno in real-world environments.
+
+Proposed technical outcomes include:
+* Secure-by-Default Kubernetes – Enforce security and compliance policies across clusters automatically
+* Policy-Driven Platform Engineering – Enable golden paths and self-service infrastructure using policy as code
+* Automated Governance & Compliance – Continuously audit, report, and enforce organizational standards
+* Software Supply Chain Security – Verify images, enforce provenance, and reduce risk in CI/CD pipelines
+* Kubernetes Configuration Automation – Use mutation and generation to reduce manual configuration overhead
+* Multi-Cluster Policy Management – Apply consistent governance across distributed and multi-cloud environments
+* AI & Agent Governance – Apply policy controls to AI workloads and agent-driven infrastructure workflows
+
+Each outcome should connect Kyverno capabilities to real-world use cases, supported by artifacts from the community such as blog posts, talks, policy examples, and reference architectures.
+
+- Expected Outcome:
+  * A new section of the Kyverno website dedicated to Technical Outcomes, where each outcome includes:
+  * A clear description of the problem space and desired outcome
+  * Mapping to Kyverno capabilities and policy types
+  * Links to supporting resources (blogs, videos, talks, GitHub examples, policy libraries)
+  * Optional diagrams or visual flows illustrating how Kyverno enables the outcome
+
+This section should serve as:
+* A learning and onboarding resource for new users
+* A messaging bridge between technical features and business value
+* A foundation for future content, including case studies, solution briefs, and AI-driven policy generation experiences
+
+- Recommended Skills:
+  * Technical writing and storytelling
+  * Basic understanding of Kubernetes and cloud-native concepts
+  * Familiarity with policy-as-code and/or security/compliance workflows (helpful but not required)
+  * Willingness to learn Kyverno concepts and ecosystem
+  * Experience with documentation or developer-focused content
+
+- Mentor(s):
+  - Cortney Nickerson (@CortNick, cortney.nickerson@nirmata.com)
+  - Shuting Zhao (@realshuting, shutingz@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/15990
