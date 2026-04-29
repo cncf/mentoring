@@ -115,6 +115,21 @@ Alongside this, the mentee will improve documentation experience for contributor
   - Ben Hirschberg (@slashben, ben@armosec.io)
 - Upstream Issue: [kubescape/kubescape#1982](https://github.com/kubescape/kubescape/issues/1982)
 
+#### CEL rule engine support and Rego-to-CEL control migration
+
+- Description: Kubescape evaluates compliance controls using OPA/Rego today, while Kubernetes has shipped native `ValidatingAdmissionPolicy` / `MutatingAdmissionPolicy` resources that use CEL expressions. The [`kubescape/cel-admission-library`](https://github.com/kubescape/cel-admission-library) project already ships a growing set of Kubescape controls as VAP resources, but Kubescape cannot evaluate them locally — so a resource passing `kubescape scan` may still fail the cluster's admission controller. This project adds a native CEL evaluation engine to Kubescape (running alongside Rego), using the same `ValidatingAdmissionPolicy` YAML format and `google/cel-go` library that Kubernetes uses internally. With the same rule expression evaluated in both places, Kubescape becomes directly comparable to — and competitive with — Kyverno for teams wanting a single policy language across CI, runtime scanning, and admission enforcement. A sample of existing Rego controls are then converted to CEL as proof-of-concept, validating the conversion pattern end-to-end.
+- Expected Outcome:
+  - New `CELLanguage` rule type dispatched from the existing `runOPAOnSingleRule()` extension point in `core/pkg/opaprocessor/processorhandler.go`.
+  - `runCELOnK8s()` implementation: loads `ValidatingAdmissionPolicy` YAML from `cel-admission-library`, evaluates with `google/cel-go` in a VAP-compatible environment (`object`, `params`, stubbed `request`), maps violations to `reporthandling.RuleResponse`.
+  - Equivalence guarantee documented: for `object`-scoped rules, `kubescape scan` and the cluster admission controller produce identical results. Known gap (`authorizer`, `request.userInfo`) documented.
+  - 10–20 existing regolibrary (Rego) controls converted to CEL and contributed to `cel-admission-library` as `ValidatingAdmissionPolicy` resources, with a conversion guide for future contributors.
+  - Unit and integration tests; end-to-end verification showing a converted control evaluated identically by Kubescape and a live VAP on a real cluster.
+- Recommended Skills: Go, Kubernetes (CEL, ValidatingAdmissionPolicy, client-go), familiarity with OPA/Rego a plus.
+- Mentor(s):
+  - Matthias Bertschy (@matthyx, matthiasb@armosec.io) - primary
+  - Ben Hirschberg (@slashben, ben@armosec.io)
+- Upstream Issue: [kubescape/kubescape#2001](https://github.com/kubescape/kubescape/issues/2001)
+
 ### KubeStellar
 
 #### AI-driven test coverage architect for KubeStellar Console
