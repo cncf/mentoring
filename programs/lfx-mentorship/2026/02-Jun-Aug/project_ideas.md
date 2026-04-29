@@ -1018,7 +1018,9 @@ The project will summarize practical experience and provide reference documentat
   - Andrewmatilde (@Andrewmatilde, davis6813585853062@gmail.com)
 - Upstream Issue: https://github.com/chaos-mesh/chaos-mesh/issues/4903
 
-### Kubernetes
+## Kubernetes
+
+### SIG Node / node-readiness-controller
 
 #### Advanced Observability: Per-Rule Metrics and Headlamp Plugin
 
