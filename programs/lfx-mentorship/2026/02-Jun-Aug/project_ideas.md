@@ -730,3 +730,71 @@ and demonstrate kgateway integration with multiple OAuth identity providers.
   - Darshan Jain (@ddjain , darjain@redhat.com)
 - Upstream Issue: https://github.com/krkn-chaos/website/issues/320
 
+### OpenKruise
+
+#### Dynamic Volume Mounting for JuiceFS and Ceph in OpenKruise Agents
+
+- Description: Dynamic volume mounting enables data persistence and sharing for pooled sandbox pods without relying on CSI plugins. This capability is essential for Agent workloads such as OpenClaw and Hermes, which need to save workspace data and share skills across sandboxes. Currently, OpenKruise Agents lacks support for open-source storage solutions like JuiceFS and Ceph, limiting adoption in on-premises environments. This project aims to integrate these storage backends by implementing CSI-plugin sidecars compatible with the Agent runtime and modifying the sandbox controller to support generic CSI volume mounting.
+
+- Expected Outcome:
+  - CSI-plugin sidecars for JuiceFS and Ceph that integrate seamlessly with the Agent runtime in OpenKruise Agents
+  - Sandbox controller enhancements to enable mounting of generic CSI volumes
+  - E2E tests covering core SandboxClaim flows involving JuiceFS and Ceph storage
+  - Comprehensive user-facing documentation published on the OpenKruise website and repository
+
+- Recommended Skills:
+  - Go programming
+  - Kubernetes (CRDs, controllers, RBAC)
+  - Familiarity with CSI plugins (particularly JuiceFS and Ceph)
+  - E2E testing frameworks (Ginkgo)
+
+- Mentor(s):
+  - Kai Shi (@BH4AWS, bh4aws@gmail.com)
+  - Zhang Zhen (@furykerry, furykerry@gmail.com)
+
+- Upstream Issue: https://github.com/openkruise/agents/issues/314
+
+#### Lightweight and Continuous Load Testing for OpenKruise Agents Using Kwok
+
+- Description: Rapid, large-scale sandbox provisioning is critical for agentic workloads. OpenKruise Agents has optimized this through techniques like pooling and efficient sandbox discovery. To prevent performance regressions, continuous testing at scale is essential. This project will build a lightweight, resource-efficient load testing framework using Kwok to evaluate OpenKruise Agents' performance at scale (e.g., 100,000 sandboxes). Additionally, it will establish an automated workflow to regularly execute load tests and report performance metrics, ensuring consistent validation of provisioning capabilities.
+
+- Expected Outcome:
+  - A scalable load testing framework capable of evaluating OpenKruise Agents' performance with up to 100,000 sandboxes
+  - GitHub Actions workflows and scripts to automate regular load testing and generate performance reports
+  - Sandbox controller optimizations to facilitate lightweight load testing scenarios
+  - Performance baseline documentation and regression detection mechanisms
+
+- Recommended Skills:
+  - Go programming
+  - Kubernetes (CRDs, controllers, RBAC)
+  - Familiarity with Kwok for cluster simulation
+  - GitHub Actions workflow development and shell scripting
+
+- Mentor(s):
+  - Zhong Tianyun (@AiRanthem, airanthem666@gmail.com)
+  - Zhao Mingshan (@zmberg, berg.zms@gmail.com)
+
+- Upstream Issue: https://github.com/openkruise/agents/issues/314
+
+#### Build Document Agent for OpenKruise Website
+
+- Description: The OpenKruise ecosystem comprises multiple rapidly evolving projects, each with its own documentation, blogs, and resources scattered across repositories. Maintaining up-to-date, coherent documentation is challenging. This project aims to build an intelligent document agent for the OpenKruise website that automates the collection, synchronization, and quality evaluation of documentation, blog posts, and other technical resources. The agent will leverage modern context engineering techniques (skills, MCP, RAG, AGENTS.md) to ensure content freshness, consistency, and discoverability across the entire OpenKruise project portfolio.
+
+- Expected Outcome:
+  - Agentic harness infrastructure for the OpenKruise website, including AGENTS.md configuration and specialized tools for documentation management
+  - Automated GitHub Actions workflows to regularly collect, update, and evaluate documentation, blogs, and resources from all OpenKruise projects and Internet
+  - Refreshed and standardized documentation structure with improved navigation and cross-referencing
+  - Updated blog archive with consistent formatting and metadata enrichment
+
+- Recommended Skills:
+  - Go programming
+  - Kubernetes fundamentals (CRDs, controllers, RBAC)
+  - Context Engineering techniques (skills, MCP, RAG, AGENTS.md)
+  - GitHub Actions workflow development and shell scripting
+  - Technical writing and documentation best practices
+
+- Mentor(s):
+  - Zhang Zhen (@furykerry, furykerry@gmail.com)
+  - Zhao Mingshan (@zmberg, berg.zms@gmail.com)
+
+- Upstream Issue: https://github.com/openkruise/openkruise.io/issues/316
