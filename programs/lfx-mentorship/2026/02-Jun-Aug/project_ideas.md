@@ -294,7 +294,7 @@ Alongside this, the mentee will improve documentation experience for contributor
   - Testcontainers
   - basic understanding of CLI UX and Docker
 - Mentor(s):
-  - Laurent Broudoux (@lbroudoux, laurent@microcks.io)
+  - Laurent Broudoux (@lbroudoux, laurent.broudoux@gmail.com)
   - Yacine Kheddache (@yada, yacine@microcks.io)
   - Harshvardhan Parmar (@Harsh4902, harshparmar4902@gmail.com)
 - Upstream Issue: https://github.com/microcks/microcks-cli/issues/255
