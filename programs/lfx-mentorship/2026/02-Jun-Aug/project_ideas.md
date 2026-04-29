@@ -671,3 +671,29 @@ This section should serve as:
   - Hongcai Ren (@RainbowMango, qdurenhongcai@gmail.com)
 - Upstream Issue: https://github.com/karmada-io/community/issues/190#issuecomment-4248950867
 
+### kgateway
+
+#### Documentation improvements for OIDC and JWT IdPs integrations
+
+- Description: The goal of this project is to test and document common 
+JWT validation scenarios (e.g., JWKS, multiple issuers, and claim-based validation)
+and demonstrate kgateway integration with multiple OAuth identity providers.
+
+- Expected Outcome: 
+  - Design a repeatable documentation pattern for identity providers
+  - A set of documentation guides for integrating kgateway with popular IdPs
+  - A det of documentation guides covering common JWT validation scenarios
+  - Working, reproducible configuration examples (YAML manifests) that users can directly apply
+
+- Recommended Skills:
+  - Technical writing
+  - Kubernetes
+  - Understanding of authentication/authorization concepts (JWT, OAuth2, etc.)
+  - Git 
+
+- Mentor(s):
+  - Art Berger (@artberger, art.berger@solo.io)  
+  - Nina Polshakova (@npolshakova, ninapolshakova@gmail.com)
+
+- Upstream Issue: https://github.com/kgateway-dev/kgateway.dev/issues/725 
+
