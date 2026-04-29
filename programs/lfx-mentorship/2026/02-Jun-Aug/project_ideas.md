@@ -136,6 +136,7 @@ Alongside this, the mentee will improve documentation experience for contributor
   - Clear technical writing for design docs and user-facing documentation
 - Mentor(s):
   - Ayush Kumar (@roguepikachu, ayushshyamkumar888@gmail.com)
+  - Vishal Kumar (@vishal210893, vishal210893@gmail.com)
 - Upstream Issue: https://github.com/kubevela/kubevela/issues/7106
 
 ### Lima
