@@ -512,7 +512,6 @@ isolation guarantees that urunc provides.
   - https://github.com/kyverno/kyverno/issues/15335
   - https://github.com/kyverno/kyverno/issues/15473
 
-
 #### Kyverno Technical Outcomes
 
 - Description:
@@ -554,3 +553,90 @@ This section should serve as:
   - Cortney Nickerson (@CortNick, cortney.nickerson@nirmata.com)
   - Shuting Zhao (@realshuting, shutingz@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/15990
+
+### Kuadrant
+
+#### Investigate and prototype A2A protocol support in the Kuadrant agentic gateway project
+
+- Description: Kuadrant's MCP Gateway is an Envoy-based gateway for Model Context Protocol (MCP) servers that provides routing, policy enforcement, and tool federation. As the agentic ecosystem grows, we're looking to extend the gateway's capabilities beyond MCP to support other agentic protocols. The A2A (Agent-to-Agent) protocol is an emerging standard for inter-agent communication with capabilities like long-running tasks, streaming, and agent discovery via agent cards. This project will investigate how A2A support can be added to the gateway alongside MCP, then build a proof-of-concept demonstrating federated agent discovery and A2A request routing through the gateway. The mentee will work closely with mentors throughout — collaborating on the design doc, pairing on implementation decisions, and spiking on specific pieces as needed to validate assumptions early. They will also engage with the broader Kuadrant community through PR reviews, design discussions, and community calls.
+- Expected Outcome:
+  - Analysis of the A2A protocol with a gap assessment comparing A2A and MCP traffic patterns (request/response vs long-running tasks, push notifications, multi-modal artifacts)
+  - Design document covering A2A routing through ext_proc, federated agent card serving in the broker, session handling implications, and CRD design
+  - Federated agent card endpoint in the broker that aggregates upstream A2A agent cards
+  - A2A request routing through the Envoy ext_proc path, with appropriate header handling and policy enforcement
+  - CRD design (new resource or MCPServerRegistration extension) for registering A2A agents with the gateway controller
+  - E2E tests demonstrating A2A agent discovery and task execution through the gateway
+- Recommended Skills:
+  - Go (required)
+  - Kubernetes basics (required)
+  - Networking background or familiarity with HTTP/REST protocols
+  - Interest in AI/agentic networking and protocols (MCP, A2A, others)
+- Mentor(s):
+  - David Martin (@david-martin, davmarti@redhat.com)
+  - Craig Brookes (@maleck13, cbrookes@redhat.com)
+- Upstream Issue: https://github.com/Kuadrant/mcp-gateway/issues/766
+
+#### Implement AccessPolicy CRD for tool-level authorization in the Kuadrant agentic gateway
+
+- Description: Kuadrant's MCP Gateway is an Envoy-based gateway for Model Context Protocol (MCP) servers. It currently handles authentication and coarse-grained authorization via AuthPolicy/Authorino, but has no built-in mechanism for tool-level authorization, e.g., allowing agent A to call `add` and `subtract` on a math server while agent B can only call `subtract`. The kube-agentic-networking SIG is defining a standard AccessPolicy CRD for exactly this. MCP Gateway is well-positioned to implement it because its ext_proc already parses MCP request bodies and exposes tool metadata via headers (`x-mcp-method`, `x-mcp-toolname`, `x-mcp-servername`). This project will design how AccessPolicy maps to Kuadrant's AuthPolicy/Authorino, then build an experimental implementation covering CRD definition, a controller that translates tool-level authorization rules into Authorino configuration, identity model integration (starting with OIDC), `tools/list` response filtering so callers only see tools they're authorized to use, and CEL-based authorization expressions. The mentee will work closely with mentors on the design doc, pair on implementation decisions, and engage with both the Kuadrant and kube-agentic-networking communities.
+- Expected Outcome:
+  - Design document covering AccessPolicy-to-AuthPolicy/Authorino mapping, body parsing strategy (ext_proc vs Envoy MCP filter), identity model choices, `tools/list` filtering, and CEL-based authorization
+  - AccessPolicy CRD with status conditions and CEL validation rules
+  - Controller that watches AccessPolicy resources and generates/updates AuthPolicy resources with authorization rules based on `x-mcp-toolname` headers
+  - OIDC identity source support, with consideration for ServiceAccount and SPIFFE identity types
+  - `tools/list` response filtering so callers only see tools they are authorized to invoke
+  - CEL-based authorization rule support (e.g., `request.mcp.tool_name.startsWith("read_")`)
+  - E2E tests covering allow/deny scenarios for tool-level access control
+  - Documentation guide in `docs/guides/`
+- Recommended Skills:
+  - Go (required)
+  - Kubernetes basics (required)
+  - Networking background or familiarity with HTTP/REST protocols
+  - Interest in AI/agentic networking and protocols (MCP, A2A, others)
+- Mentor(s):
+  - David Martin (@david-martin, davmarti@redhat.com)
+  - Guilherme Cassolato (@guicassolato, guicassolato@gmail.com)
+- Upstream Issue: https://github.com/Kuadrant/mcp-gateway/issues/804
+
+#### Investigate native Envoy MCP filter as replacement for ext-proc parsing in the Kuadrant agentic gateway
+
+- Description: Kuadrant's MCP Gateway uses an Envoy external processor (ext_proc) to parse MCP JSON-RPC requests, extract metadata, rewrite request bodies, and route tool calls to backend MCP servers. This works but adds latency via a gRPC hop per request and requires maintaining custom MCP protocol parsing logic. Envoy has been rapidly adding native MCP support, as of v1.38, the Envoy MCP filter can parse MCP messages, populate dynamic metadata for downstream RBAC/ext_authz filters, handle session management, support SSE and Streamable HTTP transport, and aggregate multiple backend MCP servers. A previous investigation rejected the Envoy MCP filter due to missing body modification support, limited method coverage, and no aggregation, but the filter has since evolved considerably. This project will perform a fresh evaluation, produce a design document mapping each ext_proc responsibility to native Envoy capabilities, identify gaps (particularly around request body rewriting for tool prefix stripping and dynamic metadata consumption by Authorino), build a proof-of-concept demonstrating the native filter approach, and propose an incremental migration path. The mentee will work closely with mentors on the design, validate assumptions through prototyping with standalone Envoy, and engage with both the Kuadrant and Envoy communities.
+- Expected Outcome:
+  - Design document covering capability mapping of each ext_proc responsibility to Envoy MCP filter features, body modification strategy, dynamic metadata vs header trade-offs for Authorino integration, federation/aggregation comparison, session management analysis, and Istio version dependency chain
+  - Proof-of-concept demonstrating Envoy MCP filter parsing requests and populating metadata, downstream authorization consuming that metadata, and tool routing to multiple backends
+  - Clear identification of what still requires custom code after migration
+  - Proposed target architecture and incremental migration plan
+  - E2E tests validating the prototype against existing test scenarios
+  - Documentation of Istio version requirements and feature gates needed
+- Recommended Skills:
+  - Go (required)
+  - Kubernetes basics (required)
+  - Networking background or familiarity with HTTP/REST and Envoy proxy
+  - Interest in AI/agentic networking and protocols (MCP, A2A, others)
+- Mentor(s):
+  - David Martin (@david-martin, davmarti@redhat.com)
+  - TBD (@tbd, tbd@email)
+- Upstream Issue: https://github.com/Kuadrant/mcp-gateway/issues/809
+
+#### Transform Kuadrant Policy YAML Editors into Interactive Form Views
+
+- Description: The Kuadrant Console Plugin provides a web interface for managing API gateway policies in OpenShift, but currently relies heavily on YAML editing for most policy types. While DNSPolicy and TLSPolicy already have user-friendly form-based interfaces with dual Form/YAML views, validation, and guided workflows, the remaining core policies (RateLimitPolicy, TokenRateLimitPolicy, AuthPolicy, Plan, and OIDC) still require users to manually write YAML. This creates a steep learning curve and error-prone configuration experience. This project aims to bring RateLimitPolicy, TokenRateLimitPolicy, AuthPolicy, Plan, and OIDC policies to feature parity with the existing DNS and TLS form implementations. Form designs will be provided by the Kuadrant team. The mentee will implement these designs as PatternFly-based form interfaces following the established patterns from the DNS and TLS policy forms. These forms will allow users to configure policies through validated form fields while maintaining the flexibility to switch to YAML view for advanced use cases. The forms must support both creation and editing of policies, include proper field validation, handle complex nested structures (such as rate limit configurations and authentication rules), and synchronize seamlessly between form and YAML representations using the same patterns already proven in the DNS and TLS implementations.
+
+- Expected Outcome:
+  - Form-based creation and editing interfaces for RateLimitPolicy, TokenRateLimitPolicy, AuthPolicy, Plan, and OIDC policies implemented using the same patterns, components, and structure as the existing DNSPolicy and TLSPolicy forms
+  - Dual view toggle (Form View / YAML View) with bidirectional synchronization using js-yaml for all five policy types
+  - Field validation following the established validation pattern covering required fields, numeric constraints, conditional dependencies, and Kubernetes resource naming conventions
+  - PatternFly component integration matching existing forms: expandable sections for complex nested configurations, validated text inputs, dropdowns for enum fields, and reuse of gateway selection components
+  - Policy-specific form fields for: rate limit units and counters (RateLimitPolicy), token-based rate limiting (TokenRateLimitPolicy), authentication strategies and credentials (AuthPolicy), plan tiers and quotas (Plan), and OIDC provider configurations (OIDC)
+  - Error handling using the existing error modal and inline validation message patterns
+  - Internationalization support for all form labels and validation messages using i18next following the existing localization structure
+  - Both create (`/~new`) and edit (`/:name/edit`) routes for each policy type matching the DNS/TLS routing pattern
+  - Unit and component tests covering form validation, YAML synchronization, and error states following the established testing patterns
+
+- Recommended Skills: TypeScript, React, PatternFly framework, Kubernetes concepts (CRDs, policies, gateways), OpenShift Console SDK, dynamic plugin development, YAML parsing, form state management
+
+- Mentor(s):
+  - Rachel Lawton (@R-Lawton, rlawton@redhat.com)
+  - Emma Roche (@emmaaroche, eroche@redhat.com)
+
+- Upstream Issue: https://github.com/Kuadrant/kuadrant-console-plugin/issues/378
