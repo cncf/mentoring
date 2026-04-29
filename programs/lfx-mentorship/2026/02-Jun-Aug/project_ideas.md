@@ -43,6 +43,7 @@
   - Interest in platform engineering, application delivery, and Kubernetes-native API design
 - Mentor(s):
   - Chaitanya Reddy Onteddu (@Chaitanyareddy0702, chaitanyareddy0702@gmail.com)
+  - Jerrin Francis (@jerrinfrancis, jerrinfrancis7@gmail.com)
 - Upstream Issues:
   - https://github.com/kubevela/kubevela/issues/7104
   - https://github.com/kubevela/kubevela/issues/7105
