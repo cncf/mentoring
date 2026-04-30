@@ -979,3 +979,41 @@ The project will summarize practical experience and provide reference documentat
   - Zhijia Yang (@luomengY, 2938893385@qq.com)
   - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
 - Upstream Issue: https://github.com/kubeedge/kubeedge/issues/6754
+
+### Chaos Mesh
+
+#### Refactor PodChaos and NetworkChaos E2E Tests into Gherkin-based BDD Scenarios
+
+- Description: Chaos Mesh has an existing Go-based E2E test suite for validating chaos behavior on Kubernetes. The current tests are effective, but many scenarios mix test intent, fixture setup, Chaos Mesh custom resource creation, probing logic, assertions, and cleanup in Go code. This makes the E2E suite harder to read and extend, especially for new contributors who need to understand both the user-facing chaos behavior and the underlying Kubernetes test implementation at the same time. This project will introduce a Gherkin + Godog based BDD layer for selected Chaos Mesh E2E tests. The mentee will migrate the existing PodChaos and NetworkChaos E2E tests into executable Gherkin feature files backed by reusable Go step definitions. The new feature files should preserve Chaos Mesh-specific behavior and network/pod verification details, rather than hiding them behind overly broad user-story wording.
+- Expected Outcome:
+  - A Godog-based BDD test layer that can run Chaos Mesh E2E scenarios from Gherkin feature files
+  - Gherkin feature files for all existing PodChaos E2E scenarios
+  - Gherkin feature files for all existing NetworkChaos E2E scenarios
+  - Reusable Go step definitions for common E2E operations such as preparing workloads, applying Chaos Mesh custom resources, probing pod/network behavior, checking expected failure or delay, and verifying recovery
+  - Integration with the existing E2E development workflow, with exact command and CI integration decided during implementation
+  - Documentation explaining the Gherkin scenario style, step definition conventions, and migration guidance for other Chaos Mesh E2E tests
+- Recommended Skills: Go, Kubernetes, Kubernetes E2E testing, Ginkgo/Gomega, Gherkin, Godog, Chaos Mesh usage, test refactoring
+- Mentor(s):
+  - Yue Yang (@g1eny0ung, g1enyy0ung@gmail.com)
+  - Zhiqiang ZHOU (@STRRL, im@strrl.dev)
+  - Andrewmatilde (@Andrewmatilde, davis6813585853062@gmail.com)
+- Upstream Issue: https://github.com/chaos-mesh/chaos-mesh/issues/4902
+
+#### Runtime Fact Checker for Chaos Mesh Experiments
+
+- Description: Chaos Mesh can report the lifecycle and status of a chaos experiment, but users often still need to manually verify whether the real runtime behavior matches the intended chaos behavior. For example, a user may want to know whether a PodChaos experiment actually affected the selected pods, whether a DNSChaos experiment actually changed DNS responses, or whether a NetworkChaos experiment actually changed connectivity or latency between workloads. This project will build a runtime fact checker for Chaos Mesh experiments. The first version should be a standalone CLI prototype where users specify one Chaos Mesh custom resource to check. The tool will collect runtime evidence from Kubernetes resources, Chaos Mesh status, events, and active probes when needed, then compare the observed behavior with the expected behavior implied by the Chaos CR. Core matching logic should be implemented by deterministic collectors, probes, and rules. LLM support, if added, should only summarize or explain collected facts; it should not be the source of truth for the verdict.
+- Expected Outcome:
+  - A standalone CLI prototype for checking one specified Chaos Mesh experiment
+  - Runtime fact checking support for PodChaos, DNSChaos, and NetworkChaos
+  - Evidence collectors for Kubernetes resources, Chaos Mesh CR spec/status, events, pod/container lifecycle, and target matching
+  - Active probes for DNSChaos and NetworkChaos, because Kubernetes status alone cannot prove DNS or network behavior
+  - A verdict model with at least matched, mismatched, inconclusive, and unsupported states
+  - Human-readable reports that explain observed facts, expected behavior, verdict, and uncertainty
+  - Structured JSON output for future integration with CI, Chaos Dashboard, or a Kubernetes report CRD
+  - Documentation covering usage, supported chaos types, limitations, and future integration paths
+- Recommended Skills: Go, Kubernetes, Kubernetes client-go/controller-runtime, Chaos Mesh custom resources, networking basics, DNS basics, CLI development, testing
+- Mentor(s):
+  - Yue Yang (@g1eny0ung, g1enyy0ung@gmail.com)
+  - Zhiqiang ZHOU (@STRRL, im@strrl.dev)
+  - Andrewmatilde (@Andrewmatilde, davis6813585853062@gmail.com)
+- Upstream Issue: https://github.com/chaos-mesh/chaos-mesh/issues/4903
