@@ -511,8 +511,7 @@ isolation guarantees that urunc provides.
   - Shuting Zhao (@realshuting, shutingz@nirmata.com)
   - Cortney Nickerson (@CortNick, cortney.nickerson@nirmata.com)
 - Upstream Issue: 
-  - https://github.com/kyverno/kyverno/issues/15335
-  - https://github.com/kyverno/kyverno/issues/15473
+  - https://github.com/kyverno/kyverno/issues/15999
 
 #### Kyverno Technical Outcomes
 
