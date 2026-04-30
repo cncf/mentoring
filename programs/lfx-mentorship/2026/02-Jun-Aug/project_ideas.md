@@ -211,5 +211,6 @@ Alongside this, the mentee will improve documentation experience for contributor
   - Familiarity with Kmesh (or service mesh concepts in general)
   - Headlamp UI
 - Mentor(s):
-  - ZhenCheng Li(@LiZhenCheng9527, lizhencheng6@huawei.com),
+  - Yash Israni (yashisrani, imailyash57@gmail.com),
+  - Jayesh Savaliya (jayesh9747, savaliyajayesh2405@gmail.com)
 - Upstream Issue: https://github.com/kmesh-net/kmesh/issues/1658
