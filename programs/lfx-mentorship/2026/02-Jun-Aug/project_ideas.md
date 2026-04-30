@@ -148,7 +148,7 @@ Alongside this, the mentee will improve documentation experience for contributor
 - **Mentors:**
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
-- Upstream Issue: https://github.com/jaegertracing/jaeger/issues/7827
+- Upstream Issue: https://github.com/jaegertracing/jaeger/issues/8440
 
 ### Kubescape
 
