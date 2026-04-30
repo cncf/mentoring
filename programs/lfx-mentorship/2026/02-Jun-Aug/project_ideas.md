@@ -16,8 +16,39 @@
 
 ---
 
-
 ## Proposed Project ideas
+
+### KubeVela
+
+#### Native Secret-Sourced HTTP Headers and CRD-Based Config Management with Server-Side Validation
+
+- Description: KubeVela's workflow engine and config management layer have two long-standing production gaps that this mentorship will close together. First, the `request` workflow step has no native way to source HTTP headers (bearer tokens, API keys, basic auth) from Kubernetes Secrets — users wanting to call authenticated APIs are forced to hardcode credentials directly in the workflow definition, where they end up visible in `kubectl get` output and Git history. On top of that, attempts to interpolate values into the `header` map using Go templates or CUE string interpolation regularly conflict with native CUE syntax, producing un-rendered strings or silent execution failures. Second, KubeVela's Config Management today stores `ConfigTemplate`s as labeled ConfigMaps (`config-template-*` prefix) and `Config`s as labeled Secrets — there are no proper Kubernetes API types (`kubectl get configs` returns nothing meaningful), and all CUE schema and `validation.$returns` checks run client-side in the `vela` CLI. Configs created through any other path (workflow steps, VelaUX, direct `kubectl apply`) bypass validation entirely, so the same template enforces different rules depending on the entry point. The mentee will tackle both. The first deliverable extends the HTTP provider in `kubevela/workflow` with a `headerFromSecret` field that resolves values from Kubernetes Secrets natively in Go (mirroring how the same provider already handles Secrets for `tlsConfig`), and exposes it as a first-class CUE parameter — bypassing the templating layer entirely. The second introduces a proper Kubernetes API group, `config.oam.dev/v1alpha1`, with `ConfigTemplate` and `Config` CRDs, event-driven controllers built on controller-runtime, and validating admission webhooks that move CUE validation server-side. Sensitive properties never live in the CRD — they sit in a separate Secret referenced via `propertiesFrom.secretRef`. A dual-read controller preserves full backward compatibility: legacy ConfigMap templates, old CLI versions, and existing Secret-based configs continue to work without disruption. Together, the two deliverables harden KubeVela's HTTP integration surface and modernize its configuration layer into a Kubernetes-native, GitOps-friendly API.
+- Expected Outcome:
+  - New `HeaderFromSecret` field on the `Request` struct in `pkg/providers/http/http.go` (kubevela/workflow), with native Secret resolution inside `runHTTP()` mirroring the existing `getTransport()` TLS pattern
+  - Updated `request.cue` definition in kubevela/kubevela exposing `headerFromSecret` as a parameter, with namespace defaulting to `context.namespace`
+  - New `config.oam.dev/v1alpha1` API group with `ConfigTemplate` and `Config` CRDs, DeepCopy, and scheme registration
+  - `ConfigTemplateReconciler` that parses CUE templates and writes the generated OpenAPI schema to `status.schema`
+  - `ConfigReconciler` that materializes `Config` CRDs into Secrets with `ownerRef`s for garbage collection, with dual-read fallback to legacy `config-template-*` ConfigMaps
+  - Validating admission webhooks for both kinds, enforcing CUE schema validation, custom `template.validation.$returns` checks, CUE template syntax, and mutual exclusivity of `properties` and `propertiesFrom`
+  - Updated `vela` CLI (`config-template apply/list/show/delete`, `config create/list/delete`) and workflow `config` provider operating on the new CRDs, with graceful fallback to the legacy code path
+  - Comprehensive Go unit tests, envtest controller tests, webhook tests, and end-to-end tests with a mock echo server (HTTP) and live cluster (Config CRDs)
+  - Backward-compatibility tests confirming legacy ConfigMap templates and Secret-based configs continue to work
+  - Documentation: usage examples for `headerFromSecret`, migration guidance for the new Config API, and CRD reference
+- Recommended Skills:
+  - Go (idiomatic Go, structs, interfaces, error handling, `net/http`, `context`)
+  - Kubernetes (Secrets, ConfigMaps, namespaces, RBAC, declarative API model)
+  - CRDs, controllers, and admission webhooks (controller-runtime / Kubebuilder)
+  - CUE — or willingness to learn quickly
+  - Go testing (`testing`, table-driven tests, Ginkgo/Gomega, envtest)
+  - Git and GitHub workflow (PRs, code review, rebasing)
+  - Strong written communication and async collaboration
+  - Interest in platform engineering, application delivery, and Kubernetes-native API design
+- Mentor(s):
+  - Chaitanya Reddy Onteddu (@Chaitanyareddy0702, chaitanyareddy0702@gmail.com)
+  - Jerrin Francis (@jerrinfrancis, jerrinfrancis7@gmail.com)
+- Upstream Issues:
+  - https://github.com/kubevela/kubevela/issues/7104
+  - https://github.com/kubevela/kubevela/issues/7105
 
 ### PipeCD
 
