@@ -270,4 +270,5 @@ The project will summarize practical experience and provide reference documentat
 - Recommended Skills: Go, Kubernetes, Client-go
 - Mentor(s):
   - Zhijia Yang (@luomengY, 2938893385@qq.com)
+  - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
 - Upstream Issue: https://github.com/kubeedge/kubeedge/issues/6754
