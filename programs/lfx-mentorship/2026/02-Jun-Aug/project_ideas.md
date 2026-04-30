@@ -340,6 +340,26 @@ Alongside this, the mentee will improve documentation experience for contributor
   - Hung-Ying, Tai (@hydai , hydai@secondstate.io )
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4820
 
+### Microcks
+
+#### Microcks-CLI v2 - IDE (Vs code) Integration and Local Dev Loop Enhancement
+
+- Description: The Microcks CLI (microcks-cli, written in Go) is a key part of Microcks' CI/CD story - it lets developers trigger contract tests and import artifacts from the command line and in GitHub Actions. This project goes into the developer experience layer. Today, developers must navigate to the Microcks web UI in a browser to see test results, check mock status, and diagnose import errors. There is no IDE integration, no offline validation mode, and no way to get mock results inline with the code being tested. This project builds three focused improvements that bring Microcks into the editor and the local dev loop: a VS Code extension, a local dry-run mode powered by Testcontainers, and an updated GitHub Actions output format that annotates PRs with per-operation pass/fail results.
+- Expected Outcome:
+  - A VS Code extension (microcks-vscode) published to the VS Code Marketplace that connects to a running Microcks instance and shows: loaded services, mock operation status, recent test run results, and importer job logs - all inline in the editor sidebar (Like postman, thunder client)
+  - A microcks test --dry-run flag in the CLI that uses Testcontainers (the Microcks uber image) to spin up an ephemeral local Microcks instance, import the specified artifact, run the contract test, report results, and tear down - with no external Microcks server required
+  - A demo video and documentation page on microcks.io showing the full local-to-CI workflow
+- Recommended Skills:
+  - GO
+  - VS Code Extension API (TypeScript)
+  - Testcontainers
+  - basic understanding of CLI UX and Docker
+- Mentor(s):
+  - Laurent Broudoux (@lbroudoux, laurent.broudoux@gmail.com)
+  - Yacine Kheddache (@yada, yacine@microcks.io)
+  - Harshvardhan Parmar (@Harsh4902, harshparmar4902@gmail.com)
+- Upstream Issue: https://github.com/microcks/microcks-cli/issues/255
+
 ### urunc
 
 #### Integration of urunc's sandbox execution with Argo
