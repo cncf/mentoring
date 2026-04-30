@@ -1033,17 +1033,6 @@ The project will summarize practical experience and provide reference documentat
   - Ajay Sundar Karuppasamy (@ajaysundark, ajaysundar.k@gmail.com)
 - Upstream Issue: [sigs.k8s.io/node-readiness-controller#182](https://github.com/kubernetes-sigs/node-readiness-controller/issues/182)
 
-#### Helm Charts for Streamlined Deployment
-
-- Description: Currently, the `node-readiness-controller` primarily uses Kustomize for resource management and deployment. While effective, many enterprise users and Kubernetes distributions prefer Helm for its advanced templating and lifecycle management capabilities. This project involves creating a high-quality, production-ready Helm chart that mirrors the existing Kustomize manifests. The mentee will ensure that all configurations (RBAC, Webhooks, Controller Manager) are properly templated, implement automated chart testing using tools like `ct` (Chart Testing) or `Helm UnitTest`, and document the installation process for various environments.
-- Expected Outcome: A fully functional Helm chart hosted in the project repository; integration of the chart into existing CI/CD pipelines for linting and testing; and comprehensive documentation on deploying the controller via Helm.
-- Recommended Skills: Kubernetes, Helm, YAML, basic shell scripting.
-- Mentor(s):
-  - Sreeram Venkitesh (@sreeram-venkitesh, sreeramvenkitesh@gmail.com)
-  - Priyanka Saggu (@Priyankasaggu11929, priyankasaggu11929@gmail.com)
-  - Ajay Sundar Karuppasamy (@ajaysundark, ajaysundar.k@gmail.com)
-- Upstream Issue: [sigs.k8s.io/node-readiness-controller#26](https://github.com/kubernetes-sigs/node-readiness-controller/issues/26)
-
 #### Scalability Testing and Release Reliability
 
 - Description: For a controller that manages node readiness, reliable performance at scale is critical. This project aims to improve the project's test framework across three key areas: building a comprehensive scale-test suite using `kwok` to simulate clusters with 1,000+ nodes, hardening the release pipeline to automate versioning and promotion to [`registry.k8s.io`](https://registry.k8s.io), and refactoring the E2E test suite in `test/e2e` to be environment-agnostic and more reliable.
