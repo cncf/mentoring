@@ -730,3 +730,28 @@ and demonstrate kgateway integration with multiple OAuth identity providers.
   - Darshan Jain (@ddjain , darjain@redhat.com)
 - Upstream Issue: https://github.com/krkn-chaos/website/issues/320
 
+
+### KubeSlice
+
+#### KubeSlice Controller HA (Active/Standby) Support
+
+- Description: Add Active/Standby HA support for the KubeSlice Controller.
+  - Leader election: Only one controller cluster (the “Active” node) holds a distributed lock (e.g., a Lease) and is permitted to write updates to worker clusters or manage Slice configurations.
+  - Constant state sync: The Standby cluster continuously mirrors the Active cluster’s state, including relevant KubeSlice CRDs (Slices, ServiceExports, Clusters, etc.).
+  - Heartbeating: The Standby cluster monitors the health of the Active cluster.
+  - Failover: If the Active cluster fails to renew its lease, the Standby cluster detects the timeout, acquires the lock, promotes itself to Active, and worker clusters are updated to use the new Active controller.
+- Expected Outcome: Implement an Active/Standby HA architecture that makes the KubeSlice management plane resilient and disaster-recovery-ready.
+- Recommended Skills: Go, Kubernetes (controllers, CRDs, client-go)
+- Mentor(s):
+  - biradar.gourish@gmail.com, prabhu@avesha.io, rahulparida933@gmail.com
+- Upstream Issue(s):
+  - https://github.com/kubeslice/kubeslice-controller/issues/293
+  - https://github.com/kubeslice/kubeslice-controller/issues/294
+  - https://github.com/kubeslice/kubeslice-controller/issues/295
+  - https://github.com/kubeslice/kubeslice-controller/issues/297
+  - https://github.com/kubeslice/kubeslice-controller/issues/298
+  - https://github.com/kubeslice/kubeslice-controller/issues/299
+  - https://github.com/kubeslice/worker-operator/issues/467
+  - https://github.com/kubeslice/worker-operator/issues/468
+  - https://github.com/kubeslice/worker-operator/issues/469
+
