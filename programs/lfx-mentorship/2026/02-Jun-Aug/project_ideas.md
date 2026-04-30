@@ -754,4 +754,15 @@ and demonstrate kgateway integration with multiple OAuth identity providers.
   - https://github.com/kubeslice/worker-operator/issues/467
   - https://github.com/kubeslice/worker-operator/issues/468
   - https://github.com/kubeslice/worker-operator/issues/469
+    
+#### Partial Mesh Support (MVP: Hub-and-Spoke)
 
+- Description: Add partial mesh support to KubeSlice using a small-scope MVP topology: **Hub-and-Spoke**. Users can define one (or two) hub clusters for a slice; the controller computes desired connections so only hub↔spoke links are established (no spoke↔spoke), and workers reconcile connectivity accordingly. Includes status reporting for convergence and failure reasons.
+- Expected Outcome: Users can create a slice with hub-and-spoke partial mesh topology and see it converge across multiple worker clusters. Topology updates (e.g., changing the hub) rewire connections safely. Slice/worker status surfaces readiness and errors for debugging.
+- Recommended Skills: Go, Kubernetes (CRDs, controllers, client-go)
+- Mentor(s):
+  - biradar.gourish@gmail.com, prabhu@avesha.io, rahulparida933@gmail.com
+- Upstream Issue(s):
+  - https://github.com/kubeslice/kubeslice-controller/issues/300
+  - https://github.com/kubeslice/worker-operator/issues/470
+  - https://github.com/kubeslice/worker-operator/issues/471
