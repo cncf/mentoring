@@ -875,3 +875,27 @@ and demonstrate kgateway integration with multiple OAuth identity providers.
   - Zhao Mingshan (@zmberg, berg.zms@gmail.com)
 
 - Upstream Issue: https://github.com/openkruise/openkruise.io/issues/316
+
+### Kmesh
+
+#### Integrating Kmesh into Headlamp UI
+
+- Description: [Headlamp](https://headlamp.dev) is an open-source, extensible Kubernetes web UI offering easy cluster management, multi-cluster support, RBAC, and a plugin system for adding custom functionality. Users who work with Kmesh today have to switch back and forth between Headlamp (for general Kubernetes resource management) and CLI tools / `kubectl` (for Kmesh-specific inspection), which creates a fragmented workflow and a poor user experience. There is currently no simple visual way to view Kmesh resources, inspect waypoints and related components, understand overall mesh status, or troubleshoot issues quickly from within an interface users already use. This project proposes building a Headlamp plugin for Kmesh that brings Kmesh resources directly into the Headlamp UI, providing lightweight visibility of Kmesh resources alongside other Kubernetes resources. The full-featured Kmesh dashboard remains the place for advanced operations; the Headlamp plugin focuses on reducing context switching and improving ease of use for day-to-day workflows.
+- Expected Outcome:
+  - A Headlamp plugin (TypeScript/React) that registers Kmesh CRDs and surfaces them as first-class resources in the Headlamp UI.
+  - List and detail views for core Kmesh resources (e.g., waypoints and eBPF map)
+  - Visual indicators of mesh status: per-resource health, readiness, and recent Events; cluster-level summary of Kmesh components.
+  - Inspection helpers: pretty-printed YAML, related-pod views, and quick links to associated workloads/services.
+  - Documentation (README, screenshots, install guide) and a published plugin (Helm/manifest or Headlamp plugin registry entry).
+  - Unit/component tests for the plugin and an end-to-end smoke test against a kind/minikube cluster running Kmesh.
+- Recommended Skills:
+  - Kubernetes (CRDs, RBAC, kubectl)
+  - React / Next.js
+  - TypeScript
+  - Familiarity with Kmesh (or service mesh concepts in general)
+  - Headlamp UI
+- Mentor(s):
+  - Yash Israni (yashisrani, imailyash57@gmail.com),
+  - Jayesh Savaliya (jayesh9747, savaliyajayesh2405@gmail.com)
+- Upstream Issue: https://github.com/kmesh-net/kmesh/issues/1658
+
