@@ -142,7 +142,7 @@ Alongside this, the mentee will improve documentation experience for contributor
   - Unit + integration tests for the Go side, plugin tests for the UI, and end-to-end verification against a running cluster.
 - Recommended Skills: Go, Kubernetes (controllers, CRDs, client-go / controller-runtime, dynamic client), TypeScript/React (for the Headlamp plugin).
 - Mentor(s):
-  - Matthias Bertschy (@matthyx, matthiasb@armosec.io) - primary
+  - Matthias Bertschy (@matthyx, matthias.bertschy@gmail.com) - primary
   - Ben Hirschberg (@slashben, ben@armosec.io)
 - Upstream Issue: [kubescape/kubescape#1982](https://github.com/kubescape/kubescape/issues/1982)
 
@@ -157,7 +157,7 @@ Alongside this, the mentee will improve documentation experience for contributor
   - Unit and integration tests; end-to-end verification showing a converted control evaluated identically by Kubescape and a live VAP on a real cluster.
 - Recommended Skills: Go, Kubernetes (CEL, ValidatingAdmissionPolicy, client-go), familiarity with OPA/Rego a plus.
 - Mentor(s):
-  - Matthias Bertschy (@matthyx, matthiasb@armosec.io) - primary
+  - Matthias Bertschy (@matthyx, matthias.bertschy@gmail.com) - primary
   - Ben Hirschberg (@slashben, ben@armosec.io)
 - Upstream Issue: [kubescape/kubescape#2001](https://github.com/kubescape/kubescape/issues/2001)
 
