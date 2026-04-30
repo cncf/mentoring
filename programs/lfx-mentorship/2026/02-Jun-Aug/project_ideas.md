@@ -16,8 +16,39 @@
 
 ---
 
-
 ## Proposed Project ideas
+
+### KubeVela
+
+#### Native Secret-Sourced HTTP Headers and CRD-Based Config Management with Server-Side Validation
+
+- Description: KubeVela's workflow engine and config management layer have two long-standing production gaps that this mentorship will close together. First, the `request` workflow step has no native way to source HTTP headers (bearer tokens, API keys, basic auth) from Kubernetes Secrets — users wanting to call authenticated APIs are forced to hardcode credentials directly in the workflow definition, where they end up visible in `kubectl get` output and Git history. On top of that, attempts to interpolate values into the `header` map using Go templates or CUE string interpolation regularly conflict with native CUE syntax, producing un-rendered strings or silent execution failures. Second, KubeVela's Config Management today stores `ConfigTemplate`s as labeled ConfigMaps (`config-template-*` prefix) and `Config`s as labeled Secrets — there are no proper Kubernetes API types (`kubectl get configs` returns nothing meaningful), and all CUE schema and `validation.$returns` checks run client-side in the `vela` CLI. Configs created through any other path (workflow steps, VelaUX, direct `kubectl apply`) bypass validation entirely, so the same template enforces different rules depending on the entry point. The mentee will tackle both. The first deliverable extends the HTTP provider in `kubevela/workflow` with a `headerFromSecret` field that resolves values from Kubernetes Secrets natively in Go (mirroring how the same provider already handles Secrets for `tlsConfig`), and exposes it as a first-class CUE parameter — bypassing the templating layer entirely. The second introduces a proper Kubernetes API group, `config.oam.dev/v1alpha1`, with `ConfigTemplate` and `Config` CRDs, event-driven controllers built on controller-runtime, and validating admission webhooks that move CUE validation server-side. Sensitive properties never live in the CRD — they sit in a separate Secret referenced via `propertiesFrom.secretRef`. A dual-read controller preserves full backward compatibility: legacy ConfigMap templates, old CLI versions, and existing Secret-based configs continue to work without disruption. Together, the two deliverables harden KubeVela's HTTP integration surface and modernize its configuration layer into a Kubernetes-native, GitOps-friendly API.
+- Expected Outcome:
+  - New `HeaderFromSecret` field on the `Request` struct in `pkg/providers/http/http.go` (kubevela/workflow), with native Secret resolution inside `runHTTP()` mirroring the existing `getTransport()` TLS pattern
+  - Updated `request.cue` definition in kubevela/kubevela exposing `headerFromSecret` as a parameter, with namespace defaulting to `context.namespace`
+  - New `config.oam.dev/v1alpha1` API group with `ConfigTemplate` and `Config` CRDs, DeepCopy, and scheme registration
+  - `ConfigTemplateReconciler` that parses CUE templates and writes the generated OpenAPI schema to `status.schema`
+  - `ConfigReconciler` that materializes `Config` CRDs into Secrets with `ownerRef`s for garbage collection, with dual-read fallback to legacy `config-template-*` ConfigMaps
+  - Validating admission webhooks for both kinds, enforcing CUE schema validation, custom `template.validation.$returns` checks, CUE template syntax, and mutual exclusivity of `properties` and `propertiesFrom`
+  - Updated `vela` CLI (`config-template apply/list/show/delete`, `config create/list/delete`) and workflow `config` provider operating on the new CRDs, with graceful fallback to the legacy code path
+  - Comprehensive Go unit tests, envtest controller tests, webhook tests, and end-to-end tests with a mock echo server (HTTP) and live cluster (Config CRDs)
+  - Backward-compatibility tests confirming legacy ConfigMap templates and Secret-based configs continue to work
+  - Documentation: usage examples for `headerFromSecret`, migration guidance for the new Config API, and CRD reference
+- Recommended Skills:
+  - Go (idiomatic Go, structs, interfaces, error handling, `net/http`, `context`)
+  - Kubernetes (Secrets, ConfigMaps, namespaces, RBAC, declarative API model)
+  - CRDs, controllers, and admission webhooks (controller-runtime / Kubebuilder)
+  - CUE — or willingness to learn quickly
+  - Go testing (`testing`, table-driven tests, Ginkgo/Gomega, envtest)
+  - Git and GitHub workflow (PRs, code review, rebasing)
+  - Strong written communication and async collaboration
+  - Interest in platform engineering, application delivery, and Kubernetes-native API design
+- Mentor(s):
+  - Chaitanya Reddy Onteddu (@Chaitanyareddy0702, chaitanyareddy0702@gmail.com)
+  - Jerrin Francis (@jerrinfrancis, jerrinfrancis7@gmail.com)
+- Upstream Issues:
+  - https://github.com/kubevela/kubevela/issues/7104
+  - https://github.com/kubevela/kubevela/issues/7105
 
 ### PipeCD
 
@@ -161,6 +192,33 @@ Alongside this, the mentee will improve documentation experience for contributor
   - Andy Anderson (@clubanderson, andy@clubanderson.com)
 - Upstream Issue: https://github.com/kubestellar/console/issues/4196
 
+### KubeVela
+
+#### LRU Cache Eviction for the Native Helm Provider
+
+- Description: KubeVela's native Helm provider currently uses a plain `sync.Map` to cache fetched charts on the controller, keyed by chart-version with TTL-based expiry (24h immutable / 5m mutable). Because the reconciler is stateless and re-renders every Application on every 5-minute resync, this cache sits on the hot path for every reconcile. At scale — 100+ Applications consuming different charts — the unbounded `sync.Map` grows monotonically until the controller pod is OOM-killed. Parsed `*chart.Chart` Go objects are 2–10MB each, so 200 cached charts can mean 1–2GB of memory with no eviction until TTL expires. Deleted Applications' charts also linger for the full TTL window, and there is no mechanism to reclaim memory under pressure. This mentorship will design and implement an LRU eviction layer with configurable byte-size limits, packaged as a generic, Helm-agnostic cache in `pkg/utils/cache/` so it can be reused by the workflow engine and other providers. The mentee will build a generic `LRUByteStore` on top of `hashicorp/golang-lru/v2` with per-entry TTL, byte accounting, and three eviction triggers: synchronous byte-pressure on `Put`, lazy TTL check on `Get`, and a periodic background sweep. The Helm provider will switch from caching parsed `*chart.Chart` objects to compressed `.tgz` bytes (~20–25× memory reduction), with `chartutil.Save` / `loader.LoadArchive` handled in the provider so the cache stays opaque. New controller flags (`--helm-cache-max-bytes`, `--helm-cache-sweep-interval`) will be wired through Helm chart values, and the immutable-version TTL extended from 24h to 30d now that LRU handles memory pressure. `OnEvicted` callbacks will feed Prometheus metrics for hits, misses (by reason), and current cache bytes. The result is a production-ready, reusable cache package that closes a real OOM risk in KubeVela deployments today, with hands-on exposure to Kubernetes controller patterns, Go concurrency, Helm internals, and CUE-driven configuration.
+- Expected Outcome:
+  - Generic `LRUByteStore` package in `pkg/utils/cache/` built on `hashicorp/golang-lru/v2`, with per-entry TTL, byte accounting, byte-pressure eviction on `Put`, lazy TTL check on `Get`, and a periodic background sweep
+  - Helm provider migration from in-memory parsed `*chart.Chart` objects to compressed `.tgz` bytes (~20–25× memory reduction), with `chartutil.Save` / `loader.LoadArchive` encapsulated in the provider so the cache remains opaque
+  - New controller flags `--helm-cache-max-bytes` (default 256MB) and `--helm-cache-sweep-interval` (default 60s), wired through Helm chart values; immutable-version TTL extended from 24h to 30d
+  - Prometheus metrics fed by `OnEvicted` callbacks: cache hits, misses (by reason: expired/evicted/absent), and current cache bytes
+  - Ginkgo/Gomega test suite covering TTL expiry, byte-pressure eviction order, oversized entries, concurrent access, OnEvict callback correctness, and clean goroutine shutdown
+  - Migration of existing usages and documentation/sizing guidance for operators
+- Recommended Skills:
+  - Go (idiomatic Go, structs, interfaces, generics, `sync` primitives)
+  - Kubernetes (controllers, reconcile loops, controller-runtime)
+  - Helm (chart fetching, OCI/repo sources, `chartutil`, `loader`)
+  - Caching concepts (LRU vs LFU, TTL, byte accounting, eviction triggers)
+  - Testing in Go (Ginkgo/Gomega, table-driven tests, race detection)
+  - Git and GitHub workflow (PRs, code review, rebasing)
+  - Curiosity and follow-through on open-ended design problems
+  - Async communication and open-source etiquette
+  - Clear technical writing for design docs and user-facing documentation
+- Mentor(s):
+  - Ayush Kumar (@roguepikachu, ayushshyamkumar888@gmail.com)
+  - Vishal Kumar (@vishal210893, vishal210893@gmail.com)
+- Upstream Issue: https://github.com/kubevela/kubevela/issues/7106
+
 ### Lima
 
 #### Improve Windows support (host and guest)
@@ -176,14 +234,14 @@ Alongside this, the mentee will improve documentation experience for contributor
     - Investigate and decide between Hyper-V and HCS for the native driver: HCS is the basis of WSL2 and may be available in Windows 11 Home Edition, while Hyper-V is only available in Pro/Enterprise editions. Research availability and integration feasibility.
     - Potentially integrate the chosen driver (Hyper-V or HCS) as an [external VM driver](https://lima-vm.io/docs/dev/drivers/).
   - Tertiary Goals (if time permits): Upgrade the existing WSL2 driver to drop image restrictions and allow users to run multiple instances, as well as exploring a simple graphical interface (`limagui.exe`) to launch virtual machines.
-  
+
 - Recommended Skills: Go, QEMU, Hyper-V, Windows Developer Environment, Systems programming
 
 - Mentor(s):
   - Akihiro Suda (@AkihiroSuda, suda.kyoto@gmail.com)
   - Ansuman Sahoo (@unsuman, anshumansahoo500@gmail.com)
 
-- Upstream Issues: https://github.com/lima-vm/lima/issues/4852, https://github.com/lima-vm/lima/issues/4820, https://github.com/lima-vm/lima/issues/4819
+- Upstream Issues: https://github.com/lima-vm/lima/issues/4907
 
 ### OpenEverest
 
@@ -293,6 +351,8 @@ Alongside this, the mentee will improve documentation experience for contributor
   - Jesse Stutler (@JesseStutler, jessestutler97@gmail.com)
   - Kuldeep (@de6p, de6p97@gmail.com)
 
+- Upstream Issue: https://github.com/volcano-sh/dashboard/issues/197
+
 ### WasmEdge
 
 #### Memory alignment in WASM instructions
@@ -310,6 +370,26 @@ Alongside this, the mentee will improve documentation experience for contributor
   - YiYing He (@q82419 , yiying@secondstate.io )
   - Hung-Ying, Tai (@hydai , hydai@secondstate.io )
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/4820
+
+### Microcks
+
+#### Microcks-CLI v2 - IDE (Vs code) Integration and Local Dev Loop Enhancement
+
+- Description: The Microcks CLI (microcks-cli, written in Go) is a key part of Microcks' CI/CD story - it lets developers trigger contract tests and import artifacts from the command line and in GitHub Actions. This project goes into the developer experience layer. Today, developers must navigate to the Microcks web UI in a browser to see test results, check mock status, and diagnose import errors. There is no IDE integration, no offline validation mode, and no way to get mock results inline with the code being tested. This project builds three focused improvements that bring Microcks into the editor and the local dev loop: a VS Code extension, a local dry-run mode powered by Testcontainers, and an updated GitHub Actions output format that annotates PRs with per-operation pass/fail results.
+- Expected Outcome:
+  - A VS Code extension (microcks-vscode) published to the VS Code Marketplace that connects to a running Microcks instance and shows: loaded services, mock operation status, recent test run results, and importer job logs - all inline in the editor sidebar (Like postman, thunder client)
+  - A microcks test --dry-run flag in the CLI that uses Testcontainers (the Microcks uber image) to spin up an ephemeral local Microcks instance, import the specified artifact, run the contract test, report results, and tear down - with no external Microcks server required
+  - A demo video and documentation page on microcks.io showing the full local-to-CI workflow
+- Recommended Skills:
+  - GO
+  - VS Code Extension API (TypeScript)
+  - Testcontainers
+  - basic understanding of CLI UX and Docker
+- Mentor(s):
+  - Laurent Broudoux (@lbroudoux, laurent.broudoux@gmail.com)
+  - Yacine Kheddache (@yada, yacine@microcks.io)
+  - Harshvardhan Parmar (@Harsh4902, harshparmar4902@gmail.com)
+- Upstream Issue: https://github.com/microcks/microcks-cli/issues/255
 
 ### urunc
 
@@ -509,8 +589,7 @@ isolation guarantees that urunc provides.
   - Shuting Zhao (@realshuting, shutingz@nirmata.com)
   - Cortney Nickerson (@CortNick, cortney.nickerson@nirmata.com)
 - Upstream Issue: 
-  - https://github.com/kyverno/kyverno/issues/15335
-  - https://github.com/kyverno/kyverno/issues/15473
+  - https://github.com/kyverno/kyverno/issues/15999
 
 #### Kyverno Technical Outcomes
 
@@ -727,6 +806,179 @@ and demonstrate kgateway integration with multiple OAuth identity providers.
   - Naga Ravi Chaitanya Elluri (@chaitanyaenr , nelluri@redhat.com)
   - Darshan Jain (@ddjain , darjain@redhat.com)
 - Upstream Issue: https://github.com/krkn-chaos/website/issues/320
+
+### OpenKruise
+
+#### Dynamic Volume Mounting for JuiceFS and Ceph in OpenKruise Agents
+
+- Description: Dynamic volume mounting enables data persistence and sharing for pooled sandbox pods without relying on CSI plugins. This capability is essential for Agent workloads such as OpenClaw and Hermes, which need to save workspace data and share skills across sandboxes. Currently, OpenKruise Agents lacks support for open-source storage solutions like JuiceFS and Ceph, limiting adoption in on-premises environments. This project aims to integrate these storage backends by implementing CSI-plugin sidecars compatible with the Agent runtime and modifying the sandbox controller to support generic CSI volume mounting.
+
+- Expected Outcome:
+  - CSI-plugin sidecars for JuiceFS and Ceph that integrate seamlessly with the Agent runtime in OpenKruise Agents
+  - Sandbox controller enhancements to enable mounting of generic CSI volumes
+  - E2E tests covering core SandboxClaim flows involving JuiceFS and Ceph storage
+  - Comprehensive user-facing documentation published on the OpenKruise website and repository
+
+- Recommended Skills:
+  - Go programming
+  - Kubernetes (CRDs, controllers, RBAC)
+  - Familiarity with CSI plugins (particularly JuiceFS and Ceph)
+  - E2E testing frameworks (Ginkgo)
+
+- Mentor(s):
+  - Kai Shi (@BH4AWS, bh4aws@gmail.com)
+  - Zhang Zhen (@furykerry, furykerry@gmail.com)
+
+- Upstream Issue: https://github.com/openkruise/agents/issues/314
+
+#### Lightweight and Continuous Load Testing for OpenKruise Agents Using Kwok
+
+- Description: Rapid, large-scale sandbox provisioning is critical for agentic workloads. OpenKruise Agents has optimized this through techniques like pooling and efficient sandbox discovery. To prevent performance regressions, continuous testing at scale is essential. This project will build a lightweight, resource-efficient load testing framework using Kwok to evaluate OpenKruise Agents' performance at scale (e.g., 100,000 sandboxes). Additionally, it will establish an automated workflow to regularly execute load tests and report performance metrics, ensuring consistent validation of provisioning capabilities.
+
+- Expected Outcome:
+  - A scalable load testing framework capable of evaluating OpenKruise Agents' performance with up to 100,000 sandboxes
+  - GitHub Actions workflows and scripts to automate regular load testing and generate performance reports
+  - Sandbox controller optimizations to facilitate lightweight load testing scenarios
+  - Performance baseline documentation and regression detection mechanisms
+
+- Recommended Skills:
+  - Go programming
+  - Kubernetes (CRDs, controllers, RBAC)
+  - Familiarity with Kwok for cluster simulation
+  - GitHub Actions workflow development and shell scripting
+
+- Mentor(s):
+  - Zhong Tianyun (@AiRanthem, airanthem666@gmail.com)
+  - Zhao Mingshan (@zmberg, berg.zms@gmail.com)
+
+- Upstream Issue: https://github.com/openkruise/agents/issues/314
+
+#### Build Document Agent for OpenKruise Website
+
+- Description: The OpenKruise ecosystem comprises multiple rapidly evolving projects, each with its own documentation, blogs, and resources scattered across repositories. Maintaining up-to-date, coherent documentation is challenging. This project aims to build an intelligent document agent for the OpenKruise website that automates the collection, synchronization, and quality evaluation of documentation, blog posts, and other technical resources. The agent will leverage modern context engineering techniques (skills, MCP, RAG, AGENTS.md) to ensure content freshness, consistency, and discoverability across the entire OpenKruise project portfolio.
+
+- Expected Outcome:
+  - Agentic harness infrastructure for the OpenKruise website, including AGENTS.md configuration and specialized tools for documentation management
+  - Automated GitHub Actions workflows to regularly collect, update, and evaluate documentation, blogs, and resources from all OpenKruise projects and Internet
+  - Refreshed and standardized documentation structure with improved navigation and cross-referencing
+  - Updated blog archive with consistent formatting and metadata enrichment
+
+- Recommended Skills:
+  - Go programming
+  - Kubernetes fundamentals (CRDs, controllers, RBAC)
+  - Context Engineering techniques (skills, MCP, RAG, AGENTS.md)
+  - GitHub Actions workflow development and shell scripting
+  - Technical writing and documentation best practices
+
+- Mentor(s):
+  - Zhang Zhen (@furykerry, furykerry@gmail.com)
+  - Zhao Mingshan (@zmberg, berg.zms@gmail.com)
+
+- Upstream Issue: https://github.com/openkruise/openkruise.io/issues/316
+
+### Kmesh
+
+#### Integrating Kmesh into Headlamp UI
+
+- Description: [Headlamp](https://headlamp.dev) is an open-source, extensible Kubernetes web UI offering easy cluster management, multi-cluster support, RBAC, and a plugin system for adding custom functionality. Users who work with Kmesh today have to switch back and forth between Headlamp (for general Kubernetes resource management) and CLI tools / `kubectl` (for Kmesh-specific inspection), which creates a fragmented workflow and a poor user experience. There is currently no simple visual way to view Kmesh resources, inspect waypoints and related components, understand overall mesh status, or troubleshoot issues quickly from within an interface users already use. This project proposes building a Headlamp plugin for Kmesh that brings Kmesh resources directly into the Headlamp UI, providing lightweight visibility of Kmesh resources alongside other Kubernetes resources. The full-featured Kmesh dashboard remains the place for advanced operations; the Headlamp plugin focuses on reducing context switching and improving ease of use for day-to-day workflows.
+- Expected Outcome:
+  - A Headlamp plugin (TypeScript/React) that registers Kmesh CRDs and surfaces them as first-class resources in the Headlamp UI.
+  - List and detail views for core Kmesh resources (e.g., waypoints and eBPF map)
+  - Visual indicators of mesh status: per-resource health, readiness, and recent Events; cluster-level summary of Kmesh components.
+  - Inspection helpers: pretty-printed YAML, related-pod views, and quick links to associated workloads/services.
+  - Documentation (README, screenshots, install guide) and a published plugin (Helm/manifest or Headlamp plugin registry entry).
+  - Unit/component tests for the plugin and an end-to-end smoke test against a kind/minikube cluster running Kmesh.
+- Recommended Skills:
+  - Kubernetes (CRDs, RBAC, kubectl)
+  - React / Next.js
+  - TypeScript
+  - Familiarity with Kmesh (or service mesh concepts in general)
+  - Headlamp UI
+- Mentor(s):
+  - Yash Israni (yashisrani, imailyash57@gmail.com),
+  - Jayesh Savaliya (jayesh9747, savaliyajayesh2405@gmail.com)
+- Upstream Issue: https://github.com/kmesh-net/kmesh/issues/1658
+
+### KubeEdge
+
+#### Building an Edge-Cloud Collaborative Framework for Embodied AI Applications with KubeEdge
+
+- Description: This project aims to explore how KubeEdge can support real-world embodied AI applications, where intelligent devices such as robots, inspection systems, or autonomous mobile platforms need to perceive, process, and respond in edge environments.
+The mentee will select a representative embodied AI scenario and build an end-to-end edge-cloud collaboration solution with KubeEdge. The solution should cover device or data source access, edge-side data processing, lightweight AI inference, cloud-edge synchronization, and system behavior under unstable network conditions.
+Through this project, the community will gain a reproducible reference implementation that demonstrates how KubeEdge can be used as the infrastructure foundation for embodied AI workloads.
+- Expected Outcome:
+  - Select a specific scenario related to embodied intelligence.
+  - Set up the KubeEdge edge-cloud environment: complete the deployment and configuration of CloudCore and EdgeCore, enable edge node access, and verify status synchronization and basic communication capabilities.
+  - Implement a closed loop for device access and edge AI inference: complete device or data source access, data collection, device status modeling, deployment of edge-side AI inference services, and inference result reporting.
+  - Verify edge-cloud collaboration and edge autonomy: implement cloud-side model delivery, configuration updates, and data aggregation, and verify continuous edge operation and recovery synchronization under weak network or disconnected scenarios.
+  - Provide reproducible engineering assets and evaluation documents, including architecture diagrams, KubeEdge configuration files, deployment and validation scripts, sample data, running instructions, and performance and reliability evaluation reports.
+- Recommended Skills: Kubernetes, KubeEdge, Go, Python, Edge Computing, Edge AI
+- Mentor(s):
+  - Hongbing Zhang (@HongbingZhang, hongbing.zhang@daocloud.io)
+  - Chen Su (@ghosind, ghosind@gmail.com)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/6755
+
+#### Comprehensive Example Restoration for KubeEdge Ianvs: Phase III
+
+- Description: Ianvs serves as the KubeEdge SIG AI distributed benchmark toolkit. As more and more contributors running, KubeEdge Ianvs now has up to 30 examples, and the number is still increasing. KubeEdge Ianvs then faces mounting usability issues due to dependency evolution and validation mechanisms. As Python versions, third-party libraries, and Ianvs features advance, partial historical examples fail to execute. This has led to surging user-reported Issues from confused contributors, untested PRs breaking core functionality of legacy features, and severely outdated documentation misaligning with actual capabilities. Without systematic intervention, the example risks becoming obsolete for edge-AI developers and especially newcomers. We then try to resurrect Ianvs’ usability with a comprehensive example restoration.
+- Expected Outcome:
+  - Diagnose & fix bugs across examples, including dependency manifests, license scan, and runtime configurations.
+  - Documentation Modernization, including revamp tutorials with reproducible step-by-step guides, publish developer-focused debugging playbooks for common failures. Write and upload the corresponding blog to the KubeEdge Website.
+  - Advanced: Build a CI pipeline testing examples with GitHub Actions against multiple Python versions, critical Ianvs/upstream updates, and block PRs that break validated examples
+- Recommended Skills: Python, Benchmark, KubeEdge-Ianvs, AI/ML
+- Mentor(s):
+  - Zimu Zheng (@MooreZheng, zimu.zheng@huawei.com)
+  - hsj576 (@hsj576, sjhu21@m.fudan.edu.cn)
+- Upstream Issue: https://github.com/kubeedge/ianvs/issues/230
+
+#### Enabling Edge-Native Inference for Lightweight Large Language Models with KubeEdge
+
+- Description: This project focuses on validating KubeEdge as an edge-native infrastructure for lightweight large language model inference. As more AI services move from the cloud to edge devices, lightweight LLMs provide a practical way to reduce latency, protect data privacy, and support local intelligence under limited resources.
+The mentee will deploy one or more lightweight LLMs on KubeEdge edge nodes and evaluate the complete workflow, including model packaging, workload scheduling, service exposure, lifecycle management, and performance measurement.
+The project is expected to produce a practical reference for running generative AI workloads on edge nodes managed by KubeEdge.
+- Expected Outcome:
+  - Successfully deploy and run one or more small-parameter large models on KubeEdge edge nodes, and complete end-to-end inference workflow validation.
+  - Explore deployment methods and best practices for managing lightweight model services based on KubeEdge.
+  - Evaluate basic performance on edge devices, including startup time, memory usage, inference latency, and runtime stability.
+  - Fix issues discovered during validation, and submit PRs to KubeEdge or related example repositories when necessary.
+  - Publish a blog or document to kubeedge/website introducing how to deploy and run small-parameter large models based on KubeEdge.
+  - Optional: complete example validation with a lightweight scenario, such as local Q&A, document summarization, or lightweight multimodal inference.
+- Recommended Skills: Kubernetes, KubeEdge, Python, Go, LLM Inference, Edge AI, Model Deployment
+- Mentor(s):
+  - Chuanhao Jin (@DoisLONG, 15221580643@163.com)
+  - Chen Su (@ghosind, ghosind@gmail.com)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/6756
+
+#### Exploring AI PCs as KubeEdge-Managed Edge Nodes for Intelligent Workload Orchestration
+
+- Description: This project explores how AI PCs can be integrated into the KubeEdge ecosystem as a new type of edge node. With built-in heterogeneous computing capabilities such as CPUs, GPUs, and NPUs, AI PCs are becoming suitable platforms for local AI inference, privacy-sensitive applications, and low-latency intelligent services.
+The mentee will connect one or more AI PCs to KubeEdge, deploy representative AI workloads, and explore resource monitoring and workload orchestration patterns for AI PC environments.
+The project will summarize practical experience and provide reference documentation for using KubeEdge to manage AI PCs as edge computing infrastructure.
+- Expected Outcome:
+  - Connect one or more AI PCs to KubeEdge as edge nodes and verify their basic management capabilities.
+  - Deploy and run representative AI workloads on AI PCs through KubeEdge, such as lightweight large model inference, vision models, or multimodal services.
+  - Explore monitoring methods for local resources and AI-related metrics on AI PCs, such as CPU/GPU/NPU utilization, memory usage, and inference service health status.
+  - Summarize best practices for workload deployment, resource management, and edge-cloud collaboration for AI PCs.
+  - Fix issues discovered during validation, and submit PRs to KubeEdge, example repositories, or related documentation when necessary.
+  - Publish a blog or document to kubeedge/website introducing how to use AI PCs together with KubeEdge.
+  - Optional: explore an example scenario combining cloud-side collaboration and device-side inference, focusing on low-latency or privacy-sensitive tasks.
+- Recommended Skills: Kubernetes, KubeEdge, Edge AI, AI PC, Heterogeneous Computing, Resource Monitoring, Python, Go
+- Mentor(s):
+  - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
+  - Hongbing Zhang (@HongbingZhang, hongbing.zhang@daocloud.io)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/6757
+
+#### Exploring Alternatives to iptableManager: Optimizing Edge-Cloud Request Forwarding via Apiserver Redirection to cloudcore
+
+- Description: Currently, in KubeEdge, the cloudstream component utilizes iptables to redirect requests from the apiserver intended for the edge node's KubeletEndpoint to port 10003 of the cloudcore to which that edge node is connected. The request is then routed through cloudstream to edgestream, ultimately accessing the KubeletEndpoint port on the edged. This requires the iptableManager to use iptables for interception and forwarding every 10 seconds. Since this mechanism depends on iptables, a proposal has been made to explore whether it's possible to have the Apiserver redirect to cloudcore directly, thereby replacing the iptableManager.
+- Expected Outcome:
+  - Submit a design proposal.
+  - Complete the feature development and ultimately meet the requirements for merging the code into the main repository.
+- Recommended Skills: Go, Kubernetes, Client-go
+- Mentor(s):
+  - Zhijia Yang (@luomengY, 2938893385@qq.com)
+  - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
+- Upstream Issue: https://github.com/kubeedge/kubeedge/issues/6754
 
 ### Chaos Mesh
 
