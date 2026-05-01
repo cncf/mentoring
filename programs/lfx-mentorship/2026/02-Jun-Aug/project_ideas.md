@@ -328,6 +328,27 @@ Alongside this, the mentee will improve documentation experience for contributor
   - Amy Super (@amy-super, amy.super@grafana.com)
 - Upstream Issue: https://github.com/open-telemetry/opentelemetry-ecosystem-explorer/issues/309
 
+#### Expanding Go Compile-Time Instrumentation Support and Improving otelc Tooling
+
+- Description: The [OpenTelemetry Go Compile Instrumentation](https://github.com/open-telemetry/opentelemetry-go-compile-instrumentation) project provides `otelc`, a compile-time auto-instrumentation tool for Go applications. It injects OpenTelemetry instrumentation during the Go build process without requiring manual source-code changes in the target application. As the project moves toward its v1.0 release and continues feature-parity work with mature compile-time instrumentation efforts such as [Orchestrion](https://github.com/DataDog/orchestrion) and [Loongsuite](https://github.com/alibaba/loongsuite-go-agent), the next phase is to broaden real-world library coverage while hardening the tooling and contributor workflow needed to maintain those integrations over time. This mentorship focuses on adding several mentor-approved integrations from the project roadmap and backlog, such as messaging, database/cache, logging, Kubernetes client, or GenAI SDK libraries, while improving `otelc` whenever the integration work exposes gaps in rule authoring, hook implementation, testing, or debugging. The mentee will also document the science behind compile-time instrumentation: how Go symbols and versions are matched, how hooks are injected, how OpenTelemetry semantic conventions are applied, and how compatibility is verified across library releases.
+- Expected Outcome:
+  - Add `otelc` instrumentation support for 3-4 widely used Go libraries selected with mentors from the project roadmap/backlog, depending on complexity and project priorities.
+  - For each new integration, implement instrumentation rules and hook code, define supported version ranges, and follow the relevant OpenTelemetry semantic conventions.
+  - Add meaningful unit, integration, and/or end-to-end tests that verify the instrumented application builds and emits the expected telemetry.
+  - Improve the instrumentation tooling or contributor workflow as needed during the work, for example rule validation, hook scaffolding, latest-library compatibility checks, integration layout, or debugging output.
+  - Write documentation, examples, and demos that explain how to use the new integrations and how future contributors can build similar ones.
+- Recommended Skills:
+  - Go
+  - OpenTelemetry concepts and semantic conventions, or willingness to learn
+  - Understanding of Go AST/DST, code transformation, or compiler/build tooling, or willingness to learn
+  - Testing and debugging Go applications
+  - Familiarity with Git and GitHub workflows
+- Mentor(s):
+  - Kemal Akkoyun (@kakkoyun, kakkoyun@gmail.com)
+  - Dario Castañé (@darccio, d@rio.hn)
+- Acknowledgement: Initial project framing was drafted with help from Azhar Momin (@amazingakai).
+- Upstream Issue: https://github.com/open-telemetry/opentelemetry-go-compile-instrumentation/issues/446
+
 ### Volcano
 
 #### Support Namespace-scoped Queue in Volcano
