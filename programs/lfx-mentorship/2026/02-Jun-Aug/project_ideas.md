@@ -1040,3 +1040,29 @@ The project will summarize practical experience and provide reference documentat
   - Zhiqiang ZHOU (@STRRL, im@strrl.dev)
   - Andrewmatilde (@Andrewmatilde, davis6813585853062@gmail.com)
 - Upstream Issue: https://github.com/chaos-mesh/chaos-mesh/issues/4903
+
+## Kubernetes
+
+### SIG Node / node-readiness-controller
+
+#### Advanced Observability: Per-Rule Metrics and Headlamp Plugin
+
+- Description: As clusters grow, understanding why a node is not "Ready" becomes complex. This project aims to improve visibility into the `node-readiness-controller`'s operations by enhancing its Prometheus metrics and providing a visual interface. The mentee will extend the internal metrics system to expose granular data for individual `NodeReadinessRule` objects and taint states. Additionally, the mentee will develop a plugin for Headlamp (the extensible Kubernetes UI) to visualize these readiness rules, showing real-time “node-availability” status and failure reasons directly in the dashboard.
+- Expected Outcome: New Prometheus metrics (e.g., rule evaluation duration, per-rule pass/fail counts); a functional Headlamp plugin for the project; and a pre-configured Grafana dashboard template.
+- Recommended Skills: Go, Prometheus, TypeScript/React (for the Headlamp plugin).
+- Mentor(s):
+  - Avinesh Tripathi (@AvineshTripathi, avineshtripathi1@gmail.com)
+  - Karthik K N (@Karthik-K-N, karthikkn1997@gmail.com)
+  - Ajay Sundar Karuppasamy (@ajaysundark, ajaysundar.k@gmail.com)
+- Upstream Issue: [sigs.k8s.io/node-readiness-controller#182](https://github.com/kubernetes-sigs/node-readiness-controller/issues/182)
+
+#### Scalability Testing and Release Reliability
+
+- Description: For a controller that manages node readiness, reliable performance at scale is critical. This project aims to improve the project's test framework across three key areas: building a comprehensive scale-test suite using `kwok` to simulate clusters with 1,000+ nodes, hardening the release pipeline to automate versioning and promotion to [`registry.k8s.io`](https://registry.k8s.io), and refactoring the E2E test suite in `test/e2e` to be environment-agnostic and more reliable.
+- Expected Outcome: A scalable test harness using `kwok`; automated Prow job configurations; and a benchmark report detailing the controller's performance limits.
+- Recommended Skills: Kubernetes, Prow, kwok, Go, Shell scripting.
+- Mentor(s):
+  - Karthik K N (@Karthik-K-N, karthikkn1997@gmail.com)
+  - Priyanka Saggu (@Priyankasaggu11929, priyankasaggu11929@gmail.com)
+  - Ajay Sundar Karuppasamy (@ajaysundark, ajaysundar.k@gmail.com)
+- Upstream Issue: [sigs.k8s.io/node-readiness-controller#151](https://github.com/kubernetes-sigs/node-readiness-controller/issues/151)
