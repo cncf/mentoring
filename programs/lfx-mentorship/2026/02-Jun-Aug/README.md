@@ -852,6 +852,7 @@ CNCF - Microcks: CLI v2 - VS Code Integration and Local Dev Loop Enhancement (20
   - Laurent Broudoux (@lbroudoux, laurent.broudoux@gmail.com)
   - Yacine Kheddache (@yada, yacine@microcks.io)
   - Harshvardhan Parmar (@Harsh4902, harshparmar4902@gmail.com)
+  - Vaishnav Kale (@Vaishnav88sk, vaishnavsk8804@gmail.com)
 - Upstream Issue: https://github.com/microcks/microcks-cli/issues/255
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/7e8b57e3-0f43-4298-b079-ba9d671b68d8
 
