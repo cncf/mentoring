@@ -197,3 +197,29 @@
 
 - Upstream Issue: 
   https://github.com/kubernetes-sigs/headlamp/issues/5265
+
+### KubeSlice
+
+#### KubeSlice Controller HA (Active/Standby) Support
+
+- Description: Add Active/Standby HA support for the KubeSlice Controller.
+  - Leader election: Only one controller cluster (the “Active” node) holds a distributed lock (e.g., a Lease) and is permitted to write updates to worker clusters or manage Slice configurations.
+  - Constant state sync: The Standby cluster continuously mirrors the Active cluster’s state, including relevant KubeSlice CRDs (Slices, ServiceExports, Clusters, etc.).
+  - Heartbeating: The Standby cluster monitors the health of the Active cluster.
+  - Failover: If the Active cluster fails to renew its lease, the Standby cluster detects the timeout, acquires the lock, promotes itself to Active, and worker clusters are updated to use the new Active controller.
+- Expected Outcome: Implement an Active/Standby HA architecture that makes the KubeSlice management plane resilient and disaster-recovery-ready.
+- Recommended Skills: Go, Kubernetes (controllers, CRDs, client-go)
+- Mentor(s):
+  - Gourish Biradar (email: biradar.gourish@gmail.com, github: gourishkb) , Prabhu Navali (email: prabhu@avesha.io, github: pnavali), Rahul Kumar (email: rahulparida933@gmail.com, github: Rahul-D78)
+- Upstream Issue(s):
+  - https://github.com/kubeslice/kubeslice-controller/issues/305
+    
+#### Partial Mesh Support (MVP: Hub-and-Spoke)
+
+- Description: Add partial mesh support to KubeSlice using a small-scope MVP topology: **Hub-and-Spoke**. Users can define one (or two) hub clusters for a slice; the controller computes desired connections so only hub↔spoke links are established (no spoke↔spoke), and workers reconcile connectivity accordingly. Includes status reporting for convergence and failure reasons.
+- Expected Outcome: Users can create a slice with hub-and-spoke partial mesh topology and see it converge across multiple worker clusters. Topology updates (e.g., changing the hub) rewire connections safely. Slice/worker status surfaces readiness and errors for debugging.
+- Recommended Skills: Go, Kubernetes (CRDs, controllers, client-go)
+- Mentor(s):
+  - Gourish Biradar (email: biradar.gourish@gmail.com, github: gourishkb) , Prabhu Navali (email: prabhu@avesha.io, github: pnavali), Rahul Kumar (email: rahulparida933@gmail.com, github: Rahul-D78)
+- Upstream Issue(s):
+  - https://github.com/kubeslice/kubeslice-controller/issues/306
