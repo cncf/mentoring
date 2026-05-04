@@ -184,17 +184,9 @@
 - Expected Outcome: Implement an Active/Standby HA architecture that makes the KubeSlice management plane resilient and disaster-recovery-ready.
 - Recommended Skills: Go, Kubernetes (controllers, CRDs, client-go)
 - Mentor(s):
-  - biradar.gourish@gmail.com, prabhu@avesha.io, rahulparida933@gmail.com
+  - Gourish Biradar (email: biradar.gourish@gmail.com, github: gourishkb) , Prabhu Navali (email: prabhu@avesha.io, github: pnavali), Rahul Kumar (email: rahulparida933@gmail.com, github: Rahul-D78)
 - Upstream Issue(s):
-  - https://github.com/kubeslice/kubeslice-controller/issues/293
-  - https://github.com/kubeslice/kubeslice-controller/issues/294
-  - https://github.com/kubeslice/kubeslice-controller/issues/295
-  - https://github.com/kubeslice/kubeslice-controller/issues/297
-  - https://github.com/kubeslice/kubeslice-controller/issues/298
-  - https://github.com/kubeslice/kubeslice-controller/issues/299
-  - https://github.com/kubeslice/worker-operator/issues/467
-  - https://github.com/kubeslice/worker-operator/issues/468
-  - https://github.com/kubeslice/worker-operator/issues/469
+  - https://github.com/kubeslice/kubeslice-controller/issues/305
     
 #### Partial Mesh Support (MVP: Hub-and-Spoke)
 
@@ -202,8 +194,6 @@
 - Expected Outcome: Users can create a slice with hub-and-spoke partial mesh topology and see it converge across multiple worker clusters. Topology updates (e.g., changing the hub) rewire connections safely. Slice/worker status surfaces readiness and errors for debugging.
 - Recommended Skills: Go, Kubernetes (CRDs, controllers, client-go)
 - Mentor(s):
-  - biradar.gourish@gmail.com, prabhu@avesha.io, rahulparida933@gmail.com
+  - Gourish Biradar (email: biradar.gourish@gmail.com, github: gourishkb) , Prabhu Navali (email: prabhu@avesha.io, github: pnavali), Rahul Kumar (email: rahulparida933@gmail.com, github: Rahul-D78)
 - Upstream Issue(s):
-  - https://github.com/kubeslice/kubeslice-controller/issues/300
-  - https://github.com/kubeslice/worker-operator/issues/470
-  - https://github.com/kubeslice/worker-operator/issues/471
+  - https://github.com/kubeslice/kubeslice-controller/issues/306
