@@ -269,5 +269,5 @@ CNCF - Meshery: Meshery Models Support for OCI Registries (2026 Term 2)
 - Mentor(s):
   - James Hortison (@hortison, james.hortison@layer5.io)
   - Lee Calcote (@leecalcote, leecalcote@gmail.com)
-- Issue: https://github.com/meshery/meshery/issues/19093
+- Upstream Issue: https://github.com/meshery/meshery/issues/19093
 - LFX URL: 
