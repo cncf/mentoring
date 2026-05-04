@@ -227,7 +227,7 @@ CNCF - Meshery: Adapter for AI and LLMs (2026 Term 2)
 - Mentor(s):
   - Rian Cteulp (@ritzorama, rian.cteulp@gmail.com)
   - Lee Calcote (@leecalcote, leecalcote@gmail.com)
-- Issue: https://github.com/meshery/meshery/issues/19092
+- Upstream Issue: https://github.com/meshery/meshery/issues/19092
 - LFX URL: 
 
 #### Agentic CI Pipelines: GitHub Action Workflow Overhaul
