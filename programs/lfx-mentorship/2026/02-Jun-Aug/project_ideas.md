@@ -179,7 +179,7 @@
 CNCF - Meshery: Relationships and Solutions Architecture of Cloud Native Deployments (2026 Term 2)
 
 - Description: Meshery Models are declarative representations of infrastructure and applications. Within these models, Relationships define how different Components (e.g., Kubernetes resources, Cloud services) interact and depend on each other. These relationships are crucial for visualizing, understanding, and managing complex cloud native systems. This project focuses on expanding Meshery Relationships across a wide range of technologies, including Kubernetes and major cloud providers, to better model their interactions and improve user insights. There is a growing need to accurately model these relationships to provide better insights and control over deployments.
-The next phase focuses on Cloud Solution Architecture through workload design by creating and publishing Meshery designs that use the newly developed relationships to represent real-world deployments. These designs will be turned into structured tutorials with hands-on labs using Meshery Playground, offering step-by-step guidance and interactive learning. All content will be reviewed by maintainers and published in Meshery’s official documentation
+  The next phase focuses on Cloud Solution Architecture through workload design by creating and publishing Meshery designs that use the newly developed relationships to represent real-world deployments. These designs will be turned into structured tutorials with hands-on labs using Meshery Playground, offering step-by-step guidance and interactive learning. All content will be reviewed by maintainers and published in Meshery’s official documentation
 - Responsibilities:
   - Research and Analyze Technologies: Dive deep into various cloud-native technologies (e.g., different compute services, databases, messaging systems, network services, etc.) to understand their components and how they interconnect.
   - Develop Relationship Definitions: Create and contribute relationship definitions, typically in JSON or YAML format, to the Meshery models.
@@ -194,7 +194,8 @@ The next phase focuses on Cloud Solution Architecture through workload design by
   - Policy Contribution: For advanced interns, there may be opportunities to contribute to the Rego policies that evaluate and enforce these relationships.
 - Recommended Skills: DevOps, systems administration, and solutions architecture, experience with Kubernetes and cloud platforms (AWS, Azure, GCP), proficiency in Markdown and technical writing, familiarity with cloud-native tools.
 - Mentor(s):
-  - Sangram Rath (@sangramrath, sangram.rath@gmail.com), Lee Calcote (@leecalcote, lee.calcote@gmail.com)
+  - Sangram Rath (@sangramrath, sangram.rath@gmail.com)
+  - Lee Calcote (@leecalcote, lee.calcote@gmail.com)
 - Upstream Issues:
   - https://github.com/meshery/meshery/issues/14793
   - https://github.com/meshery/meshery/issues/14794
@@ -223,7 +224,9 @@ CNCF - Meshery: Adapter for AI and LLMs (2026 Term 2)
   - Demonstrable capability for users to swap between at least two different LLM providers (e.g., OpenAI vs. a local Llama 3 model).
   - Implementation of a feature where natural language queries result in a rendered design.
   - Merged pull requests (PRs) including code, tests, and documentation.
-  Mentor(s):Rian Cteulp (@ritzorama, rian.cteulp@gmail.com), Lee Calcote (@leecalcote, leecalcote@gmail.com)
+- Mentor(s):
+  - Rian Cteulp (@ritzorama, rian.cteulp@gmail.com)
+  - Lee Calcote (@leecalcote, leecalcote@gmail.com)
 - Issue: https://github.com/meshery/meshery/issues/19092
 - LFX URL: 
 
@@ -263,6 +266,8 @@ CNCF - Meshery: Meshery Models Support for OCI Registries (2026 Term 2)
   - Meshery users can connect to Docker Hub, AWS ECR, GHCR, and other OCI registries using managed credentials and push or pull Meshery Models directly from the Meshery UI and `mesheryctl`.
   - A well-defined OCI artifact convention for Meshery Models, documented and suitable for adoption by the broader Meshery ecosystem.
   - A redesigned Registry UI page providing a unified, registry-agnostic interface for model artifact management.
-- Mentor(s): James Hortison (@hortison, james.hortison@layer5.io) Lee Calcote (@leecalcote, leecalcote@gmail.com)
+- Mentor(s):
+  - James Hortison (@hortison, james.hortison@layer5.io)
+  - Lee Calcote (@leecalcote, leecalcote@gmail.com)
 - Issue: https://github.com/meshery/meshery/issues/19093
 - LFX URL: 
