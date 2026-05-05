@@ -22,6 +22,8 @@
 
 #### KubeArmor Supply Chain Security with SLSA Level 3 Compliance and OpenSSF Scorecard Hardening
 
+CNCF - KubeArmor: Supply Chain Security with SLSA L3 and OpenSSF Scorecard Hardening (2026 Term 2)
+
 - Description: KubeArmor is a runtime security engine that enforces zero-trust policies at the kernel level. As a security-critical project in the CNCF ecosystem, it must hold its own supply chain to the highest standards. This project focuses on two tightly related goals. First, achieving SLSA Level 3 compliance by auditing KubeArmor's build and release pipeline against the full SLSA L3 specification — covering hermetic builds, non-falsifiable provenance generation via SLSA GitHub Actions, and signed release attestations using cosign. KubeArmor already signs container images; this project closes the remaining gaps by following a strategy similar to KubeEdge's documented SLSA L3 journey. Second, improving KubeArmor's OpenSSF Scorecard rating by systematically addressing low-scoring checks - including Signed-Releases, Fuzzing (OSS-Fuzz integration), SAST (CodeQL), Pinned-Dependencies, and CII Best Practices. Also integrating the Scorecard GitHub Action into CI for continuous score tracking. The pre-task for mentee candidates will be submitting a pull request that enables and verifies the Signed-Releases check on KubeArmor's OpenSSF Scorecard, establishing a clear baseline before the full term begins.
 
 - Expected Outcome:
@@ -44,11 +46,15 @@
   - https://github.com/kubearmor/KubeArmor/issues/1164
   - https://securityscorecards.dev/viewer/?uri=github.com/kubearmor/KubeArmor
 
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/7fbac80e-bc33-4362-81fa-47950ef45bb2
+
 ## Kubernetes
 
 ### Headlamp
 
 #### Add Argo CD to Headlamp: GitOps Application Management UI
+
+CNCF - Kubernetes: Add Argo CD to Headlamp - GitOps Application Management UI (2026 Term 2)
 
 - Description:
   [Argo CD](https://github.com/argoproj/argo-cd) is a Kubernetes-native GitOps continuous delivery tool for managing application deployments from Git. This project builds a Headlamp plugin that integrates Argo CD concepts directly into Kubernetes workflows by extending the **Projects view**. The plugin surfaces high-level GitOps signals (applications, sync status, health, revisions) so SREs, operators, and developers can understand deployment state.
@@ -85,7 +91,11 @@
 - Upstream Issue:
   https://github.com/kubernetes-sigs/headlamp/issues/5260
 
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/09854509-4859-46ea-a5c8-36d9a55b8106
+
 #### Add Metal3 to Headlamp: Kubernetes Bare Metal Management UI
+
+CNCF - Kubernetes: Add Metal3 to Headlamp - Bare Metal Management UI (2026 Term 2)
 
 - Description:
  [Metal3](https://metal3.io/) is a Kubernetes-native project for managing bare metal hosts using Kubernetes APIs and operators. This project builds a Headlamp plugin that adds a Metal3 section to Headlamp, surfacing Metal3 CRDs so operators can view and manage bare metal hosts, provisioning states, and infrastructure resources from the Headlamp UI. The plugin follows Headlamp UX patterns with list and detail views, links between related resources, and optional metrics embedding.
@@ -113,7 +123,11 @@
 - Upstream Issue:
  https://github.com/kubernetes-sigs/headlamp/issues/5268
 
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/dbf009dd-6eed-4c15-b6fc-391c0bc418dc
+
 #### Add Agones to Headlamp: Kubernetes Game Server Management UI
+
+CNCF - Kubernetes: Add Agones to Headlamp - Game Server Management UI (2026 Term 2)
 
 - Description:
  Agones is a Kubernetes-native platform for hosting, running, and scaling dedicated game servers. This project builds a Headlamp plugin that adds an **Agones** section to Headlamp, surfacing Agones CRDs so operators can **view and manage game servers, fleets, and allocations** from the Headlamp UI. The plugin follows Headlamp UX patterns with list and detail views, links between related resources, and visibility into lifecycle and allocation state.
@@ -142,7 +156,11 @@
 - Upstream Issue:  
   https://github.com/kubernetes-sigs/headlamp/issues/5261
 
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/7b09c151-5b46-4c15-9146-6701e177b8d1
+
 #### Add Tinkerbell to Headlamp: Bare Metal Provisioning UI
+
+CNCF - Kubernetes: Add Agones to Headlamp - Game Server Management UI (2026 Term 2)
 
 - Description:
  [Tinkerbell ](https://tinkerbell.org/) is a CNCF sandbox project and a flexible bare metal provisioning engine that enables operators to provision and manage physical hardware using Kubernetes-style declarative workflows.  
@@ -171,7 +189,11 @@
 - Upstream Issue:
   https://github.com/kubernetes-sigs/headlamp/issues/5262
 
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ef8fab6e-9b07-49cb-8d9d-836491fe8e69
+
 #### Add Kueue to Headlamp: Kubernetes Batch Queueing UI
+
+CNCF - Kubernetes: Add Kueue to Headlamp - Batch Queueing UI (2026 Term 2)
 
 - Description:
   - [Kueue](https://github.com/kubernetes-sigs/kueue) is a Kubernetes-native job queueing system for managing batch workloads and resource sharing across clusters. This project builds a Headlamp plugin that adds a **Kueue** section to kubernetes-sigs/Headlamp, surfacing Kueue CRDs so operators can **view and manage queues, workloads, and resource allocation** from the Headlamp UI. The plugin follows Headlamp UX patterns with list and detail views, links between related resources, and optional metrics embedding.
@@ -198,9 +220,13 @@
 - Upstream Issue: 
   https://github.com/kubernetes-sigs/headlamp/issues/5265
 
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/d86084ff-9aa9-46bd-9bdc-a4dd4e294649
+
 ### KubeSlice
 
 #### KubeSlice Controller HA (Active/Standby) Support
+
+CNCF - KubeSlice: Controller HA (Active/Standby) Support (2026 Term 2)
 
 - Description: Add Active/Standby HA support for the KubeSlice Controller.
   - Leader election: Only one controller cluster (the “Active” node) holds a distributed lock (e.g., a Lease) and is permitted to write updates to worker clusters or manage Slice configurations.
@@ -213,8 +239,12 @@
   - Gourish Biradar (email: biradar.gourish@gmail.com, github: gourishkb) , Prabhu Navali (email: prabhu@avesha.io, github: pnavali), Rahul Kumar (email: rahulparida933@gmail.com, github: Rahul-D78)
 - Upstream Issue(s):
   - https://github.com/kubeslice/kubeslice-controller/issues/305
-    
+
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/f33a330a-a4e8-4e53-b354-2b976689ce40
+
 #### Partial Mesh Support (MVP: Hub-and-Spoke)
+
+CNCF - KubeSlice: Partial Mesh Support (MVP: Hub-and-Spoke) (2026 Term 2)
 
 - Description: Add partial mesh support to KubeSlice using a small-scope MVP topology: **Hub-and-Spoke**. Users can define one (or two) hub clusters for a slice; the controller computes desired connections so only hub↔spoke links are established (no spoke↔spoke), and workers reconcile connectivity accordingly. Includes status reporting for convergence and failure reasons.
 - Expected Outcome: Users can create a slice with hub-and-spoke partial mesh topology and see it converge across multiple worker clusters. Topology updates (e.g., changing the hub) rewire connections safely. Slice/worker status surfaces readiness and errors for debugging.
@@ -223,6 +253,8 @@
   - Gourish Biradar (email: biradar.gourish@gmail.com, github: gourishkb) , Prabhu Navali (email: prabhu@avesha.io, github: pnavali), Rahul Kumar (email: rahulparida933@gmail.com, github: Rahul-D78)
 - Upstream Issue(s):
   - https://github.com/kubeslice/kubeslice-controller/issues/306
+
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/0daa13c2-8a4b-4dd0-8520-20f20de2e580
 
 ### Meshery
 
@@ -252,7 +284,7 @@ CNCF - Meshery: Relationships and Solutions Architecture of Cloud Native Deploym
   - https://github.com/meshery/meshery/issues/14793
   - https://github.com/meshery/meshery/issues/14794
   - https://github.com/meshery/meshery/issues/14796
-- LFX URL: 
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/f5ed20dd-5604-4c80-a63a-711a1685ecbf
 
 #### Adapter for AI and LLMs
 
@@ -280,7 +312,7 @@ CNCF - Meshery: Adapter for AI and LLMs (2026 Term 2)
   - Rian Cteulp (@ritzorama, rian.cteulp@gmail.com)
   - Lee Calcote (@leecalcote, leecalcote@gmail.com)
 - Upstream Issue: https://github.com/meshery/meshery/issues/19092
-- LFX URL: 
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/23c263a3-8575-4570-b602-87703a3cced1
 
 #### Agentic CI Pipelines: GitHub Action Workflow Overhaul
 
@@ -299,7 +331,7 @@ CNCF - Meshery: Agentic CI Pipelines: GitHub Action Workflow Overhaul (2026 Term
   - A suite of agentic workflow definitions (`.md` + compiled `.lock.yml`) committed to the repository, demonstrating Continuous AI applied to Meshery's software delivery lifecycle.
 - Mentor(s): Mia Grenell (@miacycle, mia.grenell2337@gmail.com), Lee Calcote (@leecalcote, leecalcote@gmail.com)
 - Issue: https://github.com/meshery/meshery/issues/18795
-- LFX URL: 
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/2ca5cf08-3206-4b21-88c8-e124f8766466
 
 #### Meshery Models Support for OCI Registries
 
@@ -322,11 +354,13 @@ CNCF - Meshery: Meshery Models Support for OCI Registries (2026 Term 2)
   - James Hortison (@hortison, james.hortison@layer5.io)
   - Lee Calcote (@leecalcote, leecalcote@gmail.com)
 - Upstream Issue: https://github.com/meshery/meshery/issues/19093
-- LFX URL: 
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ddccc7cc-e5b1-419e-825a-75be1f70aba2
 
 ### Knative Functions
 
 #### End-to-End Agentic Workflow for Serverless Functions
+
+CNCF - Knative Functions: End-to-End Agentic Workflow for Serverless Functions (2026 Term 2)
 
 - Description: Knative Functions ships an MCP (Model Context Protocol) server that exposes its toolchain to AI agents. This project builds on that foundation: deepening the MCP server to cover initial environment setup and CI/CD integration, and authoring a companion skill that walks agents through the full lifecycle of a Function. Together these enable end-to-end agentic usage of Serverless Functions; from initial scaffolding through deployment with CI/CD.
 
@@ -348,3 +382,6 @@ CNCF - Meshery: Meshery Models Support for OCI Registries (2026 Term 2)
   - David Fridrich (@gauron99, dfridric@redhat.com)
 
 - Upstream Issue: https://github.com/knative/func/issues/3646
+
+- LFX URL: 
+
