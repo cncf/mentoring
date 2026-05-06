@@ -47,6 +47,8 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - [Documentation improvements for OIDC and JWT IdPs integrations](#documentation-improvements-for-oidc-and-jwt-idps-integrations)
 - [Kmesh](#kmesh)
   - [Integrating Kmesh into Headlamp UI](#integrating-kmesh-into-headlamp-ui)
+- [Knative Functions](#knative-functions)
+  - [End-to-End Agentic Workflow for Serverless Functions](#end-to-end-agentic-workflow-for-serverless-functions)
 - [krkn - Chaos](#krkn---chaos)
   - [Automated Documentation Sync Bot for Krkn-Chaos Projects](#automated-documentation-sync-bot-for-krkn-chaos-projects)
   - [Dynamic Cluster-Aware Configuration Generation for Krkn-AI](#dynamic-cluster-aware-configuration-generation-for-krkn-ai)
@@ -340,6 +342,30 @@ CNCF - Kmesh: Integrating Kmesh into Headlamp UI (2026 Term 2)
   - Jayesh Savaliya (jayesh9747, savaliyajayesh2405@gmail.com)
 - Upstream Issue: https://github.com/kmesh-net/kmesh/issues/1658
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/c5b8d1fa-b75a-4f88-a63b-e6487dc7e39b
+
+### Knative Functions
+
+#### End-to-End Agentic Workflow for Serverless Functions
+
+CNCF - Knative Functions: End-to-End Agentic Workflow for Serverless Functions (2026 Term 2)
+
+- Description: Knative Functions ships an MCP (Model Context Protocol) server that exposes its toolchain to AI agents. This project builds on that foundation: deepening the MCP server to cover initial environment setup and CI/CD integration, and authoring a companion skill that walks agents through the full lifecycle of a Function. Together these enable end-to-end agentic usage of Serverless Functions; from initial scaffolding through deployment with CI/CD.
+- Expected Outcome:
+  - New agentic installer
+  - New MCP operations covering prerequisite checks with guidance.
+  - A companion skill that composes initialization, CI/CD setup, and deployment into a guided workflow.
+  - End-to-end demonstration.
+  - User-facing and agent-facing documentation.
+- Recommended Skills:
+  - Familiarity with the Go programming language (ideal) or Python (secondarily).
+  - Experience with AI/ML agents and interest in programmatic LLM integrations.
+  - Familiarity with Kubernetes, Serverless, GitOps, CI/CD systems a plus.
+  - Strong communication skills, with the ability to research and document clearly.
+- Mentor(s):
+  - Luke Kingland (@lkingland, kingland@redhat.com) - Primary
+  - David Fridrich (@gauron99, dfridric@redhat.com)
+- Upstream Issue: https://github.com/knative/func/issues/3646
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/26086dfb-1c88-487c-a2de-e11cfc857c1a
 
 ### krkn - Chaos
 
