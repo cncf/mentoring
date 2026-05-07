@@ -74,7 +74,8 @@ Alongside this, the mentee will improve documentation experience for contributor
 - Recommended Skills:
   - Go, Kubernetes, agent
 - Mentor(s):
-  - Zhonghu xu(@hzxuzhonghu, zhhxu2011@gmail.com)
+  - Zhonghu xu(@hzxuzhonghu, zhhxu2011@gmail.com),
+  - ZhenCheng Li(@LiZhenCheng9527, lizhencheng6@huawei.com),
 - Upstream Issue: https://github.com/volcano-sh/agentcube/issues/301
 
 ### Kubescape
