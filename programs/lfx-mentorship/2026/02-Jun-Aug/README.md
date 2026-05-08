@@ -349,7 +349,7 @@ CNCF - Kmesh: Integrating Kmesh into Headlamp UI (2026 Term 2)
   - Headlamp UI
 - Mentor(s):
   - Yash Israni (yashisrani, imailyash57@gmail.com),
-  - Jayesh Savaliya (jayesh9747, savaliyajayesh2405@gmail.com)
+  - Jayesh Savaliya (jayesh9747, 112215167@cse.iiitp.ac.in)
 - Upstream Issue: https://github.com/kmesh-net/kmesh/issues/1658
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/c5b8d1fa-b75a-4f88-a63b-e6487dc7e39b
 
