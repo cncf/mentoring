@@ -1574,7 +1574,7 @@ isolation guarantees that urunc provides.
   - Charalampos Mainas (@cmainas, cmainas@nubificus.co.uk)
   - Anastassios Nanos (@ananos, ananos@nubificus.co.uk)
 
-- Upstream Issue: https://github.com/urunc-dev/urunc/issues/574
+- Upstream Issue: https://github.com/urunc-dev/urunc/issues/575
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/d11f903e-4d6f-49af-80d8-8fe0d728bce2
 
 #### Integration of urunc's sandbox execution with Argo
