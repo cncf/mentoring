@@ -210,31 +210,74 @@ body:
     validations:
       required: true
 
-  # ── Application Requirements ──────────────────────────────────────
+  # ── Application Prerequisites ────────────────────────────────────
   - type: checkboxes
-    id: application_requirements
+    id: application_prerequisites
     attributes:
-      label: Application Requirements
+      label: Application Prerequisites
       description: >
-        Check any items applicants must submit with their application.
-        All checked items are treated as **required** (applicants cannot
-        submit without them).
+        These map directly to LFX's standard prerequisite toggles.
+        Check each item applicants must complete. All checked items
+        are **required** — applicants cannot submit without them.
       options:
-        - label: "Project proposal (file upload)"
+        - label: "Resume"
           required: false
-        - label: "Code sample or portfolio link"
+        - label: "Cover Letter"
           required: false
-        - label: "Writing sample (file upload)"
+        - label: "School Enrollment Verification"
+          required: false
+        - label: "Participation Permission from school or employer"
+          required: false
+        - label: "Coding Challenge"
+          required: false
+        - label: "Custom Prerequisite (fill in details below)"
           required: false
 
-  # ── Additional Application Requirements ──────────────────────────
-  - type: textarea
-    id: additional_application_requirements
+  # ── Coding Challenge URL ──────────────────────────────────────────
+  - type: input
+    id: coding_challenge_url
     attributes:
-      label: Additional Application Requirements
+      label: Coding Challenge URL
       description: >
-        Anything not covered by the checkboxes above. Describe what the
-        applicant should provide — all items listed here are required.
-      placeholder: "e.g. A short video (< 3 min) explaining your interest in this project."
+        If you checked Coding Challenge above, provide the URL.
+        Leave blank otherwise.
+      placeholder: "https://example.com/challenge"
     validations:
       required: false
+
+  # ── Custom Prerequisite Name ──────────────────────────────────────
+  - type: input
+    id: custom_prerequisite_name
+    attributes:
+      label: Custom Prerequisite Name
+      description: >
+        If you checked Custom Prerequisite above, provide a short name
+        (max 20 characters on LFX). Leave blank otherwise.
+      placeholder: "e.g. Writing Sample"
+    validations:
+      required: false
+
+  # ── Custom Prerequisite Description ───────────────────────────────
+  - type: textarea
+    id: custom_prerequisite_description
+    attributes:
+      label: Custom Prerequisite Description
+      description: >
+        Describe what the applicant must provide (max 500 characters on
+        LFX). Check the file-upload box below if the applicant needs to
+        upload a file.
+      placeholder: "e.g. Please upload a writing sample demonstrating your technical communication skills."
+    validations:
+      required: false
+
+  # ── Custom Prerequisite — File Upload Required? ───────────────────
+  - type: checkboxes
+    id: custom_prerequisite_file_upload
+    attributes:
+      label: Custom Prerequisite — File Upload
+      description: >
+        Does your custom prerequisite require the mentee to upload a file?
+      options:
+        - label: "Yes — completion of this task requires the mentee to submit a file."
+          required: false
+
