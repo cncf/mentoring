@@ -28,8 +28,6 @@ labels:
     color: 3B8924
   - name: outreachy
     color: 7fd811
-  - name: season of docs
-    color: f4af97
   - name: summer of code
     color: 00ffff
   - name: season of docs
@@ -68,8 +66,6 @@ labels:
     color: D4C5F9
   - name: Maintainer/Contribex Approved
     color: 5319E7
-  # one "blank" line
-  - name: blank
 
   #
   # LFX program proposal intake labels
