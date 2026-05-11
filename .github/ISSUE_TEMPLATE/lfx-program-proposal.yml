@@ -1,0 +1,242 @@
+name: LFX Mentorship Program Proposal
+description: Propose a mentorship program for an upcoming LFX Mentorship term.
+title: "[LFX Proposal] <project> — <program name>"
+labels: ["lfx mentorship", "Proposal", "Needs Validation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing an LFX Mentorship program! 🎉
+
+        **Submit one issue per program.** If you have multiple proposals,
+        file multiple issues.
+
+        Once submitted, automation will validate the fields and track the
+        proposal through approvals. A CNCF program admin will review and
+        approve before it's loaded into LFX.
+
+  # ── CNCF Project ──────────────────────────────────────────────────
+  # TODO: Options below are a placeholder. The landscape-projects-sync
+  # workflow will regenerate this list from cncf/landscape on a schedule.
+  - type: dropdown
+    id: cncf_project
+    attributes:
+      label: CNCF Project
+      description: >
+        The CNCF project this program belongs to.
+        If your project isn't listed, check that it appears in the
+        [CNCF Landscape](https://landscape.cncf.io) and ask in
+        [#mentoring on CNCF Slack](https://cloud-native.slack.com/archives/mentoring).
+      options:
+        - Argo
+        - Backstage
+        - Buildpacks
+        - Chaos Mesh
+        - Cilium
+        - CloudEvents
+        - CNI
+        - Containerd
+        - Contour
+        - CoreDNS
+        - Cortex
+        - CRI-O
+        - Crossplane
+        - CubeFS
+        - Dapr
+        - Dragonfly
+        - Emissary-Ingress
+        - Envoy
+        - etcd
+        - Falco
+        - Flux
+        - gRPC
+        - Harbor
+        - Helm
+        - in-toto
+        - Istio
+        - Jaeger
+        - KCL
+        - KEDA
+        - Keycloak
+        - Keptn
+        - Knative
+        - KubeArmor
+        - KubeEdge
+        - KubeFlow
+        - Kubernetes
+        - KubeVela
+        - KubeVirt
+        - Kuma
+        - Kyverno
+        - Linkerd
+        - Litmus
+        - Longhorn
+        - Meshery
+        - NATS
+        - Notary
+        - OPA
+        - Open Policy Agent
+        - OpenELB
+        - OpenFeature
+        - OpenKruise
+        - OpenTelemetry
+        - OpenYurt
+        - Operator Framework
+        - SPIFFE/SPIRE
+        - Strimzi
+        - TiKV
+        - Thanos
+        - TUF
+        - Vitess
+        - Volcano
+        - WasmEdge
+    validations:
+      required: true
+
+  # ── Term ──────────────────────────────────────────────────────────
+  - type: dropdown
+    id: term
+    attributes:
+      label: Term
+      description: >
+        Which term is this proposal for? All programs are full-time
+        (~350 hours across the term).
+      options:
+        - "2026 Term 2 (Jun–Aug)"
+        - "2026 Term 3 (Sep–Nov)"
+        - "2027 Term 1 (Mar–May)"
+    validations:
+      required: true
+
+  # ── Program Name ──────────────────────────────────────────────────
+  - type: input
+    id: program_name
+    attributes:
+      label: Program Name
+      description: >
+        The descriptive part of the program name shown on LFX. The full
+        name is composed automatically as
+        `CNCF - <Project>: <your name here> (<term>)`.
+        Keep it concise — available characters depend on your project
+        name (typically 53–73 chars).
+      placeholder: "e.g. Add Prometheus Metrics to Control Plane Service"
+    validations:
+      required: true
+
+  # ── Program Description ───────────────────────────────────────────
+  - type: textarea
+    id: program_description
+    attributes:
+      label: Program Description
+      description: >
+        Up to 3000 characters. This is what applicants will see on LFX.
+        Cover both what the program is about and what success looks like —
+        use the structure below or your own.
+      placeholder: |
+        ## Description
+        What the program is about, the problem it solves, and the context
+        a candidate needs to understand the work.
+
+        ## Expected outcomes
+        What "done" looks like at the end of the term — concrete deliverables,
+        contributions, or capabilities the mentee should have produced.
+      value: ""
+    validations:
+      required: true
+
+  # ── Technologies ──────────────────────────────────────────────────
+  - type: input
+    id: technologies
+    attributes:
+      label: Technologies
+      description: >
+        Comma-separated list of languages, frameworks, and platforms
+        relevant to this program.
+      placeholder: "e.g. Go, Kubernetes, Prometheus, gRPC"
+    validations:
+      required: true
+
+  # ── Skills same as Technologies? ──────────────────────────────────
+  - type: checkboxes
+    id: skills_same
+    attributes:
+      label: Skills same as Technologies?
+      description: >
+        If the skills an applicant needs are the same as the technologies
+        listed above, leave this checked and skip the next field.
+      options:
+        - label: "Yes — required skills are the same as the technologies listed above."
+          required: false
+
+  # ── Required/Desirable Skills ─────────────────────────────────────
+  - type: input
+    id: skills
+    attributes:
+      label: Required/Desirable Skills
+      description: >
+        Comma-separated. Only fill this in if the skills differ from the
+        Technologies above (and uncheck the box above). For example, a
+        docs program might list "technical writing, Markdown" here even
+        though the technologies are "Go, Kubernetes".
+      placeholder: "e.g. technical writing, Markdown, Hugo"
+    validations:
+      required: false
+
+  # ── Mentors ───────────────────────────────────────────────────────
+  - type: textarea
+    id: mentors
+    attributes:
+      label: Mentors
+      description: >
+        One mentor per line. Format: `Full Name | @github-handle | lfid-or-email`.
+        The **first line is the primary mentor**; additional lines are
+        co-mentors. Use the email address tied to your LFID, or your LFID
+        directly.
+      placeholder: |
+        Jane Doe | @janedoe | jane@example.com
+        Sam Lee  | @samlee  | sam@example.com
+      value: ""
+    validations:
+      required: true
+
+  # ── Upstream Issue URL ────────────────────────────────────────────
+  - type: input
+    id: upstream_issue_url
+    attributes:
+      label: Upstream Issue URL
+      description: >
+        Link to a tracking issue in the project's own repo. If the
+        program covers multiple issues, create an umbrella issue and
+        link that. Exactly one URL.
+      placeholder: "https://github.com/org/repo/issues/1234"
+    validations:
+      required: true
+
+  # ── Application Requirements ──────────────────────────────────────
+  - type: checkboxes
+    id: application_requirements
+    attributes:
+      label: Application Requirements
+      description: >
+        Check any items applicants must submit with their application.
+        All checked items are treated as **required** (applicants cannot
+        submit without them).
+      options:
+        - label: "Project proposal (file upload)"
+          required: false
+        - label: "Code sample or portfolio link"
+          required: false
+        - label: "Writing sample (file upload)"
+          required: false
+
+  # ── Additional Application Requirements ──────────────────────────
+  - type: textarea
+    id: additional_application_requirements
+    attributes:
+      label: Additional Application Requirements
+      description: >
+        Anything not covered by the checkboxes above. Describe what the
+        applicant should provide — all items listed here are required.
+      placeholder: "e.g. A short video (< 3 min) explaining your interest in this project."
+    validations:
+      required: false

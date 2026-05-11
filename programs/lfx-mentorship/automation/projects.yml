@@ -1,0 +1,21 @@
+# Auto-generated from cncf/landscape — DO NOT EDIT MANUALLY.
+#
+# The landscape-projects-sync workflow regenerates this file on a
+# schedule and uses it to rewrite the CNCF Project dropdown in the
+# issue form (.github/ISSUE_TEMPLATE/lfx-program-proposal.yml).
+#
+# Each entry maps a project display name to metadata pulled from the
+# landscape. The issue form dropdown uses the keys (display names).
+#
+# TODO: This is a placeholder. The landscape-sync workflow will
+# populate it once implemented.
+
+# Example of the expected shape:
+#
+# - name: Kubernetes
+#   slug: kubernetes
+#   homepage: https://kubernetes.io
+#   logo_url: https://landscape.cncf.io/logos/kubernetes.svg
+#   maturity: graduated
+#   coc_url: https://www.cncf.io/conduct/
+#   best_practices_id: "1"

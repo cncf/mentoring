@@ -1,0 +1,23 @@
+# Fallback approvers for projects whose governance model isn't fully
+# captured by cncf/foundation/project-maintainers.csv.
+#
+# The validation workflow first checks project-maintainers.csv for the
+# CNCF project selected in the proposal. If the /approve commenter isn't
+# listed there, it checks the fallback_teams and fallback_handles below.
+#
+# Format:
+#   <project-slug>:            # must match the dropdown value in the issue form
+#     fallback_teams:           # GitHub teams (org/team) whose members may /approve
+#       - org/team-name
+#     fallback_handles:         # individual GitHub handles
+#       - username
+
+kubernetes:
+  fallback_teams:
+    - kubernetes/sig-contribex
+
+open-telemetry:
+  fallback_teams:
+    - open-telemetry/governance-committee
+  fallback_handles:
+    - maryliag    # GC liaison for mentorship
