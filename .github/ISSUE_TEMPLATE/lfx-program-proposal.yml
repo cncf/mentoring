@@ -140,7 +140,6 @@ body:
         ## Expected outcomes
         What "done" looks like at the end of the term — concrete deliverables,
         contributions, or capabilities the mentee should have produced.
-      value: ""
     validations:
       required: true
 
@@ -195,7 +194,6 @@ body:
       placeholder: |
         Jane Doe | @janedoe | jane@example.com
         Sam Lee  | @samlee  | sam@example.com
-      value: ""
     validations:
       required: true
 
