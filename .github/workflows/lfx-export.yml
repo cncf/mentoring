@@ -326,6 +326,12 @@ jobs:
             core.exportVariable('EXPORT_YEAR', year);
             core.exportVariable('EXPORTED_ISSUES', programs.map(p => p.issue_number).join(','));
 
+            // Build PR body with issue links
+            const issueList = programs
+              .map(p => `- #${p.issue_number} — ${p.program_name_full}`)
+              .join('\n');
+            core.exportVariable('PR_BODY_ISSUES', issueList);
+
       - name: Check for changes
         id: check
         run: |
@@ -352,6 +358,9 @@ jobs:
           body: |
             Auto-generated export of **${{ env.EXPORT_COUNT }}** CNCF-approved
             LFX Mentorship programs for **${{ env.EXPORT_TERM }}**.
+
+            **Exported proposals:**
+            ${{ env.PR_BODY_ISSUES }}
 
             **Files generated:**
             - `${{ env.EXPORT_PATH }}` — structured JSON for LFX bulk import
