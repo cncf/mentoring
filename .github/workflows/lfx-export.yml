@@ -260,7 +260,10 @@ jobs:
                 md.push('');
                 md.push(prog.program_name_full);
                 md.push('');
-                md.push(`- Description: ${prog.description}`);
+                md.push('- Description:');
+                md.push('```');
+                md.push(prog.description);
+                md.push('```');
                 md.push(`- Recommended Skills: ${prog.skills}`);
                 md.push(`- Technologies: ${prog.technologies}`);
                 md.push('- Mentor(s):');
