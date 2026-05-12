@@ -1,0 +1,114 @@
+name: LFX Proposal Board Sync
+
+on:
+  issues:
+    types: [opened, labeled, unlabeled, closed, reopened]
+
+jobs:
+  sync-board:
+    if: >-
+      contains(github.event.issue.labels.*.name, 'lfx mentorship')
+      && contains(github.event.issue.labels.*.name, 'Proposal')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync issue to project board
+        uses: actions/github-script@v7
+        env:
+          PROJECT_TOKEN: ${{ secrets.PROJECT_TOKEN }}
+        with:
+          github-token: ${{ secrets.PROJECT_TOKEN }}
+          script: |
+            const PROJECT_ID = 'PVT_kwHOAEP2W84BXacI';
+            const STATUS_FIELD_ID = 'PVTSSF_lAHOAEP2W84BXacIzhSnctg';
+
+            const STATUS_OPTIONS = {
+              'Inbox':                             '83e636d5',
+              'Awaiting approvals/confirmations':  '40a97db9',
+              'Approved/confirmed':                '4ed57ec6',
+              'CNCF Approved':                     'f091cb7c',
+              'Posted to LFX':                     '4355e838',
+              'LFX Approved':                      'e38391e0',
+              'Mentors added':                     'e11e1b3b',
+              'Open for Applications':             'fbbd298a',
+              'Applications Closed':               'c65ed09a',
+              'Closed':                            'dd85985a',
+            };
+
+            const issue = context.payload.issue;
+            const labels = (issue.labels || []).map(l => l.name);
+            const action = context.payload.action;
+
+            // ── Determine target status from labels + event ──
+            function determineStatus() {
+              if (action === 'closed')   return 'Closed';
+              if (action === 'reopened') return determineFromLabels();
+              return determineFromLabels();
+            }
+
+            function determineFromLabels() {
+              // Work backwards from the most advanced state
+              if (labels.includes('Applications Closed'))       return 'Applications Closed';
+              if (labels.includes('Open for Applications'))     return 'Open for Applications';
+              if (labels.includes('Mentors added'))             return 'Mentors added';
+              if (labels.includes('LFX Approved'))              return 'LFX Approved';
+              if (labels.includes('Posted to LFX'))             return 'Posted to LFX';
+              if (labels.includes('CNCF Approved'))             return 'CNCF Approved';
+
+              const maintainerApproved = labels.includes('Maintainer/Contribex Approved');
+              const mentorsConfirmed   = labels.includes('Mentors Confirmed');
+              if (maintainerApproved && mentorsConfirmed)       return 'Approved/confirmed';
+
+              if (labels.includes('Awaiting Maintainer/Contribex Approval')
+                  || labels.includes('Awaiting Mentor Confirmation'))
+                return 'Awaiting approvals/confirmations';
+
+              return 'Inbox';
+            }
+
+            const targetStatus = determineStatus();
+            console.log(`Target status: ${targetStatus}`);
+
+            const optionId = STATUS_OPTIONS[targetStatus];
+            if (!optionId) {
+              core.setFailed(`Unknown status: ${targetStatus}`);
+              return;
+            }
+
+            // ── Ensure issue is added to the project ──
+            const addResult = await github.graphql(`
+              mutation($projectId: ID!, $contentId: ID!) {
+                addProjectV2ItemById(input: {
+                  projectId: $projectId
+                  contentId: $contentId
+                }) {
+                  item { id }
+                }
+              }
+            `, {
+              projectId: PROJECT_ID,
+              contentId: issue.node_id,
+            });
+
+            const itemId = addResult.addProjectV2ItemById.item.id;
+            console.log(`Project item: ${itemId}`);
+
+            // ── Set the Status field ──
+            await github.graphql(`
+              mutation($projectId: ID!, $itemId: ID!, $fieldId: ID!, $optionId: String!) {
+                updateProjectV2ItemFieldValue(input: {
+                  projectId: $projectId
+                  itemId: $itemId
+                  fieldId: $fieldId
+                  value: { singleSelectOptionId: $optionId }
+                }) {
+                  projectV2Item { id }
+                }
+              }
+            `, {
+              projectId: PROJECT_ID,
+              itemId: itemId,
+              fieldId: STATUS_FIELD_ID,
+              optionId: optionId,
+            });
+
+            console.log(`Status set to: ${targetStatus}`);
