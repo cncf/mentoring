@@ -261,9 +261,11 @@ jobs:
                 md.push(prog.program_name_full);
                 md.push('');
                 md.push('- Description:');
-                md.push('```');
-                md.push(prog.description);
-                md.push('```');
+                md.push('');
+                for (const line of prog.description.split('\n')) {
+                  md.push(`  > ${line}`);
+                }
+                md.push('');
                 md.push(`- Recommended Skills: ${prog.skills}`);
                 md.push(`- Technologies: ${prog.technologies}`);
                 md.push('- Mentor(s):');
