@@ -33,10 +33,14 @@ jobs:
             const currentLabels = (context.payload.issue.labels || []).map(l => l.name);
 
             // ── Detect slash command ──
-            const firstLine = commentBody.split('\n')[0].trim();
-            const cmdMatch = firstLine.match(/^\/(cncf-approve|approve|confirm)\b/);
-            if (!cmdMatch) return;  // not a slash command
-            const command = cmdMatch[1];
+            // Scan every line — the command may not be the first line (e.g.
+            // someone writes context before their /approve).
+            let command = null;
+            for (const line of commentBody.split('\n')) {
+              const m = line.trim().match(/^\/(cncf-approve|approve|confirm)\b/);
+              if (m) { command = m[1]; break; }
+            }
+            if (!command) return;  // no slash command found
             console.log(`/${command} from @${commenter}`);
 
             // ── Reaction: eyes while processing ──
