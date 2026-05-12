@@ -1,0 +1,188 @@
+name: Sync CNCF Projects from Landscape
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'  # every Monday at 06:00 UTC
+  workflow_dispatch:       # manual trigger
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync-projects:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch and parse landscape.yml
+        id: fetch
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const yaml = require('js-yaml');
+            const fs = require('fs');
+
+            // Fetch landscape.yml from cncf/landscape
+            const response = await fetch(
+              'https://raw.githubusercontent.com/cncf/landscape/master/landscape.yml'
+            );
+            if (!response.ok) {
+              core.setFailed(`Failed to fetch landscape.yml: ${response.status}`);
+              return;
+            }
+            const text = await response.text();
+            const data = yaml.load(text);
+
+            // Extract CNCF projects (graduated, incubating, sandbox)
+            const validLevels = new Set(['graduated', 'incubating', 'sandbox']);
+            const projects = [];
+
+            for (const category of data.landscape || []) {
+              for (const sub of category.subcategories || []) {
+                for (const item of sub.items || []) {
+                  if (item.project && validLevels.has(item.project)) {
+                    projects.push({
+                      name: item.name,
+                      slug: (item.extra?.lfx_slug || item.name)
+                        .toLowerCase()
+                        .replace(/[^a-z0-9-]/g, '-')
+                        .replace(/-+/g, '-'),
+                      maturity: item.project,
+                      homepage: item.homepage_url || '',
+                      logo: item.logo || '',
+                      repo_url: item.repo_url || '',
+                    });
+                  }
+                }
+              }
+            }
+
+            // Sort alphabetically by name (case-insensitive)
+            projects.sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }));
+
+            core.info(`Found ${projects.length} CNCF projects`);
+
+            // ── Update projects.yml ──
+            const projectsYml = [
+              '# Auto-generated from cncf/landscape — DO NOT EDIT MANUALLY.',
+              `# Last updated: ${new Date().toISOString().slice(0, 10)}`,
+              `# Total projects: ${projects.length}`,
+              '',
+              ...projects.map(p => [
+                `- name: ${JSON.stringify(p.name)}`,
+                `  slug: ${JSON.stringify(p.slug)}`,
+                `  maturity: ${p.maturity}`,
+                `  homepage: ${JSON.stringify(p.homepage)}`,
+                `  logo: ${JSON.stringify(p.logo)}`,
+                `  repo_url: ${JSON.stringify(p.repo_url)}`,
+              ].join('\n')),
+            ].join('\n') + '\n';
+
+            fs.writeFileSync(
+              'programs/lfx-mentorship/automation/projects.yml',
+              projectsYml
+            );
+
+            // ── Update issue form dropdown ──
+            const formPath = '.github/ISSUE_TEMPLATE/lfx-program-proposal.yml';
+            const formText = fs.readFileSync(formPath, 'utf8');
+            const formData = yaml.load(formText);
+
+            // Find the cncf_project dropdown
+            const dropdown = formData.body.find(f => f.id === 'cncf_project');
+            if (!dropdown) {
+              core.setFailed('Could not find cncf_project dropdown in form');
+              return;
+            }
+
+            // Build new options list — project names only
+            const newOptions = projects.map(p => p.name);
+
+            // Check if options actually changed
+            const oldOptions = dropdown.attributes.options || [];
+            const changed = JSON.stringify(oldOptions) !== JSON.stringify(newOptions);
+
+            if (!changed) {
+              core.info('No changes to project list — skipping');
+              core.setOutput('changed', 'false');
+              return;
+            }
+
+            core.info(`Project list changed: ${oldOptions.length} → ${newOptions.length} projects`);
+            core.setOutput('changed', 'true');
+
+            // Rewrite the dropdown options in the raw YAML text
+            // to preserve formatting and comments in the rest of the file
+            const lines = formText.split('\n');
+            let inOptions = false;
+            let optionsIndent = '';
+            const newLines = [];
+            let optionsInserted = false;
+
+            for (let i = 0; i < lines.length; i++) {
+              const line = lines[i];
+
+              // Detect the start of the cncf_project options block
+              if (!optionsInserted && line.match(/^\s+options:\s*$/) && !inOptions) {
+                // Check if the previous few lines contain 'id: cncf_project' or 'label: CNCF Project'
+                const context = lines.slice(Math.max(0, i - 10), i).join('\n');
+                if (context.includes('id: cncf_project')) {
+                  inOptions = true;
+                  optionsIndent = line.match(/^(\s+)/)[1] + '  ';
+                  newLines.push(line);
+                  // Write new options
+                  for (const name of newOptions) {
+                    newLines.push(`${optionsIndent}- ${JSON.stringify(name)}`);
+                  }
+                  optionsInserted = true;
+                  continue;
+                }
+              }
+
+              // Skip old option lines
+              if (inOptions) {
+                if (line.match(/^\s+-\s/)) {
+                  continue; // skip old option
+                } else {
+                  inOptions = false; // end of options block
+                }
+              }
+
+              newLines.push(line);
+            }
+
+            fs.writeFileSync(formPath, newLines.join('\n'));
+
+      - name: Check for changes
+        id: check
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create Pull Request
+        if: steps.check.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: |
+            chore: sync CNCF project list from landscape
+
+            Auto-generated by landscape-projects-sync workflow.
+
+            Signed-off-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+            Assisted-by: Copilot <223556219+Copilot@users.noreply.github.com>
+          branch: automation/landscape-sync
+          title: "chore: sync CNCF project list from landscape"
+          body: |
+            Auto-generated update to the CNCF Project dropdown in the
+            LFX program proposal issue form and the projects.yml config.
+
+            Source: [`cncf/landscape/landscape.yml`](https://github.com/cncf/landscape/blob/master/landscape.yml)
+
+            Please review the project list diff and merge if correct.
+          labels: administration
