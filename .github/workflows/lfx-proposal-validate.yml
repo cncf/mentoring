@@ -306,3 +306,20 @@ jobs:
             } else if (!isOverQuota && currentLabels.includes('Over Quota')) {
               try { await github.rest.issues.removeLabel({ owner, repo, issue_number, name: 'Over Quota' }); } catch {}
             }
+
+            // ── Set awaiting labels when validation passes ──
+            // These signal to maintainers and mentors that slash commands are expected.
+            if (pass) {
+              const awaiting = [];
+              if (!currentLabels.includes('Maintainer/Contribex Approved')
+                  && !currentLabels.includes('Awaiting Maintainer/Contribex Approval')) {
+                awaiting.push('Awaiting Maintainer/Contribex Approval');
+              }
+              if (!currentLabels.includes('Mentors Confirmed')
+                  && !currentLabels.includes('Awaiting Mentor Confirmation')) {
+                awaiting.push('Awaiting Mentor Confirmation');
+              }
+              if (awaiting.length) {
+                await github.rest.issues.addLabels({ owner, repo, issue_number, labels: awaiting });
+              }
+            }
