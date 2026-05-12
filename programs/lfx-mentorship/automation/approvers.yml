@@ -23,6 +23,8 @@ global_approvers:
   - idvoretskyi
   - RobertKielty
   - thisisobate
+  - Swil78
+  - mlehotskylf
 
 kubernetes:
   fallback_teams:
