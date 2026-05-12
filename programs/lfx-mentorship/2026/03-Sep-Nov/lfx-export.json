@@ -1,0 +1,48 @@
+{
+  "_generated": "2026-05-12T21:26:11.258Z",
+  "_term": "2026 Term 3 (Sep–Nov)",
+  "_count": 1,
+  "programs": [
+    {
+      "issue_number": 7,
+      "issue_url": "https://github.com/nate-double-u/mentoring/issues/7",
+      "cncf_project": "Dapr",
+      "cncf_project_slug": "dapr",
+      "cncf_project_maturity": "",
+      "term": "2026 Term 3 (Sep–Nov)",
+      "program_name_full": "CNCF - Dapr: Test project 2 (2026 Term 3)",
+      "program_name_short": "Test project 2",
+      "description": "## Description\n\nLorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.\n\n## Expected outcomes\n\nLorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.",
+      "technologies": "Dapr, Go, Kubernetes",
+      "skills": "Kubernetes, Dapr, understandnig of technical communication",
+      "mentors": [
+        {
+          "name": "Nate W.",
+          "github_handle": "nate-double-u",
+          "email": "natew@cncf.io",
+          "role": "primary"
+        },
+        {
+          "name": "Daniel K.",
+          "github_handle": "krook",
+          "email": "mailto:dkrook@linuxfoundation.org",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/cncf/mentoring/issues/1883",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": {
+          "name": "Writing Sample",
+          "description": "Please upload a writing sample showcasing your previous work.",
+          "file_upload": true
+        }
+      }
+    }
+  ]
+}
