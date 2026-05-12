@@ -318,12 +318,13 @@ jobs:
             fs.writeFileSync(csvPath, csvRows.join('\n') + '\n');
             console.log(`Wrote ${programs.length} rows to ${csvPath}`);
 
-            // ── Store path for the PR step ──
+            // ── Store path and issue numbers for later steps ──
             core.exportVariable('EXPORT_PATH', outPath);
             core.exportVariable('EXPORT_COUNT', programs.length.toString());
             core.exportVariable('EXPORT_TERM', term);
             core.exportVariable('EXPORT_TERM_DIR', termDir);
             core.exportVariable('EXPORT_YEAR', year);
+            core.exportVariable('EXPORTED_ISSUES', programs.map(p => p.issue_number).join(','));
 
       - name: Check for changes
         id: check
@@ -368,3 +369,34 @@ jobs:
 
             </details>
           labels: administration
+
+      - name: Notify exported issues
+        if: steps.check.outputs.changed == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const issues = process.env.EXPORTED_ISSUES.split(',').filter(Boolean);
+            const term = process.env.EXPORT_TERM;
+            const year = process.env.EXPORT_YEAR;
+            const termDir = process.env.EXPORT_TERM_DIR;
+
+            for (const num of issues) {
+              const issue_number = parseInt(num);
+
+              // Add Exported label
+              await github.rest.issues.addLabels({
+                owner, repo, issue_number,
+                labels: ['Exported'],
+              });
+
+              // Comment linking to the export
+              await github.rest.issues.createComment({
+                owner, repo, issue_number,
+                body: `📦 This proposal has been included in the **${term}** export.\n\n` +
+                  `Export files: [\`programs/lfx-mentorship/${year}/${termDir}/\`](/${owner}/${repo}/tree/automation/lfx-export-${year}-${termDir}/programs/lfx-mentorship/${year}/${termDir}/)\n\n` +
+                  `The export PR is awaiting review. Once merged and posted to LFX, this issue will be updated again.`,
+              });
+
+              console.log(`Notified issue #${issue_number}`);
+            }

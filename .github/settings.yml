@@ -96,6 +96,9 @@ labels:
     description: CNCF admin approved
 
   # Post-approval lifecycle
+  - name: Exported
+    color: C2E0C6
+    description: Included in export, ready to post to LFX
   - name: Posted to LFX
     color: 0E8A16
     description: Program exported to LFX platform

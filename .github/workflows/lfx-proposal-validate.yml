@@ -337,6 +337,7 @@ jobs:
               'Awaiting approvals/confirmations':  '40a97db9',
               'Approved/confirmed':                '4ed57ec6',
               'CNCF Approved':                     'f091cb7c',
+              'Exported':                          'faaeb133',
               'Posted to LFX':                     '4355e838',
               'LFX Approved':                      'e38391e0',
               'Mentors added':                     'e11e1b3b',
@@ -360,6 +361,7 @@ jobs:
             else if (labels.includes('Mentors added'))               status = 'Mentors added';
             else if (labels.includes('LFX Approved'))                status = 'LFX Approved';
             else if (labels.includes('Posted to LFX'))               status = 'Posted to LFX';
+            else if (labels.includes('Exported'))                    status = 'Exported';
             else if (labels.includes('CNCF Approved'))               status = 'CNCF Approved';
             else if (labels.includes('Maintainer/Contribex Approved')
                      && labels.includes('Mentors Confirmed'))        status = 'Approved/confirmed';
