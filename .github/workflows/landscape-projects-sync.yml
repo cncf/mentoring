@@ -16,144 +16,95 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Fetch and parse landscape.yml
-        id: fetch
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const yaml = require('js-yaml');
-            const fs = require('fs');
+      - name: Fetch and sync projects
+        run: |
+          python3 << 'PYEOF'
+          import json, re, sys, urllib.request
+          from datetime import date
 
-            // Fetch landscape.yml from cncf/landscape
-            const response = await fetch(
-              'https://raw.githubusercontent.com/cncf/landscape/master/landscape.yml'
-            );
-            if (!response.ok) {
-              core.setFailed(`Failed to fetch landscape.yml: ${response.status}`);
-              return;
-            }
-            const text = await response.text();
-            const data = yaml.load(text);
+          import yaml  # PyYAML is pre-installed on ubuntu-latest
 
-            // Extract CNCF projects (graduated, incubating, sandbox)
-            const validLevels = new Set(['graduated', 'incubating', 'sandbox']);
-            const projects = [];
+          # ── Fetch landscape.yml ──
+          url = "https://raw.githubusercontent.com/cncf/landscape/master/landscape.yml"
+          with urllib.request.urlopen(url) as resp:
+              data = yaml.safe_load(resp.read())
 
-            for (const category of data.landscape || []) {
-              for (const sub of category.subcategories || []) {
-                for (const item of sub.items || []) {
-                  if (item.project && validLevels.has(item.project)) {
-                    projects.push({
-                      name: item.name,
-                      slug: (item.extra?.lfx_slug || item.name)
-                        .toLowerCase()
-                        .replace(/[^a-z0-9-]/g, '-')
-                        .replace(/-+/g, '-'),
-                      maturity: item.project,
-                      homepage: item.homepage_url || '',
-                      logo: item.logo || '',
-                      repo_url: item.repo_url || '',
-                    });
-                  }
-                }
-              }
-            }
+          # ── Extract CNCF projects ──
+          valid = {"graduated", "incubating", "sandbox"}
+          projects = []
+          for cat in data.get("landscape", []):
+              for sub in cat.get("subcategories", []):
+                  for item in sub.get("items", []):
+                      level = item.get("project")
+                      if level not in valid:
+                          continue
+                      extra = item.get("extra", {})
+                      slug = extra.get("lfx_slug") or item["name"]
+                      slug = re.sub(r"[^a-z0-9-]", "-", slug.lower())
+                      slug = re.sub(r"-+", "-", slug).strip("-")
+                      projects.append({
+                          "name": item["name"],
+                          "slug": slug,
+                          "maturity": level,
+                          "homepage": item.get("homepage_url", ""),
+                          "logo": item.get("logo", ""),
+                          "repo_url": item.get("repo_url", ""),
+                      })
 
-            // Sort alphabetically by name (case-insensitive)
-            projects.sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }));
+          projects.sort(key=lambda p: p["name"].lower())
+          print(f"Found {len(projects)} CNCF projects")
 
-            core.info(`Found ${projects.length} CNCF projects`);
+          # ── Write projects.yml ──
+          header = (
+              f"# Auto-generated from cncf/landscape — DO NOT EDIT MANUALLY.\n"
+              f"# Last updated: {date.today().isoformat()}\n"
+              f"# Total projects: {len(projects)}\n\n"
+          )
+          with open("programs/lfx-mentorship/automation/projects.yml", "w") as f:
+              f.write(header)
+              yaml.dump(projects, f, default_flow_style=False, sort_keys=False)
 
-            // ── Update projects.yml ──
-            const projectsYml = [
-              '# Auto-generated from cncf/landscape — DO NOT EDIT MANUALLY.',
-              `# Last updated: ${new Date().toISOString().slice(0, 10)}`,
-              `# Total projects: ${projects.length}`,
-              '',
-              ...projects.map(p => [
-                `- name: ${JSON.stringify(p.name)}`,
-                `  slug: ${JSON.stringify(p.slug)}`,
-                `  maturity: ${p.maturity}`,
-                `  homepage: ${JSON.stringify(p.homepage)}`,
-                `  logo: ${JSON.stringify(p.logo)}`,
-                `  repo_url: ${JSON.stringify(p.repo_url)}`,
-              ].join('\n')),
-            ].join('\n') + '\n';
+          # ── Update issue form dropdown ──
+          form_path = ".github/ISSUE_TEMPLATE/lfx-program-proposal.yml"
+          with open(form_path) as f:
+              form_text = f.read()
 
-            fs.writeFileSync(
-              'programs/lfx-mentorship/automation/projects.yml',
-              projectsYml
-            );
+          new_names = [p["name"] for p in projects]
 
-            // ── Update issue form dropdown ──
-            const formPath = '.github/ISSUE_TEMPLATE/lfx-program-proposal.yml';
-            const formText = fs.readFileSync(formPath, 'utf8');
-            const formData = yaml.load(formText);
+          # Rewrite the options block under id: cncf_project
+          lines = form_text.split("\n")
+          new_lines = []
+          in_options = False
+          options_inserted = False
 
-            // Find the cncf_project dropdown
-            const dropdown = formData.body.find(f => f.id === 'cncf_project');
-            if (!dropdown) {
-              core.setFailed('Could not find cncf_project dropdown in form');
-              return;
-            }
+          for i, line in enumerate(lines):
+              # Detect the cncf_project options: line
+              if (not options_inserted
+                      and re.match(r"^\s+options:\s*$", line)):
+                  context = "\n".join(lines[max(0, i - 10):i])
+                  if "id: cncf_project" in context:
+                      indent = re.match(r"^(\s+)", line).group(1) + "  "
+                      new_lines.append(line)
+                      for name in new_names:
+                          new_lines.append(f'{indent}- "{name}"')
+                      in_options = True
+                      options_inserted = True
+                      continue
 
-            // Build new options list — project names only
-            const newOptions = projects.map(p => p.name);
+              # Skip old option lines
+              if in_options:
+                  if re.match(r"^\s+-\s", line):
+                      continue
+                  else:
+                      in_options = False
 
-            // Check if options actually changed
-            const oldOptions = dropdown.attributes.options || [];
-            const changed = JSON.stringify(oldOptions) !== JSON.stringify(newOptions);
+              new_lines.append(line)
 
-            if (!changed) {
-              core.info('No changes to project list — skipping');
-              core.setOutput('changed', 'false');
-              return;
-            }
+          with open(form_path, "w") as f:
+              f.write("\n".join(new_lines))
 
-            core.info(`Project list changed: ${oldOptions.length} → ${newOptions.length} projects`);
-            core.setOutput('changed', 'true');
-
-            // Rewrite the dropdown options in the raw YAML text
-            // to preserve formatting and comments in the rest of the file
-            const lines = formText.split('\n');
-            let inOptions = false;
-            let optionsIndent = '';
-            const newLines = [];
-            let optionsInserted = false;
-
-            for (let i = 0; i < lines.length; i++) {
-              const line = lines[i];
-
-              // Detect the start of the cncf_project options block
-              if (!optionsInserted && line.match(/^\s+options:\s*$/) && !inOptions) {
-                // Check if the previous few lines contain 'id: cncf_project' or 'label: CNCF Project'
-                const context = lines.slice(Math.max(0, i - 10), i).join('\n');
-                if (context.includes('id: cncf_project')) {
-                  inOptions = true;
-                  optionsIndent = line.match(/^(\s+)/)[1] + '  ';
-                  newLines.push(line);
-                  // Write new options
-                  for (const name of newOptions) {
-                    newLines.push(`${optionsIndent}- ${JSON.stringify(name)}`);
-                  }
-                  optionsInserted = true;
-                  continue;
-                }
-              }
-
-              // Skip old option lines
-              if (inOptions) {
-                if (line.match(/^\s+-\s/)) {
-                  continue; // skip old option
-                } else {
-                  inOptions = false; // end of options block
-                }
-              }
-
-              newLines.push(line);
-            }
-
-            fs.writeFileSync(formPath, newLines.join('\n'));
+          print("Files updated successfully")
+          PYEOF
 
       - name: Check for changes
         id: check
