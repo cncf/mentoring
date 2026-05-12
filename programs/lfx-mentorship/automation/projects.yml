@@ -8,6 +8,7 @@
   homepage: https://www.aeraki.net/
   logo: aeraki-mesh.svg
   repo_url: https://github.com/aeraki-mesh/aeraki
+  has_dot_project: true
 - name: Agones
   slug: agones
   maturity: sandbox
@@ -26,6 +27,7 @@
   homepage: https://antrea.io/
   logo: antrea.svg
   repo_url: https://github.com/antrea-io/antrea
+  has_dot_project: true
 - name: Argo
   slug: argo
   maturity: graduated
@@ -38,6 +40,7 @@
   homepage: https://armadaproject.io/
   logo: armada.svg
   repo_url: https://github.com/armadaproject/armada
+  has_dot_project: true
 - name: Artifact Hub
   slug: artifact-hub
   maturity: incubating
@@ -50,6 +53,7 @@
   homepage: https://www.athenz.io
   logo: athenz.svg
   repo_url: https://github.com/AthenZ/athenz
+  has_dot_project: true
 - name: Atlantis
   slug: atlantis
   maturity: sandbox
@@ -68,24 +72,28 @@
   homepage: https://bank-vaults.dev/
   logo: bank-vaults.svg
   repo_url: https://github.com/bank-vaults/bank-vaults
+  has_dot_project: true
 - name: BFE
   slug: bfe
   maturity: sandbox
   homepage: https://www.bfe-networks.net
   logo: bfe.svg
   repo_url: https://github.com/bfenetworks/bfe
+  has_dot_project: true
 - name: bootc
   slug: bootc
   maturity: sandbox
   homepage: https://bootc-dev.github.io
   logo: bootc.svg
   repo_url: https://github.com/bootc-dev/bootc
+  has_dot_project: true
 - name: bpfman
   slug: bpfman
   maturity: sandbox
   homepage: https://bpfman.io/
   logo: bpfman_logo.svg
   repo_url: https://github.com/bpfman/bpfman
+  has_dot_project: true
 - name: Buildpacks
   slug: buildpacks
   maturity: incubating
@@ -98,6 +106,7 @@
   homepage: https://cadenceworkflow.io/
   logo: cadenceworkflow.svg
   repo_url: https://github.com/cadence-workflow/cadence
+  has_dot_project: true
 - name: Capsule
   slug: capsule
   maturity: sandbox
@@ -110,30 +119,35 @@
   homepage: https://carina-io.github.io/
   logo: carina.svg
   repo_url: https://github.com/carina-io/carina
+  has_dot_project: true
 - name: Cartography
   slug: cartography
   maturity: sandbox
   homepage: https://cartography.dev
   logo: cartography.svg
   repo_url: https://github.com/cartography-cncf/cartography
+  has_dot_project: true
 - name: Carvel
   slug: carvel
   maturity: sandbox
   homepage: https://carvel.dev
   logo: carvel.svg
   repo_url: https://github.com/carvel-dev/ytt
+  has_dot_project: true
 - name: CDK for Kubernetes (CDK8s)
   slug: cdk8s
   maturity: sandbox
   homepage: https://cdk8s.io/
   logo: cdk8s.svg
   repo_url: https://github.com/cdk8s-team/cdk8s
+  has_dot_project: true
 - name: Cedar
   slug: cedar
   maturity: sandbox
   homepage: https://cedarpolicy.com
   logo: cedar.svg
   repo_url: https://github.com/cedar-policy/cedar
+  has_dot_project: true
 - name: cert-manager
   slug: cert-manager
   maturity: graduated
@@ -152,6 +166,7 @@
   homepage: https://chaosblade.io/
   logo: chaosblade.svg
   repo_url: https://github.com/chaosblade-io/chaosblade
+  has_dot_project: true
 - name: Cilium
   slug: cilium
   maturity: graduated
@@ -176,18 +191,21 @@
   homepage: https://www.cloudnative-pg.io/
   logo: cloudnative-pg.svg
   repo_url: https://github.com/cloudnative-pg/cloudnative-pg
+  has_dot_project: true
 - name: Clusternet
   slug: clusternet
   maturity: sandbox
   homepage: https://clusternet.io
   logo: clusternet.svg
   repo_url: https://github.com/clusternet/clusternet
+  has_dot_project: true
 - name: Clusterpedia
   slug: clusterpedia
   maturity: sandbox
   homepage: https://clusterpedia.io
   logo: clusterpedia.svg
   repo_url: https://github.com/clusterpedia-io/clusterpedia
+  has_dot_project: true
 - name: CoHDI
   slug: cohdi
   maturity: sandbox
@@ -206,12 +224,14 @@
   homepage: https://confidentialcontainers.org/
   logo: confidential-containers.svg
   repo_url: https://github.com/confidential-containers/confidential-containers
+  has_dot_project: true
 - name: Connect RPC
   slug: connect
   maturity: sandbox
   homepage: https://connectrpc.com/
   logo: connect-rpc.svg
   repo_url: https://github.com/connectrpc/connect-go
+  has_dot_project: true
 - name: Container Network Interface (CNI)
   slug: cni
   maturity: incubating
@@ -224,6 +244,7 @@
   homepage: https://github.com/container2wasm/container2wasm
   logo: container2wasm.svg
   repo_url: https://github.com/container2wasm/container2wasm
+  has_dot_project: true
 - name: containerd
   slug: containerd
   maturity: graduated
@@ -248,6 +269,7 @@
   homepage: https://project-copacetic.github.io/copacetic/
   logo: copa.svg
   repo_url: https://github.com/project-copacetic/copacetic
+  has_dot_project: true
 - name: CoreDNS
   slug: coredns
   maturity: graduated
@@ -266,6 +288,7 @@
   homepage: https://cozystack.io
   logo: cozystack.svg
   repo_url: https://github.com/cozystack/cozystack
+  has_dot_project: true
 - name: CRI-O
   slug: cri-o
   maturity: graduated
@@ -290,6 +313,7 @@
   homepage: https://project-dalec.github.io/dalec/
   logo: dalec.svg
   repo_url: https://github.com/project-dalec/dalec
+  has_dot_project: true
 - name: Dapr
   slug: dapr
   maturity: graduated
@@ -404,12 +428,14 @@
   homepage: https://grpc.io
   logo: grpc.svg
   repo_url: https://github.com/grpc/grpc
+  has_dot_project: true
 - name: hami
   slug: hami
   maturity: sandbox
   homepage: https://project-hami.github.io/HAMi/
   logo: hami.svg
   repo_url: https://github.com/Project-HAMi/HAMi
+  has_dot_project: true
 - name: Harbor
   slug: harbor
   maturity: graduated
@@ -506,6 +532,7 @@
   homepage: https://k3s.io
   logo: k3s.svg
   repo_url: https://github.com/k3s-io/k3s
+  has_dot_project: true
 - name: k8gb
   slug: k8gb
   maturity: sandbox
@@ -524,6 +551,7 @@
   homepage: https://www.k8up.io/
   logo: k8up.svg
   repo_url: https://github.com/k8up-io/k8up
+  has_dot_project: true
 - name: kagent
   slug: kagent
   maturity: sandbox
@@ -572,6 +600,7 @@
   homepage: https://kcp.io
   logo: kcp.svg
   repo_url: https://github.com/kcp-dev/kcp
+  has_dot_project: true
 - name: KEDA
   slug: keda
   maturity: graduated
@@ -662,6 +691,7 @@
   homepage: https://kuadrant.io
   logo: kuadrant.svg
   repo_url: https://github.com/kuadrant/kuadrant-operator
+  has_dot_project: true
 - name: Kuasar
   slug: kuasar
   maturity: sandbox
@@ -752,6 +782,7 @@
   homepage: https://kubescape.io/
   logo: kubescape.svg
   repo_url: https://github.com/kubescape/kubescape
+  has_dot_project: true
 - name: KubeSlice
   slug: kubeslice
   maturity: sandbox
@@ -854,6 +885,7 @@
   homepage: https://meshery.io
   logo: meshery.svg
   repo_url: https://github.com/meshery/meshery
+  has_dot_project: true
 - name: metal3-io
   slug: metal3
   maturity: incubating
@@ -914,6 +946,7 @@
   homepage: https://open-cluster-management.io/
   logo: open-cluster-management.svg
   repo_url: https://github.com/open-cluster-management-io/ocm
+  has_dot_project: true
 - name: Open Policy Agent (OPA)
   slug: openpolicyagent
   maturity: graduated
@@ -944,6 +977,7 @@
   homepage: https://www.openebs.io/
   logo: openebs.svg
   repo_url: https://github.com/openebs/openebs
+  has_dot_project: true
 - name: OpenEverest
   slug: openeverest
   maturity: sandbox
@@ -992,6 +1026,7 @@
   homepage: https://opentelemetry.io/
   logo: open-telemetry.svg
   repo_url: https://github.com/open-telemetry/community
+  has_dot_project: true
 - name: OpenTofu
   slug: opentf
   maturity: sandbox
@@ -1016,6 +1051,7 @@
   homepage: https://oras.land/
   logo: oras.svg
   repo_url: https://github.com/oras-project/oras
+  has_dot_project: true
 - name: OSCAL-COMPASS
   slug: trestlegrc
   maturity: sandbox
@@ -1256,6 +1292,7 @@
   homepage: https://tokenetes.io/
   logo: tokenetes.svg
   repo_url: https://github.com/tokenetes/tokenetes
+  has_dot_project: true
 - name: Tremor
   slug: tremor
   maturity: sandbox
