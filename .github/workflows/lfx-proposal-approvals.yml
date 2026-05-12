@@ -402,3 +402,72 @@ jobs:
                 `This proposal is approved and will be included in the next LFX export.`);
               return;
             }
+
+      - name: Sync board status
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.PROJECT_TOKEN }}
+          script: |
+            const PROJECT_ID = 'PVT_kwHOAEP2W84BXacI';
+            const STATUS_FIELD_ID = 'PVTSSF_lAHOAEP2W84BXacIzhSnctg';
+            const STATUS_OPTIONS = {
+              'Inbox':                             '83e636d5',
+              'Awaiting approvals/confirmations':  '40a97db9',
+              'Approved/confirmed':                '4ed57ec6',
+              'CNCF Approved':                     'f091cb7c',
+              'Posted to LFX':                     '4355e838',
+              'LFX Approved':                      'e38391e0',
+              'Mentors added':                     'e11e1b3b',
+              'Open for Applications':             'fbbd298a',
+              'Applications Closed':               'c65ed09a',
+              'Closed':                            'dd85985a',
+            };
+
+            const issue_number = context.issue.number;
+            const { data: issue } = await github.rest.issues.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number,
+            });
+            const labels = issue.labels.map(l => l.name);
+
+            if (!labels.includes('lfx mentorship') || !labels.includes('Proposal')) return;
+
+            let status = 'Inbox';
+            if (issue.state === 'closed')                            status = 'Closed';
+            else if (labels.includes('Applications Closed'))         status = 'Applications Closed';
+            else if (labels.includes('Open for Applications'))       status = 'Open for Applications';
+            else if (labels.includes('Mentors added'))               status = 'Mentors added';
+            else if (labels.includes('LFX Approved'))                status = 'LFX Approved';
+            else if (labels.includes('Posted to LFX'))               status = 'Posted to LFX';
+            else if (labels.includes('CNCF Approved'))               status = 'CNCF Approved';
+            else if (labels.includes('Maintainer/Contribex Approved')
+                     && labels.includes('Mentors Confirmed'))        status = 'Approved/confirmed';
+            else if (labels.includes('Awaiting Maintainer/Contribex Approval')
+                     || labels.includes('Awaiting Mentor Confirmation'))
+                                                                     status = 'Awaiting approvals/confirmations';
+
+            const optionId = STATUS_OPTIONS[status];
+            const addResult = await github.graphql(`
+              mutation($projectId: ID!, $contentId: ID!) {
+                addProjectV2ItemById(input: { projectId: $projectId, contentId: $contentId }) {
+                  item { id }
+                }
+              }
+            `, { projectId: PROJECT_ID, contentId: issue.node_id });
+
+            await github.graphql(`
+              mutation($projectId: ID!, $itemId: ID!, $fieldId: ID!, $optionId: String!) {
+                updateProjectV2ItemFieldValue(input: {
+                  projectId: $projectId, itemId: $itemId, fieldId: $fieldId,
+                  value: { singleSelectOptionId: $optionId }
+                }) { projectV2Item { id } }
+              }
+            `, {
+              projectId: PROJECT_ID,
+              itemId: addResult.addProjectV2ItemById.item.id,
+              fieldId: STATUS_FIELD_ID,
+              optionId: optionId,
+            });
+            console.log(`Board status → ${status}`);
