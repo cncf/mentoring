@@ -1,0 +1,308 @@
+name: LFX Proposal Validation
+
+on:
+  issues:
+    types: [opened, edited, reopened]
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  validate:
+    if: >-
+      contains(github.event.issue.labels.*.name, 'lfx mentorship')
+      && contains(github.event.issue.labels.*.name, 'Proposal')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate proposal
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+            const body = context.payload.issue.body || '';
+
+            // ── Inline issue-form parser ──
+            // Splits on ### headings, returns { label: value } map
+            function parseIssueForm(body) {
+              const fields = {};
+              const sections = body.split(/^### +/m).slice(1);
+              for (const section of sections) {
+                const nl = section.indexOf('\n');
+                if (nl === -1) continue;
+                const label = section.slice(0, nl).trim();
+                let value = section.slice(nl + 1).trim();
+                if (value === '_No response_') value = '';
+                fields[label] = value;
+              }
+              return fields;
+            }
+
+            const fields = parseIssueForm(body);
+            const get = (k) => (fields[k] || '').trim();
+
+            const errors = [];
+            const warnings = [];
+            const passed = [];
+
+            // ── Helper regexes ──
+            const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const urlRe = /^https?:\/\/\S+$/;
+            const ghHandleRe = /^@[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}$/;
+
+            // ── 1. CNCF Project ──
+            const project = get('CNCF Project');
+            if (!project) {
+              errors.push('CNCF Project is empty.');
+            } else {
+              passed.push(`CNCF Project: **${project}**`);
+            }
+
+            // ── 2. Term ──
+            const term = get('Term');
+            if (!term) {
+              errors.push('Term is empty.');
+            } else {
+              passed.push(`Term: **${term}**`);
+            }
+
+            // ── 3. Program Name — length budget ──
+            const programName = get('Program Name');
+            if (!programName) {
+              errors.push('Program Name is empty.');
+            } else {
+              // Budget: 100 - len("CNCF - ") - len(project) - len(": ") - len(" (") - len(term_token) - len(")")
+              // term_token is e.g. "2026 Term 2" extracted from "2026 Term 2 (Jun–Aug)"
+              const termToken = term.replace(/\s*\(.*$/, '');
+              const overhead = 'CNCF - '.length + (project?.length || 0) + ': '.length + ' ('.length + termToken.length + ')'.length;
+              const budget = 100 - overhead;
+              if (programName.length > budget) {
+                errors.push(
+                  `Program Name is ${programName.length} chars but only ${budget} are available ` +
+                  `(full name would be ${overhead + programName.length}/100 chars). Please shorten it.`
+                );
+              } else {
+                passed.push(`Program Name length: ${programName.length}/${budget} chars available`);
+              }
+            }
+
+            // ── 4. Program Description — 3000 char limit ──
+            const description = get('Program Description');
+            if (!description) {
+              errors.push('Program Description is empty.');
+            } else if (description.length > 3000) {
+              errors.push(`Program Description is ${description.length} chars (LFX limit is 3000). Please trim ${description.length - 3000} chars.`);
+            } else {
+              passed.push(`Program Description: ${description.length}/3000 chars`);
+            }
+
+            // ── 5. Technologies ──
+            const technologies = get('Technologies');
+            if (!technologies) {
+              errors.push('Technologies is empty.');
+            } else {
+              passed.push(`Technologies: ${technologies}`);
+            }
+
+            // ── 6. Skills consistency ──
+            const skillsSameRaw = get('Skills same as Technologies?');
+            const skillsSame = skillsSameRaw.includes('[X]') || skillsSameRaw.includes('[x]');
+            const skills = get('Required/Desirable Skills');
+
+            if (!skillsSame && !skills) {
+              errors.push('Either check "Skills same as Technologies?" or fill in Required/Desirable Skills.');
+            } else if (skillsSame && skills) {
+              warnings.push('"Skills same as Technologies?" is checked but Required/Desirable Skills is also filled in. The export will use Technologies for both — clear one or the other.');
+            } else {
+              passed.push(skillsSame ? 'Skills: same as Technologies' : `Skills: ${skills}`);
+            }
+
+            // ── 7. Mentors — pipe-separated, one per line ──
+            const mentorsRaw = get('Mentors');
+            if (!mentorsRaw) {
+              errors.push('Mentors field is empty. At least one mentor (primary) is required.');
+            } else {
+              const mentorLines = mentorsRaw.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+              const handles = new Set();
+              const emails = new Set();
+              let mentorOk = true;
+
+              for (let i = 0; i < mentorLines.length; i++) {
+                const line = mentorLines[i];
+                const parts = line.split('|').map(p => p.trim());
+                const role = i === 0 ? 'Primary mentor' : `Mentor ${i + 1}`;
+
+                if (parts.length !== 3) {
+                  errors.push(`${role}: expected 3 pipe-separated fields (Name | @handle | email), got ${parts.length} in: \`${line}\``);
+                  mentorOk = false;
+                  continue;
+                }
+
+                const [name, handle, email] = parts;
+
+                if (!name) {
+                  errors.push(`${role}: name is empty.`);
+                  mentorOk = false;
+                }
+
+                if (!ghHandleRe.test(handle)) {
+                  errors.push(`${role}: handle \`${handle}\` doesn't match \`@username\` format.`);
+                  mentorOk = false;
+                }
+
+                if (!emailRe.test(email)) {
+                  errors.push(`${role}: email \`${email}\` doesn't look valid.`);
+                  mentorOk = false;
+                }
+
+                if (handles.has(handle.toLowerCase())) {
+                  errors.push(`${role}: duplicate handle \`${handle}\`.`);
+                  mentorOk = false;
+                }
+                handles.add(handle.toLowerCase());
+
+                if (emails.has(email.toLowerCase())) {
+                  errors.push(`${role}: duplicate email \`${email}\`.`);
+                  mentorOk = false;
+                }
+                emails.add(email.toLowerCase());
+              }
+
+              if (mentorOk) {
+                passed.push(`Mentors: ${mentorLines.length} listed (primary: ${mentorLines[0].split('|')[0].trim()})`);
+              }
+            }
+
+            // ── 8. Upstream Issue URL ──
+            const upstreamUrl = get('Upstream Issue URL');
+            if (!upstreamUrl) {
+              errors.push('Upstream Issue URL is empty.');
+            } else if (!urlRe.test(upstreamUrl)) {
+              errors.push(`Upstream Issue URL \`${upstreamUrl}\` is not a valid URL.`);
+            } else if (upstreamUrl.includes(' ') || upstreamUrl.includes(',')) {
+              errors.push('Upstream Issue URL should be exactly one URL. If the program spans multiple issues, create an umbrella issue.');
+            } else {
+              passed.push(`Upstream Issue URL: ${upstreamUrl}`);
+            }
+
+            // ── 9. Quota check ──
+            if (project && term) {
+              try {
+                const quotaRaw = fs.readFileSync('programs/lfx-mentorship/automation/quotas.yml', 'utf8');
+                // Simple YAML parse for our known format — no js-yaml needed
+                const defaultMatch = quotaRaw.match(/default_per_project_per_term:\s*(\d+)/);
+                const defaultQ = defaultMatch ? parseInt(defaultMatch[1]) : 5;
+                const overrides = {};
+                const overrideSection = quotaRaw.split(/^overrides:\s*$/m)[1];
+                if (overrideSection) {
+                  for (const m of overrideSection.matchAll(/^\s+([^:]+):\s*(\d+)/gm)) {
+                    overrides[m[1].trim().toLowerCase()] = parseInt(m[2]);
+                  }
+                }
+                const projectKey = project.toLowerCase().replace(/\s+/g, '-');
+                const quota = overrides[projectKey] || defaultQ;
+
+                // Count open proposals for same project + term
+                const issues = await github.paginate(github.rest.issues.listForRepo, {
+                  owner, repo, state: 'open', labels: `lfx mentorship,Proposal`,
+                  per_page: 100,
+                });
+
+                const sameProjectTerm = issues.filter(iss => {
+                  if (iss.number === issue_number) return false;
+                  const b = iss.body || '';
+                  return b.includes(`### CNCF Project\n\n${project}`)
+                    && b.includes(`### Term\n\n${term}`);
+                });
+
+                const count = sameProjectTerm.length + 1; // include this one
+                if (count > quota) {
+                  warnings.push(
+                    `**Over quota:** ${project} has ${count} proposals for ${term} ` +
+                    `(limit: ${quota}). Existing proposals: ` +
+                    sameProjectTerm.map(i => `#${i.number}`).join(', ') +
+                    `. The project should decide which to keep.`
+                  );
+                } else {
+                  passed.push(`Quota: ${count}/${quota} proposals for ${project} in ${term}`);
+                }
+              } catch (e) {
+                warnings.push(`Could not check quota: ${e.message}`);
+              }
+            }
+
+            // ── 10. LFX verification stub ──
+            warnings.push(
+              'LFX LFID/email verification is not yet automated. ' +
+              'Please manually confirm mentor emails are registered on ' +
+              'https://mentorship.lfx.linuxfoundation.org.'
+            );
+
+            // ── Build validation comment ──
+            const lines = ['## 🤖 LFX Proposal Validation', ''];
+
+            if (errors.length === 0) {
+              lines.push('✅ **All checks passed.**', '');
+            } else {
+              lines.push(`❌ **${errors.length} issue(s) found — please edit to fix:**`, '');
+              for (const e of errors) lines.push(`- ${e}`);
+              lines.push('');
+            }
+
+            if (warnings.length) {
+              lines.push(`⚠️ **${warnings.length} warning(s):**`, '');
+              for (const w of warnings) lines.push(`- ${w}`);
+              lines.push('');
+            }
+
+            if (passed.length) {
+              lines.push('<details><summary>✅ Passed checks</summary>', '');
+              for (const p of passed) lines.push(`- ${p}`);
+              lines.push('', '</details>');
+            }
+
+            lines.push('', '---', '_Re-run by editing the issue._');
+            const comment = lines.join('\n');
+
+            // ── Upsert comment ──
+            const marker = '## 🤖 LFX Proposal Validation';
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number, per_page: 100,
+            });
+            const prior = comments.find(c =>
+              c.user?.login === 'github-actions[bot]' && c.body?.startsWith(marker)
+            );
+            if (prior) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: prior.id, body: comment });
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number, body: comment });
+            }
+
+            // ── Manage labels ──
+            const currentLabels = (context.payload.issue.labels || []).map(l => l.name);
+            const pass = errors.length === 0;
+            const addLabel = pass ? 'Validation Passed' : 'Validation Failed';
+            const dropLabel = pass ? 'Validation Failed' : 'Validation Passed';
+
+            if (currentLabels.includes(dropLabel)) {
+              try { await github.rest.issues.removeLabel({ owner, repo, issue_number, name: dropLabel }); } catch {}
+            }
+            if (!currentLabels.includes(addLabel)) {
+              await github.rest.issues.addLabels({ owner, repo, issue_number, labels: [addLabel] });
+            }
+            if (currentLabels.includes('Needs Validation')) {
+              try { await github.rest.issues.removeLabel({ owner, repo, issue_number, name: 'Needs Validation' }); } catch {}
+            }
+
+            // ── Over Quota label ──
+            const isOverQuota = warnings.some(w => w.startsWith('**Over quota:**'));
+            if (isOverQuota && !currentLabels.includes('Over Quota')) {
+              await github.rest.issues.addLabels({ owner, repo, issue_number, labels: ['Over Quota'] });
+            } else if (!isOverQuota && currentLabels.includes('Over Quota')) {
+              try { await github.rest.issues.removeLabel({ owner, repo, issue_number, name: 'Over Quota' }); } catch {}
+            }

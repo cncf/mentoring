@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for proposing an LFX Mentorship program! 🎉
+        Thanks for proposing an LFX Mentorship program!
 
         **Submit one issue per program.** If you have multiple proposals,
         file multiple issues.
