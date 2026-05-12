@@ -6,12 +6,12 @@ on:
       term:
         description: >
           Term to export (must match the dropdown value in the issue form,
-          e.g. "2026 Term 3 (Sep–Nov)")
+          e.g. "2026 Term 3 (Sep-Nov)")
         required: true
         type: choice
         options:
-          - "2026 Term 3 (Sep–Nov)"
-          - "2027 Term 1 (Mar–May)"
+          - "2026 Term 3 (Sep-Nov)"
+          - "2027 Term 1 (Mar-May)"
 
 permissions:
   contents: write
@@ -172,7 +172,7 @@ jobs:
             }
 
             // ── Determine output path ──
-            // Term format: "2026 Term 3 (Sep–Nov)" → year=2026, dir=03-Sep-Nov
+            // Term format: "2026 Term 3 (Sep-Nov)" → year=2026, dir=03-Sep-Nov
             const yearMatch = term.match(/^(\d{4})/);
             const termNumMatch = term.match(/Term\s+(\d)/);
             const monthsMatch = term.match(/\(([^)]+)\)/);
@@ -180,7 +180,7 @@ jobs:
             const year = yearMatch ? yearMatch[1] : 'unknown';
             const termNum = termNumMatch ? termNumMatch[1].padStart(2, '0') : '00';
             const months = monthsMatch
-              ? monthsMatch[1].replace('–', '-')
+              ? monthsMatch[1].replace('-', '-')
               : 'unknown';
             const termDir = `${termNum}-${months}`;
 
@@ -219,7 +219,7 @@ jobs:
                 .trim();
             }
 
-            // Term display: "2026 Term 3 (Sep–Nov)" → "Term 03 - 2026 September - November"
+            // Term display: "2026 Term 3 (Sep-Nov)" → "Term 03 - 2026 September - November"
             const termNumInt = termNumMatch ? parseInt(termNumMatch[1]) : 0;
             const monthMap = {
               'Mar': 'March', 'May': 'May', 'Jun': 'June',

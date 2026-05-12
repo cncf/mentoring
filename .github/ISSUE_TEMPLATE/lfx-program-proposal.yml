@@ -264,8 +264,8 @@ body:
         Which term is this proposal for? All programs are full-time
         (~350 hours across the term).
       options:
-        - "2026 Term 3 (Sep–Nov)"
-        - "2027 Term 1 (Mar–May)"
+        - "2026 Term 3 (Sep-Nov)"
+        - "2027 Term 1 (Mar-May)"
     validations:
       required: true
 
@@ -279,7 +279,7 @@ body:
         name is composed automatically as
         `CNCF - <Project>: <your program name here> (<term>)`.
         Keep it concise — available characters depend on your project
-        name (typically 53–73 chars), the full program name must be < 100 characters.
+        name (typically 53-73 chars), the full program name must be < 100 characters.
       placeholder: "e.g. Add Prometheus Metrics to Control Plane Service"
     validations:
       required: true

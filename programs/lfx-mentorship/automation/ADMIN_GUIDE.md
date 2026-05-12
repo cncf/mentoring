@@ -30,11 +30,11 @@ the [LFX Mentorship README](../README.md#how-to-propose-a-program).
 
    ```yaml
    terms:
-     - "2027 Term 1 (Mar–May)"
-     - "2027 Term 2 (Jun–Aug)"   # ← add the new term
+     - "2027 Term 1 (Mar-May)"
+     - "2027 Term 2 (Jun-Aug)"   # ← add the new term
    ```
 
-   Use the format `YYYY Term N (Mon–Mon)` with an en-dash (–).
+   Use the format `YYYY Term N (Mon-Mon)`.
 
 2. **Sync the dropdowns:** Run the **Landscape Projects Sync** workflow
    manually (Actions → Landscape Projects Sync → Run workflow), or wait for
@@ -126,8 +126,8 @@ Single source of truth for active term dropdowns. Format:
 
 ```yaml
 terms:
-  - "2027 Term 1 (Mar–May)"
-  - "2027 Term 2 (Jun–Aug)"
+  - "2027 Term 1 (Mar-May)"
+  - "2027 Term 2 (Jun-Aug)"
 ```
 
 After editing, run the landscape sync workflow to propagate changes to the

@@ -77,7 +77,7 @@ jobs:
               errors.push('Program Name is empty.');
             } else {
               // Budget: 100 - len("CNCF - ") - len(project) - len(": ") - len(" (") - len(term_token) - len(")")
-              // term_token is e.g. "2026 Term 2" extracted from "2026 Term 2 (Jun–Aug)"
+              // term_token is e.g. "2026 Term 2" extracted from "2026 Term 2 (Jun-Aug)"
               const termToken = term.replace(/\s*\(.*$/, '');
               const overhead = 'CNCF - '.length + (project?.length || 0) + ': '.length + ' ('.length + termToken.length + ')'.length;
               const budget = 100 - overhead;
