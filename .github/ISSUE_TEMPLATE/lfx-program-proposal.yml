@@ -28,68 +28,230 @@ body:
         [CNCF Landscape](https://landscape.cncf.io) and ask in
         [#mentoring on CNCF Slack](https://cloud-native.slack.com/archives/mentoring).
       options:
-        - Argo
-        - Backstage
-        - Buildpacks
-        - Chaos Mesh
-        - Cilium
-        - CloudEvents
-        - CNI
-        - Containerd
-        - Contour
-        - CoreDNS
-        - Cortex
-        - CRI-O
-        - Crossplane
-        - CubeFS
-        - Dapr
-        - Dragonfly
-        - Emissary-Ingress
-        - Envoy
-        - etcd
-        - Falco
-        - Flux
-        - gRPC
-        - Harbor
-        - Helm
-        - in-toto
-        - Istio
-        - Jaeger
-        - KCL
-        - KEDA
-        - Keycloak
-        - Keptn
-        - Knative
-        - KubeArmor
-        - KubeEdge
-        - KubeFlow
-        - Kubernetes
-        - KubeVela
-        - KubeVirt
-        - Kuma
-        - Kyverno
-        - Linkerd
-        - Litmus
-        - Longhorn
-        - Meshery
-        - NATS
-        - Notary
-        - OPA
-        - Open Policy Agent
-        - OpenELB
-        - OpenFeature
-        - OpenKruise
-        - OpenTelemetry
-        - OpenYurt
-        - Operator Framework
-        - SPIFFE/SPIRE
-        - Strimzi
-        - TiKV
-        - Thanos
-        - TUF
-        - Vitess
-        - Volcano
-        - WasmEdge
+        - "Aeraki Mesh"
+        - "Agones"
+        - "Akri"
+        - "Antrea"
+        - "Argo"
+        - "Armada"
+        - "Artifact Hub"
+        - "Athenz"
+        - "Atlantis"
+        - "Backstage"
+        - "Bank-Vaults"
+        - "BFE"
+        - "bootc"
+        - "bpfman"
+        - "Buildpacks"
+        - "Cadence Workflow"
+        - "Capsule"
+        - "Carina"
+        - "Cartography"
+        - "Carvel"
+        - "CDK for Kubernetes (CDK8s)"
+        - "Cedar"
+        - "cert-manager"
+        - "Chaos Mesh"
+        - "Chaosblade"
+        - "Cilium"
+        - "Cloud Custodian"
+        - "CloudEvents"
+        - "CloudNativePG"
+        - "Clusternet"
+        - "Clusterpedia"
+        - "CoHDI"
+        - "composefs"
+        - "Confidential Containers"
+        - "Connect RPC"
+        - "Container Network Interface (CNI)"
+        - "container2wasm"
+        - "containerd"
+        - "ContainerSSH"
+        - "Contour"
+        - "Copa"
+        - "CoreDNS"
+        - "Cortex"
+        - "Cozystack"
+        - "CRI-O"
+        - "Crossplane"
+        - "CubeFS"
+        - "Dalec"
+        - "Dapr"
+        - "Devfile"
+        - "DevSpace"
+        - "Dex"
+        - "Distribution"
+        - "Dragonfly"
+        - "Drasi"
+        - "Easegress"
+        - "Emissary-Ingress"
+        - "Envoy"
+        - "Eraser"
+        - "etcd"
+        - "external-secrets"
+        - "Falco"
+        - "Flatcar Container Linux"
+        - "Fluentd"
+        - "Fluid"
+        - "Flux"
+        - "gRPC"
+        - "hami"
+        - "Harbor"
+        - "Headlamp"
+        - "Helm"
+        - "Hexa"
+        - "Higress"
+        - "HolmesGPT"
+        - "HwameiStor"
+        - "Hyperlight"
+        - "in-toto"
+        - "Inclavare Containers"
+        - "Inspektor Gadget"
+        - "Interlink"
+        - "Istio"
+        - "Jaeger"
+        - "k0s"
+        - "k3s"
+        - "k8gb"
+        - "K8sGPT"
+        - "K8up"
+        - "kagent"
+        - "KAI Scheduler"
+        - "Kairos"
+        - "KAITO"
+        - "Kanister"
+        - "Karmada"
+        - "KCL"
+        - "kcp"
+        - "KEDA"
+        - "Kepler"
+        - "Keycloak"
+        - "Keylime"
+        - "Kgateway"
+        - "KitOps"
+        - "Kmesh"
+        - "Knative"
+        - "ko"
+        - "Konveyor"
+        - "Koordinator"
+        - "kpt"
+        - "Krkn"
+        - "KServe"
+        - "Kuadrant"
+        - "Kuasar"
+        - "Kube-burner"
+        - "Kube-OVN"
+        - "kube-rs"
+        - "kube-vip"
+        - "Kubean"
+        - "KubeArmor"
+        - "KubeClipper"
+        - "KubeEdge"
+        - "KubeElasti"
+        - "KubeFleet"
+        - "Kubeflow"
+        - "Kuberhealthy"
+        - "Kubernetes"
+        - "Kubescape"
+        - "KubeSlice"
+        - "KubeStellar"
+        - "KubeVela"
+        - "KubeVirt"
+        - "Kubewarden"
+        - "KUDO"
+        - "Kuma"
+        - "Kured"
+        - "KusionStack"
+        - "Kyverno"
+        - "Lima"
+        - "Linkerd"
+        - "Litmus"
+        - "Logging Operator (Kube Logging)"
+        - "Longhorn"
+        - "LoxiLB"
+        - "Meshery"
+        - "metal3-io"
+        - "MetalLB"
+        - "Microcks"
+        - "ModelPack"
+        - "NATS"
+        - "Network Service Mesh"
+        - "NMstate"
+        - "Notary Project"
+        - "OAuth2 Proxy"
+        - "Open Cluster Management"
+        - "Open Policy Agent (OPA)"
+        - "Open Policy Containers"
+        - "OpenChoreo"
+        - "OpenCost"
+        - "OpenEBS"
+        - "OpenEverest"
+        - "OpenFeature"
+        - "OpenFGA"
+        - "OpenFunction"
+        - "openGemini"
+        - "OpenGitOps"
+        - "OpenKruise"
+        - "OpenTelemetry"
+        - "OpenTofu"
+        - "OpenYurt"
+        - "Operator Framework"
+        - "ORAS"
+        - "OSCAL-COMPASS"
+        - "OVN-Kubernetes"
+        - "Oxia"
+        - "Paralus"
+        - "Parsec"
+        - "Perses"
+        - "PipeCD"
+        - "Piraeus Datastore"
+        - "Pixie"
+        - "Podman Container Tools"
+        - "Podman Desktop"
+        - "Porter"
+        - "Prometheus"
+        - "Radius"
+        - "Ratify"
+        - "Rook"
+        - "Runme Notebooks"
+        - "SchemaHero"
+        - "Score"
+        - "Sermant"
+        - "Serverless Devs"
+        - "Serverless Workflow"
+        - "Shipwright"
+        - "SlimFaaS"
+        - "SlimToolkit"
+        - "SOPS"
+        - "Spiderpool"
+        - "SPIFFE"
+        - "Spin"
+        - "SpinKube"
+        - "SPIRE"
+        - "Stacker"
+        - "Strimzi"
+        - "Submariner"
+        - "Telepresence"
+        - "Thanos"
+        - "The Update Framework (TUF)"
+        - "TiKV"
+        - "Tinkerbell"
+        - "Tokenetes"
+        - "Tremor"
+        - "Trickster"
+        - "urunc"
+        - "Vineyard"
+        - "Virtual Kubelet"
+        - "Visual Studio Code Kubernetes Tools"
+        - "Vitess"
+        - "Volcano"
+        - "Volcano-Kthena"
+        - "wasmCloud"
+        - "WasmEdge Runtime"
+        - "werf"
+        - "xRegistry"
+        - "youki"
+        - "zot"
     validations:
       required: true
 
