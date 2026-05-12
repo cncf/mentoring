@@ -54,6 +54,8 @@ labels:
     color: 0052CC
   - name: '2026'
     color: 0052CC
+  - name: '2027'
+    color: 0052CC
   - name: discussion
     color: af17d7
   - name: administration

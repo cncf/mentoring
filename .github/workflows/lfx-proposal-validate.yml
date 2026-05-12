@@ -324,6 +324,39 @@ jobs:
               }
             }
 
+            // ── Term labels ──
+            // Add year and term labels matching the selected term dropdown.
+            // On edits that change the term, the old term label is removed.
+            if (term) {
+              const termMap = {
+                'Term 1': 'Term 1: March-May',
+                'Term 2': 'Term 2: June-Aug',
+                'Term 3': 'Term 3: Sept-Nov',
+              };
+              const allTermLabels = Object.values(termMap);
+
+              const yearMatch = term.match(/^(\d{4})/);
+              const termNumMatch = term.match(/(Term \d)/);
+
+              const wantYear = yearMatch ? yearMatch[1] : null;
+              const wantTerm = termNumMatch ? termMap[termNumMatch[1]] : null;
+
+              // Remove wrong term labels (handles edits that change the term)
+              for (const tl of allTermLabels) {
+                if (tl !== wantTerm && currentLabels.includes(tl)) {
+                  try { await github.rest.issues.removeLabel({ owner, repo, issue_number, name: tl }); } catch {}
+                }
+              }
+
+              // Add correct labels
+              const toAdd = [];
+              if (wantYear && !currentLabels.includes(wantYear)) toAdd.push(wantYear);
+              if (wantTerm && !currentLabels.includes(wantTerm)) toAdd.push(wantTerm);
+              if (toAdd.length) {
+                await github.rest.issues.addLabels({ owner, repo, issue_number, labels: toAdd });
+              }
+            }
+
       - name: Sync board status
         if: always()
         uses: actions/github-script@v7
