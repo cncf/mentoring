@@ -1,16 +1,25 @@
 # Fallback approvers for projects whose governance model isn't fully
-# captured by cncf/foundation/project-maintainers.csv.
+# captured by cncf/foundation/project-maintainers.csv or {org}/.project.
 #
-# The validation workflow first checks project-maintainers.csv for the
-# CNCF project selected in the proposal. If the /approve commenter isn't
-# listed there, it checks the fallback_teams and fallback_handles below.
+# The approvals workflow checks authorization in this order:
+#   1. {org}/.project/maintainers.yaml (project-maintainers team)
+#   2. cncf/foundation/project-maintainers.csv
+#   3. This file — per-project fallback_teams and fallback_handles
+#   4. This file — global_approvers (can /approve for any project)
 #
 # Format:
-#   <project-slug>:            # must match the dropdown value in the issue form
-#     fallback_teams:           # GitHub teams (org/team) whose members may /approve
+#   global_approvers:             # can /approve any project
+#     - username
+#
+#   <project-slug>:               # must match the dropdown value in the issue form
+#     fallback_teams:             # GitHub teams (org/team) whose members may /approve
 #       - org/team-name
-#     fallback_handles:         # individual GitHub handles
+#     fallback_handles:           # individual GitHub handles
 #       - username
+
+global_approvers:
+  - nate-double-u
+  - dkrook
 
 kubernetes:
   fallback_teams:

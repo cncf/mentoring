@@ -17,12 +17,17 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Fetch and sync projects
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python3 << 'PYEOF'
           import json, re, sys, urllib.request
           from datetime import date
 
           import yaml  # PyYAML is pre-installed on ubuntu-latest
+          import os
+
+          gh_token = os.environ.get("GITHUB_TOKEN", "")
 
           # ── Fetch landscape.yml ──
           url = "https://raw.githubusercontent.com/cncf/landscape/master/landscape.yml"
@@ -42,17 +47,56 @@ jobs:
                       slug = extra.get("lfx_slug") or item["name"]
                       slug = re.sub(r"[^a-z0-9-]", "-", slug.lower())
                       slug = re.sub(r"-+", "-", slug).strip("-")
+                      repo_url = item.get("repo_url", "")
                       projects.append({
                           "name": item["name"],
                           "slug": slug,
                           "maturity": level,
                           "homepage": item.get("homepage_url", ""),
                           "logo": item.get("logo", ""),
-                          "repo_url": item.get("repo_url", ""),
+                          "repo_url": repo_url,
                       })
 
           projects.sort(key=lambda p: p["name"].lower())
           print(f"Found {len(projects)} CNCF projects")
+
+          # ── Check which orgs have a .project repo ──
+          checked_orgs = {}  # org -> bool (cache to avoid duplicate checks)
+          for proj in projects:
+              repo_url = proj.get("repo_url", "")
+              m = re.match(r"https://github\.com/([^/]+)/", repo_url)
+              if not m:
+                  continue
+              org = m.group(1)
+              if org in checked_orgs:
+                  if checked_orgs[org]:
+                      proj["has_dot_project"] = True
+                  continue
+              # Check if {org}/.project exists via GitHub API
+              try:
+                  req = urllib.request.Request(
+                      f"https://api.github.com/repos/{org}/.project",
+                      method="HEAD",
+                  )
+                  if gh_token:
+                      req.add_header("Authorization", f"Bearer {gh_token}")
+                  req.add_header("User-Agent", "cncf-mentoring-sync")
+                  urllib.request.urlopen(req)
+                  checked_orgs[org] = True
+                  proj["has_dot_project"] = True
+                  print(f"  {org}/.project: found")
+              except urllib.error.HTTPError as e:
+                  if e.code == 404:
+                      checked_orgs[org] = False
+                  else:
+                      print(f"  {org}/.project: HTTP {e.code}, skipping")
+                      checked_orgs[org] = False
+              except Exception as e:
+                  print(f"  {org}/.project: error ({e}), skipping")
+                  checked_orgs[org] = False
+
+          dot_count = sum(1 for o, v in checked_orgs.items() if v)
+          print(f"Checked {len(checked_orgs)} orgs, {dot_count} have .project repos")
 
           # ── Write projects.yml ──
           header = (
