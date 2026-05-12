@@ -1,6 +1,6 @@
 name: LFX Mentorship Program Proposal
 description: Propose a mentorship program for an upcoming LFX Mentorship term.
-title: "[LFX Proposal] <project> — <program name>"
+title: "[CNCF LFX Proposal] <project> <program name>"
 labels: ["lfx mentorship", "Proposal", "Needs Validation"]
 body:
   - type: markdown
@@ -116,9 +116,9 @@ body:
       description: >
         The descriptive part of the program name shown on LFX. The full
         name is composed automatically as
-        `CNCF - <Project>: <your name here> (<term>)`.
+        `CNCF - <Project>: <your program name here> (<term>)`.
         Keep it concise — available characters depend on your project
-        name (typically 53–73 chars).
+        name (typically 53–73 chars), the full program name must be < 100 characters.
       placeholder: "e.g. Add Prometheus Metrics to Control Plane Service"
     validations:
       required: true
