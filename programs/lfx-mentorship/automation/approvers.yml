@@ -20,6 +20,8 @@
 global_approvers:
   - nate-double-u
   - dkrook
+  - RobertKielty
+  - thisisobate
 
 kubernetes:
   fallback_teams:
