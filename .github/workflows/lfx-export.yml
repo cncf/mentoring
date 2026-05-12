@@ -277,6 +277,47 @@ jobs:
             fs.writeFileSync(readmePath, md.join('\n') + '\n');
             console.log(`Wrote README.md with ${sortedProjects.length} projects, ${programs.length} programs`);
 
+            // ── Generate tracking CSV ──
+            function csvEscape(val) {
+              const s = String(val || '');
+              if (s.includes(',') || s.includes('"') || s.includes('\n')) {
+                return '"' + s.replace(/"/g, '""') + '"';
+              }
+              return s;
+            }
+
+            const csvHeaders = [
+              'PROJECT', 'LFX URL', 'Upstream issue', '',
+              'mentor count',
+              'Mentor 1', 'Mentor 1 GitHub', 'Mentor 1 email address',
+              'Mentor 2', 'Mentor 2 GitHub', 'Mentor 2 email address',
+              'Mentor 3', 'Mentor 3 GitHub', 'Mentor 3 email address',
+              'Mentor 4', 'Mentor 4 GitHub', 'Mentor 4 email address',
+            ];
+
+            const csvRows = [csvHeaders.map(csvEscape).join(',')];
+            for (const prog of programs) {
+              const mentors = prog.mentors || [];
+              const row = [
+                prog.program_name_full,
+                '',  // LFX URL — filled in after posting to LFX
+                prog.upstream_issue_url,
+                '',  // spacer column
+                mentors.length,
+              ];
+              for (let i = 0; i < 4; i++) {
+                const m = mentors[i];
+                row.push(m ? m.name : '');
+                row.push(m ? m.github_handle : '');
+                row.push(m ? m.email : '');
+              }
+              csvRows.push(row.map(csvEscape).join(','));
+            }
+
+            const csvPath = `${outDir}/lfx-tracking.csv`;
+            fs.writeFileSync(csvPath, csvRows.join('\n') + '\n');
+            console.log(`Wrote ${programs.length} rows to ${csvPath}`);
+
             // ── Store path for the PR step ──
             core.exportVariable('EXPORT_PATH', outPath);
             core.exportVariable('EXPORT_COUNT', programs.length.toString());
@@ -314,6 +355,7 @@ jobs:
             **Files generated:**
             - `${{ env.EXPORT_PATH }}` — structured JSON for LFX bulk import
             - `programs/lfx-mentorship/${{ env.EXPORT_YEAR }}/${{ env.EXPORT_TERM_DIR }}/README.md` — human-readable accepted-programs list
+            - `programs/lfx-mentorship/${{ env.EXPORT_YEAR }}/${{ env.EXPORT_TERM_DIR }}/lfx-tracking.csv` — tracking spreadsheet with mentor details
 
             <details>
             <summary>What to do next</summary>
