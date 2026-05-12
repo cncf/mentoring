@@ -10,9 +10,10 @@ LFX Mentorship is actively used by the Cloud Native Computing Foundation as a me
   - [Program Maintainers](#program-maintainers)
   - [Communication](#communication)
   - [Program Guidelines](#program-guidelines)
-    - [How to apply?](#how-to-apply)
-      - [Projects](#projects)
-      - [Mentors](#mentors)
+    - [How to propose a program](#how-to-propose-a-program)
+      - [For maintainers and mentors](#for-maintainers-and-mentors)
+      - [What happens after you submit](#what-happens-after-you-submit)
+      - [Slash command reference](#slash-command-reference)
       - [Mentees](#mentees)
         - [Eligibility](#eligibility)
     - [Mentee selection process](#mentee-selection-process)
@@ -53,17 +54,66 @@ The current cycle is [01-Mar-May 2025](2025/01-Mar-May/README.md).
 
 Please see the program-wide guidelines on the [LFX Mentorship website](https://docs.linuxfoundation.org/lfx/mentorship).
 
-### How to apply?
+### How to propose a program
 
-#### Projects
+#### For maintainers and mentors
 
-Project maintainers and mentors are requested to submit the ideas using the [template](/PROJECT_IDEA_TEMPLATE.md).
+To propose a mentorship program for an upcoming term, **file an issue** using
+the proposal form:
 
-CNCF will select the projects that will participate in the LFX mentorship round and they will appear on the LFX Mentorship Platform website after the selection.
+**[Submit a program proposal](https://github.com/nate-double-u/mentoring/issues/new?template=lfx-program-proposal.yml)**
 
-#### Mentors
+The form asks for:
 
-If you are a mentor and your project will be selected to participate in the LFX Mentorship program, you'll have to apply as a mentor on the LFX Mentorship website. Please see the [LFX Mentorship guidelines](https://docs.linuxfoundation.org/lfx/mentorship/mentor-guide) for more details.
+- **CNCF Project** — which CNCF project this program is for (dropdown, kept
+  in sync with the CNCF landscape)
+- **Term** — which upcoming term you're proposing for
+- **Program Name** — a short title for the program (the full LFX name is
+  composed automatically: `CNCF - <Project>: <Program Name> (<Term>)`)
+- **Program Description** — what the mentee will work on and what outcomes
+  to expect (markdown supported)
+- **Technologies and Skills** — what the program involves and what
+  candidates should know
+- **Mentors** — one primary mentor and up to three co-mentors, each with
+  name, GitHub handle, and email
+- **Upstream Issue URL** — a link to a tracking issue on the project's own
+  repo
+- **Application Prerequisites** — what applicants need to submit (resume,
+  cover letter, coding challenge, etc.)
+
+#### What happens after you submit
+
+1. **Automated validation** — a bot checks formatting, character limits, and
+   mentor fields. If anything needs fixing, it comments on the issue with
+   specific guidance. Fix the issue body and re-save; validation re-runs
+   automatically.
+
+2. **Maintainer approval** — a maintainer of the CNCF project (or an
+   authorized delegate) must comment `/approve` on the issue. The bot checks
+   the commenter against the project's maintainer list.
+
+3. **Mentor confirmation** — each mentor listed on the proposal must comment
+   `/confirm` on the issue. This verifies they've agreed to mentor for this
+   term and that their GitHub handle is correct.
+
+4. **CNCF admin approval** — once maintainer approval and mentor
+   confirmation are in place, a CNCF mentorship admin reviews and comments
+   `/cncf-approve` to finalize.
+
+5. **Export** — approved proposals are exported to files used for the LFX
+   platform and the term's README. You'll be notified on your issue when the
+   export happens.
+
+You can track your proposal's progress via the labels on the issue and on
+the [project board](https://github.com/orgs/cncf/projects/92).
+
+#### Slash command reference
+
+| Command | Who can use it | What it does |
+| ------- | -------------- | ------------ |
+| `/approve` | Project maintainers, authorized delegates, global approvers | Grants maintainer/project approval |
+| `/confirm` | Mentors listed on the proposal | Confirms mentor participation |
+| `/cncf-approve` | CNCF mentorship admins | Final approval — proposal moves to "CNCF Approved" |
 
 #### Mentees
 

@@ -38,13 +38,13 @@ The following are not within the scope of the mentor's duties:
 
 ## How to become a mentor?
 
-Short answer: Generate a project proposal that is suitable for a mentorship and present it to the CNCF mentoring group by submitting a PR!
+Short answer: Generate a project proposal that is suitable for a mentorship and submit it via the issue form!
 
 Long answer:
-1. **Watch out for the announcements**: CNCF mentoring programs are announced on CNCF Twitter ([@CloudNativeFdn](https://twitter.com/CloudNativeFdn)) and CNCF Slack ([#mentoring](https://cloud-native.slack.com/archives/CGPK98JNQ)). You can also watch the announcements on the CNCF mentoring repository.
+1. **Watch for announcements**: CNCF mentoring programs are announced on the [CNCF blog](https://www.cncf.io/blog/), CNCF social media, and CNCF Slack ([#mentoring](https://cloud-native.slack.com/archives/CGPK98JNQ)). You can also watch the [cncf/mentoring](https://github.com/cncf/mentoring) repository for updates.
 2. **Find a project idea**: Either come up with a new mentorship project idea or find an existing mentorship project idea that you would like to mentor for.
    The definition of a good project idea varies from program to program. Different mentorship programs and project initiatives have their own unique focuses and areas of emphasis. For instance, some projects place a greater emphasis on coding and software development, while others prioritise documentation and technical writing. The specific goals and objectives of each program may vary, but generally, they strive to provide valuable learning experiences and support to participants in their respective fields.
-3. **Submit your project idea**: Submit your project idea to the [CNCF mentoring repository](https://github.com/cncf/mentoring). You can use the [project idea template](https://github.com/cncf/mentoring/blob/main/PROJECT_IDEA_TEMPLATE.md). Information on how to submit your project idea will be provided in the program announcement that will be sent out.
+3. **Submit your proposal**: File an issue using the [LFX Mentorship Program Proposal](https://github.com/nate-double-u/mentoring/issues/new?template=lfx-program-proposal.yml) form. The form guides you through all required fields. See the [LFX Mentorship README](https://github.com/nate-double-u/mentoring/blob/main/programs/lfx-mentorship/README.md#how-to-propose-a-program) for details on validation, approvals, and what to expect after submission.
 4. **Review mentee profiles and proposals**: Once the mentee profiles and proposals are submitted for your project idea, you will  have the opportunity to review them. Program administrators will provide you with more information on how to review the proposals and the main criteria for acceptance.
 5. **Mentor the mentees**: Once the mentees are accepted into the program, you will be able to start mentoring them!
 

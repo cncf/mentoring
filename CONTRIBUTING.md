@@ -37,14 +37,23 @@ Issues labeled `discussion` are conversation starters, not tasks. They are used 
 
 ## Contributing mentorship projects
 
-To propose a project for one of the mentoring terms ([LFX Mentorship](programs/lfx-mentorship/README.md), [GSoC](programs/summerofcode/README.md)), you should:
+To propose a project for an LFX Mentorship term:
 
-1. **Be a maintainer or approver** of the CNCF project you are proposing work for, and have a maintainer's explicit support
-2. Follow the project idea template in the relevant program folder ([LFX Mentorship](programs/lfx-mentorship/README.md), [GSoC](programs/summerofcode/README.md))   each program has its own template with program-specific requirements
-3. Submit your PR to the appropriate term folder (e.g., `programs/lfx-mentorship/2026/01-Mar-May/`)
-4. Ensure the project scope is appropriate for a full-time, 12-week mentorship
+1. **Be a maintainer or approver** of the CNCF project you are proposing
+   work for, and have a maintainer's explicit support
+2. **File an issue** using the
+   [LFX Mentorship Program Proposal](https://github.com/nate-double-u/mentoring/issues/new?template=lfx-program-proposal.yml)
+   form — no PR needed
+3. Follow the prompts in the form; see the
+   [LFX Mentorship README](programs/lfx-mentorship/README.md#how-to-propose-a-program)
+   for full details on the approval workflow
 
-Do not propose mentorship projects on behalf of a CNCF project without the project maintainers' involvement. This volunteers them for significant work they may not have planned for.
+For GSoC, follow the instructions in the
+[GSoC program folder](programs/summerofcode/README.md).
+
+Do not propose mentorship projects on behalf of a CNCF project without the
+project maintainers' involvement. This volunteers them for significant work
+they may not have planned for.
 
 
 ## Contributing to mentorship guides and processes
