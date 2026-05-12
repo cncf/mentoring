@@ -260,19 +260,7 @@ jobs:
                 md.push('');
                 md.push(prog.program_name_full);
                 md.push('');
-
-                // Clean description: strip ## headings inserted by the form template
-                const desc = prog.description
-                  .replace(/^##\s+(Description|Expected\s+outcomes)\s*$/gim, '')
-                  .replace(/\n{3,}/g, '\n\n')
-                  .trim();
-                md.push('- Description:');
-                md.push('');
-                // Indent each line so it stays under the list item
-                for (const line of desc.split('\n')) {
-                  md.push(`  ${line}`);
-                }
-                md.push('');
+                md.push(`- Description: ${prog.description}`);
                 md.push(`- Recommended Skills: ${prog.skills}`);
                 md.push(`- Technologies: ${prog.technologies}`);
                 md.push('- Mentor(s):');
