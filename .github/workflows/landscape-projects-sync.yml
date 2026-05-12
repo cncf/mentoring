@@ -147,6 +147,49 @@ jobs:
           with open(form_path, "w") as f:
               f.write("\n".join(new_lines))
 
+          # ── Sync term dropdowns from terms.yml ──
+          # Single source of truth: programs/lfx-mentorship/automation/terms.yml
+          # Targets: issue form (id: term) and export workflow (workflow_dispatch input)
+          terms_path = "programs/lfx-mentorship/automation/terms.yml"
+          with open(terms_path) as f:
+              terms_data = yaml.safe_load(f)
+          term_list = terms_data.get("terms", [])
+
+          def rewrite_options_block(file_path, context_marker):
+              """Rewrite an options: block whose preceding lines contain context_marker."""
+              with open(file_path) as f:
+                  text = f.read()
+              lines = text.split("\n")
+              out = []
+              in_opts = False
+              done = False
+              for i, line in enumerate(lines):
+                  if (not done and re.match(r"^\s+options:\s*$", line)):
+                      ctx = "\n".join(lines[max(0, i - 10):i])
+                      if context_marker in ctx:
+                          indent = re.match(r"^(\s+)", line).group(1) + "  "
+                          out.append(line)
+                          for t in term_list:
+                              out.append(f'{indent}- "{t}"')
+                          in_opts = True
+                          done = True
+                          continue
+                  if in_opts:
+                      if re.match(r"^\s+-\s", line):
+                          continue
+                      else:
+                          in_opts = False
+                  out.append(line)
+              with open(file_path, "w") as f:
+                  f.write("\n".join(out))
+
+          rewrite_options_block(form_path, "id: term")
+          rewrite_options_block(
+              ".github/workflows/lfx-export.yml",
+              "term:"  # the workflow_dispatch input name
+          )
+          print(f"Term dropdowns synced: {term_list}")
+
           print("Files updated successfully")
           PYEOF
 
