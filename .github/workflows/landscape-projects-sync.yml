@@ -34,7 +34,7 @@ jobs:
           projects = []
           for cat in data.get("landscape", []):
               for sub in cat.get("subcategories", []):
-                  for item in sub.get("items", []):
+                  for item in (sub.get("items") or []):
                       level = item.get("project")
                       if level not in valid:
                           continue
