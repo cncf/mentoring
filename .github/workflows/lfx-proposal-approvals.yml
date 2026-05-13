@@ -368,8 +368,17 @@ jobs:
             // ══════════════════════════════════════════════════
             if (command === 'cncf-approve') {
 
-              // Authorization: hardcoded admin list (MVP)
-              const admins = ['nate-double-u'];
+              // Authorization: read from approvers.yml global_approvers
+              let admins = [];
+              try {
+                const raw = fs.readFileSync('programs/lfx-mentorship/automation/approvers.yml', 'utf8');
+                const globalBlock = raw.match(/global_approvers:\s*\n((?:\s+-\s+\S+.*\n?)*)/);
+                if (globalBlock) {
+                  admins = [...globalBlock[1].matchAll(/-\s+(\S+)/g)].map(m => m[1].toLowerCase());
+                }
+              } catch (e) {
+                console.log(`Failed to read approvers.yml: ${e.message}`);
+              }
               if (!admins.includes(commenter.toLowerCase())) {
                 await reply('❌',
                   `@${commenter} is not authorized to use \`/cncf-approve\`. ` +
