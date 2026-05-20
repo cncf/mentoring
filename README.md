@@ -33,7 +33,7 @@ These are the number of successful internships per year for each program.
 
 | Year | Program                          | Internships | Total (per year) |
 |------|----------------------------------|-------------|------------------|
-| 2025 | LFX Mentorship                   | 64          | 64 (so far)      |
+| 2025 | LFX Mentorship                   | 176         | 187              |
 |      | GSoC                             | 11          |                  |
 | 2024 | LFX Mentorship                   | 134         | 147              |
 |      | GSoC                             | 11          |                  |
@@ -42,14 +42,14 @@ These are the number of successful internships per year for each program.
 |      | GSoC                             | 14          |                  |
 |      | GSoD                             | 2           |                  |
 |      | Outreachy                        | 1           |                  |
-| 2022 | LFX Mentorship                   | 87          | 106              |
+| 2022 | LFX Mentorship                   | 89          | 108              |
 |      | GSoC                             | 16          |                  |
 |      | GSoD                             | 3           |                  |
-| 2021 | LFX Mentorship                   | 86          | 104              |
+| 2021 | LFX Mentorship                   | 73          | 94               |
 |      | GSoC                             | 16          |                  |
-|      | GSoD                             | 1           |                  |
+|      | GSoD                             | 4           |                  |
 |      | Outreachy                        | 1           |                  |
-| 2020 | LFX Mentorship (CommunityBridge) | 50          | 71               |
+| 2020 | LFX Mentorship (CommunityBridge) | 56          | 77               |
 |      | GSoC                             | 16          |                  |
 |      | GSoD                             | 4           |                  |
 |      | Outreachy                        | 1           |                  |
