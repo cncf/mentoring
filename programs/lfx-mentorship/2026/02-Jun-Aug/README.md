@@ -1018,7 +1018,7 @@ CNCF - KubeStellar: AI-driven bug discovery and remediation architect for Consol
 - Recommended Skills: Analytical mindset for error triage and root cause analysis, basic familiarity with React/TypeScript and web error handling, experience using advanced AI coding agents, familiarity with GitHub Actions and browser developer tools, understanding of Kubernetes concepts helpful but not required.
 - Mentor(s):
   - Andy Anderson (@clubanderson, andy@clubanderson.com)
-  - Ghanshyam Singh (@ghanshyam2005singh, ghanshyam2005singh@gmail.com)
+  - Arpit Srivastava (@arpit529srivastava, arpitsrivastava529@gmail.com)
 - Upstream Issue: https://github.com/kubestellar/console/issues/4190
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/fa8a2bf8-3dba-4ce5-a0b1-ba9ee116a919
 
