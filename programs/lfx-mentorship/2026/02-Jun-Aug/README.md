@@ -262,6 +262,7 @@ CNCF - Jaeger: Jaeger for GenAI Observability: Specialized Trace Visualization (
 - Mentor(s):
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
+  - Ansh Goyal (@anshgoyalevil, anshgoyal1704@gmail.com)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/8401
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/46a525b2-568b-4aff-8156-459c8600c759
 
