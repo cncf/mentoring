@@ -206,16 +206,50 @@ applied manually as you work with the LFX platform team.
 
 ## Secrets and setup
 
-### Required repository secret
+### Required repository secret: `PROJECT_TOKEN`
 
-**`PROJECT_TOKEN`** — a Personal Access Token used for Project v2 board
-sync via GraphQL.
+The board sync authenticates to the Project v2 GraphQL API with a
+`PROJECT_TOKEN` repository secret (Settings → Secrets and variables →
+Actions). Each environment needs its own token:
 
-- **For org-owned projects** (cncf/mentoring production): use a
-  fine-grained PAT with **Organization → Projects: Read and write** scope
-- **For user-owned projects** (dev/testing): use a **classic PAT** with
-  `project` scope (fine-grained tokens don't support Projects permission
-  for user-owned projects)
+| Environment | Board owner | Token type | Key scope |
+| --- | --- | --- | --- |
+| Prod (`cncf/mentoring`) | org `cncf` | fine-grained PAT, resource owner **cncf** | Organization → Projects: Read and write, plus Repository → Issues: Read |
+| Dev (fork) | your user | classic PAT | `project` |
+
+Fine-grained tokens do not offer a Projects permission for user-owned
+projects, which is why dev uses a classic PAT.
+
+**Creating the prod fine-grained PAT** (Settings → Developer settings →
+Personal access tokens → Fine-grained tokens → Generate new token):
+
+1. **Resource owner:** `cncf`, not your personal account. This is what lets
+   the token reach the org board.
+2. **Repository access:** Only select repositories → `cncf/mentoring`.
+3. **Permissions:** Organization → Projects: Read and write, and
+   Repository → Issues: Read. (Metadata: Read is added automatically.)
+4. **Expiration:** the CNCF enterprise caps fine-grained token lifetime at
+   **366 days**. Pick a custom date at or under that limit; "no expiration"
+   is not allowed.
+5. If the org enforces the personal-access-token approval policy, the token
+   stays pending until an org owner approves it.
+6. Save the value as the `PROJECT_TOKEN` secret on `cncf/mentoring`.
+
+Tips when filling out the form:
+- The org permission is labeled simply **Projects** (not "Organization
+  Projects"). In the organization permission picker, search `projects`;
+  searching `organization` hides it, because the label has no "organization"
+  in it.
+- Set Projects to **Read and write**, not Read-only: the sync moves cards.
+- `Issues` is a **Repository** permission (Read is enough); `Projects` is an
+  **Organization** permission. They live under different tabs.
+
+**Rotation:** because the token expires (366 days max), set a reminder to
+regenerate it and update the secret before it lapses. When `PROJECT_TOKEN`
+expires the board sync stops silently while the rest of the automation keeps
+running; regenerating with the same scopes restores it. For prod, a GitHub
+App installation token is a more durable alternative (not tied to one
+person, no fixed expiry) if you later want to drop the rotation burden.
 
 ### Board configuration (`board.json`)
 
