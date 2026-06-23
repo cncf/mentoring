@@ -217,38 +217,44 @@ sync via GraphQL.
   `project` scope (fine-grained tokens don't support Projects permission
   for user-owned projects)
 
-### Board IDs
+### Board configuration (`board.json`)
 
-The following IDs are hardcoded in the board sync sections of the
-validation, approvals, export, and board-sync workflows:
+The board each repo syncs to is configured in
+[`board.json`](board.json), keyed by repository:
 
-- `PROJECT_ID` — the Project v2 node ID
-- `STATUS_FIELD_ID` — the Status single-select field node ID
-- Status option IDs — one per board column
-
-To find these IDs for a new board, use the GitHub GraphQL API:
-
-```graphql
-query {
-  organization(login: "cncf") {
-    projectV2(number: 92) {
-      id
-      field(name: "Status") {
-        ... on ProjectV2SingleSelectField {
-          id
-          options { id name }
-        }
-      }
-    }
+```json
+{
+  "environments": {
+    "nate-double-u/mentoring": { "projectId": "PVT_..." },
+    "cncf/mentoring":          { "projectId": "PVT_..." }
   }
 }
 ```
 
-If the board changes, update the IDs in all four workflows:
-- `lfx-proposal-validate.yml`
-- `lfx-proposal-approvals.yml`
-- `lfx-export.yml`
-- `lfx-proposal-board-sync.yml`
+Each repo stores **only** the Project v2 node ID (`projectId`). The board
+sync steps resolve the Status field ID and the per-column option IDs live
+from the board at run time. This means:
+
+- dev (the fork) and prod (`cncf/mentoring`) run identical workflow code;
+- you never hand-transcribe Status option IDs;
+- the only hard requirement is that the board's **Status column names exactly
+  match** the lifecycle stages in the board table above (`Inbox`,
+  `Awaiting approvals/confirmations`, `Approved/confirmed`, `CNCF Approved`,
+  `Exported`, `Posted to LFX`, `LFX Approved`, `Mentors added`,
+  `Open for Applications`, `Applications Closed`, `Closed`).
+
+If a repo is not listed in `board.json` (or its `projectId` is still a
+`REPLACE_...` placeholder), board sync is skipped with a warning instead of
+failing, so the rest of the automation keeps working before the board exists.
+
+To point a repo at a different board, get the board's node ID:
+
+```graphql
+query { organization(login: "cncf") { projectV2(number: 93) { id } } }
+```
+
+and set it as that repo's `projectId` in `board.json`. No workflow edits are
+needed.
 
 ---
 

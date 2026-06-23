@@ -1,0 +1,15 @@
+{
+  "_note": "Per-repository Project v2 board config for LFX Mentorship proposal intake. Keyed by GITHUB_REPOSITORY (owner/repo). Only the Project v2 node ID is stored here; the board-sync steps resolve the Status field ID and per-column option IDs live from the board at run time, so dev (fork) and prod (cncf/mentoring) run identical workflow code. The board's Status column NAMES must match the lifecycle stages used by the workflows. See ADMIN_GUIDE.md > Board configuration.",
+  "environments": {
+    "nate-double-u/mentoring": {
+      "_role": "dev",
+      "_board": "user project #7 'DEMO CNCF LFX Mentorship Intake'",
+      "projectId": "PVT_kwHOAEP2W84BXacI"
+    },
+    "cncf/mentoring": {
+      "_role": "prod",
+      "_board": "org project #93 'CNCF LFX Mentorship Project Proposals'",
+      "projectId": "PVT_kwDOAM1Res4BbdSM"
+    }
+  }
+}

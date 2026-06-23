@@ -421,9 +421,37 @@ jobs:
         with:
           github-token: ${{ secrets.PROJECT_TOKEN }}
           script: |
-            const PROJECT_ID = 'PVT_kwHOAEP2W84BXacI';
-            const STATUS_FIELD_ID = 'PVTSSF_lAHOAEP2W84BXacIzhSnctg';
-            const EXPORTED_OPTION = 'faaeb133';
+            // ── Resolve this repo's board from board.json (dev vs prod) ──
+            // Only the projectId is stored per repo; the Status field ID and
+            // option IDs are resolved live from the board so the fork (dev) and
+            // cncf/mentoring (prod) run identical code. The board's Status
+            // column names must match the lifecycle stages used by the workflows.
+            const fs = require('fs');
+            const _board = JSON.parse(fs.readFileSync('programs/lfx-mentorship/automation/board.json', 'utf8'));
+            const _envCfg = (_board.environments || {})[process.env.GITHUB_REPOSITORY];
+            if (!_envCfg || !_envCfg.projectId || String(_envCfg.projectId).startsWith('REPLACE_')) {
+              core.warning(`No board configured for ${process.env.GITHUB_REPOSITORY} in board.json; skipping board sync.`);
+              return;
+            }
+            const PROJECT_ID = _envCfg.projectId;
+            const _statusField = (await github.graphql(`
+              query($projectId: ID!) {
+                node(id: $projectId) { ... on ProjectV2 {
+                  field(name: "Status") { ... on ProjectV2SingleSelectField { id options { id name } } }
+                } }
+              }
+            `, { projectId: PROJECT_ID })).node.field;
+            if (!_statusField) {
+              core.warning(`Project ${PROJECT_ID} has no "Status" field; skipping board sync.`);
+              return;
+            }
+            const STATUS_FIELD_ID = _statusField.id;
+            const STATUS_OPTIONS = Object.fromEntries(_statusField.options.map(o => [o.name, o.id]));
+            const EXPORTED_OPTION = STATUS_OPTIONS['Exported'];
+            if (!EXPORTED_OPTION) {
+              core.warning(`Board has no "Exported" status option; skipping board sync.`);
+              return;
+            }
             const issues = process.env.EXPORTED_ISSUES.split(',').filter(Boolean);
 
             for (const num of issues) {

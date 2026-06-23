@@ -363,21 +363,32 @@ jobs:
         with:
           github-token: ${{ secrets.PROJECT_TOKEN }}
           script: |
-            const PROJECT_ID = 'PVT_kwHOAEP2W84BXacI';
-            const STATUS_FIELD_ID = 'PVTSSF_lAHOAEP2W84BXacIzhSnctg';
-            const STATUS_OPTIONS = {
-              'Inbox':                             '83e636d5',
-              'Awaiting approvals/confirmations':  '40a97db9',
-              'Approved/confirmed':                '4ed57ec6',
-              'CNCF Approved':                     'f091cb7c',
-              'Exported':                          'faaeb133',
-              'Posted to LFX':                     '4355e838',
-              'LFX Approved':                      'e38391e0',
-              'Mentors added':                     'e11e1b3b',
-              'Open for Applications':             'fbbd298a',
-              'Applications Closed':               'c65ed09a',
-              'Closed':                            'dd85985a',
-            };
+            // ── Resolve this repo's board from board.json (dev vs prod) ──
+            // Only the projectId is stored per repo; the Status field ID and
+            // option IDs are resolved live from the board so the fork (dev) and
+            // cncf/mentoring (prod) run identical code. The board's Status
+            // column names must match the lifecycle stages used below.
+            const fs = require('fs');
+            const _board = JSON.parse(fs.readFileSync('programs/lfx-mentorship/automation/board.json', 'utf8'));
+            const _envCfg = (_board.environments || {})[process.env.GITHUB_REPOSITORY];
+            if (!_envCfg || !_envCfg.projectId || String(_envCfg.projectId).startsWith('REPLACE_')) {
+              core.warning(`No board configured for ${process.env.GITHUB_REPOSITORY} in board.json; skipping board sync.`);
+              return;
+            }
+            const PROJECT_ID = _envCfg.projectId;
+            const _statusField = (await github.graphql(`
+              query($projectId: ID!) {
+                node(id: $projectId) { ... on ProjectV2 {
+                  field(name: "Status") { ... on ProjectV2SingleSelectField { id options { id name } } }
+                } }
+              }
+            `, { projectId: PROJECT_ID })).node.field;
+            if (!_statusField) {
+              core.warning(`Project ${PROJECT_ID} has no "Status" field; skipping board sync.`);
+              return;
+            }
+            const STATUS_FIELD_ID = _statusField.id;
+            const STATUS_OPTIONS = Object.fromEntries(_statusField.options.map(o => [o.name, o.id]));
 
             const { data: issue } = await github.rest.issues.get({
               owner: context.repo.owner,
@@ -403,6 +414,10 @@ jobs:
                                                                      status = 'Awaiting approvals/confirmations';
 
             const optionId = STATUS_OPTIONS[status];
+            if (!optionId) {
+              core.warning(`Board has no "${status}" status option; skipping board sync.`);
+              return;
+            }
             const addResult = await github.graphql(`
               mutation($projectId: ID!, $contentId: ID!) {
                 addProjectV2ItemById(input: { projectId: $projectId, contentId: $contentId }) {
