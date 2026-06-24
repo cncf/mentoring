@@ -1,0 +1,445 @@
+name: LFX Mentorship Program Proposal
+description: Propose a mentorship program for an upcoming LFX Mentorship term.
+title: "[CNCF LFX Proposal] <project> <program name>"
+labels: ["lfx mentorship", "Proposal", "Needs Validation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing an LFX Mentorship program!
+
+        **Submit one issue per program.** If you have multiple proposals,
+        file multiple issues.
+
+        Once submitted, automation will validate the fields and track the
+        proposal through approvals. A CNCF program admin will review and
+        approve before it's loaded into LFX.
+
+  # ── CNCF Project ──────────────────────────────────────────────────
+  # TODO: Options below are a placeholder. The landscape-projects-sync
+  # workflow will regenerate this list from cncf/landscape on a schedule.
+  - type: dropdown
+    id: cncf_project
+    attributes:
+      label: CNCF Project
+      description: >
+        The CNCF project this program belongs to.
+        If your project isn't listed, check that it appears in the
+        [CNCF Landscape](https://landscape.cncf.io) and ask in
+        [#mentoring on CNCF Slack](https://cloud-native.slack.com/archives/mentoring).
+      options:
+        - "Aeraki Mesh"
+        - "Agones"
+        - "Akri"
+        - "Antrea"
+        - "Argo"
+        - "Armada"
+        - "Artifact Hub"
+        - "Athenz"
+        - "Atlantis"
+        - "Backstage"
+        - "Bank-Vaults"
+        - "BFE"
+        - "bootc"
+        - "bpfman"
+        - "Buildpacks"
+        - "Cadence Workflow"
+        - "Capsule"
+        - "Carina"
+        - "Cartography"
+        - "Carvel"
+        - "CDK for Kubernetes (CDK8s)"
+        - "Cedar"
+        - "cert-manager"
+        - "Chaos Mesh"
+        - "Chaosblade"
+        - "Cilium"
+        - "Cloud Custodian"
+        - "CloudEvents"
+        - "CloudNativePG"
+        - "Clusternet"
+        - "Clusterpedia"
+        - "CoHDI"
+        - "composefs"
+        - "Confidential Containers"
+        - "Connect RPC"
+        - "Container Network Interface (CNI)"
+        - "container2wasm"
+        - "containerd"
+        - "ContainerSSH"
+        - "Contour"
+        - "Copa"
+        - "CoreDNS"
+        - "Cortex"
+        - "Cozystack"
+        - "CRI-O"
+        - "Crossplane"
+        - "CubeFS"
+        - "Dalec"
+        - "Dapr"
+        - "Devfile"
+        - "DevSpace"
+        - "Dex"
+        - "Distribution"
+        - "Dragonfly"
+        - "Drasi"
+        - "Easegress"
+        - "Emissary-Ingress"
+        - "Envoy"
+        - "Eraser"
+        - "etcd"
+        - "external-secrets"
+        - "Falco"
+        - "Flatcar Container Linux"
+        - "Fluentd"
+        - "Fluid"
+        - "Flux"
+        - "gRPC"
+        - "hami"
+        - "Harbor"
+        - "Headlamp"
+        - "Helm"
+        - "Hexa"
+        - "Higress"
+        - "HolmesGPT"
+        - "HwameiStor"
+        - "Hyperlight"
+        - "in-toto"
+        - "Inclavare Containers"
+        - "Inspektor Gadget"
+        - "Interlink"
+        - "Istio"
+        - "Jaeger"
+        - "k0s"
+        - "k3s"
+        - "k8gb"
+        - "K8sGPT"
+        - "K8up"
+        - "kagent"
+        - "KAI Scheduler"
+        - "Kairos"
+        - "KAITO"
+        - "Kanister"
+        - "Karmada"
+        - "KCL"
+        - "kcp"
+        - "KEDA"
+        - "Kepler"
+        - "Keycloak"
+        - "Keylime"
+        - "Kgateway"
+        - "KitOps"
+        - "Kmesh"
+        - "Knative"
+        - "ko"
+        - "Konveyor"
+        - "Koordinator"
+        - "kpt"
+        - "Krkn"
+        - "KServe"
+        - "Kuadrant"
+        - "Kuasar"
+        - "Kube-burner"
+        - "Kube-OVN"
+        - "kube-rs"
+        - "kube-vip"
+        - "Kubean"
+        - "KubeArmor"
+        - "KubeClipper"
+        - "KubeEdge"
+        - "KubeElasti"
+        - "KubeFleet"
+        - "Kubeflow"
+        - "Kuberhealthy"
+        - "Kubernetes"
+        - "Kubescape"
+        - "KubeSlice"
+        - "KubeStellar"
+        - "KubeVela"
+        - "KubeVirt"
+        - "Kubewarden"
+        - "KUDO"
+        - "Kuma"
+        - "Kured"
+        - "KusionStack"
+        - "Kyverno"
+        - "Lima"
+        - "Linkerd"
+        - "Litmus"
+        - "Logging Operator (Kube Logging)"
+        - "Longhorn"
+        - "LoxiLB"
+        - "Meshery"
+        - "metal3-io"
+        - "MetalLB"
+        - "Microcks"
+        - "ModelPack"
+        - "NATS"
+        - "Network Service Mesh"
+        - "NMstate"
+        - "Notary Project"
+        - "OAuth2 Proxy"
+        - "Open Cluster Management"
+        - "Open Policy Agent (OPA)"
+        - "Open Policy Containers"
+        - "OpenChoreo"
+        - "OpenCost"
+        - "OpenEBS"
+        - "OpenEverest"
+        - "OpenFeature"
+        - "OpenFGA"
+        - "OpenFunction"
+        - "openGemini"
+        - "OpenGitOps"
+        - "OpenKruise"
+        - "OpenTelemetry"
+        - "OpenTofu"
+        - "OpenYurt"
+        - "Operator Framework"
+        - "ORAS"
+        - "OSCAL-COMPASS"
+        - "OVN-Kubernetes"
+        - "Oxia"
+        - "Paralus"
+        - "Parsec"
+        - "Perses"
+        - "PipeCD"
+        - "Piraeus Datastore"
+        - "Pixie"
+        - "Podman Container Tools"
+        - "Podman Desktop"
+        - "Porter"
+        - "Prometheus"
+        - "Radius"
+        - "Ratify"
+        - "Rook"
+        - "Runme Notebooks"
+        - "SchemaHero"
+        - "Score"
+        - "Sermant"
+        - "Serverless Devs"
+        - "Serverless Workflow"
+        - "Shipwright"
+        - "SlimFaaS"
+        - "SlimToolkit"
+        - "SOPS"
+        - "Spiderpool"
+        - "SPIFFE"
+        - "Spin"
+        - "SpinKube"
+        - "SPIRE"
+        - "Stacker"
+        - "Strimzi"
+        - "Submariner"
+        - "Telepresence"
+        - "Thanos"
+        - "The Update Framework (TUF)"
+        - "TiKV"
+        - "Tinkerbell"
+        - "Tokenetes"
+        - "Tremor"
+        - "Trickster"
+        - "urunc"
+        - "Vineyard"
+        - "Virtual Kubelet"
+        - "Visual Studio Code Kubernetes Tools"
+        - "Vitess"
+        - "Volcano"
+        - "Volcano-Kthena"
+        - "wasmCloud"
+        - "WasmEdge Runtime"
+        - "werf"
+        - "xRegistry"
+        - "youki"
+        - "zot"
+    validations:
+      required: true
+
+  # ── Term ──────────────────────────────────────────────────────────
+  - type: dropdown
+    id: term
+    attributes:
+      label: Term
+      description: >
+        Which term is this proposal for? All programs are full-time
+        (~350 hours across the term).
+      options:
+        - "2026 Term 3 (Sep-Nov)"
+        - "2027 Term 1 (Mar-May)"
+    validations:
+      required: true
+
+  # ── Program Name ──────────────────────────────────────────────────
+  - type: input
+    id: program_name
+    attributes:
+      label: Program Name
+      description: >
+        The descriptive part of the program name shown on LFX. The full
+        name is composed automatically as
+        `CNCF - <Project>: <your program name here> (<term>)`.
+        Keep it concise — available characters depend on your project
+        name (typically 53-73 chars), the full program name must be < 100 characters.
+      placeholder: "e.g. Add Prometheus Metrics to Control Plane Service"
+    validations:
+      required: true
+
+  # ── Program Description ───────────────────────────────────────────
+  - type: textarea
+    id: program_description
+    attributes:
+      label: Program Description
+      description: >
+        Up to 3000 characters. This is what applicants will see on LFX.
+        Cover both what the program is about and what success looks like —
+        use the structure below or your own.
+      placeholder: |
+        ## Description
+        What the program is about, the problem it solves, and the context
+        a candidate needs to understand the work.
+
+        ## Expected outcomes
+        What "done" looks like at the end of the term — concrete deliverables,
+        contributions, or capabilities the mentee should have produced.
+    validations:
+      required: true
+
+  # ── Technologies ──────────────────────────────────────────────────
+  - type: input
+    id: technologies
+    attributes:
+      label: Technologies
+      description: >
+        Comma-separated list of languages, frameworks, and platforms
+        relevant to this program.
+      placeholder: "e.g. Go, Kubernetes, Prometheus, gRPC"
+    validations:
+      required: true
+
+  # ── Skills same as Technologies? ──────────────────────────────────
+  - type: checkboxes
+    id: skills_same
+    attributes:
+      label: Skills same as Technologies?
+      description: >
+        Check this box if applicants need the same skills as the technologies
+        listed above. Otherwise leave it unchecked and fill in the
+        Required/Desirable Skills field below.
+      options:
+        - label: "Yes, the required skills are the same as the technologies listed above."
+          required: false
+
+  # ── Required/Desirable Skills ─────────────────────────────────────
+  - type: input
+    id: skills
+    attributes:
+      label: Required/Desirable Skills
+      description: >
+        Comma-separated. Only fill this in if the skills differ from the
+        Technologies above (and leave the box above unchecked). For example, a
+        docs program might list "technical writing, Markdown" here even
+        though the technologies are "Go, Kubernetes".
+      placeholder: "e.g. technical writing, Markdown, Hugo"
+    validations:
+      required: false
+
+  # ── Mentors ───────────────────────────────────────────────────────
+  - type: textarea
+    id: mentors
+    attributes:
+      label: Mentors
+      description: >
+        One mentor per line. Format: `Full Name | @github-handle | email`.
+        The **first line is the primary mentor**; additional lines are
+        co-mentors. Use the email address tied to the mentor's LFID account on
+        the LFX platform.
+      placeholder: |
+        Jane Doe | @janedoe | jane@example.com
+        Sam Lee  | @samlee  | sam@example.com
+    validations:
+      required: true
+
+  # ── Upstream Issue URL ────────────────────────────────────────────
+  - type: input
+    id: upstream_issue_url
+    attributes:
+      label: Upstream Issue URL
+      description: >
+        Link to a tracking issue in the project's own repo. If the
+        program covers multiple issues, create an umbrella issue and
+        link that. Exactly one URL.
+      placeholder: "https://github.com/org/repo/issues/1234"
+    validations:
+      required: true
+
+  # ── Application Prerequisites ────────────────────────────────────
+  - type: checkboxes
+    id: application_prerequisites
+    attributes:
+      label: Application Prerequisites
+      description: >
+        These map directly to LFX's standard prerequisite toggles.
+        Check each item applicants must complete. All checked items
+        are **required** — applicants cannot submit without them.
+      options:
+        - label: "Resume"
+          required: false
+        - label: "Cover Letter"
+          required: false
+        - label: "School Enrollment Verification"
+          required: false
+        - label: "Participation Permission from school or employer"
+          required: false
+        - label: "Coding Challenge"
+          required: false
+        - label: "Custom Prerequisite (fill in details below)"
+          required: false
+
+  # ── Coding Challenge URL ──────────────────────────────────────────
+  - type: input
+    id: coding_challenge_url
+    attributes:
+      label: Coding Challenge URL
+      description: >
+        If you checked Coding Challenge above, provide the URL.
+        Leave blank otherwise.
+      placeholder: "https://example.com/challenge"
+    validations:
+      required: false
+
+  # ── Custom Prerequisite Name ──────────────────────────────────────
+  - type: input
+    id: custom_prerequisite_name
+    attributes:
+      label: Custom Prerequisite Name
+      description: >
+        If you checked Custom Prerequisite above, provide a short name
+        (max 20 characters on LFX). Leave blank otherwise.
+      placeholder: "e.g. Writing Sample"
+    validations:
+      required: false
+
+  # ── Custom Prerequisite Description ───────────────────────────────
+  - type: textarea
+    id: custom_prerequisite_description
+    attributes:
+      label: Custom Prerequisite Description
+      description: >
+        Describe what the applicant must provide (max 500 characters on
+        LFX). Check the file-upload box below if the applicant needs to
+        upload a file.
+      placeholder: "e.g. Please upload a writing sample demonstrating your technical communication skills."
+    validations:
+      required: false
+
+  # ── Custom Prerequisite — File Upload Required? ───────────────────
+  - type: checkboxes
+    id: custom_prerequisite_file_upload
+    attributes:
+      label: Custom Prerequisite — File Upload
+      description: >
+        Does your custom prerequisite require the mentee to upload a file?
+      options:
+        - label: "Yes — completion of this task requires the mentee to submit a file."
+          required: false
+
