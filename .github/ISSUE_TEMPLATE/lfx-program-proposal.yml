@@ -27,7 +27,7 @@ body:
         The CNCF project this program belongs to.
         If your project isn't listed, check that it appears in the
         [CNCF Landscape](https://landscape.cncf.io) and ask in
-        [#mentoring on CNCF Slack](https://cloud-native.slack.com/archives/mentoring).
+        [#cncf-mentoring on CNCF Slack](https://cloud-native.slack.com/archives/CGPK98JNQ).
       options:
         - "Aeraki Mesh"
         - "Agones"

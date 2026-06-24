@@ -179,7 +179,7 @@ jobs:
             const year = yearMatch ? yearMatch[1] : 'unknown';
             const termNum = termNumMatch ? termNumMatch[1].padStart(2, '0') : '00';
             const months = monthsMatch
-              ? monthsMatch[1].replace('-', '-')
+              ? monthsMatch[1].replace(/[\u2013\u2014]/g, '-')
               : 'unknown';
             const termDir = `${termNum}-${months}`;
 
@@ -219,7 +219,6 @@ jobs:
             }
 
             // Term display: "2026 Term 3 (Sep-Nov)" → "Term 03 - 2026 September - November"
-            const termNumInt = termNumMatch ? parseInt(termNumMatch[1]) : 0;
             const monthMap = {
               'Mar': 'March', 'May': 'May', 'Jun': 'June',
               'Aug': 'August', 'Sep': 'September', 'Nov': 'November',

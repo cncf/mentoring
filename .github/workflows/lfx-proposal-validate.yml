@@ -132,6 +132,11 @@ jobs:
               const emails = new Set();
               let mentorOk = true;
 
+              if (mentorLines.length > 4) {
+                errors.push(`Too many mentors: ${mentorLines.length} listed, but the maximum is 4 (primary plus up to 3 co-mentors). Please remove the extras.`);
+                mentorOk = false;
+              }
+
               for (let i = 0; i < mentorLines.length; i++) {
                 const line = mentorLines[i];
                 const parts = line.split('|').map(p => p.trim());
