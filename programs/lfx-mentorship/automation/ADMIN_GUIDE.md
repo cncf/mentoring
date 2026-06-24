@@ -157,6 +157,13 @@ kubernetes:
     - some-delegate
 ```
 
+> **Note:** `fallback_teams` can only be verified for teams in the **cncf**
+> org. The workflow token cannot read team membership in other orgs (for
+> example `kubernetes` or `open-telemetry`), so a cross-org team authorizes no
+> one and fails silently. Use `fallback_handles` for cross-org delegates;
+> maintainers of those projects are still covered by the `.project` and
+> maintainers-CSV tiers above.
+
 The key can be the project's **GitHub org** (recommended, e.g. `open-telemetry`),
 its **name** lowercased with spaces replaced by hyphens (e.g. `opentelemetry`), or
 its **`projects.yml` slug**. The workflow tries all three when matching the
@@ -202,10 +209,11 @@ Automation never moves a card once it sits in one of these post-export
 columns, so your manual placement is safe. (The one exception: closing the
 issue still sends its card to `Closed`.)
 
-> **Note:** `Mentors Registered` is reserved as a future signal, set by
-> validation once mentors are confirmed, to tell you to add the mentors on the
-> LFX platform. It is distinct from the `Mentors added` column, which you drag
-> to by hand once that work is done.
+> **Note:** `Mentors Registered` is reserved as a future signal (not yet
+> implemented). A later validation step is intended to set it once mentors are
+> confirmed, to tell you to add the mentors on the LFX platform. No current
+> workflow applies this label. It is distinct from the `Mentors added` column,
+> which you drag to by hand once that work is done.
 
 The board sync runs in three ways:
 1. **Standalone workflow**: triggers on issue label changes

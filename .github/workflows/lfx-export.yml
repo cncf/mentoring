@@ -228,13 +228,11 @@ jobs:
             const monthParts = months.split('-').map(m => monthMap[m.trim()] || m.trim());
             const readmeTitle = `Term ${termNum} - ${year} ${monthParts.join(' - ')}`;
 
+            // Build the auto-generated section (Table of Contents + Accepted
+            // Projects). The term frontmatter above it is preserved separately
+            // so re-running the export never wipes the term timeline and
+            // instructions.
             const md = [];
-            md.push(`# ${readmeTitle}`);
-            md.push('');
-            md.push('Status: Planning');
-            md.push('');
-            md.push('Mentorship duration - three months (full-time schedule)');
-            md.push('');
 
             // Table of contents
             md.push('## Table of Contents');
@@ -279,7 +277,35 @@ jobs:
             }
 
             const readmePath = `${outDir}/README.md`;
-            fs.writeFileSync(readmePath, md.join('\n') + '\n');
+
+            // Preserve the term frontmatter (title, timeline, project and
+            // application instructions) up to and including the first horizontal
+            // rule, then regenerate only the Table of Contents and Accepted
+            // Projects below it. Fall back to a minimal header only when the
+            // term README has no frontmatter yet.
+            let existingReadme = null;
+            if (fs.existsSync(readmePath)) {
+              existingReadme = fs.readFileSync(readmePath, 'utf8');
+            }
+            const sep = existingReadme ? existingReadme.match(/^---[ \t]*$/m) : null;
+            let header;
+            if (sep) {
+              header = existingReadme.slice(0, sep.index + sep[0].length) + '\n\n';
+            } else {
+              header = [
+                `# ${readmeTitle}`,
+                '',
+                'Status: Planning',
+                '',
+                'Mentorship duration - three months (full-time schedule)',
+                '',
+                '---',
+                '',
+                '',
+              ].join('\n');
+            }
+
+            fs.writeFileSync(readmePath, header + md.join('\n') + '\n');
             console.log(`Wrote README.md with ${sortedProjects.length} projects, ${programs.length} programs`);
 
             // ── Generate tracking CSV ──

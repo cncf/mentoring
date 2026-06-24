@@ -16,8 +16,9 @@ body:
         approve before it's loaded into LFX.
 
   # ── CNCF Project ──────────────────────────────────────────────────
-  # TODO: Options below are a placeholder. The landscape-projects-sync
-  # workflow will regenerate this list from cncf/landscape on a schedule.
+  # Options below are generated from cncf/landscape by the
+  # landscape-projects-sync workflow and refreshed on a schedule.
+  # Do not edit this list by hand.
   - type: dropdown
     id: cncf_project
     attributes:

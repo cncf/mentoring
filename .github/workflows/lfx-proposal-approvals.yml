@@ -291,8 +291,11 @@ jobs:
                                 authSource = `approvers.yml (team ${team})`;
                                 break;
                               }
-                            } catch {
-                              // No access to check this team, skip
+                            } catch (e) {
+                              // Likely a cross-org team: the repo token can't read
+                              // membership outside this org, so the team authorizes
+                              // no one. Use fallback_handles for cross-org approvers.
+                              console.log(`Could not verify team ${team} for ${commenter}: ${e.message}`);
                             }
                           }
                         }

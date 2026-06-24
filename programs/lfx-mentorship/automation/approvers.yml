@@ -15,8 +15,12 @@
 #                                 # lowercased/hyphenated name, or the projects.yml
 #                                 # slug; any of the three works.
 #     fallback_teams:             # GitHub teams (org/team) whose members may /approve
-#       - org/team-name
-#     fallback_handles:           # individual GitHub handles
+#       - org/team-name           # NOTE: only teams in this repo's org (cncf) can be
+#                                 # verified. The workflow token cannot read team
+#                                 # membership in other orgs, so cross-org teams
+#                                 # silently authorize no one. Use fallback_handles
+#                                 # for cross-org approvers.
+#     fallback_handles:           # individual GitHub handles (works for any org)
 #       - username
 
 global_approvers:
@@ -28,6 +32,12 @@ global_approvers:
   - Swil78
   - mlehotskylf
 
+# NOTE: kubernetes/sig-contribex and open-telemetry/governance-committee are
+# cross-org teams. The repo token cannot read their membership, so these
+# fallback_teams entries are effectively inert. Maintainers of these projects
+# are still authorized via tiers 1-2 (.project/maintainers.yaml and the
+# project-maintainers CSV). Add fallback_handles below for a guaranteed
+# per-person override.
 kubernetes:
   fallback_teams:
     - kubernetes/sig-contribex

@@ -367,6 +367,15 @@ jobs:
               if (awaiting.length) {
                 await github.rest.issues.addLabels({ owner, repo, issue_number, labels: awaiting });
               }
+            } else {
+              // Validation regressed (previously passing, now failing): clear the
+              // awaiting labels so the board does not show "waiting on approvals"
+              // while slash commands are gated off by the lost Validation Passed.
+              for (const name of ['Awaiting Maintainer/Contribex Approval', 'Awaiting Mentor Confirmation']) {
+                if (currentLabels.includes(name)) {
+                  try { await github.rest.issues.removeLabel({ owner, repo, issue_number, name }); } catch {}
+                }
+              }
             }
 
             // ── Term labels ──

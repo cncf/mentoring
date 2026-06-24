@@ -16,6 +16,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install dependencies
+        run: python3 -m pip install --quiet pyyaml
+
       - name: Fetch and sync projects
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -24,7 +27,7 @@ jobs:
           import json, re, sys, urllib.request
           from datetime import date
 
-          import yaml  # PyYAML is pre-installed on ubuntu-latest
+          import yaml  # installed in the Install dependencies step
           import os
 
           gh_token = os.environ.get("GITHUB_TOKEN", "")
