@@ -11,7 +11,9 @@
 #   global_approvers:             # can /approve any project
 #     - username
 #
-#   <project-slug>:               # must match the dropdown value in the issue form
+#   <project-key>:                # match by GitHub org (e.g. open-telemetry), the
+#                                 # lowercased/hyphenated name, or the projects.yml
+#                                 # slug; any of the three works.
 #     fallback_teams:             # GitHub teams (org/team) whose members may /approve
 #       - org/team-name
 #     fallback_handles:           # individual GitHub handles

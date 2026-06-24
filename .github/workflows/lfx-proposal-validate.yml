@@ -204,8 +204,34 @@ jobs:
                     overrides[m[1].trim().toLowerCase()] = parseInt(m[2]);
                   }
                 }
-                const projectKey = project.toLowerCase().replace(/\s+/g, '-');
-                const quota = overrides[projectKey] || defaultQ;
+                // Build candidate keys: normalized NAME, GitHub org, and projects.yml
+                // slug. quotas.yml may key a project by any of these; first match wins.
+                const projectKeys = [project.toLowerCase().replace(/\s+/g, '-')];
+                try {
+                  const projYaml = fs.readFileSync('programs/lfx-mentorship/automation/projects.yml', 'utf8');
+                  const projRe = new RegExp(
+                    `- name: ${project.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\n` +
+                    `[\\s\\S]*?(?=\\n- name:|$)`
+                  );
+                  const projMatch = projYaml.match(projRe);
+                  if (projMatch) {
+                    const block = projMatch[0];
+                    const slugMatch = block.match(/^\s*slug:\s*(\S+)/m);
+                    if (slugMatch) projectKeys.push(slugMatch[1].trim().toLowerCase());
+                    const urlMatch = block.match(/repo_url:\s*(\S+)/);
+                    if (urlMatch) {
+                      const orgMatch = urlMatch[1].match(/github\.com\/([^/]+)/);
+                      if (orgMatch) projectKeys.push(orgMatch[1].toLowerCase());
+                    }
+                  }
+                } catch (e) {
+                  console.log(`projects.yml key lookup failed: ${e.message}`);
+                }
+                const quotaKeys = projectKeys.filter((v, i, a) => v && a.indexOf(v) === i);
+                let quota = defaultQ;
+                for (const key of quotaKeys) {
+                  if (overrides[key] !== undefined) { quota = overrides[key]; break; }
+                }
 
                 // Count open proposals for same project + term
                 const issues = await github.paginate(github.rest.issues.listForRepo, {

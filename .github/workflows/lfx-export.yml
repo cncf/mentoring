@@ -103,7 +103,7 @@ jobs:
             function getProjectMeta(projectName) {
               const re = new RegExp(
                 `- name: ${projectName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\n` +
-                `[\\s\\S]*?(?=\\n- name:|$)`, 'm'
+                `[\\s\\S]*?(?=\\n- name:|$)`
               );
               const m = projYaml.match(re);
               if (!m) return {};

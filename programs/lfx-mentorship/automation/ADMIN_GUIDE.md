@@ -156,8 +156,11 @@ kubernetes:
     - some-delegate
 ```
 
-The project slug must match the dropdown value in the issue form (lowercase,
-hyphenated).
+The key can be the project's **GitHub org** (recommended, e.g. `open-telemetry`),
+its **name** lowercased with spaces replaced by hyphens (e.g. `opentelemetry`), or
+its **`projects.yml` slug**. The workflow tries all three when matching the
+selected project, so any of them works. The same applies to the `overrides` keys
+in `quotas.yml`.
 
 ### quotas.yml
 

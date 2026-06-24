@@ -135,6 +135,7 @@ jobs:
 
               // ── Derive GitHub org and .project status from projects.yml ──
               let ghOrg = '';
+              let projectSlug = '';
               let hasDotProject = false;
               if (project) {
                 try {
@@ -142,11 +143,13 @@ jobs:
                   // Find the entry for this project and extract repo_url + has_dot_project
                   const projRe = new RegExp(
                     `- name: ${project.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\n` +
-                    `[\\s\\S]*?(?=\\n- name:|$)`, 'm'
+                    `[\\s\\S]*?(?=\\n- name:|$)`
                   );
                   const projMatch = projYaml.match(projRe);
                   if (projMatch) {
                     const block = projMatch[0];
+                    const slugMatch = block.match(/^\s*slug:\s*(\S+)/m);
+                    if (slugMatch) projectSlug = slugMatch[1].trim().toLowerCase();
                     const urlMatch = block.match(/repo_url:\s*(\S+)/);
                     if (urlMatch) {
                       const urlParts = urlMatch[1].match(/github\.com\/([^/]+)\//);
@@ -245,11 +248,23 @@ jobs:
 
                   // 3a. Per-project fallback handles and teams
                   if (project) {
-                    const projectKey = project.toLowerCase().replace(/\s+/g, '-');
-                    const re = new RegExp(`^${projectKey.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}:`, 'im');
-                    const parts = raw.split(re);
-                    if (parts.length > 1) {
-                      const section = parts[1].split(/^\S/m)[0];
+                    // approvers.yml may key a project by its normalized name, its
+                    // GitHub org, or its projects.yml slug; try each, first match wins.
+                    const projectKeys = [
+                      project.toLowerCase().replace(/\s+/g, '-'),
+                      ghOrg.toLowerCase(),
+                      projectSlug,
+                    ].filter((v, i, a) => v && a.indexOf(v) === i);
+                    let section = '';
+                    for (const key of projectKeys) {
+                      const re = new RegExp(`^${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}:`, 'im');
+                      const parts = raw.split(re);
+                      if (parts.length > 1) {
+                        section = parts[1].split(/^\S/m)[0];
+                        break;
+                      }
+                    }
+                    if (section) {
                       // Check fallback_handles
                       const handleBlock = section.match(/fallback_handles:\s*\n((?:\s+-\s+\S+.*\n?)*)/);
                       if (handleBlock) {
