@@ -11,7 +11,6 @@ on:
         type: choice
         options:
           - "2026 Term 3 (Sep-Nov)"
-          - "2027 Term 1 (Mar-May)"
 
 permissions:
   contents: write

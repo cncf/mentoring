@@ -266,7 +266,6 @@ body:
         (~350 hours across the term).
       options:
         - "2026 Term 3 (Sep-Nov)"
-        - "2027 Term 1 (Mar-May)"
     validations:
       required: true
 
