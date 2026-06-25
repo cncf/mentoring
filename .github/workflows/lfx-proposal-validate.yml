@@ -407,6 +407,15 @@ jobs:
                 }
               }
 
+              // Remove wrong year labels (handles edits that change the year)
+              if (wantYear) {
+                for (const cl of currentLabels) {
+                  if (/^\d{4}$/.test(cl) && cl !== wantYear) {
+                    try { await github.rest.issues.removeLabel({ owner, repo, issue_number, name: cl }); } catch {}
+                  }
+                }
+              }
+
               // Add correct labels
               const toAdd = [];
               if (wantYear && !currentLabels.includes(wantYear)) toAdd.push(wantYear);
