@@ -1,0 +1,229 @@
+name: Sync CNCF Projects from Landscape
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'  # every Monday at 06:00 UTC
+  workflow_dispatch:       # manual trigger
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync-projects:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: python3 -m pip install --quiet pyyaml
+
+      - name: Fetch and sync projects
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 << 'PYEOF'
+          import json, re, sys, urllib.request
+          from datetime import date
+
+          import yaml  # installed in the Install dependencies step
+          import os
+
+          gh_token = os.environ.get("GITHUB_TOKEN", "")
+
+          # ── Fetch landscape.yml ──
+          url = "https://raw.githubusercontent.com/cncf/landscape/master/landscape.yml"
+          with urllib.request.urlopen(url) as resp:
+              data = yaml.safe_load(resp.read())
+
+          # ── Extract CNCF projects ──
+          valid = {"graduated", "incubating", "sandbox"}
+          projects = []
+          for cat in data.get("landscape", []):
+              for sub in cat.get("subcategories", []):
+                  for item in (sub.get("items") or []):
+                      level = item.get("project")
+                      if level not in valid:
+                          continue
+                      extra = item.get("extra", {})
+                      slug = extra.get("lfx_slug") or item["name"]
+                      slug = re.sub(r"[^a-z0-9-]", "-", slug.lower())
+                      slug = re.sub(r"-+", "-", slug).strip("-")
+                      repo_url = item.get("repo_url", "")
+                      projects.append({
+                          "name": item["name"],
+                          "slug": slug,
+                          "maturity": level,
+                          "homepage": item.get("homepage_url", ""),
+                          "logo": item.get("logo", ""),
+                          "repo_url": repo_url,
+                      })
+
+          projects.sort(key=lambda p: p["name"].lower())
+          print(f"Found {len(projects)} CNCF projects")
+
+          # ── Check which orgs have a .project repo ──
+          checked_orgs = {}  # org -> bool (cache to avoid duplicate checks)
+          for proj in projects:
+              repo_url = proj.get("repo_url", "")
+              m = re.match(r"https://github\.com/([^/]+)/", repo_url)
+              if not m:
+                  continue
+              org = m.group(1)
+              if org in checked_orgs:
+                  if checked_orgs[org]:
+                      proj["has_dot_project"] = True
+                  continue
+              # Check if {org}/.project exists via GitHub API
+              try:
+                  req = urllib.request.Request(
+                      f"https://api.github.com/repos/{org}/.project",
+                      method="HEAD",
+                  )
+                  if gh_token:
+                      req.add_header("Authorization", f"Bearer {gh_token}")
+                  req.add_header("User-Agent", "cncf-mentoring-sync")
+                  urllib.request.urlopen(req)
+                  checked_orgs[org] = True
+                  proj["has_dot_project"] = True
+                  print(f"  {org}/.project: found")
+              except urllib.error.HTTPError as e:
+                  if e.code == 404:
+                      checked_orgs[org] = False
+                  else:
+                      print(f"  {org}/.project: HTTP {e.code}, skipping")
+                      checked_orgs[org] = False
+              except Exception as e:
+                  print(f"  {org}/.project: error ({e}), skipping")
+                  checked_orgs[org] = False
+
+          dot_count = sum(1 for o, v in checked_orgs.items() if v)
+          print(f"Checked {len(checked_orgs)} orgs, {dot_count} have .project repos")
+
+          # ── Write projects.yml ──
+          header = (
+              f"# Auto-generated from cncf/landscape — DO NOT EDIT MANUALLY.\n"
+              f"# Last updated: {date.today().isoformat()}\n"
+              f"# Total projects: {len(projects)}\n\n"
+          )
+          with open("programs/lfx-mentorship/automation/projects.yml", "w") as f:
+              f.write(header)
+              yaml.dump(projects, f, default_flow_style=False, sort_keys=False)
+
+          # ── Update issue form dropdown ──
+          form_path = ".github/ISSUE_TEMPLATE/lfx-program-proposal.yml"
+          with open(form_path) as f:
+              form_text = f.read()
+
+          new_names = [p["name"] for p in projects]
+
+          # Rewrite the options block under id: cncf_project
+          lines = form_text.split("\n")
+          new_lines = []
+          in_options = False
+          options_inserted = False
+
+          for i, line in enumerate(lines):
+              # Detect the cncf_project options: line
+              if (not options_inserted
+                      and re.match(r"^\s+options:\s*$", line)):
+                  context = "\n".join(lines[max(0, i - 10):i])
+                  if "id: cncf_project" in context:
+                      indent = re.match(r"^(\s+)", line).group(1) + "  "
+                      new_lines.append(line)
+                      for name in new_names:
+                          new_lines.append(f'{indent}- "{name}"')
+                      in_options = True
+                      options_inserted = True
+                      continue
+
+              # Skip old option lines
+              if in_options:
+                  if re.match(r"^\s+-\s", line):
+                      continue
+                  else:
+                      in_options = False
+
+              new_lines.append(line)
+
+          with open(form_path, "w") as f:
+              f.write("\n".join(new_lines))
+
+          # ── Sync term dropdowns from terms.yml ──
+          # Single source of truth: programs/lfx-mentorship/automation/terms.yml
+          # Targets: issue form (id: term) and export workflow (workflow_dispatch input)
+          terms_path = "programs/lfx-mentorship/automation/terms.yml"
+          with open(terms_path) as f:
+              terms_data = yaml.safe_load(f)
+          term_list = terms_data.get("terms", [])
+
+          def rewrite_options_block(file_path, context_marker):
+              """Rewrite an options: block whose preceding lines contain context_marker."""
+              with open(file_path) as f:
+                  text = f.read()
+              lines = text.split("\n")
+              out = []
+              in_opts = False
+              done = False
+              for i, line in enumerate(lines):
+                  if (not done and re.match(r"^\s+options:\s*$", line)):
+                      ctx = "\n".join(lines[max(0, i - 10):i])
+                      if context_marker in ctx:
+                          indent = re.match(r"^(\s+)", line).group(1) + "  "
+                          out.append(line)
+                          for t in term_list:
+                              out.append(f'{indent}- "{t}"')
+                          in_opts = True
+                          done = True
+                          continue
+                  if in_opts:
+                      if re.match(r"^\s+-\s", line):
+                          continue
+                      else:
+                          in_opts = False
+                  out.append(line)
+              with open(file_path, "w") as f:
+                  f.write("\n".join(out))
+
+          rewrite_options_block(form_path, "id: term")
+          rewrite_options_block(
+              ".github/workflows/lfx-export.yml",
+              "term:"  # the workflow_dispatch input name
+          )
+          print(f"Term dropdowns synced: {term_list}")
+
+          print("Files updated successfully")
+          PYEOF
+
+      - name: Check for changes
+        id: check
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create Pull Request
+        if: steps.check.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: |
+            chore: sync CNCF project list from landscape
+
+            Auto-generated by landscape-projects-sync workflow.
+
+            Signed-off-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+            Assisted-by: Copilot <223556219+Copilot@users.noreply.github.com>
+          branch: automation/landscape-sync
+          title: "chore: sync CNCF project list from landscape"
+          body: |
+            Auto-generated update to the CNCF Project dropdown in the
+            LFX program proposal issue form and the projects.yml config.
+
+            Source: [`cncf/landscape/landscape.yml`](https://github.com/cncf/landscape/blob/master/landscape.yml)
+
+            Please review the project list diff and merge if correct.
+          labels: administration

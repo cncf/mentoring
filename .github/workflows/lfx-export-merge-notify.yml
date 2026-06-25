@@ -1,0 +1,44 @@
+name: LFX Export Merge Notify
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+permissions:
+  issues: write
+
+jobs:
+  notify:
+    if: >-
+      github.event.pull_request.merged == true
+      && startsWith(github.event.pull_request.head.ref, 'automation/lfx-export-')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify exported issues
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const pr = context.payload.pull_request;
+            const prNumber = pr.number;
+            const prUrl = pr.html_url;
+
+            // Extract issue numbers from PR body (format: "- #123 — ...")
+            const issueNums = [...(pr.body || '').matchAll(/-\s+#(\d+)\s+—/g)]
+              .map(m => parseInt(m[1]));
+
+            if (issueNums.length === 0) {
+              console.log('No linked issues found in PR body.');
+              return;
+            }
+
+            for (const issue_number of issueNums) {
+              await github.rest.issues.createComment({
+                owner, repo, issue_number,
+                body: `✅ Export PR #${prNumber} has been merged.\n\n` +
+                  `The program files are now on \`main\`. Next step: post to LFX platform.\n\n` +
+                  `This issue will be updated when the program is live on LFX.`,
+              });
+              console.log(`Notified #${issue_number} about merge of PR #${prNumber}`);
+            }

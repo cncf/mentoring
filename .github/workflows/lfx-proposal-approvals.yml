@@ -1,0 +1,607 @@
+name: LFX Proposal Approvals
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  handle-command:
+    if: >-
+      !github.event.issue.pull_request
+      && contains(github.event.issue.labels.*.name, 'lfx mentorship')
+      && contains(github.event.issue.labels.*.name, 'Proposal')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Process slash command
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+            const comment = context.payload.comment;
+            const commenter = comment.user.login;
+            const commentBody = comment.body.trim();
+            const issueBody = context.payload.issue.body || '';
+            const currentLabels = (context.payload.issue.labels || []).map(l => l.name);
+
+            // ── Detect slash command ──
+            // Scan every line; the command may not be the first line (e.g.
+            // someone writes context before their /approve).
+            let command = null;
+            for (const line of commentBody.split('\n')) {
+              const m = line.trim().match(/^\/(cncf-approve|approve|confirm)\b/);
+              if (m) { command = m[1]; break; }
+            }
+            if (!command) return;  // no slash command found
+            console.log(`/${command} from @${commenter}`);
+
+            // ── Reaction: eyes while processing ──
+            await github.rest.reactions.createForIssueComment({
+              owner, repo, comment_id: comment.id, content: 'eyes',
+            });
+
+            // ── Parse issue form ──
+            function parseIssueForm(text) {
+              const fields = {};
+              for (const section of text.split(/^### +/m).slice(1)) {
+                const nl = section.indexOf('\n');
+                if (nl === -1) continue;
+                const label = section.slice(0, nl).trim();
+                let value = section.slice(nl + 1).trim();
+                if (value === '_No response_') value = '';
+                fields[label] = value;
+              }
+              return fields;
+            }
+
+            const fields = parseIssueForm(issueBody);
+            const get = (k) => (fields[k] || '').trim();
+            const project = get('CNCF Project');
+
+            // ── Label helpers ──
+            async function addLabel(label) {
+              if (!currentLabels.includes(label)) {
+                await github.rest.issues.addLabels({ owner, repo, issue_number, labels: [label] });
+                currentLabels.push(label);
+              }
+            }
+            async function removeLabel(label) {
+              if (currentLabels.includes(label)) {
+                try { await github.rest.issues.removeLabel({ owner, repo, issue_number, name: label }); } catch {}
+                const idx = currentLabels.indexOf(label);
+                if (idx !== -1) currentLabels.splice(idx, 1);
+              }
+            }
+
+            // ── Feedback helper ──
+            async function reply(emoji, message) {
+              const reaction = emoji === '✅' ? '+1' : emoji === '❌' ? '-1' : 'confused';
+              await github.rest.reactions.createForIssueComment({
+                owner, repo, comment_id: comment.id, content: reaction,
+              });
+              await github.rest.issues.createComment({
+                owner, repo, issue_number, body: `${emoji} ${message}`,
+              });
+            }
+
+            // ── After any approval: check if both gates are met ──
+            async function checkBothGates() {
+              if (currentLabels.includes('Maintainer/Contribex Approved')
+                  && currentLabels.includes('Mentors Confirmed')
+                  && !currentLabels.includes('Awaiting CNCF Admin Approval')
+                  && !currentLabels.includes('CNCF Approved')) {
+                await addLabel('Awaiting CNCF Admin Approval');
+                await github.rest.issues.createComment({
+                  owner, repo, issue_number,
+                  body: '🎯 Both maintainer approval and mentor confirmation received. ' +
+                        'This proposal is now awaiting final CNCF admin approval.\n\n' +
+                        'A CNCF program admin will review and comment `/cncf-approve` to finalize.',
+                });
+              }
+            }
+
+            // ══════════════════════════════════════════════════
+            //  /approve: Maintainer / Contribex Approval
+            // ══════════════════════════════════════════════════
+            if (command === 'approve') {
+
+              // Gate: validation must have passed
+              if (!currentLabels.includes('Validation Passed')) {
+                await reply('❌',
+                  `\`/approve\` requires the proposal to pass validation first.\n` +
+                  `Please fix any validation errors and re-submit.`);
+                return;
+              }
+              if (currentLabels.includes('Maintainer/Contribex Approved')) {
+                await reply('ℹ️', 'This proposal has already been approved by a maintainer.');
+                return;
+              }
+
+              // ── Authorization check (four-tier) ──
+              // 1. {org}/.project/maintainers.yaml (source of truth when adopted)
+              // 2. cncf/foundation/project-maintainers.csv (legacy/fallback)
+              // 3. approvers.yml per-project fallback handles + teams
+              // 4. approvers.yml global_approvers
+              let authorized = false;
+              let authSource = '';
+
+              // ── Derive GitHub org and .project status from projects.yml ──
+              let ghOrg = '';
+              let projectSlug = '';
+              let hasDotProject = false;
+              if (project) {
+                try {
+                  const projYaml = fs.readFileSync('programs/lfx-mentorship/automation/projects.yml', 'utf8');
+                  // Find the entry for this project and extract repo_url + has_dot_project
+                  const projRe = new RegExp(
+                    `- name: ${project.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\n` +
+                    `[\\s\\S]*?(?=\\n- name:|$)`
+                  );
+                  const projMatch = projYaml.match(projRe);
+                  if (projMatch) {
+                    const block = projMatch[0];
+                    const slugMatch = block.match(/^\s*slug:\s*(\S+)/m);
+                    if (slugMatch) projectSlug = slugMatch[1].trim().toLowerCase();
+                    const urlMatch = block.match(/repo_url:\s*(\S+)/);
+                    if (urlMatch) {
+                      const urlParts = urlMatch[1].match(/github\.com\/([^/]+)\//);
+                      if (urlParts) ghOrg = urlParts[1];
+                    }
+                    hasDotProject = /has_dot_project:\s*true/i.test(block);
+                  }
+                } catch (e) {
+                  console.log(`projects.yml org lookup failed: ${e.message}`);
+                }
+              }
+
+              // 1. Check {org}/.project/maintainers.yaml (only if has_dot_project)
+              if (!authorized && ghOrg && hasDotProject) {
+                try {
+                  const resp = await fetch(
+                    `https://raw.githubusercontent.com/${ghOrg}/.project/main/maintainers.yaml`
+                  );
+                  if (resp.ok) {
+                    const yaml = await resp.text();
+                    // Parse maintainers.yaml: look for project-maintainers team members
+                    // Structure: maintainers[].teams[] where name=project-maintainers has members[]
+                    // Simple line-by-line parse: find "- name: project-maintainers" then collect members
+                    let inMaintainersTeam = false;
+                    let inMembers = false;
+                    for (const line of yaml.split('\n')) {
+                      if (/name:\s*["']?project-maintainers/.test(line)) {
+                        inMaintainersTeam = true;
+                        continue;
+                      }
+                      if (inMaintainersTeam && /members:/.test(line)) {
+                        inMembers = true;
+                        continue;
+                      }
+                      if (inMembers) {
+                        const memberMatch = line.match(/^\s+-\s+(\S+)/);
+                        if (memberMatch) {
+                          const handle = memberMatch[1].replace(/^@/, '').toLowerCase();
+                          if (handle === commenter.toLowerCase()) {
+                            authorized = true;
+                            authSource = `${ghOrg}/.project/maintainers.yaml`;
+                            break;
+                          }
+                        } else if (/^\s+-\s*name:/.test(line) || /^\s*\S.*:/.test(line)) {
+                          // Moved past the members list to a new team or section
+                          inMaintainersTeam = false;
+                          inMembers = false;
+                        }
+                      }
+                    }
+                    if (!authorized) {
+                      console.log(`.project/maintainers.yaml found for ${ghOrg} but ${commenter} not in project-maintainers team`);
+                    }
+                  } else {
+                    console.log(`${ghOrg}/.project not found (HTTP ${resp.status}); falling back to CSV`);
+                  }
+                } catch (e) {
+                  console.log(`.project check failed: ${e.message}`);
+                }
+              }
+
+              // 2. Check cncf/foundation project-maintainers.csv
+              if (!authorized && project) {
+                try {
+                  const resp = await fetch(
+                    'https://raw.githubusercontent.com/cncf/foundation/main/project-maintainers.csv'
+                  );
+                  if (resp.ok) {
+                    const csv = await resp.text();
+                    // CSV columns: Maturity, Project, Name, Company, GitHub, OWNERS
+                    // Project column may include subgroup: "OpenTelemetry (Governance Committee)"
+                    // Maturity is only on the first row of each group; subsequent rows are empty.
+                    const normalProject = project.toLowerCase();
+                    // Minimal CSV line parser: respects quoted fields with
+                    // embedded commas and escaped double-quotes ("") so a comma
+                    // inside a value like "Chainguard, Inc" cannot shift the
+                    // GitHub-handle column and trigger a false auth rejection.
+                    const parseCsvLine = (row) => {
+                      const out = [];
+                      let cur = '', inQuotes = false;
+                      for (let i = 0; i < row.length; i++) {
+                        const ch = row[i];
+                        if (inQuotes) {
+                          if (ch === '"' && row[i + 1] === '"') { cur += '"'; i++; }
+                          else if (ch === '"') { inQuotes = false; }
+                          else { cur += ch; }
+                        } else if (ch === '"') { inQuotes = true; }
+                        else if (ch === ',') { out.push(cur); cur = ''; }
+                        else { cur += ch; }
+                      }
+                      out.push(cur);
+                      return out;
+                    };
+                    for (const line of csv.split('\n').slice(1)) {
+                      if (!line.trim()) continue;
+                      const cols = parseCsvLine(line);
+                      const csvProject = (cols[1] || '').trim().toLowerCase();
+                      const csvGh = (cols[4] || '').trim().toLowerCase();
+                      if (csvGh === commenter.toLowerCase()
+                          && (csvProject.startsWith(normalProject) || csvProject.includes(normalProject))) {
+                        authorized = true;
+                        authSource = `project-maintainers.csv (${cols[1].trim()})`;
+                        break;
+                      }
+                    }
+                  }
+                } catch (e) {
+                  console.log(`project-maintainers.csv check failed: ${e.message}`);
+                }
+              }
+
+              // 3. Check approvers.yml: per-project fallbacks then global_approvers
+              if (!authorized) {
+                try {
+                  const raw = fs.readFileSync('programs/lfx-mentorship/automation/approvers.yml', 'utf8');
+
+                  // 3a. Per-project fallback handles and teams
+                  if (project) {
+                    // approvers.yml may key a project by its normalized name, its
+                    // GitHub org, or its projects.yml slug; try each, first match wins.
+                    const projectKeys = [
+                      project.toLowerCase().replace(/\s+/g, '-'),
+                      ghOrg.toLowerCase(),
+                      projectSlug,
+                    ].filter((v, i, a) => v && a.indexOf(v) === i);
+                    let section = '';
+                    for (const key of projectKeys) {
+                      const re = new RegExp(`^${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}:`, 'im');
+                      const parts = raw.split(re);
+                      if (parts.length > 1) {
+                        section = parts[1].split(/^\S/m)[0];
+                        break;
+                      }
+                    }
+                    if (section) {
+                      // Check fallback_handles
+                      const handleBlock = section.match(/fallback_handles:\s*\n((?:\s+-\s+\S+.*\n?)*)/);
+                      if (handleBlock) {
+                        const handles = [...handleBlock[1].matchAll(/-\s+(\S+)/g)].map(m => m[1].toLowerCase());
+                        if (handles.includes(commenter.toLowerCase())) {
+                          authorized = true;
+                          authSource = 'approvers.yml (fallback handle)';
+                        }
+                      }
+                      // Check fallback_teams
+                      if (!authorized) {
+                        const teamBlock = section.match(/fallback_teams:\s*\n((?:\s+-\s+\S+.*\n?)*)/);
+                        if (teamBlock) {
+                          const teams = [...teamBlock[1].matchAll(/-\s+(\S+)/g)].map(m => m[1]);
+                          for (const team of teams) {
+                            const [org, slug] = team.split('/');
+                            if (!org || !slug) continue;
+                            try {
+                              const { data } = await github.rest.teams.getMembershipForUserInOrg({
+                                org, team_slug: slug, username: commenter,
+                              });
+                              if (data.state === 'active') {
+                                authorized = true;
+                                authSource = `approvers.yml (team ${team})`;
+                                break;
+                              }
+                            } catch (e) {
+                              // Likely a cross-org team: the repo token can't read
+                              // membership outside this org, so the team authorizes
+                              // no one. Use fallback_handles for cross-org approvers.
+                              console.log(`Could not verify team ${team} for ${commenter}: ${e.message}`);
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                  // 3b. Global approvers: can /approve for any project
+                  if (!authorized) {
+                    const globalBlock = raw.match(/global_approvers:\s*\n((?:\s+-\s+\S+.*\n?)*)/);
+                    if (globalBlock) {
+                      const globals = [...globalBlock[1].matchAll(/-\s+(\S+)/g)].map(m => m[1].toLowerCase());
+                      if (globals.includes(commenter.toLowerCase())) {
+                        authorized = true;
+                        authSource = 'approvers.yml (global approver)';
+                      }
+                    }
+                  }
+                } catch (e) {
+                  console.log(`approvers.yml check failed: ${e.message}`);
+                }
+              }
+
+              if (!authorized) {
+                const orgNote = ghOrg
+                  ? `- A \`project-maintainers\` team member in [\`${ghOrg}/.project/maintainers.yaml\`](https://github.com/${ghOrg}/.project/blob/main/maintainers.yaml)\n`
+                  : '';
+                await reply('❌',
+                  `@${commenter} is not authorized to \`/approve\` proposals for **${project}**.\n\n` +
+                  `Approvers must be:\n` +
+                  orgNote +
+                  `- Listed in [project-maintainers.csv](https://github.com/cncf/foundation/blob/main/project-maintainers.csv)\n` +
+                  `- A fallback approver in \`approvers.yml\`\n\n` +
+                  `If this is an error, contact a CNCF program admin.`);
+                return;
+              }
+
+              await addLabel('Maintainer/Contribex Approved');
+              await removeLabel('Awaiting Maintainer/Contribex Approval');
+              await reply('✅',
+                `Maintainer approval recorded from @${commenter} (${authSource}).`);
+              await checkBothGates();
+              return;
+            }
+
+            // ══════════════════════════════════════════════════
+            //  /confirm: Mentor Confirmation
+            // ══════════════════════════════════════════════════
+            if (command === 'confirm') {
+
+              if (!currentLabels.includes('Validation Passed')) {
+                await reply('❌',
+                  `\`/confirm\` requires the proposal to pass validation first.`);
+                return;
+              }
+              if (currentLabels.includes('Mentors Confirmed')) {
+                await reply('ℹ️', 'Mentor confirmation is already recorded for this proposal.');
+                return;
+              }
+
+              // Authorization: commenter must be a listed mentor
+              const mentorsRaw = get('Mentors');
+              const mentorLines = mentorsRaw.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+              const mentorHandles = mentorLines
+                .map(line => {
+                  const parts = line.split('|').map(p => p.trim());
+                  return parts.length >= 2 ? parts[1].replace(/^@/, '').toLowerCase() : '';
+                })
+                .filter(Boolean);
+
+              if (!mentorHandles.includes(commenter.toLowerCase())) {
+                await reply('❌',
+                  `@${commenter} is not listed as a mentor on this proposal.\n\n` +
+                  `Only listed mentors can \`/confirm\`. ` +
+                  `Current mentors: ${mentorHandles.map(h => `@${h}`).join(', ') || '(none parsed)'}`);
+                return;
+              }
+
+              // Per-mentor confirmation: the gate flips only once EVERY listed
+              // mentor has confirmed. Gather confirmations from the issue's
+              // comment history (plus this one) and compare to the roster.
+              const roster = [...new Set(mentorHandles)];
+              const confirmed = new Set([commenter.toLowerCase()]);
+              try {
+                const priorComments = await github.paginate(github.rest.issues.listComments, {
+                  owner, repo, issue_number, per_page: 100,
+                });
+                const hasConfirm = (body) => (body || '').split(/\r?\n/)
+                  .some(l => /^\/confirm\b/.test(l.trim()));
+                for (const c of priorComments) {
+                  const author = (c.user?.login || '').toLowerCase();
+                  if (roster.includes(author) && hasConfirm(c.body)) confirmed.add(author);
+                }
+              } catch (e) {
+                core.warning(`Could not read prior confirmations: ${e.message}`);
+              }
+
+              const remaining = roster.filter(h => !confirmed.has(h));
+              if (remaining.length) {
+                await reply('✅',
+                  `Confirmation recorded from @${commenter}. ` +
+                  `${confirmed.size} of ${roster.length} mentors have confirmed.\n\n` +
+                  `Still waiting on: ${remaining.map(h => `@${h}`).join(', ')}.`);
+                return;
+              }
+
+              // Every listed mentor has now confirmed.
+              await addLabel('Mentors Confirmed');
+              await removeLabel('Awaiting Mentor Confirmation');
+              await reply('✅',
+                `All ${roster.length} listed mentor(s) have confirmed. Mentor confirmation is complete.`);
+              await checkBothGates();
+              return;
+            }
+
+            // ══════════════════════════════════════════════════
+            //  /cncf-approve: CNCF Admin Approval
+            // ══════════════════════════════════════════════════
+            if (command === 'cncf-approve') {
+
+              // Authorization: read from approvers.yml global_approvers
+              let admins = [];
+              try {
+                const raw = fs.readFileSync('programs/lfx-mentorship/automation/approvers.yml', 'utf8');
+                const globalBlock = raw.match(/global_approvers:\s*\n((?:\s+-\s+\S+.*\n?)*)/);
+                if (globalBlock) {
+                  admins = [...globalBlock[1].matchAll(/-\s+(\S+)/g)].map(m => m[1].toLowerCase());
+                }
+              } catch (e) {
+                console.log(`Failed to read approvers.yml: ${e.message}`);
+              }
+              if (!admins.includes(commenter.toLowerCase())) {
+                await reply('❌',
+                  `@${commenter} is not authorized to use \`/cncf-approve\`. ` +
+                  `This command is restricted to CNCF program admins.`);
+                return;
+              }
+              if (currentLabels.includes('CNCF Approved')) {
+                await reply('ℹ️', 'This proposal has already been CNCF-approved.');
+                return;
+              }
+
+              // Gate: both maintainer + mentor must be done
+              const missing = [];
+              if (!currentLabels.includes('Maintainer/Contribex Approved'))
+                missing.push('Maintainer/Contribex Approved');
+              if (!currentLabels.includes('Mentors Confirmed'))
+                missing.push('Mentors Confirmed');
+
+              if (missing.length) {
+                await reply('❌',
+                  `Cannot \`/cncf-approve\` — still missing: ${missing.map(l => `\`${l}\``).join(' and ')}.\n\n` +
+                  `A maintainer must \`/approve\` and a listed mentor must \`/confirm\` first.`);
+                return;
+              }
+
+              await addLabel('CNCF Approved');
+              await removeLabel('Awaiting CNCF Admin Approval');
+              await reply('✅',
+                `🎉 CNCF admin approval granted by @${commenter}.\n\n` +
+                `This proposal is approved and will be included in the next LFX export.`);
+              return;
+            }
+
+      - name: Sync board status
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.PROJECT_TOKEN }}
+          script: |
+            // ── Resolve this repo's board from board.json (dev vs prod) ──
+            // Only the projectId is stored per repo; the Status field ID and
+            // option IDs are resolved live from the board so the fork (dev) and
+            // cncf/mentoring (prod) run identical code. The board's Status
+            // column names must match the lifecycle stages used below.
+            const fs = require('fs');
+            const _board = JSON.parse(fs.readFileSync('programs/lfx-mentorship/automation/board.json', 'utf8'));
+            const _envCfg = (_board.environments || {})[process.env.GITHUB_REPOSITORY];
+            if (!_envCfg || !_envCfg.projectId || String(_envCfg.projectId).startsWith('REPLACE_')) {
+              core.warning(`No board configured for ${process.env.GITHUB_REPOSITORY} in board.json; skipping board sync.`);
+              return;
+            }
+            const PROJECT_ID = _envCfg.projectId;
+            const _statusField = (await github.graphql(`
+              query($projectId: ID!) {
+                node(id: $projectId) { ... on ProjectV2 {
+                  field(name: "Status") { ... on ProjectV2SingleSelectField { id options { id name } } }
+                } }
+              }
+            `, { projectId: PROJECT_ID })).node.field;
+            if (!_statusField) {
+              core.warning(`Project ${PROJECT_ID} has no "Status" field; skipping board sync.`);
+              return;
+            }
+            const STATUS_FIELD_ID = _statusField.id;
+            const STATUS_OPTIONS = Object.fromEntries(_statusField.options.map(o => [o.name, o.id]));
+
+            const issue_number = context.issue.number;
+            const { data: issue } = await github.rest.issues.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number,
+            });
+            const labels = issue.labels.map(l => l.name);
+
+            if (!labels.includes('lfx mentorship') || !labels.includes('Proposal')) return;
+
+            let status = 'Inbox';
+            // Automation owns the lifecycle only through "Exported"; the
+            // post-export columns are manual admin moves (see board guard below).
+            if (issue.state === 'closed')                            status = 'Closed';
+            else if (labels.includes('Exported'))                    status = 'Exported';
+            else if (labels.includes('CNCF Approved'))               status = 'CNCF Approved';
+            else if (labels.includes('Maintainer/Contribex Approved')
+                     && labels.includes('Mentors Confirmed'))        status = 'Approved/confirmed';
+            else if (labels.includes('Awaiting Maintainer/Contribex Approval')
+                     || labels.includes('Awaiting Mentor Confirmation'))
+                                                                     status = 'Awaiting approvals/confirmations';
+
+            const optionId = STATUS_OPTIONS[status];
+            if (!optionId) {
+              core.warning(`Board has no "${status}" status option; skipping board sync.`);
+              return;
+            }
+            const addResult = await github.graphql(`
+              mutation($projectId: ID!, $contentId: ID!) {
+                addProjectV2ItemById(input: { projectId: $projectId, contentId: $contentId }) {
+                  item { id }
+                }
+              }
+            `, { projectId: PROJECT_ID, contentId: issue.node_id });
+            const itemId = addResult.addProjectV2ItemById.item.id;
+
+            // ── Respect manual admin moves ──
+            // Automation owns the lifecycle only through "Exported". The
+            // post-export columns are advanced by hand, so never overwrite a
+            // card already sitting in one of them (except to reflect a close).
+            const ADMIN_OWNED = new Set([
+              'Posted to LFX', 'LFX Approved', 'Mentors added',
+              'Open for Applications', 'Applications Closed',
+            ]);
+            let currentStatus = null;
+            let readFailed = false;
+            for (let attempt = 1; attempt <= 2; attempt++) {
+              try {
+                const _cur = await github.graphql(`
+                  query($itemId: ID!) {
+                    node(id: $itemId) { ... on ProjectV2Item {
+                      fieldValueByName(name: "Status") {
+                        ... on ProjectV2ItemFieldSingleSelectValue { name }
+                      }
+                    } }
+                  }
+                `, { itemId });
+                currentStatus = _cur?.node?.fieldValueByName?.name || null;
+                readFailed = false;
+                break;
+              } catch (e) {
+                readFailed = true;
+                core.warning(`Could not read current board status (attempt ${attempt}/2): ${e.message}`);
+                if (attempt < 2) await new Promise(r => setTimeout(r, 1000));
+              }
+            }
+            if (currentStatus && ADMIN_OWNED.has(currentStatus) && status !== 'Closed') {
+              console.log(`Card is in admin-owned column "${currentStatus}"; leaving placement to the administrator.`);
+              return;
+            }
+            // Fail closed: if the status read failed we cannot tell whether the
+            // card is in an admin-owned column, so never risk pulling it back
+            // to "Exported".
+            if (readFailed && status === 'Exported') {
+              core.warning('Status read failed while about to set "Exported"; skipping to avoid clobbering a manual placement.');
+              return;
+            }
+
+            await github.graphql(`
+              mutation($projectId: ID!, $itemId: ID!, $fieldId: ID!, $optionId: String!) {
+                updateProjectV2ItemFieldValue(input: {
+                  projectId: $projectId, itemId: $itemId, fieldId: $fieldId,
+                  value: { singleSelectOptionId: $optionId }
+                }) { projectV2Item { id } }
+              }
+            `, {
+              projectId: PROJECT_ID,
+              itemId: itemId,
+              fieldId: STATUS_FIELD_ID,
+              optionId: optionId,
+            });
+            console.log(`Board status → ${status}`);

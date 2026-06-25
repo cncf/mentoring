@@ -1,0 +1,173 @@
+name: LFX Proposal Board Sync
+
+on:
+  issues:
+    types: [opened, labeled, unlabeled, closed, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  sync-board:
+    if: >-
+      contains(github.event.issue.labels.*.name, 'lfx mentorship')
+      && contains(github.event.issue.labels.*.name, 'Proposal')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Sync issue to project board
+        uses: actions/github-script@v7
+        env:
+          PROJECT_TOKEN: ${{ secrets.PROJECT_TOKEN }}
+        with:
+          github-token: ${{ secrets.PROJECT_TOKEN }}
+          script: |
+            // ── Resolve this repo's board from board.json (dev vs prod) ──
+            // Only the projectId is stored per repo; the Status field ID and
+            // option IDs are resolved live from the board so the fork (dev) and
+            // cncf/mentoring (prod) run identical code. The board's Status
+            // column names must match the lifecycle stages used below.
+            const fs = require('fs');
+            const _board = JSON.parse(fs.readFileSync('programs/lfx-mentorship/automation/board.json', 'utf8'));
+            const _envCfg = (_board.environments || {})[process.env.GITHUB_REPOSITORY];
+            if (!_envCfg || !_envCfg.projectId || String(_envCfg.projectId).startsWith('REPLACE_')) {
+              core.warning(`No board configured for ${process.env.GITHUB_REPOSITORY} in board.json; skipping board sync.`);
+              return;
+            }
+            const PROJECT_ID = _envCfg.projectId;
+            const _statusField = (await github.graphql(`
+              query($projectId: ID!) {
+                node(id: $projectId) { ... on ProjectV2 {
+                  field(name: "Status") { ... on ProjectV2SingleSelectField { id options { id name } } }
+                } }
+              }
+            `, { projectId: PROJECT_ID })).node.field;
+            if (!_statusField) {
+              core.warning(`Project ${PROJECT_ID} has no "Status" field; skipping board sync.`);
+              return;
+            }
+            const STATUS_FIELD_ID = _statusField.id;
+            const STATUS_OPTIONS = Object.fromEntries(_statusField.options.map(o => [o.name, o.id]));
+
+            const issue = context.payload.issue;
+            const labels = (issue.labels || []).map(l => l.name);
+            const action = context.payload.action;
+
+            // ── Determine target status from labels + event ──
+            function determineStatus() {
+              if (action === 'closed')   return 'Closed';
+              if (action === 'reopened') return determineFromLabels();
+              return determineFromLabels();
+            }
+
+            function determineFromLabels() {
+              // Automation owns the lifecycle only through "Exported". The
+              // post-export columns (Posted to LFX, LFX Approved, Mentors added,
+              // Open for Applications, Applications Closed) are advanced by hand
+              // by the administrator, so they are never derived from labels here.
+              if (labels.includes('Exported'))                  return 'Exported';
+              if (labels.includes('CNCF Approved'))             return 'CNCF Approved';
+
+              const maintainerApproved = labels.includes('Maintainer/Contribex Approved');
+              const mentorsConfirmed   = labels.includes('Mentors Confirmed');
+              if (maintainerApproved && mentorsConfirmed)       return 'Approved/confirmed';
+
+              if (labels.includes('Awaiting Maintainer/Contribex Approval')
+                  || labels.includes('Awaiting Mentor Confirmation'))
+                return 'Awaiting approvals/confirmations';
+
+              return 'Inbox';
+            }
+
+            const targetStatus = determineStatus();
+            console.log(`Target status: ${targetStatus}`);
+
+            const optionId = STATUS_OPTIONS[targetStatus];
+            if (!optionId) {
+              core.warning(`Board has no "${targetStatus}" status option; skipping board sync.`);
+              return;
+            }
+
+            // ── Ensure issue is added to the project ──
+            const addResult = await github.graphql(`
+              mutation($projectId: ID!, $contentId: ID!) {
+                addProjectV2ItemById(input: {
+                  projectId: $projectId
+                  contentId: $contentId
+                }) {
+                  item { id }
+                }
+              }
+            `, {
+              projectId: PROJECT_ID,
+              contentId: issue.node_id,
+            });
+
+            const itemId = addResult.addProjectV2ItemById.item.id;
+            console.log(`Project item: ${itemId}`);
+
+            // ── Respect manual admin moves ──
+            // Automation owns the lifecycle only through "Exported". The
+            // post-export columns are advanced by hand as the administrator
+            // works with the LFX platform, so never overwrite a card that is
+            // already sitting in one of them (except to reflect a closed issue).
+            const ADMIN_OWNED = new Set([
+              'Posted to LFX', 'LFX Approved', 'Mentors added',
+              'Open for Applications', 'Applications Closed',
+            ]);
+            let currentStatus = null;
+            let readFailed = false;
+            for (let attempt = 1; attempt <= 2; attempt++) {
+              try {
+                const _cur = await github.graphql(`
+                  query($itemId: ID!) {
+                    node(id: $itemId) { ... on ProjectV2Item {
+                      fieldValueByName(name: "Status") {
+                        ... on ProjectV2ItemFieldSingleSelectValue { name }
+                      }
+                    } }
+                  }
+                `, { itemId });
+                currentStatus = _cur?.node?.fieldValueByName?.name || null;
+                readFailed = false;
+                break;
+              } catch (e) {
+                readFailed = true;
+                core.warning(`Could not read current board status (attempt ${attempt}/2): ${e.message}`);
+                if (attempt < 2) await new Promise(r => setTimeout(r, 1000));
+              }
+            }
+            if (currentStatus && ADMIN_OWNED.has(currentStatus) && targetStatus !== 'Closed') {
+              console.log(`Card is in admin-owned column "${currentStatus}"; leaving placement to the administrator.`);
+              return;
+            }
+            // Fail closed: if the status read failed we cannot tell whether the
+            // card is in an admin-owned column, so never risk pulling it back
+            // to "Exported".
+            if (readFailed && targetStatus === 'Exported') {
+              core.warning('Status read failed while about to set "Exported"; skipping to avoid clobbering a manual placement.');
+              return;
+            }
+
+            // ── Set the Status field ──
+            await github.graphql(`
+              mutation($projectId: ID!, $itemId: ID!, $fieldId: ID!, $optionId: String!) {
+                updateProjectV2ItemFieldValue(input: {
+                  projectId: $projectId
+                  itemId: $itemId
+                  fieldId: $fieldId
+                  value: { singleSelectOptionId: $optionId }
+                }) {
+                  projectV2Item { id }
+                }
+              }
+            `, {
+              projectId: PROJECT_ID,
+              itemId: itemId,
+              fieldId: STATUS_FIELD_ID,
+              optionId: optionId,
+            });
+
+            console.log(`Status set to: ${targetStatus}`);

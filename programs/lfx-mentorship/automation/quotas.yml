@@ -1,0 +1,14 @@
+# Per-project per-term proposal quota.
+#
+# When a project exceeds its quota for a given term, the bot labels the
+# issue "Over Quota" and posts a comment listing the existing proposals.
+# This is a warning, not a hard block — an admin can remove the label
+# after confirming the exception is intentional.
+
+default_per_project_per_term: 5
+
+# Override keys match the project's GitHub org, its lowercased/hyphenated name,
+# or its projects.yml slug (any of the three).
+overrides:
+  kubernetes: 8
+  open-telemetry: 8

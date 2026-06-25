@@ -1,0 +1,554 @@
+name: LFX Export
+
+on:
+  workflow_dispatch:
+    inputs:
+      term:
+        description: >
+          Term to export (must match the dropdown value in the issue form,
+          e.g. "2026 Term 3 (Sep-Nov)")
+        required: true
+        type: choice
+        options:
+          - "2026 Term 3 (Sep-Nov)"
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Export approved proposals
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            const { owner, repo } = context.repo;
+            const term = context.payload.inputs.term;
+
+            console.log(`Exporting proposals for: ${term}`);
+
+            // ── Parse issue form body ──
+            function parseIssueForm(body) {
+              const fields = {};
+              for (const section of body.split(/^### +/m).slice(1)) {
+                const nl = section.indexOf('\n');
+                if (nl === -1) continue;
+                const label = section.slice(0, nl).trim();
+                let value = section.slice(nl + 1).trim();
+                if (value === '_No response_') value = '';
+                fields[label] = value;
+              }
+              return fields;
+            }
+
+            // ── Parse checkbox fields ──
+            function parseCheckboxes(raw) {
+              if (!raw) return [];
+              return raw.split('\n')
+                .filter(l => /- \[.\]/.test(l))
+                .filter(l => /- \[x\]/i.test(l))
+                .map(l => l.replace(/^- \[.\]\s*/, '').trim());
+            }
+
+            // ── Parse mentors ──
+            function parseMentors(raw) {
+              if (!raw) return [];
+              return raw.split(/\r?\n/)
+                .map(l => l.trim())
+                .filter(Boolean)
+                .map((line, i) => {
+                  const parts = line.split('|').map(p => p.trim());
+                  if (parts.length !== 3 && parts.length !== 4) return null;
+                  return {
+                    name: parts[0],
+                    github_handle: parts[1].replace(/^@/, ''),
+                    email: parts[2],
+                    lfid: parts[3] || '',
+                    role: i === 0 ? 'primary' : 'co-mentor',
+                  };
+                })
+                .filter(Boolean);
+            }
+
+            // ── Fetch all approved issues for this term ──
+            const issues = await github.paginate(github.rest.issues.listForRepo, {
+              owner, repo, state: 'open',
+              labels: 'lfx mentorship,Proposal,CNCF Approved',
+              per_page: 100,
+            });
+
+            const termIssues = issues.filter(iss => {
+              const body = iss.body || '';
+              return body.includes(`### Term\n\n${term}`);
+            });
+
+            console.log(`Found ${termIssues.length} approved proposals for ${term}`);
+
+            if (termIssues.length === 0) {
+              core.setFailed(`No CNCF-approved proposals found for term: ${term}`);
+              return;
+            }
+
+            // ── Load projects.yml for metadata ──
+            const projYaml = fs.readFileSync('programs/lfx-mentorship/automation/projects.yml', 'utf8');
+
+            function getProjectMeta(projectName) {
+              const re = new RegExp(
+                `- name: ${projectName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\n` +
+                `[\\s\\S]*?(?=\\n- name:|$)`
+              );
+              const m = projYaml.match(re);
+              if (!m) return {};
+              const block = m[0];
+              const slug = (block.match(/slug:\s*(\S+)/) || [])[1] || '';
+              const maturity = (block.match(/maturity:\s*(\S+)/) || [])[1] || '';
+              const repoUrl = (block.match(/repo_url:\s*(\S+)/) || [])[1] || '';
+              return { slug, maturity, repo_url: repoUrl };
+            }
+
+            // ── Build export records ──
+            const programs = [];
+            for (const iss of termIssues) {
+              const f = parseIssueForm(iss.body || '');
+              const get = (k) => (f[k] || '').trim();
+
+              const project = get('CNCF Project');
+              const programName = get('Program Name');
+              const termToken = term.replace(/\s*\(.*$/, '');
+              const fullName = `CNCF - ${project}: ${programName} (${termToken})`;
+
+              const skillsSame = (get('Skills same as Technologies?') || '')
+                .match(/\[x\]/i);
+              const technologies = get('Technologies');
+              const skills = skillsSame ? technologies : get('Required/Desirable Skills');
+
+              const prerequisites = parseCheckboxes(get('Application Prerequisites'));
+              const customPrereqChecked = prerequisites.includes(
+                'Custom Prerequisite (fill in details below)'
+              );
+              const customFileUpload = (get('Custom Prerequisite — File Upload') || '')
+                .match(/\[x\]/i);
+
+              const meta = getProjectMeta(project);
+
+              programs.push({
+                issue_number: iss.number,
+                issue_url: iss.html_url,
+                cncf_project: project,
+                cncf_project_slug: meta.slug || '',
+                cncf_project_maturity: meta.maturity || '',
+                term: term,
+                program_name_full: fullName,
+                program_name_short: programName,
+                description: get('Program Description'),
+                technologies: technologies,
+                skills: skills,
+                mentors: parseMentors(get('Mentors')),
+                upstream_issue_url: get('Upstream Issue URL'),
+                prerequisites: {
+                  resume: prerequisites.includes('Resume'),
+                  cover_letter: prerequisites.includes('Cover Letter'),
+                  school_enrollment: prerequisites.includes('School Enrollment Verification'),
+                  participation_permission: prerequisites.includes(
+                    'Participation Permission from school or employer'
+                  ),
+                  coding_challenge: prerequisites.includes('Coding Challenge'),
+                  coding_challenge_url: get('Coding Challenge URL') || null,
+                  custom: customPrereqChecked ? {
+                    name: get('Custom Prerequisite Name') || null,
+                    description: get('Custom Prerequisite Description') || null,
+                    file_upload: !!customFileUpload,
+                  } : null,
+                },
+              });
+            }
+
+            // ── Determine output path ──
+            // Term format: "2026 Term 3 (Sep-Nov)" → year=2026, dir=03-Sep-Nov
+            const yearMatch = term.match(/^(\d{4})/);
+            const termNumMatch = term.match(/Term\s+(\d)/);
+            const monthsMatch = term.match(/\(([^)]+)\)/);
+
+            const year = yearMatch ? yearMatch[1] : 'unknown';
+            const termNum = termNumMatch ? termNumMatch[1].padStart(2, '0') : '00';
+            const months = monthsMatch
+              ? monthsMatch[1].replace(/[\u2013\u2014]/g, '-')
+              : 'unknown';
+            const termDir = `${termNum}-${months}`;
+
+            const outDir = `programs/lfx-mentorship/${year}/${termDir}`;
+            fs.mkdirSync(outDir, { recursive: true });
+
+            const outPath = `${outDir}/lfx-export.json`;
+            const exportData = {
+              _generated: new Date().toISOString(),
+              _term: term,
+              _count: programs.length,
+              programs: programs,
+            };
+
+            fs.writeFileSync(outPath, JSON.stringify(exportData, null, 2) + '\n');
+            console.log(`Wrote ${programs.length} programs to ${outPath}`);
+
+            // ── Generate README.md ──
+            // Group programs by CNCF project
+            const byProject = {};
+            for (const prog of programs) {
+              const proj = prog.cncf_project;
+              if (!byProject[proj]) byProject[proj] = [];
+              byProject[proj].push(prog);
+            }
+            const sortedProjects = Object.keys(byProject).sort(
+              (a, b) => a.toLowerCase().localeCompare(b.toLowerCase())
+            );
+
+            // Slug helper for markdown anchors
+            function slugify(text) {
+              return text.toLowerCase()
+                .replace(/[^\w\s-]/g, '')
+                .replace(/\s+/g, '-')
+                .replace(/-+/g, '-')
+                .trim();
+            }
+
+            // Term display: "2026 Term 3 (Sep-Nov)" → "Term 03 - 2026 September - November"
+            const monthMap = {
+              'Mar': 'March', 'May': 'May', 'Jun': 'June',
+              'Aug': 'August', 'Sep': 'September', 'Nov': 'November',
+            };
+            const monthParts = months.split('-').map(m => monthMap[m.trim()] || m.trim());
+            const readmeTitle = `Term ${termNum} - ${year} ${monthParts.join(' - ')}`;
+
+            // Build the auto-generated section (Table of Contents + Accepted
+            // Projects). The term frontmatter above it is preserved separately
+            // so re-running the export never wipes the term timeline and
+            // instructions.
+            const md = [];
+
+            // Table of contents
+            md.push('## Table of Contents');
+            md.push('');
+            for (const proj of sortedProjects) {
+              const projSlug = slugify(proj);
+              md.push(`- [${proj}](#${projSlug})`);
+              for (const prog of byProject[proj]) {
+                const progSlug = slugify(prog.program_name_short);
+                md.push(`  - [${prog.program_name_short}](#${progSlug})`);
+              }
+            }
+            md.push('');
+
+            // Accepted projects
+            md.push('## Accepted Projects');
+            md.push('');
+            for (const proj of sortedProjects) {
+              md.push(`### ${proj}`);
+              md.push('');
+              for (const prog of byProject[proj]) {
+                md.push(`#### ${prog.program_name_short}`);
+                md.push('');
+                md.push(prog.program_name_full);
+                md.push('');
+                md.push('- Description:');
+                md.push('');
+                for (const line of prog.description.split('\n')) {
+                  md.push(`  > ${line}`);
+                }
+                md.push('');
+                md.push(`- Recommended Skills: ${prog.skills}`);
+                md.push(`- Technologies: ${prog.technologies}`);
+                md.push('- Mentor(s):');
+                for (const m of prog.mentors) {
+                  md.push(`  - ${m.name} (@${m.github_handle}, ${m.email})`);
+                }
+                md.push(`- Upstream Issue: ${prog.upstream_issue_url}`);
+                md.push(`- LFX URL: TBD`);
+                md.push('');
+              }
+            }
+
+            const readmePath = `${outDir}/README.md`;
+
+            // Preserve the term frontmatter (title, timeline, project and
+            // application instructions) up to and including the first horizontal
+            // rule, then regenerate only the Table of Contents and Accepted
+            // Projects below it. Fall back to a minimal header only when the
+            // term README has no frontmatter yet.
+            let existingReadme = null;
+            if (fs.existsSync(readmePath)) {
+              existingReadme = fs.readFileSync(readmePath, 'utf8');
+            }
+            const sep = existingReadme ? existingReadme.match(/^---[ \t]*$/m) : null;
+            let header;
+            if (sep) {
+              header = existingReadme.slice(0, sep.index + sep[0].length) + '\n\n';
+            } else {
+              header = [
+                `# ${readmeTitle}`,
+                '',
+                'Status: Planning',
+                '',
+                'Mentorship duration - three months (full-time schedule)',
+                '',
+                '---',
+                '',
+                '',
+              ].join('\n');
+            }
+
+            fs.writeFileSync(readmePath, header + md.join('\n') + '\n');
+            console.log(`Wrote README.md with ${sortedProjects.length} projects, ${programs.length} programs`);
+
+            // ── Generate tracking CSV ──
+            function csvEscape(val) {
+              const s = String(val || '');
+              if (s.includes(',') || s.includes('"') || s.includes('\n')) {
+                return '"' + s.replace(/"/g, '""') + '"';
+              }
+              return s;
+            }
+
+            const csvHeaders = [
+              'PROJECT', 'LFX URL', 'Upstream issue', '',
+              'mentor count',
+              'Mentor 1', 'Mentor 1 GitHub', 'Mentor 1 email address', 'Mentor 1 LFID',
+              'Mentor 2', 'Mentor 2 GitHub', 'Mentor 2 email address', 'Mentor 2 LFID',
+              'Mentor 3', 'Mentor 3 GitHub', 'Mentor 3 email address', 'Mentor 3 LFID',
+              'Mentor 4', 'Mentor 4 GitHub', 'Mentor 4 email address', 'Mentor 4 LFID',
+            ];
+
+            const csvRows = [csvHeaders.map(csvEscape).join(',')];
+            for (const prog of programs) {
+              const mentors = prog.mentors || [];
+              const row = [
+                prog.program_name_full,
+                '',  // LFX URL — filled in after posting to LFX
+                prog.upstream_issue_url,
+                '',  // spacer column
+                mentors.length,
+              ];
+              for (let i = 0; i < 4; i++) {
+                const m = mentors[i];
+                row.push(m ? m.name : '');
+                row.push(m ? m.github_handle : '');
+                row.push(m ? m.email : '');
+                row.push(m ? m.lfid : '');
+              }
+              csvRows.push(row.map(csvEscape).join(','));
+            }
+
+            const csvPath = `${outDir}/lfx-tracking.csv`;
+            fs.writeFileSync(csvPath, csvRows.join('\n') + '\n');
+            console.log(`Wrote ${programs.length} rows to ${csvPath}`);
+
+            // ── Store path and issue numbers for later steps ──
+            core.exportVariable('EXPORT_PATH', outPath);
+            core.exportVariable('EXPORT_COUNT', programs.length.toString());
+            core.exportVariable('EXPORT_TERM', term);
+            core.exportVariable('EXPORT_TERM_DIR', termDir);
+            core.exportVariable('EXPORT_YEAR', year);
+            core.exportVariable('EXPORTED_ISSUES', programs.map(p => p.issue_number).join(','));
+
+            // Build PR body with issue links
+            const issueList = programs
+              .map(p => `- #${p.issue_number} — ${p.program_name_full}`)
+              .join('\n');
+            core.exportVariable('PR_BODY_ISSUES', issueList);
+
+      - name: Check for changes
+        id: check
+        run: |
+          if git diff --quiet && [ -z "$(git ls-files --others --exclude-standard)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create Pull Request
+        if: steps.check.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: |
+            chore: export ${{ env.EXPORT_COUNT }} LFX programs for ${{ env.EXPORT_TERM }}
+
+            Auto-generated by lfx-export workflow.
+
+            Signed-off-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+            Assisted-by: Copilot <223556219+Copilot@users.noreply.github.com>
+          branch: automation/lfx-export-${{ env.EXPORT_YEAR }}-${{ env.EXPORT_TERM_DIR }}
+          title: "chore: LFX export for ${{ env.EXPORT_TERM }} (${{ env.EXPORT_COUNT }} programs)"
+          body: |
+            Auto-generated export of **${{ env.EXPORT_COUNT }}** CNCF-approved
+            LFX Mentorship programs for **${{ env.EXPORT_TERM }}**.
+
+            **Exported proposals:**
+            ${{ env.PR_BODY_ISSUES }}
+
+            **Files generated:**
+            - `${{ env.EXPORT_PATH }}` — structured JSON for LFX bulk import
+            - `programs/lfx-mentorship/${{ env.EXPORT_YEAR }}/${{ env.EXPORT_TERM_DIR }}/README.md` — human-readable accepted-programs list
+            - `programs/lfx-mentorship/${{ env.EXPORT_YEAR }}/${{ env.EXPORT_TERM_DIR }}/lfx-tracking.csv` — tracking spreadsheet with mentor details
+
+            <details>
+            <summary>What to do next</summary>
+
+            1. Review the JSON and README for accuracy
+            2. Merge this PR
+            3. Share the JSON with the LFX platform team
+            4. Once programs are created on LFX, update LFX URLs in the
+               README and drag each issue's card to the `Posted to LFX` column
+
+            </details>
+          labels: administration
+
+      - name: Notify exported issues
+        if: steps.check.outputs.changed == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const issues = process.env.EXPORTED_ISSUES.split(',').filter(Boolean);
+            const term = process.env.EXPORT_TERM;
+            const year = process.env.EXPORT_YEAR;
+            const termDir = process.env.EXPORT_TERM_DIR;
+
+            for (const num of issues) {
+              const issue_number = parseInt(num);
+
+              // Add Exported label
+              await github.rest.issues.addLabels({
+                owner, repo, issue_number,
+                labels: ['Exported'],
+              });
+
+              // Comment linking to the export
+              await github.rest.issues.createComment({
+                owner, repo, issue_number,
+                body: `📦 This proposal has been included in the **${term}** export.\n\n` +
+                  `Export files: [\`programs/lfx-mentorship/${year}/${termDir}/\`](/${owner}/${repo}/tree/automation/lfx-export-${year}-${termDir}/programs/lfx-mentorship/${year}/${termDir}/)\n\n` +
+                  `The export PR is awaiting review. Once merged and posted to LFX, this issue will be updated again.`,
+              });
+
+              console.log(`Notified issue #${issue_number}`);
+            }
+
+      - name: Sync board status for exported issues
+        if: steps.check.outputs.changed == 'true'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.PROJECT_TOKEN }}
+          script: |
+            // ── Resolve this repo's board from board.json (dev vs prod) ──
+            // Only the projectId is stored per repo; the Status field ID and
+            // option IDs are resolved live from the board so the fork (dev) and
+            // cncf/mentoring (prod) run identical code. The board's Status
+            // column names must match the lifecycle stages used by the workflows.
+            const fs = require('fs');
+            const _board = JSON.parse(fs.readFileSync('programs/lfx-mentorship/automation/board.json', 'utf8'));
+            const _envCfg = (_board.environments || {})[process.env.GITHUB_REPOSITORY];
+            if (!_envCfg || !_envCfg.projectId || String(_envCfg.projectId).startsWith('REPLACE_')) {
+              core.warning(`No board configured for ${process.env.GITHUB_REPOSITORY} in board.json; skipping board sync.`);
+              return;
+            }
+            const PROJECT_ID = _envCfg.projectId;
+            const _statusField = (await github.graphql(`
+              query($projectId: ID!) {
+                node(id: $projectId) { ... on ProjectV2 {
+                  field(name: "Status") { ... on ProjectV2SingleSelectField { id options { id name } } }
+                } }
+              }
+            `, { projectId: PROJECT_ID })).node.field;
+            if (!_statusField) {
+              core.warning(`Project ${PROJECT_ID} has no "Status" field; skipping board sync.`);
+              return;
+            }
+            const STATUS_FIELD_ID = _statusField.id;
+            const STATUS_OPTIONS = Object.fromEntries(_statusField.options.map(o => [o.name, o.id]));
+            const EXPORTED_OPTION = STATUS_OPTIONS['Exported'];
+            if (!EXPORTED_OPTION) {
+              core.warning(`Board has no "Exported" status option; skipping board sync.`);
+              return;
+            }
+            const issues = process.env.EXPORTED_ISSUES.split(',').filter(Boolean);
+
+            // Never pull a card back to "Exported" if the administrator has
+            // already advanced it by hand to a post-export column.
+            const ADMIN_OWNED = new Set([
+              'Posted to LFX', 'LFX Approved', 'Mentors added',
+              'Open for Applications', 'Applications Closed',
+            ]);
+
+            for (const num of issues) {
+              const { data: issue } = await github.rest.issues.get({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: parseInt(num),
+              });
+
+              const addResult = await github.graphql(`
+                mutation($projectId: ID!, $contentId: ID!) {
+                  addProjectV2ItemById(input: { projectId: $projectId, contentId: $contentId }) {
+                    item { id }
+                  }
+                }
+              `, { projectId: PROJECT_ID, contentId: issue.node_id });
+              const itemId = addResult.addProjectV2ItemById.item.id;
+
+              let currentStatus = null;
+              let readFailed = false;
+              for (let attempt = 1; attempt <= 2; attempt++) {
+                try {
+                  const _cur = await github.graphql(`
+                    query($itemId: ID!) {
+                      node(id: $itemId) { ... on ProjectV2Item {
+                        fieldValueByName(name: "Status") {
+                          ... on ProjectV2ItemFieldSingleSelectValue { name }
+                        }
+                      } }
+                    }
+                  `, { itemId });
+                  currentStatus = _cur?.node?.fieldValueByName?.name || null;
+                  readFailed = false;
+                  break;
+                } catch (e) {
+                  readFailed = true;
+                  core.warning(`Could not read current board status for #${num} (attempt ${attempt}/2): ${e.message}`);
+                  if (attempt < 2) await new Promise(r => setTimeout(r, 1000));
+                }
+              }
+              if (currentStatus && ADMIN_OWNED.has(currentStatus)) {
+                console.log(`#${num} is in admin-owned column "${currentStatus}"; leaving placement to the administrator.`);
+                continue;
+              }
+              // Fail closed: the export loop always targets "Exported", so if
+              // the status read failed, skip this issue rather than risk
+              // pulling a manually-placed card back.
+              if (readFailed) {
+                core.warning(`Status read failed for #${num} while about to set "Exported"; skipping to avoid clobbering a manual placement.`);
+                continue;
+              }
+
+              await github.graphql(`
+                mutation($projectId: ID!, $itemId: ID!, $fieldId: ID!, $optionId: String!) {
+                  updateProjectV2ItemFieldValue(input: {
+                    projectId: $projectId, itemId: $itemId, fieldId: $fieldId,
+                    value: { singleSelectOptionId: $optionId }
+                  }) { projectV2Item { id } }
+                }
+              `, {
+                projectId: PROJECT_ID,
+                itemId: itemId,
+                fieldId: STATUS_FIELD_ID,
+                optionId: EXPORTED_OPTION,
+              });
+              console.log(`Board → Exported for #${num}`);
+            }

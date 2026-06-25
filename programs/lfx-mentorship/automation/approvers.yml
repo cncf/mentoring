@@ -1,0 +1,49 @@
+# Fallback approvers for projects whose governance model isn't fully
+# captured by cncf/foundation/project-maintainers.csv or {org}/.project.
+#
+# The approvals workflow checks authorization in this order:
+#   1. {org}/.project/maintainers.yaml (project-maintainers team)
+#   2. cncf/foundation/project-maintainers.csv
+#   3. This file — per-project fallback_teams and fallback_handles
+#   4. This file — global_approvers (can /approve for any project)
+#
+# Format:
+#   global_approvers:             # can /approve any project
+#     - username
+#
+#   <project-key>:                # match by GitHub org (e.g. open-telemetry), the
+#                                 # lowercased/hyphenated name, or the projects.yml
+#                                 # slug; any of the three works.
+#     fallback_teams:             # GitHub teams (org/team) whose members may /approve
+#       - org/team-name           # NOTE: only teams in this repo's org (cncf) can be
+#                                 # verified. The workflow token cannot read team
+#                                 # membership in other orgs, so cross-org teams
+#                                 # silently authorize no one. Use fallback_handles
+#                                 # for cross-org approvers.
+#     fallback_handles:           # individual GitHub handles (works for any org)
+#       - username
+
+global_approvers:
+  - nate-double-u
+  - dkrook
+  - idvoretskyi
+  - RobertKielty
+  - thisisobate
+  - Swil78
+  - mlehotskylf
+
+# NOTE: kubernetes/sig-contribex and open-telemetry/governance-committee are
+# cross-org teams. The repo token cannot read their membership, so these
+# fallback_teams entries are effectively inert. Maintainers of these projects
+# are still authorized via tiers 1-2 (.project/maintainers.yaml and the
+# project-maintainers CSV). Add fallback_handles below for a guaranteed
+# per-person override.
+kubernetes:
+  fallback_teams:
+    - kubernetes/sig-contribex
+
+open-telemetry:
+  fallback_teams:
+    - open-telemetry/governance-committee
+  fallback_handles:
+    - maryliag    # GC liaison for mentorship
