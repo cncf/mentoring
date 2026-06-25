@@ -92,7 +92,7 @@ This appends a `Signed-off-by: Your Name <your@email.com>` line to your commit. 
 
 ## Licenses
 
-Contributions are accepted under the repository's two licenses:
+This repository uses two licenses, depending on what you contribute:
 
 - Content (guides, program materials, and documentation): [CC-BY-4.0](LICENSE-CONTENT)
 - Code (automation and scripts): [Apache-2.0](LICENSE)
