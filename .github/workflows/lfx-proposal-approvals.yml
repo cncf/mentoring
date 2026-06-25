@@ -223,9 +223,29 @@ jobs:
                     // Project column may include subgroup: "OpenTelemetry (Governance Committee)"
                     // Maturity is only on the first row of each group; subsequent rows are empty.
                     const normalProject = project.toLowerCase();
+                    // Minimal CSV line parser: respects quoted fields with
+                    // embedded commas and escaped double-quotes ("") so a comma
+                    // inside a value like "Chainguard, Inc" cannot shift the
+                    // GitHub-handle column and trigger a false auth rejection.
+                    const parseCsvLine = (row) => {
+                      const out = [];
+                      let cur = '', inQuotes = false;
+                      for (let i = 0; i < row.length; i++) {
+                        const ch = row[i];
+                        if (inQuotes) {
+                          if (ch === '"' && row[i + 1] === '"') { cur += '"'; i++; }
+                          else if (ch === '"') { inQuotes = false; }
+                          else { cur += ch; }
+                        } else if (ch === '"') { inQuotes = true; }
+                        else if (ch === ',') { out.push(cur); cur = ''; }
+                        else { cur += ch; }
+                      }
+                      out.push(cur);
+                      return out;
+                    };
                     for (const line of csv.split('\n').slice(1)) {
                       if (!line.trim()) continue;
-                      const cols = line.split(',');
+                      const cols = parseCsvLine(line);
                       const csvProject = (cols[1] || '').trim().toLowerCase();
                       const csvGh = (cols[4] || '').trim().toLowerCase();
                       if (csvGh === commenter.toLowerCase()
