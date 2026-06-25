@@ -349,13 +349,27 @@ body:
     attributes:
       label: Mentors
       description: >
-        One mentor per line. Format: `Full Name | @github-handle | email`.
+        One mentor per line. Format:
+        `Full Name | @github-handle | email | LFID`.
         The **first line is the primary mentor**; additional lines are
         co-mentors. Use the email address tied to the mentor's LFID account on
         the LFX platform.
+
+
+        The **LFID** is the mentor's LF Username: find it on
+        [openprofile.dev/profile](https://openprofile.dev/profile) in the
+        "Public profile URL" link, or under Settings -> Basic Information as
+        "LF Username" on
+        [openprofile.dev/edit/profile](https://openprofile.dev/edit/profile).
+
+
+        Don't have every mentor's LFID yet? You can still create the proposal,
+        then add the missing LFIDs later by editing this issue. A proposal can't
+        pass validation or be added to the LFX platform until every mentor's
+        LFID is present.
       placeholder: |
-        Jane Doe | @janedoe | jane@example.com
-        Sam Lee  | @samlee  | sam@example.com
+        Jane Doe | @janedoe | jane@example.com | janedoe
+        Sam Lee  | @samlee  | sam@example.com | samlee
     validations:
       required: true
 

@@ -54,6 +54,8 @@ jobs:
             const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             const urlRe = /^https?:\/\/\S+$/;
             const ghHandleRe = /^@[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}$/;
+            // LF Username (LFID): a single token, no spaces, '@', or URL slashes.
+            const lfidRe = /^[^\s@/]+$/;
 
             // ── 1. CNCF Project ──
             const project = get('CNCF Project');
@@ -130,6 +132,7 @@ jobs:
               const mentorLines = mentorsRaw.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
               const handles = new Set();
               const emails = new Set();
+              const lfids = new Set();
               let mentorOk = true;
 
               if (mentorLines.length > 4) {
@@ -142,13 +145,13 @@ jobs:
                 const parts = line.split('|').map(p => p.trim());
                 const role = i === 0 ? 'Primary mentor' : `Mentor ${i + 1}`;
 
-                if (parts.length !== 3) {
-                  errors.push(`${role}: expected 3 pipe-separated fields (Name | @handle | email), got ${parts.length} in: \`${line}\``);
+                if (parts.length !== 3 && parts.length !== 4) {
+                  errors.push(`${role}: expected 3 or 4 pipe-separated fields (Name | @handle | email | LFID), got ${parts.length} in: \`${line}\``);
                   mentorOk = false;
                   continue;
                 }
 
-                const [name, handle, email] = parts;
+                const [name, handle, email, lfid] = parts;
 
                 if (!name) {
                   errors.push(`${role}: name is empty.`);
@@ -176,6 +179,18 @@ jobs:
                   mentorOk = false;
                 }
                 emails.add(email.toLowerCase());
+
+                if (!lfid) {
+                  errors.push(`${role}: LFID (LF Username) is missing. You can add it later by editing this issue, but every mentor's LFID is required before the proposal can pass validation and be added to LFX.`);
+                  mentorOk = false;
+                } else if (!lfidRe.test(lfid)) {
+                  errors.push(`${role}: LFID \`${lfid}\` doesn't look like an LF Username (no spaces, @, or URL; e.g. \`janedoe\`).`);
+                  mentorOk = false;
+                } else if (lfids.has(lfid.toLowerCase())) {
+                  errors.push(`${role}: duplicate LFID \`${lfid}\`.`);
+                  mentorOk = false;
+                }
+                if (lfid) lfids.add(lfid.toLowerCase());
               }
 
               if (mentorOk) {

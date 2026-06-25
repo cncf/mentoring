@@ -66,11 +66,12 @@ jobs:
                 .filter(Boolean)
                 .map((line, i) => {
                   const parts = line.split('|').map(p => p.trim());
-                  if (parts.length !== 3) return null;
+                  if (parts.length !== 3 && parts.length !== 4) return null;
                   return {
                     name: parts[0],
                     github_handle: parts[1].replace(/^@/, ''),
                     email: parts[2],
+                    lfid: parts[3] || '',
                     role: i === 0 ? 'primary' : 'co-mentor',
                   };
                 })
@@ -318,10 +319,10 @@ jobs:
             const csvHeaders = [
               'PROJECT', 'LFX URL', 'Upstream issue', '',
               'mentor count',
-              'Mentor 1', 'Mentor 1 GitHub', 'Mentor 1 email address',
-              'Mentor 2', 'Mentor 2 GitHub', 'Mentor 2 email address',
-              'Mentor 3', 'Mentor 3 GitHub', 'Mentor 3 email address',
-              'Mentor 4', 'Mentor 4 GitHub', 'Mentor 4 email address',
+              'Mentor 1', 'Mentor 1 GitHub', 'Mentor 1 email address', 'Mentor 1 LFID',
+              'Mentor 2', 'Mentor 2 GitHub', 'Mentor 2 email address', 'Mentor 2 LFID',
+              'Mentor 3', 'Mentor 3 GitHub', 'Mentor 3 email address', 'Mentor 3 LFID',
+              'Mentor 4', 'Mentor 4 GitHub', 'Mentor 4 email address', 'Mentor 4 LFID',
             ];
 
             const csvRows = [csvHeaders.map(csvEscape).join(',')];
@@ -339,6 +340,7 @@ jobs:
                 row.push(m ? m.name : '');
                 row.push(m ? m.github_handle : '');
                 row.push(m ? m.email : '');
+                row.push(m ? m.lfid : '');
               }
               csvRows.push(row.map(csvEscape).join(','));
             }

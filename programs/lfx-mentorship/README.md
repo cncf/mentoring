@@ -77,7 +77,7 @@ The form asks for:
 - **Technologies and Skills** — what the program involves and what
   candidates should know
 - **Mentors** — one primary mentor and up to three co-mentors, each with
-  name, GitHub handle, and email
+  name, GitHub handle, email, and LFID (LF Username)
 - **Upstream Issue URL** — a link to a tracking issue on the project's own
   repo
 - **Application Prerequisites** — what applicants need to submit (resume,
