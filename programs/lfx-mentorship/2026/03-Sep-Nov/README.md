@@ -32,4 +32,44 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 ---
 
+## Table of Contents
+
+- [OpenTelemetry](#opentelemetry)
+  - [OpenTelemetry program proposal missing info test](#opentelemetry-program-proposal-missing-info-test)
+  - [OpenTelemetry program proposal happy path test](#opentelemetry-program-proposal-happy-path-test)
+
+## Accepted Projects
+
+### OpenTelemetry
+
+#### OpenTelemetry program proposal missing info test
+
+CNCF - OpenTelemetry: OpenTelemetry program proposal missing info test (2026 Term 3)
+
+- Description:
+
+  > Missing info test
+
+- Recommended Skills: OpenTelemetry, testing
+- Technologies: OpenTelemetry, testing
+- Mentor(s):
+  - Nate W (@nate-double-u, natew@cncf.io)
+  - Other Nate (@hackabletype, nate@example.com)
+- Upstream Issue: https://github.com/cncf/mentoring/issues/1883
+- LFX URL: TBD
+
+#### OpenTelemetry program proposal happy path test
+
+CNCF - OpenTelemetry: OpenTelemetry program proposal happy path test (2026 Term 3)
+
+- Description:
+
+  > Happy path test
+
+- Recommended Skills: OpenTelemetry
+- Technologies: OpenTelemetry
+- Mentor(s):
+  - Nate W (@nate-double-u, natew@cncf.io)
+- Upstream Issue: https://github.com/cncf/mentoring/issues/1883
+- LFX URL: TBD
 

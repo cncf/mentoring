@@ -1,0 +1,78 @@
+{
+  "_generated": "2026-06-25T20:33:53.602Z",
+  "_term": "2026 Term 3 (Sep-Nov)",
+  "_count": 2,
+  "programs": [
+    {
+      "issue_number": 1894,
+      "issue_url": "https://github.com/cncf/mentoring/issues/1894",
+      "cncf_project": "OpenTelemetry",
+      "cncf_project_slug": "opentelemetry",
+      "cncf_project_maturity": "graduated",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - OpenTelemetry: OpenTelemetry program proposal missing info test (2026 Term 3)",
+      "program_name_short": "OpenTelemetry program proposal missing info test",
+      "description": "Missing info test",
+      "technologies": "OpenTelemetry, testing",
+      "skills": "OpenTelemetry, testing",
+      "mentors": [
+        {
+          "name": "Nate W",
+          "github_handle": "nate-double-u",
+          "email": "natew@cncf.io",
+          "lfid": "natewaddington",
+          "role": "primary"
+        },
+        {
+          "name": "Other Nate",
+          "github_handle": "hackabletype",
+          "email": "nate@example.com",
+          "lfid": "othernate",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/cncf/mentoring/issues/1883",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": null
+      }
+    },
+    {
+      "issue_number": 1892,
+      "issue_url": "https://github.com/cncf/mentoring/issues/1892",
+      "cncf_project": "OpenTelemetry",
+      "cncf_project_slug": "opentelemetry",
+      "cncf_project_maturity": "graduated",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - OpenTelemetry: OpenTelemetry program proposal happy path test (2026 Term 3)",
+      "program_name_short": "OpenTelemetry program proposal happy path test",
+      "description": "Happy path test",
+      "technologies": "OpenTelemetry",
+      "skills": "OpenTelemetry",
+      "mentors": [
+        {
+          "name": "Nate W",
+          "github_handle": "nate-double-u",
+          "email": "natew@cncf.io",
+          "lfid": "natewaddington",
+          "role": "primary"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/cncf/mentoring/issues/1883",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": null
+      }
+    }
+  ]
+}
