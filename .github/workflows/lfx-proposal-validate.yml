@@ -23,39 +23,21 @@ jobs:
         with:
           script: |
             const fs = require('fs');
+            const path = require('path');
+            const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
+            const { parseIssueForm } = _lib('parse.js');
+            const { validateMentors, validateUpstreamUrl } = _lib('validate.js');
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;
             const body = context.payload.issue.body || '';
 
-            // ── Inline issue-form parser ──
-            // Splits on ### headings, returns { label: value } map
-            function parseIssueForm(body) {
-              const fields = {};
-              const sections = body.split(/^### +/m).slice(1);
-              for (const section of sections) {
-                const nl = section.indexOf('\n');
-                if (nl === -1) continue;
-                const label = section.slice(0, nl).trim();
-                let value = section.slice(nl + 1).trim();
-                if (value === '_No response_') value = '';
-                fields[label] = value;
-              }
-              return fields;
-            }
-
+            // ── Issue-form parser (lib/parse.js): splits on ### headings ──
             const fields = parseIssueForm(body);
             const get = (k) => (fields[k] || '').trim();
 
             const errors = [];
             const warnings = [];
             const passed = [];
-
-            // ── Helper regexes ──
-            const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            const urlRe = /^https?:\/\/\S+$/;
-            const ghHandleRe = /^@[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}$/;
-            // LF Username (LFID): a single token, no spaces, '@', or URL slashes.
-            const lfidRe = /^[^\s@/]+$/;
 
             // ── 1. CNCF Project ──
             const project = get('CNCF Project');
@@ -124,87 +106,59 @@ jobs:
               passed.push(skillsSame ? 'Skills: same as Technologies' : `Skills: ${skills}`);
             }
 
-            // ── 7. Mentors — pipe-separated, one per line ──
+            // ── 7. Mentors — pipe-separated, one per line (decisions in lib/validate.js) ──
             const mentorsRaw = get('Mentors');
-            if (!mentorsRaw) {
-              errors.push('Mentors field is empty. At least one mentor (primary) is required.');
-            } else {
-              const mentorLines = mentorsRaw.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
-              const handles = new Set();
-              const emails = new Set();
-              const lfids = new Set();
-              let mentorOk = true;
-
-              if (mentorLines.length > 4) {
-                errors.push(`Too many mentors: ${mentorLines.length} listed, but the maximum is 4 (primary plus up to 3 co-mentors). Please remove the extras.`);
-                mentorOk = false;
-              }
-
-              for (let i = 0; i < mentorLines.length; i++) {
-                const line = mentorLines[i];
-                const parts = line.split('|').map(p => p.trim());
-                const role = i === 0 ? 'Primary mentor' : `Mentor ${i + 1}`;
-
-                if (parts.length !== 3 && parts.length !== 4) {
-                  errors.push(`${role}: expected 3 or 4 pipe-separated fields (Name | @handle | email | LFID), got ${parts.length} in: \`${line}\``);
-                  mentorOk = false;
-                  continue;
-                }
-
-                const [name, handle, email, lfid] = parts;
-
-                if (!name) {
-                  errors.push(`${role}: name is empty.`);
-                  mentorOk = false;
-                }
-
-                if (!ghHandleRe.test(handle)) {
-                  errors.push(`${role}: handle \`${handle}\` doesn't match \`@username\` format.`);
-                  mentorOk = false;
-                }
-
-                if (!emailRe.test(email)) {
-                  errors.push(`${role}: email \`${email}\` doesn't look valid.`);
-                  mentorOk = false;
-                }
-
-                if (handles.has(handle.toLowerCase())) {
-                  errors.push(`${role}: duplicate handle \`${handle}\`.`);
-                  mentorOk = false;
-                }
-                handles.add(handle.toLowerCase());
-
-                if (emails.has(email.toLowerCase())) {
-                  errors.push(`${role}: duplicate email \`${email}\`.`);
-                  mentorOk = false;
-                }
-                emails.add(email.toLowerCase());
-
-                if (!lfid) {
-                  errors.push(`${role}: LFID (LF Username) is missing. You can add it later by editing this issue, but every mentor's LFID is required before the proposal can pass validation and be added to LFX.`);
-                  mentorOk = false;
-                } else if (!lfidRe.test(lfid)) {
-                  errors.push(`${role}: LFID \`${lfid}\` doesn't look like an LF Username (no spaces, @, or URL; e.g. \`janedoe\`).`);
-                  mentorOk = false;
-                } else if (lfids.has(lfid.toLowerCase())) {
-                  errors.push(`${role}: duplicate LFID \`${lfid}\`.`);
-                  mentorOk = false;
-                }
-                if (lfid) lfids.add(lfid.toLowerCase());
-              }
-
-              if (mentorOk) {
-                passed.push(`Mentors: ${mentorLines.length} listed (primary: ${mentorLines[0].split('|')[0].trim()})`);
+            const mentorResult = validateMentors(mentorsRaw);
+            for (const e of mentorResult.errors) {
+              switch (e.code) {
+                case 'empty':
+                  errors.push('Mentors field is empty. At least one mentor (primary) is required.');
+                  break;
+                case 'too-many':
+                  errors.push(`Too many mentors: ${e.count} listed, but the maximum is 4 (primary plus up to 3 co-mentors). Please remove the extras.`);
+                  break;
+                case 'count':
+                  errors.push(`${e.role}: expected 3 or 4 pipe-separated fields (Name | @handle | email | LFID), got ${e.got} in: \`${e.line}\``);
+                  break;
+                case 'name':
+                  errors.push(`${e.role}: name is empty.`);
+                  break;
+                case 'handle':
+                  errors.push(`${e.role}: handle \`${e.value}\` doesn't match \`@username\` format.`);
+                  break;
+                case 'email':
+                  errors.push(`${e.role}: email \`${e.value}\` doesn't look valid.`);
+                  break;
+                case 'dup-handle':
+                  errors.push(`${e.role}: duplicate handle \`${e.value}\`.`);
+                  break;
+                case 'dup-email':
+                  errors.push(`${e.role}: duplicate email \`${e.value}\`.`);
+                  break;
+                case 'lfid-missing':
+                  errors.push(`${e.role}: LFID (LF Username) is missing. You can add it later by editing this issue, but every mentor's LFID is required before the proposal can pass validation and be added to LFX.`);
+                  break;
+                case 'lfid-format':
+                  errors.push(`${e.role}: LFID \`${e.value}\` doesn't look like an LF Username (no spaces, @, or URL; e.g. \`janedoe\`).`);
+                  break;
+                case 'dup-lfid':
+                  errors.push(`${e.role}: duplicate LFID \`${e.value}\`.`);
+                  break;
               }
             }
+            if (mentorResult.ok) {
+              const primaryName = mentorsRaw.split(/\r?\n/).map(l => l.trim()).filter(Boolean)[0].split('|')[0].trim();
+              passed.push(`Mentors: ${mentorResult.count} listed (primary: ${primaryName})`);
+            }
 
-            // ── 8. Upstream Issue URL ──
+            // ── 8. Upstream Issue URL (decisions in lib/validate.js) ──
             const upstreamUrl = get('Upstream Issue URL');
-            if (!upstreamUrl) {
+            const upstreamErr = validateUpstreamUrl(upstreamUrl);
+            if (upstreamErr === 'empty') {
               errors.push('Upstream Issue URL is empty.');
-            } else if (!urlRe.test(upstreamUrl)) {
+            } else if (upstreamErr === 'format') {
               errors.push(`Upstream Issue URL \`${upstreamUrl}\` is not a valid URL.`);
-            } else if (upstreamUrl.includes(' ') || upstreamUrl.includes(',')) {
+            } else if (upstreamErr === 'multiple') {
               errors.push('Upstream Issue URL should be exactly one URL. If the program spans multiple issues, create an umbrella issue.');
             } else {
               passed.push(`Upstream Issue URL: ${upstreamUrl}`);
@@ -452,6 +406,9 @@ jobs:
             // cncf/mentoring (prod) run identical code. The board's Status
             // column names must match the lifecycle stages used below.
             const fs = require('fs');
+            const path = require('path');
+            const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
+            const { determineStatus, shouldSkipSync, readStatusWithRetry } = _lib('board.js');
             const _board = JSON.parse(fs.readFileSync('programs/lfx-mentorship/automation/board.json', 'utf8'));
             const _envCfg = (_board.environments || {})[process.env.GITHUB_REPOSITORY];
             if (!_envCfg || !_envCfg.projectId || String(_envCfg.projectId).startsWith('REPLACE_')) {
@@ -482,16 +439,10 @@ jobs:
 
             if (!labels.includes('lfx mentorship') || !labels.includes('Proposal')) return;
 
-            let status = 'Inbox';
             // Automation owns the lifecycle only through "Exported"; the
-            // post-export columns are manual admin moves (see board guard below).
-            if (labels.includes('Exported'))                         status = 'Exported';
-            else if (labels.includes('CNCF Approved'))               status = 'CNCF Approved';
-            else if (labels.includes('Maintainer/Contribex Approved')
-                     && labels.includes('Mentors Confirmed'))        status = 'Approved/confirmed';
-            else if (labels.includes('Awaiting Maintainer/Contribex Approval')
-                     || labels.includes('Awaiting Mentor Confirmation'))
-                                                                     status = 'Awaiting approvals/confirmations';
+            // post-export columns are manual admin moves (see board guard below
+            // and lib/board.js). This workflow never runs on close.
+            const status = determineStatus(labels, null);
 
             const optionId = STATUS_OPTIONS[status];
             if (!optionId) {
@@ -507,45 +458,29 @@ jobs:
             `, { projectId: PROJECT_ID, contentId: issue.node_id });
             const itemId = addResult.addProjectV2ItemById.item.id;
 
-            // ── Respect manual admin moves ──
-            // Automation owns the lifecycle only through "Exported". The
-            // post-export columns are advanced by hand, so never overwrite a
-            // card already sitting in one of them.
-            const ADMIN_OWNED = new Set([
-              'Posted to LFX', 'LFX Approved', 'Mentors added',
-              'Open for Applications', 'Applications Closed',
-            ]);
-            let currentStatus = null;
-            let readFailed = false;
-            for (let attempt = 1; attempt <= 2; attempt++) {
-              try {
-                const _cur = await github.graphql(`
-                  query($itemId: ID!) {
-                    node(id: $itemId) { ... on ProjectV2Item {
-                      fieldValueByName(name: "Status") {
-                        ... on ProjectV2ItemFieldSingleSelectValue { name }
-                      }
-                    } }
-                  }
-                `, { itemId });
-                currentStatus = _cur?.node?.fieldValueByName?.name || null;
-                readFailed = false;
-                break;
-              } catch (e) {
-                readFailed = true;
-                core.warning(`Could not read current board status (attempt ${attempt}/2): ${e.message}`);
-                if (attempt < 2) await new Promise(r => setTimeout(r, 1000));
+            // ── Respect manual admin moves (guard logic in lib/board.js) ──
+            // Automation owns the lifecycle only through "Exported"; the
+            // post-export columns are advanced by hand by the administrator, so
+            // never overwrite a card already sitting in one, and fail closed if
+            // the status read fails while setting "Exported".
+            const { currentStatus, readFailed } = await readStatusWithRetry(
+              () => github.graphql(`
+                query($itemId: ID!) {
+                  node(id: $itemId) { ... on ProjectV2Item {
+                    fieldValueByName(name: "Status") {
+                      ... on ProjectV2ItemFieldSingleSelectValue { name }
+                    }
+                  } }
+                }
+              `, { itemId }),
+              { onError: (attempt, e) => core.warning(`Could not read current board status (attempt ${attempt}/2): ${e.message}`) },
+            );
+            if (shouldSkipSync(currentStatus, status, readFailed)) {
+              if (currentStatus) {
+                console.log(`Card is in admin-owned column "${currentStatus}"; leaving placement to the administrator.`);
+              } else {
+                core.warning('Status read failed while about to set "Exported"; skipping to avoid clobbering a manual placement.');
               }
-            }
-            if (currentStatus && ADMIN_OWNED.has(currentStatus) && status !== 'Closed') {
-              console.log(`Card is in admin-owned column "${currentStatus}"; leaving placement to the administrator.`);
-              return;
-            }
-            // Fail closed: if the status read failed we cannot tell whether the
-            // card is in an admin-owned column, so never risk pulling it back
-            // to "Exported".
-            if (readFailed && status === 'Exported') {
-              core.warning('Status read failed while about to set "Exported"; skipping to avoid clobbering a manual placement.');
               return;
             }
 

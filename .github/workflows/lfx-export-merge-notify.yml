@@ -7,26 +7,32 @@ on:
 
 permissions:
   issues: write
+  contents: write  # delete the merged export branch
 
 jobs:
   notify:
+    # Skip fork PRs: only same-repo export PRs should notify and delete branches.
     if: >-
       github.event.pull_request.merged == true
+      && github.event.pull_request.head.repo.full_name == github.repository
       && startsWith(github.event.pull_request.head.ref, 'automation/lfx-export-')
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Notify exported issues
         uses: actions/github-script@v7
         with:
           script: |
+            const path = require('path');
+            const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
+            const { parseExportedIssueNumbers } = _lib('notify.js');
             const { owner, repo } = context.repo;
             const pr = context.payload.pull_request;
             const prNumber = pr.number;
-            const prUrl = pr.html_url;
 
-            // Extract issue numbers from PR body (format: "- #123 — ...")
-            const issueNums = [...(pr.body || '').matchAll(/-\s+#(\d+)\s+—/g)]
-              .map(m => parseInt(m[1]));
+            const issueNums = parseExportedIssueNumbers(pr.body);
 
             if (issueNums.length === 0) {
               console.log('No linked issues found in PR body.');
@@ -41,4 +47,24 @@ jobs:
                   `This issue will be updated when the program is live on LFX.`,
               });
               console.log(`Notified #${issue_number} about merge of PR #${prNumber}`);
+            }
+
+      - name: Delete merged export branch
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const path = require('path');
+            const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
+            const { isExportBranch } = _lib('notify.js');
+            const { owner, repo } = context.repo;
+            const branch = context.payload.pull_request.head.ref;
+            if (!isExportBranch(branch)) {
+              console.log(`Not an export branch, skipping delete: ${branch}`);
+              return;
+            }
+            try {
+              await github.rest.git.deleteRef({ owner, repo, ref: `heads/${branch}` });
+              console.log(`Deleted merged export branch: ${branch}`);
+            } catch (e) {
+              console.log(`Could not delete branch ${branch}: ${e.message}`);
             }

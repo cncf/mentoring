@@ -30,6 +30,9 @@ jobs:
             // cncf/mentoring (prod) run identical code. The board's Status
             // column names must match the lifecycle stages used below.
             const fs = require('fs');
+            const path = require('path');
+            const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
+            const { determineStatus, shouldSkipSync, readStatusWithRetry } = _lib('board.js');
             const _board = JSON.parse(fs.readFileSync('programs/lfx-mentorship/automation/board.json', 'utf8'));
             const _envCfg = (_board.environments || {})[process.env.GITHUB_REPOSITORY];
             if (!_envCfg || !_envCfg.projectId || String(_envCfg.projectId).startsWith('REPLACE_')) {
@@ -55,33 +58,8 @@ jobs:
             const labels = (issue.labels || []).map(l => l.name);
             const action = context.payload.action;
 
-            // ── Determine target status from labels + event ──
-            function determineStatus() {
-              if (action === 'closed')   return 'Closed';
-              if (action === 'reopened') return determineFromLabels();
-              return determineFromLabels();
-            }
-
-            function determineFromLabels() {
-              // Automation owns the lifecycle only through "Exported". The
-              // post-export columns (Posted to LFX, LFX Approved, Mentors added,
-              // Open for Applications, Applications Closed) are advanced by hand
-              // by the administrator, so they are never derived from labels here.
-              if (labels.includes('Exported'))                  return 'Exported';
-              if (labels.includes('CNCF Approved'))             return 'CNCF Approved';
-
-              const maintainerApproved = labels.includes('Maintainer/Contribex Approved');
-              const mentorsConfirmed   = labels.includes('Mentors Confirmed');
-              if (maintainerApproved && mentorsConfirmed)       return 'Approved/confirmed';
-
-              if (labels.includes('Awaiting Maintainer/Contribex Approval')
-                  || labels.includes('Awaiting Mentor Confirmation'))
-                return 'Awaiting approvals/confirmations';
-
-              return 'Inbox';
-            }
-
-            const targetStatus = determineStatus();
+            // ── Determine target status from labels + event (see lib/board.js) ──
+            const targetStatus = determineStatus(labels, action);
             console.log(`Target status: ${targetStatus}`);
 
             const optionId = STATUS_OPTIONS[targetStatus];
@@ -108,46 +86,29 @@ jobs:
             const itemId = addResult.addProjectV2ItemById.item.id;
             console.log(`Project item: ${itemId}`);
 
-            // ── Respect manual admin moves ──
-            // Automation owns the lifecycle only through "Exported". The
-            // post-export columns are advanced by hand as the administrator
-            // works with the LFX platform, so never overwrite a card that is
-            // already sitting in one of them (except to reflect a closed issue).
-            const ADMIN_OWNED = new Set([
-              'Posted to LFX', 'LFX Approved', 'Mentors added',
-              'Open for Applications', 'Applications Closed',
-            ]);
-            let currentStatus = null;
-            let readFailed = false;
-            for (let attempt = 1; attempt <= 2; attempt++) {
-              try {
-                const _cur = await github.graphql(`
-                  query($itemId: ID!) {
-                    node(id: $itemId) { ... on ProjectV2Item {
-                      fieldValueByName(name: "Status") {
-                        ... on ProjectV2ItemFieldSingleSelectValue { name }
-                      }
-                    } }
-                  }
-                `, { itemId });
-                currentStatus = _cur?.node?.fieldValueByName?.name || null;
-                readFailed = false;
-                break;
-              } catch (e) {
-                readFailed = true;
-                core.warning(`Could not read current board status (attempt ${attempt}/2): ${e.message}`);
-                if (attempt < 2) await new Promise(r => setTimeout(r, 1000));
+            // ── Respect manual admin moves (guard logic in lib/board.js) ──
+            // Automation owns the lifecycle only through "Exported"; the
+            // post-export columns are advanced by hand by the administrator, so
+            // never overwrite a card already sitting in one (except on close),
+            // and fail closed if the status read fails while setting "Exported".
+            const { currentStatus, readFailed } = await readStatusWithRetry(
+              () => github.graphql(`
+                query($itemId: ID!) {
+                  node(id: $itemId) { ... on ProjectV2Item {
+                    fieldValueByName(name: "Status") {
+                      ... on ProjectV2ItemFieldSingleSelectValue { name }
+                    }
+                  } }
+                }
+              `, { itemId }),
+              { onError: (attempt, e) => core.warning(`Could not read current board status (attempt ${attempt}/2): ${e.message}`) },
+            );
+            if (shouldSkipSync(currentStatus, targetStatus, readFailed)) {
+              if (currentStatus) {
+                console.log(`Card is in admin-owned column "${currentStatus}"; leaving placement to the administrator.`);
+              } else {
+                core.warning('Status read failed while about to set "Exported"; skipping to avoid clobbering a manual placement.');
               }
-            }
-            if (currentStatus && ADMIN_OWNED.has(currentStatus) && targetStatus !== 'Closed') {
-              console.log(`Card is in admin-owned column "${currentStatus}"; leaving placement to the administrator.`);
-              return;
-            }
-            // Fail closed: if the status read failed we cannot tell whether the
-            // card is in an admin-owned column, so never risk pulling it back
-            // to "Exported".
-            if (readFailed && targetStatus === 'Exported') {
-              core.warning('Status read failed while about to set "Exported"; skipping to avoid clobbering a manual placement.');
               return;
             }
 

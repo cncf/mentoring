@@ -30,53 +30,15 @@ jobs:
           script: |
             const fs = require('fs');
             const path = require('path');
+            const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
+            const { parseIssueForm, parseCheckboxes, parseMentors } = _lib('parse.js');
+            const { slugify } = _lib('slug.js');
+            const { buildReadme } = _lib('readme.js');
+            const { csvEscape } = _lib('csv.js');
             const { owner, repo } = context.repo;
             const term = context.payload.inputs.term;
 
             console.log(`Exporting proposals for: ${term}`);
-
-            // ── Parse issue form body ──
-            function parseIssueForm(body) {
-              const fields = {};
-              for (const section of body.split(/^### +/m).slice(1)) {
-                const nl = section.indexOf('\n');
-                if (nl === -1) continue;
-                const label = section.slice(0, nl).trim();
-                let value = section.slice(nl + 1).trim();
-                if (value === '_No response_') value = '';
-                fields[label] = value;
-              }
-              return fields;
-            }
-
-            // ── Parse checkbox fields ──
-            function parseCheckboxes(raw) {
-              if (!raw) return [];
-              return raw.split('\n')
-                .filter(l => /- \[.\]/.test(l))
-                .filter(l => /- \[x\]/i.test(l))
-                .map(l => l.replace(/^- \[.\]\s*/, '').trim());
-            }
-
-            // ── Parse mentors ──
-            function parseMentors(raw) {
-              if (!raw) return [];
-              return raw.split(/\r?\n/)
-                .map(l => l.trim())
-                .filter(Boolean)
-                .map((line, i) => {
-                  const parts = line.split('|').map(p => p.trim());
-                  if (parts.length !== 3 && parts.length !== 4) return null;
-                  return {
-                    name: parts[0],
-                    github_handle: parts[1].replace(/^@/, ''),
-                    email: parts[2],
-                    lfid: parts[3] || '',
-                    role: i === 0 ? 'primary' : 'co-mentor',
-                  };
-                })
-                .filter(Boolean);
-            }
 
             // ── Fetch all approved issues for this term ──
             const issues = await github.paginate(github.rest.issues.listForRepo, {
@@ -210,15 +172,6 @@ jobs:
               (a, b) => a.toLowerCase().localeCompare(b.toLowerCase())
             );
 
-            // Slug helper for markdown anchors
-            function slugify(text) {
-              return text.toLowerCase()
-                .replace(/[^\w\s-]/g, '')
-                .replace(/\s+/g, '-')
-                .replace(/-+/g, '-')
-                .trim();
-            }
-
             // Term display: "2026 Term 3 (Sep-Nov)" → "Term 03 - 2026 September - November"
             const monthMap = {
               'Mar': 'March', 'May': 'May', 'Jun': 'June',
@@ -286,36 +239,10 @@ jobs:
             if (fs.existsSync(readmePath)) {
               existingReadme = fs.readFileSync(readmePath, 'utf8');
             }
-            const sep = existingReadme ? existingReadme.match(/^---[ \t]*$/m) : null;
-            let header;
-            if (sep) {
-              header = existingReadme.slice(0, sep.index + sep[0].length) + '\n\n';
-            } else {
-              header = [
-                `# ${readmeTitle}`,
-                '',
-                'Status: Planning',
-                '',
-                'Mentorship duration - three months (full-time schedule)',
-                '',
-                '---',
-                '',
-                '',
-              ].join('\n');
-            }
-
-            fs.writeFileSync(readmePath, header + md.join('\n') + '\n');
+            fs.writeFileSync(readmePath, buildReadme(existingReadme, md, readmeTitle));
             console.log(`Wrote README.md with ${sortedProjects.length} projects, ${programs.length} programs`);
 
             // ── Generate tracking CSV ──
-            function csvEscape(val) {
-              const s = String(val || '');
-              if (s.includes(',') || s.includes('"') || s.includes('\n')) {
-                return '"' + s.replace(/"/g, '""') + '"';
-              }
-              return s;
-            }
-
             const csvHeaders = [
               'PROJECT', 'LFX URL', 'Upstream issue', '',
               'mentor count',
@@ -453,6 +380,9 @@ jobs:
             // cncf/mentoring (prod) run identical code. The board's Status
             // column names must match the lifecycle stages used by the workflows.
             const fs = require('fs');
+            const path = require('path');
+            const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
+            const { shouldSkipExport, readStatusWithRetry } = _lib('board.js');
             const _board = JSON.parse(fs.readFileSync('programs/lfx-mentorship/automation/board.json', 'utf8'));
             const _envCfg = (_board.environments || {})[process.env.GITHUB_REPOSITORY];
             if (!_envCfg || !_envCfg.projectId || String(_envCfg.projectId).startsWith('REPLACE_')) {
@@ -480,13 +410,6 @@ jobs:
             }
             const issues = process.env.EXPORTED_ISSUES.split(',').filter(Boolean);
 
-            // Never pull a card back to "Exported" if the administrator has
-            // already advanced it by hand to a post-export column.
-            const ADMIN_OWNED = new Set([
-              'Posted to LFX', 'LFX Approved', 'Mentors added',
-              'Open for Applications', 'Applications Closed',
-            ]);
-
             for (const num of issues) {
               const { data: issue } = await github.rest.issues.get({
                 owner: context.repo.owner,
@@ -503,37 +426,27 @@ jobs:
               `, { projectId: PROJECT_ID, contentId: issue.node_id });
               const itemId = addResult.addProjectV2ItemById.item.id;
 
-              let currentStatus = null;
-              let readFailed = false;
-              for (let attempt = 1; attempt <= 2; attempt++) {
-                try {
-                  const _cur = await github.graphql(`
-                    query($itemId: ID!) {
-                      node(id: $itemId) { ... on ProjectV2Item {
-                        fieldValueByName(name: "Status") {
-                          ... on ProjectV2ItemFieldSingleSelectValue { name }
-                        }
-                      } }
-                    }
-                  `, { itemId });
-                  currentStatus = _cur?.node?.fieldValueByName?.name || null;
-                  readFailed = false;
-                  break;
-                } catch (e) {
-                  readFailed = true;
-                  core.warning(`Could not read current board status for #${num} (attempt ${attempt}/2): ${e.message}`);
-                  if (attempt < 2) await new Promise(r => setTimeout(r, 1000));
+              const { currentStatus, readFailed } = await readStatusWithRetry(
+                () => github.graphql(`
+                  query($itemId: ID!) {
+                    node(id: $itemId) { ... on ProjectV2Item {
+                      fieldValueByName(name: "Status") {
+                        ... on ProjectV2ItemFieldSingleSelectValue { name }
+                      }
+                    } }
+                  }
+                `, { itemId }),
+                { onError: (attempt, e) => core.warning(`Could not read current board status for #${num} (attempt ${attempt}/2): ${e.message}`) },
+              );
+              // The export loop always targets "Exported", so skip whenever the
+              // card is admin-owned (manual placement) or the status read failed
+              // (fail closed, rather than risk pulling a card back).
+              if (shouldSkipExport(currentStatus, readFailed)) {
+                if (currentStatus) {
+                  console.log(`#${num} is in admin-owned column "${currentStatus}"; leaving placement to the administrator.`);
+                } else {
+                  core.warning(`Status read failed for #${num} while about to set "Exported"; skipping to avoid clobbering a manual placement.`);
                 }
-              }
-              if (currentStatus && ADMIN_OWNED.has(currentStatus)) {
-                console.log(`#${num} is in admin-owned column "${currentStatus}"; leaving placement to the administrator.`);
-                continue;
-              }
-              // Fail closed: the export loop always targets "Exported", so if
-              // the status read failed, skip this issue rather than risk
-              // pulling a manually-placed card back.
-              if (readFailed) {
-                core.warning(`Status read failed for #${num} while about to set "Exported"; skipping to avoid clobbering a manual placement.`);
                 continue;
               }
 
