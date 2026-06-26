@@ -24,6 +24,11 @@ jobs:
         with:
           script: |
             const fs = require('fs');
+            const path = require('path');
+            const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
+            const { parseIssueForm } = _lib('parse.js');
+            const { parseCsvLine } = _lib('csv.js');
+            const { computeConfirm } = _lib('confirm.js');
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;
             const comment = context.payload.comment;
@@ -49,19 +54,6 @@ jobs:
             });
 
             // ── Parse issue form ──
-            function parseIssueForm(text) {
-              const fields = {};
-              for (const section of text.split(/^### +/m).slice(1)) {
-                const nl = section.indexOf('\n');
-                if (nl === -1) continue;
-                const label = section.slice(0, nl).trim();
-                let value = section.slice(nl + 1).trim();
-                if (value === '_No response_') value = '';
-                fields[label] = value;
-              }
-              return fields;
-            }
-
             const fields = parseIssueForm(issueBody);
             const get = (k) => (fields[k] || '').trim();
             const project = get('CNCF Project');
@@ -226,23 +218,8 @@ jobs:
                     // Minimal CSV line parser: respects quoted fields with
                     // embedded commas and escaped double-quotes ("") so a comma
                     // inside a value like "Chainguard, Inc" cannot shift the
-                    // GitHub-handle column and trigger a false auth rejection.
-                    const parseCsvLine = (row) => {
-                      const out = [];
-                      let cur = '', inQuotes = false;
-                      for (let i = 0; i < row.length; i++) {
-                        const ch = row[i];
-                        if (inQuotes) {
-                          if (ch === '"' && row[i + 1] === '"') { cur += '"'; i++; }
-                          else if (ch === '"') { inQuotes = false; }
-                          else { cur += ch; }
-                        } else if (ch === '"') { inQuotes = true; }
-                        else if (ch === ',') { out.push(cur); cur = ''; }
-                        else { cur += ch; }
-                      }
-                      out.push(cur);
-                      return out;
-                    };
+                    // GitHub-handle column and trigger a false auth rejection
+                    // (parser in lib/csv.js).
                     for (const line of csv.split('\n').slice(1)) {
                       if (!line.trim()) continue;
                       const cols = parseCsvLine(line);
@@ -396,28 +373,21 @@ jobs:
 
               // Per-mentor confirmation: the gate flips only once EVERY listed
               // mentor has confirmed. Gather confirmations from the issue's
-              // comment history (plus this one) and compare to the roster.
-              const roster = [...new Set(mentorHandles)];
-              const confirmed = new Set([commenter.toLowerCase()]);
+              // comment history (plus this one) and compare to the roster
+              // (tally logic in lib/confirm.js).
+              let priorComments = [];
               try {
-                const priorComments = await github.paginate(github.rest.issues.listComments, {
+                priorComments = await github.paginate(github.rest.issues.listComments, {
                   owner, repo, issue_number, per_page: 100,
                 });
-                const hasConfirm = (body) => (body || '').split(/\r?\n/)
-                  .some(l => /^\/confirm\b/.test(l.trim()));
-                for (const c of priorComments) {
-                  const author = (c.user?.login || '').toLowerCase();
-                  if (roster.includes(author) && hasConfirm(c.body)) confirmed.add(author);
-                }
               } catch (e) {
                 core.warning(`Could not read prior confirmations: ${e.message}`);
               }
-
-              const remaining = roster.filter(h => !confirmed.has(h));
+              const { remaining, count, total } = computeConfirm(mentorHandles, commenter, priorComments);
               if (remaining.length) {
                 await reply('✅',
                   `Confirmation recorded from @${commenter}. ` +
-                  `${confirmed.size} of ${roster.length} mentors have confirmed.\n\n` +
+                  `${count} of ${total} mentors have confirmed.\n\n` +
                   `Still waiting on: ${remaining.map(h => `@${h}`).join(', ')}.`);
                 return;
               }
@@ -426,7 +396,7 @@ jobs:
               await addLabel('Mentors Confirmed');
               await removeLabel('Awaiting Mentor Confirmation');
               await reply('✅',
-                `All ${roster.length} listed mentor(s) have confirmed. Mentor confirmation is complete.`);
+                `All ${total} listed mentor(s) have confirmed. Mentor confirmation is complete.`);
               await checkBothGates();
               return;
             }
@@ -492,6 +462,9 @@ jobs:
             // cncf/mentoring (prod) run identical code. The board's Status
             // column names must match the lifecycle stages used below.
             const fs = require('fs');
+            const path = require('path');
+            const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
+            const { determineStatus, shouldSkipSync, readStatusWithRetry } = _lib('board.js');
             const _board = JSON.parse(fs.readFileSync('programs/lfx-mentorship/automation/board.json', 'utf8'));
             const _envCfg = (_board.environments || {})[process.env.GITHUB_REPOSITORY];
             if (!_envCfg || !_envCfg.projectId || String(_envCfg.projectId).startsWith('REPLACE_')) {
@@ -523,17 +496,10 @@ jobs:
 
             if (!labels.includes('lfx mentorship') || !labels.includes('Proposal')) return;
 
-            let status = 'Inbox';
             // Automation owns the lifecycle only through "Exported"; the
-            // post-export columns are manual admin moves (see board guard below).
-            if (issue.state === 'closed')                            status = 'Closed';
-            else if (labels.includes('Exported'))                    status = 'Exported';
-            else if (labels.includes('CNCF Approved'))               status = 'CNCF Approved';
-            else if (labels.includes('Maintainer/Contribex Approved')
-                     && labels.includes('Mentors Confirmed'))        status = 'Approved/confirmed';
-            else if (labels.includes('Awaiting Maintainer/Contribex Approval')
-                     || labels.includes('Awaiting Mentor Confirmation'))
-                                                                     status = 'Awaiting approvals/confirmations';
+            // post-export columns are manual admin moves (see board guard below
+            // and lib/board.js).
+            const status = determineStatus(labels, issue.state === 'closed' ? 'closed' : null);
 
             const optionId = STATUS_OPTIONS[status];
             if (!optionId) {
@@ -549,45 +515,29 @@ jobs:
             `, { projectId: PROJECT_ID, contentId: issue.node_id });
             const itemId = addResult.addProjectV2ItemById.item.id;
 
-            // ── Respect manual admin moves ──
-            // Automation owns the lifecycle only through "Exported". The
-            // post-export columns are advanced by hand, so never overwrite a
-            // card already sitting in one of them (except to reflect a close).
-            const ADMIN_OWNED = new Set([
-              'Posted to LFX', 'LFX Approved', 'Mentors added',
-              'Open for Applications', 'Applications Closed',
-            ]);
-            let currentStatus = null;
-            let readFailed = false;
-            for (let attempt = 1; attempt <= 2; attempt++) {
-              try {
-                const _cur = await github.graphql(`
-                  query($itemId: ID!) {
-                    node(id: $itemId) { ... on ProjectV2Item {
-                      fieldValueByName(name: "Status") {
-                        ... on ProjectV2ItemFieldSingleSelectValue { name }
-                      }
-                    } }
-                  }
-                `, { itemId });
-                currentStatus = _cur?.node?.fieldValueByName?.name || null;
-                readFailed = false;
-                break;
-              } catch (e) {
-                readFailed = true;
-                core.warning(`Could not read current board status (attempt ${attempt}/2): ${e.message}`);
-                if (attempt < 2) await new Promise(r => setTimeout(r, 1000));
+            // ── Respect manual admin moves (guard logic in lib/board.js) ──
+            // Automation owns the lifecycle only through "Exported"; the
+            // post-export columns are advanced by hand by the administrator, so
+            // never overwrite a card already sitting in one (except on close),
+            // and fail closed if the status read fails while setting "Exported".
+            const { currentStatus, readFailed } = await readStatusWithRetry(
+              () => github.graphql(`
+                query($itemId: ID!) {
+                  node(id: $itemId) { ... on ProjectV2Item {
+                    fieldValueByName(name: "Status") {
+                      ... on ProjectV2ItemFieldSingleSelectValue { name }
+                    }
+                  } }
+                }
+              `, { itemId }),
+              { onError: (attempt, e) => core.warning(`Could not read current board status (attempt ${attempt}/2): ${e.message}`) },
+            );
+            if (shouldSkipSync(currentStatus, status, readFailed)) {
+              if (currentStatus) {
+                console.log(`Card is in admin-owned column "${currentStatus}"; leaving placement to the administrator.`);
+              } else {
+                core.warning('Status read failed while about to set "Exported"; skipping to avoid clobbering a manual placement.');
               }
-            }
-            if (currentStatus && ADMIN_OWNED.has(currentStatus) && status !== 'Closed') {
-              console.log(`Card is in admin-owned column "${currentStatus}"; leaving placement to the administrator.`);
-              return;
-            }
-            // Fail closed: if the status read failed we cannot tell whether the
-            // card is in an admin-owned column, so never risk pulling it back
-            // to "Exported".
-            if (readFailed && status === 'Exported') {
-              core.warning('Status read failed while about to set "Exported"; skipping to avoid clobbering a manual placement.');
               return;
             }
 

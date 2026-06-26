@@ -1,0 +1,48 @@
+name: LFX Automation Tests
+
+# Unit tests for the LFX proposal automation logic (form parsing, mentor/LFID
+# validation, CSV handling, board status rules, the /confirm tally, and README
+# assembly) extracted into programs/lfx-mentorship/automation/lib. Runs on any
+# change to that logic or to the workflows that depend on it.
+
+on:
+  pull_request:
+    paths:
+      - 'programs/lfx-mentorship/automation/lib/**'
+      - 'programs/lfx-mentorship/automation/test/**'
+      - '.github/workflows/lfx-automation-tests.yml'
+      - '.github/workflows/lfx-proposal-validate.yml'
+      - '.github/workflows/lfx-proposal-approvals.yml'
+      - '.github/workflows/lfx-proposal-board-sync.yml'
+      - '.github/workflows/lfx-export.yml'
+      - '.github/workflows/lfx-export-merge-notify.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'programs/lfx-mentorship/automation/lib/**'
+      - 'programs/lfx-mentorship/automation/test/**'
+      - '.github/workflows/lfx-automation-tests.yml'
+      - '.github/workflows/lfx-proposal-validate.yml'
+      - '.github/workflows/lfx-proposal-approvals.yml'
+      - '.github/workflows/lfx-proposal-board-sync.yml'
+      - '.github/workflows/lfx-export.yml'
+      - '.github/workflows/lfx-export-merge-notify.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run automation unit tests
+        working-directory: programs/lfx-mentorship/automation
+        run: node --test
