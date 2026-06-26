@@ -32,4 +32,27 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 
 ---
 
+## Table of Contents
+
+- [OpenTelemetry](#opentelemetry)
+  - [[TEST] Prod E2E verification (please ignore)](#test-prod-e2e-verification-please-ignore)
+
+## Accepted Projects
+
+### OpenTelemetry
+
+#### [TEST] Prod E2E verification (please ignore)
+
+CNCF - OpenTelemetry: [TEST] Prod E2E verification (please ignore) (2026 Term 3)
+
+- Description:
+
+  > TEST proposal created to verify the production LFX intake automation end-to-end. It will be approved, exported, then removed. Please ignore.
+
+- Recommended Skills: OpenTelemetry
+- Technologies: OpenTelemetry
+- Mentor(s):
+  - Nate W (@nate-double-u, natew@cncf.io)
+- Upstream Issue: https://github.com/cncf/mentoring/issues/1883
+- LFX URL: TBD
 

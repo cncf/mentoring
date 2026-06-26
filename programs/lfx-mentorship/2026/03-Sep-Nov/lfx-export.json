@@ -1,0 +1,39 @@
+{
+  "_generated": "2026-06-26T20:01:07.328Z",
+  "_term": "2026 Term 3 (Sep-Nov)",
+  "_count": 1,
+  "programs": [
+    {
+      "issue_number": 1898,
+      "issue_url": "https://github.com/cncf/mentoring/issues/1898",
+      "cncf_project": "OpenTelemetry",
+      "cncf_project_slug": "opentelemetry",
+      "cncf_project_maturity": "graduated",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - OpenTelemetry: [TEST] Prod E2E verification (please ignore) (2026 Term 3)",
+      "program_name_short": "[TEST] Prod E2E verification (please ignore)",
+      "description": "TEST proposal created to verify the production LFX intake automation end-to-end. It will be approved, exported, then removed. Please ignore.",
+      "technologies": "OpenTelemetry",
+      "skills": "OpenTelemetry",
+      "mentors": [
+        {
+          "name": "Nate W",
+          "github_handle": "nate-double-u",
+          "email": "natew@cncf.io",
+          "lfid": "natewaddington",
+          "role": "primary"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/cncf/mentoring/issues/1883",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": false,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": null
+      }
+    }
+  ]
+}
