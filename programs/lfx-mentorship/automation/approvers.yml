@@ -27,10 +27,7 @@ global_approvers:
   - nate-double-u
   - dkrook
   - idvoretskyi
-  - RobertKielty
-  - thisisobate
   - Swil78
-  - mlehotskylf
 
 # NOTE: kubernetes/sig-contribex and open-telemetry/governance-committee are
 # cross-org teams. The repo token cannot read their membership, so these
