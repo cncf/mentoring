@@ -17,196 +17,95 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install dependencies
-        run: python3 -m pip install --quiet pyyaml
+        run: npm install --no-save js-yaml@4.1.0
 
       - name: Fetch and sync projects
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          python3 << 'PYEOF'
-          import json, re, sys, urllib.request
-          from datetime import date
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            const ws = process.env.GITHUB_WORKSPACE || process.cwd();
+            const yaml = require(path.join(ws, 'node_modules', 'js-yaml'));
+            const _lib = (m) => require(path.join(ws, 'programs/lfx-mentorship/automation/lib', m));
+            const { extractProjects, orgOf, render, rewriteOptionsBlock } = _lib('landscape');
 
-          import yaml  # installed in the Install dependencies step
-          import os
+            // Fetch landscape.yml
+            const url = 'https://raw.githubusercontent.com/cncf/landscape/master/landscape.yml';
+            const resp = await fetch(url);
+            if (!resp.ok) throw new Error(`Failed to fetch landscape.yml: ${resp.status}`);
+            const landscape = yaml.load(await resp.text());
 
-          gh_token = os.environ.get("GITHUB_TOKEN", "")
+            // Extract CNCF projects (graduated/incubating/sandbox), sorted by name
+            const projects = extractProjects(landscape);
+            core.info(`Found ${projects.length} CNCF projects`);
 
-          # ── Fetch landscape.yml ──
-          url = "https://raw.githubusercontent.com/cncf/landscape/master/landscape.yml"
-          with urllib.request.urlopen(url) as resp:
-              data = yaml.safe_load(resp.read())
+            // Mark projects whose org publishes a `.project` repo. Cache per org
+            // to avoid duplicate lookups.
+            const checkedOrgs = new Map();
+            for (const proj of projects) {
+              const org = orgOf(proj.repo_url);
+              if (!org) continue;
+              if (checkedOrgs.has(org)) {
+                if (checkedOrgs.get(org)) proj.has_dot_project = true;
+                continue;
+              }
+              try {
+                await github.rest.repos.get({ owner: org, repo: '.project' });
+                checkedOrgs.set(org, true);
+                proj.has_dot_project = true;
+                core.info(`  ${org}/.project: found`);
+              } catch (e) {
+                if (e.status !== 404) {
+                  core.info(`  ${org}/.project: HTTP ${e.status}, skipping`);
+                }
+                checkedOrgs.set(org, false);
+              }
+            }
+            const dotCount = [...checkedOrgs.values()].filter(Boolean).length;
+            core.info(`Checked ${checkedOrgs.size} orgs, ${dotCount} have .project repos`);
 
-          # ── Extract CNCF projects ──
-          valid = {"graduated", "incubating", "sandbox"}
-          projects = []
-          for cat in data.get("landscape", []):
-              for sub in cat.get("subcategories", []):
-                  for item in (sub.get("items") or []):
-                      level = item.get("project")
-                      if level not in valid:
-                          continue
-                      extra = item.get("extra", {})
-                      slug = extra.get("lfx_slug") or item["name"]
-                      slug = re.sub(r"[^a-z0-9-]", "-", slug.lower())
-                      slug = re.sub(r"-+", "-", slug).strip("-")
-                      repo_url = item.get("repo_url", "")
-                      projects.append({
-                          "name": item["name"],
-                          "slug": slug,
-                          "maturity": level,
-                          "homepage": item.get("homepage_url", ""),
-                          "logo": item.get("logo", ""),
-                          "repo_url": repo_url,
-                      })
+            // Write projects.yml via the tested render() so the "Last updated"
+            // date only moves when the project list actually changes. Otherwise
+            // the weekly run would diff on the date line alone and open a
+            // spurious PR.
+            const projectsPath = 'programs/lfx-mentorship/automation/projects.yml';
+            const body = yaml.dump(projects, { sortKeys: false, lineWidth: -1, noRefs: true });
+            let existing = null;
+            try {
+              existing = fs.readFileSync(projectsPath, 'utf8');
+            } catch (e) {
+              if (e.code !== 'ENOENT') throw e;
+            }
+            const today = new Date().toISOString().slice(0, 10);
+            fs.writeFileSync(
+              projectsPath,
+              render(body, { total: projects.length, today, existing }),
+            );
 
-          projects.sort(key=lambda p: p["name"].lower())
-          print(f"Found {len(projects)} CNCF projects")
+            // Update the CNCF Project dropdown in the issue form
+            const formPath = '.github/ISSUE_TEMPLATE/lfx-program-proposal.yml';
+            let formText = fs.readFileSync(formPath, 'utf8');
+            formText = rewriteOptionsBlock(formText, 'id: cncf_project', projects.map((p) => p.name));
 
-          # ── Check which orgs have a .project repo ──
-          checked_orgs = {}  # org -> bool (cache to avoid duplicate checks)
-          for proj in projects:
-              repo_url = proj.get("repo_url", "")
-              m = re.match(r"https://github\.com/([^/]+)/", repo_url)
-              if not m:
-                  continue
-              org = m.group(1)
-              if org in checked_orgs:
-                  if checked_orgs[org]:
-                      proj["has_dot_project"] = True
-                  continue
-              # Check if {org}/.project exists via GitHub API
-              try:
-                  req = urllib.request.Request(
-                      f"https://api.github.com/repos/{org}/.project",
-                      method="HEAD",
-                  )
-                  if gh_token:
-                      req.add_header("Authorization", f"Bearer {gh_token}")
-                  req.add_header("User-Agent", "cncf-mentoring-sync")
-                  urllib.request.urlopen(req)
-                  checked_orgs[org] = True
-                  proj["has_dot_project"] = True
-                  print(f"  {org}/.project: found")
-              except urllib.error.HTTPError as e:
-                  if e.code == 404:
-                      checked_orgs[org] = False
-                  else:
-                      print(f"  {org}/.project: HTTP {e.code}, skipping")
-                      checked_orgs[org] = False
-              except Exception as e:
-                  print(f"  {org}/.project: error ({e}), skipping")
-                  checked_orgs[org] = False
+            // Sync term dropdowns from terms.yml (single source of truth) into
+            // the issue form (id: term) and the export workflow (workflow_dispatch input)
+            const termsPath = 'programs/lfx-mentorship/automation/terms.yml';
+            const termList = yaml.load(fs.readFileSync(termsPath, 'utf8')).terms || [];
+            formText = rewriteOptionsBlock(formText, 'id: term', termList);
+            fs.writeFileSync(formPath, formText);
 
-          dot_count = sum(1 for o, v in checked_orgs.items() if v)
-          print(f"Checked {len(checked_orgs)} orgs, {dot_count} have .project repos")
+            const exportPath = '.github/workflows/lfx-export.yml';
+            const exportText = rewriteOptionsBlock(
+              fs.readFileSync(exportPath, 'utf8'),
+              'term:',
+              termList,
+            );
+            fs.writeFileSync(exportPath, exportText);
+            core.info(`Term dropdowns synced: ${termList.join(', ')}`);
 
-          # ── Write projects.yml ──
-          # Render via the tested helper so the "Last updated" date only moves
-          # when the project list actually changes. Otherwise the weekly run
-          # would diff on the date line alone and open a spurious PR.
-          sys.path.insert(0, "programs/lfx-mentorship/automation/lib")
-          from projects_yml import render
-
-          projects_path = "programs/lfx-mentorship/automation/projects.yml"
-          body = yaml.dump(projects, default_flow_style=False, sort_keys=False)
-          try:
-              with open(projects_path, encoding="utf-8") as f:
-                  existing = f.read()
-          except FileNotFoundError:
-              existing = None
-          with open(projects_path, "w", encoding="utf-8") as f:
-              f.write(render(
-                  body,
-                  total=len(projects),
-                  today=date.today().isoformat(),
-                  existing=existing,
-              ))
-
-          # ── Update issue form dropdown ──
-          form_path = ".github/ISSUE_TEMPLATE/lfx-program-proposal.yml"
-          with open(form_path) as f:
-              form_text = f.read()
-
-          new_names = [p["name"] for p in projects]
-
-          # Rewrite the options block under id: cncf_project
-          lines = form_text.split("\n")
-          new_lines = []
-          in_options = False
-          options_inserted = False
-
-          for i, line in enumerate(lines):
-              # Detect the cncf_project options: line
-              if (not options_inserted
-                      and re.match(r"^\s+options:\s*$", line)):
-                  context = "\n".join(lines[max(0, i - 10):i])
-                  if "id: cncf_project" in context:
-                      indent = re.match(r"^(\s+)", line).group(1) + "  "
-                      new_lines.append(line)
-                      for name in new_names:
-                          new_lines.append(f'{indent}- "{name}"')
-                      in_options = True
-                      options_inserted = True
-                      continue
-
-              # Skip old option lines
-              if in_options:
-                  if re.match(r"^\s+-\s", line):
-                      continue
-                  else:
-                      in_options = False
-
-              new_lines.append(line)
-
-          with open(form_path, "w") as f:
-              f.write("\n".join(new_lines))
-
-          # ── Sync term dropdowns from terms.yml ──
-          # Single source of truth: programs/lfx-mentorship/automation/terms.yml
-          # Targets: issue form (id: term) and export workflow (workflow_dispatch input)
-          terms_path = "programs/lfx-mentorship/automation/terms.yml"
-          with open(terms_path) as f:
-              terms_data = yaml.safe_load(f)
-          term_list = terms_data.get("terms", [])
-
-          def rewrite_options_block(file_path, context_marker):
-              """Rewrite an options: block whose preceding lines contain context_marker."""
-              with open(file_path) as f:
-                  text = f.read()
-              lines = text.split("\n")
-              out = []
-              in_opts = False
-              done = False
-              for i, line in enumerate(lines):
-                  if (not done and re.match(r"^\s+options:\s*$", line)):
-                      ctx = "\n".join(lines[max(0, i - 10):i])
-                      if context_marker in ctx:
-                          indent = re.match(r"^(\s+)", line).group(1) + "  "
-                          out.append(line)
-                          for t in term_list:
-                              out.append(f'{indent}- "{t}"')
-                          in_opts = True
-                          done = True
-                          continue
-                  if in_opts:
-                      if re.match(r"^\s+-\s", line):
-                          continue
-                      else:
-                          in_opts = False
-                  out.append(line)
-              with open(file_path, "w") as f:
-                  f.write("\n".join(out))
-
-          rewrite_options_block(form_path, "id: term")
-          rewrite_options_block(
-              ".github/workflows/lfx-export.yml",
-              "term:"  # the workflow_dispatch input name
-          )
-          print(f"Term dropdowns synced: {term_list}")
-
-          print("Files updated successfully")
-          PYEOF
+            core.info('Files updated successfully');
 
       - name: Check for changes
         id: check
