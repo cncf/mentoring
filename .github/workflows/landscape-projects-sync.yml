@@ -116,7 +116,12 @@ jobs:
           except FileNotFoundError:
               existing = None
           with open(projects_path, "w", encoding="utf-8") as f:
-              f.write(render(body, len(projects), date.today().isoformat(), existing))
+              f.write(render(
+                  body,
+                  total=len(projects),
+                  today=date.today().isoformat(),
+                  existing=existing,
+              ))
 
           # ── Update issue form dropdown ──
           form_path = ".github/ISSUE_TEMPLATE/lfx-program-proposal.yml"
