@@ -1,9 +1,10 @@
 name: LFX Automation Tests
 
 # Unit tests for the LFX proposal automation logic (form parsing, mentor/LFID
-# validation, CSV handling, board status rules, the /confirm tally, and README
-# assembly) extracted into programs/lfx-mentorship/automation/lib. Runs on any
-# change to that logic or to the workflows that depend on it.
+# validation, CSV handling, board status rules, the /confirm tally, README
+# assembly, and the projects.yml sync render) in
+# programs/lfx-mentorship/automation/lib. Runs on any change to that logic or
+# to the workflows that depend on it.
 
 on:
   pull_request:
@@ -16,6 +17,7 @@ on:
       - '.github/workflows/lfx-proposal-board-sync.yml'
       - '.github/workflows/lfx-export.yml'
       - '.github/workflows/lfx-export-merge-notify.yml'
+      - '.github/workflows/landscape-projects-sync.yml'
   push:
     branches: [main]
     paths:
@@ -27,6 +29,7 @@ on:
       - '.github/workflows/lfx-proposal-board-sync.yml'
       - '.github/workflows/lfx-export.yml'
       - '.github/workflows/lfx-export-merge-notify.yml'
+      - '.github/workflows/landscape-projects-sync.yml'
 
 permissions:
   contents: read
@@ -46,3 +49,12 @@ jobs:
       - name: Run automation unit tests
         working-directory: programs/lfx-mentorship/automation
         run: node --test
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Run Python unit tests
+        working-directory: programs/lfx-mentorship/automation
+        run: python -m unittest discover -s test -p 'test_*.py'
