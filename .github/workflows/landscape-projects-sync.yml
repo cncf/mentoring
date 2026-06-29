@@ -102,14 +102,20 @@ jobs:
           print(f"Checked {len(checked_orgs)} orgs, {dot_count} have .project repos")
 
           # ── Write projects.yml ──
-          header = (
-              f"# Auto-generated from cncf/landscape — DO NOT EDIT MANUALLY.\n"
-              f"# Last updated: {date.today().isoformat()}\n"
-              f"# Total projects: {len(projects)}\n\n"
-          )
-          with open("programs/lfx-mentorship/automation/projects.yml", "w") as f:
-              f.write(header)
-              yaml.dump(projects, f, default_flow_style=False, sort_keys=False)
+          # Render via the tested helper so the "Last updated" date only moves
+          # when the project list actually changes. Otherwise the weekly run
+          # would diff on the date line alone and open a spurious PR.
+          sys.path.insert(0, "programs/lfx-mentorship/automation/lib")
+          from projects_yml import render
+
+          projects_path = "programs/lfx-mentorship/automation/projects.yml"
+          body = yaml.dump(projects, default_flow_style=False, sort_keys=False)
+          try:
+              existing = open(projects_path, encoding="utf-8").read()
+          except FileNotFoundError:
+              existing = None
+          with open(projects_path, "w", encoding="utf-8") as f:
+              f.write(render(body, len(projects), date.today().isoformat(), existing))
 
           # ── Update issue form dropdown ──
           form_path = ".github/ISSUE_TEMPLATE/lfx-program-proposal.yml"
