@@ -111,7 +111,8 @@ jobs:
           projects_path = "programs/lfx-mentorship/automation/projects.yml"
           body = yaml.dump(projects, default_flow_style=False, sort_keys=False)
           try:
-              existing = open(projects_path, encoding="utf-8").read()
+              with open(projects_path, encoding="utf-8") as f:
+                  existing = f.read()
           except FileNotFoundError:
               existing = None
           with open(projects_path, "w", encoding="utf-8") as f:
