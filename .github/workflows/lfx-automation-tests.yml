@@ -2,7 +2,7 @@ name: LFX Automation Tests
 
 # Unit tests for the LFX proposal automation logic (form parsing, mentor/LFID
 # validation, CSV handling, board status rules, the /confirm tally, README
-# assembly, and the projects.yml sync render) in
+# assembly, and the landscape sync) in
 # programs/lfx-mentorship/automation/lib. Runs on any change to that logic or
 # to the workflows that depend on it.
 
@@ -49,12 +49,3 @@ jobs:
       - name: Run automation unit tests
         working-directory: programs/lfx-mentorship/automation
         run: node --test
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
-
-      - name: Run Python unit tests
-        working-directory: programs/lfx-mentorship/automation
-        run: python -m unittest discover -s test -p 'test_*.py'
