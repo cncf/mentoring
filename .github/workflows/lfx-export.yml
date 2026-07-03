@@ -32,6 +32,7 @@ jobs:
             const path = require('path');
             const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
             const { parseIssueForm, parseCheckboxes, parseMentors } = _lib('parse.js');
+            const { standardPrerequisites } = _lib('prerequisites.js');
             const { slugify } = _lib('slug.js');
             const { buildReadme } = _lib('readme.js');
             const { csvEscape } = _lib('csv.js');
@@ -129,6 +130,7 @@ jobs:
                     description: get('Custom Prerequisite Description') || null,
                     file_upload: !!customFileUpload,
                   } : null,
+                  standard_courses: standardPrerequisites(),
                 },
               });
             }
