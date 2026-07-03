@@ -458,3 +458,16 @@ body:
         - label: "Yes — completion of this task requires the mentee to submit a file."
           required: false
 
+  # ── Standard mentee prerequisite: LFC102 (informational, not an input) ──
+  # LFC102 is a standing CNCF requirement injected onto every program by the
+  # export from programs/lfx-mentorship/automation/lib/prerequisites.js. Surfaced
+  # here so mentors know mentees will be expected to complete it; it is not a
+  # field they configure.
+  - type: markdown
+    attributes:
+      value: |
+        > **Every accepted mentee must complete [Inclusive Open Source Community Orientation (LFC102)](https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/).**
+        > This is a standing CNCF requirement added to every program
+        > automatically, so you do not need to configure it. Mentees
+        > upload their completion certificate on the LFX platform.
+
