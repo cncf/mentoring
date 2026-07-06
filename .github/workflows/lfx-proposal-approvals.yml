@@ -27,7 +27,7 @@ jobs:
             const path = require('path');
             const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
             const { parseIssueForm } = _lib('parse.js');
-            const { parseCsvLine } = _lib('csv.js');
+            const { findMaintainerInCsv } = _lib('maintainers.js');
             const { computeConfirm } = _lib('confirm.js');
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;
@@ -203,7 +203,11 @@ jobs:
                 }
               }
 
-              // 2. Check cncf/foundation project-maintainers.csv
+              // 2. Check cncf/foundation project-maintainers.csv.
+              // The CSV is grouped: the Project column is set only on each
+              // group's first row, so the lookup forward-fills it before
+              // matching the handle. Extracted to lib/maintainers.js so the
+              // authorization decision is unit-tested (cncf/mentoring#1908).
               if (!authorized && project) {
                 try {
                   const resp = await fetch(
@@ -211,26 +215,10 @@ jobs:
                   );
                   if (resp.ok) {
                     const csv = await resp.text();
-                    // CSV columns: Maturity, Project, Name, Company, GitHub, OWNERS
-                    // Project column may include subgroup: "OpenTelemetry (Governance Committee)"
-                    // Maturity is only on the first row of each group; subsequent rows are empty.
-                    const normalProject = project.toLowerCase();
-                    // Minimal CSV line parser: respects quoted fields with
-                    // embedded commas and escaped double-quotes ("") so a comma
-                    // inside a value like "Chainguard, Inc" cannot shift the
-                    // GitHub-handle column and trigger a false auth rejection
-                    // (parser in lib/csv.js).
-                    for (const line of csv.split('\n').slice(1)) {
-                      if (!line.trim()) continue;
-                      const cols = parseCsvLine(line);
-                      const csvProject = (cols[1] || '').trim().toLowerCase();
-                      const csvGh = (cols[4] || '').trim().toLowerCase();
-                      if (csvGh === commenter.toLowerCase()
-                          && (csvProject.startsWith(normalProject) || csvProject.includes(normalProject))) {
-                        authorized = true;
-                        authSource = `project-maintainers.csv (${cols[1].trim()})`;
-                        break;
-                      }
+                    const hit = findMaintainerInCsv(csv, project, commenter);
+                    if (hit.authorized) {
+                      authorized = true;
+                      authSource = `project-maintainers.csv (${hit.project})`;
                     }
                   }
                 } catch (e) {
