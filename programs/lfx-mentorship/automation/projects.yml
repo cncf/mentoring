@@ -1,5 +1,5 @@
 # Auto-generated from cncf/landscape — DO NOT EDIT MANUALLY.
-# Last updated: 2026-06-25
+# Last updated: 2026-07-06
 # Total projects: 225
 
 - name: Aeraki Mesh
@@ -34,6 +34,7 @@
   homepage: https://www.apicur.io
   logo: apicurio-registry.svg
   repo_url: https://github.com/Apicurio/apicurio-registry
+  has_dot_project: true
 - name: Argo
   slug: argo
   maturity: graduated
@@ -403,6 +404,7 @@
   homepage: https://external-secrets.io/
   logo: external-secrets.svg
   repo_url: https://github.com/external-secrets/external-secrets
+  has_dot_project: true
 - name: Falco
   slug: falco
   maturity: graduated
@@ -443,7 +445,7 @@
   has_dot_project: true
 - name: hami
   slug: hami
-  maturity: sandbox
+  maturity: incubating
   homepage: https://project-hami.github.io/HAMi/
   logo: hami.svg
   repo_url: https://github.com/Project-HAMi/HAMi
@@ -546,6 +548,7 @@
   homepage: https://www.k8gb.io
   logo: k8gb.svg
   repo_url: https://github.com/k8gb-io/k8gb
+  has_dot_project: true
 - name: K8sGPT
   slug: k8sgpt
   maturity: sandbox
@@ -596,6 +599,7 @@
   homepage: https://karmada.io/
   logo: karmada.svg
   repo_url: https://github.com/karmada-io/karmada
+  has_dot_project: true
 - name: KCL
   slug: kcl
   maturity: sandbox
@@ -639,6 +643,7 @@
   homepage: https://kgateway.dev/
   logo: kgateway.svg
   repo_url: https://github.com/kgateway-dev/kgateway
+  has_dot_project: true
 - name: KitOps
   slug: kitops
   maturity: sandbox
@@ -774,6 +779,7 @@
   homepage: https://kubeflow.org
   logo: kubeflow.svg
   repo_url: https://github.com/kubeflow/kubeflow
+  has_dot_project: true
 - name: Kuberhealthy
   slug: kuberhealthy
   maturity: sandbox
@@ -817,12 +823,14 @@
   homepage: https://kubevirt.io/
   logo: kubevirt.svg
   repo_url: https://github.com/kubevirt/kubevirt
+  has_dot_project: true
 - name: Kubewarden
   slug: kubewarden
   maturity: sandbox
   homepage: https://www.kubewarden.io
   logo: kubewarden.svg
   repo_url: https://github.com/kubewarden/kubewarden-controller
+  has_dot_project: true
 - name: KUDO
   slug: kudo
   maturity: sandbox
@@ -936,6 +944,7 @@
   homepage: https://nats.io/
   logo: nats.svg
   repo_url: https://github.com/nats-io/nats-server
+  has_dot_project: true
 - name: Network Service Mesh
   slug: nsm
   maturity: sandbox
