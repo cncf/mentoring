@@ -32,7 +32,7 @@ jobs:
             const fs = require('fs');
             const path = require('path');
             const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
-            const { parseIssueForm } = _lib('parse.js');
+            const { parseIssueForm, parseMentors } = _lib('parse.js');
             const { findMaintainerInCsv, isProjectMaintainer } = _lib('maintainers.js');
             const { computeConfirm } = _lib('confirm.js');
             const { lookupProject } = _lib('projects.js');
@@ -298,19 +298,13 @@ jobs:
 
               // Authorization: commenter must be a listed mentor
               const mentorsRaw = get('Mentors');
-              const mentorLines = mentorsRaw.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
-              const mentorHandles = mentorLines
-                .map(line => {
-                  const parts = line.split('|').map(p => p.trim());
-                  return parts.length >= 2 ? parts[1].replace(/^@/, '').toLowerCase() : '';
-                })
-                .filter(Boolean);
+              const confirmHandles = parseMentors(mentorsRaw).map(m => m.github_handle.toLowerCase());
 
-              if (!mentorHandles.includes(commenter.toLowerCase())) {
+              if (!confirmHandles.includes(commenter.toLowerCase())) {
                 await reply('❌',
                   `@${commenter} is not listed as a mentor on this proposal.\n\n` +
                   `Only listed mentors can \`/confirm\`. ` +
-                  `Current mentors: ${mentorHandles.map(h => `@${h}`).join(', ') || '(none parsed)'}`);
+                  `Current mentors: ${confirmHandles.map(h => `@${h}`).join(', ') || '(none parsed)'}`);
                 return;
               }
 
@@ -326,7 +320,7 @@ jobs:
               } catch (e) {
                 core.warning(`Could not read prior confirmations: ${e.message}`);
               }
-              const { remaining, count, total } = computeConfirm(mentorHandles, commenter, priorComments);
+              const { remaining, count, total } = computeConfirm(confirmHandles, commenter, priorComments);
               if (remaining.length) {
                 await reply('✅',
                   `Confirmation recorded from @${commenter}. ` +

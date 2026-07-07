@@ -25,7 +25,7 @@ jobs:
             const fs = require('fs');
             const path = require('path');
             const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
-            const { parseIssueForm } = _lib('parse.js');
+            const { parseIssueForm, parseMentors } = _lib('parse.js');
             const { validateMentors, validateUpstreamUrl } = _lib('validate.js');
             const { lookupProject } = _lib('projects.js');
             const { owner, repo } = context.repo;
@@ -148,7 +148,7 @@ jobs:
               }
             }
             if (mentorResult.ok) {
-              const primaryName = mentorsRaw.split(/\r?\n/).map(l => l.trim()).filter(Boolean)[0].split('|')[0].trim();
+              const primaryName = parseMentors(mentorsRaw)[0].name;
               passed.push(`Mentors: ${mentorResult.count} listed (primary: ${primaryName})`);
             }
 
