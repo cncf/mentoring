@@ -36,6 +36,7 @@ jobs:
             const { findMaintainerInCsv, isProjectMaintainer } = _lib('maintainers.js');
             const { computeConfirm } = _lib('confirm.js');
             const { lookupProject } = _lib('projects.js');
+            const { getGlobalApprovers, getProjectSection, getFallbackHandles, getFallbackTeams } = _lib('approvers.js');
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;
             const comment = context.payload.comment;
@@ -214,48 +215,32 @@ jobs:
                       ghOrg.toLowerCase(),
                       projectSlug,
                     ].filter((v, i, a) => v && a.indexOf(v) === i);
-                    let section = '';
-                    for (const key of projectKeys) {
-                      const re = new RegExp(`^${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}:`, 'im');
-                      const parts = raw.split(re);
-                      if (parts.length > 1) {
-                        section = parts[1].split(/^\S/m)[0];
-                        break;
-                      }
-                    }
+                    const section = getProjectSection(raw, projectKeys);
                     if (section) {
                       // Check fallback_handles
-                      const handleBlock = section.match(/fallback_handles:\s*\n((?:\s+-\s+\S+.*\n?)*)/);
-                      if (handleBlock) {
-                        const handles = [...handleBlock[1].matchAll(/-\s+(\S+)/g)].map(m => m[1].toLowerCase());
-                        if (handles.includes(commenter.toLowerCase())) {
-                          authorized = true;
-                          authSource = 'approvers.yml (fallback handle)';
-                        }
+                      if (getFallbackHandles(section).includes(commenter.toLowerCase())) {
+                        authorized = true;
+                        authSource = 'approvers.yml (fallback handle)';
                       }
                       // Check fallback_teams
                       if (!authorized) {
-                        const teamBlock = section.match(/fallback_teams:\s*\n((?:\s+-\s+\S+.*\n?)*)/);
-                        if (teamBlock) {
-                          const teams = [...teamBlock[1].matchAll(/-\s+(\S+)/g)].map(m => m[1]);
-                          for (const team of teams) {
-                            const [org, slug] = team.split('/');
-                            if (!org || !slug) continue;
-                            try {
-                              const { data } = await github.rest.teams.getMembershipForUserInOrg({
-                                org, team_slug: slug, username: commenter,
-                              });
-                              if (data.state === 'active') {
-                                authorized = true;
-                                authSource = `approvers.yml (team ${team})`;
-                                break;
-                              }
-                            } catch (e) {
-                              // Likely a cross-org team: the repo token can't read
-                              // membership outside this org, so the team authorizes
-                              // no one. Use fallback_handles for cross-org approvers.
-                              console.log(`Could not verify team ${team} for ${commenter}: ${e.message}`);
+                        for (const team of getFallbackTeams(section)) {
+                          const [org, slug] = team.split('/');
+                          if (!org || !slug) continue;
+                          try {
+                            const { data } = await github.rest.teams.getMembershipForUserInOrg({
+                              org, team_slug: slug, username: commenter,
+                            });
+                            if (data.state === 'active') {
+                              authorized = true;
+                              authSource = `approvers.yml (team ${team})`;
+                              break;
                             }
+                          } catch (e) {
+                            // Likely a cross-org team: the repo token can't read
+                            // membership outside this org, so the team authorizes
+                            // no one. Use fallback_handles for cross-org approvers.
+                            console.log(`Could not verify team ${team} for ${commenter}: ${e.message}`);
                           }
                         }
                       }
@@ -264,13 +249,9 @@ jobs:
 
                   // 3b. Global approvers: can /approve for any project
                   if (!authorized) {
-                    const globalBlock = raw.match(/global_approvers:\s*\n((?:\s+-\s+\S+.*\n?)*)/);
-                    if (globalBlock) {
-                      const globals = [...globalBlock[1].matchAll(/-\s+(\S+)/g)].map(m => m[1].toLowerCase());
-                      if (globals.includes(commenter.toLowerCase())) {
-                        authorized = true;
-                        authSource = 'approvers.yml (global approver)';
-                      }
+                    if (getGlobalApprovers(raw).includes(commenter.toLowerCase())) {
+                      authorized = true;
+                      authSource = 'approvers.yml (global approver)';
                     }
                   }
                 } catch (e) {
@@ -372,10 +353,7 @@ jobs:
               let admins = [];
               try {
                 const raw = fs.readFileSync('programs/lfx-mentorship/automation/approvers.yml', 'utf8');
-                const globalBlock = raw.match(/global_approvers:\s*\n((?:\s+-\s+\S+.*\n?)*)/);
-                if (globalBlock) {
-                  admins = [...globalBlock[1].matchAll(/-\s+(\S+)/g)].map(m => m[1].toLowerCase());
-                }
+                admins = getGlobalApprovers(raw);
               } catch (e) {
                 console.log(`Failed to read approvers.yml: ${e.message}`);
               }
