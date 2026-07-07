@@ -35,6 +35,7 @@ jobs:
             const { parseIssueForm } = _lib('parse.js');
             const { findMaintainerInCsv, isProjectMaintainer } = _lib('maintainers.js');
             const { computeConfirm } = _lib('confirm.js');
+            const { lookupProject } = _lib('projects.js');
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;
             const comment = context.payload.comment;
@@ -138,22 +139,11 @@ jobs:
               if (project) {
                 try {
                   const projYaml = fs.readFileSync('programs/lfx-mentorship/automation/projects.yml', 'utf8');
-                  // Find the entry for this project and extract repo_url + has_dot_project
-                  const projRe = new RegExp(
-                    `- name: ${project.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\n` +
-                    `[\\s\\S]*?(?=\\n- name:|$)`
-                  );
-                  const projMatch = projYaml.match(projRe);
-                  if (projMatch) {
-                    const block = projMatch[0];
-                    const slugMatch = block.match(/^\s*slug:\s*(\S+)/m);
-                    if (slugMatch) projectSlug = slugMatch[1].trim().toLowerCase();
-                    const urlMatch = block.match(/repo_url:\s*(\S+)/);
-                    if (urlMatch) {
-                      const urlParts = urlMatch[1].match(/github\.com\/([^/]+)\//);
-                      if (urlParts) ghOrg = urlParts[1];
-                    }
-                    hasDotProject = /has_dot_project:\s*true/i.test(block);
+                  const info = lookupProject(projYaml, project);
+                  if (info) {
+                    ghOrg = info.org;
+                    projectSlug = info.slug;
+                    hasDotProject = info.hasDotProject;
                   }
                 } catch (e) {
                   console.log(`projects.yml org lookup failed: ${e.message}`);
