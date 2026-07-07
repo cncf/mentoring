@@ -35,4 +35,44 @@ function findMaintainerInCsv(csvText, project, handle) {
   return { authorized: false, project: '' };
 }
 
-module.exports = { findMaintainerInCsv };
+// Whether `handle` is a member of the `project-maintainers` team in an
+// {org}/.project/maintainers.yaml document (tier-1 of the /approve check).
+//
+// This is the hand-rolled line-scanner that shipped inline in
+// lfx-proposal-approvals.yml, extracted verbatim so the extraction itself
+// changes no behavior (locked by characterization tests). Its known
+// limitations are intentionally preserved here and documented by those tests;
+// hardening them (e.g. via a real YAML parser) is a separate, deliberate step:
+//   - members written as mappings (`- name: foo`) are NOT matched;
+//   - the team-name test is a prefix match, so `project-maintainers-emeritus`
+//     is treated as `project-maintainers`.
+function isProjectMaintainer(yamlText, handle) {
+  const who = String(handle || '').replace(/^@/, '').toLowerCase();
+  if (!who) return false;
+
+  let inMaintainersTeam = false;
+  let inMembers = false;
+  for (const line of String(yamlText).split('\n')) {
+    if (/name:\s*["']?project-maintainers/.test(line)) {
+      inMaintainersTeam = true;
+      continue;
+    }
+    if (inMaintainersTeam && /members:/.test(line)) {
+      inMembers = true;
+      continue;
+    }
+    if (inMembers) {
+      const memberMatch = line.match(/^\s+-\s+(\S+)/);
+      if (memberMatch) {
+        const h = memberMatch[1].replace(/^@/, '').toLowerCase();
+        if (h === who) return true;
+      } else if (/^\s+-\s*name:/.test(line) || /^\s*\S.*:/.test(line)) {
+        inMaintainersTeam = false;
+        inMembers = false;
+      }
+    }
+  }
+  return false;
+}
+
+module.exports = { findMaintainerInCsv, isProjectMaintainer };

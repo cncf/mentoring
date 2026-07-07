@@ -27,7 +27,7 @@ jobs:
             const path = require('path');
             const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
             const { parseIssueForm } = _lib('parse.js');
-            const { findMaintainerInCsv } = _lib('maintainers.js');
+            const { findMaintainerInCsv, isProjectMaintainer } = _lib('maintainers.js');
             const { computeConfirm } = _lib('confirm.js');
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;
@@ -162,37 +162,15 @@ jobs:
                   );
                   if (resp.ok) {
                     const yaml = await resp.text();
-                    // Parse maintainers.yaml: look for project-maintainers team members
-                    // Structure: maintainers[].teams[] where name=project-maintainers has members[]
-                    // Simple line-by-line parse: find "- name: project-maintainers" then collect members
-                    let inMaintainersTeam = false;
-                    let inMembers = false;
-                    for (const line of yaml.split('\n')) {
-                      if (/name:\s*["']?project-maintainers/.test(line)) {
-                        inMaintainersTeam = true;
-                        continue;
-                      }
-                      if (inMaintainersTeam && /members:/.test(line)) {
-                        inMembers = true;
-                        continue;
-                      }
-                      if (inMembers) {
-                        const memberMatch = line.match(/^\s+-\s+(\S+)/);
-                        if (memberMatch) {
-                          const handle = memberMatch[1].replace(/^@/, '').toLowerCase();
-                          if (handle === commenter.toLowerCase()) {
-                            authorized = true;
-                            authSource = `${ghOrg}/.project/maintainers.yaml`;
-                            break;
-                          }
-                        } else if (/^\s+-\s*name:/.test(line) || /^\s*\S.*:/.test(line)) {
-                          // Moved past the members list to a new team or section
-                          inMaintainersTeam = false;
-                          inMembers = false;
-                        }
-                      }
-                    }
-                    if (!authorized) {
+                    // Tier-1 lookup extracted to lib/maintainers.js so the
+                    // authorization decision is unit-tested (cncf/mentoring#1908
+                    // follow-up). Behavior is unchanged from the previous inline
+                    // scanner; its known limitations are documented by the
+                    // characterization tests in test/maintainers.test.js.
+                    if (isProjectMaintainer(yaml, commenter)) {
+                      authorized = true;
+                      authSource = `${ghOrg}/.project/maintainers.yaml`;
+                    } else {
                       console.log(`.project/maintainers.yaml found for ${ghOrg} but ${commenter} not in project-maintainers team`);
                     }
                   } else {
