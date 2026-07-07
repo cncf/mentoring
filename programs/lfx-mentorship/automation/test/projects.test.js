@@ -31,10 +31,15 @@ const YAML = `# Auto-generated from cncf/landscape — DO NOT EDIT MANUALLY.
   repo_url: https://github.com/WasmEdge/WasmEdge
 `;
 
-test('lookupProject: returns slug, org, hasDotProject for a .project adopter', () => {
+test('lookupProject: returns slug, org, maturity, hasDotProject for a .project adopter', () => {
   assert.deepEqual(lookupProject(YAML, 'Aeraki Mesh'), {
-    slug: 'aerakimesh', org: 'aeraki-mesh', hasDotProject: true,
+    slug: 'aerakimesh', org: 'aeraki-mesh', maturity: 'sandbox', hasDotProject: true,
   });
+});
+
+test('lookupProject: extracts maturity (raw) for the named project', () => {
+  assert.equal(lookupProject(YAML, 'Open Policy Agent (OPA)').maturity, 'graduated');
+  assert.equal(lookupProject(YAML, 'Agones').maturity, 'sandbox');
 });
 
 test('lookupProject: hasDotProject is false when the field is absent', () => {

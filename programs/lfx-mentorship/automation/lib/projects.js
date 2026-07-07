@@ -2,8 +2,9 @@
 
 // Look up a project entry in projects.yml by display name, returning the
 // fields the LFX proposal workflows need. Extracted from the duplicated inline
-// parsers in lfx-proposal-approvals.yml and lfx-proposal-validate.yml so the
-// lookup is defined once and unit-tested (cncf/mentoring#1908 follow-up).
+// parsers in lfx-proposal-approvals.yml, lfx-proposal-validate.yml, and
+// lfx-export.yml (getProjectMeta) so the lookup is defined once and
+// unit-tested (cncf/mentoring#1908 follow-up).
 //
 // Behavior is preserved from those inline copies:
 //   - slug is lowercased (both call sites did this);
@@ -15,8 +16,9 @@
 //   - hasDotProject reflects `has_dot_project: true`.
 // A later change may replace this regex scan with a real YAML parser.
 
-// Return { slug, org, hasDotProject } for the named project, or null if the
-// project is not present. slug is lowercased, org is raw, hasDotProject is bool.
+// Return { slug, org, maturity, hasDotProject } for the named project, or null
+// if the project is not present. slug is lowercased, org is raw, maturity is
+// raw, hasDotProject is bool.
 function lookupProject(yamlText, name) {
   if (!name) return null;
   const escaped = String(name).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -29,6 +31,10 @@ function lookupProject(yamlText, name) {
   const slugMatch = block.match(/^\s*slug:\s*(\S+)/m);
   if (slugMatch) slug = slugMatch[1].trim().toLowerCase();
 
+  let maturity = '';
+  const maturityMatch = block.match(/^\s*maturity:\s*(\S+)/m);
+  if (maturityMatch) maturity = maturityMatch[1].trim();
+
   let org = '';
   const urlMatch = block.match(/repo_url:\s*(\S+)/);
   if (urlMatch) {
@@ -37,7 +43,7 @@ function lookupProject(yamlText, name) {
   }
 
   const hasDotProject = /has_dot_project:\s*true/i.test(block);
-  return { slug, org, hasDotProject };
+  return { slug, org, maturity, hasDotProject };
 }
 
 module.exports = { lookupProject };
