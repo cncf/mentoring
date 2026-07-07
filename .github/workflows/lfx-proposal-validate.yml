@@ -25,8 +25,9 @@ jobs:
             const fs = require('fs');
             const path = require('path');
             const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
-            const { parseIssueForm } = _lib('parse.js');
+            const { parseIssueForm, parseMentors } = _lib('parse.js');
             const { validateMentors, validateUpstreamUrl } = _lib('validate.js');
+            const { lookupProject } = _lib('projects.js');
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;
             const body = context.payload.issue.body || '';
@@ -147,7 +148,7 @@ jobs:
               }
             }
             if (mentorResult.ok) {
-              const primaryName = mentorsRaw.split(/\r?\n/).map(l => l.trim()).filter(Boolean)[0].split('|')[0].trim();
+              const primaryName = parseMentors(mentorsRaw)[0].name;
               passed.push(`Mentors: ${mentorResult.count} listed (primary: ${primaryName})`);
             }
 
@@ -183,22 +184,12 @@ jobs:
                 const projectKeys = [project.toLowerCase().replace(/\s+/g, '-')];
                 try {
                   const projYaml = fs.readFileSync('programs/lfx-mentorship/automation/projects.yml', 'utf8');
-                  const projRe = new RegExp(
-                    `- name: ${project.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\n` +
-                    `[\\s\\S]*?(?=\\n- name:|$)`
-                  );
-                  const projMatch = projYaml.match(projRe);
-                  if (projMatch) {
-                    const block = projMatch[0];
-                    // GitHub org before projects.yml slug, to match the candidate
-                    // ordering in lfx-proposal-approvals.yml (org preferred over slug).
-                    const urlMatch = block.match(/repo_url:\s*(\S+)/);
-                    if (urlMatch) {
-                      const orgMatch = urlMatch[1].match(/github\.com\/([^/]+)/);
-                      if (orgMatch) projectKeys.push(orgMatch[1].toLowerCase());
-                    }
-                    const slugMatch = block.match(/^\s*slug:\s*(\S+)/m);
-                    if (slugMatch) projectKeys.push(slugMatch[1].trim().toLowerCase());
+                  // GitHub org before projects.yml slug, to match the candidate
+                  // ordering in lfx-proposal-approvals.yml (org preferred over slug).
+                  const info = lookupProject(projYaml, project);
+                  if (info) {
+                    if (info.org) projectKeys.push(info.org.toLowerCase());
+                    if (info.slug) projectKeys.push(info.slug);
                   }
                 } catch (e) {
                   console.log(`projects.yml key lookup failed: ${e.message}`);

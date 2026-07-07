@@ -19,6 +19,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install dependencies
+        # lib/maintainers.js parses .project/maintainers.yaml with js-yaml.
+        # --ignore-scripts blocks dependency lifecycle scripts (js-yaml needs none).
+        working-directory: programs/lfx-mentorship/automation
+        run: npm install --no-save --ignore-scripts js-yaml@4.3.0
+
       - name: Process slash command
         uses: actions/github-script@v7
         with:
@@ -26,9 +32,11 @@ jobs:
             const fs = require('fs');
             const path = require('path');
             const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
-            const { parseIssueForm } = _lib('parse.js');
-            const { findMaintainerInCsv } = _lib('maintainers.js');
+            const { parseIssueForm, parseMentors } = _lib('parse.js');
+            const { findMaintainerInCsv, isProjectMaintainer } = _lib('maintainers.js');
             const { computeConfirm } = _lib('confirm.js');
+            const { lookupProject } = _lib('projects.js');
+            const { getGlobalApprovers, getProjectSection, getFallbackHandles, getFallbackTeams } = _lib('approvers.js');
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;
             const comment = context.payload.comment;
@@ -132,22 +140,11 @@ jobs:
               if (project) {
                 try {
                   const projYaml = fs.readFileSync('programs/lfx-mentorship/automation/projects.yml', 'utf8');
-                  // Find the entry for this project and extract repo_url + has_dot_project
-                  const projRe = new RegExp(
-                    `- name: ${project.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\n` +
-                    `[\\s\\S]*?(?=\\n- name:|$)`
-                  );
-                  const projMatch = projYaml.match(projRe);
-                  if (projMatch) {
-                    const block = projMatch[0];
-                    const slugMatch = block.match(/^\s*slug:\s*(\S+)/m);
-                    if (slugMatch) projectSlug = slugMatch[1].trim().toLowerCase();
-                    const urlMatch = block.match(/repo_url:\s*(\S+)/);
-                    if (urlMatch) {
-                      const urlParts = urlMatch[1].match(/github\.com\/([^/]+)\//);
-                      if (urlParts) ghOrg = urlParts[1];
-                    }
-                    hasDotProject = /has_dot_project:\s*true/i.test(block);
+                  const info = lookupProject(projYaml, project);
+                  if (info) {
+                    ghOrg = info.org;
+                    projectSlug = info.slug;
+                    hasDotProject = info.hasDotProject;
                   }
                 } catch (e) {
                   console.log(`projects.yml org lookup failed: ${e.message}`);
@@ -162,37 +159,14 @@ jobs:
                   );
                   if (resp.ok) {
                     const yaml = await resp.text();
-                    // Parse maintainers.yaml: look for project-maintainers team members
-                    // Structure: maintainers[].teams[] where name=project-maintainers has members[]
-                    // Simple line-by-line parse: find "- name: project-maintainers" then collect members
-                    let inMaintainersTeam = false;
-                    let inMembers = false;
-                    for (const line of yaml.split('\n')) {
-                      if (/name:\s*["']?project-maintainers/.test(line)) {
-                        inMaintainersTeam = true;
-                        continue;
-                      }
-                      if (inMaintainersTeam && /members:/.test(line)) {
-                        inMembers = true;
-                        continue;
-                      }
-                      if (inMembers) {
-                        const memberMatch = line.match(/^\s+-\s+(\S+)/);
-                        if (memberMatch) {
-                          const handle = memberMatch[1].replace(/^@/, '').toLowerCase();
-                          if (handle === commenter.toLowerCase()) {
-                            authorized = true;
-                            authSource = `${ghOrg}/.project/maintainers.yaml`;
-                            break;
-                          }
-                        } else if (/^\s+-\s*name:/.test(line) || /^\s*\S.*:/.test(line)) {
-                          // Moved past the members list to a new team or section
-                          inMaintainersTeam = false;
-                          inMembers = false;
-                        }
-                      }
-                    }
-                    if (!authorized) {
+                    // Tier-1 lookup lives in lib/maintainers.js: a js-yaml parse
+                    // of the .project schema that authorizes only members of the
+                    // exactly-named project-maintainers team. Unit-tested in
+                    // test/maintainers.test.js (cncf/mentoring#1908 follow-up).
+                    if (isProjectMaintainer(yaml, commenter)) {
+                      authorized = true;
+                      authSource = `${ghOrg}/.project/maintainers.yaml`;
+                    } else {
                       console.log(`.project/maintainers.yaml found for ${ghOrg} but ${commenter} not in project-maintainers team`);
                     }
                   } else {
@@ -240,48 +214,32 @@ jobs:
                       ghOrg.toLowerCase(),
                       projectSlug,
                     ].filter((v, i, a) => v && a.indexOf(v) === i);
-                    let section = '';
-                    for (const key of projectKeys) {
-                      const re = new RegExp(`^${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}:`, 'im');
-                      const parts = raw.split(re);
-                      if (parts.length > 1) {
-                        section = parts[1].split(/^\S/m)[0];
-                        break;
-                      }
-                    }
+                    const section = getProjectSection(raw, projectKeys);
                     if (section) {
                       // Check fallback_handles
-                      const handleBlock = section.match(/fallback_handles:\s*\n((?:\s+-\s+\S+.*\n?)*)/);
-                      if (handleBlock) {
-                        const handles = [...handleBlock[1].matchAll(/-\s+(\S+)/g)].map(m => m[1].toLowerCase());
-                        if (handles.includes(commenter.toLowerCase())) {
-                          authorized = true;
-                          authSource = 'approvers.yml (fallback handle)';
-                        }
+                      if (getFallbackHandles(section).includes(commenter.toLowerCase())) {
+                        authorized = true;
+                        authSource = 'approvers.yml (fallback handle)';
                       }
                       // Check fallback_teams
                       if (!authorized) {
-                        const teamBlock = section.match(/fallback_teams:\s*\n((?:\s+-\s+\S+.*\n?)*)/);
-                        if (teamBlock) {
-                          const teams = [...teamBlock[1].matchAll(/-\s+(\S+)/g)].map(m => m[1]);
-                          for (const team of teams) {
-                            const [org, slug] = team.split('/');
-                            if (!org || !slug) continue;
-                            try {
-                              const { data } = await github.rest.teams.getMembershipForUserInOrg({
-                                org, team_slug: slug, username: commenter,
-                              });
-                              if (data.state === 'active') {
-                                authorized = true;
-                                authSource = `approvers.yml (team ${team})`;
-                                break;
-                              }
-                            } catch (e) {
-                              // Likely a cross-org team: the repo token can't read
-                              // membership outside this org, so the team authorizes
-                              // no one. Use fallback_handles for cross-org approvers.
-                              console.log(`Could not verify team ${team} for ${commenter}: ${e.message}`);
+                        for (const team of getFallbackTeams(section)) {
+                          const [org, slug] = team.split('/');
+                          if (!org || !slug) continue;
+                          try {
+                            const { data } = await github.rest.teams.getMembershipForUserInOrg({
+                              org, team_slug: slug, username: commenter,
+                            });
+                            if (data.state === 'active') {
+                              authorized = true;
+                              authSource = `approvers.yml (team ${team})`;
+                              break;
                             }
+                          } catch (e) {
+                            // Likely a cross-org team: the repo token can't read
+                            // membership outside this org, so the team authorizes
+                            // no one. Use fallback_handles for cross-org approvers.
+                            console.log(`Could not verify team ${team} for ${commenter}: ${e.message}`);
                           }
                         }
                       }
@@ -290,13 +248,9 @@ jobs:
 
                   // 3b. Global approvers: can /approve for any project
                   if (!authorized) {
-                    const globalBlock = raw.match(/global_approvers:\s*\n((?:\s+-\s+\S+.*\n?)*)/);
-                    if (globalBlock) {
-                      const globals = [...globalBlock[1].matchAll(/-\s+(\S+)/g)].map(m => m[1].toLowerCase());
-                      if (globals.includes(commenter.toLowerCase())) {
-                        authorized = true;
-                        authSource = 'approvers.yml (global approver)';
-                      }
+                    if (getGlobalApprovers(raw).includes(commenter.toLowerCase())) {
+                      authorized = true;
+                      authSource = 'approvers.yml (global approver)';
                     }
                   }
                 } catch (e) {
@@ -343,19 +297,13 @@ jobs:
 
               // Authorization: commenter must be a listed mentor
               const mentorsRaw = get('Mentors');
-              const mentorLines = mentorsRaw.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
-              const mentorHandles = mentorLines
-                .map(line => {
-                  const parts = line.split('|').map(p => p.trim());
-                  return parts.length >= 2 ? parts[1].replace(/^@/, '').toLowerCase() : '';
-                })
-                .filter(Boolean);
+              const confirmHandles = parseMentors(mentorsRaw).map(m => m.github_handle.toLowerCase());
 
-              if (!mentorHandles.includes(commenter.toLowerCase())) {
+              if (!confirmHandles.includes(commenter.toLowerCase())) {
                 await reply('❌',
                   `@${commenter} is not listed as a mentor on this proposal.\n\n` +
                   `Only listed mentors can \`/confirm\`. ` +
-                  `Current mentors: ${mentorHandles.map(h => `@${h}`).join(', ') || '(none parsed)'}`);
+                  `Current mentors: ${confirmHandles.map(h => `@${h}`).join(', ') || '(none parsed)'}`);
                 return;
               }
 
@@ -371,7 +319,7 @@ jobs:
               } catch (e) {
                 core.warning(`Could not read prior confirmations: ${e.message}`);
               }
-              const { remaining, count, total } = computeConfirm(mentorHandles, commenter, priorComments);
+              const { remaining, count, total } = computeConfirm(confirmHandles, commenter, priorComments);
               if (remaining.length) {
                 await reply('✅',
                   `Confirmation recorded from @${commenter}. ` +
@@ -398,10 +346,7 @@ jobs:
               let admins = [];
               try {
                 const raw = fs.readFileSync('programs/lfx-mentorship/automation/approvers.yml', 'utf8');
-                const globalBlock = raw.match(/global_approvers:\s*\n((?:\s+-\s+\S+.*\n?)*)/);
-                if (globalBlock) {
-                  admins = [...globalBlock[1].matchAll(/-\s+(\S+)/g)].map(m => m[1].toLowerCase());
-                }
+                admins = getGlobalApprovers(raw);
               } catch (e) {
                 console.log(`Failed to read approvers.yml: ${e.message}`);
               }

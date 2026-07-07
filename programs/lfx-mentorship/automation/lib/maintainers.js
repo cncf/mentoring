@@ -11,6 +11,7 @@
 // label such as "OpenTelemetry (Governance Committee)", so a project matches
 // by prefix/substring rather than equality.
 const { parseCsvLine } = require('./csv.js');
+const yaml = require('js-yaml');
 
 // Return { authorized, project } for whether `handle` is listed as a
 // maintainer of `project` in the CSV text. Matching is case-insensitive.
@@ -35,4 +36,43 @@ function findMaintainerInCsv(csvText, project, handle) {
   return { authorized: false, project: '' };
 }
 
-module.exports = { findMaintainerInCsv };
+// Whether `handle` is a member of the `project-maintainers` team in an
+// {org}/.project/maintainers.yaml document (tier-1 of the /approve check).
+//
+// Parses the document with js-yaml and navigates the canonical dot-project
+// schema (cncf/automation utilities/dot-project): maintainers[].teams[] where
+// team.name === "project-maintainers" has members[] of bare GitHub handles.
+// Only members of an exactly-named project-maintainers team authorize; other
+// teams (reviewers, sig-*-leads, *-emeritus) do not. Non-string members and
+// malformed YAML are ignored (returns false, never throws). Handle matching is
+// case-insensitive and tolerates a leading '@'.
+function isProjectMaintainer(yamlText, handle) {
+  const who = String(handle || '').replace(/^@/, '').trim().toLowerCase();
+  if (!who) return false;
+
+  let doc;
+  try {
+    doc = yaml.load(String(yamlText));
+  } catch {
+    return false;
+  }
+
+  const groups = doc && Array.isArray(doc.maintainers) ? doc.maintainers : [];
+  for (const group of groups) {
+    const teams = group && Array.isArray(group.teams) ? group.teams : [];
+    for (const team of teams) {
+      if (!team || String(team.name || '').trim().toLowerCase() !== 'project-maintainers') {
+        continue;
+      }
+      const members = Array.isArray(team.members) ? team.members : [];
+      for (const m of members) {
+        if (typeof m === 'string' && m.replace(/^@/, '').trim().toLowerCase() === who) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
+
+module.exports = { findMaintainerInCsv, isProjectMaintainer };

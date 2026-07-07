@@ -36,6 +36,7 @@ jobs:
             const { slugify } = _lib('slug.js');
             const { buildReadme } = _lib('readme.js');
             const { csvEscape } = _lib('csv.js');
+            const { lookupProject } = _lib('projects.js');
             const { owner, repo } = context.repo;
             const term = context.payload.inputs.term;
 
@@ -63,20 +64,6 @@ jobs:
             // ── Load projects.yml for metadata ──
             const projYaml = fs.readFileSync('programs/lfx-mentorship/automation/projects.yml', 'utf8');
 
-            function getProjectMeta(projectName) {
-              const re = new RegExp(
-                `- name: ${projectName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\n` +
-                `[\\s\\S]*?(?=\\n- name:|$)`
-              );
-              const m = projYaml.match(re);
-              if (!m) return {};
-              const block = m[0];
-              const slug = (block.match(/slug:\s*(\S+)/) || [])[1] || '';
-              const maturity = (block.match(/maturity:\s*(\S+)/) || [])[1] || '';
-              const repoUrl = (block.match(/repo_url:\s*(\S+)/) || [])[1] || '';
-              return { slug, maturity, repo_url: repoUrl };
-            }
-
             // ── Build export records ──
             const programs = [];
             for (const iss of termIssues) {
@@ -100,7 +87,7 @@ jobs:
               const customFileUpload = (get('Custom Prerequisite — File Upload') || '')
                 .match(/\[x\]/i);
 
-              const meta = getProjectMeta(project);
+              const meta = lookupProject(projYaml, project) || {};
 
               programs.push({
                 issue_number: iss.number,
