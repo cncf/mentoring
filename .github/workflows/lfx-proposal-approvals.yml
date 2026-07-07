@@ -19,6 +19,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install dependencies
+        # lib/maintainers.js parses .project/maintainers.yaml with js-yaml.
+        # --ignore-scripts blocks dependency lifecycle scripts (js-yaml needs none).
+        working-directory: programs/lfx-mentorship/automation
+        run: npm install --no-save --ignore-scripts js-yaml@4.3.0
+
       - name: Process slash command
         uses: actions/github-script@v7
         with:

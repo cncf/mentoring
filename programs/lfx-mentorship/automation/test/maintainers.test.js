@@ -112,13 +112,9 @@ test('isProjectMaintainer: a team listed BEFORE project-maintainers is excluded'
   assert.equal(isProjectMaintainer(before, 'bob'), false);
 });
 
-test('isProjectMaintainer: LIMITATION — a team listed AFTER project-maintainers is over-authorized', () => {
-  // Once armed at project-maintainers, the reset never fires: a following
-  // `- name: "reviewers"` line is swallowed as a bogus member (`name:`), so
-  // inMaintainersTeam is never cleared and the next `members:` re-arms the
-  // scanner. Every following team's members are wrongly authorized. This is
-  // the scanner's actual behavior today, surfaced by characterization, not
-  // desired behavior.
+test('isProjectMaintainer: a team listed AFTER project-maintainers is excluded', () => {
+  // Only members of the exactly-named project-maintainers team are authorized;
+  // a following reviewers team must not leak authorization.
   const after = `maintainers:
   - org: "acme"
     teams:
@@ -130,26 +126,63 @@ test('isProjectMaintainer: LIMITATION — a team listed AFTER project-maintainer
           - bob
 `;
   assert.equal(isProjectMaintainer(after, 'alice'), true);
-  assert.equal(isProjectMaintainer(after, 'bob'), true); // over-auth (bug)
+  assert.equal(isProjectMaintainer(after, 'bob'), false);
 });
 
-test('isProjectMaintainer: LIMITATION — mapping-style members are NOT matched', () => {
-  // Members written as `- name: foo` (rather than bare `- foo`) are missed by
-  // the scanner. Documented current behavior, not desired behavior.
+test('isProjectMaintainer: matches the canonical multi-team example (thockin yes, cpanato no)', () => {
+  // Verbatim shape from cncf/automation dot-project example/maintainers.yaml:
+  // cpanato is a sig-release-lead, NOT a project-maintainer.
+  const kubernetes = `maintainers:
+  - project_id: "kubernetes"
+    org: "kubernetes"
+    teams:
+      - name: "project-maintainers"
+        members:
+          - thockin
+          - liggitt
+          - derekwaynecarr
+          - dims
+      - name: "sig-release-leads"
+        members:
+          - justaugustus
+          - cpanato
+          - saschagrunert
+`;
+  assert.equal(isProjectMaintainer(kubernetes, 'thockin'), true);
+  assert.equal(isProjectMaintainer(kubernetes, 'cpanato'), false);
+});
+
+test('isProjectMaintainer: authorizes a member in a second maintainers[] entry (multi-project org)', () => {
+  const multi = `maintainers:
+  - project_id: "proj-a"
+    teams:
+      - name: "project-maintainers"
+        members:
+          - alice
+  - project_id: "proj-b"
+    teams:
+      - name: "project-maintainers"
+        members:
+          - bob
+`;
+  assert.equal(isProjectMaintainer(multi, 'alice'), true);
+  assert.equal(isProjectMaintainer(multi, 'bob'), true);
+});
+
+test('isProjectMaintainer: non-string members are safely ignored', () => {
+  // The schema uses bare-scalar handles; a mapping is invalid and must not
+  // match or throw.
   const mappingStyle = `maintainers:
   - org: "acme"
     teams:
       - name: "project-maintainers"
         members:
           - name: alice
-          - name: bob
 `;
   assert.equal(isProjectMaintainer(mappingStyle, 'alice'), false);
 });
 
-test('isProjectMaintainer: LIMITATION — prefix over-match treats *-emeritus as project-maintainers', () => {
-  // The team-name test is a prefix match, so an emeritus team is wrongly
-  // treated as the maintainers team. Documented current behavior.
+test('isProjectMaintainer: *-emeritus is not treated as project-maintainers', () => {
   const emeritus = `maintainers:
   - org: "acme"
     teams:
@@ -157,7 +190,13 @@ test('isProjectMaintainer: LIMITATION — prefix over-match treats *-emeritus as
         members:
           - retiree
 `;
-  assert.equal(isProjectMaintainer(emeritus, 'retiree'), true);
+  assert.equal(isProjectMaintainer(emeritus, 'retiree'), false);
+});
+
+test('isProjectMaintainer: malformed YAML returns false without throwing', () => {
+  assert.equal(isProjectMaintainer('this: is: not: valid: yaml:\n  - [', 'alice'), false);
+  assert.equal(isProjectMaintainer('', 'alice'), false);
+  assert.equal(isProjectMaintainer('just a string', 'alice'), false);
 });
 
 test('isProjectMaintainer: rejects empty/whitespace handle', () => {

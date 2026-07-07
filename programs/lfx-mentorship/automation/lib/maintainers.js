@@ -11,6 +11,7 @@
 // label such as "OpenTelemetry (Governance Committee)", so a project matches
 // by prefix/substring rather than equality.
 const { parseCsvLine } = require('./csv.js');
+const yaml = require('js-yaml');
 
 // Return { authorized, project } for whether `handle` is listed as a
 // maintainer of `project` in the CSV text. Matching is case-insensitive.
@@ -38,37 +39,36 @@ function findMaintainerInCsv(csvText, project, handle) {
 // Whether `handle` is a member of the `project-maintainers` team in an
 // {org}/.project/maintainers.yaml document (tier-1 of the /approve check).
 //
-// This is the hand-rolled line-scanner that shipped inline in
-// lfx-proposal-approvals.yml, extracted verbatim so the extraction itself
-// changes no behavior (locked by characterization tests). Its known
-// limitations are intentionally preserved here and documented by those tests;
-// hardening them (e.g. via a real YAML parser) is a separate, deliberate step:
-//   - members written as mappings (`- name: foo`) are NOT matched;
-//   - the team-name test is a prefix match, so `project-maintainers-emeritus`
-//     is treated as `project-maintainers`.
+// Parses the document with js-yaml and navigates the canonical dot-project
+// schema (cncf/automation utilities/dot-project): maintainers[].teams[] where
+// team.name === "project-maintainers" has members[] of bare GitHub handles.
+// Only members of an exactly-named project-maintainers team authorize; other
+// teams (reviewers, sig-*-leads, *-emeritus) do not. Non-string members and
+// malformed YAML are ignored (returns false, never throws). Handle matching is
+// case-insensitive and tolerates a leading '@'.
 function isProjectMaintainer(yamlText, handle) {
-  const who = String(handle || '').replace(/^@/, '').toLowerCase();
+  const who = String(handle || '').replace(/^@/, '').trim().toLowerCase();
   if (!who) return false;
 
-  let inMaintainersTeam = false;
-  let inMembers = false;
-  for (const line of String(yamlText).split('\n')) {
-    if (/name:\s*["']?project-maintainers/.test(line)) {
-      inMaintainersTeam = true;
-      continue;
-    }
-    if (inMaintainersTeam && /members:/.test(line)) {
-      inMembers = true;
-      continue;
-    }
-    if (inMembers) {
-      const memberMatch = line.match(/^\s+-\s+(\S+)/);
-      if (memberMatch) {
-        const h = memberMatch[1].replace(/^@/, '').toLowerCase();
-        if (h === who) return true;
-      } else if (/^\s+-\s*name:/.test(line) || /^\s*\S.*:/.test(line)) {
-        inMaintainersTeam = false;
-        inMembers = false;
+  let doc;
+  try {
+    doc = yaml.load(String(yamlText));
+  } catch {
+    return false;
+  }
+
+  const groups = doc && Array.isArray(doc.maintainers) ? doc.maintainers : [];
+  for (const group of groups) {
+    const teams = group && Array.isArray(group.teams) ? group.teams : [];
+    for (const team of teams) {
+      if (!team || String(team.name || '').trim().toLowerCase() !== 'project-maintainers') {
+        continue;
+      }
+      const members = Array.isArray(team.members) ? team.members : [];
+      for (const m of members) {
+        if (typeof m === 'string' && m.replace(/^@/, '').trim().toLowerCase() === who) {
+          return true;
+        }
       }
     }
   }

@@ -46,6 +46,12 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Install test dependencies
+        # lib/maintainers.js parses maintainers.yaml with js-yaml.
+        # --ignore-scripts blocks dependency lifecycle scripts (js-yaml needs none).
+        working-directory: programs/lfx-mentorship/automation
+        run: npm install --no-save --ignore-scripts js-yaml@4.3.0
+
       - name: Run automation unit tests
         working-directory: programs/lfx-mentorship/automation
         run: node --test
