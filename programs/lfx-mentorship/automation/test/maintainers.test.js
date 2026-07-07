@@ -62,10 +62,10 @@ test('rejects on blank project or handle', () => {
 });
 
 // ── isProjectMaintainer: tier-1 {org}/.project/maintainers.yaml ──────────
-// CHARACTERIZATION tests. These lock in the behavior of the hand-rolled
-// scanner exactly as it shipped inline, so the extraction is proven
-// behavior-preserving. Where a test documents a known limitation it says so;
-// those are deliberately NOT "fixed" here (that's a separate behavior change).
+// Verifies the js-yaml-based tier-1 authorization: only members of the
+// exactly-named project-maintainers team authorize. Teams listed after it,
+// *-emeritus teams, and non-string members are excluded; malformed YAML is
+// rejected without throwing.
 
 // Canonical schema (cncf/automation dot-project util): bare-scalar members.
 const CANONICAL = `maintainers:

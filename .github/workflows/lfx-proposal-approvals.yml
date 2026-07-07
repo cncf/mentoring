@@ -159,11 +159,10 @@ jobs:
                   );
                   if (resp.ok) {
                     const yaml = await resp.text();
-                    // Tier-1 lookup extracted to lib/maintainers.js so the
-                    // authorization decision is unit-tested (cncf/mentoring#1908
-                    // follow-up). Behavior is unchanged from the previous inline
-                    // scanner; its known limitations are documented by the
-                    // characterization tests in test/maintainers.test.js.
+                    // Tier-1 lookup lives in lib/maintainers.js: a js-yaml parse
+                    // of the .project schema that authorizes only members of the
+                    // exactly-named project-maintainers team. Unit-tested in
+                    // test/maintainers.test.js (cncf/mentoring#1908 follow-up).
                     if (isProjectMaintainer(yaml, commenter)) {
                       authorized = true;
                       authSource = `${ghOrg}/.project/maintainers.yaml`;

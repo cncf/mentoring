@@ -12,7 +12,10 @@
 //     mixed-case, e.g. "WasmEdge") org to build the .project URL; validate
 //     lowercases it at its call site for quota keys, and still does. Org
 //     extraction requires a path segment after the org (as approvals did), so
-//     an org-only repo_url like https://github.com/CoHDI yields '';
+//     an org-only repo_url like https://github.com/CoHDI yields ''. NOTE:
+//     validate's old inline regex extracted an org here even without a path
+//     segment, so for such entries its raw candidate-key list differs — but the
+//     deduplicated quota keys are unchanged, since the slug supplies the same key;
 //   - hasDotProject reflects `has_dot_project: true`.
 // A later change may replace this regex scan with a real YAML parser.
 
