@@ -26,7 +26,23 @@ the [LFX Mentorship README](../README.md#how-to-propose-a-program).
 
 ### Opening a new term
 
-1. **Add the term to `terms.yml`:**
+1. **Scaffold the term folder:** Generate
+   `programs/lfx-mentorship/<year>/<NN-Mon-Mon>/` (its `README.md` timeline and
+   the `project_ideas.md` redirect notice) from a per-term config.
+
+   ```bash
+   cd programs/lfx-mentorship/automation
+   cp term-setup.example.js terms/2027-t1.js   # then edit term.number + schedule dates
+   node bin/scaffold-term.js terms/2027-t1.js --dry-run   # preview
+   node bin/scaffold-term.js terms/2027-t1.js             # write the files
+   ```
+
+   The `schedule` dates are entered once in the config and drive the README
+   timeline. The tool refuses to overwrite existing files unless you pass
+   `--force`, and prints the git/PR steps when it's done. Commit the folder in
+   its own PR.
+
+2. **Add the term to `terms.yml`:**
 
    ```yaml
    terms:
@@ -36,12 +52,12 @@ the [LFX Mentorship README](../README.md#how-to-propose-a-program).
 
    Use the format `YYYY Term N (Mon-Mon)`.
 
-2. **Sync the dropdowns:** Run the **Landscape Projects Sync** workflow
+3. **Sync the dropdowns:** Run the **Landscape Projects Sync** workflow
    manually (Actions → Landscape Projects Sync → Run workflow), or wait for
    the Monday cron. This updates the term dropdown in both the issue form
    and the export workflow.
 
-3. **Announce the term:** Post to the CNCF blog, Slack (#mentoring), and
+4. **Announce the term:** Post to the CNCF blog, Slack (#mentoring), and
    social media. Include a link to the issue form.
 
 ### Closing a term
