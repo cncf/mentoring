@@ -18,8 +18,8 @@
 function resolveDates(scheduleKey, schedule) {
   if (!scheduleKey) return { start: null, due: null };
   const entry = (schedule || []).find((e) => e.key === scheduleKey);
-  if (!entry) return { start: null, due: null };
-  return { start: entry.start || null, due: entry.end || entry.start || null };
+  if (!entry || !entry.start) return { start: null, due: null };
+  return { start: entry.start, due: entry.end || entry.start };
 }
 
 // Guard against an accidental double-run: refuse to create when the term
