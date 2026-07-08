@@ -1,0 +1,105 @@
+# Canonical LFX term-admin issue template.
+#
+# The term-setup tooling creates these issues on the term's project board,
+# reproducing the structure of the sample boards (cncf/mentoring projects
+# #85/#89/#90 — identical across terms). Edit this file to change the standard
+# task set or add a recurring issue; add a one-off for a single term by editing
+# your working copy before you run the tool.
+#
+# Structure:
+#   - A node with `children` is a section/sub-section PARENT. Parents get the
+#     "[LFX YYYY TN]" prefix prepended to their title; leaf tasks do not.
+#   - Nesting is recursive (see "2.1 [Announce]" nested under "2. Proposals").
+#   - `schedule_key` links a dated issue to a schedule entry in the per-term
+#     config; the board's Start/Due dates come from there. Issues without a key
+#     (info sessions, kickoff, ...) are left undated to be scheduled by hand.
+#   - Every created issue gets the labels: lfx mentorship, Term N: <months>,
+#     <year>, administration.
+
+sections:
+  - title: "0. Key dates"
+    children:
+      - title: "Mentor & Maintainer Info Session"
+      - title: "Project proposals open"
+        schedule_key: proposals_open
+      - title: "Mentee Candidate Info Session – Americas"
+      - title: "Mentee Candidate Info Session – Europe & APAC"
+      - title: "Mentee applications open"
+        schedule_key: applications_open
+      - title: "Application review period"
+        schedule_key: application_review
+      - title: "Mentor candidate selection due"
+      - title: "Selection notifications"
+        schedule_key: selection_notify
+      - title: "Start of term"
+        schedule_key: term_start
+      - title: "Mentorship Kick Off Call"
+      - title: "Work period"
+      - title: "Midterm mentee evaluations due"
+        schedule_key: midterm_evals
+      - title: "First stipend payments"
+        schedule_key: first_stipends
+      - title: "Final mentee evaluations due"
+        schedule_key: final_evals
+      - title: "Second stipend payments"
+        schedule_key: second_stipends
+      - title: "Last day of term"
+        schedule_key: term_end
+
+  - title: "1. Before term"
+    children:
+      - title: "Plan term"
+      - title: "Create term in cncf/mentoring repo"
+      - title: "Update labels in cncf/mentoring repo"
+      - title: "[Announce] Call for proposals"
+      - title: "Schedule maintainer/mentor info session"
+
+  - title: "2. Proposals"
+    children:
+      - title: "Load proposals into LFX Platform"
+      - title: "Create \"Project, Mentor, & Mentee list\" gsheet"
+      - title: "Open projects for applications (LFX platform)"
+      - title: "Create/update mentor email list"
+      - title: "2.1 [Announce] Applications open for candidates"
+        children:
+          - title: "Initial announcement"
+          - title: "Follow-up reminders (candidates)"
+          - title: "Follow-up reminders (mentors)"
+      - title: "Create mentor slack group"
+
+  - title: "3. Application review"
+    children:
+      - title: "Close projects for applications (LFX Platform)"
+      - title: "[Follow-up] Alert mentors that they should be making selections"
+      - title: "Create mentee selection google form"
+      - title: "Send mentee selection form to mentors"
+      - title: "CNCF Selection admin"
+      - title: "Create mentee email list"
+      - title: "Schedule mentee info session"
+      - title: "Setup term in mentorship-monitor"
+
+  - title: "4. Midterm"
+    children:
+      - title: "Create mentee midterm evaluation form"
+      - title: "Share eval form with mentors"
+      - title: "Send evaluation results & stipend instructions"
+      - title: "Approve stipends"
+
+  - title: "5. End of term"
+    children:
+      - title: "Create mentee final evaluation form"
+      - title: "Share eval form with mentors"
+      - title: "Send evaluations results & stipend instructions"
+      - title: "Approve stipends"
+      - title: "Create mentee feedback form"
+      - title: "Send feedback form to mentees"
+
+  - title: "6. Post term"
+    children:
+      - title: "Credly Badges"
+      - title: "Plan thank you gift for mentors"
+      - title: "Send thank you email to all the mentors"
+      - title: "Update statistics"
+      - title: "Blog Post"
+      - title: "Share blog post"
+      - title: "Late stipend request/payment followup"
