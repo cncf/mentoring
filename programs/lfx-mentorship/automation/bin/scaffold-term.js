@@ -2,13 +2,15 @@
 'use strict';
 
 // Scaffold a fresh LFX term folder (README.md + project_ideas.md) from a
-// term-setup config. Phase 1 of the term-setup tooling; see ADMIN_GUIDE.md.
+// term-setup config, and list the term in terms.yml (the proposal dropdown
+// source). Phase 1 of the term-setup tooling; see ADMIN_GUIDE.md.
 //
 //   node bin/scaffold-term.js <config.(yml|json)> [--repo-root DIR] [--dry-run] [--force]
 //
 // Writes programs/lfx-mentorship/<year>/<NN-Mon-Mon>/{README.md,project_ideas.md}
-// relative to the repo root, then prints the git/PR steps. Refuses to overwrite
-// existing files unless --force. This is the impure glue: all string assembly
+// relative to the repo root and inserts the term into terms.yml, then prints the
+// git/PR steps. Refuses to overwrite existing folder files unless --force (the
+// terms.yml insert is idempotent). This is the impure glue: all string assembly
 // lives in lib/ (unit-tested); this file only parses args, loads the config, and
 // touches the filesystem.
 
@@ -17,6 +19,7 @@ const path = require('node:path');
 const { validateConfig, parseConfig } = require('../lib/config');
 const { termIdentity } = require('../lib/term');
 const { buildTermReadme, PROJECT_IDEAS_NOTICE } = require('../lib/scaffold');
+const { addTermToDropdown } = require('../lib/terms-file');
 
 const USAGE =
   'Usage: node bin/scaffold-term.js <config.(yml|json)> [--repo-root DIR] [--dry-run] [--force]';
@@ -42,6 +45,21 @@ function loadConfig(configPath) {
   return parseConfig(fs.readFileSync(abs, 'utf8'), path.extname(abs));
 }
 
+// Read terms.yml (if present) and compute the dropdown insert for this term.
+// Returns { path, exists, changed, after } so the caller can preview or write.
+// A missing terms.yml is tolerated (e.g. a scratch --repo-root).
+function planTermsUpdate(termsPath, label) {
+  if (!fs.existsSync(termsPath)) return { exists: false, changed: false };
+  const before = fs.readFileSync(termsPath, 'utf8');
+  const after = addTermToDropdown(before, label);
+  return { exists: true, changed: after !== before, after };
+}
+
+function termsNote(update, label) {
+  if (!update.exists) return '(skipped: terms.yml not found)';
+  return update.changed ? `(added "${label}")` : `(already lists "${label}")`;
+}
+
 function main(argv) {
   const opts = parseArgs(argv);
   if (opts.help || !opts.config) {
@@ -63,12 +81,17 @@ function main(argv) {
 
   const rel = (p) => path.relative(repoRoot, p);
 
+  const termsPath = path.join(repoRoot, 'programs/lfx-mentorship/automation/terms.yml');
+  const terms = planTermsUpdate(termsPath, identity.dropdownLabel);
+
   if (opts.dryRun) {
     console.log(`[dry-run] would scaffold ${identity.title}\n`);
     for (const f of files) {
       console.log(`----- ${rel(f.path)} -----`);
       console.log(f.content);
     }
+    console.log(`----- ${rel(termsPath)} -----`);
+    console.log(termsNote(terms, identity.dropdownLabel));
     return 0;
   }
 
@@ -81,14 +104,16 @@ function main(argv) {
 
   fs.mkdirSync(dir, { recursive: true });
   for (const f of files) fs.writeFileSync(f.path, f.content);
+  if (terms.changed) fs.writeFileSync(termsPath, terms.after);
 
   console.log(`Scaffolded ${identity.title}:`);
   for (const f of files) console.log(`  ${rel(f.path)}`);
+  console.log(`  ${rel(termsPath)}  ${termsNote(terms, identity.dropdownLabel)}`);
   console.log('\nNext:');
   console.log(`  git checkout -b lfx-${identity.year}-t${identity.number}-setup`);
-  console.log(`  git add ${rel(dir)}`);
+  console.log(`  git add ${rel(dir)} ${rel(termsPath)}`);
   console.log(`  git commit -s -S -m "Add LFX ${identity.year} Term ${identity.number} program folder"`);
-  console.log('  # then open a PR to cncf/mentoring');
+  console.log('  # open a PR; after merge, run the Landscape Projects Sync workflow to update the dropdowns');
   return 0;
 }
 

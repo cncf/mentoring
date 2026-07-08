@@ -26,9 +26,10 @@ the [LFX Mentorship README](../README.md#how-to-propose-a-program).
 
 ### Opening a new term
 
-1. **Scaffold the term folder:** Generate
+1. **Scaffold the term folder and list the term:** Generate
    `programs/lfx-mentorship/<year>/<NN-Mon-Mon>/` (its `README.md` timeline and
-   the `project_ideas.md` redirect notice) from a per-term config.
+   the `project_ideas.md` redirect notice) from a per-term config, and add the
+   term to `terms.yml` (the proposal dropdown source).
 
    ```bash
    cd programs/lfx-mentorship/automation
@@ -37,27 +38,18 @@ the [LFX Mentorship README](../README.md#how-to-propose-a-program).
    node bin/scaffold-term.js terms/2027-t1.yml             # write the files
    ```
 
-   The `schedule` dates are entered once in the config and drive the README
-   timeline. The tool refuses to overwrite existing files unless you pass
-   `--force`, and prints the git/PR steps when it's done. Commit the folder in
-   its own PR.
+   The `schedule` dates are entered once in the config and drive both the README
+   timeline and the `terms.yml` entry (derived as `YYYY Term N (Mon-Mon)`), so
+   nothing is typed twice. The tool refuses to overwrite existing folder files
+   unless you pass `--force` (the `terms.yml` insert is idempotent), and prints
+   the git/PR steps when it's done. Commit the folder and `terms.yml` in one PR.
 
-2. **Add the term to `terms.yml`:**
-
-   ```yaml
-   terms:
-     - "2027 Term 1 (Mar-May)"
-     - "2027 Term 2 (Jun-Aug)"   # ← add the new term
-   ```
-
-   Use the format `YYYY Term N (Mon-Mon)`.
-
-3. **Sync the dropdowns:** Run the **Landscape Projects Sync** workflow
+2. **Sync the dropdowns:** Run the **Landscape Projects Sync** workflow
    manually (Actions → Landscape Projects Sync → Run workflow), or wait for
-   the Monday cron. This updates the term dropdown in both the issue form
-   and the export workflow.
+   the Monday cron. This propagates the new `terms.yml` entry into the term
+   dropdown in both the issue form and the export workflow.
 
-4. **Announce the term:** Post to the CNCF blog, Slack (#mentoring), and
+3. **Announce the term:** Post to the CNCF blog, Slack (#mentoring), and
    social media. Include a link to the issue form.
 
 ### Closing a term
@@ -181,6 +173,10 @@ terms:
 
 After editing, run the landscape sync workflow to propagate changes to the
 issue form and export workflow.
+
+Opening a term adds its entry automatically (see [Opening a new
+term](#opening-a-new-term)); edit this file by hand only to retire a term or fix
+an entry.
 
 ### approvers.yml
 

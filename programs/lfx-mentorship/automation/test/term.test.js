@@ -44,6 +44,12 @@ test('termIdentity: accepts numeric strings for year and number', () => {
   assert.equal(t.number, 3);
 });
 
+test('termIdentity: dropdownLabel matches the terms.yml dropdown format', () => {
+  assert.equal(termIdentity({ year: 2026, number: 3 }).dropdownLabel, '2026 Term 3 (Sep-Nov)');
+  assert.equal(termIdentity({ year: 2027, number: 1 }).dropdownLabel, '2027 Term 1 (Mar-May)');
+  assert.equal(termIdentity({ year: 2027, number: 2 }).dropdownLabel, '2027 Term 2 (Jun-Aug)');
+});
+
 test('termIdentity: rejects an unknown term number', () => {
   assert.throws(() => termIdentity({ year: 2026, number: 4 }), /term number/i);
   assert.throws(() => termIdentity({ year: 2026, number: 0 }), /term number/i);

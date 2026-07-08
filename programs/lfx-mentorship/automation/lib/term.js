@@ -4,11 +4,12 @@
 //
 // Every LFX year runs exactly three terms on a fixed calendar (Term 1 =
 // March-May, Term 2 = June-August, Term 3 = September-November). The strings
-// that describe a term appear, hand-authored, in three places today:
+// that describe a term appear, hand-authored, in several places:
 //   - the repo folder name   programs/lfx-mentorship/<year>/NN-Mon-Mon
 //   - the term README H1      "Term NN - YYYY <full months>"
 //   - the "Term N: <months>" repo label (reused across years)
 //   - the board issue prefix  "[LFX YYYY TN]"
+//   - the terms.yml dropdown  "YYYY Term N (Mon-Mon)"
 // The month spellings differ per slot (folder abbreviations, full-name title,
 // bespoke label) and are NOT a clean algorithm, so they are pinned in a small
 // evidence-based table rather than derived. termIdentity() is the single source
@@ -42,6 +43,7 @@ function termIdentity({ year, number } = {}) {
     dir: `programs/lfx-mentorship/${y}/${folder}`,
     title: `Term ${padded} - ${y} ${t.titleMonths}`,
     label: t.label,
+    dropdownLabel: `${y} Term ${n} (${t.folderMonths})`,
     yearLabel: String(y),
     issuePrefix: `[LFX ${y} T${n}]`,
   };
