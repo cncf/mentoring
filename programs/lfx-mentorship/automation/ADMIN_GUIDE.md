@@ -52,6 +52,10 @@ the [LFX Mentorship README](../README.md#how-to-propose-a-program).
 3. **Announce the term:** Post to the CNCF blog, Slack (#mentoring), and
    social media. Include a link to the issue form.
 
+PRs touching a term folder get the `Term N: <months>` label automatically —
+`.github/labeler.yml` matches every year. Only the per-year label (added once at
+the start of a new year) is still listed explicitly there.
+
 ### Closing a term
 
 1. **Remove the term from `terms.yml`** so no new proposals can be filed
