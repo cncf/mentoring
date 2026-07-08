@@ -50,11 +50,7 @@ test('validateConfig: rejects a missing or empty schedule', () => {
   assert.throws(() => validateConfig(empty), /schedule/i);
 });
 
-test('validateConfig: rejects a schedule entry missing key, label or start', () => {
-  const noStart = validRaw();
-  delete noStart.schedule[1].start;
-  assert.throws(() => validateConfig(noStart), /start/i);
-
+test('validateConfig: rejects a schedule entry missing key or label', () => {
   const noLabel = validRaw();
   delete noLabel.schedule[1].label;
   assert.throws(() => validateConfig(noLabel), /label/i);
@@ -62,6 +58,24 @@ test('validateConfig: rejects a schedule entry missing key, label or start', () 
   const noKey = validRaw();
   delete noKey.schedule[1].key;
   assert.throws(() => validateConfig(noKey), /key/i);
+});
+
+test('validateConfig: start is required only for proposals_open (others may be TBD)', () => {
+  const noAnchorDate = validRaw();
+  delete noAnchorDate.schedule[0].start; // proposals_open
+  delete noAnchorDate.schedule[0].end;
+  assert.throws(() => validateConfig(noAnchorDate), /proposals_open/i);
+
+  const tbd = validRaw();
+  delete tbd.schedule[1].start; // a not-yet-scheduled activity is fine
+  assert.doesNotThrow(() => validateConfig(tbd));
+});
+
+test('validateConfig: rejects an end date with no start', () => {
+  const raw = validRaw();
+  delete raw.schedule[1].start;
+  raw.schedule[1].end = '2026-09-10';
+  assert.throws(() => validateConfig(raw), /end/i);
 });
 
 test('validateConfig: rejects a malformed date', () => {

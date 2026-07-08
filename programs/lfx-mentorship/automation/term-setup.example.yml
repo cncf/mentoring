@@ -11,8 +11,10 @@
 # Schedule entry fields:
 #   key      required, stable id (snake_case). Must include "proposals_open".
 #   label    required, the Activity cell text in the README timeline.
-#   start    required, YYYY-MM-DD.
-#   end      optional, YYYY-MM-DD for a date range.
+#   start    optional, YYYY-MM-DD. Required only for proposals_open; leave it off
+#            for activities not scheduled yet (info sessions, kickoff) — they are
+#            omitted from the timeline until you add a date and re-run.
+#   end      optional, YYYY-MM-DD for a date range (needs a start).
 #   time     optional, comma-appended suffix, e.g. "18:00 UTC" or "Times TBD (...)".
 #   note     optional, space-appended suffix, e.g. an italic "*(...)*" aside.
 #   timeline optional, set false to keep a board-only anchor out of the README.
@@ -27,10 +29,11 @@ schedule:
     start: 2026-07-01
     end: 2026-07-28
     time: 18:00 UTC
+  # Info sessions and the kickoff are scheduled after term setup, so their dates
+  # are left off here — they stay out of the README timeline until you fill a
+  # date in and re-run. (The board cards for them are created undated already.)
   - key: candidate_info_sessions
     label: Mentee Candidate Info Sessions
-    start: 2026-07-21
-    time: Times TBD (will be multiple timezone options)
   - key: applications_open
     label: Mentee Applications Open
     start: 2026-08-03
@@ -51,8 +54,6 @@ schedule:
     start: 2026-09-07
   - key: kickoff_call
     label: Mentorship Kick Off Call
-    start: 2026-09-08
-    time: Times TBD (will be multiple timezone options)
   - key: midterm_evals
     label: Midterm Mentee Evaluations
     start: 2026-10-20

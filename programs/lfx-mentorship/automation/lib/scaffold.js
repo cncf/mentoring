@@ -48,11 +48,12 @@ function dateCell({ start, end, time, note }) {
 }
 
 // Render the "### Timeline" block (no trailing newline) from the ordered
-// schedule. Entries flagged `timeline: false` are board-only anchors and are
-// omitted here. The header stamps the term year, matching the existing READMEs.
+// schedule. Entries flagged `timeline: false` are board-only anchors, and
+// entries with no `start` date yet (not scheduled) are omitted; both are left
+// out here. The header stamps the term year, matching the existing READMEs.
 function renderTimeline(schedule, year) {
   const rows = schedule
-    .filter((e) => e.timeline !== false)
+    .filter((e) => e.timeline !== false && e.start)
     .map((e) => `| ${e.label} | ${dateCell(e)} |`);
   return [
     '### Timeline',

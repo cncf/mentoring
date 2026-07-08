@@ -13,12 +13,13 @@
 //   setFields({ itemId, status, start, due }) -> void
 
 // Resolve a schedule_key to board dates. A ranged entry maps to start + end; a
-// single-day entry sets due = start; a null/unknown key yields no dates.
+// single-day entry sets due = start; a null/unknown key, or an entry that is
+// not scheduled yet (no start), yields no dates.
 function resolveDates(scheduleKey, schedule) {
   if (!scheduleKey) return { start: null, due: null };
   const entry = (schedule || []).find((e) => e.key === scheduleKey);
   if (!entry) return { start: null, due: null };
-  return { start: entry.start, due: entry.end || entry.start };
+  return { start: entry.start || null, due: entry.end || entry.start || null };
 }
 
 // Guard against an accidental double-run: refuse to create when the term

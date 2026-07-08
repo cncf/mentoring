@@ -54,9 +54,18 @@ function validateConfig(raw) {
     if (!e || typeof e !== 'object') throw new Error(`schedule ${where} must be an object`);
     if (!e.key || typeof e.key !== 'string') throw new Error(`schedule ${where} is missing a "key"`);
     if (!e.label || typeof e.label !== 'string') throw new Error(`schedule "${e.key}" is missing a "label"`);
-    if (!e.start) throw new Error(`schedule "${e.key}" is missing a "start" date`);
-    if (!isValidISODate(e.start)) {
+    // start is optional: an activity may not be scheduled yet (info sessions,
+    // kickoff). Only proposals_open must be dated, since the README proposal
+    // deadline is derived from it. A dateless entry is omitted from the timeline
+    // and given no board date until its date is filled in.
+    if (e.key === 'proposals_open' && !e.start) {
+      throw new Error('schedule "proposals_open" must have a "start" date (the README proposal deadline uses it)');
+    }
+    if (e.start != null && !isValidISODate(e.start)) {
       throw new Error(`schedule "${e.key}" has an invalid start date: ${e.start} (want YYYY-MM-DD)`);
+    }
+    if (e.end != null && !e.start) {
+      throw new Error(`schedule "${e.key}" has an "end" date but no "start" date`);
     }
     if (e.end != null && !isValidISODate(e.end)) {
       throw new Error(`schedule "${e.key}" has an invalid end date: ${e.end} (want YYYY-MM-DD)`);

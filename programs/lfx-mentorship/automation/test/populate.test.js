@@ -25,6 +25,11 @@ test('resolveDates: a null or unknown key yields no dates', () => {
   assert.deepEqual(resolveDates('nope', SCHEDULE), { start: null, due: null });
 });
 
+test('resolveDates: an entry present but not yet scheduled yields no dates', () => {
+  const sched = [{ key: 'info', label: 'Info' }]; // no start yet
+  assert.deepEqual(resolveDates('info', sched), { start: null, due: null });
+});
+
 // ── populateTerm (orchestration with an injected client) ──────────────────
 const YAML = `sections:
   - title: "0. Key dates"

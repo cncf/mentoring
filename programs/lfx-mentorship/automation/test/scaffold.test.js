@@ -74,6 +74,18 @@ test('renderTimeline: entries flagged timeline:false are omitted (board-only anc
   assert.doesNotMatch(out, /Work period/);
 });
 
+test('renderTimeline: entries with no start date are omitted (scheduled later)', () => {
+  const schedule = [
+    { key: 'proposals_open', label: 'Proposals', start: '2026-07-01' },
+    { key: 'candidate_info_sessions', label: 'Mentee Info Sessions' }, // date TBD
+    { key: 'term_start', label: 'Start', start: '2026-09-07' },
+  ];
+  const out = renderTimeline(schedule, 2026);
+  assert.doesNotMatch(out, /Mentee Info Sessions/);
+  assert.match(out, /\| Proposals \|/);
+  assert.match(out, /\| Start \|/);
+});
+
 test('buildTermReadme: frontmatter has title, Planning status, timeline and instructions', () => {
   const identity = termIdentity({ year: 2026, number: 3 });
   const out = buildTermReadme({ identity, schedule: SCHEDULE });
