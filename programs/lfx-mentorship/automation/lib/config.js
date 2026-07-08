@@ -17,6 +17,7 @@
 //   }
 
 const { termIdentity } = require('./term');
+const { isValidISODate } = require('./dates');
 const yaml = require('js-yaml');
 
 // Parse a config file's text into an object, chosen by extension. YAML is
@@ -33,14 +34,6 @@ function parseConfig(text, ext) {
     return JSON.parse(text);
   }
   throw new Error(`Config must be a .yml, .yaml, or .json file (got ${ext || 'no extension'})`);
-}
-
-// Strict YYYY-MM-DD check: right shape, real calendar date, and round-trips
-// (so 2026-02-30 is rejected rather than silently rolled to March).
-function isValidISODate(s) {
-  if (typeof s !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(s)) return false;
-  const d = new Date(`${s}T00:00:00Z`);
-  return !Number.isNaN(d.getTime()) && d.toISOString().slice(0, 10) === s;
 }
 
 // Validate a raw config object. Throws Error with a descriptive message on the

@@ -14,18 +14,14 @@
 //
 // Pure string assembly only: the runner does the fs writes.
 
+const { parseISO } = require('./dates');
+
 const EN_DASH = '\u2013';
 
 const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const MONTHS_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const MONTHS_LONG = ['January', 'February', 'March', 'April', 'May', 'June',
   'July', 'August', 'September', 'October', 'November', 'December'];
-
-function parseISO(iso) {
-  const d = new Date(`${iso}T00:00:00Z`);
-  if (Number.isNaN(d.getTime())) throw new Error(`Invalid date: ${iso}`);
-  return d;
-}
 
 // "2026-07-01" -> "Wed, Jul 1" (UTC, no leading zero on the day).
 function fmtShort(iso) {
