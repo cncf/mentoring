@@ -101,6 +101,15 @@ test('populateTerm: sets resolved dates on a scheduled issue, none on a keyless 
   assert.deepEqual([kickoff[3], kickoff[4]], [null, null]);
 });
 
+test('populateTerm: fails fast when the plan is not in pre-order (parent not yet created)', async () => {
+  const c = fakeClient();
+  const outOfOrder = [
+    { id: 'child', title: 'Child', labels: [], parentId: 'parent', scheduleKey: null, isParent: false },
+    { id: 'parent', title: 'Parent', labels: [], parentId: null, scheduleKey: null, isParent: true },
+  ];
+  await assert.rejects(() => populateTerm(outOfOrder, { schedule: [] }, c), /pre-order/i);
+});
+
 // ── assertSafeToCreate (pure guard against a double-run) ───────────────────
 test('assertSafeToCreate: throws when the term already has issues, unless forced', () => {
   assert.throws(() => assertSafeToCreate({ existingCount: 12, force: false }), /already|force/i);

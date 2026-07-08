@@ -47,7 +47,13 @@ async function populateTerm(plan, ctx, client) {
     created += 1;
 
     if (item.parentId !== null && item.parentId !== undefined) {
-      await client.addSubIssue({ parentNumber: numberById.get(item.parentId), childId: issue.id });
+      const parentNumber = numberById.get(item.parentId);
+      if (parentNumber === undefined) {
+        throw new Error(
+          `plan is not in pre-order: parent "${item.parentId}" of "${item.id}" has not been created yet`,
+        );
+      }
+      await client.addSubIssue({ parentNumber, childId: issue.id });
     }
 
     const boardItem = await client.addToBoard({ number: issue.number });

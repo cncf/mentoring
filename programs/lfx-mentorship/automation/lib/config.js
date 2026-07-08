@@ -2,7 +2,7 @@
 
 // Validation for a term-setup config (the per-term input a maintainer fills).
 //
-// The config is a plain object loaded from a .js or .json file by the runner
+// The config is a plain object loaded from a .yml, .yaml, or .json file by the runner
 // (see bin/). It drives every phase, so it is validated once, up front, with
 // errors that name the offending entry. Only the fields the current phases need
 // are checked; unknown fields (e.g. a future board mapping) are passed through
@@ -60,6 +60,9 @@ function validateConfig(raw) {
     }
     if (e.end != null && !isValidISODate(e.end)) {
       throw new Error(`schedule "${e.key}" has an invalid end date: ${e.end} (want YYYY-MM-DD)`);
+    }
+    if (e.end != null && e.end < e.start) {
+      throw new Error(`schedule "${e.key}" has end date ${e.end} before start date ${e.start}`);
     }
     if (seen.has(e.key)) throw new Error(`schedule has a duplicate key: ${e.key}`);
     seen.add(e.key);

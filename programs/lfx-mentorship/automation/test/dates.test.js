@@ -30,3 +30,8 @@ test('parseISO: parses a valid date to a UTC Date', () => {
 test('parseISO: throws on unparseable input', () => {
   assert.throws(() => parseISO('not-a-date'), /Invalid date/);
 });
+
+test('parseISO: rejects impossible calendar dates instead of rolling them forward', () => {
+  assert.throws(() => parseISO('2026-02-30'), /Invalid date/);
+  assert.throws(() => parseISO('2026-13-01'), /Invalid date/);
+});

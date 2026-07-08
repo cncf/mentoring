@@ -79,6 +79,13 @@ test('validateConfig: rejects duplicate schedule keys', () => {
   assert.throws(() => validateConfig(raw), /duplicate/i);
 });
 
+test('validateConfig: rejects a schedule entry whose end date precedes its start', () => {
+  const raw = validRaw();
+  raw.schedule[0].start = '2026-07-28';
+  raw.schedule[0].end = '2026-07-01';
+  assert.throws(() => validateConfig(raw), /before start date/i);
+});
+
 test('validateConfig: requires a proposals_open entry (README deadline depends on it)', () => {
   const raw = validRaw();
   raw.schedule[0].key = 'something_else';

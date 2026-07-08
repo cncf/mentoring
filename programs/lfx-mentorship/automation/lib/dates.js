@@ -14,11 +14,12 @@ function isValidISODate(s) {
   return !Number.isNaN(d.getTime()) && d.toISOString().slice(0, 10) === s;
 }
 
-// Parse a YYYY-MM-DD string into a UTC Date. Throws on unparseable input.
+// Parse a YYYY-MM-DD string into a UTC Date. Throws on anything that is not a
+// real calendar date (wrong shape, out of range, or a date that would silently
+// roll forward), so callers never receive a rolled-over Date.
 function parseISO(iso) {
-  const d = new Date(`${iso}T00:00:00Z`);
-  if (Number.isNaN(d.getTime())) throw new Error(`Invalid date: ${iso}`);
-  return d;
+  if (!isValidISODate(iso)) throw new Error(`Invalid date: ${iso}`);
+  return new Date(`${iso}T00:00:00Z`);
 }
 
 module.exports = { isValidISODate, parseISO };

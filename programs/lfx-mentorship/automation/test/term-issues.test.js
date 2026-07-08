@@ -65,7 +65,7 @@ test('buildIssuePlan: pre-order — every child appears after its parent', () =>
   const p = plan();
   const pos = new Map(p.map((n, i) => [n.id, i]));
   for (const n of p) {
-    if (n.parentId !== null) assert.ok(pos.get(n.parentId) < pos.get(n.id), `${n.title} precedes its parent`);
+    if (n.parentId !== null) assert.ok(pos.get(n.parentId) < pos.get(n.id), `${n.title} appears before its parent`);
   }
 });
 
