@@ -1,0 +1,4 @@
+# The LFX automation stays manifest-free: js-yaml is installed ad-hoc for local
+# test runs (npm install --no-save --ignore-scripts js-yaml@4.3.0), which leaves
+# an untracked node_modules/. Ignore it so it can't be committed by accident.
+node_modules/
