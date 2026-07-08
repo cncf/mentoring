@@ -4,7 +4,7 @@
 // Scaffold a fresh LFX term folder (README.md + project_ideas.md) from a
 // term-setup config. Phase 1 of the term-setup tooling; see ADMIN_GUIDE.md.
 //
-//   node bin/scaffold-term.js <config.(js|json)> [--repo-root DIR] [--dry-run] [--force]
+//   node bin/scaffold-term.js <config.(yml|json)> [--repo-root DIR] [--dry-run] [--force]
 //
 // Writes programs/lfx-mentorship/<year>/<NN-Mon-Mon>/{README.md,project_ideas.md}
 // relative to the repo root, then prints the git/PR steps. Refuses to overwrite
@@ -14,12 +14,12 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
-const { validateConfig } = require('../lib/config');
+const { validateConfig, parseConfig } = require('../lib/config');
 const { termIdentity } = require('../lib/term');
 const { buildTermReadme, PROJECT_IDEAS_NOTICE } = require('../lib/scaffold');
 
 const USAGE =
-  'Usage: node bin/scaffold-term.js <config.(js|json)> [--repo-root DIR] [--dry-run] [--force]';
+  'Usage: node bin/scaffold-term.js <config.(yml|json)> [--repo-root DIR] [--dry-run] [--force]';
 
 function parseArgs(argv) {
   const opts = { config: null, repoRoot: null, dryRun: false, force: false };
@@ -39,11 +39,7 @@ function parseArgs(argv) {
 function loadConfig(configPath) {
   const abs = path.resolve(configPath);
   if (!fs.existsSync(abs)) throw new Error(`Config not found: ${abs}`);
-  const ext = path.extname(abs);
-  if (ext !== '.js' && ext !== '.json') {
-    throw new Error(`Config must be a .js or .json file (got ${ext || 'no extension'})`);
-  }
-  return require(abs);
+  return parseConfig(fs.readFileSync(abs, 'utf8'), path.extname(abs));
 }
 
 function main(argv) {

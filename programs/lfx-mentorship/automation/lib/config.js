@@ -17,6 +17,23 @@
 //   }
 
 const { termIdentity } = require('./term');
+const yaml = require('js-yaml');
+
+// Parse a config file's text into an object, chosen by extension. YAML is
+// parsed with CORE_SCHEMA so unquoted ISO dates (2026-07-01) stay strings
+// rather than being coerced to Date objects by the default schema. Supported:
+// .yml / .yaml (YAML) and .json (JSON). The runner supplies the raw text and
+// the file extension; validation happens separately in validateConfig.
+function parseConfig(text, ext) {
+  const e = String(ext || '').toLowerCase();
+  if (e === '.yml' || e === '.yaml') {
+    return yaml.load(text, { schema: yaml.CORE_SCHEMA });
+  }
+  if (e === '.json') {
+    return JSON.parse(text);
+  }
+  throw new Error(`Config must be a .yml, .yaml, or .json file (got ${ext || 'no extension'})`);
+}
 
 // Strict YYYY-MM-DD check: right shape, real calendar date, and round-trips
 // (so 2026-02-30 is rejected rather than silently rolled to March).
@@ -62,4 +79,4 @@ function validateConfig(raw) {
   return raw;
 }
 
-module.exports = { validateConfig, isValidISODate };
+module.exports = { validateConfig, parseConfig, isValidISODate };

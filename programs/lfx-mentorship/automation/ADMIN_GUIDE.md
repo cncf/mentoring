@@ -32,9 +32,9 @@ the [LFX Mentorship README](../README.md#how-to-propose-a-program).
 
    ```bash
    cd programs/lfx-mentorship/automation
-   cp term-setup.example.js terms/2027-t1.js   # then edit term.number + schedule dates
-   node bin/scaffold-term.js terms/2027-t1.js --dry-run   # preview
-   node bin/scaffold-term.js terms/2027-t1.js             # write the files
+   cp term-setup.example.yml terms/2027-t1.yml   # then edit term.number + schedule dates
+   node bin/scaffold-term.js terms/2027-t1.yml --dry-run   # preview
+   node bin/scaffold-term.js terms/2027-t1.yml             # write the files
    ```
 
    The `schedule` dates are entered once in the config and drive the README

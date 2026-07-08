@@ -2,7 +2,7 @@
 
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { validateConfig } = require('../lib/config');
+const { validateConfig, parseConfig } = require('../lib/config');
 
 function validRaw() {
   return {
@@ -83,4 +83,47 @@ test('validateConfig: requires a proposals_open entry (README deadline depends o
   const raw = validRaw();
   raw.schedule[0].key = 'something_else';
   assert.throws(() => validateConfig(raw), /proposals_open/i);
+});
+
+// ── parseConfig: text + extension → config object ────────────────────────
+// YAML is parsed with CORE_SCHEMA so unquoted ISO dates stay strings (the
+// default schema would coerce 2026-07-01 to a Date and break validation).
+
+test('parseConfig: parses YAML and keeps unquoted dates as strings', () => {
+  const yml = [
+    'term:',
+    '  year: 2026',
+    '  number: 3',
+    'schedule:',
+    '  - key: proposals_open',
+    '    label: Project Proposals Open',
+    '    start: 2026-07-01',
+    '    end: 2026-07-28',
+  ].join('\n');
+  const cfg = parseConfig(yml, '.yml');
+  assert.equal(cfg.term.number, 3);
+  assert.equal(typeof cfg.schedule[0].start, 'string');
+  assert.equal(cfg.schedule[0].start, '2026-07-01');
+  assert.doesNotThrow(() => validateConfig(cfg));
+});
+
+test('parseConfig: accepts .yaml as well as .yml', () => {
+  assert.equal(parseConfig('term:\n  year: 2027\n  number: 1', '.yaml').term.year, 2027);
+});
+
+test('parseConfig: is case-insensitive on the extension', () => {
+  assert.equal(parseConfig('term:\n  number: 1', '.YML').term.number, 1);
+});
+
+test('parseConfig: parses JSON', () => {
+  const cfg = parseConfig('{"term":{"year":2026,"number":2},"schedule":[]}', '.json');
+  assert.equal(cfg.term.number, 2);
+});
+
+test('parseConfig: rejects an unsupported extension', () => {
+  assert.throws(() => parseConfig('x: 1', '.txt'), /yml|yaml|json/i);
+});
+
+test('parseConfig: surfaces malformed YAML as an error', () => {
+  assert.throws(() => parseConfig('term: [unclosed', '.yml'));
 });
