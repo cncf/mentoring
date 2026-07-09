@@ -44,12 +44,38 @@ the [LFX Mentorship README](../README.md#how-to-propose-a-program).
    unless you pass `--force` (the `terms.yml` insert is idempotent), and prints
    the git/PR steps when it's done. Commit the folder and `terms.yml` in one PR.
 
-2. **Sync the dropdowns:** Run the **Landscape Projects Sync** workflow
+2. **Populate the term admin board:** Create the term's admin tracking board (the
+   recurring ~62 setup/checklist issues, e.g.
+   [board #90](https://github.com/orgs/cncf/projects/90)) once from a template,
+   then let the tool fill it. Unlike the rest of the automation, this runs
+   locally; do a one-time `npm install --no-save --ignore-scripts js-yaml@4.3.0`
+   in the automation dir, and make sure `gh` has project scope
+   (`gh auth refresh -s project,read:project`).
+
+   1. Create the board (New project → copy the previous term's board) and confirm
+      it has a `Status` single-select field (with a `Todo` option) plus
+      `Start Date` and `Due Date` **date** fields. Copy its URL.
+   2. Add `repo` (e.g. `cncf/mentoring`) and `project` (the board URL) to the
+      term config, then populate:
+
+      ```bash
+      node bin/populate-term-board.js terms/2027-t1.yml --dry-run   # preview the plan
+      node bin/populate-term-board.js terms/2027-t1.yml             # create + populate
+      ```
+
+   The tool creates each issue, nests the sub-issues, adds every card to the
+   board, and sets Status + Start/Due from the schedule. It records the run in a
+   local manifest (`.runs/`, gitignored); if you need to redo it,
+   `bin/teardown-term.js terms/2027-t1.yml --yes` deletes exactly that run. Test
+   the whole loop on the dev fork first — teardown refuses to run against
+   production.
+
+3. **Sync the dropdowns:** Run the **Landscape Projects Sync** workflow
    manually (Actions → Landscape Projects Sync → Run workflow), or wait for
    the Monday cron. This propagates the new `terms.yml` entry into the term
    dropdown in both the issue form and the export workflow.
 
-3. **Announce the term:** Post to the CNCF blog, Slack (#mentoring), and
+4. **Announce the term:** Post to the CNCF blog, Slack (#mentoring), and
    social media. Include a link to the issue form.
 
 PRs touching a term folder get the `Term N: <months>` label automatically —
