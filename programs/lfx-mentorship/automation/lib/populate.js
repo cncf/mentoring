@@ -65,4 +65,17 @@ async function populateTerm(plan, ctx, client) {
   return { created };
 }
 
-module.exports = { resolveDates, assertSafeToCreate, populateTerm };
+// Render a human preview of the populate plan: one line per issue, children
+// indented under their section, with resolved dates in brackets. Pure — the
+// runner prints it for --dry-run. Note parentId 0 is a real parent (the first
+// section), so nesting is decided by an explicit null check, not truthiness.
+function formatPlanPreview(plan, schedule) {
+  return plan.map((item) => {
+    const { start, due } = resolveDates(item.scheduleKey, schedule);
+    const dates = start ? `  [${start}${due && due !== start ? ` \u2013 ${due}` : ''}]` : '';
+    const indent = item.parentId != null ? '    ' : '  ';
+    return `${indent}${item.title}${dates}`;
+  });
+}
+
+module.exports = { resolveDates, assertSafeToCreate, populateTerm, formatPlanPreview };

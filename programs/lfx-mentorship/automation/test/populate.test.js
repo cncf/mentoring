@@ -2,7 +2,7 @@
 
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { resolveDates, populateTerm, assertSafeToCreate } = require('../lib/populate');
+const { resolveDates, populateTerm, assertSafeToCreate, formatPlanPreview } = require('../lib/populate');
 const { parseIssues, buildIssuePlan } = require('../lib/term-issues');
 const { termIdentity } = require('../lib/term');
 
@@ -23,6 +23,24 @@ test('resolveDates: a single-day entry sets due = start', () => {
 test('resolveDates: a null or unknown key yields no dates', () => {
   assert.deepEqual(resolveDates(null, SCHEDULE), { start: null, due: null });
   assert.deepEqual(resolveDates('nope', SCHEDULE), { start: null, due: null });
+});
+
+// ── formatPlanPreview ────────────────────────────────────────────────────
+test('formatPlanPreview: indents children under sections, incl. section id 0', () => {
+  const plan = [
+    { id: 0, title: '0. Key dates', parentId: null, scheduleKey: null },
+    { id: 1, title: 'Proposals open', parentId: 0, scheduleKey: 'proposals_open' },
+    { id: 2, title: 'Info session', parentId: 0, scheduleKey: null },
+    { id: 3, title: '1. Before term', parentId: null, scheduleKey: null },
+    { id: 4, title: 'Plan term', parentId: 3, scheduleKey: 'term_start' },
+  ];
+  assert.deepEqual(formatPlanPreview(plan, SCHEDULE), [
+    '  0. Key dates',
+    '    Proposals open  [2026-07-01 \u2013 2026-07-28]', // ranged
+    '    Info session', // dateless: no bracket
+    '  1. Before term',
+    '    Plan term  [2026-09-07]', // single day
+  ]);
 });
 
 test('resolveDates: an entry present but not yet scheduled yields no dates', () => {
