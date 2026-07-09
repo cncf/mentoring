@@ -12,7 +12,7 @@ function assertTeardownAllowed(repo) {
   if (!repo || typeof repo !== 'string') {
     throw new Error('teardown needs a "repo" (owner/repo) in the config');
   }
-  if (repo.toLowerCase() === PROD_REPO) {
+  if (repo.trim().toLowerCase() === PROD_REPO) {
     throw new Error(
       `Refusing to tear down ${repo}: teardown permanently deletes issues and is a dev-fork ` +
       'cleanup tool only. It must never run against production.',

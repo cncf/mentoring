@@ -29,10 +29,11 @@ function listedTerms(text) {
 // the program README archive table). Idempotent: if the term is already listed
 // the text is returned unchanged. Throws if there is no `terms:` key.
 function addTermToDropdown(text, label) {
-  const lines = String(text).split('\n');
+  const source = String(text);
+  const lines = source.split('\n');
   const idx = lines.findIndex((l) => /^terms:\s*$/.test(l));
   if (idx === -1) throw new Error('terms.yml has no "terms:" key');
-  if (listedTerms(text).includes(label)) return text;
+  if (listedTerms(source).includes(label)) return source;
   lines.splice(idx + 1, 0, `  - "${label}"`);
   return lines.join('\n');
 }

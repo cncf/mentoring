@@ -34,6 +34,12 @@ test('addTermToDropdown: throws when there is no terms: key', () => {
   assert.throws(() => addTermToDropdown('nope: true\n', '2027 Term 1 (Mar-May)'), /terms:/);
 });
 
+test('addTermToDropdown: returns a string on both paths, even given a Buffer', () => {
+  const buf = Buffer.from(SAMPLE);
+  assert.equal(typeof addTermToDropdown(buf, '2027 Term 1 (Mar-May)'), 'string'); // modified path
+  assert.equal(typeof addTermToDropdown(buf, '2026 Term 3 (Sep-Nov)'), 'string'); // idempotent path
+});
+
 test('listedTerms: returns the current entries, unquoted, in order', () => {
   assert.deepEqual(listedTerms(SAMPLE), ['2026 Term 3 (Sep-Nov)']);
   const grown = addTermToDropdown(SAMPLE, '2027 Term 1 (Mar-May)');

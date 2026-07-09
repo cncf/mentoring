@@ -13,6 +13,12 @@ test('assertTeardownAllowed: is case-insensitive on the prod repo', () => {
   assert.throws(() => assertTeardownAllowed('CNCF/Mentoring'), /production|cncf\/mentoring/i);
 });
 
+test('assertTeardownAllowed: refuses prod even with surrounding whitespace', () => {
+  assert.throws(() => assertTeardownAllowed('cncf/mentoring '), /production|cncf\/mentoring/i);
+  assert.throws(() => assertTeardownAllowed('  cncf/mentoring'), /production|cncf\/mentoring/i);
+  assert.throws(() => assertTeardownAllowed(' CNCF/Mentoring '), /production|cncf\/mentoring/i);
+});
+
 test('assertTeardownAllowed: allows a dev fork', () => {
   assert.doesNotThrow(() => assertTeardownAllowed('nate-double-u/mentoring'));
   assert.doesNotThrow(() => assertTeardownAllowed('someone/mentoring'));
