@@ -22,6 +22,7 @@ const { assertSafeToCreate, populateTerm, formatPlanPreview } = require('../lib/
 const { parseProjectRef } = require('../lib/project-ref');
 const { parseBoardFields, requireFields } = require('../lib/board-fields');
 const { createGhClient } = require('../lib/gh-client');
+const { runManifestPath, openRunManifest } = require('../lib/run-manifest');
 
 const USAGE =
   'Usage: node bin/populate-term-board.js <config.(yml|json)> [--repo-root DIR] [--dry-run] [--force]';
@@ -80,11 +81,14 @@ async function countExisting(repo, labels, exec) {
   return JSON.parse(await exec(args)).length;
 }
 
-// Log each issue as the client creates it, so a ~62-issue run shows progress.
-function withProgress(inner) {
+// Record each issue in the run manifest the instant it is created (before the
+// board add), and log progress. Recording at creation time means teardown can
+// always find an issue even if a later step crashes.
+function instrument(inner, manifest) {
   return Object.assign({}, inner, {
     async createIssue(a) {
       const r = await inner.createIssue(a);
+      manifest.append({ number: r.number, title: a.title, nodeId: r.nodeId });
       process.stdout.write(`  #${r.number}  ${a.title}\n`);
       return r;
     },
@@ -118,6 +122,15 @@ async function main(argv) {
   if (!cfg.repo) throw new Error('config is missing "repo" (e.g. nate-double-u/mentoring)');
   if (!cfg.project) throw new Error('config is missing "project" (the board URL the admin created)');
 
+  const automationDir = path.join(repoRoot, 'programs/lfx-mentorship/automation');
+  const manifest = openRunManifest({ path: runManifestPath(automationDir, identity, cfg.repo) });
+  if (manifest.exists()) {
+    throw new Error(
+      `A run manifest already exists at ${manifest.path}. Tear down that run first ` +
+      '(bin/teardown-term.js), or remove the manifest, before starting a new one.',
+    );
+  }
+
   const labels = ['lfx mentorship', identity.label, identity.yearLabel, 'administration'];
   const existingCount = await countExisting(cfg.repo, labels, ghExec);
   assertSafeToCreate({ existingCount, force: opts.force });
@@ -126,11 +139,12 @@ async function main(argv) {
   const { projectId, fields } = await resolveBoard(cfg.project, ghExec);
 
   console.log(`Creating ${plan.length} issues on ${cfg.repo} and populating the board:`);
-  const client = withProgress(createGhClient({ repo: cfg.repo, projectId, fields, exec: ghExec }));
+  const client = instrument(createGhClient({ repo: cfg.repo, projectId, fields, exec: ghExec }), manifest);
   const { created } = await populateTerm(plan, { schedule: cfg.schedule }, client);
 
   console.log(`\nDone: ${created} issues created, linked, and added to the board for ${identity.title}.`);
-  console.log('Tip: run bin/teardown-term.js with the same config to remove them (dev cleanup).');
+  console.log(`Recorded in ${manifest.path}.`);
+  console.log('Tip: run bin/teardown-term.js with the same config to remove exactly this run (dev cleanup).');
   return 0;
 }
 
