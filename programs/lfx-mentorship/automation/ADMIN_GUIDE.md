@@ -52,9 +52,15 @@ the [LFX Mentorship README](../README.md#how-to-propose-a-program).
    in the automation dir, and make sure `gh` has project scope
    (`gh auth refresh -s project,read:project`).
 
-   1. Create the board (New project → copy the previous term's board) and confirm
-      it has a `Status` single-select field (with a `Todo` option) plus
-      `Start Date` and `Due Date` **date** fields. Copy its URL.
+   1. Create the board by copying the previous term's board (open it → `•••` →
+      **Make a copy** → set the owner, **uncheck Draft issues**). The copy brings
+      the `Status` column (with a `Todo` option), the `Start Date` and `Due Date`
+      date fields, and the Activities/Roadmap/Kanban views — without any issues.
+      Copying is the only way to carry the views: GitHub has no API to create a
+      project view, so the tool can't (and doesn't) set them up. (First time only,
+      with nothing to copy: create a board, add `Start Date` + `Due Date` **date**
+      fields via `•••` → Customize fields → New field → Date, and add any views by
+      hand.) Copy the new board's URL.
    2. Add `repo` (e.g. `cncf/mentoring`) and `project` (the board URL) to the
       term config, then populate:
 
