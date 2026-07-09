@@ -54,9 +54,9 @@ function fakeClient() {
   let n = 1000;
   return {
     calls,
-    async createIssue(a) { calls.push(['createIssue', a.title, a.labels]); const number = n++; return { number, id: number * 10 }; },
+    async createIssue(a) { calls.push(['createIssue', a.title, a.labels]); const number = n++; return { number, id: number * 10, nodeId: `node-${number}` }; },
     async addSubIssue(a) { calls.push(['addSubIssue', a.parentNumber, a.childId]); },
-    async addToBoard(a) { calls.push(['addToBoard', a.number]); return { itemId: `item-${a.number}` }; },
+    async addToBoard(a) { calls.push(['addToBoard', a.contentId]); return { itemId: `item-${a.contentId}` }; },
     async setFields(a) { calls.push(['setFields', a.itemId, a.status, a.start, a.due]); },
   };
 }
@@ -103,11 +103,11 @@ test('populateTerm: sets resolved dates on a scheduled issue, none on a keyless 
   const c = fakeClient();
   await populateTerm(plan(), { schedule: SCHEDULE }, c);
   const set = c.calls.filter((k) => k[0] === 'setFields');
-  // proposals open is board item item-1001
-  const openFields = set.find((k) => k[1] === 'item-1001');
+  // proposals open is board item item-node-1001
+  const openFields = set.find((k) => k[1] === 'item-node-1001');
   assert.deepEqual([openFields[3], openFields[4]], ['2026-07-01', '2026-07-28']);
-  // kickoff (item-1002) is keyless -> null dates
-  const kickoff = set.find((k) => k[1] === 'item-1002');
+  // kickoff (item-node-1002) is keyless -> null dates
+  const kickoff = set.find((k) => k[1] === 'item-node-1002');
   assert.deepEqual([kickoff[3], kickoff[4]], [null, null]);
 });
 

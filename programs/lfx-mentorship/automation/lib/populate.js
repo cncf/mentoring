@@ -7,9 +7,9 @@
 // adapter; this module never calls `gh` itself.
 //
 // client interface (all async):
-//   createIssue({ title, labels })            -> { number, id }
+//   createIssue({ title, labels })            -> { number, id, nodeId }
 //   addSubIssue({ parentNumber, childId })    -> void
-//   addToBoard({ number })                    -> { itemId }
+//   addToBoard({ contentId })                 -> { itemId }
 //   setFields({ itemId, status, start, due }) -> void
 
 // Resolve a schedule_key to board dates. A ranged entry maps to start + end; a
@@ -57,7 +57,7 @@ async function populateTerm(plan, ctx, client) {
       await client.addSubIssue({ parentNumber, childId: issue.id });
     }
 
-    const boardItem = await client.addToBoard({ number: issue.number });
+    const boardItem = await client.addToBoard({ contentId: issue.nodeId });
     const { start, due } = resolveDates(item.scheduleKey, schedule);
     await client.setFields({ itemId: boardItem.itemId, status: 'Todo', start, due });
   }
