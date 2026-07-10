@@ -18,10 +18,26 @@ const PROPOSAL_TITLE_PREFIX = '[CNCF LFX Proposal]';
 // and immediately remove it in the same run.
 const PROPOSAL_LABELS = ['lfx mentorship', 'Proposal'];
 
-// True when an issue title marks it as an LFX proposal. Tolerates surrounding
-// whitespace; case-sensitive to match the workflow's YAML startsWith() gate.
+// Core headings the proposal issue form always emits (as "### <label>"; see
+// lib/parse.js parseIssueForm). Used to tell a genuine template submission from
+// an arbitrary issue that merely borrows the title prefix.
+const PROPOSAL_FORM_HEADINGS = ['CNCF Project', 'Term', 'Program Description', 'Mentors'];
+
+// True when an issue title marks it as an LFX proposal. Deliberately does NOT
+// trim: it must behave exactly like the workflow's YAML startsWith() gate,
+// which has no trim, so the gate and this step never disagree.
 function isProposalTitle(title) {
-  return typeof title === 'string' && title.trim().startsWith(PROPOSAL_TITLE_PREFIX);
+  return typeof title === 'string' && title.startsWith(PROPOSAL_TITLE_PREFIX);
+}
+
+// True when an issue body carries every required proposal-form heading. A magic
+// title alone must not let any author apply the identifying labels (which
+// unlock the token-bearing downstream workflows), so the bootstrap also
+// requires the body to look like a real template submission. Matches the
+// "### <label>" heading shape, not bare prose mentioning the field names.
+function looksLikeProposalForm(body, required = PROPOSAL_FORM_HEADINGS) {
+  if (typeof body !== 'string' || !body) return false;
+  return required.every((heading) => body.includes(`### ${heading}`));
 }
 
 // Given the labels already on an issue, return the required identifying labels
@@ -35,6 +51,8 @@ function missingLabels(current, required = PROPOSAL_LABELS) {
 module.exports = {
   PROPOSAL_TITLE_PREFIX,
   PROPOSAL_LABELS,
+  PROPOSAL_FORM_HEADINGS,
   isProposalTitle,
+  looksLikeProposalForm,
   missingLabels,
 };

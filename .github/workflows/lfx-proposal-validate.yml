@@ -10,15 +10,18 @@ permissions:
 
 jobs:
   validate:
-    # Run for issues already carrying the identifying labels OR for anything
-    # filed through the proposal template (title prefix). GitHub only applies a
-    # template's `labels:` for authors with triage access, so read-only
-    # proposers' issues arrive unlabeled; the title gate lets them through and
-    # the "Bootstrap proposal labels" step below re-applies the labels.
+    # Run for issues already carrying the identifying labels OR for genuine
+    # proposal-form submissions. GitHub only applies a template's `labels:` for
+    # authors with triage access, so read-only proposers' issues arrive
+    # unlabeled; the title-prefix + form-heading gate lets those through (and the
+    # "Bootstrap proposal labels" step re-applies the labels). Requiring a form
+    # heading — not just the title — keeps a magic-titled but empty issue from
+    # triggering the job (and its token-bearing board-sync step).
     if: >-
       (contains(github.event.issue.labels.*.name, 'lfx mentorship')
        && contains(github.event.issue.labels.*.name, 'Proposal'))
-      || startsWith(github.event.issue.title, '[CNCF LFX Proposal]')
+      || (startsWith(github.event.issue.title, '[CNCF LFX Proposal]')
+          && contains(github.event.issue.body, '### CNCF Project'))
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -30,19 +33,21 @@ jobs:
           script: |
             const path = require('path');
             const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
-            const { PROPOSAL_LABELS, isProposalTitle, missingLabels } = _lib('labels.js');
+            const { PROPOSAL_LABELS, isProposalTitle, looksLikeProposalForm, missingLabels } = _lib('labels.js');
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;
             const title = context.payload.issue.title || '';
+            const body = context.payload.issue.body || '';
 
             // GitHub silently drops issue-template labels for authors without
             // triage access, so proposals from read-only project maintainers
             // land unlabeled and every label-gated proposal workflow skips.
             // Re-apply the identifying labels here so validation (below), the
             // board sync step, and the approvals workflow can key off them.
-            // Re-confirm the proposal by title before labelling, so a labelled
-            // non-proposal that reaches this job never picks these up.
-            if (!isProposalTitle(title)) return;
+            // Require BOTH the proposal title and the issue-form body so a
+            // magic-titled non-proposal never picks up the (token-unlocking)
+            // labels — mirrors the job gate, in a unit-tested helper.
+            if (!isProposalTitle(title) || !looksLikeProposalForm(body)) return;
 
             const current = (context.payload.issue.labels || []).map((l) => l.name);
             const toAdd = missingLabels(current, PROPOSAL_LABELS);

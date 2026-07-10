@@ -5,20 +5,28 @@ const assert = require('node:assert/strict');
 const {
   PROPOSAL_TITLE_PREFIX,
   PROPOSAL_LABELS,
+  PROPOSAL_FORM_HEADINGS,
   isProposalTitle,
+  looksLikeProposalForm,
   missingLabels,
 } = require('../lib/labels');
 
 // ── isProposalTitle ──────────────────────────────────────────────────
 // Label-independent detection of a proposal, so the workflow can run for
 // issues from read-only authors whose template labels GitHub silently drops.
+// Behaviour is kept identical to the workflow's YAML startsWith() gate — no
+// trimming, case-sensitive — so the gate and the step never disagree.
 
 test('isProposalTitle: true for the template title prefix', () => {
   assert.equal(isProposalTitle('[CNCF LFX Proposal] Apicurio: Federated Search'), true);
 });
 
-test('isProposalTitle: tolerates surrounding whitespace', () => {
-  assert.equal(isProposalTitle('  [CNCF LFX Proposal] Foo  '), true);
+test('isProposalTitle: trailing whitespace still matches (startsWith parity)', () => {
+  assert.equal(isProposalTitle('[CNCF LFX Proposal] Foo  '), true);
+});
+
+test('isProposalTitle: leading whitespace does NOT match (startsWith parity)', () => {
+  assert.equal(isProposalTitle('  [CNCF LFX Proposal] Foo'), false);
 });
 
 test('isProposalTitle: false for an unrelated title', () => {
@@ -40,6 +48,52 @@ test('isProposalTitle: false for non-string input', () => {
 // keeps the two in agreement.
 test('isProposalTitle: case-sensitive (matches YAML gate)', () => {
   assert.equal(isProposalTitle('[cncf lfx proposal] Foo'), false);
+});
+
+// ── looksLikeProposalForm ────────────────────────────────────────────
+// A magic title alone must not let any author apply the identifying labels
+// (which unlock the token-bearing downstream workflows). Require the issue body
+// to carry the proposal issue-form's headings, so the bootstrap only fires for
+// genuine template submissions.
+
+// Minimal body carrying every required heading, in the "### <label>" shape the
+// GitHub issue form emits (see lib/parse.js parseIssueForm).
+const formBody = PROPOSAL_FORM_HEADINGS.map((h) => `### ${h}\n\nvalue`).join('\n\n');
+
+test('PROPOSAL_FORM_HEADINGS: are the core required proposal fields', () => {
+  assert.deepEqual(PROPOSAL_FORM_HEADINGS, ['CNCF Project', 'Term', 'Program Description', 'Mentors']);
+});
+
+test('looksLikeProposalForm: true when all required headings are present', () => {
+  assert.equal(looksLikeProposalForm(formBody), true);
+});
+
+test('looksLikeProposalForm: true even with extra content around the headings', () => {
+  assert.equal(looksLikeProposalForm(`intro\n\n${formBody}\n\n### Technologies\n\nGo`), true);
+});
+
+test('looksLikeProposalForm: false when any required heading is missing', () => {
+  const missingMentors = ['CNCF Project', 'Term', 'Program Description']
+    .map((h) => `### ${h}\n\nvalue`).join('\n\n');
+  assert.equal(looksLikeProposalForm(missingMentors), false);
+});
+
+test('looksLikeProposalForm: false for a bare heading label without the ### prefix', () => {
+  // Prose that merely mentions the field names must not count as a form.
+  const prose = PROPOSAL_FORM_HEADINGS.join(', ');
+  assert.equal(looksLikeProposalForm(prose), false);
+});
+
+test('looksLikeProposalForm: false for empty / non-string bodies', () => {
+  assert.equal(looksLikeProposalForm(''), false);
+  assert.equal(looksLikeProposalForm(undefined), false);
+  assert.equal(looksLikeProposalForm(null), false);
+  assert.equal(looksLikeProposalForm(42), false);
+});
+
+test('looksLikeProposalForm: honours a custom required-headings list', () => {
+  assert.equal(looksLikeProposalForm('### Only\n\nx', ['Only']), true);
+  assert.equal(looksLikeProposalForm('### Only\n\nx', ['Only', 'Missing']), false);
 });
 
 // ── PROPOSAL_LABELS ──────────────────────────────────────────────────
