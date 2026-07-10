@@ -136,3 +136,11 @@ test('handle match is case-insensitive and tolerates a leading @', async () => {
   const r = await resolveProjectMaintainer({ handle: '@CarlesArnal', ...APICURIO, fetchFn });
   assert.equal(r.authorized, true);
 });
+
+test('tier-2 CSV non-2xx is logged (not silently swallowed)', async () => {
+  const logs = [];
+  const fetchFn = makeFetch({ [CSV_URL]: { ok: false, status: 500 } });
+  const r = await resolveProjectMaintainer({ handle: 'someone', project: 'Foobar', org: '', hasDotProject: false, fetchFn, log: (m) => logs.push(m) });
+  assert.equal(r.authorized, false);
+  assert.ok(logs.some((m) => /project-maintainers\.csv fetch failed \(HTTP 500\)/.test(m)), `expected CSV HTTP log, got: ${JSON.stringify(logs)}`);
+});

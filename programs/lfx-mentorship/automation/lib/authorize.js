@@ -56,6 +56,8 @@ async function resolveProjectMaintainer({ handle, project, org, hasDotProject, f
         if (hit.authorized) {
           return { authorized: true, source: `project-maintainers.csv (${hit.project})` };
         }
+      } else {
+        log(`project-maintainers.csv fetch failed (HTTP ${resp.status})`);
       }
     } catch (e) {
       log(`project-maintainers.csv check failed: ${e.message}`);
