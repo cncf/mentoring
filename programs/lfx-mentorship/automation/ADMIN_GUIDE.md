@@ -62,9 +62,11 @@ Before using `/cncf-approve` on a proposal, verify:
 
 - [ ] Validation has passed (green `Validation Passed` label)
 - [ ] A project maintainer has commented `/approve` (`Maintainer/Contribex
-  Approved` label is present)
+  Approved` label is present) — or the proposer is themselves a project
+  maintainer, in which case validation grants it automatically
 - [ ] All listed mentors have commented `/confirm` (`Mentors Confirmed`
-  label is present)
+  label is present) — a mentor who filed the proposal is auto-counted for
+  their own slot
 - [ ] The program description is appropriate and clearly scoped
 - [ ] If the issue has the `Over Quota` label, confirm the project is aware
   they're over the per-term limit and the exception is intentional
