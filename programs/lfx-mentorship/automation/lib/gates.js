@@ -42,9 +42,19 @@ function gateLabelChanges({ pass, maintainerApproved, mentorsConfirmed, material
   // Validation regressed (previously passing, now failing): clear the awaiting
   // prompts (maintainer, mentor, and CNCF-admin) so nothing shows "waiting on
   // approvals" while the slash commands are gated off by the lost Validation
-  // Passed. Recorded approvals/confirmations are left intact (as before).
+  // Passed. If the regression was caused by a MATERIAL edit, the content the
+  // approvers signed off on changed, so the maintainer + CNCF approvals are
+  // invalidated here too — exactly as on the passing path (a stale approval must
+  // not survive on a now-failing proposal, where it could still be
+  // /cncf-approve'd). The maintainer's approval survives only when re-granted
+  // this run (proposer is a project maintainer); mentor confirmation persists
+  // (participation commitment). A non-material failure leaves approvals intact.
   if (!pass) {
     for (const l of [AWAITING_MAINTAINER, AWAITING_MENTORS, AWAITING_CNCF]) if (has(l)) remove.push(l);
+    if (materialChange) {
+      if (has(MAINTAINER_APPROVED) && !maintainerApproved) remove.push(MAINTAINER_APPROVED);
+      if (has(CNCF_APPROVED)) remove.push(CNCF_APPROVED);
+    }
     return { add, remove };
   }
 
