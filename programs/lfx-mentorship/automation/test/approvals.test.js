@@ -30,3 +30,11 @@ test('empty / null input → empty result', () => {
   assert.deepEqual(findRecordedApprovers([]), { maintainers: [], cncfAdmins: [] });
   assert.deepEqual(findRecordedApprovers(null), { maintainers: [], cncfAdmins: [] });
 });
+
+test('de-dupes case-insensitively, preserving first-seen casing', () => {
+  const comments = [
+    bot('✅ Maintainer approval recorded from @CarlesArnal (source).'),
+    bot('✅ Maintainer approval recorded from @carlesarnal (again).'),
+  ];
+  assert.deepEqual(findRecordedApprovers(comments), { maintainers: ['CarlesArnal'], cncfAdmins: [] });
+});

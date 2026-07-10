@@ -351,9 +351,12 @@ jobs:
             let mentorsConfirmed = currentLabels.includes('Mentors Confirmed');
             let maintainerAutoApproved = false;
             if (errors.length === 0) {
-              // Maintainer gate: is the proposer a project maintainer? (If a
-              // maintainer edited, they are the OP, so the proposer check covers
-              // "the editor is a maintainer".)
+              // Maintainer gate: is the proposer a project maintainer?
+              // Deliberately keyed off the PROPOSER, not the editor: a project
+              // maintainer can only edit an issue when they are the OP, and the
+              // only others with edit rights on this repo are trusted CNCF/TOC
+              // collaborators — so keeping the proposer's approval across a
+              // non-OP edit is acceptable and not an approval bypass.
               if (!maintainerApproved && proposer) {
                 try {
                   const projYaml = fs.readFileSync('programs/lfx-mentorship/automation/projects.yml', 'utf8');
