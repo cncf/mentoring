@@ -160,3 +160,10 @@ test('removing the only unconfirmed mentor completes the roster', () => {
     { flip: true, remaining: [], count: 1, total: 1 },
   );
 });
+
+test('an off-roster commenter is not counted (self-consistent contract)', () => {
+  assert.deepEqual(
+    computeConfirm(['a', 'b'], 'zzz', []),
+    { flip: false, remaining: ['a', 'b'], count: 0, total: 2 },
+  );
+});

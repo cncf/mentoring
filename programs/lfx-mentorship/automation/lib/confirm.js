@@ -18,13 +18,15 @@
 //
 // A comment counts as a confirmation only when its author is on the roster and
 // a line in its body starts with `/confirm` (mid-sentence mentions do not
-// count).
+// count). The commenter and issue author are likewise only counted when they
+// are on the roster, so `count` never exceeds the roster.
 function computeConfirm(mentorHandles, commenter, comments, author) {
   const norm = (h) => String(h || '').replace(/^@/, '').trim().toLowerCase();
   const roster = [...new Set(mentorHandles.map(norm))];
+  const onRoster = (h) => h && roster.includes(norm(h));
   const confirmed = new Set();
-  if (commenter) confirmed.add(norm(commenter));
-  if (author && roster.includes(norm(author))) confirmed.add(norm(author));
+  if (onRoster(commenter)) confirmed.add(norm(commenter));
+  if (onRoster(author)) confirmed.add(norm(author));
   const hasConfirm = (body) => (body || '').split(/\r?\n/)
     .some(l => /^\/confirm\b/.test(l.trim()));
   for (const c of comments) {

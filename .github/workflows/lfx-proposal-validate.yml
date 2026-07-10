@@ -428,7 +428,7 @@ jobs:
               lines.push('', '### What happens next', '');
               lines.push(
                 (maintainerApproved && mentorsConfirmed)
-                  ? 'Maintainer approval and mentor confirmation are already in place (the proposer is a project maintainer and/or listed mentor), so this proposal goes straight to final CNCF admin review.'
+                  ? 'Maintainer approval and mentor confirmation are already in place, so this proposal goes straight to final CNCF admin review.'
                   : 'This proposal is now waiting on the people below. No further action is needed from the proposer unless validation flags a change.',
                 '',
               );
@@ -504,7 +504,12 @@ jobs:
               const toTag = [];
               if (clearedMaintainer) for (const h of maintainers) toTag.push(h);
               if (clearedCncf) for (const h of cncfAdmins) toTag.push(h);
-              const mentions = [...new Set(toTag)].map(h => `@${h}`).join(' ');
+              // De-dupe case-insensitively (a global approver can appear in both
+              // lists), preserving first-seen casing.
+              const seenTag = new Set();
+              const mentions = toTag
+                .filter(h => { const k = h.toLowerCase(); if (seenTag.has(k)) return false; seenTag.add(k); return true; })
+                .map(h => `@${h}`).join(' ');
               const what = [clearedMaintainer && 'maintainer approval', clearedCncf && 'CNCF admin approval']
                 .filter(Boolean).join(' and ');
               await github.rest.issues.createComment({
