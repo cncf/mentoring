@@ -354,14 +354,13 @@ jobs:
                   console.log(`proposer maintainer check failed: ${e.message}`);
                 }
               }
-              // Mentor gate: does the proposer's own slot complete the roster?
-              // (computeConfirm also counts any mentors who already /confirmed.)
-              if (!mentorsConfirmed) {
-                const roster = parseMentors(mentorsRaw).map(m => m.github_handle);
-                if (computeConfirm(roster, null, issueComments, proposer).flip) {
-                  mentorsConfirmed = true;
-                }
-              }
+              // Mentor gate: recompute from the CURRENT roster so adding an
+              // unconfirmed mentor re-opens confirmation (and a removed mentor
+              // resolves it). computeConfirm counts the proposer's own slot plus
+              // any mentors who already /confirmed. Unlike the maintainer gate,
+              // this is NOT monotonic — it reflects the present roster.
+              const roster = parseMentors(mentorsRaw).map(m => m.github_handle);
+              mentorsConfirmed = computeConfirm(roster, null, issueComments, proposer).flip;
             }
 
             // ── Build validation comment ──

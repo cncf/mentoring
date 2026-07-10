@@ -21,9 +21,16 @@ const AWAITING_CNCF = 'Awaiting CNCF Admin Approval';
 const CNCF_APPROVED = 'CNCF Approved';
 
 // { pass, maintainerApproved, mentorsConfirmed, currentLabels } → { add, remove }.
-// maintainerApproved / mentorsConfirmed reflect the proposer-implied resolution
-// for THIS run; existing labels are still honored (idempotent, never downgrades
-// an approval/confirmation already recorded by a slash command).
+//
+// maintainerApproved: is the maintainer gate satisfied (an existing /approve OR
+//   the proposer being a project maintainer)? MONOTONIC — honored once set and
+//   never downgraded here, since an approval may have come from a maintainer
+//   other than the author.
+// mentorsConfirmed: are ALL current mentors confirmed, freshly recomputed from
+//   the current roster (proposer's own slot + any /confirm comments)? This can
+//   go false again when a new, unconfirmed mentor is added, so the label may be
+//   downgraded back to "awaiting" — unless the proposal is already CNCF-approved
+//   (finalized, left alone).
 function gateLabelChanges({ pass, maintainerApproved, mentorsConfirmed, currentLabels }) {
   const has = (l) => currentLabels.includes(l);
   const add = [];
@@ -38,7 +45,7 @@ function gateLabelChanges({ pass, maintainerApproved, mentorsConfirmed, currentL
     return { add, remove };
   }
 
-  // Maintainer gate
+  // Maintainer gate (monotonic)
   if (maintainerApproved) {
     if (!has(MAINTAINER_APPROVED)) add.push(MAINTAINER_APPROVED);
     if (has(AWAITING_MAINTAINER)) remove.push(AWAITING_MAINTAINER);
@@ -46,19 +53,23 @@ function gateLabelChanges({ pass, maintainerApproved, mentorsConfirmed, currentL
     add.push(AWAITING_MAINTAINER);
   }
 
-  // Mentor gate
+  // Mentor gate (reflects the current roster; can downgrade unless finalized)
   if (mentorsConfirmed) {
     if (!has(MENTORS_CONFIRMED)) add.push(MENTORS_CONFIRMED);
     if (has(AWAITING_MENTORS)) remove.push(AWAITING_MENTORS);
-  } else if (!has(MENTORS_CONFIRMED) && !has(AWAITING_MENTORS)) {
-    add.push(AWAITING_MENTORS);
+  } else if (!has(CNCF_APPROVED)) {
+    if (has(MENTORS_CONFIRMED)) remove.push(MENTORS_CONFIRMED);
+    if (!has(AWAITING_MENTORS)) add.push(AWAITING_MENTORS);
   }
 
-  // Both gates satisfied (now or already) → await CNCF admin.
-  const willHaveMaintainer = maintainerApproved || has(MAINTAINER_APPROVED);
-  const willHaveMentors = mentorsConfirmed || has(MENTORS_CONFIRMED);
-  if (willHaveMaintainer && willHaveMentors && !has(CNCF_APPROVED) && !has(AWAITING_CNCF)) {
-    add.push(AWAITING_CNCF);
+  // Both gates satisfied AFTER the changes above → signal the CNCF admin;
+  // otherwise clear that signal if a gate just regressed (unless finalized).
+  const willHaveMaintainer = (maintainerApproved || has(MAINTAINER_APPROVED)) && !remove.includes(MAINTAINER_APPROVED);
+  const willHaveMentors = (mentorsConfirmed || has(MENTORS_CONFIRMED)) && !remove.includes(MENTORS_CONFIRMED);
+  if (willHaveMaintainer && willHaveMentors) {
+    if (!has(CNCF_APPROVED) && !has(AWAITING_CNCF)) add.push(AWAITING_CNCF);
+  } else if (has(AWAITING_CNCF)) {
+    remove.push(AWAITING_CNCF);
   }
 
   return { add, remove };

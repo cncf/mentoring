@@ -41,13 +41,13 @@ test('pass, mentor auto-confirmed while maintainer already approved → confirm 
     [MC, ACNCF], [AMC]);
 });
 
-test('pass, both already satisfied in labels → only add Awaiting CNCF', () => {
-  eq(gateLabelChanges({ pass: true, maintainerApproved: false, mentorsConfirmed: false, currentLabels: [MA, MC] }),
+test('pass, both already satisfied (recomputed) → only add Awaiting CNCF', () => {
+  eq(gateLabelChanges({ pass: true, maintainerApproved: false, mentorsConfirmed: true, currentLabels: [MA, MC] }),
     [ACNCF], []);
 });
 
 test('pass, both satisfied and Awaiting CNCF already present → no changes', () => {
-  eq(gateLabelChanges({ pass: true, maintainerApproved: false, mentorsConfirmed: false, currentLabels: [MA, MC, ACNCF] }),
+  eq(gateLabelChanges({ pass: true, maintainerApproved: false, mentorsConfirmed: true, currentLabels: [MA, MC, ACNCF] }),
     [], []);
 });
 
@@ -73,5 +73,29 @@ test('validation failed leaves approved/confirmed labels intact', () => {
 
 test('pass, already fully awaiting (re-validation, nothing auto) → no changes', () => {
   eq(gateLabelChanges({ pass: true, maintainerApproved: false, mentorsConfirmed: false, currentLabels: [AMA, AMC] }),
+    [], []);
+});
+
+// ── Mentor gate reflects the CURRENT roster (can downgrade) ───────────
+// If a proposal was Mentors Confirmed (e.g. sole proposer-mentor) and a new,
+// unconfirmed mentor is later added, re-validation must re-open confirmation.
+
+test('pass, roster grew (recompute not-all-confirmed) → downgrade Confirmed to Awaiting', () => {
+  eq(gateLabelChanges({ pass: true, maintainerApproved: true, mentorsConfirmed: false, currentLabels: [MA, MC] }),
+    [AMC], [MC]);
+});
+
+test('pass, downgrade also clears the CNCF-admin signal', () => {
+  eq(gateLabelChanges({ pass: true, maintainerApproved: true, mentorsConfirmed: false, currentLabels: [MA, MC, ACNCF] }),
+    [AMC], [MC, ACNCF]);
+});
+
+test('pass, mentor gate not met but already CNCF-approved → do NOT downgrade', () => {
+  eq(gateLabelChanges({ pass: true, maintainerApproved: true, mentorsConfirmed: false, currentLabels: [MA, MC, 'CNCF Approved'] }),
+    [], []);
+});
+
+test('pass, still confirmed on re-validation (recompute true) → no churn', () => {
+  eq(gateLabelChanges({ pass: true, maintainerApproved: true, mentorsConfirmed: true, currentLabels: [MA, MC, ACNCF] }),
     [], []);
 });
