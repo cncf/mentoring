@@ -71,3 +71,59 @@ test('parseMentors: lfid is captured distinct from the github handle', () => {
 test('parseMentors: empty input yields empty array', () => {
   assert.deepEqual(parseMentors(''), []);
 });
+
+// ── formFieldsChanged: material (field-level) diff of two issue bodies ──
+// Used to decide whether an edit is "non-trivial" (a form field changed) vs
+// cosmetic (whitespace, a prepended HTML comment, a trailing newline).
+const { formFieldsChanged } = require('../lib/parse');
+
+const bodyV1 = [
+  '### CNCF Project', '', 'Kubernetes', '',
+  '### Program Description', '', 'Do cool things.', '',
+  '### Mentors', '', 'Jane | @jane | jane@x.io | jane', '',
+].join('\n');
+
+test('formFieldsChanged: identical bodies → false', () => {
+  assert.equal(formFieldsChanged(bodyV1, bodyV1), false);
+});
+
+test('formFieldsChanged: a trailing newline is not material', () => {
+  assert.equal(formFieldsChanged(bodyV1, bodyV1 + '\n'), false);
+});
+
+test('formFieldsChanged: a prepended HTML comment is not material', () => {
+  assert.equal(formFieldsChanged(bodyV1, '<!-- re-validate -->\n\n' + bodyV1), false);
+});
+
+test('formFieldsChanged: changing a field value is material', () => {
+  const v2 = bodyV1.replace('Do cool things.', 'Do cooler things.');
+  assert.equal(formFieldsChanged(bodyV1, v2), true);
+});
+
+test('formFieldsChanged: adding a mentor is material', () => {
+  const v2 = bodyV1.replace(
+    'Jane | @jane | jane@x.io | jane',
+    'Jane | @jane | jane@x.io | jane\nBob | @bob | bob@x.io | bob',
+  );
+  assert.equal(formFieldsChanged(bodyV1, v2), true);
+});
+
+test('formFieldsChanged: adding a whole new field/section is material', () => {
+  assert.equal(formFieldsChanged(bodyV1, bodyV1 + '\n### Technologies\n\nGo\n'), true);
+});
+
+test('formFieldsChanged: tolerates empty/undefined bodies', () => {
+  assert.equal(formFieldsChanged('', ''), false);
+  assert.equal(formFieldsChanged(undefined, undefined), false);
+  assert.equal(formFieldsChanged('', bodyV1), true);
+});
+
+test('formFieldsChanged: removing a mentor is material', () => {
+  const v2 = bodyV1.replace('\nJane | @jane | jane@x.io | jane', '');
+  assert.equal(formFieldsChanged(bodyV1, v2), true);
+});
+
+test('formFieldsChanged: internal whitespace reflow/indent is not material', () => {
+  const v2 = bodyV1.replace('Do cool things.', 'Do    cool\n   things.');
+  assert.equal(formFieldsChanged(bodyV1, v2), false);
+});

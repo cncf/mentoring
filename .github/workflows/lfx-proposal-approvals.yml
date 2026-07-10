@@ -33,7 +33,7 @@ jobs:
             const path = require('path');
             const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
             const { parseIssueForm, parseMentors } = _lib('parse.js');
-            const { findMaintainerInCsv, isProjectMaintainer } = _lib('maintainers.js');
+            const { resolveProjectMaintainer } = _lib('authorize.js');
             const { computeConfirm } = _lib('confirm.js');
             const { lookupProject } = _lib('projects.js');
             const { getGlobalApprovers, getProjectSection, getFallbackHandles, getFallbackTeams } = _lib('approvers.js');
@@ -151,52 +151,20 @@ jobs:
                 }
               }
 
-              // 1. Check {org}/.project/maintainers.yaml (only if has_dot_project)
-              if (!authorized && ghOrg && hasDotProject) {
-                try {
-                  const resp = await fetch(
-                    `https://raw.githubusercontent.com/${ghOrg}/.project/main/maintainers.yaml`
-                  );
-                  if (resp.ok) {
-                    const yaml = await resp.text();
-                    // Tier-1 lookup lives in lib/maintainers.js: a js-yaml parse
-                    // of the .project schema that authorizes only members of the
-                    // exactly-named project-maintainers team. Unit-tested in
-                    // test/maintainers.test.js (cncf/mentoring#1908 follow-up).
-                    if (isProjectMaintainer(yaml, commenter)) {
-                      authorized = true;
-                      authSource = `${ghOrg}/.project/maintainers.yaml`;
-                    } else {
-                      console.log(`.project/maintainers.yaml found for ${ghOrg} but ${commenter} not in project-maintainers team`);
-                    }
-                  } else {
-                    console.log(`${ghOrg}/.project not found (HTTP ${resp.status}); falling back to CSV`);
-                  }
-                } catch (e) {
-                  console.log(`.project check failed: ${e.message}`);
-                }
-              }
-
-              // 2. Check cncf/foundation project-maintainers.csv.
-              // The CSV is grouped: the Project column is set only on each
-              // group's first row, so the lookup forward-fills it before
-              // matching the handle. Extracted to lib/maintainers.js so the
-              // authorization decision is unit-tested (cncf/mentoring#1908).
-              if (!authorized && project) {
-                try {
-                  const resp = await fetch(
-                    'https://raw.githubusercontent.com/cncf/foundation/main/project-maintainers.csv'
-                  );
-                  if (resp.ok) {
-                    const csv = await resp.text();
-                    const hit = findMaintainerInCsv(csv, project, commenter);
-                    if (hit.authorized) {
-                      authorized = true;
-                      authSource = `project-maintainers.csv (${hit.project})`;
-                    }
-                  }
-                } catch (e) {
-                  console.log(`project-maintainers.csv check failed: ${e.message}`);
+              // 1-2. Project-maintainer rosters: {org}/.project/maintainers.yaml
+              // (when adopted), then cncf/foundation project-maintainers.csv.
+              // Extracted to lib/authorize.js so the same "is @handle a project
+              // maintainer?" decision also drives proposer-implied approval in
+              // the validation workflow. Tier-3 (approvers.yml) stays inline
+              // below — delegates/global approvers are not project maintainers.
+              if (!authorized) {
+                const r = await resolveProjectMaintainer({
+                  handle: commenter, project, org: ghOrg, hasDotProject,
+                  fetchFn: fetch, log: (m) => console.log(m),
+                });
+                if (r.authorized) {
+                  authorized = true;
+                  authSource = r.source;
                 }
               }
 
@@ -309,8 +277,9 @@ jobs:
 
               // Per-mentor confirmation: the gate flips only once EVERY listed
               // mentor has confirmed. Gather confirmations from the issue's
-              // comment history (plus this one) and compare to the roster
-              // (tally logic in lib/confirm.js).
+              // comment history (plus this one) and the issue author (a
+              // proposer who lists themselves as a mentor counts as confirmed),
+              // compared to the roster (tally logic in lib/confirm.js).
               let priorComments = [];
               try {
                 priorComments = await github.paginate(github.rest.issues.listComments, {
@@ -319,7 +288,8 @@ jobs:
               } catch (e) {
                 core.warning(`Could not read prior confirmations: ${e.message}`);
               }
-              const { remaining, count, total } = computeConfirm(confirmHandles, commenter, priorComments);
+              const proposer = context.payload.issue.user?.login;
+              const { remaining, count, total } = computeConfirm(confirmHandles, commenter, priorComments, proposer);
               if (remaining.length) {
                 await reply('✅',
                   `Confirmation recorded from @${commenter}. ` +

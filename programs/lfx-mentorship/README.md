@@ -92,11 +92,15 @@ The form asks for:
 
 2. **Maintainer approval** — a maintainer of the CNCF project (or an
    authorized delegate) must comment `/approve` on the issue. The bot checks
-   the commenter against the project's maintainer list.
+   the commenter against the project's maintainer list. **If the proposer is
+   themselves a project maintainer, this is granted automatically** — filing
+   the proposal implies their approval, so no `/approve` is needed.
 
 3. **Mentor confirmation** — each mentor listed on the proposal must comment
    `/confirm` on the issue. This verifies they've agreed to mentor for this
-   term and that their GitHub handle is correct.
+   term and that their GitHub handle is correct. **A mentor who filed the
+   proposal is counted as confirmed automatically** for their own slot; any
+   other listed mentors still `/confirm`.
 
 4. **CNCF admin approval** — once maintainer approval and mentor
    confirmation are in place, a CNCF mentorship admin reviews and comments
@@ -105,6 +109,15 @@ The form asks for:
 5. **Export** — approved proposals are exported to files used for the LFX
    platform and the term's README. You'll be notified on your issue when the
    export happens.
+
+> [!IMPORTANT]
+> **Editing a proposal after approval resets it.** If you make a substantive
+> edit (change a form field — description, mentors, dates, etc.) after a
+> maintainer or CNCF admin has approved, that approval is automatically cleared
+> and must be granted again; the bot tags the approver(s) to re-review. Cosmetic
+> edits (whitespace) don't reset anything. Mentor confirmations aren't cleared by
+> content edits, but adding or swapping a mentor re-opens confirmation for the
+> new mentor.
 
 You can track your proposal's progress via the labels on the issue and on
 the [project board](https://github.com/orgs/cncf/projects/93).
