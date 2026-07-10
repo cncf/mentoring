@@ -114,8 +114,10 @@ The form asks for:
 > **Editing a proposal after approval resets it.** If you make a substantive
 > edit (change a form field — description, mentors, dates, etc.) after a
 > maintainer or CNCF admin has approved, that approval is automatically cleared
-> and must be granted again; the bot tags the approver(s) to re-review. Cosmetic
-> edits (whitespace) don't reset anything. Mentor confirmations aren't cleared by
+> and must be granted again; the bot tags the approver(s) to re-review. This
+> applies even if the edit breaks validation — and a proposal that isn't
+> currently passing validation can't be `/cncf-approve`'d. Cosmetic edits
+> (whitespace) don't reset anything. Mentor confirmations aren't cleared by
 > content edits, but adding or swapping a mentor re-opens confirmation for the
 > new mentor.
 

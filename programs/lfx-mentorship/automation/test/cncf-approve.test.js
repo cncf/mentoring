@@ -50,3 +50,9 @@ test('both gates present and validated → ok', () => {
     cncfApproveDecision({ commenter: 'natedoubleu', admins, currentLabels: [MA, MC, VP] }),
     { ok: true });
 });
+
+test('both gates present but validation NOT passing → not-validated (cannot finalize a failing proposal)', () => {
+  assert.deepEqual(
+    cncfApproveDecision({ commenter: 'natedoubleu', admins, currentLabels: [MA, MC] }),
+    { ok: false, reason: 'not-validated' });
+});

@@ -333,6 +333,10 @@ jobs:
                     `This command is restricted to CNCF program admins.`);
                 } else if (decision.reason === 'already-approved') {
                   await reply('ℹ️', 'This proposal has already been CNCF-approved.');
+                } else if (decision.reason === 'not-validated') {
+                  await reply('❌',
+                    'Cannot `/cncf-approve` — this proposal is not currently passing validation. ' +
+                    'The proposer needs to resolve the validation errors (see the validation comment) first.');
                 } else if (decision.reason === 'missing-gates') {
                   await reply('❌',
                     `Cannot \`/cncf-approve\` — still missing: ${decision.missing.map(l => `\`${l}\``).join(' and ')}.\n\n` +
