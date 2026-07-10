@@ -122,3 +122,8 @@ test('formFieldsChanged: removing a mentor is material', () => {
   const v2 = bodyV1.replace('\nJane | @jane | jane@x.io | jane', '');
   assert.equal(formFieldsChanged(bodyV1, v2), true);
 });
+
+test('formFieldsChanged: internal whitespace reflow/indent is not material', () => {
+  const v2 = bodyV1.replace('Do cool things.', 'Do    cool\n   things.');
+  assert.equal(formFieldsChanged(bodyV1, v2), false);
+});

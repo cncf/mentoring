@@ -59,15 +59,18 @@ function parseMentors(raw) {
 module.exports = { parseIssueForm, parseCheckboxes, parseMentors, formFieldsChanged };
 
 // True when two issue-form bodies differ in any parsed field value — i.e. the
-// edit was "material" (a field changed), not merely cosmetic (whitespace, a
-// prepended HTML comment, or a trailing newline, none of which change a parsed
-// field). Compares the { label: value } maps from parseIssueForm.
+// edit was "material" (a field's content changed), not merely cosmetic
+// (whitespace anywhere, a prepended HTML comment, a trailing newline, or
+// reflowing/re-indenting a field's text). Field values are whitespace-
+// normalized (runs of whitespace collapsed) before comparison, so only a real
+// content change counts. Compares the { label: value } maps from parseIssueForm.
 function formFieldsChanged(oldBody, newBody) {
   const a = parseIssueForm(oldBody || '');
   const b = parseIssueForm(newBody || '');
+  const norm = (v) => String(v || '').replace(/\s+/g, ' ').trim();
   const keys = new Set([...Object.keys(a), ...Object.keys(b)]);
   for (const k of keys) {
-    if ((a[k] || '') !== (b[k] || '')) return true;
+    if (norm(a[k]) !== norm(b[k])) return true;
   }
   return false;
 }
