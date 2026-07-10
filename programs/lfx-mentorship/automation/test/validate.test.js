@@ -5,9 +5,39 @@ const assert = require('node:assert/strict');
 const {
   emailRe, urlRe, ghHandleRe, lfidRe,
   validateMentors, validateUpstreamUrl,
+  mentorCountWarning, MIN_PREFERRED_MENTORS,
 } = require('../lib/validate');
 
 const codes = (result) => result.errors.map(e => e.code);
+
+// ── mentorCountWarning ───────────────────────────────────────────────
+// Soft preference (not a hard rule): programs are encouraged to have at least
+// two mentors so the load is shared, but a lone experienced mentor is fine.
+
+test('MIN_PREFERRED_MENTORS: the preferred minimum is two', () => {
+  assert.equal(MIN_PREFERRED_MENTORS, 2);
+});
+
+test('mentorCountWarning: one mentor is flagged as below the preference', () => {
+  assert.deepEqual(mentorCountWarning(1), { code: 'few-mentors', count: 1 });
+});
+
+test('mentorCountWarning: two or more mentors are not flagged', () => {
+  assert.equal(mentorCountWarning(2), null);
+  assert.equal(mentorCountWarning(3), null);
+  assert.equal(mentorCountWarning(4), null);
+});
+
+test('mentorCountWarning: zero mentors is not flagged (already a hard error)', () => {
+  assert.equal(mentorCountWarning(0), null);
+});
+
+test('mentorCountWarning: non-finite / non-number input returns null', () => {
+  assert.equal(mentorCountWarning(undefined), null);
+  assert.equal(mentorCountWarning(null), null);
+  assert.equal(mentorCountWarning('1'), null);
+  assert.equal(mentorCountWarning(NaN), null);
+});
 
 test('validateMentors: a full valid 4-field line passes with no errors', () => {
   assert.deepEqual(
