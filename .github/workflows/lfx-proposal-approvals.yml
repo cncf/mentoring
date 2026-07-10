@@ -277,8 +277,9 @@ jobs:
 
               // Per-mentor confirmation: the gate flips only once EVERY listed
               // mentor has confirmed. Gather confirmations from the issue's
-              // comment history (plus this one) and compare to the roster
-              // (tally logic in lib/confirm.js).
+              // comment history (plus this one) and the issue author (a
+              // proposer who lists themselves as a mentor counts as confirmed),
+              // compared to the roster (tally logic in lib/confirm.js).
               let priorComments = [];
               try {
                 priorComments = await github.paginate(github.rest.issues.listComments, {
@@ -287,7 +288,8 @@ jobs:
               } catch (e) {
                 core.warning(`Could not read prior confirmations: ${e.message}`);
               }
-              const { remaining, count, total } = computeConfirm(confirmHandles, commenter, priorComments);
+              const proposer = context.payload.issue.user?.login;
+              const { remaining, count, total } = computeConfirm(confirmHandles, commenter, priorComments, proposer);
               if (remaining.length) {
                 await reply('✅',
                   `Confirmation recorded from @${commenter}. ` +

@@ -71,3 +71,56 @@ test('@-prefixed roster handles are normalized', () => {
     { flip: false, remaining: ['b'], count: 1, total: 2 },
   );
 });
+
+// ── Issue author (proposer) counts as a confirmation for their own slot ──
+// A mentor who files the proposal is committing to mentor, so their authorship
+// counts as their /confirm. Passed as the 4th arg; only counts if on roster.
+
+test('the issue author is counted when on the roster (no commenter)', () => {
+  assert.deepEqual(
+    computeConfirm(['solo'], null, [], 'solo'),
+    { flip: true, remaining: [], count: 1, total: 1 },
+  );
+});
+
+test('a proposer-mentor among several does not flip alone', () => {
+  assert.deepEqual(
+    computeConfirm(['a', 'b'], null, [], 'a'),
+    { flip: false, remaining: ['b'], count: 1, total: 2 },
+  );
+});
+
+test('an author not on the roster is ignored', () => {
+  assert.deepEqual(
+    computeConfirm(['a', 'b'], null, [], 'zzz'),
+    { flip: false, remaining: ['a', 'b'], count: 0, total: 2 },
+  );
+});
+
+test('author + commenter together can complete the roster', () => {
+  assert.deepEqual(
+    computeConfirm(['a', 'b'], 'b', [], 'a'),
+    { flip: true, remaining: [], count: 2, total: 2 },
+  );
+});
+
+test('author counting is case-insensitive and @-tolerant', () => {
+  assert.deepEqual(
+    computeConfirm(['a', 'b'], null, [], '@A'),
+    { flip: false, remaining: ['b'], count: 1, total: 2 },
+  );
+});
+
+test('author already present via a /confirm comment is not double-counted', () => {
+  assert.deepEqual(
+    computeConfirm(['a', 'b'], null, [{ user: { login: 'a' }, body: '/confirm' }], 'a'),
+    { flip: false, remaining: ['b'], count: 1, total: 2 },
+  );
+});
+
+test('omitting the author preserves the original 3-arg behavior', () => {
+  assert.deepEqual(
+    computeConfirm(['a', 'b'], 'a', []),
+    { flip: false, remaining: ['b'], count: 1, total: 2 },
+  );
+});
