@@ -5,9 +5,55 @@ const assert = require('node:assert/strict');
 const {
   emailRe, urlRe, ghHandleRe, lfidRe,
   validateMentors, validateUpstreamUrl,
+  mentorCountWarning, MIN_PREFERRED_MENTORS,
 } = require('../lib/validate');
 
 const codes = (result) => result.errors.map(e => e.code);
+
+// ── mentorCountWarning ───────────────────────────────────────────────
+// Soft preference (not a hard rule): programs are encouraged to have at least
+// two mentors so the load is shared, but a lone experienced mentor is fine.
+// Takes the validateMentors() result so it can stay silent when the field is
+// invalid — the count is unreliable then and the proposer already has hard
+// errors to fix, so the nudge would be misleading noise.
+
+const okResult = (count) => ({ ok: true, count, errors: [] });
+const badResult = (count) => ({ ok: false, count, errors: [{ code: 'lfid-missing' }] });
+
+test('MIN_PREFERRED_MENTORS: the preferred minimum is two', () => {
+  assert.equal(MIN_PREFERRED_MENTORS, 2);
+});
+
+test('mentorCountWarning: one valid mentor is flagged as below the preference', () => {
+  assert.deepEqual(mentorCountWarning(okResult(1)), { code: 'few-mentors', count: 1 });
+});
+
+test('mentorCountWarning: two or more valid mentors are not flagged', () => {
+  assert.equal(mentorCountWarning(okResult(2)), null);
+  assert.equal(mentorCountWarning(okResult(3)), null);
+  assert.equal(mentorCountWarning(okResult(4)), null);
+});
+
+test('mentorCountWarning: zero mentors is not flagged (already a hard error)', () => {
+  assert.equal(mentorCountWarning(okResult(0)), null);
+});
+
+test('mentorCountWarning: a single MALFORMED mentor is not flagged (validation failed)', () => {
+  // One line, wrong shape: count is 1 but ok is false. The proposer already has
+  // a hard error, so we must not also nudge "only one mentor listed".
+  assert.equal(mentorCountWarning(badResult(1)), null);
+});
+
+test('mentorCountWarning: null / missing result returns null', () => {
+  assert.equal(mentorCountWarning(undefined), null);
+  assert.equal(mentorCountWarning(null), null);
+});
+
+test('mentorCountWarning: non-finite / non-number count returns null', () => {
+  assert.equal(mentorCountWarning(okResult(NaN)), null);
+  assert.equal(mentorCountWarning(okResult('1')), null);
+  assert.equal(mentorCountWarning({ ok: true }), null);
+});
 
 test('validateMentors: a full valid 4-field line passes with no errors', () => {
   assert.deepEqual(

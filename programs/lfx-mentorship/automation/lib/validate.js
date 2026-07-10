@@ -78,6 +78,27 @@ function validateUpstreamUrl(raw) {
   return null;
 }
 
+// LFX programs are encouraged — not required — to have at least two mentors, so
+// the load is shared and a co-mentor can cover absences. This is a soft
+// preference the reviewers have long applied by hand (see PRs #1321, #1323,
+// #1348): a lone experienced mentor is acceptable. Given a validateMentors()
+// result, returns a warning descriptor { code, count } when the field is valid
+// but lists at least one and fewer than MIN_PREFERRED_MENTORS mentors, else
+// null. Stays silent when validation failed (result.ok === false): the count is
+// unreliable then and the proposer already has hard errors to fix, so nudging
+// "only one mentor" on top would be misleading. Zero mentors is likewise a hard
+// error (validateMentors 'empty'), so it is not nudged. Prose stays in the
+// workflow, mirroring the error-code pattern of validateMentors.
+const MIN_PREFERRED_MENTORS = 2;
+
+function mentorCountWarning(result) {
+  if (!result || result.ok !== true) return null;
+  const { count } = result;
+  if (typeof count !== 'number' || !Number.isFinite(count)) return null;
+  if (count >= 1 && count < MIN_PREFERRED_MENTORS) return { code: 'few-mentors', count };
+  return null;
+}
+
 module.exports = {
   emailRe,
   urlRe,
@@ -85,4 +106,6 @@ module.exports = {
   lfidRe,
   validateMentors,
   validateUpstreamUrl,
+  mentorCountWarning,
+  MIN_PREFERRED_MENTORS,
 };
