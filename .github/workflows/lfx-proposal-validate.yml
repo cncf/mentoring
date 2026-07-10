@@ -10,13 +10,53 @@ permissions:
 
 jobs:
   validate:
+    # Cheap pre-filter only: run when the issue already carries the identifying
+    # labels, OR its title looks like a proposal and the body carries at least
+    # the first form heading. GitHub only applies a template's `labels:` for
+    # authors with triage access, so read-only proposers' issues arrive
+    # unlabeled — the title branch lets those reach the steps. This gate is
+    # deliberately loose (startsWith/contains are case-insensitive substring
+    # matches); the Bootstrap and Validate steps re-check authoritatively with
+    # looksLikeProposalForm() before mutating labels or commenting.
     if: >-
-      contains(github.event.issue.labels.*.name, 'lfx mentorship')
-      && contains(github.event.issue.labels.*.name, 'Proposal')
+      (contains(github.event.issue.labels.*.name, 'lfx mentorship')
+       && contains(github.event.issue.labels.*.name, 'Proposal'))
+      || (startsWith(github.event.issue.title, '[CNCF LFX Proposal]')
+          && contains(github.event.issue.body, '### CNCF Project'))
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Bootstrap proposal labels
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const path = require('path');
+            const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
+            const { PROPOSAL_LABELS, isProposalTitle, looksLikeProposalForm, missingLabels } = _lib('labels.js');
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+            const title = context.payload.issue.title || '';
+            const body = context.payload.issue.body || '';
+
+            // GitHub silently drops issue-template labels for authors without
+            // triage access, so proposals from read-only project maintainers
+            // land unlabeled and every label-gated proposal workflow skips.
+            // Re-apply the identifying labels here so validation (below), the
+            // board sync step, and the approvals workflow can key off them.
+            // Require the exact proposal title AND the full issue-form body
+            // before applying the (token-unlocking) labels. This is stricter
+            // than the lenient job gate — the authoritative check lives here, in
+            // a unit-tested helper.
+            if (!isProposalTitle(title) || !looksLikeProposalForm(body)) return;
+
+            const current = (context.payload.issue.labels || []).map((l) => l.name);
+            const toAdd = missingLabels(current, PROPOSAL_LABELS);
+            if (toAdd.length) {
+              await github.rest.issues.addLabels({ owner, repo, issue_number, labels: toAdd });
+              core.info(`Bootstrapped proposal labels: ${toAdd.join(', ')}`);
+            }
 
       - name: Validate proposal
         uses: actions/github-script@v7
@@ -28,9 +68,26 @@ jobs:
             const { parseIssueForm, parseMentors } = _lib('parse.js');
             const { validateMentors, validateUpstreamUrl } = _lib('validate.js');
             const { lookupProject } = _lib('projects.js');
+            const { isProposalTitle, looksLikeProposalForm } = _lib('labels.js');
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;
+            const title = context.payload.issue.title || '';
             const body = context.payload.issue.body || '';
+
+            // ── Only validate genuine proposals ──
+            // The job gate is a lenient pre-filter (case-insensitive title +
+            // a single-heading substring), so re-check authoritatively here:
+            // proceed only if the issue already carries the identifying labels
+            // or is a real template submission (exact title + full form body).
+            // Stops a bare magic-titled issue from getting a validation comment.
+            const currentIssueLabels = (context.payload.issue.labels || []).map((l) => l.name);
+            const isProposal =
+              (currentIssueLabels.includes('lfx mentorship') && currentIssueLabels.includes('Proposal'))
+              || (isProposalTitle(title) && looksLikeProposalForm(body));
+            if (!isProposal) {
+              console.log('Not an LFX proposal (no identifying labels and body is not a proposal form); skipping validation.');
+              return;
+            }
 
             // ── Issue-form parser (lib/parse.js): splits on ### headings ──
             const fields = parseIssueForm(body);
