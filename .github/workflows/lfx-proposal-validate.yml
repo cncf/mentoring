@@ -154,8 +154,10 @@ jobs:
 
             // ── 7b. Mentor count preference (soft; decision in lib/validate.js) ──
             // Programs are encouraged to have at least two mentors; a lone
-            // experienced mentor is acceptable, so this only warns.
-            if (mentorCountWarning(mentorResult.count)) {
+            // experienced mentor is acceptable, so this only warns. Passing the
+            // whole result keeps the "skip when the field is invalid" decision
+            // in the tested lib, not here.
+            if (mentorCountWarning(mentorResult)) {
               warnings.push(
                 'Only one mentor is listed. We usually prefer at least two mentors per program — ' +
                 'if you can, consider adding a co-mentor. '
