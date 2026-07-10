@@ -43,10 +43,11 @@ test('isProposalTitle: false for non-string input', () => {
   assert.equal(isProposalTitle(42), false);
 });
 
-// Case-sensitive, matching the workflow's YAML startsWith() gate. A lowercased
-// prefix would be filtered out by the gate before the step runs, so lib parity
-// keeps the two in agreement.
-test('isProposalTitle: case-sensitive (matches YAML gate)', () => {
+// The step-level helper is precise: case-sensitive and untrimmed, matching the
+// exact prefix the template emits. (The YAML job gate's startsWith() is looser
+// — case-insensitive — but only a pre-filter, so the helper being stricter is
+// safe and intentional.)
+test('isProposalTitle: case-sensitive (stricter than the pre-filter gate)', () => {
   assert.equal(isProposalTitle('[cncf lfx proposal] Foo'), false);
 });
 
@@ -82,6 +83,18 @@ test('looksLikeProposalForm: false for a bare heading label without the ### pref
   // Prose that merely mentions the field names must not count as a form.
   const prose = PROPOSAL_FORM_HEADINGS.join(', ');
   assert.equal(looksLikeProposalForm(prose), false);
+});
+
+test('looksLikeProposalForm: a mid-line "### CNCF Project" does not count (start-of-line only)', () => {
+  // Only headings at the start of a line count (parseIssueForm's /^### +/m), so
+  // a substring buried mid-line cannot fake a form and unlock the labels.
+  const body = [
+    'prefix ### CNCF Project',
+    '### Term\n\nx',
+    '### Program Description\n\nx',
+    '### Mentors\n\nx',
+  ].join('\n\n');
+  assert.equal(looksLikeProposalForm(body), false);
 });
 
 test('looksLikeProposalForm: false for empty / non-string bodies', () => {
