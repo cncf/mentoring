@@ -473,11 +473,12 @@ jobs:
             }
 
             // ── Notify approvers when a material edit cleared their approval ──
-            // Tag whoever recorded the maintainer / CNCF approval we just cleared
-            // so they can re-review the changed proposal.
+            // Only on a material edit (the "edited after approval" message would
+            // be misleading if CNCF was cleared by a gate regression instead).
+            // Tag whoever recorded the maintainer / CNCF approval we cleared.
             const clearedMaintainer = gate.remove.includes('Maintainer/Contribex Approved');
             const clearedCncf = gate.remove.includes('CNCF Approved');
-            if (clearedMaintainer || clearedCncf) {
+            if (materialChange && (clearedMaintainer || clearedCncf)) {
               const { maintainers, cncfAdmins } = findRecordedApprovers(issueComments);
               const toTag = [];
               if (clearedMaintainer) for (const h of maintainers) toTag.push(h);

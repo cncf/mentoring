@@ -39,12 +39,12 @@ function gateLabelChanges({ pass, maintainerApproved, mentorsConfirmed, material
   const add = [];
   const remove = [];
 
-  // Validation regressed (previously passing, now failing): clear only the
-  // awaiting labels so the board doesn't show "waiting on approvals" while the
-  // slash commands are gated off by the lost Validation Passed. Recorded
-  // approvals/confirmations are left intact (as before).
+  // Validation regressed (previously passing, now failing): clear the awaiting
+  // prompts (maintainer, mentor, and CNCF-admin) so nothing shows "waiting on
+  // approvals" while the slash commands are gated off by the lost Validation
+  // Passed. Recorded approvals/confirmations are left intact (as before).
   if (!pass) {
-    for (const l of [AWAITING_MAINTAINER, AWAITING_MENTORS]) if (has(l)) remove.push(l);
+    for (const l of [AWAITING_MAINTAINER, AWAITING_MENTORS, AWAITING_CNCF]) if (has(l)) remove.push(l);
     return { add, remove };
   }
 

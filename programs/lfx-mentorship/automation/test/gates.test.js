@@ -71,6 +71,11 @@ test('validation failed leaves approved/confirmed labels intact', () => {
     [], []);
 });
 
+test('validation failed also clears the Awaiting CNCF Admin prompt', () => {
+  eq(gateLabelChanges({ pass: false, maintainerApproved: false, mentorsConfirmed: false, currentLabels: [MA, MC, ACNCF] }),
+    [], [ACNCF]);
+});
+
 test('pass, already fully awaiting (re-validation, nothing auto) → no changes', () => {
   eq(gateLabelChanges({ pass: true, maintainerApproved: false, mentorsConfirmed: false, currentLabels: [AMA, AMC] }),
     [], []);
