@@ -160,7 +160,7 @@ jobs:
             if (mentorCountWarning(mentorResult)) {
               warnings.push(
                 'Only one mentor is listed. We usually prefer at least two mentors per program — ' +
-                'if you can, consider adding a co-mentor. '
+                'if you can, consider adding a co-mentor.'
               );
             }
 
