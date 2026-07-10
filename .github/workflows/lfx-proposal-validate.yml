@@ -10,13 +10,46 @@ permissions:
 
 jobs:
   validate:
+    # Run for issues already carrying the identifying labels OR for anything
+    # filed through the proposal template (title prefix). GitHub only applies a
+    # template's `labels:` for authors with triage access, so read-only
+    # proposers' issues arrive unlabeled; the title gate lets them through and
+    # the "Bootstrap proposal labels" step below re-applies the labels.
     if: >-
-      contains(github.event.issue.labels.*.name, 'lfx mentorship')
-      && contains(github.event.issue.labels.*.name, 'Proposal')
+      (contains(github.event.issue.labels.*.name, 'lfx mentorship')
+       && contains(github.event.issue.labels.*.name, 'Proposal'))
+      || startsWith(github.event.issue.title, '[CNCF LFX Proposal]')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Bootstrap proposal labels
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const path = require('path');
+            const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
+            const { PROPOSAL_LABELS, isProposalTitle, missingLabels } = _lib('labels.js');
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+            const title = context.payload.issue.title || '';
+
+            // GitHub silently drops issue-template labels for authors without
+            // triage access, so proposals from read-only project maintainers
+            // land unlabeled and every label-gated proposal workflow skips.
+            // Re-apply the identifying labels here so validation (below), the
+            // board sync step, and the approvals workflow can key off them.
+            // Re-confirm the proposal by title before labelling, so a labelled
+            // non-proposal that reaches this job never picks these up.
+            if (!isProposalTitle(title)) return;
+
+            const current = (context.payload.issue.labels || []).map((l) => l.name);
+            const toAdd = missingLabels(current, PROPOSAL_LABELS);
+            if (toAdd.length) {
+              await github.rest.issues.addLabels({ owner, repo, issue_number, labels: toAdd });
+              core.info(`Bootstrapped proposal labels: ${toAdd.join(', ')}`);
+            }
 
       - name: Validate proposal
         uses: actions/github-script@v7
