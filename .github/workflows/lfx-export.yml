@@ -37,6 +37,7 @@ jobs:
             const { buildReadme } = _lib('readme.js');
             const { csvEscape } = _lib('csv.js');
             const { lookupProject } = _lib('projects.js');
+            const { lfxTitle } = _lib('title.js');
             const { owner, repo } = context.repo;
             const term = context.payload.inputs.term;
 
@@ -72,8 +73,7 @@ jobs:
 
               const project = get('CNCF Project');
               const programName = get('Program Name');
-              const termToken = term.replace(/\s*\(.*$/, '');
-              const fullName = `CNCF - ${project}: ${programName} (${termToken})`;
+              const fullName = lfxTitle({ project, programName, term });
 
               const skillsSame = (get('Skills same as Technologies?') || '')
                 .match(/\[x\]/i);

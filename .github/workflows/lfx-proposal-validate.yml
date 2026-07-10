@@ -80,6 +80,7 @@ jobs:
             const { computeConfirm } = _lib('confirm.js');
             const { gateLabelChanges } = _lib('gates.js');
             const { findRecordedApprovers } = _lib('approvals.js');
+            const { lfxTitle, programNameBudget, LFX_TITLE_MAX } = _lib('title.js');
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;
             const title = context.payload.issue.title || '';
@@ -129,15 +130,13 @@ jobs:
             if (!programName) {
               errors.push('Program Name is empty.');
             } else {
-              // Budget: 100 - len("CNCF - ") - len(project) - len(": ") - len(" (") - len(term_token) - len(")")
-              // term_token is e.g. "2026 Term 2" extracted from "2026 Term 2 (Jun-Aug)"
-              const termToken = term.replace(/\s*\(.*$/, '');
-              const overhead = 'CNCF - '.length + (project?.length || 0) + ': '.length + ' ('.length + termToken.length + ')'.length;
-              const budget = 100 - overhead;
+              // The full title is "CNCF - <project>: <name> (<term>)" capped at
+              // LFX_TITLE_MAX; budget/format live in lib/title.js.
+              const budget = programNameBudget({ project, term });
               if (programName.length > budget) {
                 errors.push(
                   `Program Name is ${programName.length} chars but only ${budget} are available ` +
-                  `(full name would be ${overhead + programName.length}/100 chars). Please shorten it.`
+                  `(full name would be ${LFX_TITLE_MAX - budget + programName.length}/${LFX_TITLE_MAX} chars). Please shorten it.`
                 );
               } else {
                 passed.push(`Program Name length: ${programName.length}/${budget} chars available`);
@@ -386,6 +385,22 @@ jobs:
 
             // ── Build validation comment ──
             const lines = ['## 🤖 LFX Proposal Validation', ''];
+
+            // Show the full LFX title up top (what the program will be called on
+            // the platform), with its length against the 100-char cap, whenever
+            // the parts are present.
+            if (project && programName && term) {
+              const fullTitle = lfxTitle({ project, programName, term });
+              const over = fullTitle.length > LFX_TITLE_MAX ? ' ⚠️ over limit' : '';
+              lines.push(
+                `**LFX program title** (${fullTitle.length}/${LFX_TITLE_MAX} chars${over}):`,
+                '',
+                '```',
+                fullTitle,
+                '```',
+                '',
+              );
+            }
 
             if (errors.length === 0) {
               lines.push('✅ **All checks passed.**', '');
