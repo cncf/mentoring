@@ -45,9 +45,10 @@ jobs:
             // land unlabeled and every label-gated proposal workflow skips.
             // Re-apply the identifying labels here so validation (below), the
             // board sync step, and the approvals workflow can key off them.
-            // Require BOTH the proposal title and the issue-form body so a
-            // magic-titled non-proposal never picks up the (token-unlocking)
-            // labels — mirrors the job gate, in a unit-tested helper.
+            // Require the exact proposal title AND the full issue-form body
+            // before applying the (token-unlocking) labels. This is stricter
+            // than the lenient job gate — the authoritative check lives here, in
+            // a unit-tested helper.
             if (!isProposalTitle(title) || !looksLikeProposalForm(body)) return;
 
             const current = (context.payload.issue.labels || []).map((l) => l.name);

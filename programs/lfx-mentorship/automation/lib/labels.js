@@ -39,8 +39,10 @@ function isProposalTitle(title) {
 // unlock the token-bearing downstream workflows), so the bootstrap also
 // requires the body to look like a real template submission. Detection reuses
 // parseIssueForm, so a heading only counts in the same start-of-line "### "
-// shape the rest of the pipeline relies on — not a substring mid-line or in a
-// code block.
+// shape the rest of the pipeline relies on, not a substring mid-line. (Like
+// parseIssueForm, it does not strip fenced code blocks, so a start-of-line
+// heading inside one still counts — harmless, since a bogus body just fails
+// validation and never advances.)
 function looksLikeProposalForm(body, required = PROPOSAL_FORM_HEADINGS) {
   if (typeof body !== 'string' || !body) return false;
   const fields = parseIssueForm(body);
