@@ -56,4 +56,18 @@ function parseMentors(raw) {
     .filter(Boolean);
 }
 
-module.exports = { parseIssueForm, parseCheckboxes, parseMentors };
+module.exports = { parseIssueForm, parseCheckboxes, parseMentors, formFieldsChanged };
+
+// True when two issue-form bodies differ in any parsed field value — i.e. the
+// edit was "material" (a field changed), not merely cosmetic (whitespace, a
+// prepended HTML comment, or a trailing newline, none of which change a parsed
+// field). Compares the { label: value } maps from parseIssueForm.
+function formFieldsChanged(oldBody, newBody) {
+  const a = parseIssueForm(oldBody || '');
+  const b = parseIssueForm(newBody || '');
+  const keys = new Set([...Object.keys(a), ...Object.keys(b)]);
+  for (const k of keys) {
+    if ((a[k] || '') !== (b[k] || '')) return true;
+  }
+  return false;
+}

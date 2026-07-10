@@ -76,6 +76,17 @@ To approve, comment `/cncf-approve` on the issue. The bot will:
 - Remove the `Awaiting CNCF Admin Approval` label
 - Update the project board status
 
+> [!NOTE]
+> **Edits after approval reset the content approvals.** If a proposal is edited
+> so that a form field changes (a "material" edit) after maintainer or CNCF
+> approval, validation clears those approvals, re-adds the `Awaiting …` labels,
+> and posts a comment tagging the prior approver(s) to re-review. Cosmetic edits
+> (whitespace, re-triggering validation) don't reset anything. Mentor
+> confirmations persist across content edits; adding or swapping a mentor
+> re-opens confirmation for the new mentor only. This means a maintainer who is
+> the proposer keeps their approval across their own edits (re-granted
+> automatically), but a CNCF admin must always re-approve after a material edit.
+
 Only users listed in `approvers.yml` under `global_approvers` can use
 `/cncf-approve`.
 

@@ -110,6 +110,15 @@ The form asks for:
    platform and the term's README. You'll be notified on your issue when the
    export happens.
 
+> [!IMPORTANT]
+> **Editing a proposal after approval resets it.** If you make a substantive
+> edit (change a form field — description, mentors, dates, etc.) after a
+> maintainer or CNCF admin has approved, that approval is automatically cleared
+> and must be granted again; the bot tags the approver(s) to re-review. Cosmetic
+> edits (whitespace) don't reset anything. Mentor confirmations aren't cleared by
+> content edits, but adding or swapping a mentor re-opens confirmation for the
+> new mentor.
+
 You can track your proposal's progress via the labels on the issue and on
 the [project board](https://github.com/orgs/cncf/projects/93).
 

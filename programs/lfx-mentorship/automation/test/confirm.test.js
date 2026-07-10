@@ -124,3 +124,39 @@ test('omitting the author preserves the original 3-arg behavior', () => {
     { flip: false, remaining: ['b'], count: 1, total: 2 },
   );
 });
+
+// ── Mentor swap / drop-out (roster changes) ───────────────────────────
+// Mentors sometimes drop out after confirming and are replaced. The tally is
+// computed from the CURRENT roster, so a dropped mentor stops counting and a
+// newly added one must confirm; kept mentors stay confirmed via their prior
+// /confirm comment.
+
+test('a dropped mentor no longer counts (off the current roster)', () => {
+  // Was [a,b] both confirmed; b dropped, c added → [a,c]. c must still confirm.
+  assert.deepEqual(
+    computeConfirm(['a', 'c'], null, [
+      { user: { login: 'a' }, body: '/confirm' },
+      { user: { login: 'b' }, body: '/confirm' },
+    ]),
+    { flip: false, remaining: ['c'], count: 1, total: 2 },
+  );
+});
+
+test('a kept mentor stays confirmed via their prior comment after a swap', () => {
+  // [a,b] both confirmed → a dropped, c added → [b,c]; b kept, c pending.
+  assert.deepEqual(
+    computeConfirm(['b', 'c'], null, [
+      { user: { login: 'a' }, body: '/confirm' },
+      { user: { login: 'b' }, body: '/confirm' },
+    ], 'someproposer'),
+    { flip: false, remaining: ['c'], count: 1, total: 2 },
+  );
+});
+
+test('removing the only unconfirmed mentor completes the roster', () => {
+  // [a,b] with only a confirmed → b removed → [a] → gate flips.
+  assert.deepEqual(
+    computeConfirm(['a'], null, [{ user: { login: 'a' }, body: '/confirm' }]),
+    { flip: true, remaining: [], count: 1, total: 1 },
+  );
+});

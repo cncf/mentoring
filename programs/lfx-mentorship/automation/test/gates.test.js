@@ -76,7 +76,7 @@ test('pass, already fully awaiting (re-validation, nothing auto) → no changes'
     [], []);
 });
 
-// ── Mentor gate reflects the CURRENT roster (can downgrade) ───────────
+// ── Mentor gate reflects the CURRENT roster (roster-driven; can downgrade) ──
 // If a proposal was Mentors Confirmed (e.g. sole proposer-mentor) and a new,
 // unconfirmed mentor is later added, re-validation must re-open confirmation.
 
@@ -90,12 +90,43 @@ test('pass, downgrade also clears the CNCF-admin signal', () => {
     [AMC], [MC, ACNCF]);
 });
 
-test('pass, mentor gate not met but already CNCF-approved → do NOT downgrade', () => {
-  eq(gateLabelChanges({ pass: true, maintainerApproved: true, mentorsConfirmed: false, currentLabels: [MA, MC, 'CNCF Approved'] }),
+test('pass, still confirmed on re-validation (recompute true) → no churn', () => {
+  eq(gateLabelChanges({ pass: true, maintainerApproved: true, mentorsConfirmed: true, currentLabels: [MA, MC, ACNCF] }),
     [], []);
 });
 
-test('pass, still confirmed on re-validation (recompute true) → no churn', () => {
-  eq(gateLabelChanges({ pass: true, maintainerApproved: true, mentorsConfirmed: true, currentLabels: [MA, MC, ACNCF] }),
+// ── Material edit clears CONTENT approvals (maintainer + CNCF) ──────────
+// A field-level edit invalidates the maintainer's and CNCF admin's approval of
+// the content. Maintainer approval survives only when re-granted this run
+// (proposer is a maintainer → maintainerApproved true). Mentor confirmation is
+// NOT cleared here (participation commitment; roster changes handle it).
+
+test('material edit, proposer not a maintainer → clear Maintainer Approved', () => {
+  eq(gateLabelChanges({ pass: true, maintainerApproved: false, mentorsConfirmed: true, materialChange: true, currentLabels: [MA, MC] }),
+    [AMA], [MA]);
+});
+
+test('material edit, proposer not a maintainer, CNCF-approved → clear both, re-await maintainer', () => {
+  eq(gateLabelChanges({ pass: true, maintainerApproved: false, mentorsConfirmed: true, materialChange: true, currentLabels: [MA, MC, 'CNCF Approved'] }),
+    [AMA], [MA, 'CNCF Approved']);
+});
+
+test('material edit by a maintainer-proposer, CNCF-approved → keep maintainer, clear CNCF', () => {
+  eq(gateLabelChanges({ pass: true, maintainerApproved: true, mentorsConfirmed: true, materialChange: true, currentLabels: [MA, MC, 'CNCF Approved'] }),
+    [ACNCF], ['CNCF Approved']);
+});
+
+test('material edit, roster also grew, CNCF-approved → clear maintainer + mentor + CNCF', () => {
+  eq(gateLabelChanges({ pass: true, maintainerApproved: false, mentorsConfirmed: false, materialChange: true, currentLabels: [MA, MC, 'CNCF Approved'] }),
+    [AMA, AMC], [MA, MC, 'CNCF Approved']);
+});
+
+test('trivial edit (not material) while CNCF-approved → leave everything', () => {
+  eq(gateLabelChanges({ pass: true, maintainerApproved: true, mentorsConfirmed: true, materialChange: false, currentLabels: [MA, MC, 'CNCF Approved'] }),
+    [], []);
+});
+
+test('material edit while only awaiting CNCF (not yet approved) → no churn', () => {
+  eq(gateLabelChanges({ pass: true, maintainerApproved: true, mentorsConfirmed: true, materialChange: true, currentLabels: [MA, MC, ACNCF] }),
     [], []);
 });

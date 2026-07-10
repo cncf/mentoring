@@ -72,13 +72,14 @@ jobs:
             const fs = require('fs');
             const path = require('path');
             const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
-            const { parseIssueForm, parseMentors } = _lib('parse.js');
+            const { parseIssueForm, parseMentors, formFieldsChanged } = _lib('parse.js');
             const { validateMentors, validateUpstreamUrl, mentorCountWarning } = _lib('validate.js');
             const { lookupProject } = _lib('projects.js');
             const { isProposalTitle, looksLikeProposalForm } = _lib('labels.js');
             const { resolveProjectMaintainer } = _lib('authorize.js');
             const { computeConfirm } = _lib('confirm.js');
             const { gateLabelChanges } = _lib('gates.js');
+            const { findRecordedApprovers } = _lib('approvals.js');
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;
             const title = context.payload.issue.title || '';
@@ -315,15 +316,25 @@ jobs:
               'https://mentorship.lfx.linuxfoundation.org.'
             );
 
-            // ── Proposer-implied approval & confirmation ──
+            // ── Proposer-implied approval / confirmation & edit invalidation ──
             // A proposal filed by a project maintainer implies their approval;
-            // one filed by a listed mentor implies that mentor's confirmation
-            // (both actions the proposer could take by hand). Resolve them here
-            // so the comment wording and the gate labels reflect them. Only
-            // meaningful when validation passes. Existing recorded approvals /
-            // confirmations are honored and never downgraded.
+            // one filed by a listed mentor implies that mentor's confirmation.
+            // Conversely, a MATERIAL edit (a parsed form field changed) after a
+            // maintainer or CNCF approval invalidates it — the approved content
+            // changed — so we clear it and tag whoever approved. Mentor
+            // confirmation is a participation commitment and is NOT cleared by
+            // content edits; only roster changes move the mentor gate.
             const currentLabels = (context.payload.issue.labels || []).map(l => l.name);
             const proposer = context.payload.issue.user?.login || '';
+
+            // Material change: on an edit, did any parsed form field (or the
+            // title) change? Cosmetic edits (whitespace, a prepended comment)
+            // are not material, so re-triggering validation won't reset anything.
+            const changes = context.payload.changes || {};
+            const materialChange = context.payload.action === 'edited'
+              && (!!changes.title
+                  || (!!changes.body && formFieldsChanged(changes.body.from || '', body)));
+
             let issueComments = [];
             try {
               issueComments = await github.paginate(github.rest.issues.listComments, {
@@ -333,11 +344,16 @@ jobs:
               core.warning(`Could not read issue comments: ${e.message}`);
             }
 
-            let maintainerApproved = currentLabels.includes('Maintainer/Contribex Approved');
+            // Honor an existing maintainer approval only on a non-material edit;
+            // a material edit forces it to be re-earned (proposer-implied below,
+            // or a fresh /approve).
+            let maintainerApproved = currentLabels.includes('Maintainer/Contribex Approved') && !materialChange;
             let mentorsConfirmed = currentLabels.includes('Mentors Confirmed');
-            let approvalNote = '';
+            let maintainerAutoApproved = false;
             if (errors.length === 0) {
-              // Maintainer gate: is the proposer a project maintainer?
+              // Maintainer gate: is the proposer a project maintainer? (If a
+              // maintainer edited, they are the OP, so the proposer check covers
+              // "the editor is a maintainer".)
               if (!maintainerApproved && proposer) {
                 try {
                   const projYaml = fs.readFileSync('programs/lfx-mentorship/automation/projects.yml', 'utf8');
@@ -348,17 +364,16 @@ jobs:
                   });
                   if (r.authorized) {
                     maintainerApproved = true;
-                    approvalNote = r.source;
+                    maintainerAutoApproved = true;
                   }
                 } catch (e) {
                   console.log(`proposer maintainer check failed: ${e.message}`);
                 }
               }
               // Mentor gate: recompute from the CURRENT roster so adding an
-              // unconfirmed mentor re-opens confirmation (and a removed mentor
-              // resolves it). computeConfirm counts the proposer's own slot plus
-              // any mentors who already /confirmed. Unlike the maintainer gate,
-              // this is NOT monotonic — it reflects the present roster.
+              // unconfirmed mentor re-opens confirmation (and a removed/swapped
+              // mentor resolves from persisted /confirm comments). Counts the
+              // proposer's own slot. NOT monotonic — reflects the present roster.
               const roster = parseMentors(mentorsRaw).map(m => m.github_handle);
               mentorsConfirmed = computeConfirm(roster, null, issueComments, proposer).flip;
             }
@@ -397,7 +412,7 @@ jobs:
                 '',
               );
               lines.push(maintainerApproved
-                ? `1. **Maintainer approval:** ✅ recorded${approvalNote ? ` — proposer @${proposer} is a project maintainer` : ''}.`
+                ? `1. **Maintainer approval:** ✅ recorded${maintainerAutoApproved ? ` — proposer @${proposer} is a project maintainer` : ''}.`
                 : '1. **Maintainer approval:** a maintainer of the CNCF project (or an authorized delegate) comments `/approve`.');
               lines.push(mentorsConfirmed
                 ? '2. **Mentor confirmation:** ✅ recorded.'
@@ -445,16 +460,37 @@ jobs:
 
             // ── Approval / confirmation gates (decision in lib/gates.js) ──
             // Auto-satisfy the maintainer gate when the proposer is a project
-            // maintainer, and the mentor gate when the proposer's slot completes
-            // the roster; otherwise fall back to the awaiting labels. When both
-            // gates end up satisfied, signal the CNCF admin. Regressed
-            // validation just clears the awaiting labels.
-            const gate = gateLabelChanges({ pass, maintainerApproved, mentorsConfirmed, currentLabels });
+            // maintainer, and the mentor gate when the current roster is fully
+            // confirmed; otherwise set the awaiting labels. A material edit
+            // clears the maintainer and CNCF approvals (content changed); when
+            // both gates hold, signal the CNCF admin.
+            const gate = gateLabelChanges({ pass, maintainerApproved, mentorsConfirmed, materialChange, currentLabels });
             for (const name of gate.remove) {
               try { await github.rest.issues.removeLabel({ owner, repo, issue_number, name }); } catch {}
             }
             if (gate.add.length) {
               await github.rest.issues.addLabels({ owner, repo, issue_number, labels: gate.add });
+            }
+
+            // ── Notify approvers when a material edit cleared their approval ──
+            // Tag whoever recorded the maintainer / CNCF approval we just cleared
+            // so they can re-review the changed proposal.
+            const clearedMaintainer = gate.remove.includes('Maintainer/Contribex Approved');
+            const clearedCncf = gate.remove.includes('CNCF Approved');
+            if (clearedMaintainer || clearedCncf) {
+              const { maintainers, cncfAdmins } = findRecordedApprovers(issueComments);
+              const toTag = [];
+              if (clearedMaintainer) for (const h of maintainers) toTag.push(h);
+              if (clearedCncf) for (const h of cncfAdmins) toTag.push(h);
+              const mentions = [...new Set(toTag)].map(h => `@${h}`).join(' ');
+              const what = [clearedMaintainer && 'maintainer approval', clearedCncf && 'CNCF admin approval']
+                .filter(Boolean).join(' and ');
+              await github.rest.issues.createComment({
+                owner, repo, issue_number,
+                body: `♻️ This proposal was edited after approval, so its ${what} ` +
+                  `${clearedMaintainer && clearedCncf ? 'have' : 'has'} been cleared and must be granted again.` +
+                  (mentions ? `\n\n${mentions} — please re-review the updated proposal.` : ''),
+              });
             }
 
             // ── Term labels ──
