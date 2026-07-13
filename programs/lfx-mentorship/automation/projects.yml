@@ -1,6 +1,6 @@
 # Auto-generated from cncf/landscape — DO NOT EDIT MANUALLY.
-# Last updated: 2026-07-06
-# Total projects: 225
+# Last updated: 2026-07-13
+# Total projects: 224
 
 - name: Aeraki Mesh
   slug: aerakimesh
@@ -228,7 +228,7 @@
   repo_url: https://github.com/containers/composefs
 - name: Confidential Containers
   slug: confcont
-  maturity: sandbox
+  maturity: incubating
   homepage: https://confidentialcontainers.org/
   logo: confidential-containers.svg
   repo_url: https://github.com/confidential-containers/confidential-containers
@@ -443,7 +443,7 @@
   logo: grpc.svg
   repo_url: https://github.com/grpc/grpc
   has_dot_project: true
-- name: hami
+- name: HAMi
   slug: hami
   maturity: incubating
   homepage: https://project-hami.github.io/HAMi/
@@ -1347,12 +1347,6 @@
   homepage: https://velero.io
   logo: project-velero.svg
   repo_url: https://github.com/velero-io/velero
-- name: Vineyard
-  slug: vineyard
-  maturity: sandbox
-  homepage: https://v6d.io
-  logo: vineyard.svg
-  repo_url: https://github.com/v6d-io/v6d
 - name: Virtual Kubelet
   slug: virtualkubelet
   maturity: sandbox
