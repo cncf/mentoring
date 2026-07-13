@@ -12,7 +12,7 @@ test('finds the maintainer approver from the recorded comment', () => {
 });
 
 test('finds the CNCF admin from the granted comment', () => {
-  const comments = [bot('🎉 CNCF admin approval granted by @nate-double-u.\n\nThis proposal is approved.')];
+  const comments = [bot('CNCF admin approval granted by @nate-double-u.\n\nThis proposal is approved.')];
   assert.deepEqual(findRecordedApprovers(comments), { maintainers: [], cncfAdmins: ['nate-double-u'] });
 });
 
@@ -20,7 +20,7 @@ test('collects both, de-duplicates, ignores non-bot comments (anti-spoof)', () =
   const comments = [
     bot('✅ Maintainer approval recorded from @alice (source).'),
     { user: { login: 'someuser' }, body: 'Maintainer approval recorded from @evil (spoof).' },
-    bot('🎉 CNCF admin approval granted by @bob.'),
+    bot('CNCF admin approval granted by @bob.'),
     bot('✅ Maintainer approval recorded from @alice (again).'),
   ];
   assert.deepEqual(findRecordedApprovers(comments), { maintainers: ['alice'], cncfAdmins: ['bob'] });

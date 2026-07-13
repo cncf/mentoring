@@ -348,7 +348,7 @@ jobs:
               await addLabel('CNCF Approved');
               await removeLabel('Awaiting CNCF Admin Approval');
               await reply('✅',
-                `🎉 CNCF admin approval granted by @${commenter}.\n\n` +
+                `CNCF admin approval granted by @${commenter}.\n\n` +
                 `This proposal is approved and will be included in the next LFX export.`);
               return;
             }
