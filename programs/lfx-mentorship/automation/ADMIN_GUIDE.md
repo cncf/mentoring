@@ -88,8 +88,9 @@ To approve, comment `/cncf-approve` on the issue. The bot will:
 > over. Cosmetic edits (whitespace, re-triggering validation) don't reset
 > anything. Mentor confirmations persist across content edits; adding or swapping
 > a mentor re-opens confirmation for the new mentor only. This means a maintainer
-> who is the proposer keeps their approval across their own edits (re-granted
-> automatically), but a CNCF admin must always re-approve after a material edit.
+> who is the proposer keeps their approval across their own edits that still pass
+> validation (re-granted automatically); an edit that breaks validation clears it
+> until they fix it, and a CNCF admin must always re-approve after a material edit.
 >
 > `/cncf-approve` additionally requires the proposal to be **currently passing
 > validation**: the bot refuses it in the `Validation Failed` state, so an

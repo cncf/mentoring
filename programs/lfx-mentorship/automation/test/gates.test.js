@@ -141,8 +141,11 @@ test('material edit while only awaiting CNCF (not yet approved) → no churn', (
 // the edit leaves validation passing. Previously the !pass branch returned early
 // and kept them, so a materially-changed, now-failing proposal still carried a
 // stale maintainer/CNCF approval (and could be /cncf-approve'd). Awaiting prompts
-// are still cleared on failure; mentor confirmation persists (participation);
-// a maintainer-proposer's approval survives (re-granted this run).
+// are still cleared on failure; mentor confirmation persists (participation).
+// Note: on the failing path the validation workflow always passes
+// maintainerApproved=false (proposer-implied approval is resolved only on a
+// passing run), so the maintainer approval is cleared here and re-granted once
+// validation passes again — there is no "keep maintainer on a failing edit" case.
 
 test('material edit breaks validation, proposer not a maintainer → clear Maintainer Approved and the awaiting prompt', () => {
   eq(gateLabelChanges({ pass: false, maintainerApproved: false, mentorsConfirmed: false, materialChange: true, currentLabels: [MA, AMC] }),
@@ -152,11 +155,6 @@ test('material edit breaks validation, proposer not a maintainer → clear Maint
 test('material edit breaks validation while CNCF-approved (proposer not a maintainer) → clear maintainer + CNCF, keep mentors', () => {
   eq(gateLabelChanges({ pass: false, maintainerApproved: false, mentorsConfirmed: true, materialChange: true, currentLabels: [MA, MC, 'CNCF Approved'] }),
     [], [MA, 'CNCF Approved']);
-});
-
-test('material edit breaks validation, maintainer-proposer re-grants → keep maintainer, still clear CNCF', () => {
-  eq(gateLabelChanges({ pass: false, maintainerApproved: true, mentorsConfirmed: true, materialChange: true, currentLabels: [MA, MC, 'CNCF Approved'] }),
-    [], ['CNCF Approved']);
 });
 
 test('non-material validation failure keeps content approvals intact', () => {
