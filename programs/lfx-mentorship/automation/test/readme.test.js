@@ -175,3 +175,22 @@ test('renderAcceptedProgramsBody: a recorded lfx_url replaces the TBD placeholde
 test('renderAcceptedProgramsBody: no lfx_url still renders TBD', () => {
   assert.match(renderAcceptedProgramsBody(RENDER_PROGRAMS).join('\n'), /- LFX URL: TBD/);
 });
+
+test('renderAcceptedProgramsBody: a __proto__ project name neither pollutes nor crashes', () => {
+  // cncf_project is untrusted issue-form input used as a grouping key; a
+  // prototype-polluting name like __proto__ must not throw or mutate Object.
+  const evil = [{
+    cncf_project: '__proto__',
+    program_name_short: 'Evil Program',
+    program_name_full: 'CNCF - __proto__: Evil Program (2026 Term 3)',
+    description: 'desc',
+    skills: 'Go',
+    technologies: 'Go',
+    mentors: [{ name: 'A B', github_handle: 'ab', email: 'a@example.com', lfid: 'ab' }],
+    upstream_issue_url: 'https://github.com/cncf/mentoring/issues/1',
+  }];
+  let body;
+  assert.doesNotThrow(() => { body = renderAcceptedProgramsBody(evil).join('\n'); });
+  assert.match(body, /### __proto__/);
+  assert.equal({}.polluted, undefined);
+});

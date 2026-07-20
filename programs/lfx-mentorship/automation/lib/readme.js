@@ -40,7 +40,9 @@ function buildReadme(existingReadme, bodyLines, readmeTitle) {
 // Returns the array of markdown lines for buildReadme to append below the term
 // frontmatter.
 function renderAcceptedProgramsBody(programs) {
-  const byProject = {};
+  // cncf_project is untrusted issue-form input used as a grouping key; a
+  // prototype-less object keeps a name like __proto__ from polluting Object.
+  const byProject = Object.create(null);
   for (const prog of programs) {
     const proj = prog.cncf_project;
     if (!byProject[proj]) byProject[proj] = [];
