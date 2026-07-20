@@ -233,6 +233,7 @@ body:
         - "Stacker"
         - "Strimzi"
         - "Submariner"
+        - "Tekton"
         - "Telepresence"
         - "Thanos"
         - "The Update Framework (TUF)"
