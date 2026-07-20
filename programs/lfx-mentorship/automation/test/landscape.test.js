@@ -16,6 +16,8 @@ const {
   orgOf,
   render,
   rewriteOptionsBlock,
+  logoUrl,
+  LOGO_BASE_URL,
 } = require('../lib/landscape');
 
 // ── render: date-preservation (ported from test_projects_yml.py) ──
@@ -165,7 +167,7 @@ test('extractProjects: maps fields and defaults missing ones to empty strings', 
     slug: 'argo',
     maturity: 'graduated',
     homepage: 'https://argoproj.github.io/',
-    logo: 'argo.svg',
+    logo: 'https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/argo.svg',
     repo_url: 'https://github.com/argoproj/argo-workflows',
   });
   assert.deepEqual(byName['beta tool'], {
@@ -181,6 +183,52 @@ test('extractProjects: maps fields and defaults missing ones to empty strings', 
 test('extractProjects: emits keys in a stable order for byte-stable YAML', () => {
   const keys = Object.keys(extractProjects(LANDSCAPE)[0]);
   assert.deepEqual(keys, ['name', 'slug', 'maturity', 'homepage', 'logo', 'repo_url']);
+});
+
+// ── logoUrl: bare landscape filenames become full hosted_logos URLs ──
+// The landscape stores logos as bare filenames pointing at its own
+// hosted_logos/ directory; downstream consumers need a resolvable URL.
+
+test('logoUrl: prefixes a bare filename with the landscape hosted_logos base', () => {
+  assert.equal(
+    logoUrl('argo.svg'),
+    'https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/argo.svg'
+  );
+  // The base constant and the composed URL agree.
+  assert.equal(logoUrl('argo.svg'), LOGO_BASE_URL + 'argo.svg');
+});
+
+test('logoUrl: leaves an already-absolute URL untouched', () => {
+  const abs = 'https://example.com/custom/logo.svg';
+  assert.equal(logoUrl(abs), abs);
+  assert.equal(logoUrl('http://example.com/logo.png'), 'http://example.com/logo.png');
+});
+
+test('logoUrl: empty / missing stays empty (no dangling base URL)', () => {
+  assert.equal(logoUrl(''), '');
+  assert.equal(logoUrl(null), '');
+  assert.equal(logoUrl(undefined), '');
+});
+
+test('logoUrl: strips a leading "./" the landscape sometimes prefixes (no /./ in the URL)', () => {
+  assert.equal(
+    logoUrl('./k-serve-color.svg'),
+    'https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/k-serve-color.svg'
+  );
+  // Defensive: repeated leading ./ and surrounding whitespace.
+  assert.equal(
+    logoUrl('  ././llm-d.svg  '),
+    'https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/llm-d.svg'
+  );
+  // The composed URL never contains a redundant /./ segment.
+  assert.ok(!logoUrl('./k-serve-color.svg').includes('/./'));
+});
+
+test('logoUrl: trims surrounding whitespace before composing', () => {
+  assert.equal(
+    logoUrl('  argo.svg  '),
+    'https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/argo.svg'
+  );
 });
 
 test('extractProjects: tolerates an empty/# landscape', () => {
