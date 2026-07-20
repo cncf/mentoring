@@ -15,7 +15,7 @@ function termPaths(term) {
   const year = yearMatch ? yearMatch[1] : 'unknown';
   const termNum = termNumMatch ? termNumMatch[1].padStart(2, '0') : '00';
   const monthsRaw = monthsMatch
-    ? monthsMatch[1].replace(/[\u2013\u2014]/g, '-')
+    ? monthsMatch[1].replace(/[\u2013\u2014]/g, '-').trim()
     : 'unknown';
   // months feeds outDir, and the Term field is untrusted issue-form input, so
   // reject anything outside letters/hyphen (e.g. "../", ".", "/") to keep the
