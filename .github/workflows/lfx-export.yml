@@ -92,14 +92,18 @@ jobs:
 
               // Read the LFX URL recorded on the issue by /lfx-url (§4.3.5), if
               // any. The issue is the source of truth, so a re-export keeps the
-              // URL without re-keying it.
+              // URL without re-keying it. Skip the API call when the issue has
+              // no comments (listForRepo returns the count) to avoid needless
+              // requests and secondary rate-limit pressure on large terms.
               let issueComments = [];
-              try {
-                issueComments = await github.paginate(github.rest.issues.listComments, {
-                  owner, repo, issue_number: iss.number, per_page: 100,
-                });
-              } catch (e) {
-                core.warning(`Could not read comments for #${iss.number}: ${e.message}`);
+              if (iss.comments > 0) {
+                try {
+                  issueComments = await github.paginate(github.rest.issues.listComments, {
+                    owner, repo, issue_number: iss.number, per_page: 100,
+                  });
+                } catch (e) {
+                  core.warning(`Could not read comments for #${iss.number}: ${e.message}`);
+                }
               }
               const lfxUrl = parseRecordedLfxUrl(issueComments);
 
