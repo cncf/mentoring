@@ -1,6 +1,6 @@
 # Auto-generated from cncf/landscape — DO NOT EDIT MANUALLY.
-# Last updated: 2026-07-13
-# Total projects: 224
+# Last updated: 2026-07-20
+# Total projects: 225
 
 - name: Aeraki Mesh
   slug: aerakimesh
@@ -15,6 +15,7 @@
   homepage: https://agones.dev/site/
   logo: cncf.svg
   repo_url: https://github.com/agones-dev/agones
+  has_dot_project: true
 - name: Akri
   slug: akri
   maturity: sandbox
@@ -103,7 +104,7 @@
   has_dot_project: true
 - name: Buildpacks
   slug: buildpacks
-  maturity: incubating
+  maturity: graduated
   homepage: https://buildpacks.io/
   logo: buildpacks.svg
   repo_url: https://github.com/buildpacks/pack
@@ -266,6 +267,7 @@
   homepage: https://containerssh.io
   logo: containerssh.svg
   repo_url: https://github.com/containerssh/containerssh
+  has_dot_project: true
 - name: Contour
   slug: contour
   maturity: incubating
@@ -337,24 +339,28 @@
   homepage: https://devfile.io
   logo: devfile.svg
   repo_url: https://github.com/devfile/api
+  has_dot_project: true
 - name: DevSpace
   slug: devspace
   maturity: sandbox
   homepage: https://devspace.sh
   logo: devspace.svg
   repo_url: https://github.com/devspace-sh/devspace
+  has_dot_project: true
 - name: Dex
   slug: dex
   maturity: sandbox
   homepage: https://dexidp.io/
   logo: dex.svg
   repo_url: https://github.com/dexidp/dex
+  has_dot_project: true
 - name: Distribution
   slug: cncf-distribution
   maturity: sandbox
   homepage: https://github.com/distribution/distribution
   logo: distribution.svg
   repo_url: https://github.com/distribution/distribution
+  has_dot_project: true
 - name: Dragonfly
   slug: d7y
   maturity: graduated
@@ -446,7 +452,7 @@
 - name: HAMi
   slug: hami
   maturity: incubating
-  homepage: https://project-hami.github.io/HAMi/
+  homepage: https://project-hami.io/
   logo: hami.svg
   repo_url: https://github.com/Project-HAMi/HAMi
   has_dot_project: true
@@ -555,6 +561,7 @@
   homepage: https://www.k8sgpt.ai
   logo: k8sgpt.svg
   repo_url: https://github.com/k8sgpt-ai/k8sgpt
+  has_dot_project: true
 - name: K8up
   slug: k8up
   maturity: sandbox
@@ -656,6 +663,7 @@
   homepage: https://kmesh.net
   logo: kmesh.svg
   repo_url: https://github.com/kmesh-net/kmesh
+  has_dot_project: true
 - name: Knative
   slug: knative
   maturity: graduated
@@ -712,6 +720,7 @@
   homepage: https://kuasar.io/
   logo: kuasar.svg
   repo_url: https://github.com/kuasar-io/kuasar
+  has_dot_project: true
 - name: Kube-burner
   slug: kube-burner
   maturity: sandbox
@@ -736,6 +745,7 @@
   homepage: https://kube-vip.io
   logo: kubevip.svg
   repo_url: https://github.com/kube-vip/kube-vip
+  has_dot_project: true
 - name: Kubean
   slug: kubean
   maturity: sandbox
@@ -765,8 +775,8 @@
   slug: kubeelasti
   maturity: sandbox
   homepage: https://kubeelasti.dev
-  logo: cncf.svg
-  repo_url: https://github.com/truefoundry/KubeElasti
+  logo: kubeelasti.svg
+  repo_url: https://github.com/KubeElasti/KubeElasti
 - name: KubeFleet
   slug: kubefleet
   maturity: sandbox
@@ -887,6 +897,7 @@
   homepage: https://llm-d.ai/
   logo: ./llm-d.svg
   repo_url: https://github.com/llm-d/llm-d
+  has_dot_project: true
 - name: Logging Operator (Kube Logging)
   slug: logging-operator
   maturity: sandbox
@@ -1038,6 +1049,7 @@
   homepage: https://www.opengemini.org
   logo: opengemini.svg
   repo_url: https://github.com/openGemini/openGemini
+  has_dot_project: true
 - name: OpenGitOps
   slug: gitops-wg
   maturity: sandbox
@@ -1100,6 +1112,7 @@
   homepage: https://oxia-db.github.io
   logo: oxia.svg
   repo_url: https://github.com/oxia-db/oxia
+  has_dot_project: true
 - name: Paralus
   slug: paralus
   maturity: sandbox
@@ -1155,7 +1168,7 @@
   logo: porter-sh.svg
   repo_url: https://github.com/getporter/porter
 - name: Prometheus
-  slug: prometheus-del
+  slug: prometheus
   maturity: graduated
   homepage: https://prometheus.io/
   logo: prometheus.svg
@@ -1202,12 +1215,14 @@
   homepage: https://sermant.io/
   logo: sermant.svg
   repo_url: https://github.com/sermant-io/Sermant
+  has_dot_project: true
 - name: Serverless Devs
   slug: serverlessdevs
   maturity: sandbox
   homepage: https://www.serverless-devs.com/
   logo: serverless-devs.svg
   repo_url: https://github.com/serverless-devs/serverless-devs
+  has_dot_project: true
 - name: Serverless Workflow
   slug: serverlessworkflow
   maturity: sandbox
@@ -1232,12 +1247,14 @@
   homepage: https://slimtoolkit.org/
   logo: slimtoolkit.svg
   repo_url: https://github.com/slimtoolkit/slim
+  has_dot_project: true
 - name: SOPS
   slug: sops
   maturity: sandbox
   homepage: https://github.com/getsops
   logo: sops.svg
   repo_url: https://github.com/getsops/sops
+  has_dot_project: true
 - name: Spiderpool
   slug: spiderpool
   maturity: sandbox
@@ -1274,6 +1291,7 @@
   homepage: https://stackerbuild.io
   logo: stacker.svg
   repo_url: https://github.com/project-stacker/stacker
+  has_dot_project: true
 - name: Strimzi
   slug: strimzi
   maturity: incubating
@@ -1286,6 +1304,13 @@
   homepage: https://submariner.io
   logo: submariner.svg
   repo_url: https://github.com/submariner-io/submariner
+- name: Tekton
+  slug: tekton
+  maturity: incubating
+  homepage: https://tekton.dev/
+  logo: tekton.svg
+  repo_url: https://github.com/tektoncd/pipeline
+  has_dot_project: true
 - name: Telepresence
   slug: telepresence
   maturity: sandbox
