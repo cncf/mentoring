@@ -402,7 +402,7 @@ jobs:
                   await reply('❌', 'Usage: `/lfx-url <url>` — include the LFX program URL.');
                 } else if (decision.reason === 'invalid-url') {
                   await reply('❌',
-                    `\`${commandArg}\` is not an LFX Mentorship program URL. ` +
+                    'That isn\'t an LFX Mentorship program URL. ' +
                     'Expected `https://mentorship.lfx.linuxfoundation.org/project/<id>`.');
                 }
                 return;
