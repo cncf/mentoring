@@ -81,6 +81,7 @@ jobs:
             const { gateLabelChanges } = _lib('gates.js');
             const { findRecordedApprovers } = _lib('approvals.js');
             const { lfxTitle, programNameBudget, LFX_TITLE_MAX } = _lib('title.js');
+            const { nextSteps } = _lib('next-steps.js');
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;
             const title = context.payload.issue.title || '';
@@ -352,6 +353,8 @@ jobs:
             let maintainerApproved = currentLabels.includes('Maintainer/Contribex Approved') && !materialChange;
             let mentorsConfirmed = currentLabels.includes('Mentors Confirmed');
             let maintainerAutoApproved = false;
+            let confirmResult = { count: 0, total: 0, remaining: [] };
+            let proposerIsMentor = false;
             if (errors.length === 0) {
               // Maintainer gate: is the proposer a project maintainer?
               // Deliberately keyed off the PROPOSER, not the editor: a project
@@ -380,7 +383,10 @@ jobs:
               // mentor resolves from persisted /confirm comments). Counts the
               // proposer's own slot. NOT monotonic — reflects the present roster.
               const roster = parseMentors(mentorsRaw).map(m => m.github_handle);
-              mentorsConfirmed = computeConfirm(roster, null, issueComments, proposer).flip;
+              confirmResult = computeConfirm(roster, null, issueComments, proposer);
+              mentorsConfirmed = confirmResult.flip;
+              const normHandle = (h) => String(h || '').replace(/^@/, '').trim().toLowerCase();
+              proposerIsMentor = roster.map(normHandle).includes(normHandle(proposer));
             }
 
             // ── Build validation comment ──
@@ -425,21 +431,17 @@ jobs:
             if (errors.length === 0) {
               const repoUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}`;
               const guideUrl = `${repoUrl}/blob/main/programs/lfx-mentorship/README.md#what-happens-after-you-submit`;
-              lines.push('', '### What happens next', '');
-              lines.push(
-                (maintainerApproved && mentorsConfirmed)
-                  ? 'Maintainer approval and mentor confirmation are already in place, so this proposal goes straight to final CNCF admin review.'
-                  : 'This proposal is now waiting on the people below. No further action is needed from the proposer unless validation flags a change.',
-                '',
-              );
-              lines.push(maintainerApproved
-                ? `1. **Maintainer approval:** ✅ recorded${maintainerAutoApproved ? ` — proposer @${proposer} is a project maintainer` : ''}.`
-                : '1. **Maintainer approval:** a maintainer of the CNCF project (or an authorized delegate) comments `/approve`.');
-              lines.push(mentorsConfirmed
-                ? '2. **Mentor confirmation:** ✅ recorded.'
-                : '2. **Mentor confirmation:** each mentor listed on the proposal comments `/confirm`.');
-              lines.push('3. **CNCF approval:** once both are in place, a CNCF mentorship admin comments `/cncf-approve` to finalize.');
-              lines.push('', `See the [proposal process guide](${guideUrl}) for full details.`);
+              // "What happens next" — decision + copy live in lib/next-steps.js
+              // so the message reflects partial mentor tallies and proposer
+              // auto-counting (cncf/mentoring#1928) and is unit-tested.
+              lines.push('', ...nextSteps({
+                proposer,
+                maintainerApproved,
+                maintainerAutoApproved,
+                confirm: confirmResult,
+                proposerIsMentor,
+                guideUrl,
+              }));
             }
 
             lines.push('', '---', '_Re-run by editing the issue._');
