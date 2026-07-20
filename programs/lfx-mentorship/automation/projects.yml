@@ -704,7 +704,7 @@
   slug: kserve
   maturity: incubating
   homepage: https://kserve.github.io/website/
-  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/./k-serve-color.svg
+  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/k-serve-color.svg
   repo_url: https://github.com/kserve/kserve
   has_dot_project: true
 - name: Kuadrant
@@ -895,7 +895,7 @@
   slug: llm-d
   maturity: sandbox
   homepage: https://llm-d.ai/
-  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/./llm-d.svg
+  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/llm-d.svg
   repo_url: https://github.com/llm-d/llm-d
   has_dot_project: true
 - name: Logging Operator (Kube Logging)

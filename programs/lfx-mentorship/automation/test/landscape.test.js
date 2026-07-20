@@ -210,6 +210,20 @@ test('logoUrl: empty / missing stays empty (no dangling base URL)', () => {
   assert.equal(logoUrl(undefined), '');
 });
 
+test('logoUrl: strips a leading "./" the landscape sometimes prefixes (no /./ in the URL)', () => {
+  assert.equal(
+    logoUrl('./k-serve-color.svg'),
+    'https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/k-serve-color.svg'
+  );
+  // Defensive: repeated leading ./ and surrounding whitespace.
+  assert.equal(
+    logoUrl('  ././llm-d.svg  '),
+    'https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/llm-d.svg'
+  );
+  // The composed URL never contains a redundant /./ segment.
+  assert.ok(!logoUrl('./k-serve-color.svg').includes('/./'));
+});
+
 test('logoUrl: trims surrounding whitespace before composing', () => {
   assert.equal(
     logoUrl('  argo.svg  '),

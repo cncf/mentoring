@@ -21,10 +21,11 @@ const LOGO_BASE_URL = 'https://raw.githubusercontent.com/cncf/landscape/master/h
 
 // Resolve a landscape logo value to a full URL. A blank value stays blank (so a
 // project without a logo doesn't get a dangling base URL); an already-absolute
-// http(s) URL is returned unchanged; a bare filename is prefixed with
-// LOGO_BASE_URL. Surrounding whitespace is trimmed.
+// http(s) URL is returned unchanged; otherwise the bare filename is prefixed
+// with LOGO_BASE_URL. Surrounding whitespace and any leading "./" (the landscape
+// stores some logos as "./file.svg") are stripped so the URL has no /./ segment.
 function logoUrl(logo) {
-  const v = String(logo || '').trim();
+  const v = String(logo || '').trim().replace(/^(\.\/)+/, '');
   if (!v) return '';
   if (/^https?:\/\//i.test(v)) return v;
   return LOGO_BASE_URL + v;
