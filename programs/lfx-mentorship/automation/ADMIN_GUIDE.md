@@ -60,7 +60,8 @@ the [LFX Mentorship README](../README.md#how-to-propose-a-program).
 
 Before using `/cncf-approve` on a proposal, verify:
 
-- [ ] Validation has passed (green `Validation Passed` label)
+- [ ] Validation is currently passing (green `Validation Passed` label) — the
+  bot refuses `/cncf-approve` on a proposal in the `Validation Failed` state
 - [ ] A project maintainer has commented `/approve` (`Maintainer/Contribex
   Approved` label is present) — or the proposer is themselves a project
   maintainer, in which case validation grants it automatically
@@ -79,13 +80,21 @@ To approve, comment `/cncf-approve` on the issue. The bot will:
 > [!NOTE]
 > **Edits after approval reset the content approvals.** If a proposal is edited
 > so that a form field changes (a "material" edit) after maintainer or CNCF
-> approval, validation clears those approvals, re-adds the `Awaiting …` labels,
-> and posts a comment tagging the prior approver(s) to re-review. Cosmetic edits
-> (whitespace, re-triggering validation) don't reset anything. Mentor
-> confirmations persist across content edits; adding or swapping a mentor
-> re-opens confirmation for the new mentor only. This means a maintainer who is
-> the proposer keeps their approval across their own edits (re-granted
-> automatically), but a CNCF admin must always re-approve after a material edit.
+> approval, validation clears those approvals and posts a comment tagging the
+> prior approver(s) to re-review — **whether or not the edit leaves validation
+> passing**. When the edit still passes, the `Awaiting …` labels are re-added;
+> when it fails, they aren't (nothing should read as "waiting"), but the
+> maintainer/CNCF approvals are cleared just the same, so nothing stale carries
+> over. Cosmetic edits (whitespace, re-triggering validation) don't reset
+> anything. Mentor confirmations persist across content edits; adding or swapping
+> a mentor re-opens confirmation for the new mentor only. This means a maintainer
+> who is the proposer keeps their approval across their own edits that still pass
+> validation (re-granted automatically); an edit that breaks validation clears it
+> until they fix it, and a CNCF admin must always re-approve after a material edit.
+>
+> `/cncf-approve` additionally requires the proposal to be **currently passing
+> validation**: the bot refuses it in the `Validation Failed` state, so an
+> approval can't be finalized on a regressed proposal.
 
 Only users listed in `approvers.yml` under `global_approvers` can use
 `/cncf-approve`.

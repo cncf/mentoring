@@ -37,6 +37,7 @@ jobs:
             const { computeConfirm } = _lib('confirm.js');
             const { lookupProject } = _lib('projects.js');
             const { getGlobalApprovers, getProjectSection, getFallbackHandles, getFallbackTeams } = _lib('approvers.js');
+            const { cncfApproveDecision } = _lib('cncf-approve.js');
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;
             const comment = context.payload.comment;
@@ -312,7 +313,7 @@ jobs:
             // ══════════════════════════════════════════════════
             if (command === 'cncf-approve') {
 
-              // Authorization: read from approvers.yml global_approvers
+              // Authorization allowlist: approvers.yml global_approvers.
               let admins = [];
               try {
                 const raw = fs.readFileSync('programs/lfx-mentorship/automation/approvers.yml', 'utf8');
@@ -320,28 +321,27 @@ jobs:
               } catch (e) {
                 console.log(`Failed to read approvers.yml: ${e.message}`);
               }
-              if (!admins.includes(commenter.toLowerCase())) {
-                await reply('❌',
-                  `@${commenter} is not authorized to use \`/cncf-approve\`. ` +
-                  `This command is restricted to CNCF program admins.`);
-                return;
-              }
-              if (currentLabels.includes('CNCF Approved')) {
-                await reply('ℹ️', 'This proposal has already been CNCF-approved.');
-                return;
-              }
 
-              // Gate: both maintainer + mentor must be done
-              const missing = [];
-              if (!currentLabels.includes('Maintainer/Contribex Approved'))
-                missing.push('Maintainer/Contribex Approved');
-              if (!currentLabels.includes('Mentors Confirmed'))
-                missing.push('Mentors Confirmed');
-
-              if (missing.length) {
-                await reply('❌',
-                  `Cannot \`/cncf-approve\` — still missing: ${missing.map(l => `\`${l}\``).join(' and ')}.\n\n` +
-                  `A maintainer must \`/approve\` and a listed mentor must \`/confirm\` first.`);
+              // Gate decision (admin allowlist + already-approved + both gates)
+              // lives in lib/cncf-approve.js so it is unit-tested; the workflow
+              // just maps the outcome to a reply and, when ok, sets the label.
+              const decision = cncfApproveDecision({ commenter, admins, currentLabels });
+              if (!decision.ok) {
+                if (decision.reason === 'not-admin') {
+                  await reply('❌',
+                    `@${commenter} is not authorized to use \`/cncf-approve\`. ` +
+                    `This command is restricted to CNCF program admins.`);
+                } else if (decision.reason === 'already-approved') {
+                  await reply('ℹ️', 'This proposal has already been CNCF-approved.');
+                } else if (decision.reason === 'not-validated') {
+                  await reply('❌',
+                    'Cannot `/cncf-approve` — this proposal is not currently passing validation. ' +
+                    'The proposer needs to resolve the validation errors (see the validation comment) first.');
+                } else if (decision.reason === 'missing-gates') {
+                  await reply('❌',
+                    `Cannot \`/cncf-approve\` — still missing: ${decision.missing.map(l => `\`${l}\``).join(' and ')}.\n\n` +
+                    `A maintainer must \`/approve\` and a listed mentor must \`/confirm\` first.`);
+                }
                 return;
               }
 
