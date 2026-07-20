@@ -406,7 +406,7 @@ jobs:
               // truth; re-render README + CSV from it). The issue's Term field
               // selects the term; the next step lands the change in a per-term PR.
               const lfxTerm = (parseIssueForm(issueBody)['Term'] || '').trim();
-              const { outDir, year, termDir } = termPaths(lfxTerm);
+              const { outDir, year, termDir, readmeTitle } = termPaths(lfxTerm);
               const jsonPath = `${outDir}/lfx-export.json`;
               try {
                 const data = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
@@ -422,7 +422,7 @@ jobs:
                   fs.writeFileSync(jsonPath, JSON.stringify(data, null, 2) + '\n');
                   const readmePath = `${outDir}/README.md`;
                   const existingReadme = fs.existsSync(readmePath) ? fs.readFileSync(readmePath, 'utf8') : null;
-                  fs.writeFileSync(readmePath, buildReadme(existingReadme, renderAcceptedProgramsBody(data.programs), ''));
+                  fs.writeFileSync(readmePath, buildReadme(existingReadme, renderAcceptedProgramsBody(data.programs), readmeTitle));
                   fs.writeFileSync(`${outDir}/lfx-tracking.csv`, renderTrackingCsv(data.programs));
                   core.exportVariable('LFX_URL_FILES_CHANGED', 'true');
                   core.exportVariable('LFX_URL_TERM', lfxTerm);

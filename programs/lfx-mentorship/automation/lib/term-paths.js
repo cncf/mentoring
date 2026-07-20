@@ -1,10 +1,11 @@
 'use strict';
 
-// Derive the per-term output directory (and its components) from an LFX term
-// string like "2026 Term 3 (Sep-Nov)". Extracted from lfx-export.yml so the
-// export and the /lfx-url command (§4.3.5) resolve the same paths. En/em dashes
-// in the month range are normalized to a hyphen; a malformed term falls back to
-// safe placeholders rather than throwing.
+// Derive the per-term output directory (and its components) plus the README
+// display title from an LFX term string like "2026 Term 3 (Sep-Nov)". Extracted
+// from lfx-export.yml so the export and the /lfx-url command (§4.3.5) resolve
+// the same paths and synthesize an identical README header. En/em dashes in the
+// month range are normalized to a hyphen; a malformed term falls back to safe
+// placeholders rather than throwing.
 function termPaths(term) {
   const s = String(term || '');
   const yearMatch = s.match(/^(\d{4})/);
@@ -19,7 +20,17 @@ function termPaths(term) {
   const termDir = `${termNum}-${months}`;
   const outDir = `programs/lfx-mentorship/${year}/${termDir}`;
 
-  return { year, termNum, months, termDir, outDir };
+  // Human-readable README H1, e.g. "Term 03 - 2026 September - November". Only
+  // used when a term README has no frontmatter to preserve (buildReadme ignores
+  // it otherwise), so the export and /lfx-url never synthesize a broken "# ".
+  const monthMap = {
+    'Mar': 'March', 'May': 'May', 'Jun': 'June',
+    'Aug': 'August', 'Sep': 'September', 'Nov': 'November',
+  };
+  const monthParts = months.split('-').map(m => monthMap[m.trim()] || m.trim());
+  const readmeTitle = `Term ${termNum} - ${year} ${monthParts.join(' - ')}`;
+
+  return { year, termNum, months, termDir, outDir, readmeTitle };
 }
 
 module.exports = { termPaths };
