@@ -35,3 +35,19 @@ test('termPaths: malformed term falls back to safe placeholders', () => {
     readmeTitle: 'Term 00 - unknown unknown',
   });
 });
+
+test('termPaths: rejects path-traversal characters in the untrusted months', () => {
+  // The Term field is untrusted issue-form input that feeds outDir, so months
+  // outside a safe charset must not reach the filesystem path.
+  for (const t of [
+    '2026 Term 3 (x/../../../etc)',
+    '2026 Term 3 (../evil)',
+    '2026 Term 3 (a.b)',
+    '2026 Term 3 (Sep Nov)',
+  ]) {
+    const p = termPaths(t);
+    assert.equal(p.months, 'unknown', t);
+    assert.equal(p.termDir, '03-unknown', t);
+    assert.equal(p.outDir, 'programs/lfx-mentorship/2026/03-unknown', t);
+  }
+});

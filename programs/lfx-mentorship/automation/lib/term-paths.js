@@ -14,9 +14,13 @@ function termPaths(term) {
 
   const year = yearMatch ? yearMatch[1] : 'unknown';
   const termNum = termNumMatch ? termNumMatch[1].padStart(2, '0') : '00';
-  const months = monthsMatch
+  const monthsRaw = monthsMatch
     ? monthsMatch[1].replace(/[\u2013\u2014]/g, '-')
     : 'unknown';
+  // months feeds outDir, and the Term field is untrusted issue-form input, so
+  // reject anything outside letters/hyphen (e.g. "../", ".", "/") to keep the
+  // path inside programs/lfx-mentorship/<year>/ rather than traversing out.
+  const months = /^[A-Za-z]+(-[A-Za-z]+)*$/.test(monthsRaw) ? monthsRaw : 'unknown';
   const termDir = `${termNum}-${months}`;
   const outDir = `programs/lfx-mentorship/${year}/${termDir}`;
 
