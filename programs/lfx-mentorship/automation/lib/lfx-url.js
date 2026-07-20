@@ -11,10 +11,14 @@
 const BOT_LOGIN = 'github-actions[bot]';
 const RECORD_RE = /LFX URL recorded from @[A-Za-z0-9-]+:\s*(\S+)/g;
 
-// The LFX platform host. A recorded URL on a different host is allowed but
-// flagged (a likely paste mistake), not blocked — LFX could add a redirect or
-// change hosts.
-const LFX_HOST = 'mentorship.lfx.linuxfoundation.org';
+// The exact shape of an LFX Mentorship program URL, e.g.
+// https://mentorship.lfx.linuxfoundation.org/project/005db8db-7efe-4433-9605-91d14174c72c
+// Confirmed against every URL recorded in previous terms: https only, the
+// mentorship host, a /project/ segment, then a UUID. Anything else (the bare
+// host, other lfx.linuxfoundation.org products, a mistyped id) is not a program
+// URL. If LFX ever changes this shape, update this one pattern.
+const LFX_PROGRAM_URL_RE =
+  /^https:\/\/mentorship\.lfx\.linuxfoundation\.org\/project\/[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
 
 // The canonical recorded-URL comment body. A leading '@' on the user is
 // normalized away so the phrasing is stable.
@@ -39,14 +43,13 @@ function parseRecordedLfxUrl(comments) {
   return url;
 }
 
-// Decision for the `/lfx-url <url>` command (§4.3.5). Returns { ok: true, url,
-// hostWarning } when the command may proceed (url is the trimmed argument,
-// recorded verbatim; hostWarning flags a non-LFX host), otherwise
-// { ok: false, reason } where reason is one of:
+// Decision for the `/lfx-url <url>` command (§4.3.5). Returns { ok: true, url }
+// (url is the trimmed argument, recorded verbatim) when the command may proceed,
+// otherwise { ok: false, reason } where reason is one of:
 //   'not-admin'    commenter is not a CNCF global approver
 //   'not-exported' the issue has not been exported yet (no `Exported` label)
 //   'missing-url'  no URL argument was given
-//   'invalid-url'  the argument is not a valid http(s) URL
+//   'invalid-url'  the argument is not an LFX Mentorship program URL
 //
 // admins: lowercased global-approver handles (approvers.js getGlobalApprovers);
 // commenter is compared case-insensitively, matching /cncf-approve.
@@ -61,18 +64,9 @@ function lfxUrlDecision({ commenter, admins, currentLabels, arg }) {
   }
   const url = String(arg || '').trim();
   if (!url) return { ok: false, reason: 'missing-url' };
+  if (!LFX_PROGRAM_URL_RE.test(url)) return { ok: false, reason: 'invalid-url' };
 
-  let parsed;
-  try {
-    parsed = new URL(url);
-  } catch {
-    return { ok: false, reason: 'invalid-url' };
-  }
-  if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
-    return { ok: false, reason: 'invalid-url' };
-  }
-
-  return { ok: true, url, hostWarning: parsed.hostname !== LFX_HOST };
+  return { ok: true, url };
 }
 
-module.exports = { recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision, LFX_HOST };
+module.exports = { recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision, LFX_PROGRAM_URL_RE };

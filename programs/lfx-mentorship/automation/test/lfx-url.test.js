@@ -51,10 +51,13 @@ test('parseRecordedLfxUrl: empty / none → empty string', () => {
 });
 
 // ── lfxUrlDecision: the /lfx-url gate (§4.3.5) ──
-// Same admin allowlist as /cncf-approve; requires the Exported label; validates
-// the URL and flags a non-LFX host as a warning (not a block).
+// Same admin allowlist as /cncf-approve; requires the Exported label; and the
+// argument must be an exact LFX Mentorship program URL
+// (https://mentorship.lfx.linuxfoundation.org/project/<uuid>). Anything else —
+// other lfx.linuxfoundation.org products, the bare host, a bad id — is rejected,
+// so the board only advances on a real program URL.
 const admins = ['natedoubleu', 'dkrook'];
-const LFX = 'https://mentorship.lfx.linuxfoundation.org/program/abc';
+const LFX = 'https://mentorship.lfx.linuxfoundation.org/project/005db8db-7efe-4433-9605-91d14174c72c';
 
 test('lfxUrlDecision: non-admin is rejected', () => {
   assert.deepEqual(
@@ -82,32 +85,42 @@ test('lfxUrlDecision: missing URL argument', () => {
     { ok: false, reason: 'missing-url' });
 });
 
-test('lfxUrlDecision: a non-URL argument is rejected', () => {
-  assert.deepEqual(
-    lfxUrlDecision({ commenter: 'natedoubleu', admins, currentLabels: ['Exported'], arg: 'not a url' }),
-    { ok: false, reason: 'invalid-url' });
-});
-
-test('lfxUrlDecision: a non-http(s) scheme is rejected', () => {
-  assert.deepEqual(
-    lfxUrlDecision({ commenter: 'natedoubleu', admins, currentLabels: ['Exported'], arg: 'javascript:alert(1)' }),
-    { ok: false, reason: 'invalid-url' });
-});
-
-test('lfxUrlDecision: a valid LFX URL passes with no host warning', () => {
+test('lfxUrlDecision: a valid LFX program URL passes', () => {
   assert.deepEqual(
     lfxUrlDecision({ commenter: 'natedoubleu', admins, currentLabels: ['Exported'], arg: LFX }),
-    { ok: true, url: LFX, hostWarning: false });
+    { ok: true, url: LFX });
 });
 
-test('lfxUrlDecision: a valid non-LFX URL passes but warns on the host', () => {
-  const other = 'https://example.com/whatever';
+test('lfxUrlDecision: an uppercase-hex UUID still passes', () => {
+  const upper = 'https://mentorship.lfx.linuxfoundation.org/project/005DB8DB-7EFE-4433-9605-91D14174C72C';
   assert.deepEqual(
-    lfxUrlDecision({ commenter: 'natedoubleu', admins, currentLabels: ['Exported'], arg: other }),
-    { ok: true, url: other, hostWarning: true });
+    lfxUrlDecision({ commenter: 'natedoubleu', admins, currentLabels: ['Exported'], arg: upper }),
+    { ok: true, url: upper });
 });
 
 test('lfxUrlDecision: trims surrounding whitespace and records the URL as given', () => {
   const d = lfxUrlDecision({ commenter: 'natedoubleu', admins, currentLabels: ['Exported'], arg: `  ${LFX}  ` });
-  assert.deepEqual(d, { ok: true, url: LFX, hostWarning: false });
+  assert.deepEqual(d, { ok: true, url: LFX });
+});
+
+test('lfxUrlDecision: anything that is not an exact LFX program URL is rejected', () => {
+  const bad = [
+    'not a url',
+    'javascript:alert(1)',
+    'http://mentorship.lfx.linuxfoundation.org/project/005db8db-7efe-4433-9605-91d14174c72c', // http, not https
+    'https://mentorship.lfx.linuxfoundation.org',                                              // bare host, no program
+    'https://mentorship.lfx.linuxfoundation.org/project/not-a-uuid',                           // malformed id
+    'https://mentorship.lfx.linuxfoundation.org/program/005db8db-7efe-4433-9605-91d14174c72c', // wrong path segment
+    'https://crowdfunding.lfx.linuxfoundation.org/projects/005db8db-7efe-4433-9605-91d14174c72c', // different LFX product
+    'https://example.com/whatever',
+    `${LFX}/`,       // trailing slash
+    `${LFX}?x=1`,    // query string
+    `${LFX}#frag`,   // fragment
+    `${LFX}extra`,   // trailing junk
+  ];
+  for (const arg of bad) {
+    assert.deepEqual(
+      lfxUrlDecision({ commenter: 'natedoubleu', admins, currentLabels: ['Exported'], arg }),
+      { ok: false, reason: 'invalid-url' }, arg);
+  }
 });

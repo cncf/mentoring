@@ -46,7 +46,7 @@ jobs:
             const { lookupProject } = _lib('projects.js');
             const { getGlobalApprovers, getProjectSection, getFallbackHandles, getFallbackTeams } = _lib('approvers.js');
             const { cncfApproveDecision } = _lib('cncf-approve.js');
-            const { lfxUrlDecision, recordedLfxUrlComment, LFX_HOST } = _lib('lfx-url.js');
+            const { lfxUrlDecision, recordedLfxUrlComment } = _lib('lfx-url.js');
             const { termPaths } = _lib('term-paths.js');
             const { buildReadme, renderAcceptedProgramsBody } = _lib('readme.js');
             const { renderTrackingCsv } = _lib('csv.js');
@@ -395,7 +395,8 @@ jobs:
                   await reply('❌', 'Usage: `/lfx-url <url>` — include the LFX program URL.');
                 } else if (decision.reason === 'invalid-url') {
                   await reply('❌',
-                    `\`${commandArg}\` is not a valid URL. Provide the full LFX program URL (https://…).`);
+                    `\`${commandArg}\` is not an LFX Mentorship program URL. ` +
+                    'Expected `https://mentorship.lfx.linuxfoundation.org/project/<id>`.');
                 }
                 return;
               }
@@ -403,10 +404,7 @@ jobs:
               // Record the URL on the issue — the durable source of truth the
               // export reads back (§4.5). Advance the board regardless of the
               // file-update outcome below: the program IS posted once recorded.
-              const hostNote = decision.hostWarning
-                ? `\n\n⚠️ That URL isn't on \`${LFX_HOST}\`; recorded anyway — double-check it's correct.`
-                : '';
-              await reply('✅', recordedLfxUrlComment(commenter, decision.url) + hostNote);
+              await reply('✅', recordedLfxUrlComment(commenter, decision.url));
               core.exportVariable('LFX_URL_POSTED', 'true');
 
               // Fill the URL into that term's export files (JSON is the source of
