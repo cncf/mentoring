@@ -7,36 +7,38 @@ const { recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision } = require('
 const bot = (body) => ({ user: { login: 'github-actions[bot]' }, body });
 const user = (login, body) => ({ user: { login }, body });
 
+// Realistic LFX Mentorship program URLs — the exact shape /lfx-url enforces.
+const LFX = 'https://mentorship.lfx.linuxfoundation.org/project/005db8db-7efe-4433-9605-91d14174c72c';
+const LFX2 = 'https://mentorship.lfx.linuxfoundation.org/project/0071e2ff-f538-4817-978b-07b267cfcd6a';
+
 test('recordedLfxUrlComment: canonical phrasing the parser reads back', () => {
   assert.equal(
-    recordedLfxUrlComment('nate-double-u', 'https://mentorship.lfx.linuxfoundation.org/program/abc'),
-    'LFX URL recorded from @nate-double-u: https://mentorship.lfx.linuxfoundation.org/program/abc'
+    recordedLfxUrlComment('nate-double-u', LFX),
+    `LFX URL recorded from @nate-double-u: ${LFX}`
   );
   // A leading @ on the user is normalized away.
   assert.equal(
-    recordedLfxUrlComment('@nate', 'https://x/y'),
-    'LFX URL recorded from @nate: https://x/y'
+    recordedLfxUrlComment('@nate', LFX2),
+    `LFX URL recorded from @nate: ${LFX2}`
   );
 });
 
 test('parseRecordedLfxUrl: round-trips a recorded comment', () => {
-  const url = 'https://mentorship.lfx.linuxfoundation.org/program/abc';
-  const comments = [bot(recordedLfxUrlComment('nate', url))];
-  assert.equal(parseRecordedLfxUrl(comments), url);
+  const comments = [bot(recordedLfxUrlComment('nate', LFX))];
+  assert.equal(parseRecordedLfxUrl(comments), LFX);
 });
 
 test('parseRecordedLfxUrl: matches even with a leading emoji/prefix', () => {
-  const url = 'https://mentorship.lfx.linuxfoundation.org/p/1';
-  assert.equal(parseRecordedLfxUrl([bot('✅ ' + recordedLfxUrlComment('nate', url))]), url);
+  assert.equal(parseRecordedLfxUrl([bot('✅ ' + recordedLfxUrlComment('nate', LFX))]), LFX);
 });
 
 test('parseRecordedLfxUrl: latest recorded URL wins (a correction supersedes)', () => {
   const comments = [
-    bot(recordedLfxUrlComment('nate', 'https://mentorship.lfx.linuxfoundation.org/old')),
+    bot(recordedLfxUrlComment('nate', LFX)),
     user('someone', 'chatter'),
-    bot(recordedLfxUrlComment('nate', 'https://mentorship.lfx.linuxfoundation.org/new')),
+    bot(recordedLfxUrlComment('nate', LFX2)),
   ];
-  assert.equal(parseRecordedLfxUrl(comments), 'https://mentorship.lfx.linuxfoundation.org/new');
+  assert.equal(parseRecordedLfxUrl(comments), LFX2);
 });
 
 test('parseRecordedLfxUrl: ignores non-bot comments (anti-spoof)', () => {
@@ -57,7 +59,6 @@ test('parseRecordedLfxUrl: empty / none → empty string', () => {
 // other lfx.linuxfoundation.org products, the bare host, a bad id — is rejected,
 // so the board only advances on a real program URL.
 const admins = ['natedoubleu', 'dkrook'];
-const LFX = 'https://mentorship.lfx.linuxfoundation.org/project/005db8db-7efe-4433-9605-91d14174c72c';
 
 test('lfxUrlDecision: non-admin is rejected', () => {
   assert.deepEqual(
