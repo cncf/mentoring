@@ -423,9 +423,9 @@ jobs:
             }
 
             if (passed.length) {
-              lines.push('<details><summary>✅ Passed checks</summary>', '');
+              lines.push('**✅ Passed checks**', '');
               for (const p of passed) lines.push(`- ${p}`);
-              lines.push('', '</details>');
+              lines.push('');
             }
 
             if (errors.length === 0) {
