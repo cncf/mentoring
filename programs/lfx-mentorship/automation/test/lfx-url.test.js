@@ -77,6 +77,24 @@ test('lfxUrlDecision: requires the Exported label', () => {
     { ok: false, reason: 'not-exported' });
 });
 
+test('lfxUrlDecision: a closed issue is rejected (reopen first)', () => {
+  assert.deepEqual(
+    lfxUrlDecision({ commenter: 'natedoubleu', admins, currentLabels: ['Exported'], arg: LFX, closed: true }),
+    { ok: false, reason: 'issue-closed' });
+});
+
+test('lfxUrlDecision: auth is checked before the closed state', () => {
+  assert.deepEqual(
+    lfxUrlDecision({ commenter: 'randomuser', admins, currentLabels: ['Exported'], arg: LFX, closed: true }),
+    { ok: false, reason: 'not-admin' });
+});
+
+test('lfxUrlDecision: closed is reported before not-exported', () => {
+  assert.deepEqual(
+    lfxUrlDecision({ commenter: 'natedoubleu', admins, currentLabels: [], arg: LFX, closed: true }),
+    { ok: false, reason: 'issue-closed' });
+});
+
 test('lfxUrlDecision: missing URL argument', () => {
   assert.deepEqual(
     lfxUrlDecision({ commenter: 'natedoubleu', admins, currentLabels: ['Exported'], arg: '' }),

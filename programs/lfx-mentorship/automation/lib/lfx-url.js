@@ -47,17 +47,24 @@ function parseRecordedLfxUrl(comments) {
 // (url is the trimmed argument, recorded verbatim) when the command may proceed,
 // otherwise { ok: false, reason } where reason is one of:
 //   'not-admin'    commenter is not a CNCF global approver
+//   'issue-closed' the proposal issue is closed (reopen it to record a URL)
 //   'not-exported' the issue has not been exported yet (no `Exported` label)
 //   'missing-url'  no URL argument was given
 //   'invalid-url'  the argument is not an LFX Mentorship program URL
 //
 // admins: lowercased global-approver handles (approvers.js getGlobalApprovers);
-// commenter is compared case-insensitively, matching /cncf-approve.
-function lfxUrlDecision({ commenter, admins, currentLabels, arg }) {
+// commenter is compared case-insensitively, matching /cncf-approve. closed is
+// the issue's closed state: a closed proposal is not being posted to LFX, so it
+// is rejected outright (no record, no file change, no board move) rather than
+// leaking its URL into the published term files.
+function lfxUrlDecision({ commenter, admins, currentLabels, arg, closed }) {
   const labels = currentLabels || [];
 
   if (!(admins || []).includes(String(commenter || '').toLowerCase())) {
     return { ok: false, reason: 'not-admin' };
+  }
+  if (closed) {
+    return { ok: false, reason: 'issue-closed' };
   }
   if (!labels.includes('Exported')) {
     return { ok: false, reason: 'not-exported' };

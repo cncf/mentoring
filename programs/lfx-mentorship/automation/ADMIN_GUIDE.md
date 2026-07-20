@@ -137,9 +137,10 @@ the existing branch if the previous PR wasn't merged).
    the term's `lfx-export.json`, `README.md`, and `lfx-tracking.csv` (landing the
    change in a per-term `LFX URLs — <term>` PR), and advances the card to
    `Posted to LFX`. Restricted to global approvers; the issue must already be
-   `Exported`. The URL must be a full LFX Mentorship program URL
+   `Exported` and open. The URL must be a full LFX Mentorship program URL
    (`https://mentorship.lfx.linuxfoundation.org/project/<id>`); anything else is
-   rejected, so the card only advances on a real program URL.
+   rejected, so the card only advances on a real program URL. A closed proposal
+   is rejected too (reopen it first) — a withdrawn program should not be posted.
 5. **Continue tracking** by dragging cards through the remaining columns by
    hand as each step completes on the LFX platform (`LFX Approved` →
    `Mentors added` → `Open for Applications` → `Applications Closed`)

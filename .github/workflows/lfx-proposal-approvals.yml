@@ -381,12 +381,19 @@ jobs:
                 console.log(`Failed to read approvers.yml: ${e.message}`);
               }
 
-              const decision = lfxUrlDecision({ commenter, admins, currentLabels, arg: commandArg });
+              const decision = lfxUrlDecision({
+                commenter, admins, currentLabels, arg: commandArg,
+                closed: context.payload.issue.state === 'closed',
+              });
               if (!decision.ok) {
                 if (decision.reason === 'not-admin') {
                   await reply('❌',
                     `@${commenter} is not authorized to use \`/lfx-url\`. ` +
                     `This command is restricted to CNCF program admins.`);
+                } else if (decision.reason === 'issue-closed') {
+                  await reply('❌',
+                    'Cannot `/lfx-url` — this proposal is closed. Reopen it first ' +
+                    'if it really was posted to LFX.');
                 } else if (decision.reason === 'not-exported') {
                   await reply('❌',
                     'Cannot `/lfx-url` — this proposal has not been exported yet ' +
