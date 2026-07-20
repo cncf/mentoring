@@ -13,6 +13,23 @@
 
 const MATURITIES = new Set(['graduated', 'incubating', 'sandbox']);
 
+// The landscape's `logo` field is a bare filename (e.g. "argo.svg") that refers
+// to a file in cncf/landscape's hosted_logos/ directory. Downstream consumers
+// (projects.yml, exports) need a resolvable URL, so logoUrl() composes the full
+// raw URL. The landscape's default branch is `master`.
+const LOGO_BASE_URL = 'https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/';
+
+// Resolve a landscape logo value to a full URL. A blank value stays blank (so a
+// project without a logo doesn't get a dangling base URL); an already-absolute
+// http(s) URL is returned unchanged; a bare filename is prefixed with
+// LOGO_BASE_URL. Surrounding whitespace is trimmed.
+function logoUrl(logo) {
+  const v = String(logo || '').trim();
+  if (!v) return '';
+  if (/^https?:\/\//i.test(v)) return v;
+  return LOGO_BASE_URL + v;
+}
+
 // Slug for projects.yml: prefer the landscape's extra.lfx_slug, else the
 // project name, lowercased with every non [a-z0-9-] run collapsed to a single
 // hyphen and surrounding hyphens trimmed.
@@ -45,7 +62,7 @@ function extractProjects(landscape) {
           slug: projectSlug(item.name, extra.lfx_slug),
           maturity: item.project,
           homepage: item.homepage_url || '',
-          logo: item.logo || '',
+          logo: logoUrl(item.logo),
           repo_url: item.repo_url || '',
         });
       }
@@ -134,4 +151,6 @@ module.exports = {
   orgOf,
   render,
   rewriteOptionsBlock,
+  logoUrl,
+  LOGO_BASE_URL,
 };
