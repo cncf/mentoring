@@ -3,7 +3,7 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const {
-  determineStatus, shouldSkipSync, shouldSkipExport, readStatusWithRetry,
+  determineStatus, resolveBoardStatus, shouldSkipSync, shouldSkipExport, readStatusWithRetry,
 } = require('../lib/board');
 
 test('determineStatus: empty labels map to Inbox', () => {
@@ -29,6 +29,31 @@ test('determineStatus: the label cascade stops at Exported', () => {
 test('determineStatus: admin-only and flag labels do not drive the cascade', () => {
   assert.equal(determineStatus(['Posted to LFX', 'Exported', 'CNCF Approved']), 'Exported');
   assert.equal(determineStatus(['Mentors Registered', 'Exported']), 'Exported');
+});
+
+test('resolveBoardStatus: a /lfx-url force advances an open card to Posted to LFX', () => {
+  assert.equal(
+    resolveBoardStatus({ labels: ['Exported'], closed: false, forcePosted: true }),
+    'Posted to LFX',
+  );
+});
+
+test('resolveBoardStatus: a closed issue stays Closed even under a /lfx-url force', () => {
+  assert.equal(
+    resolveBoardStatus({ labels: ['Exported'], closed: true, forcePosted: true }),
+    'Closed',
+  );
+});
+
+test('resolveBoardStatus: without a force it falls back to the label cascade', () => {
+  assert.equal(
+    resolveBoardStatus({ labels: ['Exported'], closed: false, forcePosted: false }),
+    'Exported',
+  );
+  assert.equal(
+    resolveBoardStatus({ labels: [], closed: false, forcePosted: false }),
+    'Inbox',
+  );
 });
 
 test('shouldSkipSync: protects admin-owned columns except on close', () => {

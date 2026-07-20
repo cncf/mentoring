@@ -473,7 +473,7 @@ jobs:
             const fs = require('fs');
             const path = require('path');
             const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
-            const { determineStatus, shouldSkipSync, readStatusWithRetry } = _lib('board.js');
+            const { resolveBoardStatus, shouldSkipSync, readStatusWithRetry } = _lib('board.js');
             const _board = JSON.parse(fs.readFileSync('programs/lfx-mentorship/automation/board.json', 'utf8'));
             const _envCfg = (_board.environments || {})[process.env.GITHUB_REPOSITORY];
             if (!_envCfg || !_envCfg.projectId || String(_envCfg.projectId).startsWith('REPLACE_')) {
@@ -509,11 +509,12 @@ jobs:
             // post-export columns are manual admin moves (see board guard below
             // and lib/board.js). The one exception: a successful /lfx-url
             // command explicitly advances the card to "Posted to LFX" (§4.3.5),
-            // signalled via the LFX_URL_POSTED env from the command step.
-            const forcePosted = process.env.LFX_URL_POSTED === 'true';
-            const status = forcePosted
-              ? 'Posted to LFX'
-              : determineStatus(labels, issue.state === 'closed' ? 'closed' : null);
+            // signalled via the LFX_URL_POSTED env from the command step — but a
+            // closed issue always resolves to "Closed" (the force never
+            // resurrects a closed card). Precedence lives in resolveBoardStatus.
+            const closed = issue.state === 'closed';
+            const forcePosted = process.env.LFX_URL_POSTED === 'true' && !closed;
+            const status = resolveBoardStatus({ labels, closed, forcePosted });
 
             const optionId = STATUS_OPTIONS[status];
             if (!optionId) {

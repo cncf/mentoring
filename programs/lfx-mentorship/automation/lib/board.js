@@ -33,6 +33,16 @@ function determineStatus(labels, action) {
   return 'Inbox';
 }
 
+// Resolve the approvals workflow's target board status, honoring the precedence
+// closed > /lfx-url force > label-derived status. A closed issue always maps to
+// "Closed" so the §4.3.5 board move never resurrects a closed card; otherwise a
+// successful /lfx-url advance forces "Posted to LFX".
+function resolveBoardStatus({ labels, closed, forcePosted }) {
+  if (closed) return 'Closed';
+  if (forcePosted) return 'Posted to LFX';
+  return determineStatus(labels, null);
+}
+
 // Sync guard (board-sync / validate / approvals): skip the board write when the
 // card already sits in an admin-owned column (unless the issue just closed), or
 // when the status read failed and we are about to set "Exported" (fail closed,
@@ -79,6 +89,7 @@ async function readStatusWithRetry(readFn, { attempts = 2, delayMs = 1000, sleep
 module.exports = {
   ADMIN_OWNED,
   determineStatus,
+  resolveBoardStatus,
   shouldSkipSync,
   shouldSkipExport,
   readStatusWithRetry,
