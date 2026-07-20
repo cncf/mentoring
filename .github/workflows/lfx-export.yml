@@ -36,6 +36,7 @@ jobs:
             const { buildReadme, renderAcceptedProgramsBody } = _lib('readme.js');
             const { renderTrackingCsv } = _lib('csv.js');
             const { parseRecordedLfxUrl } = _lib('lfx-url.js');
+            const { termPaths } = _lib('term-paths.js');
             const { lookupProject } = _lib('projects.js');
             const { lfxTitle } = _lib('title.js');
             const { owner, repo } = context.repo;
@@ -138,18 +139,8 @@ jobs:
 
             // ── Determine output path ──
             // Term format: "2026 Term 3 (Sep-Nov)" → year=2026, dir=03-Sep-Nov
-            const yearMatch = term.match(/^(\d{4})/);
-            const termNumMatch = term.match(/Term\s+(\d)/);
-            const monthsMatch = term.match(/\(([^)]+)\)/);
-
-            const year = yearMatch ? yearMatch[1] : 'unknown';
-            const termNum = termNumMatch ? termNumMatch[1].padStart(2, '0') : '00';
-            const months = monthsMatch
-              ? monthsMatch[1].replace(/[\u2013\u2014]/g, '-')
-              : 'unknown';
-            const termDir = `${termNum}-${months}`;
-
-            const outDir = `programs/lfx-mentorship/${year}/${termDir}`;
+            // (path derivation shared with /lfx-url via lib/term-paths.js).
+            const { year, termNum, months, termDir, outDir } = termPaths(term);
             fs.mkdirSync(outDir, { recursive: true });
 
             const outPath = `${outDir}/lfx-export.json`;
