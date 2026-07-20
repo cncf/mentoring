@@ -62,7 +62,7 @@ function renderTrackingCsv(programs) {
     const mentors = prog.mentors || [];
     const row = [
       prog.program_name_full,
-      '',  // LFX URL — filled in after posting to LFX
+      prog.lfx_url || '',  // LFX URL — recorded post-export by /lfx-url (§4.3.5)
       prog.upstream_issue_url,
       '',  // spacer column
       mentors.length,

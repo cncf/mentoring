@@ -87,7 +87,7 @@ function renderAcceptedProgramsBody(programs) {
         md.push(`  - ${m.name} (@${m.github_handle}, ${m.email})`);
       }
       md.push(`- Upstream Issue: ${prog.upstream_issue_url}`);
-      md.push(`- LFX URL: TBD`);
+      md.push(`- LFX URL: ${prog.lfx_url || 'TBD'}`);
       md.push('');
     }
   }

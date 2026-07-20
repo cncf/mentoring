@@ -164,3 +164,14 @@ test('renderAcceptedProgramsBody: output feeds buildReadme cleanly', () => {
   assert.match(out, /#### Beta Program/);
   assert.match(out, /- LFX URL: TBD/);
 });
+
+test('renderAcceptedProgramsBody: a recorded lfx_url replaces the TBD placeholder', () => {
+  const withUrl = [{ ...RENDER_PROGRAMS[1], lfx_url: 'https://mentorship.lfx.linuxfoundation.org/p/1' }];
+  const body = renderAcceptedProgramsBody(withUrl).join('\n');
+  assert.match(body, /- LFX URL: https:\/\/mentorship\.lfx\.linuxfoundation\.org\/p\/1/);
+  assert.doesNotMatch(body, /- LFX URL: TBD/);
+});
+
+test('renderAcceptedProgramsBody: no lfx_url still renders TBD', () => {
+  assert.match(renderAcceptedProgramsBody(RENDER_PROGRAMS).join('\n'), /- LFX URL: TBD/);
+});

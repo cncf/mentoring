@@ -106,3 +106,9 @@ test('renderTrackingCsv: header, input order, blank LFX URL, 4 mentor slots', ()
   assert.deepEqual(r2.slice(5, 9), ['Al Pha', 'alpha', 'al@example.com', 'alpha']);
   assert.deepEqual(r2.slice(9, 21), ['', '', '', '', '', '', '', '', '', '', '', '']);
 });
+
+test('renderTrackingCsv: a recorded lfx_url fills the LFX URL column', () => {
+  const withUrl = [{ ...CSV_PROGRAMS[0], lfx_url: 'https://mentorship.lfx.linuxfoundation.org/p/1' }];
+  const r1 = parseCsvLine(renderTrackingCsv(withUrl).split('\n')[1]);
+  assert.equal(r1[1], 'https://mentorship.lfx.linuxfoundation.org/p/1');
+});

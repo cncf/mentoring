@@ -35,6 +35,7 @@ jobs:
             const { standardPrerequisites } = _lib('prerequisites.js');
             const { buildReadme, renderAcceptedProgramsBody } = _lib('readme.js');
             const { renderTrackingCsv } = _lib('csv.js');
+            const { parseRecordedLfxUrl } = _lib('lfx-url.js');
             const { lookupProject } = _lib('projects.js');
             const { lfxTitle } = _lib('title.js');
             const { owner, repo } = context.repo;
@@ -88,6 +89,19 @@ jobs:
 
               const meta = lookupProject(projYaml, project) || {};
 
+              // Read the LFX URL recorded on the issue by /lfx-url (§4.3.5), if
+              // any. The issue is the source of truth, so a re-export keeps the
+              // URL without re-keying it.
+              let issueComments = [];
+              try {
+                issueComments = await github.paginate(github.rest.issues.listComments, {
+                  owner, repo, issue_number: iss.number, per_page: 100,
+                });
+              } catch (e) {
+                core.warning(`Could not read comments for #${iss.number}: ${e.message}`);
+              }
+              const lfxUrl = parseRecordedLfxUrl(issueComments);
+
               programs.push({
                 issue_number: iss.number,
                 issue_url: iss.html_url,
@@ -102,6 +116,7 @@ jobs:
                 skills: skills,
                 mentors: parseMentors(get('Mentors')),
                 upstream_issue_url: get('Upstream Issue URL'),
+                lfx_url: lfxUrl,
                 prerequisites: {
                   resume: prerequisites.includes('Resume'),
                   cover_letter: prerequisites.includes('Cover Letter'),
