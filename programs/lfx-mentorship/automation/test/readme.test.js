@@ -2,8 +2,7 @@
 
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { buildReadme } = require('../lib/readme');
-
+const { buildReadme, renderAcceptedProgramsBody } = require('../lib/readme');
 const TITLE = 'Term 03 - 2026 September - November';
 
 const stub = `# Term 03 - 2026 September - November
@@ -72,4 +71,96 @@ test('buildReadme: no existing README falls back to a minimal header', () => {
   const out = buildReadme(null, body, TITLE);
   assert.ok(out.startsWith(`# ${TITLE}`));
   assert.match(out, /## Accepted Projects/);
+});
+
+// ── renderAcceptedProgramsBody: the TOC + Accepted Projects body ──
+// Characterizes the body assembly extracted from lfx-export.yml. Programs are
+// grouped by CNCF project and the projects sorted case-insensitively; the CSV
+// (see csv.test.js) keeps input order, but this body sorts.
+
+const RENDER_PROGRAMS = [
+  {
+    cncf_project: 'Backstage',
+    program_name_short: 'Alpha Program',
+    program_name_full: 'CNCF - Backstage: Alpha Program (2026 Term 3)',
+    description: 'Line one.\nLine two.',
+    skills: 'Go, Kubernetes',
+    technologies: 'Go, Kubernetes',
+    mentors: [
+      { name: 'Jane Doe', github_handle: 'janedoe', email: 'jane@example.com', lfid: 'janedoe' },
+      { name: 'Sam Lee', github_handle: 'samlee', email: 'sam@example.com', lfid: 'samlee' },
+    ],
+    upstream_issue_url: 'https://github.com/cncf/mentoring/issues/1883',
+  },
+  {
+    cncf_project: 'Argo',
+    program_name_short: 'Beta Program',
+    program_name_full: 'CNCF - Argo: Beta Program (2026 Term 3)',
+    description: 'Solo desc.',
+    skills: 'Rust',
+    technologies: 'Rust',
+    mentors: [
+      { name: 'Al Pha', github_handle: 'alpha', email: 'al@example.com', lfid: 'alpha' },
+    ],
+    upstream_issue_url: 'https://github.com/argoproj/argo/issues/1',
+  },
+];
+
+const EXPECTED_BODY = [
+  '## Table of Contents',
+  '',
+  '- [Argo](#argo)',
+  '  - [Beta Program](#beta-program)',
+  '- [Backstage](#backstage)',
+  '  - [Alpha Program](#alpha-program)',
+  '',
+  '## Accepted Projects',
+  '',
+  '### Argo',
+  '',
+  '#### Beta Program',
+  '',
+  'CNCF - Argo: Beta Program (2026 Term 3)',
+  '',
+  '- Description:',
+  '',
+  '  > Solo desc.',
+  '',
+  '- Recommended Skills: Rust',
+  '- Technologies: Rust',
+  '- Mentor(s):',
+  '  - Al Pha (@alpha, al@example.com)',
+  '- Upstream Issue: https://github.com/argoproj/argo/issues/1',
+  '- LFX URL: TBD',
+  '',
+  '### Backstage',
+  '',
+  '#### Alpha Program',
+  '',
+  'CNCF - Backstage: Alpha Program (2026 Term 3)',
+  '',
+  '- Description:',
+  '',
+  '  > Line one.',
+  '  > Line two.',
+  '',
+  '- Recommended Skills: Go, Kubernetes',
+  '- Technologies: Go, Kubernetes',
+  '- Mentor(s):',
+  '  - Jane Doe (@janedoe, jane@example.com)',
+  '  - Sam Lee (@samlee, sam@example.com)',
+  '- Upstream Issue: https://github.com/cncf/mentoring/issues/1883',
+  '- LFX URL: TBD',
+  '',
+];
+
+test('renderAcceptedProgramsBody: sorts projects, nests programs, renders full detail', () => {
+  assert.deepEqual(renderAcceptedProgramsBody(RENDER_PROGRAMS), EXPECTED_BODY);
+});
+
+test('renderAcceptedProgramsBody: output feeds buildReadme cleanly', () => {
+  const out = buildReadme(null, renderAcceptedProgramsBody(RENDER_PROGRAMS), TITLE);
+  assert.match(out, /## Table of Contents/);
+  assert.match(out, /#### Beta Program/);
+  assert.match(out, /- LFX URL: TBD/);
 });
