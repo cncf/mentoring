@@ -5,6 +5,13 @@ on:
     types: [created]
 
 permissions:
+  # Runs on issue_comment, so any commenter can trigger a run. The write scopes
+  # let a successful /lfx-url open the per-term URLs PR via peter-evans (same
+  # token and perms as the workflow_dispatch lfx-export.yml). They are never
+  # exercised for untrusted commenters: the file writes and PR step are gated on
+  # LFX_URL_FILES_CHANGED, set only after the global-approver auth check; the
+  # comment body is parsed as a string (no shell interpolation); and PRs target
+  # branch-protected main. Board moves use PROJECT_TOKEN, not GITHUB_TOKEN.
   issues: write
   contents: write
   pull-requests: write
