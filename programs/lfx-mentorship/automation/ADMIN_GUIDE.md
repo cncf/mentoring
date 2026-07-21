@@ -141,6 +141,10 @@ the existing branch if the previous PR wasn't merged).
    (`https://mentorship.lfx.linuxfoundation.org/project/<id>`); anything else is
    rejected, so the card only advances on a real program URL. A closed proposal
    is rejected too (reopen it first) — a withdrawn program should not be posted.
+   The term's export must already be **merged to `main`** (step 2): `/lfx-url`
+   fills the merged files, so a command run while the export PR is still open is
+   rejected with the exact command to re-run once you merge it. Nothing is
+   recorded on a rejection, so re-running after the merge is safe.
 5. **Continue tracking** by dragging cards through the remaining columns by
    hand as each step completes on the LFX platform (`LFX Approved` →
    `Mentors added` → `Open for Applications` → `Applications Closed`)

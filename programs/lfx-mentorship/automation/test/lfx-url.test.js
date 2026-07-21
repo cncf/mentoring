@@ -2,7 +2,7 @@
 
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision } = require('../lib/lfx-url');
+const { recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision, findExportedProgram } = require('../lib/lfx-url');
 
 const bot = (body) => ({ user: { login: 'github-actions[bot]' }, body });
 const user = (login, body) => ({ user: { login }, body });
@@ -142,4 +142,23 @@ test('lfxUrlDecision: anything that is not an exact LFX program URL is rejected'
       lfxUrlDecision({ commenter: 'natedoubleu', admins, currentLabels: ['Exported'], arg }),
       { ok: false, reason: 'invalid-url' }, arg);
   }
+});
+
+// ── findExportedProgram: the "export merged to main" guard (§4.3.5, option C) ──
+test('findExportedProgram: returns the matching program by issue number', () => {
+  const data = { programs: [{ issue_number: 114, cncf_project: 'A' }, { issue_number: 115, cncf_project: 'B' }] };
+  assert.equal(findExportedProgram(data, 115).cncf_project, 'B');
+});
+
+test('findExportedProgram: null when the program is not in the export', () => {
+  const data = { programs: [{ issue_number: 114 }] };
+  assert.equal(findExportedProgram(data, 115), null);
+});
+
+test('findExportedProgram: null when the export data is missing or malformed', () => {
+  // Models lfx-export.json not being on main yet (export PR unmerged).
+  assert.equal(findExportedProgram(null, 115), null);
+  assert.equal(findExportedProgram(undefined, 115), null);
+  assert.equal(findExportedProgram({}, 115), null);
+  assert.equal(findExportedProgram({ programs: 'nope' }, 115), null);
 });

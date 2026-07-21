@@ -76,4 +76,18 @@ function lfxUrlDecision({ commenter, admins, currentLabels, arg, closed }) {
   return { ok: true, url };
 }
 
-module.exports = { recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision, LFX_PROGRAM_URL_RE };
+// Locate a program in a term's parsed export data by issue number, or null.
+// /lfx-url uses this to confirm the term's export has been merged to `main`
+// (and contains this program) BEFORE recording a URL — so a command issued
+// while the export PR is still open is rejected atomically (nothing recorded,
+// no board move) rather than half-applied. exportData is the parsed
+// lfx-export.json, or null/undefined when the file isn't on main yet.
+function findExportedProgram(exportData, issueNumber) {
+  if (!exportData || !Array.isArray(exportData.programs)) return null;
+  return exportData.programs.find(p => p.issue_number === issueNumber) || null;
+}
+
+module.exports = {
+  recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision,
+  findExportedProgram, LFX_PROGRAM_URL_RE,
+};
