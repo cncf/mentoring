@@ -201,9 +201,31 @@ function recordedUrlNextSteps() {
   ].join('\n');
 }
 
+// Populate every term program's lfx_url from the durable source of truth (each
+// proposal issue's recorded-URL comment, §4.5) rather than only the issue that
+// triggered this run. /lfx-url rebuilds the per-term PR from `main`, where a
+// sibling's URL recorded but not yet merged is absent; without this, recording
+// URLs for several programs before merging the PR clobbers all but the last.
+// The current issue is set from `currentUrl` directly to avoid a read-after-
+// write race on the comment just posted; siblings are read via the injected
+// `fetchComments` (issue_number to comments array). A sibling with no recorded
+// comment keeps its existing value, so a merged URL is never regressed.
+async function populateRecordedUrls(programs, { currentIssue, currentUrl, fetchComments }) {
+  for (const prog of programs || []) {
+    if (prog.issue_number === currentIssue) {
+      prog.lfx_url = currentUrl;
+      continue;
+    }
+    const url = parseRecordedLfxUrl(await fetchComments(prog.issue_number));
+    if (url) prog.lfx_url = url;
+  }
+  return programs;
+}
+
 module.exports = {
   recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision,
   findExportedProgram, exportTermLabel, readExports, locateExportedProgram,
   termMismatchWarning, recordedPrograms, renderRecordedIssues, recordedUrlNextSteps,
+  populateRecordedUrls,
   LFX_PROGRAM_URL_RE,
 };

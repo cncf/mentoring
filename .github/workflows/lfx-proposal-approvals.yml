@@ -51,7 +51,7 @@ jobs:
             const { lookupProject } = _lib('projects.js');
             const { getGlobalApprovers, getProjectSection, getFallbackHandles, getFallbackTeams } = _lib('approvers.js');
             const { cncfApproveDecision } = _lib('cncf-approve.js');
-            const { lfxUrlDecision, recordedLfxUrlComment, readExports, locateExportedProgram, exportTermLabel, termMismatchWarning, recordedPrograms, renderRecordedIssues, recordedUrlNextSteps } = _lib('lfx-url.js');
+            const { lfxUrlDecision, recordedLfxUrlComment, readExports, locateExportedProgram, exportTermLabel, termMismatchWarning, recordedPrograms, renderRecordedIssues, recordedUrlNextSteps, populateRecordedUrls } = _lib('lfx-url.js');
             const { termPaths } = _lib('term-paths.js');
             const { buildReadme, renderAcceptedProgramsBody } = _lib('readme.js');
             const { renderTrackingCsv } = _lib('csv.js');
@@ -429,7 +429,7 @@ jobs:
                   `Merge the term's export PR, then re-run: \`/lfx-url ${decision.url}\``);
                 return;
               }
-              const { dir, year, termDir, term, data, prog } = located;
+              const { dir, year, termDir, term, data } = located;
               const { readmeTitle } = termPaths(term);
               const jsonPath = `${dir}/lfx-export.json`;
 
@@ -447,11 +447,24 @@ jobs:
                 `\n\n${recordedUrlNextSteps()}`);
               core.exportVariable('LFX_URL_POSTED', 'true');
 
-              if (prog.lfx_url === decision.url) {
-                console.log('lfx_url already set to this value; no file change.');
+              // Rebuild the term's files from the durable source of truth: fill
+              // every program's URL from its issue's recorded-URL comment, not
+              // just this one. /lfx-url rebuilds the per-term PR from `main`, so
+              // without this a sibling URL recorded-but-not-yet-merged would be
+              // clobbered. Then write only when something actually changed, so a
+              // repeat /lfx-url with the same URL opens no PR.
+              const beforeJson = fs.readFileSync(jsonPath, 'utf8');
+              await populateRecordedUrls(data.programs, {
+                currentIssue: issue_number,
+                currentUrl: decision.url,
+                fetchComments: (n) => github.paginate(github.rest.issues.listComments, { owner, repo, issue_number: n, per_page: 100 }),
+              });
+              const afterJson = JSON.stringify(data, null, 2) + '\n';
+
+              if (afterJson === beforeJson) {
+                console.log('No file change; URLs already recorded.');
               } else {
-                prog.lfx_url = decision.url;
-                fs.writeFileSync(jsonPath, JSON.stringify(data, null, 2) + '\n');
+                fs.writeFileSync(jsonPath, afterJson);
                 const readmePath = `${dir}/README.md`;
                 const existingReadme = fs.existsSync(readmePath) ? fs.readFileSync(readmePath, 'utf8') : null;
                 fs.writeFileSync(readmePath, buildReadme(existingReadme, renderAcceptedProgramsBody(data.programs), readmeTitle));

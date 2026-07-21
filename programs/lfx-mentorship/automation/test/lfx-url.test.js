@@ -5,7 +5,7 @@ const assert = require('node:assert/strict');
 const {
   recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision, findExportedProgram,
   exportTermLabel, readExports, locateExportedProgram, termMismatchWarning,
-  recordedPrograms, renderRecordedIssues, recordedUrlNextSteps,
+  recordedPrograms, renderRecordedIssues, recordedUrlNextSteps, populateRecordedUrls,
 } = require('../lib/lfx-url');
 
 const bot = (body) => ({ user: { login: 'github-actions[bot]' }, body });
@@ -392,4 +392,54 @@ test('recordedUrlNextSteps: lists LFX admin approval then CNCF mentor assignment
   assert.match(s, /1\.\s+An LFX admin approves the program\./);
   assert.match(s, /2\.\s+Once approved, CNCF admins add the mentors\./);
   assert.ok(!s.includes('\u2014') && !s.includes('\u2013'), 'no en/em dash');
+});
+
+// ── populateRecordedUrls: fill every term program's lfx_url from the durable
+//    source (each issue's recorded-URL comment), so recording URLs for several
+//    programs before merging the per-term PR doesn't clobber the earlier ones
+//    (the PR is always rebuilt from main). Current issue is set directly. ──
+const recComment = (url) => bot(`LFX URL recorded from @admin: ${url}`);
+const PROJ = 'https://mentorship.lfx.linuxfoundation.org/project';
+
+test('populateRecordedUrls: sets current from currentUrl, others from comments; skips fetching current', async () => {
+  const programs = [
+    { issue_number: 10, lfx_url: '' },
+    { issue_number: 11, lfx_url: '' },
+    { issue_number: 12, lfx_url: '' },
+  ];
+  const comments = {
+    11: [recComment(`${PROJ}/aaaaaaaa-0000-4000-8000-000000000011`)],
+    12: [],
+  };
+  const fetched = [];
+  await populateRecordedUrls(programs, {
+    currentIssue: 10,
+    currentUrl: `${PROJ}/aaaaaaaa-0000-4000-8000-000000000010`,
+    fetchComments: async (n) => { fetched.push(n); return comments[n] || []; },
+  });
+  assert.equal(programs[0].lfx_url, `${PROJ}/aaaaaaaa-0000-4000-8000-000000000010`);
+  assert.equal(programs[1].lfx_url, `${PROJ}/aaaaaaaa-0000-4000-8000-000000000011`);
+  assert.equal(programs[2].lfx_url, '', 'sibling with no recorded comment stays empty');
+  assert.deepEqual(fetched.sort((a, b) => a - b), [11, 12], 'did not fetch the current issue');
+});
+
+test('populateRecordedUrls: preserves an existing sibling url when it has no recorded comment', async () => {
+  const programs = [
+    { issue_number: 1, lfx_url: `${PROJ}/aaaaaaaa-0000-4000-8000-000000000001` },
+    { issue_number: 2, lfx_url: '' },
+  ];
+  await populateRecordedUrls(programs, {
+    currentIssue: 2,
+    currentUrl: `${PROJ}/aaaaaaaa-0000-4000-8000-000000000002`,
+    fetchComments: async () => [],
+  });
+  assert.equal(programs[0].lfx_url, `${PROJ}/aaaaaaaa-0000-4000-8000-000000000001`, 'never regressed to empty');
+  assert.equal(programs[1].lfx_url, `${PROJ}/aaaaaaaa-0000-4000-8000-000000000002`);
+});
+
+test('populateRecordedUrls: empty program list makes no fetches', async () => {
+  let called = 0;
+  const out = await populateRecordedUrls([], { currentIssue: 1, currentUrl: 'x', fetchComments: async () => { called++; return []; } });
+  assert.deepEqual(out, []);
+  assert.equal(called, 0);
 });
