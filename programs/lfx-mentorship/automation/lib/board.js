@@ -45,11 +45,12 @@ function resolveBoardStatus({ labels, closed, forcePosted }) {
 
 // Sync guard (board-sync / validate / approvals): skip the board write when the
 // card already sits in an admin-owned column (unless the issue just closed), or
-// when the status read failed and we are about to set "Exported" (fail closed,
-// so a transient read error never pulls a manually-placed card back).
+// when the status read failed and we are about to advance the card (set
+// "Exported" or the /lfx-url "Posted to LFX"), so a transient read error never
+// pulls a manually-placed card back.
 function shouldSkipSync(currentStatus, targetStatus, readFailed) {
   if (currentStatus && ADMIN_OWNED.has(currentStatus) && targetStatus !== 'Closed') return true;
-  if (readFailed && targetStatus === 'Exported') return true;
+  if (readFailed && (targetStatus === 'Exported' || targetStatus === 'Posted to LFX')) return true;
   return false;
 }
 

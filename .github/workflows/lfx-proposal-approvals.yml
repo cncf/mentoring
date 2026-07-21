@@ -566,13 +566,15 @@ jobs:
               `, { itemId }),
               { onError: (attempt, e) => core.warning(`Could not read current board status (attempt ${attempt}/2): ${e.message}`) },
             );
-            // The /lfx-url advance is the intentional exception to the
-            // admin-owned guard, so bypass the skip check for it.
-            if (!forcePosted && shouldSkipSync(currentStatus, status, readFailed)) {
+            // Honor the admin-owned guard even for the /lfx-url advance. The
+            // Exported → "Posted to LFX" move isn't blocked (Exported isn't
+            // admin-owned), but a card an admin already moved further must not be
+            // pulled back to "Posted to LFX", and a failed read fails closed.
+            if (shouldSkipSync(currentStatus, status, readFailed)) {
               if (currentStatus) {
                 console.log(`Card is in admin-owned column "${currentStatus}"; leaving placement to the administrator.`);
               } else {
-                core.warning('Status read failed while about to set "Exported"; skipping to avoid clobbering a manual placement.');
+                core.warning(`Status read failed while about to set "${status}"; skipping to avoid clobbering a manual placement.`);
               }
               return;
             }
