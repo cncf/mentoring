@@ -97,7 +97,81 @@ function exportTermLabel(exportData, fallbackTerm) {
   return String(raw).replace(/\s+/g, ' ').trim();
 }
 
+// Read every term export on disk: programs/lfx-mentorship/<year>/<termDir>/
+// lfx-export.json. Returns [{ dir, data }] (data = the parsed JSON). Entries
+// that aren't directories (e.g. README.md), term dirs without an export, and
+// files that don't parse are all skipped. `fs` is injected (node's fs in the
+// workflow) so the two-level walk is unit-testable; only readdirSync and
+// readFileSync are used. Backs /lfx-url's content-based export lookup (#1938).
+function readExports(fs, root) {
+  const out = [];
+  let years;
+  try { years = fs.readdirSync(root); } catch { return out; }
+  for (const year of years) {
+    let termDirs;
+    try { termDirs = fs.readdirSync(`${root}/${year}`); } catch { continue; }
+    for (const termDir of termDirs) {
+      const dir = `${root}/${year}/${termDir}`;
+      let raw;
+      try { raw = fs.readFileSync(`${dir}/lfx-export.json`, 'utf8'); } catch { continue; }
+      let data;
+      try { data = JSON.parse(raw); } catch { continue; }
+      out.push({ dir, data });
+    }
+  }
+  return out;
+}
+
+// Find the export that actually contains this issue's program by scanning
+// content, rather than deriving the path from the (editable, untrusted) issue
+// Term (#1938). `exports` is readExports() output. Returns
+// { dir, year, termDir, term, data, prog } for the first matching export — an
+// issue is exported to exactly one term — or null when no on-disk export
+// contains it. dir/year/termDir come from the file's real location; term is the
+// export's canonical _term (used for PR metadata and the README title).
+function locateExportedProgram(exports, issueNumber) {
+  for (const entry of exports || []) {
+    const prog = findExportedProgram(entry && entry.data, issueNumber);
+    if (prog) {
+      const parts = String(entry.dir).split('/');
+      return {
+        dir: entry.dir,
+        year: parts[parts.length - 2],
+        termDir: parts[parts.length - 1],
+        term: (entry.data && entry.data._term) || '',
+        data: entry.data,
+        prog,
+      };
+    }
+  }
+  return null;
+}
+
+// Warn when the issue's declared Term disagrees with the term its export
+// actually lives under. /lfx-url trusts the export (content wins, #1938), but a
+// mismatch means the editable Term field is stale or wrong, so we surface it for
+// a human to reconcile rather than correcting silently. Returns the ⚠️ note
+// (appended to the recorded-URL comment) when both terms are present and differ
+// (whitespace- and case-insensitively), or '' when they match or either is
+// unknown.
+function termMismatchWarning(declaredTerm, exportedTerm) {
+  // Strip backticks (the only char that can break an inline code span) before
+  // wrapping the values below, so an edited Term can't escape and render an
+  // @mention/Markdown. Fold en/em dashes to a hyphen to match termPaths()
+  // (term-paths.js), so a Term differing only by dash style in the months range
+  // isn't flagged as a mismatch. Then collapse whitespace and trim.
+  const norm = (s) => String(s || '').replace(/`/g, '').replace(/[\u2013\u2014]/g, '-').replace(/\s+/g, ' ').trim();
+  const d = norm(declaredTerm);
+  const e = norm(exportedTerm);
+  if (!d || !e || d.toLowerCase() === e.toLowerCase()) return '';
+  return `⚠️ This issue's **Term** field (\`${d}\`) doesn't match the term it ` +
+    `was exported under (\`${e}\`). Recorded under \`${e}\`. ` +
+    `Fix whichever is wrong: the Term field or the export.`;
+}
+
 module.exports = {
   recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision,
-  findExportedProgram, exportTermLabel, LFX_PROGRAM_URL_RE,
+  findExportedProgram, exportTermLabel, readExports, locateExportedProgram,
+  termMismatchWarning,
+  LFX_PROGRAM_URL_RE,
 };
