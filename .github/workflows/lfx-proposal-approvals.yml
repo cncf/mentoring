@@ -51,7 +51,7 @@ jobs:
             const { lookupProject } = _lib('projects.js');
             const { getGlobalApprovers, getProjectSection, getFallbackHandles, getFallbackTeams } = _lib('approvers.js');
             const { cncfApproveDecision } = _lib('cncf-approve.js');
-            const { lfxUrlDecision, recordedLfxUrlComment, readExports, locateExportedProgram, exportTermLabel, termMismatchWarning, recordedPrograms, renderRecordedIssues } = _lib('lfx-url.js');
+            const { lfxUrlDecision, recordedLfxUrlComment, readExports, locateExportedProgram, exportTermLabel, termMismatchWarning, recordedPrograms, renderRecordedIssues, recordedUrlNextSteps } = _lib('lfx-url.js');
             const { termPaths } = _lib('term-paths.js');
             const { buildReadme, renderAcceptedProgramsBody } = _lib('readme.js');
             const { renderTrackingCsv } = _lib('csv.js');
@@ -443,7 +443,8 @@ jobs:
               const mismatch = termMismatchWarning(fields['Term'], term);
               await reply('✅',
                 recordedLfxUrlComment(commenter, decision.url) +
-                (mismatch ? `\n\n${mismatch}` : ''));
+                (mismatch ? `\n\n${mismatch}` : '') +
+                `\n\n${recordedUrlNextSteps()}`);
               core.exportVariable('LFX_URL_POSTED', 'true');
 
               if (prog.lfx_url === decision.url) {

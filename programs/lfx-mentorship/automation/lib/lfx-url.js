@@ -189,9 +189,21 @@ function renderRecordedIssues(programs) {
     .join('\n');
 }
 
+// The next steps appended to the /lfx-url success comment. Recording the URL
+// means the program is live on LFX, so the remaining actions happen on the LFX
+// platform: an LFX admin approves the program, then CNCF admins add the mentors.
+// Stated explicitly so readers don't assume recording the URL is the last step.
+function recordedUrlNextSteps() {
+  return [
+    '**Next on LFX:**',
+    '1. An LFX admin approves the program.',
+    '2. Once approved, CNCF admins add the mentors.',
+  ].join('\n');
+}
+
 module.exports = {
   recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision,
   findExportedProgram, exportTermLabel, readExports, locateExportedProgram,
-  termMismatchWarning, recordedPrograms, renderRecordedIssues,
+  termMismatchWarning, recordedPrograms, renderRecordedIssues, recordedUrlNextSteps,
   LFX_PROGRAM_URL_RE,
 };

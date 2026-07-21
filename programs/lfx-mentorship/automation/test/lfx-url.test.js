@@ -5,7 +5,7 @@ const assert = require('node:assert/strict');
 const {
   recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision, findExportedProgram,
   exportTermLabel, readExports, locateExportedProgram, termMismatchWarning,
-  recordedPrograms, renderRecordedIssues,
+  recordedPrograms, renderRecordedIssues, recordedUrlNextSteps,
 } = require('../lib/lfx-url');
 
 const bot = (body) => ({ user: { login: 'github-actions[bot]' }, body });
@@ -381,4 +381,15 @@ test('renderRecordedIssues: falls back to just "- #<n>" when the name is missing
 
 test('renderRecordedIssues: empty string for an empty list', () => {
   assert.equal(renderRecordedIssues([]), '');
+});
+
+// ── recordedUrlNextSteps: the post-record next steps appended to the /lfx-url
+//    success comment. Once the URL is recorded the program is live on LFX, so
+//    the next actions are on the LFX platform (admin approval, then mentors). ──
+test('recordedUrlNextSteps: lists LFX admin approval then CNCF mentor assignment', () => {
+  const s = recordedUrlNextSteps();
+  assert.match(s, /Next on LFX/);
+  assert.match(s, /1\.\s+An LFX admin approves the program\./);
+  assert.match(s, /2\.\s+Once approved, CNCF admins add the mentors\./);
+  assert.ok(!s.includes('\u2014') && !s.includes('\u2013'), 'no en/em dash');
 });
