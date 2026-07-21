@@ -5,6 +5,7 @@ const assert = require('node:assert/strict');
 const {
   recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision, findExportedProgram,
   exportTermLabel, readExports, locateExportedProgram, termMismatchWarning,
+  recordedPrograms, renderRecordedIssues,
 } = require('../lib/lfx-url');
 
 const bot = (body) => ({ user: { login: 'github-actions[bot]' }, body });
@@ -338,4 +339,46 @@ test('termMismatchWarning: folds en/em dashes to a hyphen so a cosmetic dash dif
   // warn. Keeps the warning consistent with the rest of the automation.
   assert.equal(termMismatchWarning('2026 Term 3 (Sep\u2013Nov)', '2026 Term 3 (Sep-Nov)'), '', 'en-dash equals hyphen');
   assert.equal(termMismatchWarning('2026 Term 3 (Sep\u2014Nov)', '2026 Term 3 (Sep-Nov)'), '', 'em-dash equals hyphen');
+});
+
+// ── recordedPrograms / renderRecordedIssues: the /lfx-url PR title count and
+//    body issue-links, derived from the term export so the PR cross-links back
+//    to each proposal issue whose URL has been recorded. ──
+const exportWith = (programs) => ({ _term: '2026 Term 3 (Sep-Nov)', programs });
+
+test('recordedPrograms: returns only programs with a non-empty lfx_url, in order', () => {
+  const data = exportWith([
+    { issue_number: 10, program_name_full: 'A', lfx_url: 'https://x/1' },
+    { issue_number: 11, program_name_full: 'B', lfx_url: '' },
+    { issue_number: 12, program_name_full: 'C' },
+    { issue_number: 13, program_name_full: 'D', lfx_url: '   ' },
+    { issue_number: 14, program_name_full: 'E', lfx_url: 'https://x/2' },
+  ]);
+  assert.deepEqual(recordedPrograms(data).map(p => p.issue_number), [10, 14]);
+});
+
+test('recordedPrograms: empty for missing/empty/malformed export data', () => {
+  assert.deepEqual(recordedPrograms(null), []);
+  assert.deepEqual(recordedPrograms({}), []);
+  assert.deepEqual(recordedPrograms({ programs: [] }), []);
+  assert.deepEqual(recordedPrograms({ programs: 'nope' }), []);
+});
+
+test('renderRecordedIssues: one "- #<n> <name>" line per program, no em-dash', () => {
+  const md = renderRecordedIssues([
+    { issue_number: 1924, program_name_full: 'CNCF - WasmEdge Runtime: Wide Arithmetic (2026 Term 3)', lfx_url: 'https://x/1' },
+    { issue_number: 1930, program_name_full: 'CNCF - OpenTelemetry: Zero-code (2026 Term 3)', lfx_url: 'https://x/2' },
+  ]);
+  assert.equal(md,
+    '- #1924 CNCF - WasmEdge Runtime: Wide Arithmetic (2026 Term 3)\n' +
+    '- #1930 CNCF - OpenTelemetry: Zero-code (2026 Term 3)');
+  assert.ok(!md.includes('\u2014') && !md.includes('\u2013'), 'no en/em dash');
+});
+
+test('renderRecordedIssues: falls back to just "- #<n>" when the name is missing', () => {
+  assert.equal(renderRecordedIssues([{ issue_number: 42, lfx_url: 'https://x/1' }]), '- #42');
+});
+
+test('renderRecordedIssues: empty string for an empty list', () => {
+  assert.equal(renderRecordedIssues([]), '');
 });

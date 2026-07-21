@@ -169,9 +169,29 @@ function termMismatchWarning(declaredTerm, exportedTerm) {
     `Fix whichever is wrong: the Term field or the export.`;
 }
 
+// Programs in a term export that already have an LFX URL recorded (non-empty
+// lfx_url), in export order. Backs the /lfx-url PR title count and body issue
+// list. `data` is the parsed lfx-export.json.
+function recordedPrograms(data) {
+  const programs = data && Array.isArray(data.programs) ? data.programs : [];
+  return programs.filter(
+    (p) => p && typeof p.lfx_url === 'string' && p.lfx_url.trim() !== '',
+  );
+}
+
+// Markdown list (one "- #<issue> <name>" line per program) for the /lfx-url PR
+// body, so each recorded issue is #-mentioned and the PR cross-links back to it.
+// `programs` is a list of program objects (typically recordedPrograms(data)).
+// Falls back to "- #<issue>" when a program has no name; '' for an empty list.
+function renderRecordedIssues(programs) {
+  return (programs || [])
+    .map((p) => (p.program_name_full ? `- #${p.issue_number} ${p.program_name_full}` : `- #${p.issue_number}`))
+    .join('\n');
+}
+
 module.exports = {
   recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision,
   findExportedProgram, exportTermLabel, readExports, locateExportedProgram,
-  termMismatchWarning,
+  termMismatchWarning, recordedPrograms, renderRecordedIssues,
   LFX_PROGRAM_URL_RE,
 };
