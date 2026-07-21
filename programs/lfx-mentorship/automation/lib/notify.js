@@ -26,7 +26,10 @@ function isExportBranch(ref) {
 function exportPathForBranch(ref) {
   if (!isExportBranch(ref)) return null;
   const rest = ref.slice('automation/lfx-export-'.length); // e.g. "2026-03-Sep-Nov"
-  const m = rest.match(/^(\d{4})-(.+)$/);
+  // Validate <year>-<termDir> where termDir is NN-Months (letters/hyphen),
+  // mirroring term-paths.js, so a crafted branch ref can't traverse out of
+  // programs/lfx-mentorship/ (e.g. "2026-03/../../secrets").
+  const m = rest.match(/^(\d{4})-(\d{2}-[A-Za-z]+(?:-[A-Za-z]+)*)$/);
   if (!m) return null;
   return `programs/lfx-mentorship/${m[1]}/${m[2]}/lfx-export.json`;
 }

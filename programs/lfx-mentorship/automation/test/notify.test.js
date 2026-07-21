@@ -107,3 +107,13 @@ test('newIssueNumbers: returns current issues not in previous, order preserved',
   assert.deepEqual(newIssueNumbers([7], []), [7]);
   assert.deepEqual(newIssueNumbers([], [1]), []);
 });
+
+test('exportPathForBranch: null for a term-dir with path traversal or bad shape', () => {
+  // termDir must be NN-Months (2-digit term, letters/hyphen months), mirroring
+  // term-paths.js, so a crafted branch cannot escape programs/lfx-mentorship/.
+  assert.equal(exportPathForBranch('automation/lfx-export-2026-03/../../secrets'), null);
+  assert.equal(exportPathForBranch('automation/lfx-export-2026-..'), null);
+  assert.equal(exportPathForBranch('automation/lfx-export-2026-3-Sep'), null);      // term not 2 digits
+  assert.equal(exportPathForBranch('automation/lfx-export-2026-03-Sep_Nov'), null); // underscore not allowed
+  assert.equal(exportPathForBranch('automation/lfx-export-2026-01-Mar'), 'programs/lfx-mentorship/2026/01-Mar/lfx-export.json'); // single month still ok
+});
