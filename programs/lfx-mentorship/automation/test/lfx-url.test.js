@@ -311,6 +311,14 @@ test('termMismatchWarning: empty when either term is missing (nothing to compare
 test('termMismatchWarning: warns and names both terms when they differ', () => {
   const w = termMismatchWarning('2026 Term 1 (Mar-May)', '2026 Term 3 (Sep-Nov)');
   assert.ok(w.startsWith('⚠️'), 'starts with the warning glyph');
-  assert.ok(w.includes('2026 Term 1 (Mar-May)'), 'names the declared (issue) term');
-  assert.ok(w.includes('2026 Term 3 (Sep-Nov)'), 'names the exported term');
+  // User-controlled term values are wrapped in inline code, matching how the
+  // validate workflow echoes user input — neutralizes stray @mentions/Markdown.
+  assert.ok(w.includes('`2026 Term 1 (Mar-May)`'), 'names the declared (issue) term in code');
+  assert.ok(w.includes('`2026 Term 3 (Sep-Nov)`'), 'names the exported term in code');
+});
+
+test('termMismatchWarning: neutralizes an @mention in an edited Term field', () => {
+  const w = termMismatchWarning('@acme/team', '2026 Term 3 (Sep-Nov)');
+  assert.ok(w.includes('`@acme/team`'), 'wraps the raw value in inline code so it cannot ping');
+  assert.ok(!/(^|[^`])@acme\/team/.test(w), 'no bare @mention escapes the code span');
 });

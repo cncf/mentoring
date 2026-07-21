@@ -159,8 +159,8 @@ function termMismatchWarning(declaredTerm, exportedTerm) {
   const d = norm(declaredTerm);
   const e = norm(exportedTerm);
   if (!d || !e || d.toLowerCase() === e.toLowerCase()) return '';
-  return `⚠️ This issue's **Term** field (*${d}*) doesn't match the term it ` +
-    `was exported under (*${e}*). Recorded under *${e}*. ` +
+  return `⚠️ This issue's **Term** field (\`${d}\`) doesn't match the term it ` +
+    `was exported under (\`${e}\`). Recorded under \`${e}\`. ` +
     `Fix whichever is wrong: the Term field or the export.`;
 }
 
