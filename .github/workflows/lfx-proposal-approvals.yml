@@ -467,6 +467,11 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          # signoff: true adds the DCO Signed-off-by; author/committer are the bot
+          # so author == committer == sign-off, satisfying strict DCO checkers.
+          signoff: true
+          author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+          committer: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
           add-paths: programs/lfx-mentorship/${{ env.LFX_URL_YEAR }}/${{ env.LFX_URL_TERM_DIR }}
           commit-message: |
             chore: record LFX URL for ${{ env.LFX_URL_TERM }}
