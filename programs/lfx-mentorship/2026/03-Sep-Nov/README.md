@@ -41,6 +41,9 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - [Federated AI Agent Search Across Instances](#federated-ai-agent-search-across-instances)
 - [Kubeflow](#kubeflow)
   - [Abstracting Pod Lifecycle Diagnostics for Kubeflow Pipelines](#abstracting-pod-lifecycle-diagnostics-for-kubeflow-pipelines)
+- [OpenTelemetry](#opentelemetry)
+  - [Declarative instrumentation configuration for otelc](#declarative-instrumentation-configuration-for-otelc)
+  - [Zero-code AI Agent observability for otelc](#zero-code-ai-agent-observability-for-otelc)
 - [OpenYurt](#openyurt)
   - [Add Claude Code Skills for deploying OpenYurt and configuring Raven](#add-claude-code-skills-for-deploying-openyurt-and-configuring-raven)
 - [WasmEdge Runtime](#wasmedge-runtime)
@@ -185,6 +188,69 @@ CNCF - Kubeflow: Abstracting Pod Lifecycle Diagnostics for Kubeflow Pipelines (2
   - Alyssa Goins (@alyssacgoins, agoins@redhat.com)
   - Matt Prahl (@mprahl, mprahl@redhat.com)
 - Upstream Issue: https://github.com/kubeflow/pipelines/issues/12843
+- LFX URL: TBD
+
+### OpenTelemetry
+
+#### Declarative instrumentation configuration for otelc
+
+CNCF - OpenTelemetry: Declarative instrumentation configuration for otelc (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  > 
+  > [`otelc`](https://github.com/open-telemetry/opentelemetry-go-compile-instrumentation) instruments Go applications at compile time with zero code changes. Today it can only switch instrumentations on and off through environment variables. There is no way to capture a specific HTTP header, redact a sensitive URL query parameter, or gate a semantic convention migration. Configuration granularity has been one of the top adopter asks since v1.0.
+  > 
+  > OpenTelemetry already defines the data model for this. The [declarative configuration](https://github.com/open-telemetry/opentelemetry-configuration) spec has an `instrumentation/development` node with a cross-language `general` section and a free-form `go` section that each language owns.
+  > 
+  > This project makes instrumentation configurable in otelc by implementing that node. The mentee will build the subsystem that reads and validates the config file at build time, bakes it into the generated runtime package, and exposes a typed API to hooks, then prove the design on instrumentation that already ships. To keep it maintainable, each instrumentation declares its options in a manifest that generates the schema, the docs catalog, and the defaults, following the Java agent's `metadata.yaml` pattern.
+  > 
+  > ## Qualifications
+  > 
+  > Comfortable with Go and with YAML or JSON Schema, and familiar with OpenTelemetry basics such as semantic conventions and SDK configuration. Exposure to code generation or Go build tooling is a plus, not a requirement.
+  > 
+  > ## Expected Outcomes
+  > 
+  > - A working configuration subsystem in otelc, so users can tune instrumentation behavior through a declarative config file instead of coarse environment variables
+  > - A sustainable way for instrumentations to declare their options, keeping schema, defaults, and documentation in sync as the project grows
+  > - Real instrumentations consuming the new configuration, with tests, documentation, and a runnable example
+  > - Backward compatibility with the existing environment-variable controls
+  > - A written RFC recording the configuration model, so future contributors know where new options belong
+  > - Feedback and contributions upstream to the OpenTelemetry declarative configuration spec
+
+- Recommended Skills: Go, OpenTelemetry, JSON
+- Technologies: Go, OpenTelemetry, JSON
+- Mentor(s):
+  - Xabier Martinez Beneitez (@txabman42, x42.martinez@gmail.com)
+  - Azhar Momin (@amazingakai, azhar-momin@outlook.com)
+- Upstream Issue: https://github.com/open-telemetry/opentelemetry-go-compile-instrumentation/issues/705
+- LFX URL: TBD
+
+#### Zero-code AI Agent observability for otelc
+
+CNCF - OpenTelemetry: Zero-code AI Agent observability for otelc (2026 Term 3)
+
+- Description:
+
+  > Design and build an **AI provider adapter interface** in `otelc` (`opentelemetry-go-compile-instrumentation`) — OpenTelemetry's compile-time, zero-code instrumentation for Go — that emits the `gen_ai.*` semantic conventions (spans, metrics, events) through a single shared abstraction, so AI providers and libraries plug into a common contract instead of being instrumented ad hoc.
+  > 
+  > The already-merged OpenAI instrumentation (#604) is migrated onto this interface as the reference implementation, then the adapter is extended to additional providers and libraries: `anthropic-sdk-go`, Gemini, and the MCP / LangChain frameworks. MCP/LangChain require non-HTTP hooks (following the Kafka/Redis instrumentation patterns) rather than the HTTP-based path.
+  > 
+  > This design-first framing gives the mentee real architecture and problem-solving work — defining the adapter contract, mapping heterogeneous provider APIs onto shared semconv, and validating it across libraries — rather than repetitive per-library instrumentation.
+  > 
+  > Community demand is concrete and vendor-neutral: the OpenAI instrumentation (#604) closed community issue #327, and the request pipeline is active (#706 for aws-sdk-go-v2, #553 MongoDB shipped).
+  > 
+  > Deliverables follow a week-by-week plan where each milestone ships a runnable demo + green CI so progress is visible at a glance: adapter interface + OpenAI migration → anthropic-sdk-go → Gemini → MCP → LangChain, each with instrumentation rules, tests under the paired `test/` directory, and an example app emitting `gen_ai.*` spans.
+  > 
+  > Privacy posture: message bodies are off by default and strictly opt-in via `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT` — nothing is captured unless the operator turns it on.
+
+- Recommended Skills: Go, OpenTelemetry, compile-time instrumentation, gen_ai semantic conventions, API/interface design
+- Technologies: Go, OpenTelemetry, compile-time instrumentation, gen_ai semantic conventions, API/interface design
+- Mentor(s):
+  - Haibin Zhang (@NameHaibinZhang, namehaibinzhang@gmail.com)
+  - Xabier Martinez (@txabman42, x42.martinez@gmail.com)
+- Upstream Issue: https://github.com/open-telemetry/opentelemetry-go-compile-instrumentation/issues/709
 - LFX URL: TBD
 
 ### OpenYurt
