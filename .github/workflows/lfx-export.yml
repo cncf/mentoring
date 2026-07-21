@@ -17,6 +17,11 @@ permissions:
   pull-requests: write
   issues: write
 
+env:
+  # Single source of truth for the bot commit identity (peter-evans author +
+  # committer); keeps human attribution off bot-created commits.
+  BOT_IDENTITY: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+
 jobs:
   export:
     runs-on: ubuntu-latest
@@ -212,8 +217,8 @@ jobs:
           # signoff: true adds the DCO Signed-off-by; author/committer are the bot
           # so author == committer == sign-off, satisfying strict DCO checkers.
           signoff: true
-          author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-          committer: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+          author: ${{ env.BOT_IDENTITY }}
+          committer: ${{ env.BOT_IDENTITY }}
           commit-message: |
             chore: export ${{ env.EXPORT_COUNT }} LFX programs for ${{ env.EXPORT_TERM }}
 

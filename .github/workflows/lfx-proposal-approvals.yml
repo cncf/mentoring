@@ -16,6 +16,11 @@ permissions:
   contents: write
   pull-requests: write
 
+env:
+  # Single source of truth for the bot commit identity (peter-evans author +
+  # committer); keeps human attribution off bot-created commits.
+  BOT_IDENTITY: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+
 jobs:
   handle-command:
     if: >-
@@ -470,8 +475,8 @@ jobs:
           # signoff: true adds the DCO Signed-off-by; author/committer are the bot
           # so author == committer == sign-off, satisfying strict DCO checkers.
           signoff: true
-          author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-          committer: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+          author: ${{ env.BOT_IDENTITY }}
+          committer: ${{ env.BOT_IDENTITY }}
           add-paths: programs/lfx-mentorship/${{ env.LFX_URL_YEAR }}/${{ env.LFX_URL_TERM_DIR }}
           commit-message: |
             chore: record LFX URL for ${{ env.LFX_URL_TERM }}
