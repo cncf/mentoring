@@ -36,8 +36,16 @@ global_approvers:
 # project-maintainers CSV). Add fallback_handles below for a guaranteed
 # per-person override.
 kubernetes:
+  # Kubernetes mentorship approvals run through SIG ContributorEx. The
+  # sig-contribex team is cross-org (token can't read it), so current
+  # SIG ContribEx chairs are listed individually. Source: kubernetes/community
+  # sig-contributor-experience leadership.
   fallback_teams:
     - kubernetes/sig-contribex
+  fallback_handles:
+    - kaslin       # Kaslin Fields — SIG ContribEx chair
+    - mfahlandt    # Mario Fahlandt — SIG ContribEx chair
+    - palnabarun   # Nabarun Pal — SIG ContribEx chair
 
 open-telemetry:
   fallback_teams:
