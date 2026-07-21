@@ -65,7 +65,7 @@ jobs:
               await github.rest.issues.createComment({
                 owner, repo, issue_number,
                 body: `✅ Export PR #${prNumber} has been merged. The program files are now on \`main\`.\n\n` +
-                  `Once the program is live on LFX, an admin records its URL here with \`/lfx-url\`.`,
+                  `Once the program is created on LFX, an admin records its URL here with \`/lfx-url\`.`,
               });
               console.log(`Notified #${issue_number} about merge of PR #${prNumber}`);
             }
