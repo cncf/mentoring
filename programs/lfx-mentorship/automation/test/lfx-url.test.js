@@ -2,7 +2,7 @@
 
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision, findExportedProgram } = require('../lib/lfx-url');
+const { recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision, findExportedProgram, exportTermLabel } = require('../lib/lfx-url');
 
 const bot = (body) => ({ user: { login: 'github-actions[bot]' }, body });
 const user = (login, body) => ({ user: { login }, body });
@@ -161,4 +161,27 @@ test('findExportedProgram: null when the export data is missing or malformed', (
   assert.equal(findExportedProgram(undefined, 115), null);
   assert.equal(findExportedProgram({}, 115), null);
   assert.equal(findExportedProgram({ programs: 'nope' }, 115), null);
+});
+
+// ── exportTermLabel: the term string used in /lfx-url PR metadata ──
+test('exportTermLabel: prefers the canonical _term from the merged export', () => {
+  assert.equal(
+    exportTermLabel({ _term: '2026 Term 3 (Sep-Nov)' }, '2026 Term 3 (Sep-Nov)\ninjected'),
+    '2026 Term 3 (Sep-Nov)');
+});
+
+test('exportTermLabel: falls back to the issue term when _term is absent', () => {
+  assert.equal(exportTermLabel({}, '2026 Term 3 (Sep-Nov)'), '2026 Term 3 (Sep-Nov)');
+  assert.equal(exportTermLabel(null, '2026 Term 3 (Sep-Nov)'), '2026 Term 3 (Sep-Nov)');
+});
+
+test('exportTermLabel: collapses whitespace/newlines to a single line', () => {
+  // Guards the peter-evans PR title / commit subject against a multi-line term.
+  assert.equal(exportTermLabel({ _term: '  2026   Term 3\n\n(Sep-Nov)  ' }, ''), '2026 Term 3 (Sep-Nov)');
+  assert.equal(exportTermLabel(null, 'line1\r\nline2'), 'line1 line2');
+});
+
+test('exportTermLabel: empty when neither source has a term', () => {
+  assert.equal(exportTermLabel(null, ''), '');
+  assert.equal(exportTermLabel({}, undefined), '');
 });

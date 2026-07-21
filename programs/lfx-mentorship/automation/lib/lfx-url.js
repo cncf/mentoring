@@ -87,7 +87,17 @@ function findExportedProgram(exportData, issueNumber) {
   return exportData.programs.find(p => p.issue_number === issueNumber) || null;
 }
 
+// The term label used in /lfx-url PR metadata (title, commit subject, body).
+// Prefer the canonical _term the export recorded (from the admin's export-time
+// workflow_dispatch input) over the issue-body Term, which is editable and may
+// contain newlines; collapse whitespace to a single line so it can't break the
+// PR title or commit subject. Falls back to the issue term, then ''.
+function exportTermLabel(exportData, fallbackTerm) {
+  const raw = (exportData && exportData._term) || fallbackTerm || '';
+  return String(raw).replace(/\s+/g, ' ').trim();
+}
+
 module.exports = {
   recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision,
-  findExportedProgram, LFX_PROGRAM_URL_RE,
+  findExportedProgram, exportTermLabel, LFX_PROGRAM_URL_RE,
 };

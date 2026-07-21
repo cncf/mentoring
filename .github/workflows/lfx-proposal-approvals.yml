@@ -46,7 +46,7 @@ jobs:
             const { lookupProject } = _lib('projects.js');
             const { getGlobalApprovers, getProjectSection, getFallbackHandles, getFallbackTeams } = _lib('approvers.js');
             const { cncfApproveDecision } = _lib('cncf-approve.js');
-            const { lfxUrlDecision, recordedLfxUrlComment, findExportedProgram } = _lib('lfx-url.js');
+            const { lfxUrlDecision, recordedLfxUrlComment, findExportedProgram, exportTermLabel } = _lib('lfx-url.js');
             const { termPaths } = _lib('term-paths.js');
             const { buildReadme, renderAcceptedProgramsBody } = _lib('readme.js');
             const { renderTrackingCsv } = _lib('csv.js');
@@ -449,7 +449,7 @@ jobs:
                 fs.writeFileSync(readmePath, buildReadme(existingReadme, renderAcceptedProgramsBody(data.programs), readmeTitle));
                 fs.writeFileSync(`${outDir}/lfx-tracking.csv`, renderTrackingCsv(data.programs));
                 core.exportVariable('LFX_URL_FILES_CHANGED', 'true');
-                core.exportVariable('LFX_URL_TERM', lfxTerm);
+                core.exportVariable('LFX_URL_TERM', exportTermLabel(data, lfxTerm));
                 core.exportVariable('LFX_URL_YEAR', year);
                 core.exportVariable('LFX_URL_TERM_DIR', termDir);
                 console.log(`Updated export files in ${outDir}`);
