@@ -212,6 +212,7 @@ function recordedUrlNextSteps() {
 // comment keeps its existing value, so a merged URL is never regressed.
 async function populateRecordedUrls(programs, { currentIssue, currentUrl, fetchComments }) {
   for (const prog of programs || []) {
+    if (!prog || typeof prog !== 'object') continue;
     if (prog.issue_number === currentIssue) {
       prog.lfx_url = currentUrl;
       continue;

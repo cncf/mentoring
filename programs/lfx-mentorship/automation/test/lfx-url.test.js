@@ -443,3 +443,13 @@ test('populateRecordedUrls: empty program list makes no fetches', async () => {
   assert.deepEqual(out, []);
   assert.equal(called, 0);
 });
+
+test('populateRecordedUrls: skips null/non-object entries without throwing', async () => {
+  const programs = [null, 'nope', { issue_number: 5, lfx_url: '' }];
+  await populateRecordedUrls(programs, {
+    currentIssue: 5,
+    currentUrl: `${PROJ}/aaaaaaaa-0000-4000-8000-000000000005`,
+    fetchComments: async () => [],
+  });
+  assert.equal(programs[2].lfx_url, `${PROJ}/aaaaaaaa-0000-4000-8000-000000000005`);
+});
