@@ -108,7 +108,8 @@ test('renderTrackingCsv: header, input order, blank LFX URL, 4 mentor slots', ()
 });
 
 test('renderTrackingCsv: a recorded lfx_url fills the LFX URL column', () => {
-  const withUrl = [{ ...CSV_PROGRAMS[0], lfx_url: 'https://mentorship.lfx.linuxfoundation.org/p/1' }];
+  const url = 'https://mentorship.lfx.linuxfoundation.org/project/005db8db-7efe-4433-9605-91d14174c72c';
+  const withUrl = [{ ...CSV_PROGRAMS[0], lfx_url: url }];
   const r1 = parseCsvLine(renderTrackingCsv(withUrl).split('\n')[1]);
-  assert.equal(r1[1], 'https://mentorship.lfx.linuxfoundation.org/p/1');
+  assert.equal(r1[1], url);
 });

@@ -166,9 +166,10 @@ test('renderAcceptedProgramsBody: output feeds buildReadme cleanly', () => {
 });
 
 test('renderAcceptedProgramsBody: a recorded lfx_url replaces the TBD placeholder', () => {
-  const withUrl = [{ ...RENDER_PROGRAMS[1], lfx_url: 'https://mentorship.lfx.linuxfoundation.org/p/1' }];
+  const url = 'https://mentorship.lfx.linuxfoundation.org/project/005db8db-7efe-4433-9605-91d14174c72c';
+  const withUrl = [{ ...RENDER_PROGRAMS[1], lfx_url: url }];
   const body = renderAcceptedProgramsBody(withUrl).join('\n');
-  assert.match(body, /- LFX URL: https:\/\/mentorship\.lfx\.linuxfoundation\.org\/p\/1/);
+  assert.match(body, new RegExp(`- LFX URL: ${url.replace(/[.\/]/g, '\\$&')}`));
   assert.doesNotMatch(body, /- LFX URL: TBD/);
 });
 
