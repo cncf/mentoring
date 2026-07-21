@@ -470,7 +470,7 @@ jobs:
 
             Recorded via /lfx-url on issue #${{ github.event.issue.number }}.
           branch: automation/lfx-urls-${{ env.LFX_URL_YEAR }}-${{ env.LFX_URL_TERM_DIR }}
-          title: "LFX URLs — ${{ env.LFX_URL_TERM }}"
+          title: "LFX URLs: ${{ env.LFX_URL_TERM }}"
           body: |
             Accumulating LFX program URLs recorded via `/lfx-url` for **${{ env.LFX_URL_TERM }}**.
 
