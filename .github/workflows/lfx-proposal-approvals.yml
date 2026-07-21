@@ -46,7 +46,7 @@ jobs:
             const { lookupProject } = _lib('projects.js');
             const { getGlobalApprovers, getProjectSection, getFallbackHandles, getFallbackTeams } = _lib('approvers.js');
             const { cncfApproveDecision } = _lib('cncf-approve.js');
-            const { lfxUrlDecision, recordedLfxUrlComment, readExports, locateExportedProgram, exportTermLabel } = _lib('lfx-url.js');
+            const { lfxUrlDecision, recordedLfxUrlComment, readExports, locateExportedProgram, exportTermLabel, termMismatchWarning } = _lib('lfx-url.js');
             const { termPaths } = _lib('term-paths.js');
             const { buildReadme, renderAcceptedProgramsBody } = _lib('readme.js');
             const { renderTrackingCsv } = _lib('csv.js');
@@ -431,7 +431,14 @@ jobs:
               // Record the URL on the issue — the durable source of truth the
               // export reads back (§4.5) — then fill the term's files and advance
               // the board. The guard above guarantees this completes fully.
-              await reply('✅', recordedLfxUrlComment(commenter, decision.url));
+              // If the issue's editable Term no longer matches the term its
+              // export lives under, append a ⚠️ to this same comment: the scan
+              // already used the exported term; a human should reconcile the
+              // stale field (#1938). We warn, we don't block.
+              const mismatch = termMismatchWarning(fields['Term'], term);
+              await reply('✅',
+                recordedLfxUrlComment(commenter, decision.url) +
+                (mismatch ? `\n\n${mismatch}` : ''));
               core.exportVariable('LFX_URL_POSTED', 'true');
 
               if (prog.lfx_url === decision.url) {

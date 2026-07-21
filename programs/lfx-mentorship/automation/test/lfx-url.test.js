@@ -4,7 +4,7 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const {
   recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision, findExportedProgram,
-  exportTermLabel, readExports, locateExportedProgram,
+  exportTermLabel, readExports, locateExportedProgram, termMismatchWarning,
 } = require('../lib/lfx-url');
 
 const bot = (body) => ({ user: { login: 'github-actions[bot]' }, body });
@@ -289,4 +289,28 @@ test('exportTermLabel: collapses whitespace/newlines to a single line', () => {
 test('exportTermLabel: empty when neither source has a term', () => {
   assert.equal(exportTermLabel(null, ''), '');
   assert.equal(exportTermLabel({}, undefined), '');
+});
+
+// ── termMismatchWarning: surface a stale/edited Term vs the exported term ──
+// (#1938) /lfx-url trusts the export (content wins), but a Term-field mismatch
+// means a human should reconcile it, so we warn instead of correcting silently.
+test('termMismatchWarning: empty when the declared term matches the export', () => {
+  assert.equal(termMismatchWarning('2026 Term 3 (Sep-Nov)', '2026 Term 3 (Sep-Nov)'), '');
+});
+
+test('termMismatchWarning: empty when they match after normalizing space/case', () => {
+  assert.equal(termMismatchWarning('  2026   Term 3\n(sep-nov) ', '2026 Term 3 (Sep-Nov)'), '');
+});
+
+test('termMismatchWarning: empty when either term is missing (nothing to compare)', () => {
+  assert.equal(termMismatchWarning('', '2026 Term 3 (Sep-Nov)'), '');
+  assert.equal(termMismatchWarning('2026 Term 1 (Mar-May)', ''), '');
+  assert.equal(termMismatchWarning(null, undefined), '');
+});
+
+test('termMismatchWarning: warns and names both terms when they differ', () => {
+  const w = termMismatchWarning('2026 Term 1 (Mar-May)', '2026 Term 3 (Sep-Nov)');
+  assert.ok(w.startsWith('⚠️'), 'starts with the warning glyph');
+  assert.ok(w.includes('2026 Term 1 (Mar-May)'), 'names the declared (issue) term');
+  assert.ok(w.includes('2026 Term 3 (Sep-Nov)'), 'names the exported term');
 });

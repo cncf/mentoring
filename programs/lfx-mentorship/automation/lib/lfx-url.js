@@ -147,8 +147,26 @@ function locateExportedProgram(exports, issueNumber) {
   return null;
 }
 
+// Warn when the issue's declared Term disagrees with the term its export
+// actually lives under. /lfx-url trusts the export (content wins, #1938), but a
+// mismatch means the editable Term field is stale or wrong, so we surface it for
+// a human to reconcile rather than correcting silently. Returns the ⚠️ note
+// (appended to the recorded-URL comment) when both terms are present and differ
+// (whitespace- and case-insensitively), or '' when they match or either is
+// unknown.
+function termMismatchWarning(declaredTerm, exportedTerm) {
+  const norm = (s) => String(s || '').replace(/\s+/g, ' ').trim();
+  const d = norm(declaredTerm);
+  const e = norm(exportedTerm);
+  if (!d || !e || d.toLowerCase() === e.toLowerCase()) return '';
+  return `⚠️ This issue's **Term** field (*${d}*) doesn't match the term it ` +
+    `was exported under (*${e}*). Recorded under *${e}*. ` +
+    `Fix whichever is wrong: the Term field or the export.`;
+}
+
 module.exports = {
   recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision,
   findExportedProgram, exportTermLabel, readExports, locateExportedProgram,
+  termMismatchWarning,
   LFX_PROGRAM_URL_RE,
 };
