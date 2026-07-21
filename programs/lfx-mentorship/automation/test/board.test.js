@@ -3,7 +3,7 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const {
-  determineStatus, shouldSkipSync, shouldSkipExport, readStatusWithRetry,
+  determineStatus, resolveBoardStatus, shouldSkipSync, shouldSkipExport, readStatusWithRetry,
 } = require('../lib/board');
 
 test('determineStatus: empty labels map to Inbox', () => {
@@ -31,6 +31,31 @@ test('determineStatus: admin-only and flag labels do not drive the cascade', () 
   assert.equal(determineStatus(['Mentors Registered', 'Exported']), 'Exported');
 });
 
+test('resolveBoardStatus: a /lfx-url force advances an open card to Posted to LFX', () => {
+  assert.equal(
+    resolveBoardStatus({ labels: ['Exported'], closed: false, forcePosted: true }),
+    'Posted to LFX',
+  );
+});
+
+test('resolveBoardStatus: a closed issue stays Closed even under a /lfx-url force', () => {
+  assert.equal(
+    resolveBoardStatus({ labels: ['Exported'], closed: true, forcePosted: true }),
+    'Closed',
+  );
+});
+
+test('resolveBoardStatus: without a force it falls back to the label cascade', () => {
+  assert.equal(
+    resolveBoardStatus({ labels: ['Exported'], closed: false, forcePosted: false }),
+    'Exported',
+  );
+  assert.equal(
+    resolveBoardStatus({ labels: [], closed: false, forcePosted: false }),
+    'Inbox',
+  );
+});
+
 test('shouldSkipSync: protects admin-owned columns except on close', () => {
   assert.equal(shouldSkipSync('Posted to LFX', 'Exported', false), true);
   assert.equal(shouldSkipSync('Mentors added', 'CNCF Approved', false), true);
@@ -43,12 +68,23 @@ test('shouldSkipSync: non-admin statuses proceed when the read succeeded', () =>
   assert.equal(shouldSkipSync(null, 'Exported', false), false);
 });
 
-test('shouldSkipSync: fails closed only when about to set Exported after a read failure', () => {
+test('shouldSkipSync: fails closed when about to advance (Exported/Posted to LFX) after a read failure', () => {
   assert.equal(shouldSkipSync(null, 'Exported', true), true);
+  assert.equal(shouldSkipSync(null, 'Posted to LFX', true), true);
   assert.equal(shouldSkipSync(null, 'Awaiting approvals/confirmations', true), false);
   assert.equal(shouldSkipSync(null, 'CNCF Approved', true), false);
   assert.equal(shouldSkipSync(null, 'Closed', true), false);
   assert.equal(shouldSkipSync('Posted to LFX', 'Exported', true), true);
+});
+
+test('shouldSkipSync: a /lfx-url advance to Posted to LFX still honors the guard', () => {
+  // Exported → Posted to LFX proceeds (Exported is not admin-owned)...
+  assert.equal(shouldSkipSync('Exported', 'Posted to LFX', false), false);
+  // ...but a card an admin already moved forward is left alone (no regress).
+  assert.equal(shouldSkipSync('LFX Approved', 'Posted to LFX', false), true);
+  assert.equal(shouldSkipSync('Mentors added', 'Posted to LFX', false), true);
+  // Re-running while already Posted to LFX is a no-op skip.
+  assert.equal(shouldSkipSync('Posted to LFX', 'Posted to LFX', false), true);
 });
 
 test('shouldSkipExport: skips admin-owned cards or any read failure', () => {

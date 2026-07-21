@@ -132,9 +132,19 @@ the existing branch if the previous PR wasn't merged).
 2. **Merge the PR** — this triggers a notification to each exported issue
    confirming the files are on main
 3. **Share `lfx-export.json` with the LFX platform team** for bulk import
-4. **After programs are created on LFX:**
-   - Update LFX URLs in the README (manual step for now)
-   - Drag each issue's card to the `Posted to LFX` column on the board
+4. **After you create each program on LFX:** comment `/lfx-url <url>` on that
+   program's proposal issue. The bot records the URL on the issue, fills it into
+   the term's `lfx-export.json`, `README.md`, and `lfx-tracking.csv` (landing the
+   change in a per-term `LFX URLs: <term>` PR), and advances the card to
+   `Posted to LFX`. Restricted to global approvers; the issue must already be
+   `Exported` and open. The URL must be a full LFX Mentorship program URL
+   (`https://mentorship.lfx.linuxfoundation.org/project/<id>`); anything else is
+   rejected, so the card only advances on a real program URL. A closed proposal
+   is rejected too (reopen it first) — a withdrawn program should not be posted.
+   The term's export must already be **merged to `main`** (step 2): `/lfx-url`
+   fills the merged files, so a command run while the export PR is still open is
+   rejected with the exact command to re-run once you merge it. Nothing is
+   recorded on a rejection, so re-running after the merge is safe.
 5. **Continue tracking** by dragging cards through the remaining columns by
    hand as each step completes on the LFX platform (`LFX Approved` →
    `Mentors added` → `Open for Applications` → `Applications Closed`)
@@ -158,15 +168,16 @@ issue form and export workflow.
 
 ### approvers.yml
 
-Controls who can use `/approve` and `/cncf-approve`. The authorization
-check order is:
+Controls who can use `/approve`, `/cncf-approve`, and `/lfx-url`. The
+authorization check order is:
 
 1. `{org}/.project/maintainers.yaml` — project-maintainers team membership
 2. `cncf/foundation/project-maintainers.csv` — maintainer CSV lookup
 3. Per-project `fallback_teams` and `fallback_handles` in this file
 4. `global_approvers` in this file
 
-**Global approvers** can `/approve` for any project and use `/cncf-approve`.
+**Global approvers** can `/approve` for any project and use `/cncf-approve` and
+`/lfx-url`.
 
 **Per-project overrides** are useful when a project's governance isn't fully
 captured in the maintainers CSV:
@@ -221,15 +232,18 @@ issue labels to Project v2 board status columns:
 | `Exported` | Exported |
 | Issue closed | Closed |
 
-Everything after `Exported` is **yours to move by hand**. As you work with the
-LFX platform team, drag each card through the remaining columns:
+The `Exported` → `Posted to LFX` move is automated: comment `/lfx-url <url>`
+on an exported issue (see [After the export](#after-the-export)) and the bot
+advances the card. Everything after `Posted to LFX` is **yours to move by
+hand**. As you work with the LFX platform team, drag each card through the
+remaining columns:
 
-`Posted to LFX` → `LFX Approved` → `Mentors added` → `Open for Applications`
+`LFX Approved` → `Mentors added` → `Open for Applications`
 → `Applications Closed`
 
 Automation never moves a card once it sits in one of these post-export
-columns, so your manual placement is safe. (The one exception: closing the
-issue still sends its card to `Closed`.)
+columns (other than the `/lfx-url` advance above), so your manual placement is
+safe. (The one exception: closing the issue still sends its card to `Closed`.)
 
 > **Note:** `Mentors Registered` is reserved as a future signal (not yet
 > implemented). A later validation step is intended to set it once mentors are

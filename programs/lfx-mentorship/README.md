@@ -131,6 +131,7 @@ the [project board](https://github.com/orgs/cncf/projects/93).
 | `/approve` | Project maintainers, authorized delegates, global approvers | Grants maintainer/project approval |
 | `/confirm` | Mentors listed on the proposal | Confirms mentor participation |
 | `/cncf-approve` | CNCF mentorship admins | Final approval — proposal moves to "CNCF Approved" |
+| `/lfx-url <url>` | CNCF mentorship admins | After the term's export PR is merged to `main`: records the LFX program URL, fills it into the term's export files, and moves the card to "Posted to LFX" (rejected if the export isn't merged yet) |
 
 #### Mentees
 

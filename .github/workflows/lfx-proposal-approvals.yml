@@ -5,8 +5,16 @@ on:
     types: [created]
 
 permissions:
+  # Runs on issue_comment, so any commenter can trigger a run. The write scopes
+  # let a successful /lfx-url open the per-term URLs PR via peter-evans (same
+  # token and perms as the workflow_dispatch lfx-export.yml). They are never
+  # exercised for untrusted commenters: the file writes and PR step are gated on
+  # LFX_URL_FILES_CHANGED, set only after the global-approver auth check; the
+  # comment body is parsed as a string (no shell interpolation); and PRs target
+  # branch-protected main. Board moves use PROJECT_TOKEN, not GITHUB_TOKEN.
   issues: write
-  contents: read
+  contents: write
+  pull-requests: write
 
 jobs:
   handle-command:
@@ -38,6 +46,10 @@ jobs:
             const { lookupProject } = _lib('projects.js');
             const { getGlobalApprovers, getProjectSection, getFallbackHandles, getFallbackTeams } = _lib('approvers.js');
             const { cncfApproveDecision } = _lib('cncf-approve.js');
+            const { lfxUrlDecision, recordedLfxUrlComment, readExports, locateExportedProgram, exportTermLabel, termMismatchWarning } = _lib('lfx-url.js');
+            const { termPaths } = _lib('term-paths.js');
+            const { buildReadme, renderAcceptedProgramsBody } = _lib('readme.js');
+            const { renderTrackingCsv } = _lib('csv.js');
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;
             const comment = context.payload.comment;
@@ -48,11 +60,13 @@ jobs:
 
             // ── Detect slash command ──
             // Scan every line; the command may not be the first line (e.g.
-            // someone writes context before their /approve).
+            // someone writes context before their /approve). /lfx-url takes a
+            // URL argument (the rest of the line); the others take none.
             let command = null;
+            let commandArg = '';
             for (const line of commentBody.split('\n')) {
-              const m = line.trim().match(/^\/(cncf-approve|approve|confirm)\b/);
-              if (m) { command = m[1]; break; }
+              const m = line.trim().match(/^\/(lfx-url|cncf-approve|approve|confirm)\b\s*(.*)$/);
+              if (m) { command = m[1]; commandArg = (m[2] || '').trim(); break; }
             }
             if (!command) return;  // no slash command found
             console.log(`/${command} from @${commenter}`);
@@ -353,6 +367,119 @@ jobs:
               return;
             }
 
+            // ══════════════════════════════════════════════════
+            //  /lfx-url: record the LFX program URL (§4.3.5)
+            // ══════════════════════════════════════════════════
+            if (command === 'lfx-url') {
+
+              // Authorization: same allowlist as /cncf-approve.
+              let admins = [];
+              try {
+                const raw = fs.readFileSync('programs/lfx-mentorship/automation/approvers.yml', 'utf8');
+                admins = getGlobalApprovers(raw);
+              } catch (e) {
+                console.log(`Failed to read approvers.yml: ${e.message}`);
+              }
+
+              const decision = lfxUrlDecision({
+                commenter, admins, currentLabels, arg: commandArg,
+                closed: context.payload.issue.state === 'closed',
+              });
+              if (!decision.ok) {
+                if (decision.reason === 'not-admin') {
+                  await reply('❌',
+                    `@${commenter} is not authorized to use \`/lfx-url\`. ` +
+                    `This command is restricted to CNCF program admins.`);
+                } else if (decision.reason === 'issue-closed') {
+                  await reply('❌',
+                    'Cannot `/lfx-url` — this proposal is closed. Reopen it first ' +
+                    'if it really was posted to LFX.');
+                } else if (decision.reason === 'not-exported') {
+                  await reply('❌',
+                    'Cannot `/lfx-url` — this proposal has not been exported yet ' +
+                    '(no `Exported` label). Run the export first.');
+                } else if (decision.reason === 'missing-url') {
+                  await reply('❌', 'Usage: `/lfx-url <url>` — include the LFX program URL.');
+                } else if (decision.reason === 'invalid-url') {
+                  await reply('❌',
+                    'That isn\'t an LFX Mentorship program URL. ' +
+                    'Expected `https://mentorship.lfx.linuxfoundation.org/project/<id>`.');
+                }
+                return;
+              }
+
+              // Guard (§4.3.5, option C + #1938): locate this issue's export by
+              // CONTENT, not the editable issue Term. Scan every
+              // programs/lfx-mentorship/<year>/<termDir>/lfx-export.json on `main`
+              // for the one whose programs[] contains this issue, so a wrong or
+              // edited Term can't misdirect the guard. If none is found, the
+              // export PR isn't merged yet: reject atomically — nothing recorded,
+              // no board move — and hand back the exact command to re-run after
+              // merging. decision.url already passed the strict format gate, so
+              // it is safe to echo.
+              const located = locateExportedProgram(readExports(fs, 'programs/lfx-mentorship'), issue_number);
+              if (!located) {
+                await reply('❌',
+                  'Cannot `/lfx-url` — no exported program for this issue is on `main` yet. ' +
+                  `Merge the term's export PR, then re-run: \`/lfx-url ${decision.url}\``);
+                return;
+              }
+              const { dir, year, termDir, term, data, prog } = located;
+              const { readmeTitle } = termPaths(term);
+              const jsonPath = `${dir}/lfx-export.json`;
+
+              // Record the URL on the issue — the durable source of truth the
+              // export reads back (§4.5) — then fill the term's files and advance
+              // the board. The guard above guarantees this completes fully.
+              // If the issue's editable Term no longer matches the term its
+              // export lives under, append a ⚠️ to this same comment: the scan
+              // already used the exported term; a human should reconcile the
+              // stale field (#1938). We warn, we don't block.
+              const mismatch = termMismatchWarning(fields['Term'], term);
+              await reply('✅',
+                recordedLfxUrlComment(commenter, decision.url) +
+                (mismatch ? `\n\n${mismatch}` : ''));
+              core.exportVariable('LFX_URL_POSTED', 'true');
+
+              if (prog.lfx_url === decision.url) {
+                console.log('lfx_url already set to this value; no file change.');
+              } else {
+                prog.lfx_url = decision.url;
+                fs.writeFileSync(jsonPath, JSON.stringify(data, null, 2) + '\n');
+                const readmePath = `${dir}/README.md`;
+                const existingReadme = fs.existsSync(readmePath) ? fs.readFileSync(readmePath, 'utf8') : null;
+                fs.writeFileSync(readmePath, buildReadme(existingReadme, renderAcceptedProgramsBody(data.programs), readmeTitle));
+                fs.writeFileSync(`${dir}/lfx-tracking.csv`, renderTrackingCsv(data.programs));
+                core.exportVariable('LFX_URL_FILES_CHANGED', 'true');
+                core.exportVariable('LFX_URL_TERM', exportTermLabel(data, term));
+                core.exportVariable('LFX_URL_YEAR', year);
+                core.exportVariable('LFX_URL_TERM_DIR', termDir);
+                console.log(`Updated export files in ${dir}`);
+              }
+              return;
+            }
+
+      - name: Open or update the LFX URL pull request
+        if: env.LFX_URL_FILES_CHANGED == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          add-paths: programs/lfx-mentorship/${{ env.LFX_URL_YEAR }}/${{ env.LFX_URL_TERM_DIR }}
+          commit-message: |
+            chore: record LFX URL for ${{ env.LFX_URL_TERM }}
+
+            Recorded via /lfx-url on issue #${{ github.event.issue.number }}.
+          branch: automation/lfx-urls-${{ env.LFX_URL_YEAR }}-${{ env.LFX_URL_TERM_DIR }}
+          title: "LFX URLs: ${{ env.LFX_URL_TERM }}"
+          body: |
+            Accumulating LFX program URLs recorded via `/lfx-url` for **${{ env.LFX_URL_TERM }}**.
+
+            Each `/lfx-url <url>` comment on an exported proposal issue updates this
+            PR, filling the URL into that term's `lfx-export.json`, `README.md`, and
+            `lfx-tracking.csv`. Merge once the term's programs have been posted to LFX.
+
+            Generated by the LFX Proposal Approvals workflow.
+
       - name: Sync board status
         if: always()
         uses: actions/github-script@v7
@@ -367,7 +494,7 @@ jobs:
             const fs = require('fs');
             const path = require('path');
             const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
-            const { determineStatus, shouldSkipSync, readStatusWithRetry } = _lib('board.js');
+            const { resolveBoardStatus, shouldSkipSync, readStatusWithRetry } = _lib('board.js');
             const _board = JSON.parse(fs.readFileSync('programs/lfx-mentorship/automation/board.json', 'utf8'));
             const _envCfg = (_board.environments || {})[process.env.GITHUB_REPOSITORY];
             if (!_envCfg || !_envCfg.projectId || String(_envCfg.projectId).startsWith('REPLACE_')) {
@@ -401,8 +528,14 @@ jobs:
 
             // Automation owns the lifecycle only through "Exported"; the
             // post-export columns are manual admin moves (see board guard below
-            // and lib/board.js).
-            const status = determineStatus(labels, issue.state === 'closed' ? 'closed' : null);
+            // and lib/board.js). The one exception: a successful /lfx-url
+            // command explicitly advances the card to "Posted to LFX" (§4.3.5),
+            // signalled via the LFX_URL_POSTED env from the command step — but a
+            // closed issue always resolves to "Closed" (the force never
+            // resurrects a closed card). Precedence lives in resolveBoardStatus.
+            const closed = issue.state === 'closed';
+            const forcePosted = process.env.LFX_URL_POSTED === 'true' && !closed;
+            const status = resolveBoardStatus({ labels, closed, forcePosted });
 
             const optionId = STATUS_OPTIONS[status];
             if (!optionId) {
@@ -435,11 +568,15 @@ jobs:
               `, { itemId }),
               { onError: (attempt, e) => core.warning(`Could not read current board status (attempt ${attempt}/2): ${e.message}`) },
             );
+            // Honor the admin-owned guard even for the /lfx-url advance. The
+            // Exported → "Posted to LFX" move isn't blocked (Exported isn't
+            // admin-owned), but a card an admin already moved further must not be
+            // pulled back to "Posted to LFX", and a failed read fails closed.
             if (shouldSkipSync(currentStatus, status, readFailed)) {
               if (currentStatus) {
                 console.log(`Card is in admin-owned column "${currentStatus}"; leaving placement to the administrator.`);
               } else {
-                core.warning('Status read failed while about to set "Exported"; skipping to avoid clobbering a manual placement.');
+                core.warning(`Status read failed while about to set "${status}"; skipping to avoid clobbering a manual placement.`);
               }
               return;
             }

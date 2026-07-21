@@ -33,9 +33,10 @@ jobs:
             const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
             const { parseIssueForm, parseCheckboxes, parseMentors } = _lib('parse.js');
             const { standardPrerequisites } = _lib('prerequisites.js');
-            const { slugify } = _lib('slug.js');
-            const { buildReadme } = _lib('readme.js');
-            const { csvEscape } = _lib('csv.js');
+            const { buildReadme, renderAcceptedProgramsBody } = _lib('readme.js');
+            const { renderTrackingCsv } = _lib('csv.js');
+            const { parseRecordedLfxUrl } = _lib('lfx-url.js');
+            const { termPaths } = _lib('term-paths.js');
             const { lookupProject } = _lib('projects.js');
             const { lfxTitle } = _lib('title.js');
             const { owner, repo } = context.repo;
@@ -89,6 +90,23 @@ jobs:
 
               const meta = lookupProject(projYaml, project) || {};
 
+              // Read the LFX URL recorded on the issue by /lfx-url (§4.3.5), if
+              // any. The issue is the source of truth, so a re-export keeps the
+              // URL without re-keying it. Skip the API call when the issue has
+              // no comments (listForRepo returns the count) to avoid needless
+              // requests and secondary rate-limit pressure on large terms.
+              let issueComments = [];
+              if (iss.comments > 0) {
+                try {
+                  issueComments = await github.paginate(github.rest.issues.listComments, {
+                    owner, repo, issue_number: iss.number, per_page: 100,
+                  });
+                } catch (e) {
+                  core.warning(`Could not read comments for #${iss.number}: ${e.message}`);
+                }
+              }
+              const lfxUrl = parseRecordedLfxUrl(issueComments);
+
               programs.push({
                 issue_number: iss.number,
                 issue_url: iss.html_url,
@@ -103,6 +121,7 @@ jobs:
                 skills: skills,
                 mentors: parseMentors(get('Mentors')),
                 upstream_issue_url: get('Upstream Issue URL'),
+                lfx_url: lfxUrl,
                 prerequisites: {
                   resume: prerequisites.includes('Resume'),
                   cover_letter: prerequisites.includes('Cover Letter'),
@@ -123,19 +142,10 @@ jobs:
             }
 
             // ── Determine output path ──
-            // Term format: "2026 Term 3 (Sep-Nov)" → year=2026, dir=03-Sep-Nov
-            const yearMatch = term.match(/^(\d{4})/);
-            const termNumMatch = term.match(/Term\s+(\d)/);
-            const monthsMatch = term.match(/\(([^)]+)\)/);
-
-            const year = yearMatch ? yearMatch[1] : 'unknown';
-            const termNum = termNumMatch ? termNumMatch[1].padStart(2, '0') : '00';
-            const months = monthsMatch
-              ? monthsMatch[1].replace(/[\u2013\u2014]/g, '-')
-              : 'unknown';
-            const termDir = `${termNum}-${months}`;
-
-            const outDir = `programs/lfx-mentorship/${year}/${termDir}`;
+            // Term format: "2026 Term 3 (Sep-Nov)" → year=2026, dir=03-Sep-Nov,
+            // readmeTitle="Term 03 - 2026 September - November" (all derivation
+            // shared with /lfx-url via lib/term-paths.js).
+            const { year, termDir, outDir, readmeTitle } = termPaths(term);
             fs.mkdirSync(outDir, { recursive: true });
 
             const outPath = `${outDir}/lfx-export.json`;
@@ -150,119 +160,25 @@ jobs:
             console.log(`Wrote ${programs.length} programs to ${outPath}`);
 
             // ── Generate README.md ──
-            // Group programs by CNCF project
-            const byProject = {};
-            for (const prog of programs) {
-              const proj = prog.cncf_project;
-              if (!byProject[proj]) byProject[proj] = [];
-              byProject[proj].push(prog);
-            }
-            const sortedProjects = Object.keys(byProject).sort(
-              (a, b) => a.toLowerCase().localeCompare(b.toLowerCase())
-            );
-
-            // Term display: "2026 Term 3 (Sep-Nov)" → "Term 03 - 2026 September - November"
-            const monthMap = {
-              'Mar': 'March', 'May': 'May', 'Jun': 'June',
-              'Aug': 'August', 'Sep': 'September', 'Nov': 'November',
-            };
-            const monthParts = months.split('-').map(m => monthMap[m.trim()] || m.trim());
-            const readmeTitle = `Term ${termNum} - ${year} ${monthParts.join(' - ')}`;
-
-            // Build the auto-generated section (Table of Contents + Accepted
-            // Projects). The term frontmatter above it is preserved separately
-            // so re-running the export never wipes the term timeline and
-            // instructions.
-            const md = [];
-
-            // Table of contents
-            md.push('## Table of Contents');
-            md.push('');
-            for (const proj of sortedProjects) {
-              const projSlug = slugify(proj);
-              md.push(`- [${proj}](#${projSlug})`);
-              for (const prog of byProject[proj]) {
-                const progSlug = slugify(prog.program_name_short);
-                md.push(`  - [${prog.program_name_short}](#${progSlug})`);
-              }
-            }
-            md.push('');
-
-            // Accepted projects
-            md.push('## Accepted Projects');
-            md.push('');
-            for (const proj of sortedProjects) {
-              md.push(`### ${proj}`);
-              md.push('');
-              for (const prog of byProject[proj]) {
-                md.push(`#### ${prog.program_name_short}`);
-                md.push('');
-                md.push(prog.program_name_full);
-                md.push('');
-                md.push('- Description:');
-                md.push('');
-                for (const line of prog.description.split('\n')) {
-                  md.push(`  > ${line}`);
-                }
-                md.push('');
-                md.push(`- Recommended Skills: ${prog.skills}`);
-                md.push(`- Technologies: ${prog.technologies}`);
-                md.push('- Mentor(s):');
-                for (const m of prog.mentors) {
-                  md.push(`  - ${m.name} (@${m.github_handle}, ${m.email})`);
-                }
-                md.push(`- Upstream Issue: ${prog.upstream_issue_url}`);
-                md.push(`- LFX URL: TBD`);
-                md.push('');
-              }
-            }
+            // The body (Table of Contents + Accepted Projects) is rendered by
+            // lib/readme.js so the same renderer backs both the export and the
+            // /lfx-url command (§4.3.5). The term frontmatter above the first
+            // horizontal rule is preserved by buildReadme; only the body below
+            // it is regenerated, so a re-export never wipes the term timeline.
+            const md = renderAcceptedProgramsBody(programs);
 
             const readmePath = `${outDir}/README.md`;
-
-            // Preserve the term frontmatter (title, timeline, project and
-            // application instructions) up to and including the first horizontal
-            // rule, then regenerate only the Table of Contents and Accepted
-            // Projects below it. Fall back to a minimal header only when the
-            // term README has no frontmatter yet.
             let existingReadme = null;
             if (fs.existsSync(readmePath)) {
               existingReadme = fs.readFileSync(readmePath, 'utf8');
             }
             fs.writeFileSync(readmePath, buildReadme(existingReadme, md, readmeTitle));
-            console.log(`Wrote README.md with ${sortedProjects.length} projects, ${programs.length} programs`);
+            const projectCount = new Set(programs.map(p => p.cncf_project)).size;
+            console.log(`Wrote README.md with ${projectCount} projects, ${programs.length} programs`);
 
-            // ── Generate tracking CSV ──
-            const csvHeaders = [
-              'PROJECT', 'LFX URL', 'Upstream issue', '',
-              'mentor count',
-              'Mentor 1', 'Mentor 1 GitHub', 'Mentor 1 email address', 'Mentor 1 LFID',
-              'Mentor 2', 'Mentor 2 GitHub', 'Mentor 2 email address', 'Mentor 2 LFID',
-              'Mentor 3', 'Mentor 3 GitHub', 'Mentor 3 email address', 'Mentor 3 LFID',
-              'Mentor 4', 'Mentor 4 GitHub', 'Mentor 4 email address', 'Mentor 4 LFID',
-            ];
-
-            const csvRows = [csvHeaders.map(csvEscape).join(',')];
-            for (const prog of programs) {
-              const mentors = prog.mentors || [];
-              const row = [
-                prog.program_name_full,
-                '',  // LFX URL — filled in after posting to LFX
-                prog.upstream_issue_url,
-                '',  // spacer column
-                mentors.length,
-              ];
-              for (let i = 0; i < 4; i++) {
-                const m = mentors[i];
-                row.push(m ? m.name : '');
-                row.push(m ? m.github_handle : '');
-                row.push(m ? m.email : '');
-                row.push(m ? m.lfid : '');
-              }
-              csvRows.push(row.map(csvEscape).join(','));
-            }
-
+            // ── Generate tracking CSV (rendered by lib/csv.js) ──
             const csvPath = `${outDir}/lfx-tracking.csv`;
-            fs.writeFileSync(csvPath, csvRows.join('\n') + '\n');
+            fs.writeFileSync(csvPath, renderTrackingCsv(programs));
             console.log(`Wrote ${programs.length} rows to ${csvPath}`);
 
             // ── Store path and issue numbers for later steps ──
