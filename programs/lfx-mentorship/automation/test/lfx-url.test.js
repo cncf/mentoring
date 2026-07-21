@@ -2,7 +2,10 @@
 
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision, findExportedProgram, exportTermLabel } = require('../lib/lfx-url');
+const {
+  recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision, findExportedProgram,
+  exportTermLabel, readExports, locateExportedProgram,
+} = require('../lib/lfx-url');
 
 const bot = (body) => ({ user: { login: 'github-actions[bot]' }, body });
 const user = (login, body) => ({ user: { login }, body });
@@ -161,6 +164,108 @@ test('findExportedProgram: null when the export data is missing or malformed', (
   assert.equal(findExportedProgram(undefined, 115), null);
   assert.equal(findExportedProgram({}, 115), null);
   assert.equal(findExportedProgram({ programs: 'nope' }, 115), null);
+});
+
+// ── readExports / locateExportedProgram: content discovery across terms (#1938) ──
+// Fake fs: `dirs` maps a directory path to its entry names; `files` maps a file
+// path to its contents. readdirSync throws for anything that isn't a listed
+// directory (models a plain file like README.md); readFileSync throws for a
+// missing file. Only these two calls are used by readExports.
+const makeFs = (dirs, files) => ({
+  readdirSync(p) {
+    if (!Object.prototype.hasOwnProperty.call(dirs, p)) throw new Error(`ENOTDIR: ${p}`);
+    return dirs[p];
+  },
+  readFileSync(p) {
+    if (!Object.prototype.hasOwnProperty.call(files, p)) throw new Error(`ENOENT: ${p}`);
+    return files[p];
+  },
+});
+
+const ROOT = 'programs/lfx-mentorship';
+
+test('readExports: reads every lfx-export.json under root/<year>/<termDir>', () => {
+  const dirs = {
+    [ROOT]: ['2025', '2026', 'automation', 'README.md'],
+    [`${ROOT}/2025`]: ['03-Sep-Nov'],
+    [`${ROOT}/2026`]: ['02-Jun-Aug', '03-Sep-Nov'],
+    [`${ROOT}/automation`]: ['lib', 'test'], // no lfx-export.json inside → skipped
+  };
+  const files = {
+    [`${ROOT}/2025/03-Sep-Nov/lfx-export.json`]: JSON.stringify({ _term: '2025 Term 3 (Sep-Nov)', programs: [{ issue_number: 90 }] }),
+    [`${ROOT}/2026/02-Jun-Aug/lfx-export.json`]: JSON.stringify({ _term: '2026 Term 2 (Jun-Aug)', programs: [{ issue_number: 100 }] }),
+    [`${ROOT}/2026/03-Sep-Nov/lfx-export.json`]: JSON.stringify({ _term: '2026 Term 3 (Sep-Nov)', programs: [{ issue_number: 115 }] }),
+  };
+  const got = readExports(makeFs(dirs, files), ROOT);
+  assert.deepEqual(got.map(e => e.dir).sort(), [
+    `${ROOT}/2025/03-Sep-Nov`,
+    `${ROOT}/2026/02-Jun-Aug`,
+    `${ROOT}/2026/03-Sep-Nov`,
+  ]);
+  assert.equal(got.find(e => e.dir === `${ROOT}/2026/03-Sep-Nov`).data._term, '2026 Term 3 (Sep-Nov)');
+});
+
+test('readExports: skips term dirs without an export and malformed JSON', () => {
+  const dirs = {
+    [ROOT]: ['2026'],
+    [`${ROOT}/2026`]: ['01-Mar-May', '02-Jun-Aug', '03-Sep-Nov'],
+  };
+  const files = {
+    [`${ROOT}/2026/01-Mar-May/lfx-export.json`]: '{ not valid json',
+    // 02-Jun-Aug has no lfx-export.json
+    [`${ROOT}/2026/03-Sep-Nov/lfx-export.json`]: JSON.stringify({ _term: 'x', programs: [] }),
+  };
+  const got = readExports(makeFs(dirs, files), ROOT);
+  assert.deepEqual(got.map(e => e.dir), [`${ROOT}/2026/03-Sep-Nov`]);
+});
+
+test('readExports: returns [] when the root cannot be read', () => {
+  assert.deepEqual(readExports(makeFs({}, {}), ROOT), []);
+});
+
+test('locateExportedProgram: finds the program and returns its real location', () => {
+  const exportsList = [
+    { dir: `${ROOT}/2026/02-Jun-Aug`, data: { _term: '2026 Term 2 (Jun-Aug)', programs: [{ issue_number: 100 }] } },
+    { dir: `${ROOT}/2026/03-Sep-Nov`, data: { _term: '2026 Term 3 (Sep-Nov)', programs: [{ issue_number: 114 }, { issue_number: 115, cncf_project: 'B' }] } },
+  ];
+  const got = locateExportedProgram(exportsList, 115);
+  assert.equal(got.dir, `${ROOT}/2026/03-Sep-Nov`);
+  assert.equal(got.year, '2026');
+  assert.equal(got.termDir, '03-Sep-Nov');
+  assert.equal(got.term, '2026 Term 3 (Sep-Nov)');
+  assert.equal(got.prog.cncf_project, 'B');
+  assert.equal(got.data, exportsList[1].data);
+});
+
+test('locateExportedProgram: picks the right term among several exports', () => {
+  const exportsList = [
+    { dir: `${ROOT}/2025/03-Sep-Nov`, data: { _term: '2025 Term 3 (Sep-Nov)', programs: [{ issue_number: 90 }] } },
+    { dir: `${ROOT}/2026/02-Jun-Aug`, data: { _term: '2026 Term 2 (Jun-Aug)', programs: [{ issue_number: 100 }] } },
+    { dir: `${ROOT}/2026/03-Sep-Nov`, data: { _term: '2026 Term 3 (Sep-Nov)', programs: [{ issue_number: 115 }] } },
+  ];
+  const got = locateExportedProgram(exportsList, 100);
+  assert.equal(got.dir, `${ROOT}/2026/02-Jun-Aug`);
+  assert.equal(got.termDir, '02-Jun-Aug');
+  assert.equal(got.year, '2026');
+});
+
+test('locateExportedProgram: null when no export contains the issue', () => {
+  const exportsList = [
+    { dir: `${ROOT}/2026/03-Sep-Nov`, data: { _term: 'x', programs: [{ issue_number: 114 }] } },
+  ];
+  assert.equal(locateExportedProgram(exportsList, 115), null);
+  assert.equal(locateExportedProgram([], 115), null);
+  assert.equal(locateExportedProgram(null, 115), null);
+});
+
+test('locateExportedProgram: skips malformed entries; missing _term → empty term', () => {
+  const exportsList = [
+    { dir: 'ignored', data: null },
+    { dir: `${ROOT}/2026/03-Sep-Nov`, data: { programs: [{ issue_number: 115 }] } }, // no _term
+  ];
+  const got = locateExportedProgram(exportsList, 115);
+  assert.equal(got.dir, `${ROOT}/2026/03-Sep-Nov`);
+  assert.equal(got.term, '');
 });
 
 // ── exportTermLabel: the term string used in /lfx-url PR metadata ──

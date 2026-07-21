@@ -97,7 +97,58 @@ function exportTermLabel(exportData, fallbackTerm) {
   return String(raw).replace(/\s+/g, ' ').trim();
 }
 
+// Read every term export on disk: programs/lfx-mentorship/<year>/<termDir>/
+// lfx-export.json. Returns [{ dir, data }] (data = the parsed JSON). Entries
+// that aren't directories (e.g. README.md), term dirs without an export, and
+// files that don't parse are all skipped. `fs` is injected (node's fs in the
+// workflow) so the two-level walk is unit-testable; only readdirSync and
+// readFileSync are used. Backs /lfx-url's content-based export lookup (#1938).
+function readExports(fs, root) {
+  const out = [];
+  let years;
+  try { years = fs.readdirSync(root); } catch { return out; }
+  for (const year of years) {
+    let termDirs;
+    try { termDirs = fs.readdirSync(`${root}/${year}`); } catch { continue; }
+    for (const termDir of termDirs) {
+      const dir = `${root}/${year}/${termDir}`;
+      let raw;
+      try { raw = fs.readFileSync(`${dir}/lfx-export.json`, 'utf8'); } catch { continue; }
+      let data;
+      try { data = JSON.parse(raw); } catch { continue; }
+      out.push({ dir, data });
+    }
+  }
+  return out;
+}
+
+// Find the export that actually contains this issue's program by scanning
+// content, rather than deriving the path from the (editable, untrusted) issue
+// Term (#1938). `exports` is readExports() output. Returns
+// { dir, year, termDir, term, data, prog } for the first matching export — an
+// issue is exported to exactly one term — or null when no on-disk export
+// contains it. dir/year/termDir come from the file's real location; term is the
+// export's canonical _term (used for PR metadata and the README title).
+function locateExportedProgram(exports, issueNumber) {
+  for (const entry of exports || []) {
+    const prog = findExportedProgram(entry && entry.data, issueNumber);
+    if (prog) {
+      const parts = String(entry.dir).split('/');
+      return {
+        dir: entry.dir,
+        year: parts[parts.length - 2],
+        termDir: parts[parts.length - 1],
+        term: (entry.data && entry.data._term) || '',
+        data: entry.data,
+        prog,
+      };
+    }
+  }
+  return null;
+}
+
 module.exports = {
   recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision,
-  findExportedProgram, exportTermLabel, LFX_PROGRAM_URL_RE,
+  findExportedProgram, exportTermLabel, readExports, locateExportedProgram,
+  LFX_PROGRAM_URL_RE,
 };
