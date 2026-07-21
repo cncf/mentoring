@@ -40,6 +40,7 @@ jobs:
             const { standardPrerequisites } = _lib('prerequisites.js');
             const { buildReadme, renderAcceptedProgramsBody } = _lib('readme.js');
             const { renderTrackingCsv } = _lib('csv.js');
+            const { serializeExport } = _lib('export-json.js');
             const { parseRecordedLfxUrl } = _lib('lfx-url.js');
             const { termPaths } = _lib('term-paths.js');
             const { lookupProject } = _lib('projects.js');
@@ -161,7 +162,11 @@ jobs:
               programs: programs,
             };
 
-            fs.writeFileSync(outPath, JSON.stringify(exportData, null, 2) + '\n');
+            // Preserve the prior _generated when nothing else changed, so a
+            // re-run with no substantive change stays byte-identical and the
+            // change check below skips the no-op PR (#1944).
+            const existingExport = fs.existsSync(outPath) ? fs.readFileSync(outPath, 'utf8') : null;
+            fs.writeFileSync(outPath, serializeExport(exportData, existingExport));
             console.log(`Wrote ${programs.length} programs to ${outPath}`);
 
             // ── Generate README.md ──
