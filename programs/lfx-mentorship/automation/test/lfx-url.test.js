@@ -331,3 +331,11 @@ test('termMismatchWarning: strips backticks so an edited Term cannot break out o
   assert.ok(w.includes('`2026 @acme/team Term`'), 'internal backticks removed; value stays inside its span');
   assert.equal((w.match(/`/g) || []).length, 6, 'only the three span wrappers remain; no stray backticks');
 });
+
+test('termMismatchWarning: folds en/em dashes to a hyphen so a cosmetic dash difference is not a mismatch', () => {
+  // termPaths() folds en/em dashes to '-' when resolving the directory, so a
+  // Term differing only by dash style resolves to the same term and must not
+  // warn. Keeps the warning consistent with the rest of the automation.
+  assert.equal(termMismatchWarning('2026 Term 3 (Sep\u2013Nov)', '2026 Term 3 (Sep-Nov)'), '', 'en-dash equals hyphen');
+  assert.equal(termMismatchWarning('2026 Term 3 (Sep\u2014Nov)', '2026 Term 3 (Sep-Nov)'), '', 'em-dash equals hyphen');
+});

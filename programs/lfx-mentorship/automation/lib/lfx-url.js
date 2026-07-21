@@ -157,8 +157,10 @@ function locateExportedProgram(exports, issueNumber) {
 function termMismatchWarning(declaredTerm, exportedTerm) {
   // Strip backticks (the only char that can break an inline code span) before
   // wrapping the values below, so an edited Term can't escape and render an
-  // @mention/Markdown. Then collapse whitespace and trim.
-  const norm = (s) => String(s || '').replace(/`/g, '').replace(/\s+/g, ' ').trim();
+  // @mention/Markdown. Fold en/em dashes to a hyphen to match termPaths()
+  // (term-paths.js), so a Term differing only by dash style in the months range
+  // isn't flagged as a mismatch. Then collapse whitespace and trim.
+  const norm = (s) => String(s || '').replace(/`/g, '').replace(/[\u2013\u2014]/g, '-').replace(/\s+/g, ' ').trim();
   const d = norm(declaredTerm);
   const e = norm(exportedTerm);
   if (!d || !e || d.toLowerCase() === e.toLowerCase()) return '';
