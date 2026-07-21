@@ -429,7 +429,7 @@ jobs:
               if (!prog) {
                 await reply('❌',
                   `This term's export isn't on \`main\` yet (with this program). ` +
-                  `Merge the export PR for ${lfxTerm}, then re-run: \`/lfx-url ${decision.url}\``);
+                  `Merge its export PR (\`${outDir}/\`), then re-run: \`/lfx-url ${decision.url}\``);
                 return;
               }
 
