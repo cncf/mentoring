@@ -453,3 +453,28 @@ test('populateRecordedUrls: skips null/non-object entries without throwing', asy
   });
   assert.equal(programs[2].lfx_url, `${PROJ}/aaaaaaaa-0000-4000-8000-000000000005`);
 });
+
+test('recordedPrograms: excludes entries without a numeric issue_number', () => {
+  const data = { programs: [
+    { issue_number: 10, lfx_url: `${PROJ}/aaaaaaaa-0000-4000-8000-000000000010` },
+    { lfx_url: `${PROJ}/aaaaaaaa-0000-4000-8000-000000000099` },            // no issue_number
+    { issue_number: 'nope', lfx_url: `${PROJ}/aaaaaaaa-0000-4000-8000-000000000098` }, // non-numeric
+  ] };
+  assert.deepEqual(recordedPrograms(data).map((p) => p.issue_number), [10]);
+});
+
+test('populateRecordedUrls: skips entries without a numeric issue_number (no fetch, no throw)', async () => {
+  const programs = [
+    { lfx_url: '' },                     // no issue_number
+    { issue_number: null, lfx_url: '' }, // non-numeric
+    { issue_number: 7, lfx_url: '' },
+  ];
+  const fetched = [];
+  await populateRecordedUrls(programs, {
+    currentIssue: 7,
+    currentUrl: `${PROJ}/aaaaaaaa-0000-4000-8000-000000000007`,
+    fetchComments: async (n) => { fetched.push(n); return []; },
+  });
+  assert.equal(programs[2].lfx_url, `${PROJ}/aaaaaaaa-0000-4000-8000-000000000007`);
+  assert.deepEqual(fetched, [], 'no fetch for malformed entries; current issue set directly');
+});

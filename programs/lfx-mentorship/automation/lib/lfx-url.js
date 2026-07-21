@@ -175,7 +175,7 @@ function termMismatchWarning(declaredTerm, exportedTerm) {
 function recordedPrograms(data) {
   const programs = data && Array.isArray(data.programs) ? data.programs : [];
   return programs.filter(
-    (p) => p && typeof p.lfx_url === 'string' && p.lfx_url.trim() !== '',
+    (p) => p && typeof p.lfx_url === 'string' && p.lfx_url.trim() !== '' && Number.isInteger(p.issue_number),
   );
 }
 
@@ -213,6 +213,7 @@ function recordedUrlNextSteps() {
 async function populateRecordedUrls(programs, { currentIssue, currentUrl, fetchComments }) {
   for (const prog of programs || []) {
     if (!prog || typeof prog !== 'object') continue;
+    if (!Number.isInteger(prog.issue_number)) continue;
     if (prog.issue_number === currentIssue) {
       prog.lfx_url = currentUrl;
       continue;
