@@ -36,8 +36,18 @@ global_approvers:
 # project-maintainers CSV). Add fallback_handles below for a guaranteed
 # per-person override.
 kubernetes:
+  # Kubernetes mentorship approvals run through SIG Contributor Experience
+  # (SIG ContribEx). The sig-contribex team is cross-org (token can't read it), so
+  # current SIG ContribEx leads are listed individually. Source: kubernetes/community
+  # sig-contributor-experience leadership.
   fallback_teams:
     - kubernetes/sig-contribex
+  fallback_handles:
+    - kaslin              # Kaslin Fields
+    - mfahlandt           # Mario Fahlandt
+    - palnabarun          # Nabarun Pal
+    - MadhavJivrajani     # Madhav Jivrajani
+    - Priyankasaggu11929  # Priyanka Saggu
 
 open-telemetry:
   # OTel governance (per @maryliag, cncf/mentoring#1930): each SIG has an
