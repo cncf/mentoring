@@ -133,7 +133,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/WasmEdge/WasmEdge/issues/5153",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/14d8a870-ed14-4a49-8b8c-8ac50c4605cc",
       "prerequisites": {
         "resume": true,
         "cover_letter": false,

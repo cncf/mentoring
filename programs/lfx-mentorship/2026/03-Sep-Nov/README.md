@@ -240,5 +240,5 @@ CNCF - WasmEdge Runtime: Support for the Wide Arithmetic Proposal (2026 Term 3)
   - Hung-Ying Tai (@hydai, hydai@secondstate.io)
   - Yi-Ying He (@q82419, yiying@secondstate.io)
 - Upstream Issue: https://github.com/WasmEdge/WasmEdge/issues/5153
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/14d8a870-ed14-4a49-8b8c-8ac50c4605cc
 
