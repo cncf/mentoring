@@ -5,6 +5,7 @@ const assert = require('node:assert/strict');
 const {
   recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision, findExportedProgram,
   exportTermLabel, readExports, locateExportedProgram, termMismatchWarning,
+  recordedPrograms, renderRecordedIssues, recordedUrlNextSteps, populateRecordedUrls,
 } = require('../lib/lfx-url');
 
 const bot = (body) => ({ user: { login: 'github-actions[bot]' }, body });
@@ -338,4 +339,142 @@ test('termMismatchWarning: folds en/em dashes to a hyphen so a cosmetic dash dif
   // warn. Keeps the warning consistent with the rest of the automation.
   assert.equal(termMismatchWarning('2026 Term 3 (Sep\u2013Nov)', '2026 Term 3 (Sep-Nov)'), '', 'en-dash equals hyphen');
   assert.equal(termMismatchWarning('2026 Term 3 (Sep\u2014Nov)', '2026 Term 3 (Sep-Nov)'), '', 'em-dash equals hyphen');
+});
+
+// ── recordedPrograms / renderRecordedIssues: the /lfx-url PR title count and
+//    body issue-links, derived from the term export so the PR cross-links back
+//    to each proposal issue whose URL has been recorded. ──
+const exportWith = (programs) => ({ _term: '2026 Term 3 (Sep-Nov)', programs });
+
+test('recordedPrograms: returns only programs with a non-empty lfx_url, in order', () => {
+  const data = exportWith([
+    { issue_number: 10, program_name_full: 'A', lfx_url: 'https://x/1' },
+    { issue_number: 11, program_name_full: 'B', lfx_url: '' },
+    { issue_number: 12, program_name_full: 'C' },
+    { issue_number: 13, program_name_full: 'D', lfx_url: '   ' },
+    { issue_number: 14, program_name_full: 'E', lfx_url: 'https://x/2' },
+  ]);
+  assert.deepEqual(recordedPrograms(data).map(p => p.issue_number), [10, 14]);
+});
+
+test('recordedPrograms: empty for missing/empty/malformed export data', () => {
+  assert.deepEqual(recordedPrograms(null), []);
+  assert.deepEqual(recordedPrograms({}), []);
+  assert.deepEqual(recordedPrograms({ programs: [] }), []);
+  assert.deepEqual(recordedPrograms({ programs: 'nope' }), []);
+});
+
+test('renderRecordedIssues: one "- #<n> <name>" line per program, no em-dash', () => {
+  const md = renderRecordedIssues([
+    { issue_number: 1924, program_name_full: 'CNCF - WasmEdge Runtime: Wide Arithmetic (2026 Term 3)', lfx_url: 'https://x/1' },
+    { issue_number: 1930, program_name_full: 'CNCF - OpenTelemetry: Zero-code (2026 Term 3)', lfx_url: 'https://x/2' },
+  ]);
+  assert.equal(md,
+    '- #1924 CNCF - WasmEdge Runtime: Wide Arithmetic (2026 Term 3)\n' +
+    '- #1930 CNCF - OpenTelemetry: Zero-code (2026 Term 3)');
+  assert.ok(!md.includes('\u2014') && !md.includes('\u2013'), 'no en/em dash');
+});
+
+test('renderRecordedIssues: falls back to just "- #<n>" when the name is missing', () => {
+  assert.equal(renderRecordedIssues([{ issue_number: 42, lfx_url: 'https://x/1' }]), '- #42');
+});
+
+test('renderRecordedIssues: empty string for an empty list', () => {
+  assert.equal(renderRecordedIssues([]), '');
+});
+
+// ── recordedUrlNextSteps: the post-record next steps appended to the /lfx-url
+//    success comment. Once the URL is recorded the program is live on LFX, so
+//    the next actions are on the LFX platform (admin approval, then mentors). ──
+test('recordedUrlNextSteps: lists LFX admin approval then CNCF mentor assignment', () => {
+  const s = recordedUrlNextSteps();
+  assert.match(s, /Next on LFX/);
+  assert.match(s, /1\.\s+An LFX admin approves the program\./);
+  assert.match(s, /2\.\s+Once approved, CNCF admins add the mentors\./);
+  assert.ok(!s.includes('\u2014') && !s.includes('\u2013'), 'no en/em dash');
+});
+
+// ── populateRecordedUrls: fill every term program's lfx_url from the durable
+//    source (each issue's recorded-URL comment), so recording URLs for several
+//    programs before merging the per-term PR doesn't clobber the earlier ones
+//    (the PR is always rebuilt from main). Current issue is set directly. ──
+const recComment = (url) => bot(`LFX URL recorded from @admin: ${url}`);
+const PROJ = 'https://mentorship.lfx.linuxfoundation.org/project';
+
+test('populateRecordedUrls: sets current from currentUrl, others from comments; skips fetching current', async () => {
+  const programs = [
+    { issue_number: 10, lfx_url: '' },
+    { issue_number: 11, lfx_url: '' },
+    { issue_number: 12, lfx_url: '' },
+  ];
+  const comments = {
+    11: [recComment(`${PROJ}/aaaaaaaa-0000-4000-8000-000000000011`)],
+    12: [],
+  };
+  const fetched = [];
+  await populateRecordedUrls(programs, {
+    currentIssue: 10,
+    currentUrl: `${PROJ}/aaaaaaaa-0000-4000-8000-000000000010`,
+    fetchComments: async (n) => { fetched.push(n); return comments[n] || []; },
+  });
+  assert.equal(programs[0].lfx_url, `${PROJ}/aaaaaaaa-0000-4000-8000-000000000010`);
+  assert.equal(programs[1].lfx_url, `${PROJ}/aaaaaaaa-0000-4000-8000-000000000011`);
+  assert.equal(programs[2].lfx_url, '', 'sibling with no recorded comment stays empty');
+  assert.deepEqual(fetched.sort((a, b) => a - b), [11, 12], 'did not fetch the current issue');
+});
+
+test('populateRecordedUrls: preserves an existing sibling url when it has no recorded comment', async () => {
+  const programs = [
+    { issue_number: 1, lfx_url: `${PROJ}/aaaaaaaa-0000-4000-8000-000000000001` },
+    { issue_number: 2, lfx_url: '' },
+  ];
+  await populateRecordedUrls(programs, {
+    currentIssue: 2,
+    currentUrl: `${PROJ}/aaaaaaaa-0000-4000-8000-000000000002`,
+    fetchComments: async () => [],
+  });
+  assert.equal(programs[0].lfx_url, `${PROJ}/aaaaaaaa-0000-4000-8000-000000000001`, 'never regressed to empty');
+  assert.equal(programs[1].lfx_url, `${PROJ}/aaaaaaaa-0000-4000-8000-000000000002`);
+});
+
+test('populateRecordedUrls: empty program list makes no fetches', async () => {
+  let called = 0;
+  const out = await populateRecordedUrls([], { currentIssue: 1, currentUrl: 'x', fetchComments: async () => { called++; return []; } });
+  assert.deepEqual(out, []);
+  assert.equal(called, 0);
+});
+
+test('populateRecordedUrls: skips null/non-object entries without throwing', async () => {
+  const programs = [null, 'nope', { issue_number: 5, lfx_url: '' }];
+  await populateRecordedUrls(programs, {
+    currentIssue: 5,
+    currentUrl: `${PROJ}/aaaaaaaa-0000-4000-8000-000000000005`,
+    fetchComments: async () => [],
+  });
+  assert.equal(programs[2].lfx_url, `${PROJ}/aaaaaaaa-0000-4000-8000-000000000005`);
+});
+
+test('recordedPrograms: excludes entries without a numeric issue_number', () => {
+  const data = { programs: [
+    { issue_number: 10, lfx_url: `${PROJ}/aaaaaaaa-0000-4000-8000-000000000010` },
+    { lfx_url: `${PROJ}/aaaaaaaa-0000-4000-8000-000000000099` },            // no issue_number
+    { issue_number: 'nope', lfx_url: `${PROJ}/aaaaaaaa-0000-4000-8000-000000000098` }, // non-numeric
+  ] };
+  assert.deepEqual(recordedPrograms(data).map((p) => p.issue_number), [10]);
+});
+
+test('populateRecordedUrls: skips entries without a numeric issue_number (no fetch, no throw)', async () => {
+  const programs = [
+    { lfx_url: '' },                     // no issue_number
+    { issue_number: null, lfx_url: '' }, // non-numeric
+    { issue_number: 7, lfx_url: '' },
+  ];
+  const fetched = [];
+  await populateRecordedUrls(programs, {
+    currentIssue: 7,
+    currentUrl: `${PROJ}/aaaaaaaa-0000-4000-8000-000000000007`,
+    fetchComments: async (n) => { fetched.push(n); return []; },
+  });
+  assert.equal(programs[2].lfx_url, `${PROJ}/aaaaaaaa-0000-4000-8000-000000000007`);
+  assert.deepEqual(fetched, [], 'no fetch for malformed entries; current issue set directly');
 });

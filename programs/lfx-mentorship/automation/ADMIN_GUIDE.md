@@ -135,7 +135,7 @@ the existing branch if the previous PR wasn't merged).
 4. **After you create each program on LFX:** comment `/lfx-url <url>` on that
    program's proposal issue. The bot records the URL on the issue, fills it into
    the term's `lfx-export.json`, `README.md`, and `lfx-tracking.csv` (landing the
-   change in a per-term `LFX URLs: <term>` PR), and advances the card to
+   change in a per-term `chore: record LFX URLs` PR), and advances the card to
    `Posted to LFX`. Restricted to global approvers; the issue must already be
    `Exported` and open. The URL must be a full LFX Mentorship program URL
    (`https://mentorship.lfx.linuxfoundation.org/project/<id>`); anything else is

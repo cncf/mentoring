@@ -27,24 +27,45 @@ jobs:
           script: |
             const path = require('path');
             const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
-            const { parseExportedIssueNumbers } = _lib('notify.js');
+            const { parseExportedIssueNumbers, exportPathForBranch, exportedIssueNumbers, newIssueNumbers } = _lib('notify.js');
             const { owner, repo } = context.repo;
             const pr = context.payload.pull_request;
             const prNumber = pr.number;
 
-            const issueNums = parseExportedIssueNumbers(pr.body);
-
-            if (issueNums.length === 0) {
+            const current = parseExportedIssueNumbers(pr.body);
+            if (current.length === 0) {
               console.log('No linked issues found in PR body.');
               return;
             }
 
-            for (const issue_number of issueNums) {
+            // Notify only issues newly added by this export. Issues already in
+            // the term export before this PR were notified when their export
+            // merged, so re-exporting a term (e.g. to add one program) must not
+            // re-notify them. Read the export at the PR base; a 404 means this
+            // is the term's first export, so every issue is new.
+            let previous = [];
+            const exportPath = exportPathForBranch(pr.head.ref);
+            if (exportPath) {
+              try {
+                const res = await github.rest.repos.getContent({ owner, repo, path: exportPath, ref: pr.base.sha });
+                const parsed = JSON.parse(Buffer.from(res.data.content, 'base64').toString('utf8'));
+                previous = exportedIssueNumbers(parsed);
+              } catch (e) {
+                if (e.status !== 404) throw e;
+              }
+            }
+
+            const toNotify = newIssueNumbers(current, previous);
+            if (toNotify.length === 0) {
+              console.log('No newly-exported issues to notify.');
+              return;
+            }
+
+            for (const issue_number of toNotify) {
               await github.rest.issues.createComment({
                 owner, repo, issue_number,
-                body: `✅ Export PR #${prNumber} has been merged.\n\n` +
-                  `The program files are now on \`main\`. Next step: post to LFX platform.\n\n` +
-                  `This issue will be updated when the program is live on LFX.`,
+                body: `✅ Export PR #${prNumber} has been merged. The program files are now on \`main\`.\n\n` +
+                  `Once the program is created on LFX, an admin records its URL here with \`/lfx-url\`.`,
               });
               console.log(`Notified #${issue_number} about merge of PR #${prNumber}`);
             }

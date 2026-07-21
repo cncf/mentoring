@@ -169,9 +169,65 @@ function termMismatchWarning(declaredTerm, exportedTerm) {
     `Fix whichever is wrong: the Term field or the export.`;
 }
 
+// Programs in a term export that already have an LFX URL recorded (non-empty
+// lfx_url), in export order. Backs the /lfx-url PR title count and body issue
+// list. `data` is the parsed lfx-export.json.
+function recordedPrograms(data) {
+  const programs = data && Array.isArray(data.programs) ? data.programs : [];
+  return programs.filter(
+    (p) => p && typeof p.lfx_url === 'string' && p.lfx_url.trim() !== '' && Number.isInteger(p.issue_number),
+  );
+}
+
+// Markdown list (one "- #<issue> <name>" line per program) for the /lfx-url PR
+// body, so each recorded issue is #-mentioned and the PR cross-links back to it.
+// `programs` is a list of program objects (typically recordedPrograms(data)).
+// Falls back to "- #<issue>" when a program has no name; '' for an empty list.
+function renderRecordedIssues(programs) {
+  return (programs || [])
+    .map((p) => (p.program_name_full ? `- #${p.issue_number} ${p.program_name_full}` : `- #${p.issue_number}`))
+    .join('\n');
+}
+
+// The next steps appended to the /lfx-url success comment. Recording the URL
+// means the program is live on LFX, so the remaining actions happen on the LFX
+// platform: an LFX admin approves the program, then CNCF admins add the mentors.
+// Stated explicitly so readers don't assume recording the URL is the last step.
+function recordedUrlNextSteps() {
+  return [
+    '**Next on LFX:**',
+    '1. An LFX admin approves the program.',
+    '2. Once approved, CNCF admins add the mentors.',
+  ].join('\n');
+}
+
+// Populate every term program's lfx_url from the durable source of truth (each
+// proposal issue's recorded-URL comment, §4.5) rather than only the issue that
+// triggered this run. /lfx-url rebuilds the per-term PR from `main`, where a
+// sibling's URL recorded but not yet merged is absent; without this, recording
+// URLs for several programs before merging the PR clobbers all but the last.
+// The current issue is set from `currentUrl` directly to avoid a read-after-
+// write race on the comment just posted; siblings are read via the injected
+// `fetchComments` (issue_number to comments array). A sibling with no recorded
+// comment keeps its existing value, so a merged URL is never regressed.
+async function populateRecordedUrls(programs, { currentIssue, currentUrl, fetchComments }) {
+  for (const prog of programs || []) {
+    if (!prog || typeof prog !== 'object') continue;
+    if (!Number.isInteger(prog.issue_number)) continue;
+    if (prog.issue_number === currentIssue) {
+      prog.lfx_url = currentUrl;
+      continue;
+    }
+    const url = parseRecordedLfxUrl(await fetchComments(prog.issue_number));
+    if (url) prog.lfx_url = url;
+  }
+  return programs;
+}
+
 module.exports = {
   recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision,
   findExportedProgram, exportTermLabel, readExports, locateExportedProgram,
-  termMismatchWarning,
+  termMismatchWarning, recordedPrograms, renderRecordedIssues, recordedUrlNextSteps,
+  populateRecordedUrls,
   LFX_PROGRAM_URL_RE,
 };
