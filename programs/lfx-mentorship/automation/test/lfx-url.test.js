@@ -322,3 +322,12 @@ test('termMismatchWarning: neutralizes an @mention in an edited Term field', () 
   assert.ok(w.includes('`@acme/team`'), 'wraps the raw value in inline code so it cannot ping');
   assert.ok(!/(^|[^`])@acme\/team/.test(w), 'no bare @mention escapes the code span');
 });
+
+test('termMismatchWarning: strips backticks so an edited Term cannot break out of the code span', () => {
+  // A backtick is the only character that can terminate an inline code span, so
+  // removing it fully neutralizes any embedded Markdown/@mention (no need for a
+  // CommonMark variable-length fence). A Term never legitimately contains one.
+  const w = termMismatchWarning('2026 `@acme/team` Term', '2026 Term 3 (Sep-Nov)');
+  assert.ok(w.includes('`2026 @acme/team Term`'), 'internal backticks removed; value stays inside its span');
+  assert.equal((w.match(/`/g) || []).length, 6, 'only the three span wrappers remain; no stray backticks');
+});

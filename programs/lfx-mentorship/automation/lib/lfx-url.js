@@ -155,7 +155,10 @@ function locateExportedProgram(exports, issueNumber) {
 // (whitespace- and case-insensitively), or '' when they match or either is
 // unknown.
 function termMismatchWarning(declaredTerm, exportedTerm) {
-  const norm = (s) => String(s || '').replace(/\s+/g, ' ').trim();
+  // Strip backticks (the only char that can break an inline code span) before
+  // wrapping the values below, so an edited Term can't escape and render an
+  // @mention/Markdown. Then collapse whitespace and trim.
+  const norm = (s) => String(s || '').replace(/`/g, '').replace(/\s+/g, ' ').trim();
   const d = norm(declaredTerm);
   const e = norm(exportedTerm);
   if (!d || !e || d.toLowerCase() === e.toLowerCase()) return '';
