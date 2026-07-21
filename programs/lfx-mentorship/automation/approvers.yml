@@ -40,7 +40,22 @@ kubernetes:
     - kubernetes/sig-contribex
 
 open-telemetry:
+  # OTel governance (per @maryliag, cncf/mentoring#1930): each SIG has an
+  # assigned GC liaison who ideally reviews that SIG's proposal, but any
+  # Governance Committee member may /approve. SIG → liaison map:
+  #   https://github.com/open-telemetry/community#specification-sigs
+  # The governance-committee team is cross-org (token can't read it), so GC
+  # members are listed individually. Roster (prune as terms end):
+  #   https://github.com/open-telemetry/community/blob/main/community-members.md
   fallback_teams:
     - open-telemetry/governance-committee
   fallback_handles:
-    - maryliag    # GC liaison for mentorship
+    - alolita        # until Oct 2026
+    - austinlparker  # until Oct 2027
+    - jpkrohling     # until Oct 2027
+    - maryliag       # until Oct 2027
+    - mtwo           # until Oct 2026
+    - mx-psi         # until Oct 2026
+    - svrnm          # until Oct 2027
+    - tedsuo         # until Oct 2027
+    - trask          # until Oct 2026
