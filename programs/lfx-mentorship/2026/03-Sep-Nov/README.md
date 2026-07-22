@@ -10,7 +10,7 @@ Mentorship duration - three months (full-time schedule)
 |--------------|------------------|
 | Project Proposals Open | Wed, Jul 1 – Tue, Jul 28, 18:00 UTC |
 | Mentee Candidate Info Sessions | Tue, Jul 21, Times TBD (will be multiple timezone options) |
-| Mentee Applications Open | Mon, Aug 3 – Tue, Aug 18, 18:00 UTC |
+| Mentee Applications Open | Mon, Aug 3, 00:00 UTC – Tue, Aug 18, 23:59 UTC |
 | Application Review Period (2 weeks) | Wed, Aug 19 – Tue, Sep 1, 18:00 UTC |
 | Selection Notifications | Wed, Sep 2 – Fri, Sep 4 *(notifications may take a few days to reach all mentees)* |
 | Mentorship Program Begins | Mon, Sep 7 |
