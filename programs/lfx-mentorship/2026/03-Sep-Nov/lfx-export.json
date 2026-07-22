@@ -419,7 +419,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/Apicurio/apicurio-registry/issues/8424",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/06ed3695-1b51-4166-a1df-0131887ec4fb",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
