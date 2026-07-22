@@ -155,7 +155,7 @@ CNCF - Apicurio Registry: Federated AI Agent Search Across Instances (2026 Term 
   - Carles Arnal (@carlesarnal, carnalca@ibm.com)
   - Eric Wittmann (@EricWittmann, ewittman@ibm.com)
 - Upstream Issue: https://github.com/Apicurio/apicurio-registry/issues/8424
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/06ed3695-1b51-4166-a1df-0131887ec4fb
 
 ### Kubeflow
 
