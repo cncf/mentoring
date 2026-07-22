@@ -169,9 +169,10 @@ function termMismatchWarning(declaredTerm, exportedTerm) {
     `Fix whichever is wrong: the Term field or the export.`;
 }
 
-// Programs in a term export that already have an LFX URL recorded (non-empty
-// lfx_url), in export order. Backs the /lfx-url PR title count and body issue
-// list. `data` is the parsed lfx-export.json.
+// Programs in a term export that have an LFX URL recorded (non-empty lfx_url
+// and an integer issue_number), in export order. The base filter for
+// changedRecordedPrograms, which narrows this to the URLs a given /lfx-url run
+// actually changes. `data` is the parsed lfx-export.json.
 function recordedPrograms(data) {
   const programs = data && Array.isArray(data.programs) ? data.programs : [];
   return programs.filter(
