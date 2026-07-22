@@ -6,6 +6,7 @@ const {
   recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision, findExportedProgram,
   exportTermLabel, readExports, locateExportedProgram, termMismatchWarning,
   recordedPrograms, renderRecordedIssues, recordedUrlNextSteps, populateRecordedUrls,
+  changedRecordedPrograms, programCountLabel,
 } = require('../lib/lfx-url');
 
 const bot = (body) => ({ user: { login: 'github-actions[bot]' }, body });
@@ -381,6 +382,73 @@ test('renderRecordedIssues: falls back to just "- #<n>" when the name is missing
 
 test('renderRecordedIssues: empty string for an empty list', () => {
   assert.equal(renderRecordedIssues([]), '');
+});
+
+// ── changedRecordedPrograms: the URLs THIS /lfx-url PR actually changes vs the
+//    export on main (newly recorded or corrected), so the PR references only the
+//    issues it touches, not every program that already has a URL (which would
+//    re-cross-reference already-merged issues and spam them). ──
+test('changedRecordedPrograms: includes a newly-recorded URL (empty on main)', () => {
+  const before = exportWith([
+    { issue_number: 10, program_name_full: 'A', lfx_url: LFX },
+    { issue_number: 11, program_name_full: 'B', lfx_url: '' },
+  ]);
+  const after = exportWith([
+    { issue_number: 10, program_name_full: 'A', lfx_url: LFX },
+    { issue_number: 11, program_name_full: 'B', lfx_url: LFX2 },
+  ]);
+  assert.deepEqual(changedRecordedPrograms(before, after).map((p) => p.issue_number), [11]);
+});
+test('changedRecordedPrograms: excludes a URL already recorded on main (unchanged)', () => {
+  const before = exportWith([{ issue_number: 10, program_name_full: 'A', lfx_url: LFX }]);
+  const after = exportWith([{ issue_number: 10, program_name_full: 'A', lfx_url: LFX }]);
+  assert.deepEqual(changedRecordedPrograms(before, after), []);
+});
+test('changedRecordedPrograms: includes a corrected URL (different value on main)', () => {
+  const before = exportWith([{ issue_number: 10, program_name_full: 'A', lfx_url: LFX }]);
+  const after = exportWith([{ issue_number: 10, program_name_full: 'A', lfx_url: LFX2 }]);
+  assert.deepEqual(changedRecordedPrograms(before, after).map((p) => p.issue_number), [10]);
+});
+test('changedRecordedPrograms: mix of new + corrected listed, unchanged excluded', () => {
+  const before = exportWith([
+    { issue_number: 10, program_name_full: 'A', lfx_url: LFX },   // unchanged
+    { issue_number: 11, program_name_full: 'B', lfx_url: '' },    // new
+    { issue_number: 12, program_name_full: 'C', lfx_url: LFX },   // corrected
+  ]);
+  const after = exportWith([
+    { issue_number: 10, program_name_full: 'A', lfx_url: LFX },
+    { issue_number: 11, program_name_full: 'B', lfx_url: LFX2 },
+    { issue_number: 12, program_name_full: 'C', lfx_url: LFX2 },
+  ]);
+  assert.deepEqual(changedRecordedPrograms(before, after).map((p) => p.issue_number), [11, 12]);
+});
+test('changedRecordedPrograms: null/malformed baseline treats all recorded as changed', () => {
+  const after = exportWith([{ issue_number: 10, program_name_full: 'A', lfx_url: LFX }]);
+  assert.deepEqual(changedRecordedPrograms(null, after).map((p) => p.issue_number), [10]);
+  assert.deepEqual(changedRecordedPrograms({}, after).map((p) => p.issue_number), [10]);
+  assert.deepEqual(changedRecordedPrograms({ programs: 'nope' }, after).map((p) => p.issue_number), [10]);
+});
+test('changedRecordedPrograms: ignores after-entries with no/empty URL (via recordedPrograms)', () => {
+  const before = exportWith([]);
+  const after = exportWith([
+    { issue_number: 10, program_name_full: 'A', lfx_url: '' },
+    { issue_number: 11, program_name_full: 'B' },
+  ]);
+  assert.deepEqual(changedRecordedPrograms(before, after), []);
+});
+
+// ── programCountLabel: correct singular/plural for the /lfx-url PR title ──
+test('programCountLabel: singular for exactly one program', () => {
+  assert.equal(programCountLabel(1), '1 program');
+});
+test('programCountLabel: plural for many', () => {
+  assert.equal(programCountLabel(3), '3 programs');
+});
+test('programCountLabel: guards zero / non-integer / negative to "0 programs"', () => {
+  assert.equal(programCountLabel(0), '0 programs');
+  assert.equal(programCountLabel(undefined), '0 programs');
+  assert.equal(programCountLabel(-2), '0 programs');
+  assert.equal(programCountLabel(2.5), '0 programs');
 });
 
 // ── recordedUrlNextSteps: the post-record next steps appended to the /lfx-url

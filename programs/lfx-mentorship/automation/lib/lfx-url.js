@@ -189,6 +189,34 @@ function renderRecordedIssues(programs) {
     .join('\n');
 }
 
+// Programs whose recorded lfx_url differs from a baseline export (the term
+// export currently on `main`): the URLs newly recorded or corrected in THIS
+// /lfx-url run. Backs the PR's "recorded in this PR" list + title count, so the
+// PR references only the issues it actually changes, not every program that
+// already has a URL, which would re-cross-reference (and notify) already-merged
+// issues. `beforeData`/`afterData` are parsed lfx-export.json objects; afterData
+// is filtered through recordedPrograms (non-empty lfx_url + integer issue).
+// A null/malformed baseline yields an empty map, so every recorded program
+// counts as changed (a safe fallback to the pre-batch "list all" behavior).
+function changedRecordedPrograms(beforeData, afterData) {
+  const before = new Map();
+  const baseline = beforeData && Array.isArray(beforeData.programs) ? beforeData.programs : [];
+  for (const p of baseline) {
+    if (p && Number.isInteger(p.issue_number)) {
+      before.set(p.issue_number, typeof p.lfx_url === 'string' ? p.lfx_url.trim() : '');
+    }
+  }
+  return recordedPrograms(afterData).filter((p) => (before.get(p.issue_number) || '') !== p.lfx_url.trim());
+}
+
+// Human count label with correct singular/plural for the /lfx-url PR title,
+// e.g. "1 program" or "3 programs". Guards a non-positive-integer input to
+// "0 programs" (in practice the else branch guarantees a positive count).
+function programCountLabel(n) {
+  const count = Number.isInteger(n) && n > 0 ? n : 0;
+  return `${count} program${count === 1 ? '' : 's'}`;
+}
+
 // The next steps appended to the /lfx-url success comment. Recording the URL
 // means the program is live on LFX, so the remaining actions happen on the LFX
 // platform: an LFX admin approves the program, then CNCF admins add the mentors.
@@ -228,6 +256,7 @@ module.exports = {
   recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision,
   findExportedProgram, exportTermLabel, readExports, locateExportedProgram,
   termMismatchWarning, recordedPrograms, renderRecordedIssues, recordedUrlNextSteps,
+  changedRecordedPrograms, programCountLabel,
   populateRecordedUrls,
   LFX_PROGRAM_URL_RE,
 };
