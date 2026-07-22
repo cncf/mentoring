@@ -129,7 +129,7 @@ CNCF - Apicurio Registry: Prompt Template Playground in the Registry UI (2026 Te
   - Carles Arnal (@carlesarnal, carnalca@ibm.com)
   - Eric Wittmann (@EricWittmann, ewittman@ibm.com)
 - Upstream Issue: https://github.com/Apicurio/apicurio-registry/issues/8425
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/20cb824d-ab31-4d28-ae2e-f54c24ebb00e
 
 #### Federated AI Agent Search Across Instances
 
