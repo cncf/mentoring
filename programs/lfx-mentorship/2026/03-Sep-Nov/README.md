@@ -77,7 +77,7 @@ CNCF - Apicurio Registry: MCP Tool Validation and Compatibility Checking (2026 T
   - Vandana Yadav (@vandanayadav7, vandana.yadav.vs@gmail.com)
   - Carles Arnal (@carlesarnal, carnalca@ibm.com)
 - Upstream Issue: https://github.com/Apicurio/apicurio-registry/issues/8427
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/764a7403-9878-463f-a12f-9b173c3fd0a7
 
 #### CloudEvents Webhook Notifications for Schema Changes
 
@@ -225,7 +225,7 @@ CNCF - OpenTelemetry: Declarative instrumentation configuration for otelc (2026 
   - Xabier Martinez Beneitez (@txabman42, x42.martinez@gmail.com)
   - Azhar Momin (@amazingakai, azhar-momin@outlook.com)
 - Upstream Issue: https://github.com/open-telemetry/opentelemetry-go-compile-instrumentation/issues/705
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/3db981bf-404b-4c8e-96f8-b0433688e8cf
 
 #### Zero-code AI Agent observability for otelc
 
@@ -251,7 +251,7 @@ CNCF - OpenTelemetry: Zero-code AI Agent observability for otelc (2026 Term 3)
   - Haibin Zhang (@NameHaibinZhang, namehaibinzhang@gmail.com)
   - Xabier Martinez (@txabman42, x42.martinez@gmail.com)
 - Upstream Issue: https://github.com/open-telemetry/opentelemetry-go-compile-instrumentation/issues/709
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/91cab14a-42aa-4e08-9144-3b243309e68c
 
 ### OpenYurt
 

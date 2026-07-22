@@ -32,7 +32,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/open-telemetry/opentelemetry-go-compile-instrumentation/issues/705",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/3db981bf-404b-4c8e-96f8-b0433688e8cf",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -79,7 +79,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/open-telemetry/opentelemetry-go-compile-instrumentation/issues/709",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/91cab14a-42aa-4e08-9144-3b243309e68c",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -278,7 +278,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/Apicurio/apicurio-registry/issues/8427",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/764a7403-9878-463f-a12f-9b173c3fd0a7",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
