@@ -72,8 +72,8 @@ jobs:
             const fs = require('fs');
             const path = require('path');
             const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
-            const { parseIssueForm, parseMentors, formFieldsChanged } = _lib('parse.js');
-            const { validateMentors, validateUpstreamUrl, mentorCountWarning } = _lib('validate.js');
+            const { parseIssueForm, parseMentors, parseCheckboxes, formFieldsChanged } = _lib('parse.js');
+            const { validateMentors, validateUpstreamUrl, mentorCountWarning, validateCustomPrerequisite, CUSTOM_PREREQ_NAME_MAX, CUSTOM_PREREQ_DESC_MAX } = _lib('validate.js');
             const { lookupProject } = _lib('projects.js');
             const { isProposalTitle, looksLikeProposalForm } = _lib('labels.js');
             const { resolveProjectMaintainer } = _lib('authorize.js');
@@ -245,7 +245,39 @@ jobs:
               passed.push(`Upstream Issue URL: ${upstreamUrl}`);
             }
 
-            // ── 9. Quota check ──
+            // ── 9. Custom application prerequisite (name/description limits) ──
+            // LFX only receives the custom prerequisite when the "Custom
+            // Prerequisite" box is checked (same gate as lfx-export.yml), and
+            // LFX caps the name at 20 chars and the description at 500. Decision
+            // in lib/validate.js; prose stays here.
+            const customPrereqChecked = parseCheckboxes(get('Application Prerequisites'))
+              .includes('Custom Prerequisite (fill in details below)');
+            const customName = get('Custom Prerequisite Name');
+            const customDesc = get('Custom Prerequisite Description');
+            const customPrereq = validateCustomPrerequisite({
+              checked: customPrereqChecked, name: customName, description: customDesc,
+            });
+            for (const e of customPrereq.errors) {
+              switch (e.code) {
+                case 'name-missing':
+                  errors.push('Custom Prerequisite is checked but Custom Prerequisite Name is empty. Add a name (max 20 chars), or uncheck Custom Prerequisite.');
+                  break;
+                case 'name-too-long':
+                  errors.push(`Custom Prerequisite Name is ${e.length} chars (LFX limit is ${e.max}). Please trim ${e.length - e.max} chars.`);
+                  break;
+                case 'description-missing':
+                  errors.push('Custom Prerequisite is checked but Custom Prerequisite Description is empty. Add a description (max 500 chars), or uncheck Custom Prerequisite.');
+                  break;
+                case 'description-too-long':
+                  errors.push(`Custom Prerequisite Description is ${e.length} chars (LFX limit is ${e.max}). Please trim ${e.length - e.max} chars.`);
+                  break;
+              }
+            }
+            if (customPrereqChecked && customPrereq.ok) {
+              passed.push(`Custom Prerequisite: name ${customName.trim().length}/${CUSTOM_PREREQ_NAME_MAX} chars, description ${customDesc.trim().length}/${CUSTOM_PREREQ_DESC_MAX} chars`);
+            }
+
+            // ── 10. Quota check ──
             if (project && term) {
               try {
                 const quotaRaw = fs.readFileSync('programs/lfx-mentorship/automation/quotas.yml', 'utf8');
@@ -309,7 +341,7 @@ jobs:
               }
             }
 
-            // ── 10. LFX verification stub ──
+            // ── 11. LFX verification stub ──
             warnings.push(
               'LFX LFID/email verification is not yet automated. ' +
               'Please manually confirm mentor emails are registered on ' +
