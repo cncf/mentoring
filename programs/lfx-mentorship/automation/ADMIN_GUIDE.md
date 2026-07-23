@@ -135,11 +135,11 @@ your issue notifications to see what needs attention.
       ```
 
    The tool creates each issue, nests the sub-issues, adds every card to the
-   board, and sets Status + Start/Due from the schedule. It records the run in a
-   local manifest (`.runs/`, gitignored); if you need to redo it,
-   `bin/teardown-term.js terms/2027-t1.yml --yes` deletes exactly that run. Test
-   the whole loop on the dev fork first — teardown refuses to run against
-   production.
+   board, and sets Status + Start/Due from the schedule, recording the run in a
+   local manifest (`.runs/`, gitignored). Preview with `--dry-run` and confirm
+   the plan before you apply: on `cncf/mentoring` there is no tooling undo (the
+   `teardown` helper is a development-only safeguard and refuses to run against
+   production), so a mistaken run has to be cleaned up by hand.
 
 3. **Sync the dropdowns:** Run the **Landscape Projects Sync** workflow
    manually (Actions → Landscape Projects Sync → Run workflow), or wait for
