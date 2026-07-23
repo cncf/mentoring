@@ -449,8 +449,9 @@ jobs:
 
               // Also pin the LFX program link into the issue body. The recorded
               // comment above folds in a long thread, but the OP body never
-              // does, so the admin can always find the URL at the top of the
-              // issue. A human-facing convenience only; the comment stays the
+              // does, so the admin can always find the URL at the bottom of the
+              // issue (under a horizontal rule). A human-facing convenience only;
+              // the comment stays the
               // export's source of truth. The edit runs on GITHUB_TOKEN, so it
               // does not re-trigger validation (no-cascade), and the block is not
               // a form field, so it never resets approvals. Best-effort: a
