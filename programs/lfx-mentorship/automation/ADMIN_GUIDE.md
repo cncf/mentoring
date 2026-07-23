@@ -6,6 +6,8 @@ the [LFX Mentorship README](../README.md#how-to-propose-a-program).
 
 ## Table of contents
 
+- [Overview](#overview)
+- [Getting started](#getting-started)
 - [Term lifecycle](#term-lifecycle)
   - [Opening a new term](#opening-a-new-term)
   - [Closing a term](#closing-a-term)
@@ -19,6 +21,69 @@ the [LFX Mentorship README](../README.md#how-to-propose-a-program).
 - [Project board](#project-board)
 - [Secrets and setup](#secrets-and-setup)
 - [Troubleshooting](#troubleshooting)
+
+---
+
+## Overview
+
+The intake automation carries a program proposal from a GitHub issue through to
+the LFX Mentorship platform. Most of the pipeline runs on its own; a few steps
+are yours. In order:
+
+1. **Proposal filed.** A maintainer or mentor opens an issue with the proposal
+   form. Its card lands in the board's `Inbox`.
+2. **Validation (automated).** On every edit a bot checks the form and sets
+   `Validation Passed` or `Validation Failed`, commenting on anything to fix.
+3. **Maintainer approval.** A project maintainer comments `/approve`. It is
+   granted automatically when the proposer is themselves a maintainer.
+4. **Mentor confirmation.** Each listed mentor comments `/confirm`. A mentor who
+   filed the proposal is auto-counted for their own slot.
+5. **CNCF approval (you).** Once the above are green, you review the proposal and
+   comment `/cncf-approve`. See [Reviewing and approving
+   proposals](#reviewing-and-approving-proposals).
+6. **Export (you).** You run the LFX Export workflow for the term and merge the
+   PR it opens. See [Running the export](#running-the-export).
+7. **Post to LFX and record URLs (you).** Once the term's programs are on the LFX
+   platform, you comment `/lfx-url <url>` on each issue to record its link and
+   advance its card, then merge the `chore: record LFX URLs` PR. See [After the
+   export](#after-the-export).
+8. **Track (you).** You move each card through the post-export board columns as
+   its program progresses on LFX. See [Project board](#project-board).
+
+Steps 2 through 4 need nothing from you. Your hands-on work is steps 5 through 8,
+plus [opening](#opening-a-new-term) and [closing](#closing-a-term) each term.
+Configuration (who can approve, per-project quotas, the term list) lives in
+[a few YAML files](#managing-configuration).
+
+---
+
+## Getting started
+
+Before you can administer the program, make sure you have:
+
+- **Write access to `cncf/mentoring`.** Granted as part of standard CNCF
+  onboarding; it lets you run workflows, merge PRs, and manage issue labels.
+- **Your GitHub handle in `global_approvers`.** This is separate from repo
+  access: only handles listed under `global_approvers` in
+  [`approvers.yml`](approvers.yml) can use `/cncf-approve` and `/lfx-url`. Open a
+  PR adding yours (or ask a current global approver to) and merge it. See
+  [approvers.yml](#approversyml).
+- **Access to the LFX Mentorship platform** to create programs and retrieve their
+  URLs. See the
+  [LFX Mentorship documentation](https://docs.linuxfoundation.org/lfx/mentorship).
+
+For the term-setup tooling only (see [Opening a new term](#opening-a-new-term)),
+you also need the [`gh` CLI](https://cli.github.com/) authenticated with project
+scope (`gh auth refresh -s project,read:project`),
+[Node.js](https://nodejs.org/), and a one-time
+`npm install --no-save --ignore-scripts js-yaml@4.3.0` in the automation
+directory. The day-to-day steps (approve, export, record URLs) run entirely on
+GitHub and need none of this.
+
+New proposals arrive as issues labeled `lfx mentorship` and `Proposal` and appear
+in the `Inbox` column of the
+[project board](https://github.com/orgs/cncf/projects/93), so watch the board or
+your issue notifications to see what needs attention.
 
 ---
 
