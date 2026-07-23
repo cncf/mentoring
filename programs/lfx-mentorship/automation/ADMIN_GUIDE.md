@@ -189,7 +189,25 @@ the existing branch if the previous PR wasn't merged).
    fills the merged files, so a command run while the export PR is still open is
    rejected with the exact command to re-run once you merge it. Nothing is
    recorded on a rejection, so re-running after the merge is safe.
-5. **Continue tracking** by dragging cards through the remaining columns by
+5. **Merge the `chore: record LFX URLs` PR** once you have recorded the URLs you
+   have on hand. There is one such PR per term (branch
+   `automation/lfx-urls-<year>-<term-dir>`, authored by the bot); every
+   `/lfx-url` rebuilds it from `main` and accumulates all URLs recorded so far,
+   with the title showing how many programs it records and the body listing them.
+   Merging is decoupled from the board: the card already advanced to `Posted to
+   LFX` when the command ran, so merging only lands the recorded URLs in the
+   term's `lfx-export.json`, `README.md`, and `lfx-tracking.csv` on `main` for the
+   record. To merge:
+   1. Open **Files changed** and confirm only the term's three generated files
+      changed, and that each program's `lfx_url` is the correct live LFX URL.
+   2. Approve the PR. It is bot-authored, so any admin can approve; always do
+      this before merging, even if your access would let you bypass the review.
+   3. Merge it.
+   Merging a partial batch is safe: a later `/lfx-url` opens a fresh PR from
+   `main` and adds the next URL. Prefer merging each batch after you verify it
+   rather than leaving one PR open all term, so `main` stays current and each
+   diff stays small.
+6. **Continue tracking** by dragging cards through the remaining columns by
    hand as each step completes on the LFX platform (`LFX Approved` →
    `Mentors added` → `Mentors listed` → `Open for Applications` →
    `Applications Closed`)
