@@ -141,8 +141,9 @@ your issue notifications to see what needs attention.
    `teardown` helper is a development-only safeguard and refuses to run against
    production), so a mistaken run has to be cleaned up by hand.
 
-3. **Sync the dropdowns:** Run the **Landscape Projects Sync** workflow
-   manually (Actions → Landscape Projects Sync → Run workflow), or wait for
+3. **Sync the dropdowns:** Run the **Sync CNCF Projects from Landscape**
+   workflow manually (Actions → **Sync CNCF Projects from Landscape** → Run
+   workflow), or wait for
    the Monday cron. This propagates the new `terms.yml` entry into the term
    dropdown in both the issue form and the export workflow.
 
