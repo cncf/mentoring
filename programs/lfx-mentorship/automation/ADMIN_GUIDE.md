@@ -191,7 +191,8 @@ the existing branch if the previous PR wasn't merged).
    recorded on a rejection, so re-running after the merge is safe.
 5. **Continue tracking** by dragging cards through the remaining columns by
    hand as each step completes on the LFX platform (`LFX Approved` →
-   `Mentors added` → `Open for Applications` → `Applications Closed`)
+   `Mentors added` → `Mentors listed` → `Open for Applications` →
+   `Applications Closed`)
 
 ---
 
@@ -286,8 +287,12 @@ advances the card. Everything after `Posted to LFX` is **yours to move by
 hand**. As you work with the LFX platform team, drag each card through the
 remaining columns:
 
-`LFX Approved` → `Mentors added` → `Open for Applications`
-→ `Applications Closed`
+`LFX Approved` → `Mentors added` → `Mentors listed` →
+`Open for Applications` → `Applications Closed`
+
+`Mentors added` means the mentors have been invited on LFX (an invitation
+email goes out). `Mentors listed` means they have accepted (or, for returning
+mentors, are auto-listed) and now appear on the program page.
 
 Automation never moves a card once it sits in one of these post-export
 columns (other than the `/lfx-url` advance above), so your manual placement is
@@ -381,7 +386,8 @@ from the board at run time. This means:
   match** the lifecycle stages in the board table above (`Inbox`,
   `Awaiting approvals/confirmations`, `Approved/confirmed`, `CNCF Approved`,
   `Exported`, `Posted to LFX`, `LFX Approved`, `Mentors added`,
-  `Open for Applications`, `Applications Closed`, `Closed`).
+  `Mentors listed`, `Open for Applications`, `Applications Closed`,
+  `Closed`).
 
 If a repo is not listed in `board.json` (or its `projectId` is still a
 `REPLACE_...` placeholder), board sync is skipped with a warning instead of
