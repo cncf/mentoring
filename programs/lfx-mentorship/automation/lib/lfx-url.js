@@ -253,11 +253,61 @@ async function populateRecordedUrls(programs, { currentIssue, currentUrl, fetchC
   return programs;
 }
 
+// ── Pin the LFX program link into the issue body ────────────────────────────
+// The recorded-URL comment above is the export's durable source of truth, but
+// it folds in a long thread; the OP body never folds. So /lfx-url also splices
+// this machine-delimited block at the bottom of the issue, under a horizontal
+// rule (mirroring the validation comment's separator). The markers make it
+// idempotent: re-running replaces the block in place instead of stacking copies.
+const LFX_URL_BLOCK_START = '<!-- lfx-url:start -->';
+const LFX_URL_BLOCK_END = '<!-- lfx-url:end -->';
+const LFX_URL_BLOCK_RE = /<!-- lfx-url:start -->[\s\S]*?<!-- lfx-url:end -->/;
+
+// Make an untrusted program title safe as Markdown link text on GitHub. The
+// Program Name is free-text (the @/backtick injection noted on #136), and this
+// now lands in the prominent issue body, so: HTML-escape (&<>), backslash-escape
+// the characters that would break the [label](url) structure (\ ` [ ]), and
+// neutralize @/# so a crafted name can't inject a mention or issue ref. The '#'
+// pass runs before '@' so the '#' inside the generated '&#64;' entity is left
+// alone. URLs are validated upstream (LFX_PROGRAM_URL_RE), so only the label
+// needs escaping.
+function escapeLinkLabel(s) {
+  return String(s == null ? '' : s)
+    .replace(/\s+/g, ' ').trim()
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/([\\`\[\]])/g, '\\$1')
+    .replace(/#/g, '&#35;')
+    .replace(/@/g, '&#64;');
+}
+
+// The body block for a program title + URL, under a horizontal rule so it is
+// visually separated from the proposal above. Falls back to a generic label
+// when the title is empty so the link is never rendered as an empty [](url).
+function lfxUrlBlock({ title, url } = {}) {
+  const label = escapeLinkLabel(title) || 'LFX program';
+  return `${LFX_URL_BLOCK_START}\n\n---\n**LFX program:** [${label}](${url})\n${LFX_URL_BLOCK_END}`;
+}
+
+// Insert or update the LFX-URL block in an issue body. Idempotent: if the block
+// is already present it is replaced in place (position preserved); otherwise it
+// is appended at the bottom, under a horizontal rule, so the link sits at the
+// end of the issue where the OP body never folds. Trailing whitespace is
+// trimmed first so the separator spacing is stable across re-runs.
+function upsertLfxUrlBlock(body, { title, url } = {}) {
+  const b = String(body == null ? '' : body);
+  const block = lfxUrlBlock({ title, url });
+  if (LFX_URL_BLOCK_RE.test(b)) return b.replace(LFX_URL_BLOCK_RE, block);
+  const trimmed = b.replace(/\s+$/, '');
+  return trimmed ? `${trimmed}\n\n${block}\n` : `${block}\n`;
+}
+
 module.exports = {
   recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision,
   findExportedProgram, exportTermLabel, readExports, locateExportedProgram,
   termMismatchWarning, recordedPrograms, renderRecordedIssues, recordedUrlNextSteps,
   changedRecordedPrograms, programCountLabel,
-  populateRecordedUrls,
+  populateRecordedUrls, upsertLfxUrlBlock,
   LFX_PROGRAM_URL_RE,
 };

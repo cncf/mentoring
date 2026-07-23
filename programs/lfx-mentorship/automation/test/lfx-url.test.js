@@ -6,7 +6,7 @@ const {
   recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision, findExportedProgram,
   exportTermLabel, readExports, locateExportedProgram, termMismatchWarning,
   recordedPrograms, renderRecordedIssues, recordedUrlNextSteps, populateRecordedUrls,
-  changedRecordedPrograms, programCountLabel,
+  changedRecordedPrograms, programCountLabel, upsertLfxUrlBlock,
 } = require('../lib/lfx-url');
 
 const bot = (body) => ({ user: { login: 'github-actions[bot]' }, body });
@@ -545,4 +545,58 @@ test('populateRecordedUrls: skips entries without a numeric issue_number (no fet
   });
   assert.equal(programs[2].lfx_url, `${PROJ}/aaaaaaaa-0000-4000-8000-000000000007`);
   assert.deepEqual(fetched, [], 'no fetch for malformed entries; current issue set directly');
+});
+
+// ── upsertLfxUrlBlock: pin the LFX program link into the issue body ──────────
+// The recorded-URL comment folds in a long thread; the OP body never does. This
+// splices an idempotent, machine-delimited block carrying a linked program
+// title. The recorded-URL comment stays the export's source of truth; this is a
+// human-facing convenience.
+
+test('upsertLfxUrlBlock: adds a rule-separated linked-title block to an empty body', () => {
+  const out = upsertLfxUrlBlock('', { title: 'CNCF - kubernetes: Foo (2026 Term 3)', url: LFX });
+  assert.equal(
+    out,
+    `<!-- lfx-url:start -->\n\n---\n**LFX program:** [CNCF - kubernetes: Foo (2026 Term 3)](${LFX})\n<!-- lfx-url:end -->\n`
+  );
+});
+
+test('upsertLfxUrlBlock: appends the block below existing body content, rule-separated', () => {
+  const body = '### CNCF Project\n\nkubernetes\n\n### Term\n\n2026 Term 3 (Sep-Nov)';
+  const out = upsertLfxUrlBlock(body, { title: 'T', url: LFX });
+  assert.ok(out.startsWith(`${body}\n\n`), 'original body preserved verbatim at the top');
+  assert.ok(
+    out.endsWith(`<!-- lfx-url:start -->\n\n---\n**LFX program:** [T](${LFX})\n<!-- lfx-url:end -->\n`),
+    'block appended at the bottom under a rule'
+  );
+});
+
+test('upsertLfxUrlBlock: is idempotent — same URL does not duplicate', () => {
+  const once = upsertLfxUrlBlock('proposal text', { title: 'T', url: LFX });
+  const twice = upsertLfxUrlBlock(once, { title: 'T', url: LFX });
+  assert.equal(twice, once);
+  assert.equal((twice.match(/<!-- lfx-url:start -->/g) || []).length, 1);
+});
+
+test('upsertLfxUrlBlock: updates the URL/title in place, no move, no duplicate', () => {
+  const first = upsertLfxUrlBlock('proposal text', { title: 'T', url: LFX });
+  const updated = upsertLfxUrlBlock(first, { title: 'T2', url: LFX2 });
+  assert.equal((updated.match(/<!-- lfx-url:start -->/g) || []).length, 1);
+  assert.ok(updated.includes(`**LFX program:** [T2](${LFX2})`));
+  assert.ok(!updated.includes(LFX), 'old URL removed');
+  assert.ok(updated.startsWith('proposal text'), 'body preserved at the top');
+});
+
+test('upsertLfxUrlBlock: escapes/neutralizes untrusted title characters', () => {
+  const mk = (title) => upsertLfxUrlBlock('', { title, url: LFX });
+  assert.ok(mk('A [b] c').includes('[A \\[b\\] c]('), 'square brackets escaped');
+  assert.ok(mk('a\\b').includes('[a\\\\b]('), 'backslash escaped');
+  assert.ok(mk('a`b`c').includes('[a\\`b\\`c]('), 'backtick escaped');
+  assert.ok(mk('x<y>&z').includes('[x&lt;y&gt;&amp;z]('), 'HTML escaped');
+  assert.ok(mk('@foo #12').includes('[&#64;foo &#35;12]('), 'mention/ref neutralized');
+});
+
+test('upsertLfxUrlBlock: collapses whitespace and falls back when title is empty', () => {
+  assert.ok(upsertLfxUrlBlock('', { title: 'a\n b\t c', url: LFX }).includes('[a b c]('));
+  assert.ok(upsertLfxUrlBlock('body', { title: '', url: LFX }).includes(`**LFX program:** [LFX program](${LFX})`));
 });
