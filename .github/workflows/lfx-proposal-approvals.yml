@@ -51,7 +51,7 @@ jobs:
             const { lookupProject } = _lib('projects.js');
             const { getGlobalApprovers, getProjectSection, getFallbackHandles, getFallbackTeams } = _lib('approvers.js');
             const { cncfApproveDecision } = _lib('cncf-approve.js');
-            const { lfxUrlDecision, recordedLfxUrlComment, readExports, locateExportedProgram, exportTermLabel, termMismatchWarning, renderRecordedIssues, recordedUrlNextSteps, changedRecordedPrograms, programCountLabel, populateRecordedUrls } = _lib('lfx-url.js');
+            const { lfxUrlDecision, recordedLfxUrlComment, readExports, locateExportedProgram, exportTermLabel, termMismatchWarning, renderRecordedIssues, recordedUrlNextSteps, changedRecordedPrograms, programCountLabel, populateRecordedUrls, upsertLfxUrlBlock } = _lib('lfx-url.js');
             const { termPaths } = _lib('term-paths.js');
             const { buildReadme, renderAcceptedProgramsBody } = _lib('readme.js');
             const { renderTrackingCsv } = _lib('csv.js');
@@ -429,7 +429,7 @@ jobs:
                   `Merge the term's export PR, then re-run: \`/lfx-url ${decision.url}\``);
                 return;
               }
-              const { dir, year, termDir, term, data } = located;
+              const { dir, year, termDir, term, data, prog } = located;
               const { readmeTitle } = termPaths(term);
               const jsonPath = `${dir}/lfx-export.json`;
 
@@ -446,6 +446,27 @@ jobs:
                 (mismatch ? `\n\n${mismatch}` : '') +
                 `\n\n${recordedUrlNextSteps()}`);
               core.exportVariable('LFX_URL_POSTED', 'true');
+
+              // Also pin the LFX program link into the issue body. The recorded
+              // comment above folds in a long thread, but the OP body never
+              // does, so the admin can always find the URL at the top of the
+              // issue. A human-facing convenience only; the comment stays the
+              // export's source of truth. The edit runs on GITHUB_TOKEN, so it
+              // does not re-trigger validation (no-cascade), and the block is not
+              // a form field, so it never resets approvals. Best-effort: a
+              // failure here must not fail an otherwise-successful command.
+              try {
+                const current = await github.rest.issues.get({ owner, repo, issue_number });
+                const newBody = upsertLfxUrlBlock(current.data.body || '', {
+                  title: prog && prog.program_name_full,
+                  url: decision.url,
+                });
+                if (newBody !== (current.data.body || '')) {
+                  await github.rest.issues.update({ owner, repo, issue_number, body: newBody });
+                }
+              } catch (e) {
+                console.log(`Could not pin the LFX URL into the issue body: ${e.message}`);
+              }
 
               // Rebuild the term's files from the durable source of truth: fill
               // every program's URL from its issue's recorded-URL comment, not
