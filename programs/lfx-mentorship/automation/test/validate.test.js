@@ -6,6 +6,8 @@ const {
   emailRe, urlRe, ghHandleRe, lfidRe,
   validateMentors, validateUpstreamUrl,
   mentorCountWarning, MIN_PREFERRED_MENTORS,
+  validateCustomPrerequisite,
+  CUSTOM_PREREQ_NAME_MAX, CUSTOM_PREREQ_DESC_MAX,
 } = require('../lib/validate');
 
 const codes = (result) => result.errors.map(e => e.code);
@@ -153,4 +155,76 @@ test('emailRe / ghHandleRe / urlRe: basic accept and reject', () => {
   assert.equal(ghHandleRe.test('jane'), false);
   assert.equal(urlRe.test('https://example.com/x'), true);
   assert.equal(urlRe.test('ftp://example.com'), false);
+});
+
+// ── validateCustomPrerequisite ───────────────────────────────────────
+// LFX only receives the custom application prerequisite when the "Custom
+// Prerequisite" box is checked (lfx-export.yml keys the export off that box),
+// and LFX caps the name at 20 chars and the description at 500. So the check is
+// gated on `checked`: when checked, name and description are required and must
+// fit; when unchecked, the fields are ignored by the export and nothing is
+// enforced. Codes: 'name-missing', 'name-too-long', 'description-missing',
+// 'description-too-long'.
+
+test('validateCustomPrerequisite: unchecked is always ok, even with over-limit fields', () => {
+  assert.deepEqual(validateCustomPrerequisite({ checked: false, name: '', description: '' }), { ok: true, errors: [] });
+  const over = validateCustomPrerequisite({
+    checked: false,
+    name: 'x'.repeat(50),
+    description: 'y'.repeat(600),
+  });
+  assert.deepEqual(over, { ok: true, errors: [] });
+});
+
+test('validateCustomPrerequisite: checked with a valid name and description passes', () => {
+  const r = validateCustomPrerequisite({ checked: true, name: 'Writing Sample', description: 'Please share a short writing sample.' });
+  assert.equal(r.ok, true);
+  assert.deepEqual(r.errors, []);
+});
+
+test('validateCustomPrerequisite: checked requires a name and a description', () => {
+  assert.deepEqual(codes(validateCustomPrerequisite({ checked: true, name: '', description: '' })),
+    ['name-missing', 'description-missing']);
+  assert.deepEqual(codes(validateCustomPrerequisite({ checked: true, name: '   ', description: 'ok' })),
+    ['name-missing']);
+  assert.deepEqual(codes(validateCustomPrerequisite({ checked: true, name: 'Name', description: '  ' })),
+    ['description-missing']);
+});
+
+test('validateCustomPrerequisite: name over 20 / description over 500 are flagged with lengths', () => {
+  const r = validateCustomPrerequisite({
+    checked: true,
+    name: 'x'.repeat(21),
+    description: 'y'.repeat(501),
+  });
+  assert.deepEqual(codes(r), ['name-too-long', 'description-too-long']);
+  const nameErr = r.errors.find(e => e.code === 'name-too-long');
+  const descErr = r.errors.find(e => e.code === 'description-too-long');
+  assert.deepEqual({ length: nameErr.length, max: nameErr.max }, { length: 21, max: 20 });
+  assert.deepEqual({ length: descErr.length, max: descErr.max }, { length: 501, max: 500 });
+});
+
+test('validateCustomPrerequisite: the limits are inclusive boundaries (20 / 500 pass)', () => {
+  const r = validateCustomPrerequisite({
+    checked: true,
+    name: 'x'.repeat(20),
+    description: 'y'.repeat(500),
+  });
+  assert.equal(r.ok, true);
+});
+
+test('validateCustomPrerequisite: length is measured after trimming (matches the exported value)', () => {
+  // get() trims the field before export, so surrounding whitespace does not
+  // count toward the limit.
+  const r = validateCustomPrerequisite({
+    checked: true,
+    name: '  ' + 'x'.repeat(20) + '  ',
+    description: '  ' + 'y'.repeat(500) + '  ',
+  });
+  assert.equal(r.ok, true);
+});
+
+test('validateCustomPrerequisite: exposes the LFX limits as constants', () => {
+  assert.equal(CUSTOM_PREREQ_NAME_MAX, 20);
+  assert.equal(CUSTOM_PREREQ_DESC_MAX, 500);
 });
