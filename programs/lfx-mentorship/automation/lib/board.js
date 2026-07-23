@@ -12,6 +12,7 @@ const ADMIN_OWNED = new Set([
   'Posted to LFX',
   'LFX Approved',
   'Mentors added',
+  'Mentors listed',
   'Open for Applications',
   'Applications Closed',
 ]);
