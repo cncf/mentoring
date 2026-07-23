@@ -44,11 +44,10 @@ function nextSteps({
   }
 
   // 2. Mentor confirmation
+  const auto = proposerIsMentor ? `; ${at(proposer)} auto-counted as proposer` : '';
   if (mentorsConfirmed) {
-    const auto = proposerIsMentor ? `; ${at(proposer)} auto-counted as proposer` : '';
     lines.push(`2. **Mentor confirmation** — ✅ all ${total} confirmed${auto}.`);
   } else {
-    const auto = proposerIsMentor ? `; ${at(proposer)} auto-counted as proposer` : '';
     lines.push(`2. **Mentor confirmation** — ⏳ ${count} of ${total} confirmed${auto}. Awaiting \`/confirm\` from ${remaining.map(at).join(', ')}.`);
   }
 
