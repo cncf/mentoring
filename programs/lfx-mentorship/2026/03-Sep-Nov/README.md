@@ -188,7 +188,7 @@ CNCF - Kubeflow: Abstracting Pod Lifecycle Diagnostics for Kubeflow Pipelines (2
   - Alyssa Goins (@alyssacgoins, agoins@redhat.com)
   - Matt Prahl (@mprahl, mprahl@redhat.com)
 - Upstream Issue: https://github.com/kubeflow/pipelines/issues/12843
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/aba3293b-593c-4afd-a22d-27d70fc50ff8
 
 ### OpenTelemetry
 
@@ -278,7 +278,7 @@ CNCF - OpenYurt: Add Claude Code Skills for deploying OpenYurt and configuring R
   - Bingchang Tang (@zyjhtangtang, bingchang07@gmail.com)
   - Lu Chen (@luc99hen, luc99.en@gmail.com)
 - Upstream Issue: https://github.com/openyurtio/openyurt/issues/2559
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/675bb1ec-015c-4b26-a1dd-e1ab517f20cf
 
 ### WasmEdge Runtime
 

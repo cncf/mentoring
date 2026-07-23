@@ -126,7 +126,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/kubeflow/pipelines/issues/12843",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/aba3293b-593c-4afd-a22d-27d70fc50ff8",
       "prerequisites": {
         "resume": true,
         "cover_letter": false,
@@ -180,7 +180,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/openyurtio/openyurt/issues/2559",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/675bb1ec-015c-4b26-a1dd-e1ab517f20cf",
       "prerequisites": {
         "resume": true,
         "cover_letter": false,
