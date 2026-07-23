@@ -95,6 +95,16 @@ test('shouldSkipExport: skips admin-owned cards or any read failure', () => {
   assert.equal(shouldSkipExport('Exported', true), true);
 });
 
+test("both guards protect the 'Mentors listed' admin column", () => {
+  // 'Mentors listed' is a hand-managed post-export column, so neither a
+  // re-export nor a label-driven board-sync may pull a card out of it...
+  assert.equal(shouldSkipExport('Mentors listed', false), true);
+  assert.equal(shouldSkipSync('Mentors listed', 'Exported', false), true);
+  assert.equal(shouldSkipSync('Mentors listed', 'Posted to LFX', false), true);
+  // ...except that closing the issue still sends the card to Closed.
+  assert.equal(shouldSkipSync('Mentors listed', 'Closed', false), false);
+});
+
 const node = (name) => ({ node: { fieldValueByName: name === null ? null : { name } } });
 const noSleep = { sleep: async () => {} };
 
