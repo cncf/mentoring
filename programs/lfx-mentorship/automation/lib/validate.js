@@ -99,6 +99,55 @@ function mentorCountWarning(result) {
   return null;
 }
 
+// LFX caps a custom application prerequisite's name at 20 characters and its
+// description at 500. The proposal form documents these limits but nothing
+// enforced them, so an over-long custom prereq passed validation and only
+// failed later on the LFX platform (see #1954).
+const CUSTOM_PREREQ_NAME_MAX = 20;
+const CUSTOM_PREREQ_DESC_MAX = 500;
+
+// Validate the custom application prerequisite. There is a custom prerequisite
+// to validate when the "Custom Prerequisite" box is checked OR any copy is
+// present; only a fully empty, unchecked prerequisite is skipped. The name and
+// description are required and must fit the LFX limits (name <= 20, description
+// <= 500). Because the export sends the prerequisite to LFX only when the box
+// is checked (lfx-export.yml keys off that box), copy left with the box
+// unchecked would be silently dropped, so that is flagged too. All problems are
+// returned together so the proposer sees every needed edit at once. Fields are
+// trimmed before measuring, matching the trimmed value the export sends.
+// Returns { ok, errors } with codes 'unchecked-with-copy', 'name-missing',
+// 'name-too-long', 'description-missing', 'description-too-long'; the too-long
+// codes carry { length, max }. Prose stays in the workflow, mirroring
+// validateMentors.
+function validateCustomPrerequisite({ checked, name, description } = {}) {
+  const errors = [];
+  const n = (name || '').trim();
+  const d = (description || '').trim();
+  const hasCopy = n !== '' || d !== '';
+
+  // A fully empty, unchecked prerequisite: nothing to validate.
+  if (!checked && !hasCopy) return { ok: true, errors };
+
+  // Copy filled in but the box unchecked: the export keys off the box, so the
+  // details would be silently dropped. Flag it, then still run the field checks
+  // below so every needed edit is reported in one pass.
+  if (!checked) errors.push({ code: 'unchecked-with-copy' });
+
+  if (!n) {
+    errors.push({ code: 'name-missing' });
+  } else if (n.length > CUSTOM_PREREQ_NAME_MAX) {
+    errors.push({ code: 'name-too-long', length: n.length, max: CUSTOM_PREREQ_NAME_MAX });
+  }
+
+  if (!d) {
+    errors.push({ code: 'description-missing' });
+  } else if (d.length > CUSTOM_PREREQ_DESC_MAX) {
+    errors.push({ code: 'description-too-long', length: d.length, max: CUSTOM_PREREQ_DESC_MAX });
+  }
+
+  return { ok: errors.length === 0, errors };
+}
+
 module.exports = {
   emailRe,
   urlRe,
@@ -108,4 +157,7 @@ module.exports = {
   validateUpstreamUrl,
   mentorCountWarning,
   MIN_PREFERRED_MENTORS,
+  validateCustomPrerequisite,
+  CUSTOM_PREREQ_NAME_MAX,
+  CUSTOM_PREREQ_DESC_MAX,
 };
