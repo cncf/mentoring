@@ -264,9 +264,9 @@ jobs:
               switch (e.code) {
                 case 'unchecked-with-copy':
                   errors.push(
-                    'Custom Prerequisite Name/Description are filled in, but the ' +
-                    'Custom Prerequisite box is not checked, so they will not be sent ' +
-                    'to LFX. Check the box to include them, or clear the fields.'
+                    'A Custom Prerequisite name or description is filled in, but the ' +
+                    'Custom Prerequisite box is not checked, so it will not be sent ' +
+                    'to LFX. Check the box to include it, or clear the fields.'
                   );
                   break;
                 case 'name-missing':
