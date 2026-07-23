@@ -263,7 +263,11 @@ jobs:
             for (const e of customPrereq.errors) {
               switch (e.code) {
                 case 'unchecked-with-copy':
-                  errors.push('Custom Prerequisite details are filled in, but the Custom Prerequisite box (under Application Prerequisites) is not checked, so they will not be sent to LFX. Check the box to include this prerequisite, or clear the name and description if you do not want one.');
+                  errors.push(
+                    'Custom Prerequisite Name/Description are filled in, but the ' +
+                    'Custom Prerequisite box is not checked, so they will not be sent ' +
+                    'to LFX. Check the box to include them, or clear the fields.'
+                  );
                   break;
                 case 'name-missing':
                   errors.push(`Custom Prerequisite Name is empty. Add a name (max ${CUSTOM_PREREQ_NAME_MAX} chars).`);
