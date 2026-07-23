@@ -303,11 +303,20 @@ function upsertLfxUrlBlock(body, { title, url } = {}) {
   return trimmed ? `${trimmed}\n\n${block}\n` : `${block}\n`;
 }
 
+// Remove the LFX-URL block (and the blank line separating it from the content
+// above) from an issue body. parseIssueForm calls this so the appended block
+// never leaks into the last form field, and so gaining the block never reads as
+// a material edit. Leaves a body with no block untouched.
+function stripLfxUrlBlock(body) {
+  return String(body == null ? '' : body)
+    .replace(/\s*<!-- lfx-url:start -->[\s\S]*?<!-- lfx-url:end -->/, '');
+}
+
 module.exports = {
   recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision,
   findExportedProgram, exportTermLabel, readExports, locateExportedProgram,
   termMismatchWarning, recordedPrograms, renderRecordedIssues, recordedUrlNextSteps,
   changedRecordedPrograms, programCountLabel,
-  populateRecordedUrls, upsertLfxUrlBlock,
+  populateRecordedUrls, upsertLfxUrlBlock, stripLfxUrlBlock,
   LFX_PROGRAM_URL_RE,
 };

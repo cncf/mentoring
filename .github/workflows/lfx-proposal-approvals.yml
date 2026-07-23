@@ -451,11 +451,12 @@ jobs:
               // comment above folds in a long thread, but the OP body never
               // does, so the admin can always find the URL at the bottom of the
               // issue (under a horizontal rule). A human-facing convenience only;
-              // the comment stays the
-              // export's source of truth. The edit runs on GITHUB_TOKEN, so it
-              // does not re-trigger validation (no-cascade), and the block is not
-              // a form field, so it never resets approvals. Best-effort: a
-              // failure here must not fail an otherwise-successful command.
+              // the comment stays the export's source of truth. Safe against the
+              // approval-reset path: parseIssueForm strips this marker-delimited
+              // block (lib/parse.js), so it is never seen as a form field or a
+              // material edit; and the edit runs on GITHUB_TOKEN, which does not
+              // re-trigger validation (no-cascade) anyway. Best-effort: a failure
+              // here must not fail an otherwise-successful command.
               try {
                 const current = await github.rest.issues.get({ owner, repo, issue_number });
                 const newBody = upsertLfxUrlBlock(current.data.body || '', {

@@ -6,7 +6,7 @@ const {
   recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision, findExportedProgram,
   exportTermLabel, readExports, locateExportedProgram, termMismatchWarning,
   recordedPrograms, renderRecordedIssues, recordedUrlNextSteps, populateRecordedUrls,
-  changedRecordedPrograms, programCountLabel, upsertLfxUrlBlock,
+  changedRecordedPrograms, programCountLabel, upsertLfxUrlBlock, stripLfxUrlBlock,
 } = require('../lib/lfx-url');
 
 const bot = (body) => ({ user: { login: 'github-actions[bot]' }, body });
@@ -599,4 +599,16 @@ test('upsertLfxUrlBlock: escapes/neutralizes untrusted title characters', () => 
 test('upsertLfxUrlBlock: collapses whitespace and falls back when title is empty', () => {
   assert.ok(upsertLfxUrlBlock('', { title: 'a\n b\t c', url: LFX }).includes('[a b c]('));
   assert.ok(upsertLfxUrlBlock('body', { title: '', url: LFX }).includes(`**LFX program:** [LFX program](${LFX})`));
+});
+
+test('stripLfxUrlBlock: removes the block and its separating whitespace', () => {
+  const body = '### CNCF Project\n\nkubernetes';
+  const withBlock = upsertLfxUrlBlock(body, { title: 'T', url: LFX });
+  assert.equal(stripLfxUrlBlock(withBlock).trimEnd(), body);
+});
+
+test('stripLfxUrlBlock: is a no-op when there is no block', () => {
+  const body = '### CNCF Project\n\nkubernetes';
+  assert.equal(stripLfxUrlBlock(body), body);
+  assert.equal(stripLfxUrlBlock(''), '');
 });

@@ -127,3 +127,22 @@ test('formFieldsChanged: internal whitespace reflow/indent is not material', () 
   const v2 = bodyV1.replace('Do cool things.', 'Do    cool\n   things.');
   assert.equal(formFieldsChanged(bodyV1, v2), false);
 });
+
+// The /lfx-url bot appends a marker-delimited "LFX program" block to the issue
+// body (lib/lfx-url.js). parseIssueForm must ignore it so it never leaks into
+// the last form field, and so a body that gains the block is not seen as a
+// material edit (which would otherwise reset approvals).
+const { upsertLfxUrlBlock } = require('../lib/lfx-url');
+const A_LFX_URL = 'https://mentorship.lfx.linuxfoundation.org/project/005db8db-7efe-4433-9605-91d14174c72c';
+
+test('parseIssueForm: ignores an appended /lfx-url block (last field not polluted)', () => {
+  const body = '### CNCF Project\n\nKubernetes\n\n### Upstream Issue URL\n\nhttps://example.test/1';
+  const withBlock = upsertLfxUrlBlock(body, { title: 'CNCF - Kubernetes: X (2026 Term 3)', url: A_LFX_URL });
+  assert.equal(parseIssueForm(withBlock)['Upstream Issue URL'], 'https://example.test/1');
+});
+
+test('formFieldsChanged: adding the /lfx-url block is not a material edit', () => {
+  const body = '### CNCF Project\n\nKubernetes\n\n### Upstream Issue URL\n\nhttps://example.test/1';
+  const withBlock = upsertLfxUrlBlock(body, { title: 'CNCF - Kubernetes: X (2026 Term 3)', url: A_LFX_URL });
+  assert.equal(formFieldsChanged(body, withBlock), false);
+});
