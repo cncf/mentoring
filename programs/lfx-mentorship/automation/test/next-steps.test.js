@@ -55,10 +55,22 @@ test('proposer who is maintainer and sole mentor sees both gates satisfied but i
     proposerIsMentor: true,
   });
   assert.match(out, /project maintainer/);
-  assert.match(out, /all 1 confirmed/);
+  assert.match(out, /all 1 confirmed; @carlesarnal auto-counted as proposer/);
   assert.match(out, /`\/cncf-approve`/);
   assert.doesNotMatch(out, /Awaiting `\/confirm`/);
   assert.doesNotMatch(out, /Nothing more/i);
+});
+
+// ── All mentors confirmed, but the proposer is NOT one of them → no note ──
+test('all mentors confirmed with a proposer who is not a mentor shows no auto-count note', () => {
+  const out = render({
+    proposer: 'outsider',
+    maintainerApproved: true, maintainerAutoApproved: false,
+    confirm: { count: 2, total: 2, remaining: [] },
+    proposerIsMentor: false,
+  });
+  assert.match(out, /all 2 confirmed\./);
+  assert.doesNotMatch(out, /auto-counted/);
 });
 
 // ── Proposer is NOT a mentor → no auto-count note ──
