@@ -342,11 +342,10 @@ Sets per-project per-term proposal limits. Over-quota proposals get a
 warning label but are not blocked:
 
 ```yaml
-default_per_project_per_term: 5
+default_per_project_per_term: 4
 
 overrides:
   kubernetes: 8
-  open-telemetry: 8
 ```
 
 ---
