@@ -260,13 +260,13 @@ jobs:
             for (const e of customPrereq.errors) {
               switch (e.code) {
                 case 'name-missing':
-                  errors.push('Custom Prerequisite is checked but Custom Prerequisite Name is empty. Add a name (max 20 chars), or uncheck Custom Prerequisite.');
+                  errors.push(`Custom Prerequisite is checked but Custom Prerequisite Name is empty. Add a name (max ${CUSTOM_PREREQ_NAME_MAX} chars), or uncheck Custom Prerequisite.`);
                   break;
                 case 'name-too-long':
                   errors.push(`Custom Prerequisite Name is ${e.length} chars (LFX limit is ${e.max}). Please trim ${e.length - e.max} chars.`);
                   break;
                 case 'description-missing':
-                  errors.push('Custom Prerequisite is checked but Custom Prerequisite Description is empty. Add a description (max 500 chars), or uncheck Custom Prerequisite.');
+                  errors.push(`Custom Prerequisite is checked but Custom Prerequisite Description is empty. Add a description (max ${CUSTOM_PREREQ_DESC_MAX} chars), or uncheck Custom Prerequisite.`);
                   break;
                 case 'description-too-long':
                   errors.push(`Custom Prerequisite Description is ${e.length} chars (LFX limit is ${e.max}). Please trim ${e.length - e.max} chars.`);
