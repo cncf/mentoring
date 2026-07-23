@@ -43,11 +43,11 @@ kubernetes:
   fallback_teams:
     - kubernetes/sig-contribex
   fallback_handles:
-    - kaslin              # Kaslin Fields
-    - mfahlandt           # Mario Fahlandt
-    - palnabarun          # Nabarun Pal
-    - MadhavJivrajani     # Madhav Jivrajani
-    - Priyankasaggu11929  # Priyanka Saggu
+    - kaslin
+    - mfahlandt
+    - palnabarun
+    - MadhavJivrajani
+    - Priyankasaggu11929
 
 open-telemetry:
   # OTel governance (per @maryliag, cncf/mentoring#1930): each SIG has an
@@ -60,12 +60,12 @@ open-telemetry:
   fallback_teams:
     - open-telemetry/governance-committee
   fallback_handles:
-    - alolita        # until Oct 2026
-    - austinlparker  # until Oct 2027
-    - jpkrohling     # until Oct 2027
-    - maryliag       # until Oct 2027
-    - mtwo           # until Oct 2026
-    - mx-psi         # until Oct 2026
-    - svrnm          # until Oct 2027
-    - tedsuo         # until Oct 2027
-    - trask          # until Oct 2026
+    - alolita
+    - austinlparker
+    - jpkrohling
+    - maryliag
+    - mtwo
+    - mx-psi
+    - svrnm
+    - tedsuo
+    - trask
