@@ -95,7 +95,7 @@ test('shouldSkipExport: skips admin-owned cards or any read failure', () => {
   assert.equal(shouldSkipExport('Exported', true), true);
 });
 
-test("both guards protect the 'Mentors listed' admin column", () => {
+test('both guards protect the Mentors listed admin column', () => {
   // 'Mentors listed' is a hand-managed post-export column, so neither a
   // re-export nor a label-driven board-sync may pull a card out of it...
   assert.equal(shouldSkipExport('Mentors listed', false), true);
