@@ -9,11 +9,17 @@
 //   - parseCheckboxes: lfx-export.yml
 //   - parseMentors:    lfx-export.yml
 
+// The /lfx-url bot appends a marker-delimited "LFX program" block to the issue
+// body (lib/lfx-url.js). Strip it before parsing so it never leaks into the last
+// form field or reads as a material edit. lfx-url.js requires nothing, so this
+// leaf-to-leaf dependency introduces no cycle.
+const { stripLfxUrlBlock } = require('./lfx-url');
+
 // Split a GitHub issue-form body into a { label: value } map. Sections are
 // delimited by "### <label>" headings; "_No response_" is normalised to ''.
 function parseIssueForm(body) {
   const fields = {};
-  for (const section of body.split(/^### +/m).slice(1)) {
+  for (const section of stripLfxUrlBlock(body).split(/^### +/m).slice(1)) {
     const nl = section.indexOf('\n');
     if (nl === -1) continue;
     const label = section.slice(0, nl).trim();
