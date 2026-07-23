@@ -61,8 +61,8 @@ Configuration (who can approve, per-project quotas, the term list) lives in
 
 Before you can administer the program, make sure you have:
 
-- **Write access to `cncf/mentoring`.** Granted as part of standard CNCF
-  onboarding; it lets you run workflows, merge PRs, and manage issue labels.
+- **Write access to `cncf/mentoring`.** It lets you run workflows, merge
+  PRs, and manage issue labels.
 - **Your GitHub handle in `global_approvers`.** This is separate from repo
   access: only handles listed under `global_approvers` in
   [`approvers.yml`](approvers.yml) can use `/cncf-approve` and `/lfx-url`. Open a
