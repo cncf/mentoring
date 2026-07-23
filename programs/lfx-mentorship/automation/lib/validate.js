@@ -106,21 +106,32 @@ function mentorCountWarning(result) {
 const CUSTOM_PREREQ_NAME_MAX = 20;
 const CUSTOM_PREREQ_DESC_MAX = 500;
 
-// Validate the custom application prerequisite. The export only sends it to LFX
-// when the "Custom Prerequisite" box is checked (lfx-export.yml keys the export
-// off that box), so the check is gated on `checked`: when checked, the name and
-// description are required and must fit the LFX limits; when unchecked, the
-// fields are ignored by the export and nothing is enforced. name/description are
+// Validate the custom application prerequisite. There is a custom prerequisite
+// to validate when the "Custom Prerequisite" box is checked OR any copy is
+// present; only a fully empty, unchecked prerequisite is skipped. The name and
+// description are required and must fit the LFX limits (name <= 20, description
+// <= 500). Because the export sends the prerequisite to LFX only when the box
+// is checked (lfx-export.yml keys off that box), copy left with the box
+// unchecked would be silently dropped, so that is flagged too. All problems are
+// returned together so the proposer sees every needed edit at once. Fields are
 // trimmed before measuring, matching the trimmed value the export sends.
-// Returns { ok, errors } with codes 'name-missing', 'name-too-long',
-// 'description-missing', 'description-too-long'; the too-long codes carry
-// { length, max }. Prose stays in the workflow, mirroring validateMentors.
+// Returns { ok, errors } with codes 'unchecked-with-copy', 'name-missing',
+// 'name-too-long', 'description-missing', 'description-too-long'; the too-long
+// codes carry { length, max }. Prose stays in the workflow, mirroring
+// validateMentors.
 function validateCustomPrerequisite({ checked, name, description } = {}) {
   const errors = [];
-  if (!checked) return { ok: true, errors };
-
   const n = (name || '').trim();
   const d = (description || '').trim();
+  const hasCopy = n !== '' || d !== '';
+
+  // A fully empty, unchecked prerequisite: nothing to validate.
+  if (!checked && !hasCopy) return { ok: true, errors };
+
+  // Copy filled in but the box unchecked: the export keys off the box, so the
+  // details would be silently dropped. Flag it, then still run the field checks
+  // below so every needed edit is reported in one pass.
+  if (!checked) errors.push({ code: 'unchecked-with-copy' });
 
   if (!n) {
     errors.push({ code: 'name-missing' });

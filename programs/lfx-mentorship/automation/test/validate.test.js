@@ -158,22 +158,35 @@ test('emailRe / ghHandleRe / urlRe: basic accept and reject', () => {
 });
 
 // ── validateCustomPrerequisite ───────────────────────────────────────
-// LFX only receives the custom application prerequisite when the "Custom
-// Prerequisite" box is checked (lfx-export.yml keys the export off that box),
-// and LFX caps the name at 20 chars and the description at 500. So the check is
-// gated on `checked`: when checked, name and description are required and must
-// fit; when unchecked, the fields are ignored by the export and nothing is
-// enforced. Codes: 'name-missing', 'name-too-long', 'description-missing',
-// 'description-too-long'.
+// There is a custom prerequisite to validate when the "Custom Prerequisite"
+// box is checked OR any copy is present; a fully empty, unchecked prerequisite
+// is skipped. Name and description are required and must fit LFX's limits
+// (name <= 20, description <= 500). The export sends the prerequisite only when
+// the box is checked, so copy left with the box unchecked would be silently
+// dropped and is flagged. All problems come back together so the proposer sees
+// every needed edit at once. Codes: 'unchecked-with-copy', 'name-missing',
+// 'name-too-long', 'description-missing', 'description-too-long'.
 
-test('validateCustomPrerequisite: unchecked is always ok, even with over-limit fields', () => {
+test('validateCustomPrerequisite: unchecked with both fields empty is ok (no custom prerequisite)', () => {
   assert.deepEqual(validateCustomPrerequisite({ checked: false, name: '', description: '' }), { ok: true, errors: [] });
-  const over = validateCustomPrerequisite({
-    checked: false,
-    name: 'x'.repeat(50),
-    description: 'y'.repeat(600),
-  });
-  assert.deepEqual(over, { ok: true, errors: [] });
+  // whitespace-only trims to empty, so still no custom prerequisite
+  assert.deepEqual(validateCustomPrerequisite({ checked: false, name: '   ', description: '  ' }), { ok: true, errors: [] });
+});
+
+test('validateCustomPrerequisite: unchecked but copy present flags unchecked-with-copy (would be silently dropped)', () => {
+  // valid-length copy, box unchecked: the only problem is the unchecked box
+  assert.deepEqual(codes(validateCustomPrerequisite({ checked: false, name: 'Writing Sample', description: 'A short writing sample.' })),
+    ['unchecked-with-copy']);
+  // a single filled field is enough copy to count as intent
+  assert.deepEqual(codes(validateCustomPrerequisite({ checked: false, name: 'Writing Sample', description: '' })),
+    ['unchecked-with-copy', 'description-missing']);
+});
+
+test('validateCustomPrerequisite: unchecked reports the box AND every field problem together', () => {
+  // over-limit name + over-limit description + unchecked: all surfaced at once
+  const r = validateCustomPrerequisite({ checked: false, name: 'x'.repeat(50), description: 'y'.repeat(600) });
+  assert.deepEqual(codes(r), ['unchecked-with-copy', 'name-too-long', 'description-too-long']);
+  assert.equal(r.ok, false);
 });
 
 test('validateCustomPrerequisite: checked with a valid name and description passes', () => {
