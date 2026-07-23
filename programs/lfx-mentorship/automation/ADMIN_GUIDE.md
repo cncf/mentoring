@@ -6,6 +6,8 @@ the [LFX Mentorship README](../README.md#how-to-propose-a-program).
 
 ## Table of contents
 
+- [Overview](#overview)
+- [Getting started](#getting-started)
 - [Term lifecycle](#term-lifecycle)
   - [Opening a new term](#opening-a-new-term)
   - [Closing a term](#closing-a-term)
@@ -19,6 +21,69 @@ the [LFX Mentorship README](../README.md#how-to-propose-a-program).
 - [Project board](#project-board)
 - [Secrets and setup](#secrets-and-setup)
 - [Troubleshooting](#troubleshooting)
+
+---
+
+## Overview
+
+The intake automation carries a program proposal from a GitHub issue through to
+the LFX Mentorship platform. Most of the pipeline runs on its own; a few steps
+are yours. In order:
+
+1. **Proposal filed.** A maintainer or mentor opens an issue with the proposal
+   form. Its card lands in the board's `Inbox`.
+2. **Validation (automated).** On every edit a bot checks the form and sets
+   `Validation Passed` or `Validation Failed`, commenting on anything to fix.
+3. **Maintainer approval.** A project maintainer comments `/approve`. It is
+   granted automatically when the proposer is themselves a maintainer.
+4. **Mentor confirmation.** Each listed mentor comments `/confirm`. A mentor who
+   filed the proposal is auto-counted for their own slot.
+5. **CNCF approval (you).** Once the above are green, you review the proposal and
+   comment `/cncf-approve`. See [Reviewing and approving
+   proposals](#reviewing-and-approving-proposals).
+6. **Export (you).** You run the LFX Export workflow for the term and merge the
+   PR it opens. See [Running the export](#running-the-export).
+7. **Post to LFX and record URLs (you).** Once the term's programs are on the LFX
+   platform, you comment `/lfx-url <url>` on each issue to record its link and
+   advance its card, then merge the `chore: record LFX URLs` PR. See [After the
+   export](#after-the-export).
+8. **Track (you).** You move each card through the post-export board columns as
+   its program progresses on LFX. See [Project board](#project-board).
+
+Steps 2 through 4 need nothing from you. Your hands-on work is steps 5 through 8,
+plus [opening](#opening-a-new-term) and [closing](#closing-a-term) each term.
+Configuration (who can approve, per-project quotas, the term list) lives in
+[a few YAML files](#managing-configuration).
+
+---
+
+## Getting started
+
+Before you can administer the program, make sure you have:
+
+- **Write access to `cncf/mentoring`.** It lets you run workflows, merge
+  PRs, and manage issue labels.
+- **Your GitHub handle in `global_approvers`.** This is separate from repo
+  access: only handles listed under `global_approvers` in
+  [`approvers.yml`](approvers.yml) can use `/cncf-approve` and `/lfx-url`. Open a
+  PR adding yours (or ask a current global approver to) and merge it. See
+  [approvers.yml](#approversyml).
+- **Access to the LFX Mentorship platform** to create programs and retrieve their
+  URLs. See the
+  [LFX Mentorship documentation](https://docs.linuxfoundation.org/lfx/mentorship).
+
+For the term-setup tooling only (see [Opening a new term](#opening-a-new-term)),
+you also need the [`gh` CLI](https://cli.github.com/) authenticated with project
+scope (`gh auth refresh -s project,read:project`),
+[Node.js](https://nodejs.org/), and a one-time
+`npm install --no-save --ignore-scripts js-yaml@4.3.0` in the automation
+directory. The day-to-day steps (approve, export, record URLs) run entirely on
+GitHub and need none of this.
+
+New proposals arrive as issues labeled `lfx mentorship` and `Proposal` and appear
+in the `Inbox` column of the
+[project board](https://github.com/orgs/cncf/projects/93), so watch the board or
+your issue notifications to see what needs attention.
 
 ---
 
@@ -70,14 +135,15 @@ the [LFX Mentorship README](../README.md#how-to-propose-a-program).
       ```
 
    The tool creates each issue, nests the sub-issues, adds every card to the
-   board, and sets Status + Start/Due from the schedule. It records the run in a
-   local manifest (`.runs/`, gitignored); if you need to redo it,
-   `bin/teardown-term.js terms/2027-t1.yml --yes` deletes exactly that run. Test
-   the whole loop on the dev fork first — teardown refuses to run against
-   production.
+   board, and sets Status + Start/Due from the schedule, recording the run in a
+   local manifest (`.runs/`, gitignored). Preview with `--dry-run` and confirm
+   the plan before you apply: on `cncf/mentoring` there is no tooling undo (the
+   `teardown` helper is a development-only safeguard and refuses to run against
+   production), so a mistaken run has to be cleaned up by hand.
 
-3. **Sync the dropdowns:** Run the **Landscape Projects Sync** workflow
-   manually (Actions → Landscape Projects Sync → Run workflow), or wait for
+3. **Sync the dropdowns:** Run the **Sync CNCF Projects from Landscape**
+   workflow manually (Actions → **Sync CNCF Projects from Landscape** → Run
+   workflow), or wait for
    the Monday cron. This propagates the new `terms.yml` entry into the term
    dropdown in both the issue form and the export workflow.
 
@@ -189,7 +255,25 @@ the existing branch if the previous PR wasn't merged).
    fills the merged files, so a command run while the export PR is still open is
    rejected with the exact command to re-run once you merge it. Nothing is
    recorded on a rejection, so re-running after the merge is safe.
-5. **Continue tracking** by dragging cards through the remaining columns by
+5. **Merge the `chore: record LFX URLs` PR** once you have recorded the URLs you
+   have on hand. There is one such PR per term (branch
+   `automation/lfx-urls-<year>-<term-dir>`, authored by the bot); every
+   `/lfx-url` rebuilds it from `main` and accumulates all URLs recorded so far,
+   with the title showing how many programs it records and the body listing them.
+   Merging is decoupled from the board: the card already advanced to `Posted to
+   LFX` when the command ran, so merging only lands the recorded URLs in the
+   term's `lfx-export.json`, `README.md`, and `lfx-tracking.csv` on `main` for the
+   record. To merge:
+   1. Open **Files changed** and confirm only the term's three generated files
+      changed, and that each program's `lfx_url` is the correct live LFX URL.
+   2. Approve the PR. It is bot-authored, so any admin can approve; always do
+      this before merging, even if your access would let you bypass the review.
+   3. Merge it.
+   Merging a partial batch is safe: a later `/lfx-url` opens a fresh PR from
+   `main` and adds the next URL. Prefer merging each batch after you verify it
+   rather than leaving one PR open all term, so `main` stays current and each
+   diff stays small.
+6. **Continue tracking** by dragging cards through the remaining columns by
    hand as each step completes on the LFX platform (`LFX Approved` →
    `Mentors added` → `Mentors listed` → `Open for Applications` →
    `Applications Closed`)
@@ -258,11 +342,10 @@ Sets per-project per-term proposal limits. Over-quota proposals get a
 warning label but are not blocked:
 
 ```yaml
-default_per_project_per_term: 5
+default_per_project_per_term: 4
 
 overrides:
   kubernetes: 8
-  open-telemetry: 8
 ```
 
 ---
