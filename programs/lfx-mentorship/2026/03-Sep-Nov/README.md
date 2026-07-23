@@ -103,7 +103,7 @@ CNCF - Apicurio Registry: CloudEvents Webhook Notifications for Schema Changes (
   - Carles Arnal (@carlesarnal, carnalca@ibm.com)
   - Paolo Antinori (@paoloantinori, pantinor@ibm.com)
 - Upstream Issue: https://github.com/Apicurio/apicurio-registry/issues/8426
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/f85f019e-f28a-4116-a87f-fe77608b7ac9
 
 #### Prompt Template Playground in the Registry UI
 
