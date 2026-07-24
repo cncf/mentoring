@@ -1,8 +1,109 @@
 {
-  "_generated": "2026-07-21T19:31:10.384Z",
+  "_generated": "2026-07-24T15:43:22.068Z",
   "_term": "2026 Term 3 (Sep-Nov)",
-  "_count": 9,
+  "_count": 11,
   "programs": [
+    {
+      "issue_number": 1963,
+      "issue_url": "https://github.com/cncf/mentoring/issues/1963",
+      "cncf_project": "Podman Container Tools",
+      "cncf_project_slug": "podman-container-tools",
+      "cncf_project_maturity": "sandbox",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - Podman Container Tools: Agentic CI Flake Categorization and Analysis (2026 Term 3)",
+      "program_name_short": "Agentic CI Flake Categorization and Analysis",
+      "description": "## Description\nContinuous Integration (CI) pipelines are the backbone of our development, but \"flaky\" tests—tests that exhibit both false positive and false negative outcomes randomly—severely degrade developer velocity and erode trust in the CI system.\nCurrently, our project relies on GitHub Actions for its CI/CD processes. Manually digging through extensive GitHub Actions logs to identify, categorize, and troubleshoot these flaky failures is a massive, time-consuming burden for maintainers.\nThis internship aims to solve this by building an intelligent, automated toolchain that monitors our GitHub Actions workflows for flaky behavior and leverages an agentic AI workflow to handle the heavy lifting of analysis. The intern will build a system that automatically extracts failing logs, uses AI agents to reason about the failure (differentiating between infrastructure blips, race conditions, network timeouts, etc.), and surfaces actionable mitigation strategies directly to the maintainers.\n\n## Expected Outcomes\nData Ingestion Pipeline: A mechanism to automatically fetch, filter, and parse flaky CI run data and logs directly from the GitHub Actions API.\nAgentic Analysis Engine: An integration with an AI/LLM framework designed to read failure logs, categorize the root cause of the flake, and generate a plain-English analysis.\nMitigation & Reporting: A reporting layer that takes the agent's findings and seamlessly integrates them into the developer workflow (e.g., auto-generating GitHub Issues, compiling weekly flake reports, or posting PR comments with suggested fixes).\nDocumentation: Comprehensive documentation covering the architecture of the tool, how to deploy it, and how maintainers can tweak the agent's prompts and behaviors.\n\n# Recommended Skills\nProficiency in Python or Go (for scripting and API interactions).\nFamiliarity with GitHub Actions, CI/CD concepts, and log analysis.\nInterest or experience in Generative AI, LLMs, and agentic workflows (prompt engineering, AI tool calling).\nExperience with the GitHub API is a strong plus.\nFamiliarity with Local AI is a plus",
+      "technologies": "AI, CI/CD, Github Actions, Go, Python",
+      "skills": "AI, CI/CD, Github Actions, Go, Python",
+      "mentors": [
+        {
+          "name": "Paul Holzinger",
+          "github_handle": "Luap99",
+          "email": "pholzing@redhat.com",
+          "lfid": "luap99",
+          "role": "primary"
+        },
+        {
+          "name": "Tim Zhou",
+          "github_handle": "timcoding1988",
+          "email": "tizhou@redhat.com",
+          "lfid": "timcoding1988",
+          "role": "co-mentor"
+        },
+        {
+          "name": "Mohan Boddu",
+          "github_handle": "mohanboddu",
+          "email": "mboddu@redhat.com",
+          "lfid": "bhujji",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/podman-container-tools/podman/issues/29265",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": null,
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 1960,
+      "issue_url": "https://github.com/cncf/mentoring/issues/1960",
+      "cncf_project": "Kubernetes",
+      "cncf_project_slug": "k8s",
+      "cncf_project_maturity": "graduated",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - Kubernetes: Expand Declarative Validation (DV) in Kubernetes (2026 Term 3)",
+      "program_name_short": "Expand Declarative Validation (DV) in Kubernetes",
+      "description": "## Description\n\nThis mentorship project focuses on advancing the Declarative Validation (DV) framework across the Kubernetes codebase. The project aims to reduce technical debt, improve API validation safety, and streamline schema migrations.\nThe mentee will work closely with maintainers to migrate existing handwritten validations of Pod and ObjectMeta to DV, graduate beta declarative validations to stable, expand the validation tag catalog, and assist with reviewing incoming community PRs. This directly impacts core API Machinery infrastructure and helps accelerate new API development in Kubernetes.\n\n## Expected outcomes\n\n- At least 10 new validations of ObjectMeta and Pod types are migrated to Declarative Validation.\n- At least 30 migrated validations are graduated to stable, and the corresponding handwritten validations are deleted.",
+      "technologies": "Go, Kubernetes, API machinery, Code Generation",
+      "skills": "Go, Kubernetes, API machinery, Code Generation",
+      "mentors": [
+        {
+          "name": "Lalit chauhan",
+          "github_handle": "lalitc375",
+          "email": "laitchauhan@google.com",
+          "lfid": "lalitc375",
+          "role": "primary"
+        },
+        {
+          "name": "Yongrui Lin",
+          "github_handle": "yongruilin",
+          "email": "yongrlin@google.com",
+          "lfid": "yongrlin",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/kubernetes/kubernetes/issues?q=is%3Aissue%20state%3Aopen%20label%3Aarea%2Fapi-validation",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": null,
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
     {
       "issue_number": 1939,
       "issue_url": "https://github.com/cncf/mentoring/issues/1939",

@@ -41,11 +41,15 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - [Federated AI Agent Search Across Instances](#federated-ai-agent-search-across-instances)
 - [Kubeflow](#kubeflow)
   - [Abstracting Pod Lifecycle Diagnostics for Kubeflow Pipelines](#abstracting-pod-lifecycle-diagnostics-for-kubeflow-pipelines)
+- [Kubernetes](#kubernetes)
+  - [Expand Declarative Validation (DV) in Kubernetes](#expand-declarative-validation-dv-in-kubernetes)
 - [OpenTelemetry](#opentelemetry)
   - [Declarative instrumentation configuration for otelc](#declarative-instrumentation-configuration-for-otelc)
   - [Zero-code AI Agent observability for otelc](#zero-code-ai-agent-observability-for-otelc)
 - [OpenYurt](#openyurt)
   - [Add Claude Code Skills for deploying OpenYurt and configuring Raven](#add-claude-code-skills-for-deploying-openyurt-and-configuring-raven)
+- [Podman Container Tools](#podman-container-tools)
+  - [Agentic CI Flake Categorization and Analysis](#agentic-ci-flake-categorization-and-analysis)
 - [WasmEdge Runtime](#wasmedge-runtime)
   - [Support for the Wide Arithmetic Proposal](#support-for-the-wide-arithmetic-proposal)
 
@@ -190,6 +194,32 @@ CNCF - Kubeflow: Abstracting Pod Lifecycle Diagnostics for Kubeflow Pipelines (2
 - Upstream Issue: https://github.com/kubeflow/pipelines/issues/12843
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/aba3293b-593c-4afd-a22d-27d70fc50ff8
 
+### Kubernetes
+
+#### Expand Declarative Validation (DV) in Kubernetes
+
+CNCF - Kubernetes: Expand Declarative Validation (DV) in Kubernetes (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  > 
+  > This mentorship project focuses on advancing the Declarative Validation (DV) framework across the Kubernetes codebase. The project aims to reduce technical debt, improve API validation safety, and streamline schema migrations.
+  > The mentee will work closely with maintainers to migrate existing handwritten validations of Pod and ObjectMeta to DV, graduate beta declarative validations to stable, expand the validation tag catalog, and assist with reviewing incoming community PRs. This directly impacts core API Machinery infrastructure and helps accelerate new API development in Kubernetes.
+  > 
+  > ## Expected outcomes
+  > 
+  > - At least 10 new validations of ObjectMeta and Pod types are migrated to Declarative Validation.
+  > - At least 30 migrated validations are graduated to stable, and the corresponding handwritten validations are deleted.
+
+- Recommended Skills: Go, Kubernetes, API machinery, Code Generation
+- Technologies: Go, Kubernetes, API machinery, Code Generation
+- Mentor(s):
+  - Lalit chauhan (@lalitc375, laitchauhan@google.com)
+  - Yongrui Lin (@yongruilin, yongrlin@google.com)
+- Upstream Issue: https://github.com/kubernetes/kubernetes/issues?q=is%3Aissue%20state%3Aopen%20label%3Aarea%2Fapi-validation
+- LFX URL: TBD
+
 ### OpenTelemetry
 
 #### Declarative instrumentation configuration for otelc
@@ -279,6 +309,41 @@ CNCF - OpenYurt: Add Claude Code Skills for deploying OpenYurt and configuring R
   - Lu Chen (@luc99hen, luc99.en@gmail.com)
 - Upstream Issue: https://github.com/openyurtio/openyurt/issues/2559
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/675bb1ec-015c-4b26-a1dd-e1ab517f20cf
+
+### Podman Container Tools
+
+#### Agentic CI Flake Categorization and Analysis
+
+CNCF - Podman Container Tools: Agentic CI Flake Categorization and Analysis (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  > Continuous Integration (CI) pipelines are the backbone of our development, but "flaky" tests—tests that exhibit both false positive and false negative outcomes randomly—severely degrade developer velocity and erode trust in the CI system.
+  > Currently, our project relies on GitHub Actions for its CI/CD processes. Manually digging through extensive GitHub Actions logs to identify, categorize, and troubleshoot these flaky failures is a massive, time-consuming burden for maintainers.
+  > This internship aims to solve this by building an intelligent, automated toolchain that monitors our GitHub Actions workflows for flaky behavior and leverages an agentic AI workflow to handle the heavy lifting of analysis. The intern will build a system that automatically extracts failing logs, uses AI agents to reason about the failure (differentiating between infrastructure blips, race conditions, network timeouts, etc.), and surfaces actionable mitigation strategies directly to the maintainers.
+  > 
+  > ## Expected Outcomes
+  > Data Ingestion Pipeline: A mechanism to automatically fetch, filter, and parse flaky CI run data and logs directly from the GitHub Actions API.
+  > Agentic Analysis Engine: An integration with an AI/LLM framework designed to read failure logs, categorize the root cause of the flake, and generate a plain-English analysis.
+  > Mitigation & Reporting: A reporting layer that takes the agent's findings and seamlessly integrates them into the developer workflow (e.g., auto-generating GitHub Issues, compiling weekly flake reports, or posting PR comments with suggested fixes).
+  > Documentation: Comprehensive documentation covering the architecture of the tool, how to deploy it, and how maintainers can tweak the agent's prompts and behaviors.
+  > 
+  > # Recommended Skills
+  > Proficiency in Python or Go (for scripting and API interactions).
+  > Familiarity with GitHub Actions, CI/CD concepts, and log analysis.
+  > Interest or experience in Generative AI, LLMs, and agentic workflows (prompt engineering, AI tool calling).
+  > Experience with the GitHub API is a strong plus.
+  > Familiarity with Local AI is a plus
+
+- Recommended Skills: AI, CI/CD, Github Actions, Go, Python
+- Technologies: AI, CI/CD, Github Actions, Go, Python
+- Mentor(s):
+  - Paul Holzinger (@Luap99, pholzing@redhat.com)
+  - Tim Zhou (@timcoding1988, tizhou@redhat.com)
+  - Mohan Boddu (@mohanboddu, mboddu@redhat.com)
+- Upstream Issue: https://github.com/podman-container-tools/podman/issues/29265
+- LFX URL: TBD
 
 ### WasmEdge Runtime
 
