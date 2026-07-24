@@ -257,21 +257,14 @@ jobs:
             **Added or updated in this PR:**
             ${{ env.PR_BODY_ISSUES }}
 
-            **Files generated:**
-            - `${{ env.EXPORT_PATH }}` — structured JSON for LFX bulk import
-            - `programs/lfx-mentorship/${{ env.EXPORT_YEAR }}/${{ env.EXPORT_TERM_DIR }}/README.md` — human-readable accepted-programs list
-            - `programs/lfx-mentorship/${{ env.EXPORT_YEAR }}/${{ env.EXPORT_TERM_DIR }}/lfx-tracking.csv` — tracking spreadsheet with mentor details
+            **Export files:**
+            - `${{ env.EXPORT_PATH }}`: structured JSON for LFX bulk import
+            - `programs/lfx-mentorship/${{ env.EXPORT_YEAR }}/${{ env.EXPORT_TERM_DIR }}/README.md`: human-readable accepted-programs list
+            - `programs/lfx-mentorship/${{ env.EXPORT_YEAR }}/${{ env.EXPORT_TERM_DIR }}/lfx-tracking.csv`: tracking spreadsheet with mentor details
 
-            <details>
-            <summary>What to do next</summary>
-
-            1. Review the JSON and README for accuracy
-            2. Merge this PR
-            3. Share the JSON with the LFX platform team
-            4. Once programs are created on LFX, update LFX URLs in the
-               README and drag each issue's card to the `Posted to LFX` column
-
-            </details>
+            **Next steps:**
+            1. Review the JSON and README for accuracy.
+            2. Approve, then merge this PR.
           labels: administration
 
       - name: Notify exported issues
