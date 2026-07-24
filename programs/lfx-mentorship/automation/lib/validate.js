@@ -78,6 +78,39 @@ function validateUpstreamUrl(raw) {
   return null;
 }
 
+// Canonical form of an upstream-issue URL for cross-proposal comparison. Drops
+// the protocol, a leading "www.", the #fragment, and any trailing slash on the
+// path, then lowercases the host and path so the same target in different
+// casing compares equal. The ?query string is PRESERVED verbatim (case and all):
+// an upstream "issue" is often a filtered issues list whose identity lives
+// entirely in the query (e.g. a kubernetes/kubernetes/issues?q=...label:area/foo
+// link, cncf/mentoring#1960), so dropping it would collapse distinct upstreams
+// to the same /issues path, and case-folding it could merge case-sensitive query
+// values; both raise false duplicates. Blank in, blank out.
+function normalizeUpstreamUrl(url) {
+  const s = String(url == null ? '' : url).trim();
+  if (!s) return '';
+  let rest = s.replace(/^https?:\/\//i, '').replace(/^www\./i, '');
+  rest = rest.split('#')[0];                       // drop fragment (page anchor)
+  const qIdx = rest.indexOf('?');
+  const path = (qIdx === -1 ? rest : rest.slice(0, qIdx)).replace(/\/+$/, '');
+  const query = qIdx === -1 ? '' : rest.slice(qIdx); // preserved verbatim
+  return path.toLowerCase() + query;
+}
+
+// Given the current proposal's upstream URL and other proposals
+// ({ number, url }), return the numbers whose upstream URL matches after
+// normalization. A blank current URL matches nothing (so proposals that both
+// omit the URL are not flagged as duplicates of each other). Input order is
+// preserved.
+function findDuplicateUpstreamIssues(url, others) {
+  const target = normalizeUpstreamUrl(url);
+  if (!target) return [];
+  return (others || [])
+    .filter((o) => o && normalizeUpstreamUrl(o.url) === target)
+    .map((o) => o.number);
+}
+
 // LFX programs are encouraged — not required — to have at least two mentors, so
 // the load is shared and a co-mentor can cover absences. This is a soft
 // preference the reviewers have long applied by hand (see PRs #1321, #1323,
@@ -160,4 +193,6 @@ module.exports = {
   validateCustomPrerequisite,
   CUSTOM_PREREQ_NAME_MAX,
   CUSTOM_PREREQ_DESC_MAX,
+  normalizeUpstreamUrl,
+  findDuplicateUpstreamIssues,
 };

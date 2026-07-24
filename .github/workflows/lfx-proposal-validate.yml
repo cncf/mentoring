@@ -73,7 +73,7 @@ jobs:
             const path = require('path');
             const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
             const { parseIssueForm, parseMentors, parseCheckboxes, formFieldsChanged } = _lib('parse.js');
-            const { validateMentors, validateUpstreamUrl, mentorCountWarning, validateCustomPrerequisite, CUSTOM_PREREQ_NAME_MAX, CUSTOM_PREREQ_DESC_MAX } = _lib('validate.js');
+            const { validateMentors, validateUpstreamUrl, mentorCountWarning, validateCustomPrerequisite, CUSTOM_PREREQ_NAME_MAX, CUSTOM_PREREQ_DESC_MAX, findDuplicateUpstreamIssues } = _lib('validate.js');
             const { lookupProject } = _lib('projects.js');
             const { isProposalTitle, looksLikeProposalForm } = _lib('labels.js');
             const { resolveProjectMaintainer } = _lib('authorize.js');
@@ -288,68 +288,100 @@ jobs:
               passed.push(`Custom Prerequisite: name ${customName.trim().length}/${CUSTOM_PREREQ_NAME_MAX} chars, description ${customDesc.trim().length}/${CUSTOM_PREREQ_DESC_MAX} chars`);
             }
 
-            // ── 10. Quota check ──
+            // ── 10. Same project + term scan (shared) ──
+            // One listForRepo call feeds both the quota check and the duplicate
+            // upstream-issue check below. sameProjectTerm stays null if the scan
+            // fails, so neither check runs on incomplete data.
             if (project && term) {
+              let sameProjectTerm = null;
               try {
-                const quotaRaw = fs.readFileSync('programs/lfx-mentorship/automation/quotas.yml', 'utf8');
-                // Simple YAML parse for our known format — no js-yaml needed
-                const defaultMatch = quotaRaw.match(/default_per_project_per_term:\s*(\d+)/);
-                const defaultQ = defaultMatch ? parseInt(defaultMatch[1]) : 5;
-                const overrides = {};
-                const overrideSection = quotaRaw.split(/^overrides:\s*$/m)[1];
-                if (overrideSection) {
-                  for (const m of overrideSection.matchAll(/^\s+([^:]+):\s*(\d+)/gm)) {
-                    overrides[m[1].trim().toLowerCase()] = parseInt(m[2]);
-                  }
-                }
-                // Build candidate keys: normalized NAME, GitHub org, and projects.yml
-                // slug. quotas.yml may key a project by any of these; first match wins.
-                const projectKeys = [project.toLowerCase().replace(/\s+/g, '-')];
-                try {
-                  const projYaml = fs.readFileSync('programs/lfx-mentorship/automation/projects.yml', 'utf8');
-                  // GitHub org before projects.yml slug, to match the candidate
-                  // ordering in lfx-proposal-approvals.yml (org preferred over slug).
-                  const info = lookupProject(projYaml, project);
-                  if (info) {
-                    if (info.org) projectKeys.push(info.org.toLowerCase());
-                    if (info.slug) projectKeys.push(info.slug);
-                  }
-                } catch (e) {
-                  console.log(`projects.yml key lookup failed: ${e.message}`);
-                }
-                const quotaKeys = projectKeys.filter((v, i, a) => v && a.indexOf(v) === i);
-                let quota = defaultQ;
-                for (const key of quotaKeys) {
-                  if (overrides[key] !== undefined) { quota = overrides[key]; break; }
-                }
-
-                // Count open proposals for same project + term
                 const issues = await github.paginate(github.rest.issues.listForRepo, {
                   owner, repo, state: 'open', labels: `lfx mentorship,Proposal`,
                   per_page: 100,
                 });
-
-                const sameProjectTerm = issues.filter(iss => {
+                sameProjectTerm = issues.filter(iss => {
                   if (iss.number === issue_number) return false;
                   const b = iss.body || '';
                   return b.includes(`### CNCF Project\n\n${project}`)
                     && b.includes(`### Term\n\n${term}`);
                 });
-
-                const count = sameProjectTerm.length + 1; // include this one
-                if (count > quota) {
-                  warnings.push(
-                    `**Over quota:** ${project} has ${count} proposals for ${term} ` +
-                    `(guideline: ${quota}). Existing proposals: ` +
-                    sameProjectTerm.map(i => `#${i.number}`).join(', ') +
-                    `. Going over may be acceptable; please reach out to the CNCF ` +
-                    `Mentorship Admins to discuss, and prioritize proposals within your project.`
-                  );
-                } else {
-                  passed.push(`Quota: ${count}/${quota} proposals for ${project} in ${term}`);
-                }
               } catch (e) {
-                warnings.push(`Could not check quota: ${e.message}`);
+                warnings.push(`Could not check other ${project} proposals for ${term}: ${e.message}`);
+              }
+
+              if (sameProjectTerm) {
+                // ── 10a. Quota check ──
+                try {
+                  const quotaRaw = fs.readFileSync('programs/lfx-mentorship/automation/quotas.yml', 'utf8');
+                  // Simple YAML parse for our known format (no js-yaml needed)
+                  const defaultMatch = quotaRaw.match(/default_per_project_per_term:\s*(\d+)/);
+                  const defaultQ = defaultMatch ? parseInt(defaultMatch[1]) : 5;
+                  const overrides = {};
+                  const overrideSection = quotaRaw.split(/^overrides:\s*$/m)[1];
+                  if (overrideSection) {
+                    for (const m of overrideSection.matchAll(/^\s+([^:]+):\s*(\d+)/gm)) {
+                      overrides[m[1].trim().toLowerCase()] = parseInt(m[2]);
+                    }
+                  }
+                  // Build candidate keys: normalized NAME, GitHub org, and projects.yml
+                  // slug. quotas.yml may key a project by any of these; first match wins.
+                  const projectKeys = [project.toLowerCase().replace(/\s+/g, '-')];
+                  try {
+                    const projYaml = fs.readFileSync('programs/lfx-mentorship/automation/projects.yml', 'utf8');
+                    // GitHub org before projects.yml slug, to match the candidate
+                    // ordering in lfx-proposal-approvals.yml (org preferred over slug).
+                    const info = lookupProject(projYaml, project);
+                    if (info) {
+                      if (info.org) projectKeys.push(info.org.toLowerCase());
+                      if (info.slug) projectKeys.push(info.slug);
+                    }
+                  } catch (e) {
+                    console.log(`projects.yml key lookup failed: ${e.message}`);
+                  }
+                  const quotaKeys = projectKeys.filter((v, i, a) => v && a.indexOf(v) === i);
+                  let quota = defaultQ;
+                  for (const key of quotaKeys) {
+                    if (overrides[key] !== undefined) { quota = overrides[key]; break; }
+                  }
+
+                  const count = sameProjectTerm.length + 1; // include this one
+                  if (count > quota) {
+                    warnings.push(
+                      `**Over quota:** ${project} has ${count} proposals for ${term} ` +
+                      `(guideline: ${quota}). Existing proposals: ` +
+                      sameProjectTerm.map(i => `#${i.number}`).join(', ') +
+                      `. Going over may be acceptable; please reach out to the CNCF ` +
+                      `Mentorship Admins to discuss, and prioritize proposals within your project.`
+                    );
+                  } else {
+                    passed.push(`Quota: ${count}/${quota} proposals for ${project} in ${term}`);
+                  }
+                } catch (e) {
+                  warnings.push(`Could not check quota: ${e.message}`);
+                }
+
+                // ── 10b. Duplicate upstream-issue check ──
+                // Non-blocking warning when another open proposal for the same
+                // project + term lists the same Upstream Issue URL: likely the
+                // same effort proposed twice, which an admin should reconcile.
+                // Only when this proposal's URL is itself valid (upstreamErr
+                // null): a malformed/empty URL has a hard error to fix first, and
+                // gating avoids a confusing dup warning stacked on that error.
+                if (upstreamErr === null) {
+                  const others = sameProjectTerm.map(iss => ({
+                    number: iss.number,
+                    url: parseIssueForm(iss.body || '')['Upstream Issue URL'] || '',
+                  }));
+                  const dupUpstream = findDuplicateUpstreamIssues(upstreamUrl, others);
+                  if (dupUpstream.length) {
+                    warnings.push(
+                      `**Duplicate upstream issue:** the same Upstream Issue URL is listed on ` +
+                      `other open ${project} proposal(s) for ${term}: ${dupUpstream.map(n => `#${n}`).join(', ')}. ` +
+                      `If that's unintentional, please update it; if the proposals are related, the CNCF ` +
+                      `Mentorship Admins can help sort out next steps.`
+                    );
+                  }
+                }
               }
             }
 

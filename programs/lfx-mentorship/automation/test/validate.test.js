@@ -8,6 +8,7 @@ const {
   mentorCountWarning, MIN_PREFERRED_MENTORS,
   validateCustomPrerequisite,
   CUSTOM_PREREQ_NAME_MAX, CUSTOM_PREREQ_DESC_MAX,
+  normalizeUpstreamUrl, findDuplicateUpstreamIssues,
 } = require('../lib/validate');
 
 const codes = (result) => result.errors.map(e => e.code);
@@ -240,4 +241,124 @@ test('validateCustomPrerequisite: length is measured after trimming (matches the
 test('validateCustomPrerequisite: exposes the LFX limits as constants', () => {
   assert.equal(CUSTOM_PREREQ_NAME_MAX, 20);
   assert.equal(CUSTOM_PREREQ_DESC_MAX, 500);
+});
+
+// ── normalizeUpstreamUrl ─────────────────────────────────────────────
+// Canonical form for comparing upstream-issue URLs across proposals, chosen to
+// avoid false negatives (missing a real duplicate). Drops protocol, a leading
+// "www.", the #fragment, and any trailing slash; lowercases host AND path so
+// github.com/Org/Repo/issues/5 and .../org/repo/issues/5 (the same issue)
+// compare equal. Blank in, blank out.
+
+test('normalizeUpstreamUrl: blank / nullish normalizes to empty string', () => {
+  assert.equal(normalizeUpstreamUrl(''), '');
+  assert.equal(normalizeUpstreamUrl('   '), '');
+  assert.equal(normalizeUpstreamUrl(null), '');
+  assert.equal(normalizeUpstreamUrl(undefined), '');
+});
+
+test('normalizeUpstreamUrl: protocol, www, fragment, and trailing slash are ignored', () => {
+  const canon = 'github.com/cncf/mentoring/issues/5';
+  assert.equal(normalizeUpstreamUrl('https://github.com/cncf/mentoring/issues/5'), canon);
+  assert.equal(normalizeUpstreamUrl('http://github.com/cncf/mentoring/issues/5'), canon);
+  assert.equal(normalizeUpstreamUrl('https://www.github.com/cncf/mentoring/issues/5'), canon);
+  assert.equal(normalizeUpstreamUrl('https://github.com/cncf/mentoring/issues/5/'), canon);
+  assert.equal(normalizeUpstreamUrl('https://github.com/cncf/mentoring/issues/5#issuecomment-9'), canon);
+  assert.equal(normalizeUpstreamUrl('  https://github.com/cncf/mentoring/issues/5  '), canon);
+});
+
+test('normalizeUpstreamUrl: the query string is PRESERVED verbatim (filtered issues list, cncf/mentoring#1960)', () => {
+  // A valid upstream link can be a filtered issues list whose identity is the
+  // query, not the path. Dropping it would collapse distinct filters to the
+  // same /issues path and raise false duplicates. Host+path are lowercased, but
+  // the query is preserved as-is (query values can be case-sensitive).
+  assert.equal(
+    normalizeUpstreamUrl('https://github.com/Kubernetes/Kubernetes/issues?q=is%3Aissue+label%3AArea%2FAPI'),
+    'github.com/kubernetes/kubernetes/issues?q=is%3Aissue+label%3AArea%2FAPI',
+  );
+  // Same list, different filter → distinct (must NOT be flagged as duplicates).
+  assert.notEqual(
+    normalizeUpstreamUrl('https://github.com/kubernetes/kubernetes/issues?q=label%3Aarea%2Fapi'),
+    normalizeUpstreamUrl('https://github.com/kubernetes/kubernetes/issues?q=label%3Aarea%2Fnet'),
+  );
+  // Queries differing ONLY by case stay distinct (no false-positive merge).
+  assert.notEqual(
+    normalizeUpstreamUrl('https://example.com/x?token=AbC'),
+    normalizeUpstreamUrl('https://example.com/x?token=abc'),
+  );
+  // Trailing slash on the path before the query does not change identity.
+  assert.equal(
+    normalizeUpstreamUrl('https://github.com/kubernetes/kubernetes/issues/?q=x'),
+    normalizeUpstreamUrl('https://github.com/kubernetes/kubernetes/issues?q=x'),
+  );
+});
+
+test('normalizeUpstreamUrl: host and path are lowercased (same issue, different casing)', () => {
+  assert.equal(
+    normalizeUpstreamUrl('https://GitHub.com/CNCF/Mentoring/issues/5'),
+    'github.com/cncf/mentoring/issues/5',
+  );
+});
+
+test('normalizeUpstreamUrl: distinct issues stay distinct', () => {
+  assert.notEqual(
+    normalizeUpstreamUrl('https://github.com/cncf/mentoring/issues/5'),
+    normalizeUpstreamUrl('https://github.com/cncf/mentoring/issues/6'),
+  );
+});
+
+// ── findDuplicateUpstreamIssues ──────────────────────────────────────
+// Given the current proposal's URL and other proposals ({ number, url }),
+// return the numbers whose upstream URL matches (after normalization). Blank
+// URLs never match (so two proposals that both omit the URL are not flagged).
+
+test('findDuplicateUpstreamIssues: flags others sharing the URL despite formatting differences', () => {
+  const others = [
+    { number: 12, url: 'http://www.github.com/cncf/mentoring/issues/5/' },
+    { number: 34, url: 'https://github.com/cncf/mentoring/issues/6' },
+    { number: 56, url: 'https://github.com/CNCF/Mentoring/issues/5#note' },
+  ];
+  assert.deepEqual(
+    findDuplicateUpstreamIssues('https://github.com/cncf/mentoring/issues/5', others),
+    [12, 56],
+  );
+});
+
+test('findDuplicateUpstreamIssues: filtered issues lists match by query, not just path', () => {
+  const base = 'https://github.com/kubernetes/kubernetes/issues';
+  const others = [
+    { number: 12, url: `${base}?q=label%3Aarea%2Fapi` },  // same filter → dup
+    { number: 34, url: `${base}?q=label%3Aarea%2Fnet` },  // different filter → not
+  ];
+  assert.deepEqual(
+    findDuplicateUpstreamIssues(`${base}?q=label%3Aarea%2Fapi`, others),
+    [12],
+  );
+});
+
+test('findDuplicateUpstreamIssues: no matches returns empty', () => {
+  const others = [{ number: 34, url: 'https://github.com/cncf/mentoring/issues/6' }];
+  assert.deepEqual(findDuplicateUpstreamIssues('https://github.com/cncf/mentoring/issues/5', others), []);
+});
+
+test('findDuplicateUpstreamIssues: a blank current URL matches nothing', () => {
+  const others = [{ number: 34, url: '' }, { number: 35, url: 'https://github.com/a/b/issues/1' }];
+  assert.deepEqual(findDuplicateUpstreamIssues('', others), []);
+  assert.deepEqual(findDuplicateUpstreamIssues('   ', others), []);
+});
+
+test('findDuplicateUpstreamIssues: others with blank URLs are skipped', () => {
+  const others = [{ number: 34, url: '' }, { number: 35, url: '_No response_' }];
+  // '_No response_' is not a URL; normalized it should not equal a real URL.
+  assert.deepEqual(findDuplicateUpstreamIssues('https://github.com/a/b/issues/1', others), []);
+});
+
+test('findDuplicateUpstreamIssues: preserves input order and handles missing/empty others', () => {
+  assert.deepEqual(findDuplicateUpstreamIssues('https://github.com/a/b/issues/1', []), []);
+  assert.deepEqual(findDuplicateUpstreamIssues('https://github.com/a/b/issues/1'), []);
+  const others = [
+    { number: 9, url: 'https://github.com/a/b/issues/1' },
+    { number: 3, url: 'https://github.com/a/b/issues/1' },
+  ];
+  assert.deepEqual(findDuplicateUpstreamIssues('https://github.com/a/b/issues/1', others), [9, 3]);
 });
