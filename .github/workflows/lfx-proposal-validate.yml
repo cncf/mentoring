@@ -340,9 +340,10 @@ jobs:
                 if (count > quota) {
                   warnings.push(
                     `**Over quota:** ${project} has ${count} proposals for ${term} ` +
-                    `(limit: ${quota}). Existing proposals: ` +
+                    `(guideline: ${quota}). Existing proposals: ` +
                     sameProjectTerm.map(i => `#${i.number}`).join(', ') +
-                    `. The project should decide which to keep.`
+                    `. Going over may be acceptable; please reach out to the CNCF ` +
+                    `Mentorship Admins to discuss, and prioritize proposals within your project.`
                   );
                 } else {
                   passed.push(`Quota: ${count}/${quota} proposals for ${project} in ${term}`);
