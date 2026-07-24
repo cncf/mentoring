@@ -241,7 +241,7 @@ jobs:
             } else if (upstreamErr === 'format') {
               errors.push(`Upstream Issue URL \`${upstreamUrl}\` is not a valid URL.`);
             } else if (upstreamErr === 'multiple') {
-              errors.push('Upstream Issue URL should be exactly one URL. If the program spans multiple issues, create an umbrella issue.');
+              errors.push('Upstream Issue URL should be a single URL. If the program spans multiple issues, please consider creating an umbrella issue in your project to group them, and link that here.');
             } else {
               passed.push(`Upstream Issue URL: ${upstreamUrl}`);
             }
