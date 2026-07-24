@@ -27,4 +27,26 @@ function serializeExport(data, existingText) {
   return body;
 }
 
-module.exports = { serializeExport, ignoreGenerated };
+// Programs in `afterData` that are new or content-changed versus `beforeData`
+// (the term export currently on `main`). The export regenerates the whole term
+// every run, so the git diff already contains only what changed; this backs the
+// human-facing summaries (PR body list + title count, and the "included in
+// export" notification) so they reference only the issues THIS run adds or
+// changes, not every program already exported. Mirrors changedRecordedPrograms
+// in lib/lfx-url.js (the /lfx-url batch-list fix #1949). Each program is keyed by
+// issue_number and compared by full JSON serialization; a program is "changed"
+// when absent from the baseline or serialized differently. A null/malformed
+// baseline yields every program (a safe fallback to the pre-change "list all"
+// behavior, e.g. a term's first export). Insertion order of afterData is kept.
+function changedExportPrograms(beforeData, afterData) {
+  const before = new Map();
+  const baseline = beforeData && Array.isArray(beforeData.programs) ? beforeData.programs : [];
+  for (const p of baseline) {
+    if (p && Number.isInteger(p.issue_number)) before.set(p.issue_number, JSON.stringify(p));
+  }
+  const after = afterData && Array.isArray(afterData.programs) ? afterData.programs : [];
+  return after.filter((p) => p && Number.isInteger(p.issue_number)
+    && before.get(p.issue_number) !== JSON.stringify(p));
+}
+
+module.exports = { serializeExport, ignoreGenerated, changedExportPrograms };
