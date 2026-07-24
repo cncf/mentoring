@@ -78,6 +78,34 @@ function validateUpstreamUrl(raw) {
   return null;
 }
 
+// Canonical form of an upstream-issue URL for cross-proposal comparison. Drops
+// the protocol, a leading "www.", the #fragment, and any trailing slash, and
+// lowercases host AND path so the same issue in different casing (e.g.
+// github.com/Org/Repo vs .../org/repo) compares equal. Blank in, blank out.
+// Tuned to minimize false negatives (a missed duplicate); false positives are
+// implausible for issue URLs, where the numeric id disambiguates.
+function normalizeUpstreamUrl(url) {
+  const s = String(url == null ? '' : url).trim();
+  if (!s) return '';
+  let rest = s.replace(/^https?:\/\//i, '').replace(/^www\./i, '');
+  rest = rest.split('#')[0];       // drop fragment
+  rest = rest.replace(/\/+$/, ''); // drop trailing slash(es)
+  return rest.toLowerCase();
+}
+
+// Given the current proposal's upstream URL and other proposals
+// ({ number, url }), return the numbers whose upstream URL matches after
+// normalization. A blank current URL matches nothing (so proposals that both
+// omit the URL are not flagged as duplicates of each other). Input order is
+// preserved.
+function findDuplicateUpstreamIssues(url, others) {
+  const target = normalizeUpstreamUrl(url);
+  if (!target) return [];
+  return (others || [])
+    .filter((o) => o && normalizeUpstreamUrl(o.url) === target)
+    .map((o) => o.number);
+}
+
 // LFX programs are encouraged — not required — to have at least two mentors, so
 // the load is shared and a co-mentor can cover absences. This is a soft
 // preference the reviewers have long applied by hand (see PRs #1321, #1323,
@@ -160,4 +188,6 @@ module.exports = {
   validateCustomPrerequisite,
   CUSTOM_PREREQ_NAME_MAX,
   CUSTOM_PREREQ_DESC_MAX,
+  normalizeUpstreamUrl,
+  findDuplicateUpstreamIssues,
 };
