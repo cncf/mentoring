@@ -49,7 +49,7 @@ jobs:
             const { resolveProjectMaintainer } = _lib('authorize.js');
             const { computeConfirm } = _lib('confirm.js');
             const { lookupProject } = _lib('projects.js');
-            const { getGlobalApprovers, getProjectSection, getFallbackHandles, getFallbackTeams } = _lib('approvers.js');
+            const { getGlobalApprovers, getProjectSection, getFallbackHandles, getFallbackTeams, maintainersCanApprove, buildProjectKeys } = _lib('approvers.js');
             const { cncfApproveDecision } = _lib('cncf-approve.js');
             const { lfxUrlDecision, recordedLfxUrlComment, readExports, locateExportedProgram, exportTermLabel, termMismatchWarning, renderRecordedIssues, recordedUrlNextSteps, changedRecordedPrograms, programCountLabel, populateRecordedUrls, upsertLfxUrlBlock } = _lib('lfx-url.js');
             const { termPaths } = _lib('term-paths.js');
@@ -171,13 +171,33 @@ jobs:
                 }
               }
 
+              // Read approvers.yml once, up front: it supplies both the tier-3
+              // fallback section below and the project's exclusive-approver flag.
+              // maintainers_can_approve: false makes a project's fallback
+              // handles/teams (plus global_approvers) the ONLY approvers and
+              // skips the maintainer rosters (tiers 1-2) below. Default true
+              // keeps the additive model; a read failure also defaults to true.
+              let approversRaw = '';
+              let projectSection = '';
+              try {
+                approversRaw = fs.readFileSync('programs/lfx-mentorship/automation/approvers.yml', 'utf8');
+                if (project) {
+                  projectSection = getProjectSection(approversRaw, buildProjectKeys({ project, org: ghOrg, slug: projectSlug }));
+                }
+              } catch (e) {
+                console.log(`approvers.yml read failed: ${e.message}`);
+              }
+              const maintainersOk = maintainersCanApprove(projectSection);
+
               // 1-2. Project-maintainer rosters: {org}/.project/maintainers.yaml
               // (when adopted), then cncf/foundation project-maintainers.csv.
               // Extracted to lib/authorize.js so the same "is @handle a project
               // maintainer?" decision also drives proposer-implied approval in
-              // the validation workflow. Tier-3 (approvers.yml) stays inline
-              // below — delegates/global approvers are not project maintainers.
-              if (!authorized) {
+              // the validation workflow. Skipped when maintainers_can_approve is
+              // false (the exclusive-approver projects, e.g. Kubernetes). Tier-3
+              // (approvers.yml) stays inline below; delegates and global
+              // approvers are not project maintainers.
+              if (!authorized && maintainersOk) {
                 const r = await resolveProjectMaintainer({
                   handle: commenter, project, org: ghOrg, hasDotProject,
                   fetchFn: fetch, log: (m) => console.log(m),
@@ -188,47 +208,36 @@ jobs:
                 }
               }
 
-              // 3. Check approvers.yml: per-project fallbacks then global_approvers
+              // 3. Check approvers.yml: per-project fallbacks then global_approvers.
+              // (approvers.yml and the project section were read once, above.)
               if (!authorized) {
                 try {
-                  const raw = fs.readFileSync('programs/lfx-mentorship/automation/approvers.yml', 'utf8');
-
                   // 3a. Per-project fallback handles and teams
-                  if (project) {
-                    // approvers.yml may key a project by its normalized name, its
-                    // GitHub org, or its projects.yml slug; try each, first match wins.
-                    const projectKeys = [
-                      project.toLowerCase().replace(/\s+/g, '-'),
-                      ghOrg.toLowerCase(),
-                      projectSlug,
-                    ].filter((v, i, a) => v && a.indexOf(v) === i);
-                    const section = getProjectSection(raw, projectKeys);
-                    if (section) {
-                      // Check fallback_handles
-                      if (getFallbackHandles(section).includes(commenter.toLowerCase())) {
-                        authorized = true;
-                        authSource = 'approvers.yml (fallback handle)';
-                      }
-                      // Check fallback_teams
-                      if (!authorized) {
-                        for (const team of getFallbackTeams(section)) {
-                          const [org, slug] = team.split('/');
-                          if (!org || !slug) continue;
-                          try {
-                            const { data } = await github.rest.teams.getMembershipForUserInOrg({
-                              org, team_slug: slug, username: commenter,
-                            });
-                            if (data.state === 'active') {
-                              authorized = true;
-                              authSource = `approvers.yml (team ${team})`;
-                              break;
-                            }
-                          } catch (e) {
-                            // Likely a cross-org team: the repo token can't read
-                            // membership outside this org, so the team authorizes
-                            // no one. Use fallback_handles for cross-org approvers.
-                            console.log(`Could not verify team ${team} for ${commenter}: ${e.message}`);
+                  if (projectSection) {
+                    // Check fallback_handles
+                    if (getFallbackHandles(projectSection).includes(commenter.toLowerCase())) {
+                      authorized = true;
+                      authSource = 'approvers.yml (fallback handle)';
+                    }
+                    // Check fallback_teams
+                    if (!authorized) {
+                      for (const team of getFallbackTeams(projectSection)) {
+                        const [org, slug] = team.split('/');
+                        if (!org || !slug) continue;
+                        try {
+                          const { data } = await github.rest.teams.getMembershipForUserInOrg({
+                            org, team_slug: slug, username: commenter,
+                          });
+                          if (data.state === 'active') {
+                            authorized = true;
+                            authSource = `approvers.yml (team ${team})`;
+                            break;
                           }
+                        } catch (e) {
+                          // Likely a cross-org team: the repo token can't read
+                          // membership outside this org, so the team authorizes
+                          // no one. Use fallback_handles for cross-org approvers.
+                          console.log(`Could not verify team ${team} for ${commenter}: ${e.message}`);
                         }
                       }
                     }
@@ -236,7 +245,7 @@ jobs:
 
                   // 3b. Global approvers: can /approve for any project
                   if (!authorized) {
-                    if (getGlobalApprovers(raw).includes(commenter.toLowerCase())) {
+                    if (getGlobalApprovers(approversRaw).includes(commenter.toLowerCase())) {
                       authorized = true;
                       authSource = 'approvers.yml (global approver)';
                     }
@@ -247,15 +256,25 @@ jobs:
               }
 
               if (!authorized) {
-                const orgNote = ghOrg
-                  ? `- A \`project-maintainers\` team member in [\`${ghOrg}/.project/maintainers.yaml\`](https://github.com/${ghOrg}/.project/blob/main/maintainers.yaml)\n`
-                  : '';
+                let paths;
+                if (maintainersOk) {
+                  const orgNote = ghOrg
+                    ? `- A \`project-maintainers\` team member in [\`${ghOrg}/.project/maintainers.yaml\`](https://github.com/${ghOrg}/.project/blob/main/maintainers.yaml)\n`
+                    : '';
+                  paths =
+                    `Approvers must be:\n` +
+                    orgNote +
+                    `- Listed in [project-maintainers.csv](https://github.com/cncf/foundation/blob/main/project-maintainers.csv)\n` +
+                    `- A fallback approver in \`approvers.yml\``;
+                } else {
+                  paths =
+                    `Approvals for **${project}** are limited to its listed approvers in ` +
+                    `\`approvers.yml\` (plus CNCF global approvers); project maintainers ` +
+                    `can't \`/approve\` here.`;
+                }
                 await reply('❌',
                   `@${commenter} is not authorized to \`/approve\` proposals for **${project}**.\n\n` +
-                  `Approvers must be:\n` +
-                  orgNote +
-                  `- Listed in [project-maintainers.csv](https://github.com/cncf/foundation/blob/main/project-maintainers.csv)\n` +
-                  `- A fallback approver in \`approvers.yml\`\n\n` +
+                  paths + `\n\n` +
                   `If this is an error, contact a CNCF program admin.`);
                 return;
               }

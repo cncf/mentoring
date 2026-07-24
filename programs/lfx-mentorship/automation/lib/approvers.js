@@ -46,9 +46,40 @@ function getFallbackTeams(section) {
   return [...block[1].matchAll(/-\s+(\S+)/g)].map((m) => m[1]);
 }
 
+// Whether project maintainers may /approve for a project, read from its
+// approvers.yml section text (as returned by getProjectSection). Defaults to
+// true: the additive model where a project's maintainers, its fallback
+// handles/teams, and global_approvers can all /approve. A project sets
+// `maintainers_can_approve: false` to make its fallback_handles/fallback_teams
+// (plus global_approvers) the EXCLUSIVE approver set, so its individual
+// maintainer rosters are skipped (e.g. Kubernetes routes approvals through SIG
+// ContribEx, not per-maintainer). Only an explicit `false` disables it; a
+// missing, commented, or malformed value keeps the default true. The value must
+// be a bare boolean token (optionally followed by whitespace or a # comment to
+// end of line); trailing junk like `false-positive` is malformed, not false.
+function maintainersCanApprove(section) {
+  const m = String(section == null ? '' : section)
+    .match(/^[ \t]*maintainers_can_approve:[ \t]*(true|false)[ \t]*(#.*)?$/im);
+  return m ? m[1].toLowerCase() !== 'false' : true;
+}
+
+// The approvers.yml/quotas.yml lookup keys for a project, in priority order:
+// its name (spaces to hyphens), its GitHub org, and its projects.yml slug, all
+// lowercased. Falsy keys dropped, duplicates removed. getProjectSection tries
+// each in turn, so a project section may be keyed by any of the three.
+function buildProjectKeys({ project, org, slug } = {}) {
+  return [
+    String(project == null ? '' : project).toLowerCase().replace(/\s+/g, '-'),
+    String(org == null ? '' : org).toLowerCase(),
+    String(slug == null ? '' : slug).toLowerCase(),
+  ].filter((v, i, a) => v && a.indexOf(v) === i);
+}
+
 module.exports = {
   getGlobalApprovers,
   getProjectSection,
   getFallbackHandles,
   getFallbackTeams,
+  maintainersCanApprove,
+  buildProjectKeys,
 };

@@ -7,6 +7,8 @@ const {
   getProjectSection,
   getFallbackHandles,
   getFallbackTeams,
+  maintainersCanApprove,
+  buildProjectKeys,
 } = require('../lib/approvers');
 
 // Fixture mirrors the real approvers.yml shape: a global_approvers list plus
@@ -82,4 +84,118 @@ test('getFallbackTeams: returns raw org/team strings with case preserved', () =>
 
 test('getFallbackTeams: returns [] for a section without fallback_teams', () => {
   assert.deepEqual(getFallbackTeams('fallback_handles:\n    - someone\n'), []);
+});
+
+// ── maintainersCanApprove: the per-project "exclusive approvers" flag ─────────
+// Default true = the additive model (project maintainers + fallbacks + global
+// approvers can /approve). A project sets `maintainers_can_approve: false` to
+// make its fallback_handles/fallback_teams (+ global_approvers) the EXCLUSIVE
+// approver set, so its individual maintainers cannot /approve (e.g. Kubernetes
+// routes approvals through SIG ContribEx, not per-maintainer).
+
+test('maintainersCanApprove: false when the section sets it false', () => {
+  assert.equal(maintainersCanApprove('  maintainers_can_approve: false\n  fallback_handles:\n    - a\n'), false);
+});
+
+test('maintainersCanApprove: true when the section sets it true', () => {
+  assert.equal(maintainersCanApprove('  maintainers_can_approve: true\n'), true);
+});
+
+test('maintainersCanApprove: defaults to true when the key is absent', () => {
+  assert.equal(maintainersCanApprove('  fallback_teams:\n    - a/b\n'), true);
+});
+
+test('maintainersCanApprove: defaults to true for an empty or nullish section', () => {
+  assert.equal(maintainersCanApprove(''), true);
+  assert.equal(maintainersCanApprove(null), true);
+  assert.equal(maintainersCanApprove(undefined), true);
+});
+
+test('maintainersCanApprove: value is case-insensitive', () => {
+  assert.equal(maintainersCanApprove('  maintainers_can_approve: False\n'), false);
+});
+
+test('maintainersCanApprove: a commented flag line is ignored (stays default true)', () => {
+  assert.equal(maintainersCanApprove('  # maintainers_can_approve: false\n  fallback_handles:\n    - a\n'), true);
+});
+
+test('maintainersCanApprove: an inline comment after the value is allowed', () => {
+  assert.equal(maintainersCanApprove('  maintainers_can_approve: false   # exclusive\n'), false);
+  assert.equal(maintainersCanApprove('  maintainers_can_approve: true # additive\n'), true);
+});
+
+test('maintainersCanApprove: a malformed value keeps the default true (not a bare boolean)', () => {
+  // The value must be an exact boolean token; trailing junk means malformed,
+  // which must NOT be read as false (a \b-based match wrongly treated
+  // "false-positive" as "false").
+  assert.equal(maintainersCanApprove('  maintainers_can_approve: false-positive\n'), true);
+  assert.equal(maintainersCanApprove('  maintainers_can_approve: falsey\n'), true);
+  assert.equal(maintainersCanApprove('  maintainers_can_approve: false.\n'), true);
+  assert.equal(maintainersCanApprove('  maintainers_can_approve: no\n'), true);
+});
+
+// ── buildProjectKeys: the approvers.yml/quotas.yml lookup keys for a project ───────
+// A project section may be keyed by its name (lowercased, spaces to hyphens),
+// its GitHub org (lowercased), or its projects.yml slug; the lookup tries each.
+
+test('buildProjectKeys: dedupes name-hyphenated, org, and slug (first-match order)', () => {
+  assert.deepEqual(
+    buildProjectKeys({ project: 'Open Telemetry', org: 'open-telemetry', slug: 'otel' }),
+    ['open-telemetry', 'otel'],
+  );
+});
+
+test('buildProjectKeys: collapses to one when name, org, and slug coincide', () => {
+  assert.deepEqual(
+    buildProjectKeys({ project: 'Kubernetes', org: 'kubernetes', slug: 'kubernetes' }),
+    ['kubernetes'],
+  );
+});
+
+test('buildProjectKeys: lowercases and hyphenates the project name', () => {
+  assert.deepEqual(buildProjectKeys({ project: 'Cloud Custodian' }), ['cloud-custodian']);
+});
+
+test('buildProjectKeys: lowercases the slug too (uniform with name and org)', () => {
+  assert.deepEqual(buildProjectKeys({ slug: 'OpenTelemetry' }), ['opentelemetry']);
+});
+
+test('buildProjectKeys: drops falsy keys', () => {
+  assert.deepEqual(buildProjectKeys({ project: '', org: 'foo', slug: undefined }), ['foo']);
+});
+
+test('buildProjectKeys: empty array when no identity is given', () => {
+  assert.deepEqual(buildProjectKeys({}), []);
+  assert.deepEqual(buildProjectKeys(), []);
+});
+
+// ── Guard: the real approvers.yml resolves to the intended policy per project.
+// Ties the pure helpers to the actual data, so a typo, wrong key, or a dropped
+// kubernetes flag fails here (the exclusive-approver behavior can't be fully
+// exercised in e2e without a non-global maintainer identity).
+const fs = require('node:fs');
+const path = require('node:path');
+const REAL_APPROVERS = fs.readFileSync(path.join(__dirname, '..', 'approvers.yml'), 'utf8');
+const resolveMaintainersOk = (ids) =>
+  maintainersCanApprove(getProjectSection(REAL_APPROVERS, buildProjectKeys(ids)));
+
+test('real approvers.yml: Kubernetes restricts approvals to its listed approvers', () => {
+  assert.equal(
+    resolveMaintainersOk({ project: 'Kubernetes', org: 'kubernetes', slug: 'kubernetes' }),
+    false,
+  );
+});
+
+test('real approvers.yml: OpenTelemetry keeps the additive model', () => {
+  assert.equal(
+    resolveMaintainersOk({ project: 'OpenTelemetry', org: 'open-telemetry', slug: 'open-telemetry' }),
+    true,
+  );
+});
+
+test('real approvers.yml: an unlisted project keeps the additive model (default)', () => {
+  assert.equal(
+    resolveMaintainersOk({ project: 'Some Project', org: 'some-org', slug: 'some-slug' }),
+    true,
+  );
 });

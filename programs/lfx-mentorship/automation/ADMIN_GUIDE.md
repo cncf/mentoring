@@ -306,8 +306,14 @@ authorization check order is:
 
 1. `{org}/.project/maintainers.yaml` — project-maintainers team membership
 2. `cncf/foundation/project-maintainers.csv` — maintainer CSV lookup
-3. Per-project `fallback_teams` and `fallback_handles` in this file
+3. Per-project `fallback_handles` in this file
 4. `global_approvers` in this file
+
+Tiers 1-2 are the project's **maintainer rosters**; tiers 3-4 are the **listed
+approvers** in this file. By default they are additive. A project can set
+`maintainers_can_approve: false` to skip tiers 1-2, making its listed approvers
+plus `global_approvers` the exclusive set (see [Exclusive
+approvers](#exclusive-approvers)).
 
 **Global approvers** can `/approve` for any project and use `/cncf-approve` and
 `/lfx-url`.
@@ -316,19 +322,29 @@ authorization check order is:
 captured in the maintainers CSV:
 
 ```yaml
-kubernetes:
-  fallback_teams:
-    - kubernetes/sig-contribex
+open-telemetry:
   fallback_handles:
-    - some-delegate
+    - <delegate-handle>
 ```
 
-> **Note:** `fallback_teams` can only be verified for teams in the **cncf**
-> org. The workflow token cannot read team membership in other orgs (for
-> example `kubernetes` or `open-telemetry`), so a cross-org team authorizes no
-> one and fails silently. Use `fallback_handles` for cross-org delegates;
-> maintainers of those projects are still covered by the `.project` and
-> maintainers-CSV tiers above.
+#### Exclusive approvers
+
+By default the tiers are **additive**: a project's maintainers, its listed
+`fallback_handles`, and `global_approvers` can all `/approve`.
+Set `maintainers_can_approve: false` on a project to skip the maintainer rosters
+(tiers 1-2), so that **only** its listed approvers plus `global_approvers` can
+`/approve`. This also stops a maintainer-proposer from being auto-approved for
+filing their own proposal.
+
+```yaml
+kubernetes:
+  maintainers_can_approve: false   # only the approvers below (+ global_approvers)
+  fallback_handles:
+    - <sig-contribex-lead>         # the leads who /approve; see approvers.yml
+```
+
+Kubernetes uses this: mentorship approvals run through SIG Contributor
+Experience, not individual project maintainers.
 
 The key can be the project's **GitHub org** (recommended, e.g. `open-telemetry`),
 its **name** lowercased with spaces replaced by hyphens (e.g. `opentelemetry`), or
