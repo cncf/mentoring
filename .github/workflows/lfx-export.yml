@@ -217,8 +217,13 @@ jobs:
             core.exportVariable('EXPORT_PROGRAM_LABEL', programCountLabel(changedPrograms.length));
 
             // PR body lists only what this run adds or changes (renderRecordedIssues
-            // is shared with the /lfx-url PR for a consistent format).
-            core.exportVariable('PR_BODY_ISSUES', renderRecordedIssues(changedPrograms));
+            // is shared with the /lfx-url PR for a consistent format). changedPrograms
+            // can be empty while the run still opens a PR (a program was removed, or
+            // only regenerated files changed), so fall back to an explicit line
+            // rather than leave a blank "Added or updated" section.
+            const changedList = renderRecordedIssues(changedPrograms);
+            core.exportVariable('PR_BODY_ISSUES',
+              changedList || '_No programs added or updated in this run (removals or regenerated files only)._');
 
       - name: Check for changes
         id: check
