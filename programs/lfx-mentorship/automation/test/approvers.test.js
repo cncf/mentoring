@@ -8,7 +8,7 @@ const {
   getFallbackHandles,
   getFallbackTeams,
   maintainersCanApprove,
-  projectKeys,
+  buildProjectKeys,
 } = require('../lib/approvers');
 
 // Fixture mirrors the real approvers.yml shape: a global_approvers list plus
@@ -119,35 +119,35 @@ test('maintainersCanApprove: a commented flag line is ignored (stays default tru
   assert.equal(maintainersCanApprove('  # maintainers_can_approve: false\n  fallback_handles:\n    - a\n'), true);
 });
 
-// ── projectKeys: the approvers.yml/quotas.yml lookup keys for a project ───────
+// ── buildProjectKeys: the approvers.yml/quotas.yml lookup keys for a project ───────
 // A project section may be keyed by its name (lowercased, spaces to hyphens),
 // its GitHub org (lowercased), or its projects.yml slug; the lookup tries each.
 
-test('projectKeys: dedupes name-hyphenated, org, and slug (first-match order)', () => {
+test('buildProjectKeys: dedupes name-hyphenated, org, and slug (first-match order)', () => {
   assert.deepEqual(
-    projectKeys({ project: 'Open Telemetry', org: 'open-telemetry', slug: 'otel' }),
+    buildProjectKeys({ project: 'Open Telemetry', org: 'open-telemetry', slug: 'otel' }),
     ['open-telemetry', 'otel'],
   );
 });
 
-test('projectKeys: collapses to one when name, org, and slug coincide', () => {
+test('buildProjectKeys: collapses to one when name, org, and slug coincide', () => {
   assert.deepEqual(
-    projectKeys({ project: 'Kubernetes', org: 'kubernetes', slug: 'kubernetes' }),
+    buildProjectKeys({ project: 'Kubernetes', org: 'kubernetes', slug: 'kubernetes' }),
     ['kubernetes'],
   );
 });
 
-test('projectKeys: lowercases and hyphenates the project name', () => {
-  assert.deepEqual(projectKeys({ project: 'Cloud Custodian' }), ['cloud-custodian']);
+test('buildProjectKeys: lowercases and hyphenates the project name', () => {
+  assert.deepEqual(buildProjectKeys({ project: 'Cloud Custodian' }), ['cloud-custodian']);
 });
 
-test('projectKeys: drops falsy keys', () => {
-  assert.deepEqual(projectKeys({ project: '', org: 'foo', slug: undefined }), ['foo']);
+test('buildProjectKeys: drops falsy keys', () => {
+  assert.deepEqual(buildProjectKeys({ project: '', org: 'foo', slug: undefined }), ['foo']);
 });
 
-test('projectKeys: empty array when no identity is given', () => {
-  assert.deepEqual(projectKeys({}), []);
-  assert.deepEqual(projectKeys(), []);
+test('buildProjectKeys: empty array when no identity is given', () => {
+  assert.deepEqual(buildProjectKeys({}), []);
+  assert.deepEqual(buildProjectKeys(), []);
 });
 
 // ── Guard: the real approvers.yml resolves to the intended policy per project.
@@ -158,7 +158,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const REAL_APPROVERS = fs.readFileSync(path.join(__dirname, '..', 'approvers.yml'), 'utf8');
 const resolveMaintainersOk = (ids) =>
-  maintainersCanApprove(getProjectSection(REAL_APPROVERS, projectKeys(ids)));
+  maintainersCanApprove(getProjectSection(REAL_APPROVERS, buildProjectKeys(ids)));
 
 test('real approvers.yml: Kubernetes restricts approvals to its listed approvers', () => {
   assert.equal(

@@ -49,7 +49,7 @@ jobs:
             const { resolveProjectMaintainer } = _lib('authorize.js');
             const { computeConfirm } = _lib('confirm.js');
             const { lookupProject } = _lib('projects.js');
-            const { getGlobalApprovers, getProjectSection, getFallbackHandles, getFallbackTeams, maintainersCanApprove, projectKeys } = _lib('approvers.js');
+            const { getGlobalApprovers, getProjectSection, getFallbackHandles, getFallbackTeams, maintainersCanApprove, buildProjectKeys } = _lib('approvers.js');
             const { cncfApproveDecision } = _lib('cncf-approve.js');
             const { lfxUrlDecision, recordedLfxUrlComment, readExports, locateExportedProgram, exportTermLabel, termMismatchWarning, renderRecordedIssues, recordedUrlNextSteps, changedRecordedPrograms, programCountLabel, populateRecordedUrls, upsertLfxUrlBlock } = _lib('lfx-url.js');
             const { termPaths } = _lib('term-paths.js');
@@ -182,7 +182,7 @@ jobs:
               try {
                 approversRaw = fs.readFileSync('programs/lfx-mentorship/automation/approvers.yml', 'utf8');
                 if (project) {
-                  projectSection = getProjectSection(approversRaw, projectKeys({ project, org: ghOrg, slug: projectSlug }));
+                  projectSection = getProjectSection(approversRaw, buildProjectKeys({ project, org: ghOrg, slug: projectSlug }));
                 }
               } catch (e) {
                 console.log(`approvers.yml read failed: ${e.message}`);

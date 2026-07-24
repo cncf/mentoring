@@ -65,7 +65,7 @@ function maintainersCanApprove(section) {
 // its name (lowercased, spaces to hyphens), its GitHub org (lowercased), and
 // its projects.yml slug. Falsy keys dropped, duplicates removed. getProjectSection
 // tries each in turn, so a project section may be keyed by any of the three.
-function projectKeys({ project, org, slug } = {}) {
+function buildProjectKeys({ project, org, slug } = {}) {
   return [
     String(project == null ? '' : project).toLowerCase().replace(/\s+/g, '-'),
     String(org == null ? '' : org).toLowerCase(),
@@ -79,5 +79,5 @@ module.exports = {
   getFallbackHandles,
   getFallbackTeams,
   maintainersCanApprove,
-  projectKeys,
+  buildProjectKeys,
 };
