@@ -62,14 +62,14 @@ function maintainersCanApprove(section) {
 }
 
 // The approvers.yml/quotas.yml lookup keys for a project, in priority order:
-// its name (lowercased, spaces to hyphens), its GitHub org (lowercased), and
-// its projects.yml slug. Falsy keys dropped, duplicates removed. getProjectSection
-// tries each in turn, so a project section may be keyed by any of the three.
+// its name (spaces to hyphens), its GitHub org, and its projects.yml slug, all
+// lowercased. Falsy keys dropped, duplicates removed. getProjectSection tries
+// each in turn, so a project section may be keyed by any of the three.
 function buildProjectKeys({ project, org, slug } = {}) {
   return [
     String(project == null ? '' : project).toLowerCase().replace(/\s+/g, '-'),
     String(org == null ? '' : org).toLowerCase(),
-    slug,
+    String(slug == null ? '' : slug).toLowerCase(),
   ].filter((v, i, a) => v && a.indexOf(v) === i);
 }
 

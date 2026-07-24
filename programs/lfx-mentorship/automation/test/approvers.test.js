@@ -141,6 +141,10 @@ test('buildProjectKeys: lowercases and hyphenates the project name', () => {
   assert.deepEqual(buildProjectKeys({ project: 'Cloud Custodian' }), ['cloud-custodian']);
 });
 
+test('buildProjectKeys: lowercases the slug too (uniform with name and org)', () => {
+  assert.deepEqual(buildProjectKeys({ slug: 'OpenTelemetry' }), ['opentelemetry']);
+});
+
 test('buildProjectKeys: drops falsy keys', () => {
   assert.deepEqual(buildProjectKeys({ project: '', org: 'foo', slug: undefined }), ['foo']);
 });
