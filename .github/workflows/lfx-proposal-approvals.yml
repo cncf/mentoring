@@ -256,15 +256,25 @@ jobs:
               }
 
               if (!authorized) {
-                const orgNote = ghOrg
-                  ? `- A \`project-maintainers\` team member in [\`${ghOrg}/.project/maintainers.yaml\`](https://github.com/${ghOrg}/.project/blob/main/maintainers.yaml)\n`
-                  : '';
+                let paths;
+                if (maintainersOk) {
+                  const orgNote = ghOrg
+                    ? `- A \`project-maintainers\` team member in [\`${ghOrg}/.project/maintainers.yaml\`](https://github.com/${ghOrg}/.project/blob/main/maintainers.yaml)\n`
+                    : '';
+                  paths =
+                    `Approvers must be:\n` +
+                    orgNote +
+                    `- Listed in [project-maintainers.csv](https://github.com/cncf/foundation/blob/main/project-maintainers.csv)\n` +
+                    `- A fallback approver in \`approvers.yml\``;
+                } else {
+                  paths =
+                    `Approvals for **${project}** are limited to its listed approvers in ` +
+                    `\`approvers.yml\` (plus CNCF global approvers); project maintainers ` +
+                    `can't \`/approve\` here.`;
+                }
                 await reply('❌',
                   `@${commenter} is not authorized to \`/approve\` proposals for **${project}**.\n\n` +
-                  `Approvers must be:\n` +
-                  orgNote +
-                  `- Listed in [project-maintainers.csv](https://github.com/cncf/foundation/blob/main/project-maintainers.csv)\n` +
-                  `- A fallback approver in \`approvers.yml\`\n\n` +
+                  paths + `\n\n` +
                   `If this is an error, contact a CNCF program admin.`);
                 return;
               }
