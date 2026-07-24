@@ -39,7 +39,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/podman-container-tools/podman/issues/29265",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/050e89d9-aec2-47ad-9113-3ba41a639d55",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -86,7 +86,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/kubernetes/kubernetes/issues?q=is%3Aissue%20state%3Aopen%20label%3Aarea%2Fapi-validation",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/841f2363-4c93-4d3e-931b-030499af82df",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,

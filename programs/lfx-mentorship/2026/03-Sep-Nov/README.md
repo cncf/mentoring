@@ -218,7 +218,7 @@ CNCF - Kubernetes: Expand Declarative Validation (DV) in Kubernetes (2026 Term 3
   - Lalit chauhan (@lalitc375, laitchauhan@google.com)
   - Yongrui Lin (@yongruilin, yongrlin@google.com)
 - Upstream Issue: https://github.com/kubernetes/kubernetes/issues?q=is%3Aissue%20state%3Aopen%20label%3Aarea%2Fapi-validation
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/841f2363-4c93-4d3e-931b-030499af82df
 
 ### OpenTelemetry
 
@@ -343,7 +343,7 @@ CNCF - Podman Container Tools: Agentic CI Flake Categorization and Analysis (202
   - Tim Zhou (@timcoding1988, tizhou@redhat.com)
   - Mohan Boddu (@mohanboddu, mboddu@redhat.com)
 - Upstream Issue: https://github.com/podman-container-tools/podman/issues/29265
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/050e89d9-aec2-47ad-9113-3ba41a639d55
 
 ### WasmEdge Runtime
 
