@@ -39,3 +39,55 @@ test('ignoreGenerated: strips the _generated line so content-equal exports match
   assert.equal(ignoreGenerated(mk('A', P1)), ignoreGenerated(mk('B', P1)));
   assert.notEqual(ignoreGenerated(mk('A', P1)), ignoreGenerated(mk('A', P2)));
 });
+
+// ── changedExportPrograms: new-or-changed programs vs the main baseline ──────
+// The export regenerates the whole term every run, but the PR body/title and
+// the "included in export" notification should reference only what THIS run
+// adds or changes vs the export already on main, mirroring the /lfx-url
+// batch-list fix (#1949). Compares each program's full serialization keyed by
+// issue_number.
+const { changedExportPrograms } = require('../lib/export-json');
+
+const prog = (n, over = {}) => ({ issue_number: n, program_name_full: `P${n}`, description: `d${n}`, lfx_url: '', ...over });
+const data = (...programs) => ({ _generated: 'NOW', _term: 'T', _count: programs.length, programs });
+
+test('changedExportPrograms: null/malformed baseline treats every program as changed', () => {
+  const after = data(prog(1), prog(2));
+  assert.deepEqual(changedExportPrograms(null, after).map(p => p.issue_number), [1, 2]);
+  assert.deepEqual(changedExportPrograms({}, after).map(p => p.issue_number), [1, 2]);
+});
+
+test('changedExportPrograms: an unchanged re-export yields no changed programs', () => {
+  const before = data(prog(1), prog(2));
+  const after = data(prog(1), prog(2));
+  assert.deepEqual(changedExportPrograms(before, after), []);
+});
+
+test('changedExportPrograms: only newly-added issues are returned', () => {
+  const before = data(prog(1), prog(2));
+  const after = data(prog(1), prog(2), prog(3));
+  assert.deepEqual(changedExportPrograms(before, after).map(p => p.issue_number), [3]);
+});
+
+test('changedExportPrograms: a content-changed program is returned', () => {
+  const before = data(prog(1), prog(2));
+  const after = data(prog(1), prog(2, { description: 'edited' }));
+  assert.deepEqual(changedExportPrograms(before, after).map(p => p.issue_number), [2]);
+});
+
+test('changedExportPrograms: returns new + changed, not unchanged, order preserved', () => {
+  const before = data(prog(1), prog(2), prog(3));
+  const after = data(prog(1), prog(2, { lfx_url: 'x' }), prog(3), prog(4));
+  assert.deepEqual(changedExportPrograms(before, after).map(p => p.issue_number), [2, 4]);
+});
+
+test('changedExportPrograms: comparison is independent of baseline ordering', () => {
+  const before = data(prog(2), prog(1));
+  const after = data(prog(1), prog(2), prog(3));
+  assert.deepEqual(changedExportPrograms(before, after).map(p => p.issue_number), [3]);
+});
+
+test('changedExportPrograms: guards a missing/!array after programs list', () => {
+  assert.deepEqual(changedExportPrograms(data(prog(1)), null), []);
+  assert.deepEqual(changedExportPrograms(data(prog(1)), {}), []);
+});
