@@ -54,10 +54,12 @@ function getFallbackTeams(section) {
 // (plus global_approvers) the EXCLUSIVE approver set, so its individual
 // maintainer rosters are skipped (e.g. Kubernetes routes approvals through SIG
 // ContribEx, not per-maintainer). Only an explicit `false` disables it; a
-// missing, commented, or malformed value keeps the default true.
+// missing, commented, or malformed value keeps the default true. The value must
+// be a bare boolean token (optionally followed by whitespace or a # comment to
+// end of line); trailing junk like `false-positive` is malformed, not false.
 function maintainersCanApprove(section) {
   const m = String(section == null ? '' : section)
-    .match(/^\s*maintainers_can_approve:\s*(true|false)\b/im);
+    .match(/^[ \t]*maintainers_can_approve:[ \t]*(true|false)[ \t]*(#.*)?$/im);
   return m ? m[1].toLowerCase() !== 'false' : true;
 }
 

@@ -119,6 +119,21 @@ test('maintainersCanApprove: a commented flag line is ignored (stays default tru
   assert.equal(maintainersCanApprove('  # maintainers_can_approve: false\n  fallback_handles:\n    - a\n'), true);
 });
 
+test('maintainersCanApprove: an inline comment after the value is allowed', () => {
+  assert.equal(maintainersCanApprove('  maintainers_can_approve: false   # exclusive\n'), false);
+  assert.equal(maintainersCanApprove('  maintainers_can_approve: true # additive\n'), true);
+});
+
+test('maintainersCanApprove: a malformed value keeps the default true (not a bare boolean)', () => {
+  // The value must be an exact boolean token; trailing junk means malformed,
+  // which must NOT be read as false (a \b-based match wrongly treated
+  // "false-positive" as "false").
+  assert.equal(maintainersCanApprove('  maintainers_can_approve: false-positive\n'), true);
+  assert.equal(maintainersCanApprove('  maintainers_can_approve: falsey\n'), true);
+  assert.equal(maintainersCanApprove('  maintainers_can_approve: false.\n'), true);
+  assert.equal(maintainersCanApprove('  maintainers_can_approve: no\n'), true);
+});
+
 // ── buildProjectKeys: the approvers.yml/quotas.yml lookup keys for a project ───────
 // A project section may be keyed by its name (lowercased, spaces to hyphens),
 // its GitHub org (lowercased), or its projects.yml slug; the lookup tries each.
