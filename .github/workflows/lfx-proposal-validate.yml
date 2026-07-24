@@ -364,18 +364,23 @@ jobs:
                 // Non-blocking warning when another open proposal for the same
                 // project + term lists the same Upstream Issue URL: likely the
                 // same effort proposed twice, which an admin should reconcile.
-                const others = sameProjectTerm.map(iss => ({
-                  number: iss.number,
-                  url: parseIssueForm(iss.body || '')['Upstream Issue URL'] || '',
-                }));
-                const dupUpstream = findDuplicateUpstreamIssues(get('Upstream Issue URL'), others);
-                if (dupUpstream.length) {
-                  warnings.push(
-                    `**Duplicate upstream issue:** the same Upstream Issue URL is listed on ` +
-                    `other open ${project} proposal(s) for ${term}: ${dupUpstream.map(n => `#${n}`).join(', ')}. ` +
-                    `If that's unintentional, please update it; if the proposals are related, the CNCF ` +
-                    `Mentorship Admins can help sort out next steps.`
-                  );
+                // Only when this proposal's URL is itself valid (upstreamErr
+                // null): a malformed/empty URL has a hard error to fix first, and
+                // gating avoids a confusing dup warning stacked on that error.
+                if (upstreamErr === null) {
+                  const others = sameProjectTerm.map(iss => ({
+                    number: iss.number,
+                    url: parseIssueForm(iss.body || '')['Upstream Issue URL'] || '',
+                  }));
+                  const dupUpstream = findDuplicateUpstreamIssues(get('Upstream Issue URL'), others);
+                  if (dupUpstream.length) {
+                    warnings.push(
+                      `**Duplicate upstream issue:** the same Upstream Issue URL is listed on ` +
+                      `other open ${project} proposal(s) for ${term}: ${dupUpstream.map(n => `#${n}`).join(', ')}. ` +
+                      `If that's unintentional, please update it; if the proposals are related, the CNCF ` +
+                      `Mentorship Admins can help sort out next steps.`
+                    );
+                  }
                 }
               }
             }
