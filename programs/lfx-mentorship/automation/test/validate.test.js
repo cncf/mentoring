@@ -267,6 +267,27 @@ test('normalizeUpstreamUrl: protocol, www, fragment, and trailing slash are igno
   assert.equal(normalizeUpstreamUrl('  https://github.com/cncf/mentoring/issues/5  '), canon);
 });
 
+test('normalizeUpstreamUrl: the query string is PRESERVED (filtered issues list, cncf/mentoring#1960)', () => {
+  // A valid upstream link can be a filtered issues list whose identity is the
+  // query, not the path. Dropping it would collapse distinct filters to the
+  // same /issues path and raise false duplicates.
+  const filtered = 'https://github.com/kubernetes/kubernetes/issues?q=is%3Aissue+label%3Aarea%2Fapi';
+  assert.equal(
+    normalizeUpstreamUrl(filtered),
+    'github.com/kubernetes/kubernetes/issues?q=is%3aissue+label%3aarea%2fapi',
+  );
+  // Same list, different filter → distinct (must NOT be flagged as duplicates).
+  assert.notEqual(
+    normalizeUpstreamUrl('https://github.com/kubernetes/kubernetes/issues?q=label%3Aarea%2Fapi'),
+    normalizeUpstreamUrl('https://github.com/kubernetes/kubernetes/issues?q=label%3Aarea%2Fnet'),
+  );
+  // Trailing slash on the path before the query does not change identity.
+  assert.equal(
+    normalizeUpstreamUrl('https://github.com/kubernetes/kubernetes/issues/?q=x'),
+    normalizeUpstreamUrl('https://github.com/kubernetes/kubernetes/issues?q=x'),
+  );
+});
+
 test('normalizeUpstreamUrl: host and path are lowercased (same issue, different casing)', () => {
   assert.equal(
     normalizeUpstreamUrl('https://GitHub.com/CNCF/Mentoring/issues/5'),
@@ -295,6 +316,18 @@ test('findDuplicateUpstreamIssues: flags others sharing the URL despite formatti
   assert.deepEqual(
     findDuplicateUpstreamIssues('https://github.com/cncf/mentoring/issues/5', others),
     [12, 56],
+  );
+});
+
+test('findDuplicateUpstreamIssues: filtered issues lists match by query, not just path', () => {
+  const base = 'https://github.com/kubernetes/kubernetes/issues';
+  const others = [
+    { number: 12, url: `${base}?q=label%3Aarea%2Fapi` },  // same filter → dup
+    { number: 34, url: `${base}?q=label%3Aarea%2Fnet` },  // different filter → not
+  ];
+  assert.deepEqual(
+    findDuplicateUpstreamIssues(`${base}?q=label%3Aarea%2Fapi`, others),
+    [12],
   );
 });
 
