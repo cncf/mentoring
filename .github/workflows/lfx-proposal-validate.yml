@@ -77,6 +77,7 @@ jobs:
             const { lookupProject } = _lib('projects.js');
             const { isProposalTitle, looksLikeProposalForm } = _lib('labels.js');
             const { resolveProjectMaintainer } = _lib('authorize.js');
+            const { getProjectSection, maintainersCanApprove, projectKeys } = _lib('approvers.js');
             const { computeConfirm } = _lib('confirm.js');
             const { gateLabelChanges } = _lib('gates.js');
             const { findRecordedApprovers } = _lib('approvals.js');
@@ -408,13 +409,29 @@ jobs:
                 try {
                   const projYaml = fs.readFileSync('programs/lfx-mentorship/automation/projects.yml', 'utf8');
                   const info = lookupProject(projYaml, project) || {};
-                  const r = await resolveProjectMaintainer({
-                    handle: proposer, project, org: info.org, hasDotProject: info.hasDotProject,
-                    fetchFn: fetch, log: (m) => console.log(m),
-                  });
-                  if (r.authorized) {
-                    maintainerApproved = true;
-                    maintainerAutoApproved = true;
+                  // Skip proposer-implied approval when the project restricts
+                  // approvals to its listed approvers (maintainers_can_approve:
+                  // false): a maintainer-proposer must still receive an explicit
+                  // /approve from a listed approver (e.g. Kubernetes routes
+                  // approvals through SIG ContribEx). Default true; a read
+                  // failure keeps the additive behavior.
+                  let maintainersOk = true;
+                  try {
+                    const approversRaw = fs.readFileSync('programs/lfx-mentorship/automation/approvers.yml', 'utf8');
+                    const keys = projectKeys({ project, org: info.org, slug: info.slug });
+                    maintainersOk = maintainersCanApprove(getProjectSection(approversRaw, keys));
+                  } catch (e) {
+                    console.log(`approvers.yml read failed: ${e.message}`);
+                  }
+                  if (maintainersOk) {
+                    const r = await resolveProjectMaintainer({
+                      handle: proposer, project, org: info.org, hasDotProject: info.hasDotProject,
+                      fetchFn: fetch, log: (m) => console.log(m),
+                    });
+                    if (r.authorized) {
+                      maintainerApproved = true;
+                      maintainerAutoApproved = true;
+                    }
                   }
                 } catch (e) {
                   console.log(`proposer maintainer check failed: ${e.message}`);
