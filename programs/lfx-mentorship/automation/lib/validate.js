@@ -80,12 +80,13 @@ function validateUpstreamUrl(raw) {
 
 // Canonical form of an upstream-issue URL for cross-proposal comparison. Drops
 // the protocol, a leading "www.", the #fragment, and any trailing slash on the
-// path, then lowercases the result so the same target in different casing
-// compares equal. The ?query string is PRESERVED: an upstream "issue" is often a
-// filtered issues list whose identity lives entirely in the query (e.g. a
-// kubernetes/kubernetes/issues?q=...label:area/foo link, cncf/mentoring#1960),
-// so dropping it would collapse distinct upstreams to the same /issues path and
-// raise false duplicates. Blank in, blank out.
+// path, then lowercases the host and path so the same target in different
+// casing compares equal. The ?query string is PRESERVED verbatim (case and all):
+// an upstream "issue" is often a filtered issues list whose identity lives
+// entirely in the query (e.g. a kubernetes/kubernetes/issues?q=...label:area/foo
+// link, cncf/mentoring#1960), so dropping it would collapse distinct upstreams
+// to the same /issues path, and case-folding it could merge case-sensitive query
+// values; both raise false duplicates. Blank in, blank out.
 function normalizeUpstreamUrl(url) {
   const s = String(url == null ? '' : url).trim();
   if (!s) return '';
@@ -93,8 +94,8 @@ function normalizeUpstreamUrl(url) {
   rest = rest.split('#')[0];                       // drop fragment (page anchor)
   const qIdx = rest.indexOf('?');
   const path = (qIdx === -1 ? rest : rest.slice(0, qIdx)).replace(/\/+$/, '');
-  const query = qIdx === -1 ? '' : rest.slice(qIdx); // preserved (leading '?')
-  return (path + query).toLowerCase();
+  const query = qIdx === -1 ? '' : rest.slice(qIdx); // preserved verbatim
+  return path.toLowerCase() + query;
 }
 
 // Given the current proposal's upstream URL and other proposals

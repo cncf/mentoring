@@ -267,19 +267,24 @@ test('normalizeUpstreamUrl: protocol, www, fragment, and trailing slash are igno
   assert.equal(normalizeUpstreamUrl('  https://github.com/cncf/mentoring/issues/5  '), canon);
 });
 
-test('normalizeUpstreamUrl: the query string is PRESERVED (filtered issues list, cncf/mentoring#1960)', () => {
+test('normalizeUpstreamUrl: the query string is PRESERVED verbatim (filtered issues list, cncf/mentoring#1960)', () => {
   // A valid upstream link can be a filtered issues list whose identity is the
   // query, not the path. Dropping it would collapse distinct filters to the
-  // same /issues path and raise false duplicates.
-  const filtered = 'https://github.com/kubernetes/kubernetes/issues?q=is%3Aissue+label%3Aarea%2Fapi';
+  // same /issues path and raise false duplicates. Host+path are lowercased, but
+  // the query is preserved as-is (query values can be case-sensitive).
   assert.equal(
-    normalizeUpstreamUrl(filtered),
-    'github.com/kubernetes/kubernetes/issues?q=is%3aissue+label%3aarea%2fapi',
+    normalizeUpstreamUrl('https://github.com/Kubernetes/Kubernetes/issues?q=is%3Aissue+label%3AArea%2FAPI'),
+    'github.com/kubernetes/kubernetes/issues?q=is%3Aissue+label%3AArea%2FAPI',
   );
   // Same list, different filter → distinct (must NOT be flagged as duplicates).
   assert.notEqual(
     normalizeUpstreamUrl('https://github.com/kubernetes/kubernetes/issues?q=label%3Aarea%2Fapi'),
     normalizeUpstreamUrl('https://github.com/kubernetes/kubernetes/issues?q=label%3Aarea%2Fnet'),
+  );
+  // Queries differing ONLY by case stay distinct (no false-positive merge).
+  assert.notEqual(
+    normalizeUpstreamUrl('https://example.com/x?token=AbC'),
+    normalizeUpstreamUrl('https://example.com/x?token=abc'),
   );
   // Trailing slash on the path before the query does not change identity.
   assert.equal(
