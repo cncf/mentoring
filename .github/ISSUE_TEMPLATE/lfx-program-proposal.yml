@@ -395,7 +395,11 @@ body:
       description: >
         These map directly to LFX's standard prerequisite toggles.
         Check each item applicants must complete. All checked items
-        are **required** — applicants cannot submit without them.
+        are **required** — applicants cannot submit without them. School
+        Enrollment Verification means proof that the applicant is currently
+        enrolled in a school or university. Participation Permission means
+        approval from the applicant's school or employer to participate in
+        the mentorship.
       options:
         - label: "Resume"
           required: false
