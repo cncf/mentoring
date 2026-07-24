@@ -372,7 +372,7 @@ jobs:
                     number: iss.number,
                     url: parseIssueForm(iss.body || '')['Upstream Issue URL'] || '',
                   }));
-                  const dupUpstream = findDuplicateUpstreamIssues(get('Upstream Issue URL'), others);
+                  const dupUpstream = findDuplicateUpstreamIssues(upstreamUrl, others);
                   if (dupUpstream.length) {
                     warnings.push(
                       `**Duplicate upstream issue:** the same Upstream Issue URL is listed on ` +
