@@ -46,6 +46,7 @@ jobs:
             const path = require('path');
             const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
             const { parseIssueForm, parseMentors } = _lib('parse.js');
+            const { parseCommands } = _lib('commands.js');
             const { resolveProjectMaintainer } = _lib('authorize.js');
             const { computeConfirm } = _lib('confirm.js');
             const { lookupProject } = _lib('projects.js');
@@ -63,18 +64,13 @@ jobs:
             const issueBody = context.payload.issue.body || '';
             const currentLabels = (context.payload.issue.labels || []).map(l => l.name);
 
-            // ── Detect slash command ──
-            // Scan every line; the command may not be the first line (e.g.
-            // someone writes context before their /approve). /lfx-url takes a
-            // URL argument (the rest of the line); the others take none.
-            let command = null;
-            let commandArg = '';
-            for (const line of commentBody.split('\n')) {
-              const m = line.trim().match(/^\/(lfx-url|cncf-approve|approve|confirm)\b\s*(.*)$/);
-              if (m) { command = m[1]; commandArg = (m[2] || '').trim(); break; }
-            }
-            if (!command) return;  // no slash command found
-            console.log(`/${command} from @${commenter}`);
+            // ── Detect slash command(s) ──
+            // A comment may carry more than one command (e.g. /confirm and
+            // /approve together). parseCommands returns them in document order,
+            // deduped by name; each command may lead any line (prose before it
+            // is fine). /lfx-url takes a URL argument; the others take none.
+            const commands = parseCommands(commentBody);
+            if (commands.length === 0) return;  // no slash command found
 
             // ── Reaction: eyes while processing ──
             await github.rest.reactions.createForIssueComment({
@@ -127,6 +123,13 @@ jobs:
                 });
               }
             }
+
+            // Dispatch one slash command. Written as a function so the workflow
+            // can run each command a comment carries in turn; every early
+            // `return` below exits only the current command's handling. The body
+            // keeps its original indentation to keep this diff reviewable.
+            async function handleCommand(command, commandArg) {
+              console.log(`/${command} from @${commenter}`);
 
             // ══════════════════════════════════════════════════
             //  /approve: Maintainer / Contribex Approval
@@ -528,6 +531,10 @@ jobs:
               }
               return;
             }
+            } // end handleCommand
+
+            // Process the command. (A later change loops over every command.)
+            await handleCommand(commands[0].command, commands[0].arg);
 
       - name: Open or update the LFX URL pull request
         if: env.LFX_URL_FILES_CHANGED == 'true'
