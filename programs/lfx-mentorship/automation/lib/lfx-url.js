@@ -312,11 +312,40 @@ function stripLfxUrlBlock(body) {
     .replace(/\s*<!-- lfx-url:start -->[\s\S]*?<!-- lfx-url:end -->/, '');
 }
 
+// The adaptive program-change count in the export PR title. Names only the
+// buckets present: "5 new, 1 updated" when both, "5 new" or "1 updated" when
+// only one, and "no program changes" when neither (a removal-only or
+// regenerated-files-only re-export still opens a PR). "new"/"updated" are
+// adjectives, so no pluralization is needed. (cncf/mentoring#1992)
+function exportChangeLabel(addedCount, updatedCount) {
+  const a = Number.isInteger(addedCount) && addedCount > 0 ? addedCount : 0;
+  const u = Number.isInteger(updatedCount) && updatedCount > 0 ? updatedCount : 0;
+  const parts = [];
+  if (a) parts.push(`${a} new`);
+  if (u) parts.push(`${u} updated`);
+  return parts.length ? parts.join(', ') : 'no program changes';
+}
+
+// The export PR body's change section(s): a "Newly added" list and/or an
+// "Updated" list, each shown only when non-empty, so a re-export that only
+// updates existing entries shows just "Updated" (and vice versa). Falls back to
+// an explicit line when neither is present, so the section is never blank. Lines
+// are formatted by renderRecordedIssues. (cncf/mentoring#1992)
+function renderExportChangeBody(added, updated) {
+  const sections = [];
+  if (added && added.length) sections.push(`**Newly added:**\n${renderRecordedIssues(added)}`);
+  if (updated && updated.length) sections.push(`**Updated:**\n${renderRecordedIssues(updated)}`);
+  return sections.length
+    ? sections.join('\n\n')
+    : '_No programs added or updated in this run (removals or regenerated files only)._';
+}
+
 module.exports = {
   recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision,
   findExportedProgram, exportTermLabel, readExports, locateExportedProgram,
   termMismatchWarning, recordedPrograms, renderRecordedIssues, recordedUrlNextSteps,
   changedRecordedPrograms, programCountLabel,
   populateRecordedUrls, upsertLfxUrlBlock, stripLfxUrlBlock,
+  exportChangeLabel, renderExportChangeBody,
   LFX_PROGRAM_URL_RE,
 };

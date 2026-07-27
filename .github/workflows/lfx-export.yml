@@ -40,8 +40,8 @@ jobs:
             const { standardPrerequisites } = _lib('prerequisites.js');
             const { buildReadme, renderAcceptedProgramsBody } = _lib('readme.js');
             const { renderTrackingCsv } = _lib('csv.js');
-            const { serializeExport, changedExportPrograms } = _lib('export-json.js');
-            const { parseRecordedLfxUrl, renderRecordedIssues, programCountLabel } = _lib('lfx-url.js');
+            const { serializeExport, partitionExportChanges } = _lib('export-json.js');
+            const { parseRecordedLfxUrl, exportChangeLabel, renderExportChangeBody } = _lib('lfx-url.js');
             const { termPaths } = _lib('term-paths.js');
             const { lookupProject } = _lib('projects.js');
             const { lfxTitle } = _lib('title.js');
@@ -178,7 +178,7 @@ jobs:
             if (existingExport != null) {
               try { baselineExport = JSON.parse(existingExport); } catch { baselineExport = null; }
             }
-            const changedPrograms = changedExportPrograms(baselineExport, exportData);
+            const { added, updated } = partitionExportChanges(baselineExport, exportData);
 
             // ── Generate README.md ──
             // The body (Table of Contents + Accepted Projects) is rendered by
@@ -209,21 +209,20 @@ jobs:
             core.exportVariable('EXPORT_TERM_DIR', termDir);
             core.exportVariable('EXPORT_YEAR', year);
             // The Exported label and board sync act on the full exported set
-            // (state, idempotent/guarded); the PR summary and the notification
-            // comment act only on the changed set, so a re-export never re-lists
-            // or re-notifies already-exported programs.
+            // (state, idempotent/guarded). The PR summary splits the changed set
+            // into newly-added vs updated (#1992); the notification comment goes
+            // ONLY to newly-added programs, so a re-export never re-lists the full
+            // term nor re-pings a program whose data merely refreshed (e.g. a
+            // project maturity change).
             core.exportVariable('EXPORTED_ISSUES', programs.map(p => p.issue_number).join(','));
-            core.exportVariable('CHANGED_ISSUES', changedPrograms.map(p => p.issue_number).join(','));
-            core.exportVariable('EXPORT_PROGRAM_LABEL', programCountLabel(changedPrograms.length));
+            core.exportVariable('NOTIFY_ISSUES', added.map(p => p.issue_number).join(','));
+            core.exportVariable('EXPORT_PROGRAM_LABEL', exportChangeLabel(added.length, updated.length));
 
-            // PR body lists only what this run adds or changes (renderRecordedIssues
-            // is shared with the /lfx-url PR for a consistent format). changedPrograms
-            // can be empty while the run still opens a PR (a program was removed, or
-            // only regenerated files changed), so fall back to an explicit line
-            // rather than leave a blank "Added or updated" section.
-            const changedList = renderRecordedIssues(changedPrograms);
-            core.exportVariable('PR_BODY_ISSUES',
-              changedList || '_No programs added or updated in this run (removals or regenerated files only)._');
+            // PR body: a "Newly added" section and/or an "Updated" section, each
+            // shown only when non-empty, with a fallback line when neither is
+            // present (removals or regenerated files only). Rendering + the
+            // empty-section handling live in the tested lib helper.
+            core.exportVariable('PR_BODY_ISSUES', renderExportChangeBody(added, updated));
 
       - name: Check for changes
         id: check
@@ -254,7 +253,6 @@ jobs:
             Auto-generated export of the CNCF-approved LFX Mentorship programs
             for **${{ env.EXPORT_TERM }}**.
 
-            **Added or updated in this PR:**
             ${{ env.PR_BODY_ISSUES }}
 
             **Export files:**
@@ -274,7 +272,7 @@ jobs:
           script: |
             const { owner, repo } = context.repo;
             const issues = process.env.EXPORTED_ISSUES.split(',').filter(Boolean);
-            const changed = new Set((process.env.CHANGED_ISSUES || '').split(',').filter(Boolean).map(Number));
+            const notify = new Set((process.env.NOTIFY_ISSUES || '').split(',').filter(Boolean).map(Number));
             const term = process.env.EXPORT_TERM;
             const year = process.env.EXPORT_YEAR;
             const termDir = process.env.EXPORT_TERM_DIR;
@@ -288,11 +286,12 @@ jobs:
                 labels: ['Exported'],
               });
 
-              // Only comment on issues this run actually added or changed, so a
-              // re-export doesn't re-post "included in export" on proposals that
-              // were already exported in a prior run.
-              if (!changed.has(issue_number)) {
-                console.log(`#${issue_number} unchanged in this export; no comment`);
+              // Comment only on programs NEWLY added to the export this run, so a
+              // re-export never re-posts "included in export" on an already-exported
+              // proposal -- including one that only appears in this run because its
+              // data was updated (e.g. a project maturity refresh).
+              if (!notify.has(issue_number)) {
+                console.log(`#${issue_number} not newly added in this export; no comment`);
                 continue;
               }
 
