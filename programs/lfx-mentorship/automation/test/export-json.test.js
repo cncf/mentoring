@@ -46,7 +46,7 @@ test('ignoreGenerated: strips the _generated line so content-equal exports match
 // adds or changes vs the export already on main, mirroring the /lfx-url
 // batch-list fix (#1949). Compares each program's full serialization keyed by
 // issue_number.
-const { changedExportPrograms } = require('../lib/export-json');
+const { changedExportPrograms, partitionExportChanges } = require('../lib/export-json');
 
 const prog = (n, over = {}) => ({ issue_number: n, program_name_full: `P${n}`, description: `d${n}`, lfx_url: '', ...over });
 const data = (...programs) => ({ _generated: 'NOW', _term: 'T', _count: programs.length, programs });
@@ -90,4 +90,73 @@ test('changedExportPrograms: comparison is independent of baseline ordering', ()
 test('changedExportPrograms: guards a missing/!array after programs list', () => {
   assert.deepEqual(changedExportPrograms(data(prog(1)), null), []);
   assert.deepEqual(changedExportPrograms(data(prog(1)), {}), []);
+});
+
+// ── partitionExportChanges: split changed programs into added vs updated ─────
+
+test('partitionExportChanges: a brand-new program is added, not updated', () => {
+  const before = data(prog(1));
+  const after = data(prog(1), prog(2));
+  const changes = partitionExportChanges(before, after);
+  assert.deepEqual(changes.added.map(p => p.issue_number), [2]);
+  assert.deepEqual(changes.updated, []);
+});
+
+test('partitionExportChanges: an existing program with changed maturity is updated, not added', () => {
+  const before = data(prog(1928, { cncf_project_maturity: 'incubating' }));
+  const after = data(prog(1928, { cncf_project_maturity: 'graduated' }));
+  const changes = partitionExportChanges(before, after);
+  assert.deepEqual(changes.added, []);
+  assert.deepEqual(changes.updated.map(p => p.issue_number), [1928]);
+});
+
+test('partitionExportChanges: an existing byte-identical program appears in neither list', () => {
+  const before = data(prog(1));
+  const after = data(prog(1));
+  assert.deepEqual(partitionExportChanges(before, after), { added: [], updated: [] });
+});
+
+test('partitionExportChanges: returns added and updated programs with order preserved per list', () => {
+  const before = data(prog(1), prog(2), prog(3));
+  const after = data(prog(1), prog(2, { description: 'edited' }), prog(3), prog(4), prog(5));
+  const changes = partitionExportChanges(before, after);
+  assert.deepEqual(changes.added.map(p => p.issue_number), [4, 5]);
+  assert.deepEqual(changes.updated.map(p => p.issue_number), [2]);
+});
+
+test('partitionExportChanges: null/empty/missing baseline treats every after-program as added', () => {
+  const after = data(prog(1), prog(2));
+  assert.deepEqual(partitionExportChanges(null, after), { added: after.programs, updated: [] });
+  assert.deepEqual(partitionExportChanges({}, after), { added: after.programs, updated: [] });
+  assert.deepEqual(partitionExportChanges({ programs: null }, after), { added: after.programs, updated: [] });
+});
+
+test('partitionExportChanges: empty/undefined afterData returns empty lists', () => {
+  const before = data(prog(1));
+  assert.deepEqual(partitionExportChanges(before, undefined), { added: [], updated: [] });
+  assert.deepEqual(partitionExportChanges(before, { programs: [] }), { added: [], updated: [] });
+});
+
+test('partitionExportChanges: ignores entries missing or with non-integer issue_number', () => {
+  const before = data(prog(1));
+  const after = data(
+    prog(1),
+    { program_name_full: 'missing issue number' },
+    { issue_number: '2', program_name_full: 'string issue number' },
+    { issue_number: 3.5, program_name_full: 'decimal issue number' },
+    null,
+    prog(2),
+  );
+  const changes = partitionExportChanges(before, after);
+  assert.deepEqual(changes.added.map(p => p.issue_number), [2]);
+  assert.deepEqual(changes.updated, []);
+});
+
+test('partitionExportChanges: changed programs match changedExportPrograms issue_numbers', () => {
+  const before = data(prog(1), prog(2), prog(3));
+  const after = data(prog(1), prog(2, { lfx_url: 'x' }), prog(3), prog(4), prog(5));
+  const changes = partitionExportChanges(before, after);
+  const partitioned = [...changes.added, ...changes.updated].map(p => p.issue_number).sort((a, b) => a - b);
+  const changed = changedExportPrograms(before, after).map(p => p.issue_number).sort((a, b) => a - b);
+  assert.deepEqual(partitioned, changed);
 });
