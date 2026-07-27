@@ -71,8 +71,13 @@ test('parseCommands: a slash command mid-sentence does not match (must lead its 
 });
 
 test('parseCommands: a longer word starting with a command name does not match', () => {
-  // /approved must not read as /approve (word boundary after the command).
+  // The command must be followed by whitespace or end-of-line, so neither a
+  // word-char continuation (/approved) nor a hyphenated token (/approve-now)
+  // reads as the command.
   assert.deepEqual(parseCommands('/approved'), []);
+  assert.deepEqual(parseCommands('/approve-now'), []);
+  assert.deepEqual(parseCommands('/confirm-please'), []);
+  assert.deepEqual(parseCommands('/cncf-approve-x'), []);
 });
 
 test('parseCommands: leading whitespace on the line is tolerated', () => {
