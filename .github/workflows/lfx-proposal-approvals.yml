@@ -46,6 +46,7 @@ jobs:
             const path = require('path');
             const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
             const { parseIssueForm, parseMentors } = _lib('parse.js');
+            const { parseCommands } = _lib('commands.js');
             const { resolveProjectMaintainer } = _lib('authorize.js');
             const { computeConfirm } = _lib('confirm.js');
             const { lookupProject } = _lib('projects.js');
@@ -63,23 +64,23 @@ jobs:
             const issueBody = context.payload.issue.body || '';
             const currentLabels = (context.payload.issue.labels || []).map(l => l.name);
 
-            // ── Detect slash command ──
-            // Scan every line; the command may not be the first line (e.g.
-            // someone writes context before their /approve). /lfx-url takes a
-            // URL argument (the rest of the line); the others take none.
-            let command = null;
-            let commandArg = '';
-            for (const line of commentBody.split('\n')) {
-              const m = line.trim().match(/^\/(lfx-url|cncf-approve|approve|confirm)\b\s*(.*)$/);
-              if (m) { command = m[1]; commandArg = (m[2] || '').trim(); break; }
-            }
-            if (!command) return;  // no slash command found
-            console.log(`/${command} from @${commenter}`);
+            // ── Detect slash command(s) ──
+            // A comment may carry more than one command (e.g. /confirm and
+            // /approve together). parseCommands returns them in document order,
+            // deduped by name; each command may lead any line (prose before it
+            // is fine). /lfx-url takes a URL argument; the others take none.
+            const commands = parseCommands(commentBody);
+            if (commands.length === 0) return;  // no slash command found
 
             // ── Reaction: eyes while processing ──
-            await github.rest.reactions.createForIssueComment({
-              owner, repo, comment_id: comment.id, content: 'eyes',
-            });
+            // Best-effort: a cosmetic reaction must never block command handling.
+            try {
+              await github.rest.reactions.createForIssueComment({
+                owner, repo, comment_id: comment.id, content: 'eyes',
+              });
+            } catch (e) {
+              console.log(`Could not add eyes reaction: ${e.message}`);
+            }
 
             // ── Parse issue form ──
             const fields = parseIssueForm(issueBody);
@@ -104,9 +105,18 @@ jobs:
             // ── Feedback helper ──
             async function reply(emoji, message) {
               const reaction = emoji === '✅' ? '+1' : emoji === '❌' ? '-1' : 'confused';
-              await github.rest.reactions.createForIssueComment({
-                owner, repo, comment_id: comment.id, content: reaction,
-              });
+              // Best-effort reaction: it is cosmetic, so a failure here must never
+              // block the comment (the command's actual acknowledgement) or, in
+              // the multi-command loop, a later command. Adding the same reaction
+              // twice is idempotent (the API returns 200, not an error), so a
+              // repeated +1 across commands is fine; this guards other failures.
+              try {
+                await github.rest.reactions.createForIssueComment({
+                  owner, repo, comment_id: comment.id, content: reaction,
+                });
+              } catch (e) {
+                console.log(`Could not add ${reaction} reaction: ${e.message}`);
+              }
               await github.rest.issues.createComment({
                 owner, repo, issue_number, body: `${emoji} ${message}`,
               });
@@ -127,6 +137,13 @@ jobs:
                 });
               }
             }
+
+            // Dispatch one slash command. Written as a function so the workflow
+            // can run each command a comment carries in turn; every early
+            // `return` below exits only the current command's handling. The body
+            // keeps its original indentation to keep this diff reviewable.
+            async function handleCommand(command, commandArg) {
+              console.log(`/${command} from @${commenter}`);
 
             // ══════════════════════════════════════════════════
             //  /approve: Maintainer / Contribex Approval
@@ -527,6 +544,17 @@ jobs:
                 console.log(`Updated export files in ${dir}`);
               }
               return;
+            }
+            } // end handleCommand
+
+            // Run every command the comment carried, in document order, so a
+            // combined comment (e.g. /confirm and /approve) has each command act
+            // instead of only the first (cncf/mentoring#1977, #1978). Label
+            // state threads through the shared currentLabels array, so a
+            // /confirm + /approve (+ /cncf-approve) sequence cascades correctly
+            // within one run.
+            for (const { command, arg } of commands) {
+              await handleCommand(command, arg);
             }
 
       - name: Open or update the LFX URL pull request
