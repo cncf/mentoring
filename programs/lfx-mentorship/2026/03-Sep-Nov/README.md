@@ -39,10 +39,17 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - [CloudEvents Webhook Notifications for Schema Changes](#cloudevents-webhook-notifications-for-schema-changes)
   - [Prompt Template Playground in the Registry UI](#prompt-template-playground-in-the-registry-ui)
   - [Federated AI Agent Search Across Instances](#federated-ai-agent-search-across-instances)
+- [HAMi](#hami)
+  - [Reduce HAMi-core Initialization Lock Contention](#reduce-hami-core-initialization-lock-contention)
+  - [Fix GPU Memory Isolation for Child and SSH Processes](#fix-gpu-memory-isolation-for-child-and-ssh-processes)
 - [Kubeflow](#kubeflow)
   - [Abstracting Pod Lifecycle Diagnostics for Kubeflow Pipelines](#abstracting-pod-lifecycle-diagnostics-for-kubeflow-pipelines)
 - [Kubernetes](#kubernetes)
   - [Expand Declarative Validation (DV) in Kubernetes](#expand-declarative-validation-dv-in-kubernetes)
+- [Kyverno](#kyverno)
+  - [Update Pod Security Standards for User Namespaces](#update-pod-security-standards-for-user-namespaces)
+  - [AI Assistant](#ai-assistant)
+  - [Policy Decision Log](#policy-decision-log)
 - [OpenTelemetry](#opentelemetry)
   - [Declarative instrumentation configuration for otelc](#declarative-instrumentation-configuration-for-otelc)
   - [Zero-code AI Agent observability for otelc](#zero-code-ai-agent-observability-for-otelc)
@@ -161,6 +168,62 @@ CNCF - Apicurio Registry: Federated AI Agent Search Across Instances (2026 Term 
 - Upstream Issue: https://github.com/Apicurio/apicurio-registry/issues/8424
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/06ed3695-1b51-4166-a1df-0131887ec4fb
 
+### HAMi
+
+#### Reduce HAMi-core Initialization Lock Contention
+
+CNCF - HAMi: Reduce HAMi-core Initialization Lock Contention (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  > 
+  > Improve HAMi-core startup performance when hundreds of processes initialize CUDA concurrently and compete for the shared unified lock. The work should follow the maintainer discussion in the upstream issue and preserve correctness while reducing initialization latency and contention.
+  > 
+  > ## Expected outcomes
+  > 
+  > - A reproducible benchmark for concurrent HAMi-core initialization.
+  > - A maintainer-approved locking design based on the approaches accepted in the upstream discussion.
+  > - An implementation with concurrency and regression tests.
+  > - Before-and-after measurements of startup latency, throughput, and relevant resource usage.
+  > - Documentation of the design, compatibility considerations, and operational impact.
+  > - The implementation submitted for HAMi maintainer review.
+
+- Recommended Skills: Linux concurrency, performance profiling, benchmarking, synchronization design, testing
+- Technologies: C/C++, Linux, CUDA, NVML, HAMi-core
+- Mentor(s):
+  - Mengxuan Li (@archlitchi, mengxuan.li@dynamia.ai)
+  - Shouren Yang (@shouren, yangshouren@gmail.com)
+- Upstream Issue: https://github.com/Project-HAMi/HAMi/issues/1662
+- LFX URL: TBD
+
+#### Fix GPU Memory Isolation for Child and SSH Processes
+
+CNCF - HAMi: Fix GPU Memory Isolation for Child and SSH Processes (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  > 
+  > Investigate and fix cases where processes started later inside a HAMi-managed container, including child processes and processes reached through SSH or a new login shell, may not retain the expected GPU memory limit. The first milestone is to reproduce the behavior on a current supported HAMi release. The implementation approach must be agreed with HAMi maintainers rather than assuming a specific configuration mechanism in advance.
+  > 
+  > ## Expected outcomes
+  > 
+  > - A reproducible test case and documented root cause.
+  > - A maintainer-reviewed design covering the intended isolation boundary, compatibility, and failure modes.
+  > - A maintainer-approved implementation, or a validated design and prototype if platform constraints prevent full delivery within the term.
+  > - Regression tests covering the original process, child processes, and supported SSH or new-shell scenarios.
+  > - Documentation of supported configuration, migration guidance, and known limitations.
+  > - The implementation submitted for HAMi maintainer review.
+
+- Recommended Skills: Linux debugging, container runtime analysis, security reasoning, C/C++, testing
+- Technologies: Kubernetes, Linux containers, NVIDIA GPU, HAMi-core
+- Mentor(s):
+  - Mengxuan Li (@archlitchi, mengxuan.li@dynamia.ai)
+  - Jimmy Song (@rootsongjc, rootsongjc@gmail.com)
+- Upstream Issue: https://github.com/Project-HAMi/HAMi/issues/2125
+- LFX URL: TBD
+
 ### Kubeflow
 
 #### Abstracting Pod Lifecycle Diagnostics for Kubeflow Pipelines
@@ -219,6 +282,81 @@ CNCF - Kubernetes: Expand Declarative Validation (DV) in Kubernetes (2026 Term 3
   - Yongrui Lin (@yongruilin, yongrlin@google.com)
 - Upstream Issue: https://github.com/kubernetes/kubernetes/issues?q=is%3Aissue%20state%3Aopen%20label%3Aarea%2Fapi-validation
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/841f2363-4c93-4d3e-931b-030499af82df
+
+### Kyverno
+
+#### Update Pod Security Standards for User Namespaces
+
+CNCF - Kyverno: Update Pod Security Standards for User Namespaces (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  > 
+  > Kubernetes user namespaces is now GA!
+  > 
+  > https://kubernetes.io/docs/concepts/workloads/pods/user-namespaces/
+  > https://kubernetes.io/blog/2025/04/25/userns-enabled-by-default/
+  > 
+  > This impacts pod security standards and the Kyverno policy set that supports these.
+  > 
+  > ## Expected outcomes
+  > 
+  > We need to be update the pod security libraries to add user namespaces:
+  > 
+  > https://kubernetes.io/docs/concepts/workloads/pods/user-namespaces/#integration-with-pod-security-admission-checks
+
+- Recommended Skills: Go, Kubernenets, Containers, Security
+- Technologies: Go, Kubernenets, Containers, Security
+- Mentor(s):
+  - Shuting Zhao (@realshuting, shuting@nirmata.com)
+  - Ammar Yasser (@aerosouund, ammar.yasser@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/15979
+- LFX URL: TBD
+
+#### AI Assistant
+
+CNCF - Kyverno: AI Assistant (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  > 
+  > Kyverno's maintainers spend significant recurring effort on low-judgment, repetitive tasks: reviewing/merging Dependabot PRs, keeping open PRs rebased with  main  and re-running CI, triaging a high volume of incoming issues, reproducing bug reports, running the right subset of conformance/unit tests for a given diff, and answering repeat questions in Slack/GitHub Discussions. This work competes for maintainer time with code review, design, and roadmap work, and slows down contributor turnaround (stale PRs, delayed triage labels, slow first response on issues).
+  > 
+  > ## Expected Outcomes
+  > 
+  > Build an AI Maintainer Assistant: a sandboxed, permission-scoped autonomous agent (e.g., running an agent runtime such as OpenHands/OpenClaw/Hermes-style sandboxed coding agent) that runs on a schedule and via GitHub/Slack webhooks to automate routine maintainer workflows, always via auditable, revertible actions (comments, labels, draft PRs).
+
+- Recommended Skills: AI Engineering, AI agent harness, Claude Code, GitHub Copilot, GitHub Actions, Hermes
+- Technologies: AI Engineering, AI agent harness, Claude Code, GitHub Copilot, GitHub Actions, Hermes
+- Mentor(s):
+  - Jim Bugwadia (@JimBugwadia, jim@nirmata.com)
+  - Shuting Zhao (@realshuting, shuting@nirmata.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/16665
+- LFX URL: TBD
+
+#### Policy Decision Log
+
+CNCF - Kyverno: Policy Decision Log (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  > 
+  > Kyverno's CEL engine runs a whole pipeline on the way to an admit or deny (scope filtering, match conditions, variables, validation expressions, autogen rule expansion, mutation, exception handling) and discards the per-expression detail the moment it has a final answer. When a CEL policy does something surprising (matches a resource you didn't expect, skips one you did, denies with a message that doesn't say which clause fired, or fails with a bare "no such key"), there is no supported way to see which sub-expression produced which value. 
+  > 
+  > ## Expected Outcomes
+  > 
+  > This feature proposes an opt-in, structured decision trace: capture what the engine already computes, once, in a stable machine-readable form, and surface it where users look (the CLI first, then reports and the running controller). It broadens KDP https://github.com/kyverno/kyverno/pull/91 from a two-phase CLI-plus-runtime feature into a decision-explainability primitive for the whole CEL pipeline.
+
+- Recommended Skills: Kubernetes, Golang, CEL
+- Technologies: Kubernetes, Golang, CEL
+- Mentor(s):
+  - Jim Bugwadia (@JimBugwadia, jim@nirmata.com)
+  - Jyotiraditya Panda (@rx18-eng, remopanda7@gmail.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/16692
+- LFX URL: TBD
 
 ### OpenTelemetry
 

@@ -1,8 +1,255 @@
 {
-  "_generated": "2026-07-24T15:43:22.068Z",
+  "_generated": "2026-07-27T15:43:39.393Z",
   "_term": "2026 Term 3 (Sep-Nov)",
-  "_count": 11,
+  "_count": 16,
   "programs": [
+    {
+      "issue_number": 1982,
+      "issue_url": "https://github.com/cncf/mentoring/issues/1982",
+      "cncf_project": "Kyverno",
+      "cncf_project_slug": "kyverno",
+      "cncf_project_maturity": "graduated",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - Kyverno: Update Pod Security Standards for User Namespaces (2026 Term 3)",
+      "program_name_short": "Update Pod Security Standards for User Namespaces",
+      "description": "## Description\n\nKubernetes user namespaces is now GA!\n\nhttps://kubernetes.io/docs/concepts/workloads/pods/user-namespaces/\nhttps://kubernetes.io/blog/2025/04/25/userns-enabled-by-default/\n\nThis impacts pod security standards and the Kyverno policy set that supports these.\n\n## Expected outcomes\n\nWe need to be update the pod security libraries to add user namespaces:\n\nhttps://kubernetes.io/docs/concepts/workloads/pods/user-namespaces/#integration-with-pod-security-admission-checks",
+      "technologies": "Go, Kubernenets, Containers, Security",
+      "skills": "Go, Kubernenets, Containers, Security",
+      "mentors": [
+        {
+          "name": "Shuting Zhao",
+          "github_handle": "realshuting",
+          "email": "shuting@nirmata.com",
+          "lfid": "ShutingZhao",
+          "role": "primary"
+        },
+        {
+          "name": "Ammar Yasser",
+          "github_handle": "aerosouund",
+          "email": "ammar.yasser@nirmata.com",
+          "lfid": "AmmarYasser",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/kyverno/kyverno/issues/15979",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": {
+          "name": "Solution Video",
+          "description": "Create a 2-5 minute video introducing yourself and then articulating your understanding of the problem and the proposed solution. Provide a link to the video on either Google Drive or YouTube as part of your cover letter.",
+          "file_upload": false
+        },
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 1981,
+      "issue_url": "https://github.com/cncf/mentoring/issues/1981",
+      "cncf_project": "Kyverno",
+      "cncf_project_slug": "kyverno",
+      "cncf_project_maturity": "graduated",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - Kyverno: AI Assistant (2026 Term 3)",
+      "program_name_short": "AI Assistant",
+      "description": "## Description\n\nKyverno's maintainers spend significant recurring effort on low-judgment, repetitive tasks: reviewing/merging Dependabot PRs, keeping open PRs rebased with  main  and re-running CI, triaging a high volume of incoming issues, reproducing bug reports, running the right subset of conformance/unit tests for a given diff, and answering repeat questions in Slack/GitHub Discussions. This work competes for maintainer time with code review, design, and roadmap work, and slows down contributor turnaround (stale PRs, delayed triage labels, slow first response on issues).\n\n## Expected Outcomes\n\nBuild an AI Maintainer Assistant: a sandboxed, permission-scoped autonomous agent (e.g., running an agent runtime such as OpenHands/OpenClaw/Hermes-style sandboxed coding agent) that runs on a schedule and via GitHub/Slack webhooks to automate routine maintainer workflows, always via auditable, revertible actions (comments, labels, draft PRs).",
+      "technologies": "AI Engineering, AI agent harness, Claude Code, GitHub Copilot, GitHub Actions, Hermes",
+      "skills": "AI Engineering, AI agent harness, Claude Code, GitHub Copilot, GitHub Actions, Hermes",
+      "mentors": [
+        {
+          "name": "Jim Bugwadia",
+          "github_handle": "JimBugwadia",
+          "email": "jim@nirmata.com",
+          "lfid": "JimBugwadia",
+          "role": "primary"
+        },
+        {
+          "name": "Shuting Zhao",
+          "github_handle": "realshuting",
+          "email": "shuting@nirmata.com",
+          "lfid": "ShutingZhao",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/kyverno/kyverno/issues/16665",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": {
+          "name": "Solution Video",
+          "description": "Create a 2-5 minute video introducing yourself and then articulating your understanding of the problem and the proposed solution. Provide a link to the video on either Google Drive or YouTube as part of your cover letter.",
+          "file_upload": false
+        },
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 1980,
+      "issue_url": "https://github.com/cncf/mentoring/issues/1980",
+      "cncf_project": "Kyverno",
+      "cncf_project_slug": "kyverno",
+      "cncf_project_maturity": "graduated",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - Kyverno: Policy Decision Log (2026 Term 3)",
+      "program_name_short": "Policy Decision Log",
+      "description": "## Description\n\nKyverno's CEL engine runs a whole pipeline on the way to an admit or deny (scope filtering, match conditions, variables, validation expressions, autogen rule expansion, mutation, exception handling) and discards the per-expression detail the moment it has a final answer. When a CEL policy does something surprising (matches a resource you didn't expect, skips one you did, denies with a message that doesn't say which clause fired, or fails with a bare \"no such key\"), there is no supported way to see which sub-expression produced which value. \n\n## Expected Outcomes\n\nThis feature proposes an opt-in, structured decision trace: capture what the engine already computes, once, in a stable machine-readable form, and surface it where users look (the CLI first, then reports and the running controller). It broadens KDP https://github.com/kyverno/kyverno/pull/91 from a two-phase CLI-plus-runtime feature into a decision-explainability primitive for the whole CEL pipeline.",
+      "technologies": "Kubernetes, Golang, CEL",
+      "skills": "Kubernetes, Golang, CEL",
+      "mentors": [
+        {
+          "name": "Jim Bugwadia",
+          "github_handle": "JimBugwadia",
+          "email": "jim@nirmata.com",
+          "lfid": "JimBugwadia",
+          "role": "primary"
+        },
+        {
+          "name": "Jyotiraditya Panda",
+          "github_handle": "rx18-eng",
+          "email": "remopanda7@gmail.com",
+          "lfid": "remolab",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/kyverno/kyverno/issues/16692",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": {
+          "name": "Solution Video",
+          "description": "Create a 2-5 minute video introducing yourself and then articulating your understanding of the problem and the proposed solution. Provide a link to the video on either Google Drive or YouTube as part of your cover letter.",
+          "file_upload": false
+        },
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 1978,
+      "issue_url": "https://github.com/cncf/mentoring/issues/1978",
+      "cncf_project": "HAMi",
+      "cncf_project_slug": "hami",
+      "cncf_project_maturity": "incubating",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - HAMi: Reduce HAMi-core Initialization Lock Contention (2026 Term 3)",
+      "program_name_short": "Reduce HAMi-core Initialization Lock Contention",
+      "description": "## Description\n\nImprove HAMi-core startup performance when hundreds of processes initialize CUDA concurrently and compete for the shared unified lock. The work should follow the maintainer discussion in the upstream issue and preserve correctness while reducing initialization latency and contention.\n\n## Expected outcomes\n\n- A reproducible benchmark for concurrent HAMi-core initialization.\n- A maintainer-approved locking design based on the approaches accepted in the upstream discussion.\n- An implementation with concurrency and regression tests.\n- Before-and-after measurements of startup latency, throughput, and relevant resource usage.\n- Documentation of the design, compatibility considerations, and operational impact.\n- The implementation submitted for HAMi maintainer review.",
+      "technologies": "C/C++, Linux, CUDA, NVML, HAMi-core",
+      "skills": "Linux concurrency, performance profiling, benchmarking, synchronization design, testing",
+      "mentors": [
+        {
+          "name": "Mengxuan Li",
+          "github_handle": "archlitchi",
+          "email": "mengxuan.li@dynamia.ai",
+          "lfid": "limengxuan",
+          "role": "primary"
+        },
+        {
+          "name": "Shouren Yang",
+          "github_handle": "shouren",
+          "email": "yangshouren@gmail.com",
+          "lfid": "shouren",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/Project-HAMi/HAMi/issues/1662",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": null,
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 1977,
+      "issue_url": "https://github.com/cncf/mentoring/issues/1977",
+      "cncf_project": "HAMi",
+      "cncf_project_slug": "hami",
+      "cncf_project_maturity": "incubating",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - HAMi: Fix GPU Memory Isolation for Child and SSH Processes (2026 Term 3)",
+      "program_name_short": "Fix GPU Memory Isolation for Child and SSH Processes",
+      "description": "## Description\n\nInvestigate and fix cases where processes started later inside a HAMi-managed container, including child processes and processes reached through SSH or a new login shell, may not retain the expected GPU memory limit. The first milestone is to reproduce the behavior on a current supported HAMi release. The implementation approach must be agreed with HAMi maintainers rather than assuming a specific configuration mechanism in advance.\n\n## Expected outcomes\n\n- A reproducible test case and documented root cause.\n- A maintainer-reviewed design covering the intended isolation boundary, compatibility, and failure modes.\n- A maintainer-approved implementation, or a validated design and prototype if platform constraints prevent full delivery within the term.\n- Regression tests covering the original process, child processes, and supported SSH or new-shell scenarios.\n- Documentation of supported configuration, migration guidance, and known limitations.\n- The implementation submitted for HAMi maintainer review.",
+      "technologies": "Kubernetes, Linux containers, NVIDIA GPU, HAMi-core",
+      "skills": "Linux debugging, container runtime analysis, security reasoning, C/C++, testing",
+      "mentors": [
+        {
+          "name": "Mengxuan Li",
+          "github_handle": "archlitchi",
+          "email": "mengxuan.li@dynamia.ai",
+          "lfid": "limengxuan",
+          "role": "primary"
+        },
+        {
+          "name": "Jimmy Song",
+          "github_handle": "rootsongjc",
+          "email": "rootsongjc@gmail.com",
+          "lfid": "jimmysong",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/Project-HAMi/HAMi/issues/2125",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": null,
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
     {
       "issue_number": 1963,
       "issue_url": "https://github.com/cncf/mentoring/issues/1963",
@@ -203,7 +450,7 @@
       "issue_url": "https://github.com/cncf/mentoring/issues/1928",
       "cncf_project": "Kubeflow",
       "cncf_project_slug": "kubeflow",
-      "cncf_project_maturity": "incubating",
+      "cncf_project_maturity": "graduated",
       "term": "2026 Term 3 (Sep-Nov)",
       "program_name_full": "CNCF - Kubeflow: Abstracting Pod Lifecycle Diagnostics for Kubeflow Pipelines (2026 Term 3)",
       "program_name_short": "Abstracting Pod Lifecycle Diagnostics for Kubeflow Pipelines",
