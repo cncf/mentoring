@@ -38,15 +38,37 @@ function serializeExport(data, existingText) {
 // when absent from the baseline or serialized differently. A null/malformed
 // baseline yields every program (a safe fallback to the pre-change "list all"
 // behavior, e.g. a term's first export). Insertion order of afterData is kept.
-function changedExportPrograms(beforeData, afterData) {
+function collectExportChanges(beforeData, afterData) {
   const before = new Map();
   const baseline = beforeData && Array.isArray(beforeData.programs) ? beforeData.programs : [];
   for (const p of baseline) {
     if (p && Number.isInteger(p.issue_number)) before.set(p.issue_number, JSON.stringify(p));
   }
   const after = afterData && Array.isArray(afterData.programs) ? afterData.programs : [];
-  return after.filter((p) => p && Number.isInteger(p.issue_number)
-    && before.get(p.issue_number) !== JSON.stringify(p));
+  const changed = [];
+  const added = [];
+  const updated = [];
+  for (const p of after) {
+    if (!p || !Number.isInteger(p.issue_number)) continue;
+    const serialized = JSON.stringify(p);
+    if (!before.has(p.issue_number)) {
+      changed.push(p);
+      added.push(p);
+    } else if (before.get(p.issue_number) !== serialized) {
+      changed.push(p);
+      updated.push(p);
+    }
+  }
+  return { changed, added, updated };
 }
 
-module.exports = { serializeExport, ignoreGenerated, changedExportPrograms };
+function changedExportPrograms(beforeData, afterData) {
+  return collectExportChanges(beforeData, afterData).changed;
+}
+
+function partitionExportChanges(beforeData, afterData) {
+  const { added, updated } = collectExportChanges(beforeData, afterData);
+  return { added, updated };
+}
+
+module.exports = { serializeExport, ignoreGenerated, changedExportPrograms, partitionExportChanges };

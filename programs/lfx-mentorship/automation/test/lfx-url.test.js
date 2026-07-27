@@ -7,6 +7,7 @@ const {
   exportTermLabel, readExports, locateExportedProgram, termMismatchWarning,
   recordedPrograms, renderRecordedIssues, recordedUrlNextSteps, populateRecordedUrls,
   changedRecordedPrograms, programCountLabel, upsertLfxUrlBlock, stripLfxUrlBlock,
+  exportChangeLabel, renderExportChangeBody,
 } = require('../lib/lfx-url');
 
 const bot = (body) => ({ user: { login: 'github-actions[bot]' }, body });
@@ -611,4 +612,67 @@ test('stripLfxUrlBlock: is a no-op when there is no block', () => {
   const body = '### CNCF Project\n\nkubernetes';
   assert.equal(stripLfxUrlBlock(body), body);
   assert.equal(stripLfxUrlBlock(''), '');
+});
+
+// ── exportChangeLabel: the adaptive program-change count in the export PR title.
+//    Names only the buckets present: "5 new, 1 updated" when both; "5 new" or
+//    "1 updated" when only one; "no program changes" when neither (a removal-only
+//    or regenerated-files-only re-export still opens a PR). (cncf/mentoring#1992)
+test('exportChangeLabel: both buckets present', () => {
+  assert.equal(exportChangeLabel(5, 1), '5 new, 1 updated');
+});
+test('exportChangeLabel: only newly added', () => {
+  assert.equal(exportChangeLabel(5, 0), '5 new');
+});
+test('exportChangeLabel: only updated', () => {
+  assert.equal(exportChangeLabel(0, 1), '1 updated');
+});
+test('exportChangeLabel: neither -> no program changes', () => {
+  assert.equal(exportChangeLabel(0, 0), 'no program changes');
+});
+test('exportChangeLabel: guards non-integer / negative counts to zero', () => {
+  assert.equal(exportChangeLabel(-2, 2.5), 'no program changes');
+  assert.equal(exportChangeLabel(1, undefined), '1 new');
+  assert.equal(exportChangeLabel(undefined, 3), '3 updated');
+});
+test('exportChangeLabel: no em-dash', () => {
+  assert.ok(!exportChangeLabel(5, 1).includes('\u2014'));
+});
+
+// ── renderExportChangeBody: the export PR body's change section(s). A
+//    "Newly added" list and/or an "Updated" list, each shown only when
+//    non-empty; an explicit fallback line when neither is present. Lines are
+//    formatted by renderRecordedIssues. (cncf/mentoring#1992)
+test('renderExportChangeBody: both sections when both are non-empty', () => {
+  const added = [{ issue_number: 1, program_name_full: 'CNCF - A (T)' }];
+  const updated = [{ issue_number: 2, program_name_full: 'CNCF - B (T)' }];
+  assert.equal(
+    renderExportChangeBody(added, updated),
+    '**Newly added:**\n- #1 CNCF - A (T)\n\n**Updated:**\n- #2 CNCF - B (T)',
+  );
+});
+test('renderExportChangeBody: only the Newly added section when nothing was updated', () => {
+  const added = [{ issue_number: 1, program_name_full: 'CNCF - A (T)' }];
+  assert.equal(renderExportChangeBody(added, []), '**Newly added:**\n- #1 CNCF - A (T)');
+});
+test('renderExportChangeBody: only the Updated section when nothing was added', () => {
+  const updated = [{ issue_number: 2, program_name_full: 'CNCF - B (T)' }];
+  assert.equal(renderExportChangeBody([], updated), '**Updated:**\n- #2 CNCF - B (T)');
+});
+test('renderExportChangeBody: fallback line when neither section has entries', () => {
+  assert.equal(
+    renderExportChangeBody([], []),
+    '_No programs added or updated in this run (removals or regenerated files only)._',
+  );
+  assert.equal(
+    renderExportChangeBody(undefined, undefined),
+    '_No programs added or updated in this run (removals or regenerated files only)._',
+  );
+});
+test('renderExportChangeBody: no em-dash', () => {
+  const md = renderExportChangeBody(
+    [{ issue_number: 1, program_name_full: 'CNCF - A (T)' }],
+    [{ issue_number: 2, program_name_full: 'CNCF - B (T)' }],
+  );
+  assert.ok(!md.includes('\u2014'));
 });
