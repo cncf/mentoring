@@ -31,7 +31,7 @@ If you have any questions or need help getting started, please reach out through
 
 These are the number of successful internships per year for each program.
 
-| Year | Program                          | Internships | Total (per year) |
+| Year | Program                          | Mentorships | Total (per year) |
 |------|----------------------------------|-------------|------------------|
 | 2025 | LFX Mentorship                   | 176         | 187              |
 |      | GSoC                             | 11          |                  |
