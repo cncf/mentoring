@@ -10,12 +10,13 @@
 // (cncf/mentoring#1977, #1978, where the earlier single-command parser stopped
 // at the first match and silently dropped the rest).
 
-// The recognized commands. cncf-approve is listed before approve so the
-// alternation matches the longer command first (both are anchored). The command
-// must be followed by whitespace or end-of-line, so a hyphenated or longer token
-// (/approve-now, /approved) does not read as the command; a plain \b would treat
-// the hyphen as a boundary and mis-match /approve-now as /approve. The rest of
-// the line is the argument (only /lfx-url uses it).
+// The recognized commands. The pattern is anchored at the start of the line
+// (^/) and each command must be followed by whitespace or end-of-line, so a
+// hyphenated or longer token (/approve-now, /approved) does not read as a
+// command; a plain \b would treat the hyphen as a boundary and mis-match
+// /approve-now as /approve. Alternation order does not affect correctness here
+// (no command is a prefix of another at the anchor). The rest of the line is
+// the argument (only /lfx-url uses it).
 const COMMAND_RE = /^\/(lfx-url|cncf-approve|approve|confirm)(?=\s|$)\s*(.*)$/;
 
 // Parse an issue-comment body into an ordered list of { command, arg }.
