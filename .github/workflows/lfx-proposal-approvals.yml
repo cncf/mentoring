@@ -533,8 +533,15 @@ jobs:
             }
             } // end handleCommand
 
-            // Process the command. (A later change loops over every command.)
-            await handleCommand(commands[0].command, commands[0].arg);
+            // Run every command the comment carried, in document order, so a
+            // combined comment (e.g. /confirm and /approve) has each command act
+            // instead of only the first (cncf/mentoring#1977, #1978). Label
+            // state threads through the shared currentLabels array, so a
+            // /confirm + /approve (+ /cncf-approve) sequence cascades correctly
+            // within one run.
+            for (const { command, arg } of commands) {
+              await handleCommand(command, arg);
+            }
 
       - name: Open or update the LFX URL pull request
         if: env.LFX_URL_FILES_CHANGED == 'true'
