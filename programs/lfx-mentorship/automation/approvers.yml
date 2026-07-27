@@ -46,6 +46,32 @@ kubernetes:
     - MadhavJivrajani
     - Priyankasaggu11929
 
+# Kubernetes SUBPROJECTS route mentorship approvals through SIG ContribEx too,
+# exactly like Kubernetes itself, so their own maintainer rosters are skipped and
+# only the SIG ContribEx handles (plus global_approvers) can /approve. The roster
+# below is duplicated from the `kubernetes` entry above; if SIG ContribEx
+# leadership changes, update all three entries (kubernetes, etcd, headlamp) in
+# lockstep. (cncf/mentoring#1995)
+etcd:
+  # kubernetes subproject (etcd-io/etcd)
+  maintainers_can_approve: false
+  fallback_handles:
+    - kaslin
+    - mfahlandt
+    - palnabarun
+    - MadhavJivrajani
+    - Priyankasaggu11929
+
+headlamp:
+  # kubernetes subproject (kubernetes-sigs/headlamp)
+  maintainers_can_approve: false
+  fallback_handles:
+    - kaslin
+    - mfahlandt
+    - palnabarun
+    - MadhavJivrajani
+    - Priyankasaggu11929
+
 open-telemetry:
   # OTel governance (per @maryliag, cncf/mentoring#1930): each SIG has an
   # assigned GC liaison who ideally reviews that SIG's proposal, but any
