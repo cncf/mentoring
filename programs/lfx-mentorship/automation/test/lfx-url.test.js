@@ -648,7 +648,7 @@ test('renderExportChangeBody: both sections when both are non-empty', () => {
   const updated = [{ issue_number: 2, program_name_full: 'CNCF - B (T)' }];
   assert.equal(
     renderExportChangeBody(added, updated),
-    '**Newly added:**\n- #1 CNCF - A (T)\n\n**Updated:**\n- #2 CNCF - B (T)',
+    '**Newly added:**\n- #1 CNCF - A (T)\n\n**Updated:** (update the LFX program copy to match)\n- #2 CNCF - B (T)',
   );
 });
 test('renderExportChangeBody: only the Newly added section when nothing was updated', () => {
@@ -657,16 +657,16 @@ test('renderExportChangeBody: only the Newly added section when nothing was upda
 });
 test('renderExportChangeBody: only the Updated section when nothing was added', () => {
   const updated = [{ issue_number: 2, program_name_full: 'CNCF - B (T)' }];
-  assert.equal(renderExportChangeBody([], updated), '**Updated:**\n- #2 CNCF - B (T)');
+  assert.equal(renderExportChangeBody([], updated), '**Updated:** (update the LFX program copy to match)\n- #2 CNCF - B (T)');
 });
 test('renderExportChangeBody: fallback line when neither section has entries', () => {
   assert.equal(
     renderExportChangeBody([], []),
-    '_No programs added or updated in this run (removals or regenerated files only)._',
+    '_No programs added or updated in this run (regenerated files only)._',
   );
   assert.equal(
     renderExportChangeBody(undefined, undefined),
-    '_No programs added or updated in this run (removals or regenerated files only)._',
+    '_No programs added or updated in this run (regenerated files only)._',
   );
 });
 test('renderExportChangeBody: no em-dash', () => {
