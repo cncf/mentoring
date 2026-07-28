@@ -855,7 +855,7 @@ CNCF - Kyverno: Policy Decision Log (2026 Term 3)
   > 
   > ## Expected Outcomes
   > 
-  > This feature proposes an opt-in, structured decision trace: capture what the engine already computes, once, in a stable machine-readable form, and surface it where users look (the CLI first, then reports and the running controller). It broadens KDP https://github.com/kyverno/kyverno/pull/91 from a two-phase CLI-plus-runtime feature into a decision-explainability primitive for the whole CEL pipeline.
+  > This feature proposes an opt-in, structured decision trace: capture what the engine already computes, once, in a stable machine-readable form, and surface it where users look (the CLI first, then reports and the running controller). It broadens KDP https://github.com/kyverno/KDP/pull/91 from a two-phase CLI-plus-runtime feature into a decision-explainability primitive for the whole CEL pipeline.
 
 - Recommended Skills: Kubernetes, Golang, CEL
 - Technologies: Kubernetes, Golang, CEL

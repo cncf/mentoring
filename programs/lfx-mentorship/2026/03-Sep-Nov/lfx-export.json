@@ -1,5 +1,5 @@
 {
-  "_generated": "2026-07-28T18:04:50.107Z",
+  "_generated": "2026-07-28T18:44:24.961Z",
   "_term": "2026 Term 3 (Sep-Nov)",
   "_count": 32,
   "programs": [
@@ -635,7 +635,7 @@
       "term": "2026 Term 3 (Sep-Nov)",
       "program_name_full": "CNCF - Kyverno: Policy Decision Log (2026 Term 3)",
       "program_name_short": "Policy Decision Log",
-      "description": "## Description\n\nKyverno's CEL engine runs a whole pipeline on the way to an admit or deny (scope filtering, match conditions, variables, validation expressions, autogen rule expansion, mutation, exception handling) and discards the per-expression detail the moment it has a final answer. When a CEL policy does something surprising (matches a resource you didn't expect, skips one you did, denies with a message that doesn't say which clause fired, or fails with a bare \"no such key\"), there is no supported way to see which sub-expression produced which value. \n\n## Expected Outcomes\n\nThis feature proposes an opt-in, structured decision trace: capture what the engine already computes, once, in a stable machine-readable form, and surface it where users look (the CLI first, then reports and the running controller). It broadens KDP https://github.com/kyverno/kyverno/pull/91 from a two-phase CLI-plus-runtime feature into a decision-explainability primitive for the whole CEL pipeline.",
+      "description": "## Description\n\nKyverno's CEL engine runs a whole pipeline on the way to an admit or deny (scope filtering, match conditions, variables, validation expressions, autogen rule expansion, mutation, exception handling) and discards the per-expression detail the moment it has a final answer. When a CEL policy does something surprising (matches a resource you didn't expect, skips one you did, denies with a message that doesn't say which clause fired, or fails with a bare \"no such key\"), there is no supported way to see which sub-expression produced which value. \n\n## Expected Outcomes\n\nThis feature proposes an opt-in, structured decision trace: capture what the engine already computes, once, in a stable machine-readable form, and surface it where users look (the CLI first, then reports and the running controller). It broadens KDP https://github.com/kyverno/KDP/pull/91 from a two-phase CLI-plus-runtime feature into a decision-explainability primitive for the whole CEL pipeline.",
       "technologies": "Kubernetes, Golang, CEL",
       "skills": "Kubernetes, Golang, CEL",
       "mentors": [
