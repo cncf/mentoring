@@ -171,12 +171,22 @@ jobs:
             // above, so this is main's export) BEFORE building this run's data, so
             // an already-exported program whose CNCF-Approved label lapsed (e.g. a
             // post-approval edit cleared it) is carried forward instead of silently
-            // dropped (#2015). A missing/malformed baseline yields no carry-forward
-            // and treats every program as new (a term's first export).
+            // dropped (#2015). An ABSENT file is a term's first export (carry
+            // nothing); a PRESENT but corrupt file fails loudly rather than risk a
+            // destructive run that drops previously-exported programs (#2015 review).
             const existingExport = fs.existsSync(outPath) ? fs.readFileSync(outPath, 'utf8') : null;
             let baselineExport = null;
             if (existingExport != null) {
-              try { baselineExport = JSON.parse(existingExport); } catch { baselineExport = null; }
+              try {
+                baselineExport = JSON.parse(existingExport);
+              } catch (e) {
+                core.setFailed(`Baseline export ${outPath} exists but is not valid JSON: ${e.message}. Refusing a potentially destructive export on a corrupted baseline.`);
+                return;
+              }
+              if (!baselineExport || !Array.isArray(baselineExport.programs)) {
+                core.setFailed(`Baseline export ${outPath} exists but has no programs array. Refusing a potentially destructive export on a corrupted baseline.`);
+                return;
+              }
             }
 
             // ── Sticky merge: never silently drop an exported program (#2015) ──
