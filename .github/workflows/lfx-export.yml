@@ -40,7 +40,7 @@ jobs:
             const { standardPrerequisites } = _lib('prerequisites.js');
             const { buildReadme, renderAcceptedProgramsBody } = _lib('readme.js');
             const { renderTrackingCsv } = _lib('csv.js');
-            const { serializeExport, partitionExportChanges } = _lib('export-json.js');
+            const { serializeExport, partitionExportChanges, applyStickyExport } = _lib('export-json.js');
             const { parseRecordedLfxUrl, exportChangeLabel, renderExportChangeBody } = _lib('lfx-url.js');
             const { termPaths } = _lib('term-paths.js');
             const { lookupProject } = _lib('projects.js');
@@ -64,16 +64,15 @@ jobs:
 
             console.log(`Found ${termIssues.length} approved proposals for ${term}`);
 
-            if (termIssues.length === 0) {
-              core.setFailed(`No CNCF-approved proposals found for term: ${term}`);
-              return;
-            }
+            // A term with zero approved proposals is not necessarily empty: the
+            // sticky merge below may still carry forward already-exported
+            // programs. The real emptiness guard runs after that merge.
 
             // ── Load projects.yml for metadata ──
             const projYaml = fs.readFileSync('programs/lfx-mentorship/automation/projects.yml', 'utf8');
 
-            // ── Build export records ──
-            const programs = [];
+            // ── Build export records for the currently-approved proposals ──
+            const approvedPrograms = [];
             for (const iss of termIssues) {
               const f = parseIssueForm(iss.body || '');
               const get = (k) => (f[k] || '').trim();
@@ -113,7 +112,7 @@ jobs:
               }
               const lfxUrl = parseRecordedLfxUrl(issueComments);
 
-              programs.push({
+              approvedPrograms.push({
                 issue_number: iss.number,
                 issue_url: iss.html_url,
                 cncf_project: project,
@@ -155,29 +154,49 @@ jobs:
             fs.mkdirSync(outDir, { recursive: true });
 
             const outPath = `${outDir}/lfx-export.json`;
+
+            // ── Read the export currently on main (the baseline) ──
+            // Read BEFORE building this run's data so an already-exported program
+            // whose CNCF-Approved label lapsed (e.g. a post-approval edit cleared
+            // it) is carried forward instead of silently dropped (#2015). A
+            // missing/malformed baseline yields no carry-forward and treats every
+            // program as new (a term's first export).
+            const existingExport = fs.existsSync(outPath) ? fs.readFileSync(outPath, 'utf8') : null;
+            let baselineExport = null;
+            if (existingExport != null) {
+              try { baselineExport = JSON.parse(existingExport); } catch { baselineExport = null; }
+            }
+
+            // ── Sticky merge: never silently drop an exported program (#2015) ──
+            // A baseline program no longer in the approved set is carried forward
+            // FROZEN (the record LFX holds) until a deliberate re-approval
+            // regenerates it. Nothing is auto-removed: once a program is exported
+            // (loaded into LFX) it stays, since dropping it is the failure this
+            // prevents. A withdrawal before posting is a rare manual edit.
+            const sticky = applyStickyExport(approvedPrograms, baselineExport);
+            const programs = sticky.programs;
+            console.log(`Sticky: ${approvedPrograms.length} approved, ${sticky.carriedForward.length} carried forward -> ${programs.length} total`);
+            if (programs.length === 0) {
+              core.setFailed(`No programs to export for term: ${term}`);
+              return;
+            }
+
+            // ── Serialize the export JSON ──
+            // Preserve the prior _generated when nothing else changed, so a
+            // re-run with no substantive change stays byte-identical and the
+            // change check below skips the no-op PR (#1944).
             const exportData = {
               _generated: new Date().toISOString(),
               _term: term,
               _count: programs.length,
               programs: programs,
             };
-
-            // Preserve the prior _generated when nothing else changed, so a
-            // re-run with no substantive change stays byte-identical and the
-            // change check below skips the no-op PR (#1944).
-            const existingExport = fs.existsSync(outPath) ? fs.readFileSync(outPath, 'utf8') : null;
             fs.writeFileSync(outPath, serializeExport(exportData, existingExport));
             console.log(`Wrote ${programs.length} programs to ${outPath}`);
 
-            // Diff against the export currently on main (existingExport, read
-            // above) so the PR summary and notifications reference only what THIS
-            // run adds or changes, not every already-exported program (#1949 did
-            // the same for the /lfx-url PR). A missing or malformed baseline
-            // yields every program, matching a term's first export.
-            let baselineExport = null;
-            if (existingExport != null) {
-              try { baselineExport = JSON.parse(existingExport); } catch { baselineExport = null; }
-            }
+            // Diff against the baseline so the PR summary/notifications reference
+            // only what THIS run adds or changes. Carried-forward frozen programs
+            // are byte-identical to the baseline, so they land in neither list.
             const { added, updated } = partitionExportChanges(baselineExport, exportData);
 
             // ── Generate README.md ──
@@ -218,10 +237,11 @@ jobs:
             core.exportVariable('NOTIFY_ISSUES', added.map(p => p.issue_number).join(','));
             core.exportVariable('EXPORT_PROGRAM_LABEL', exportChangeLabel(added.length, updated.length));
 
-            // PR body: a "Newly added" section and/or an "Updated" section, each
-            // shown only when non-empty, with a fallback line when neither is
-            // present (removals or regenerated files only). Rendering + the
-            // empty-section handling live in the tested lib helper.
+            // PR body: "Newly added" / "Updated" sections, each shown only when
+            // non-empty, with a fallback line when both are empty (regenerated
+            // files only). Updated programs are already in LFX, so the header
+            // carries a cue to sync the LFX copy. Rendering + empty-section
+            // handling live in the tested lib helper.
             core.exportVariable('PR_BODY_ISSUES', renderExportChangeBody(added, updated));
 
       - name: Check for changes
