@@ -1,7 +1,7 @@
 {
   "_generated": "2026-07-28T18:04:50.107Z",
   "_term": "2026 Term 3 (Sep-Nov)",
-  "_count": 31,
+  "_count": 32,
   "programs": [
     {
       "issue_number": 2014,
@@ -605,6 +605,57 @@
       ],
       "upstream_issue_url": "https://github.com/kyverno/kyverno/issues/16665",
       "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/c869e19a-8815-459b-8a2d-3a068e8863c3",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": {
+          "name": "Solution Video",
+          "description": "Create a 2-5 minute video introducing yourself and then articulating your understanding of the problem and the proposed solution. Provide a link to the video on either Google Drive or YouTube as part of your cover letter.",
+          "file_upload": false
+        },
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 1980,
+      "issue_url": "https://github.com/cncf/mentoring/issues/1980",
+      "cncf_project": "Kyverno",
+      "cncf_project_slug": "kyverno",
+      "cncf_project_maturity": "graduated",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - Kyverno: Policy Decision Log (2026 Term 3)",
+      "program_name_short": "Policy Decision Log",
+      "description": "## Description\n\nKyverno's CEL engine runs a whole pipeline on the way to an admit or deny (scope filtering, match conditions, variables, validation expressions, autogen rule expansion, mutation, exception handling) and discards the per-expression detail the moment it has a final answer. When a CEL policy does something surprising (matches a resource you didn't expect, skips one you did, denies with a message that doesn't say which clause fired, or fails with a bare \"no such key\"), there is no supported way to see which sub-expression produced which value. \n\n## Expected Outcomes\n\nThis feature proposes an opt-in, structured decision trace: capture what the engine already computes, once, in a stable machine-readable form, and surface it where users look (the CLI first, then reports and the running controller). It broadens KDP https://github.com/kyverno/kyverno/pull/91 from a two-phase CLI-plus-runtime feature into a decision-explainability primitive for the whole CEL pipeline.",
+      "technologies": "Kubernetes, Golang, CEL",
+      "skills": "Kubernetes, Golang, CEL",
+      "mentors": [
+        {
+          "name": "Jim Bugwadia",
+          "github_handle": "JimBugwadia",
+          "email": "jim@nirmata.com",
+          "lfid": "JimBugwadia",
+          "role": "primary"
+        },
+        {
+          "name": "Jyotiraditya Panda",
+          "github_handle": "rx18-eng",
+          "email": "remopanda7@gmail.com",
+          "lfid": "remolab",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/kyverno/kyverno/issues/16692",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/e210712d-94de-4740-9ecf-201f7621425d",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,

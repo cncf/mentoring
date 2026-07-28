@@ -65,6 +65,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - [Kyverno](#kyverno)
   - [Update Pod Security Standards for User Namespaces](#update-pod-security-standards-for-user-namespaces)
   - [AI Assistant](#ai-assistant)
+  - [Policy Decision Log](#policy-decision-log)
 - [OpenTelemetry](#opentelemetry)
   - [Declarative instrumentation configuration for otelc](#declarative-instrumentation-configuration-for-otelc)
   - [Zero-code AI Agent observability for otelc](#zero-code-ai-agent-observability-for-otelc)
@@ -841,6 +842,28 @@ CNCF - Kyverno: AI Assistant (2026 Term 3)
   - Shuting Zhao (@realshuting, shuting@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/16665
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/c869e19a-8815-459b-8a2d-3a068e8863c3
+
+#### Policy Decision Log
+
+CNCF - Kyverno: Policy Decision Log (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  > 
+  > Kyverno's CEL engine runs a whole pipeline on the way to an admit or deny (scope filtering, match conditions, variables, validation expressions, autogen rule expansion, mutation, exception handling) and discards the per-expression detail the moment it has a final answer. When a CEL policy does something surprising (matches a resource you didn't expect, skips one you did, denies with a message that doesn't say which clause fired, or fails with a bare "no such key"), there is no supported way to see which sub-expression produced which value. 
+  > 
+  > ## Expected Outcomes
+  > 
+  > This feature proposes an opt-in, structured decision trace: capture what the engine already computes, once, in a stable machine-readable form, and surface it where users look (the CLI first, then reports and the running controller). It broadens KDP https://github.com/kyverno/kyverno/pull/91 from a two-phase CLI-plus-runtime feature into a decision-explainability primitive for the whole CEL pipeline.
+
+- Recommended Skills: Kubernetes, Golang, CEL
+- Technologies: Kubernetes, Golang, CEL
+- Mentor(s):
+  - Jim Bugwadia (@JimBugwadia, jim@nirmata.com)
+  - Jyotiraditya Panda (@rx18-eng, remopanda7@gmail.com)
+- Upstream Issue: https://github.com/kyverno/kyverno/issues/16692
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/e210712d-94de-4740-9ecf-201f7621425d
 
 ### OpenTelemetry
 
