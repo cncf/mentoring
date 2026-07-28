@@ -249,13 +249,16 @@ jobs:
             core.exportVariable('EXPORT_TERM', term);
             core.exportVariable('EXPORT_TERM_DIR', termDir);
             core.exportVariable('EXPORT_YEAR', year);
-            // The Exported label and board sync act on the full exported set
-            // (state, idempotent/guarded). The PR summary splits the changed set
-            // into newly-added vs updated (#1992); the notification comment goes
-            // ONLY to newly-added programs, so a re-export never re-lists the full
-            // term nor re-pings a program whose data merely refreshed (e.g. a
-            // project maturity change).
-            core.exportVariable('EXPORTED_ISSUES', programs.map(p => p.issue_number).join(','));
+            // The Exported label and board sync act on the currently-APPROVED
+            // programs, not the full sticky set: carried-forward frozen programs
+            // (whose approval lapsed) keep whatever labels/board state they
+            // already have and must not be re-touched, and re-labeling a program
+            // that isn't a live issue this run would fail the step (#2015). The PR
+            // summary splits the changed set into newly-added vs updated (#1992);
+            // the notification comment goes ONLY to newly-added programs, so a
+            // re-export never re-lists the full term nor re-pings a program whose
+            // data merely refreshed (e.g. a project maturity change).
+            core.exportVariable('EXPORTED_ISSUES', approvedPrograms.map(p => p.issue_number).join(','));
             core.exportVariable('NOTIFY_ISSUES', added.map(p => p.issue_number).join(','));
             core.exportVariable('EXPORT_PROGRAM_LABEL', exportChangeLabel(added.length, updated.length));
 
