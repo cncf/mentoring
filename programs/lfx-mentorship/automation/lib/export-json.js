@@ -71,4 +71,32 @@ function partitionExportChanges(beforeData, afterData) {
   return { added, updated };
 }
 
-module.exports = { serializeExport, ignoreGenerated, changedExportPrograms, partitionExportChanges };
+// Merge the freshly-built approved programs with programs already in the term's
+// baseline export, so an exported program is never silently dropped when its
+// CNCF-Approved label lapses (e.g. a post-approval material edit cleared it;
+// cncf/mentoring#2015). A program in the baseline but absent from
+// `approvedPrograms` is carried forward FROZEN (the exact record LFX was loaded
+// with) until a deliberate re-approval regenerates it. An approved program always
+// uses its fresh record. Nothing is ever auto-removed: once exported (loaded into
+// LFX) a program stays, since dropping it is the very failure this prevents. The
+// returned programs are sorted by issue_number descending (the order the export
+// has always emitted, now deterministic across both sources). Returns
+// { programs, carriedForward }.
+function applyStickyExport(approvedPrograms, beforeData) {
+  const approved = new Map();
+  for (const p of approvedPrograms || []) {
+    if (p && Number.isInteger(p.issue_number)) approved.set(p.issue_number, p);
+  }
+  const baseline = beforeData && Array.isArray(beforeData.programs) ? beforeData.programs : [];
+  const carriedForward = [];
+  for (const p of baseline) {
+    if (!p || !Number.isInteger(p.issue_number)) continue;
+    if (approved.has(p.issue_number)) continue; // approved: fresh record wins
+    carriedForward.push(p);                      // lapsed approval: carry forward frozen
+  }
+  const programs = [...approved.values(), ...carriedForward]
+    .sort((a, b) => b.issue_number - a.issue_number);
+  return { programs, carriedForward };
+}
+
+module.exports = { serializeExport, ignoreGenerated, changedExportPrograms, partitionExportChanges, applyStickyExport };

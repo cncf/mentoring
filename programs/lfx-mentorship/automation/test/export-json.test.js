@@ -160,3 +160,61 @@ test('partitionExportChanges: changed programs match changedExportPrograms issue
   const changed = changedExportPrograms(before, after).map(p => p.issue_number).sort((a, b) => a - b);
   assert.deepEqual(partitioned, changed);
 });
+
+// ── applyStickyExport: an exported program is never silently dropped ─────────
+// Once a program is in the term's export (already loaded into LFX), a later run
+// must keep it even if its CNCF-Approved label lapsed (e.g. a post-approval edit
+// cleared it). Programs absent from the fresh approved set but present in the
+// baseline are carried forward FROZEN (the content LFX holds) until a deliberate
+// re-approval regenerates them. Approved programs always use their fresh record.
+// Nothing is ever auto-removed: dropping an exported program is the very bug this
+// prevents. (cncf/mentoring#2015)
+const { applyStickyExport } = require('../lib/export-json');
+
+test('applyStickyExport: no baseline -> just the approved set, sorted issue desc', () => {
+  const r = applyStickyExport([prog(1), prog(3), prog(2)], null);
+  assert.deepEqual(r.programs.map(p => p.issue_number), [3, 2, 1]);
+  assert.deepEqual(r.carriedForward, []);
+});
+
+test('applyStickyExport: a lapsed (no-longer-approved) exported program is carried forward frozen', () => {
+  const approved = [prog(2)];
+  const before = data(prog(1, { description: 'FROZEN d1' }), prog(2));
+  const r = applyStickyExport(approved, before);
+  assert.deepEqual(r.programs.map(p => p.issue_number), [2, 1]);
+  assert.deepEqual(r.carriedForward.map(p => p.issue_number), [1]);
+  // #1 is the baseline (frozen) record, byte-for-byte.
+  assert.deepEqual(r.programs.find(p => p.issue_number === 1), prog(1, { description: 'FROZEN d1' }));
+});
+
+test('applyStickyExport: an approved program uses its FRESH record, not the frozen baseline', () => {
+  const approved = [prog(1, { description: 'FRESH d1' })];
+  const before = data(prog(1, { description: 'OLD d1' }));
+  const r = applyStickyExport(approved, before);
+  assert.equal(r.programs.length, 1);
+  assert.equal(r.programs[0].description, 'FRESH d1');
+  assert.deepEqual(r.carriedForward, []);
+});
+
+test('applyStickyExport: a closed proposal already in the baseline stays (never auto-removed)', () => {
+  const approved = [prog(2)];              // #1 no longer approved (issue closed)
+  const before = data(prog(1), prog(2));
+  const r = applyStickyExport(approved, before);
+  assert.deepEqual(r.programs.map(p => p.issue_number), [2, 1]);
+  assert.deepEqual(r.carriedForward.map(p => p.issue_number), [1]);
+});
+
+test('applyStickyExport: mixed set carries every lapsed baseline program, sorted desc', () => {
+  const approved = [prog(5), prog(2)];
+  const before = data(prog(4), prog(3), prog(2), prog(1));
+  const r = applyStickyExport(approved, before);
+  assert.deepEqual(r.programs.map(p => p.issue_number), [5, 4, 3, 2, 1]);
+  assert.deepEqual(r.carriedForward.map(p => p.issue_number), [4, 3, 1]);
+});
+
+test('applyStickyExport: skips malformed entries lacking an integer issue_number', () => {
+  const approved = [prog(2), { foo: 'bar' }];
+  const before = { programs: [prog(1), null, { issue_number: 'x' }] };
+  const r = applyStickyExport(approved, before);
+  assert.deepEqual(r.programs.map(p => p.issue_number), [2, 1]);
+});
