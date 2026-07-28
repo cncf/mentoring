@@ -312,7 +312,7 @@ CNCF - Kyverno: Update Pod Security Standards for User Namespaces (2026 Term 3)
   - Shuting Zhao (@realshuting, shuting@nirmata.com)
   - Ammar Yasser (@aerosouund, ammar.yasser@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/15979
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/898098d8-ce58-409a-834e-32306fc2f46e
 
 #### AI Assistant
 
@@ -334,7 +334,7 @@ CNCF - Kyverno: AI Assistant (2026 Term 3)
   - Jim Bugwadia (@JimBugwadia, jim@nirmata.com)
   - Shuting Zhao (@realshuting, shuting@nirmata.com)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/16665
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/c869e19a-8815-459b-8a2d-3a068e8863c3
 
 #### Policy Decision Log
 
@@ -356,7 +356,7 @@ CNCF - Kyverno: Policy Decision Log (2026 Term 3)
   - Jim Bugwadia (@JimBugwadia, jim@nirmata.com)
   - Jyotiraditya Panda (@rx18-eng, remopanda7@gmail.com)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/16692
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/e210712d-94de-4740-9ecf-201f7621425d
 
 ### OpenTelemetry
 
