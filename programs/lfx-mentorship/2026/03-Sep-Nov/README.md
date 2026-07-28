@@ -195,7 +195,7 @@ CNCF - HAMi: Reduce HAMi-core Initialization Lock Contention (2026 Term 3)
   - Mengxuan Li (@archlitchi, mengxuan.li@dynamia.ai)
   - Shouren Yang (@shouren, yangshouren@gmail.com)
 - Upstream Issue: https://github.com/Project-HAMi/HAMi/issues/1662
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ce2ebae3-6936-409d-a9d7-c98b109ec814
 
 #### Fix GPU Memory Isolation for Child and SSH Processes
 
@@ -222,7 +222,7 @@ CNCF - HAMi: Fix GPU Memory Isolation for Child and SSH Processes (2026 Term 3)
   - Mengxuan Li (@archlitchi, mengxuan.li@dynamia.ai)
   - Jimmy Song (@rootsongjc, rootsongjc@gmail.com)
 - Upstream Issue: https://github.com/Project-HAMi/HAMi/issues/2125
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/e5e55e8c-fab1-4453-9d49-a4a5e013c4c5
 
 ### Kubeflow
 
