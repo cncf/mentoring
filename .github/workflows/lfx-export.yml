@@ -50,6 +50,17 @@ jobs:
 
             console.log(`Exporting proposals for: ${term}`);
 
+            // This export reads its baseline from the checked-out tree and opens
+            // its PR against the branch it runs on, so it must run on the default
+            // branch (main); dispatching elsewhere would carry forward a stale
+            // baseline (cncf/mentoring#2015 review).
+            const defaultBranch = context.payload.repository && context.payload.repository.default_branch;
+            const currentBranch = context.ref.replace('refs/heads/', '');
+            if (defaultBranch && currentBranch !== defaultBranch) {
+              core.setFailed(`lfx-export must run on the default branch (${defaultBranch}); it was dispatched on ${currentBranch}.`);
+              return;
+            }
+
             // ── Fetch all approved issues for this term ──
             const issues = await github.paginate(github.rest.issues.listForRepo, {
               owner, repo, state: 'open',
@@ -155,12 +166,13 @@ jobs:
 
             const outPath = `${outDir}/lfx-export.json`;
 
-            // ── Read the export currently on main (the baseline) ──
-            // Read BEFORE building this run's data so an already-exported program
-            // whose CNCF-Approved label lapsed (e.g. a post-approval edit cleared
-            // it) is carried forward instead of silently dropped (#2015). A
-            // missing/malformed baseline yields no carry-forward and treats every
-            // program as new (a term's first export).
+            // ── Read the term's current export as the baseline ──
+            // Read from the checked-out tree (guarded to the default branch
+            // above, so this is main's export) BEFORE building this run's data, so
+            // an already-exported program whose CNCF-Approved label lapsed (e.g. a
+            // post-approval edit cleared it) is carried forward instead of silently
+            // dropped (#2015). A missing/malformed baseline yields no carry-forward
+            // and treats every program as new (a term's first export).
             const existingExport = fs.existsSync(outPath) ? fs.readFileSync(outPath, 'utf8') : null;
             let baselineExport = null;
             if (existingExport != null) {
