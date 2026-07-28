@@ -927,7 +927,7 @@ CNCF - Meshery: Grounding AI in the Meshery Registry (2026 Term 3)
   - Mia Grenell (@miacycle, mia.grenell2337@gmail.com)
   - Lee Calcote (@leecalcote, leecalcote@gmail.com)
 - Upstream Issue: https://github.com/meshery/meshery/issues/20995
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/45b2ab48-4925-41eb-b91d-87f2e74be320
 
 #### AXI - Making mesheryctl Agent-Native
 
@@ -955,7 +955,7 @@ CNCF - Meshery: AXI - Making mesheryctl Agent-Native (2026 Term 3)
   - Lee Calcote (@leecalcote, leecalcote@gmail.com)
   - Yi Nuo (@yi-nuo426, yinuo084@gmail.com)
 - Upstream Issue: https://github.com/meshery/meshery/issues/20979
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/82c28ded-28c6-4089-8d6a-5e9dcf7f1c11
 
 #### BYOM: Adapter for AI and LLMs
 
@@ -983,7 +983,7 @@ CNCF - Meshery: BYOM: Adapter for AI and LLMs (2026 Term 3)
   - Lee Calcote (@leecalcote, leecalcote@gmail.com)
   - James Horton (@hortison, james.hortison2337@gmail.com)
 - Upstream Issue: https://github.com/meshery/meshery/issues/20994
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/51d95093-086a-4931-9e9f-c71d022f7a74
 
 #### MCP Server
 
@@ -1011,7 +1011,7 @@ CNCF - Meshery: MCP Server (2026 Term 3)
   - Lee Calcote (@leecalcote, leecalcote@gmail.com)
   - Yi Nuo (@yi-nuo426, yinuo084@gmail.com)
 - Upstream Issue: https://github.com/meshery/meshery/issues/19446
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/29b6958b-77df-4135-85b2-f4a3185c1155
 
 ### OpenTelemetry
 
