@@ -1,8 +1,212 @@
 {
-  "_generated": "2026-07-28T18:44:24.961Z",
+  "_generated": "2026-07-28T22:38:24.207Z",
   "_term": "2026 Term 3 (Sep-Nov)",
-  "_count": 32,
+  "_count": 38,
   "programs": [
+    {
+      "issue_number": 2022,
+      "issue_url": "https://github.com/cncf/mentoring/issues/2022",
+      "cncf_project": "Meshery",
+      "cncf_project_slug": "meshery",
+      "cncf_project_maturity": "sandbox",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - Meshery: Grounding AI in the Meshery Registry (2026 Term 3)",
+      "program_name_short": "Grounding AI in the Meshery Registry",
+      "description": "## Description\n\nThe Meshery Registry holds thousands of components across hundreds of Models spanning Kubernetes, the CNCF landscape, and the major clouds, together with the Relationship definitions that describe how those components legitimately connect. That registry is precisely the knowledge a language model needs in order to generate a design Meshery will accept, and it is orders of magnitude too large to fit in a context window. Today there is no defined mechanism for selecting registry context for AI prompts, and even ordinary component search lacks a model filter. Generation therefore falls back on whatever the model happens to remember about Kubernetes (or any of the public Clouds that Meshery supports), which is how agents invent components that do not exist and propose relationships the policy engine will reject.\n\nThis project builds the retrieval layer that grounds every other AI capability in Meshery. The mentee implements an embedding index over Models, components, and Relationships with a pluggable backend so that operators can choose a hosted embedding service or a fully local one, incremental re-indexing as models are registered or updated, and a ranked context assembly API that accepts an intent and returns a compact, token-budgeted slice of the registry for the AI Adapter and the Meshery MCP Server to consume. The same index pays off directly for humans: semantic search across the registry pages in Meshery UI, and search improvements in `mesheryctl` including the missing model filter for component search. Effectiveness is measured, not asserted, using the design validation and evaluation work running in parallel this term.\n\n## Expected Outcomes\n\n- An embedding index over Meshery Models, components, and Relationships, incrementally rebuilt on registry changes, with a pluggable hosted or local embedding backend.\n- A context selection API that returns a ranked, token-budgeted registry slice for a given intent, consumed by both the AI Adapter and the Meshery MCP Server.\n- Semantic search in the Meshery UI registry experience and in `mesheryctl`, including the currently missing `--model` filter on component search.\n- Measured improvement in component resolution rate and generated design validity against a retrieval-free baseline, reported through the term's evaluation harness.\n- Documentation of the retrieval architecture, index schema, backend configuration, and tuning guidance.",
+      "technologies": "Golang, React, vector search, REST, SQL",
+      "skills": "Kubernetes CRDs",
+      "mentors": [
+        {
+          "name": "Mia Grenell",
+          "github_handle": "miacycle",
+          "email": "mia.grenell2337@gmail.com",
+          "lfid": "mia.grenell",
+          "role": "primary"
+        },
+        {
+          "name": "Lee Calcote",
+          "github_handle": "leecalcote",
+          "email": "leecalcote@gmail.com",
+          "lfid": "leecalcote",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/meshery/meshery/issues/20995",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": false,
+        "cover_letter": false,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": {
+          "name": "Participation is Key",
+          "description": "1. Join the community (https://slack.meshery.io).\n2. Join the weekly newcomers meeting (https://meet.meshery.io) and learn about the project.\n3. Get a feel for Meshery's capabilities in the Playground (https://play.meshery.io)\n   1. Create a design.\n   2. Receive a badge (from https://meshery.io/community/recognition/).\n  Optionally:\n   1. Add badge to your GitHub profile.\n   2. Publish your design the Catalog.\n4. Ascertain whether your passions and skills align.",
+          "file_upload": false
+        },
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 2021,
+      "issue_url": "https://github.com/cncf/mentoring/issues/2021",
+      "cncf_project": "Meshery",
+      "cncf_project_slug": "meshery",
+      "cncf_project_maturity": "sandbox",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - Meshery: AXI - Making mesheryctl Agent-Native (2026 Term 3)",
+      "program_name_short": "AXI - Making mesheryctl Agent-Native",
+      "description": "## Description\n\n`mesheryctl` was designed for humans: bordered tables, ANSI color, interactive confirmation prompts, in-place line clearing. Increasingly it is driven by agents, and for an agent every one of those affordances is a defect. Tables cost tokens, escape codes pollute parsing, and an interactive prompt in a non-TTY context hangs a workflow with no diagnostic. The distinction that resolves this is between two different things `mesheryctl` formats: retrieved content, where a Design or an evaluation result is a schema-defined document whose real serializations are JSON and YAML, and command output, which is `mesheryctl` reporting its own rows, counts, statuses, and errors. The table is a presentation choice, not the identity of the data, and command output is the surface an agent actually pays tokens to read.\n\nThis project makes `mesheryctl` compliant with the Agent Experience Interface conventions the surrounding ecosystem is converging on. The mentee introduces a shared render-mode layer so command output can be emitted for humans or for agents, adds TOON as a first-class global output format wherever JSON and YAML are already honored, makes the CLI automatically non-interactive and free of ANSI when stdout is not a TTY, and defines a tested exit code taxonomy and structured error format across the command surface, including the AI provider check and design generation workflows. The result is a CLI that an agent, an MCP server, or a CI job can drive deterministically, and that stays pleasant for the humans who use it every day.\n\n## Expected Outcomes\n\n- A shared render-mode layer applied across `mesheryctl` so command output can be emitted as human tables or agent-oriented structured output, driven centrally rather than command by command.\n- Global `-o toon` support wherever `-o json` and `-o yaml` are honored, serializing the same data model with equivalent content across formats.\n- Automatic non-interactive behavior when stdout is not a TTY: no prompts, no ANSI, no line clearing, and deterministic, diffable output.\n- A documented and tested exit code taxonomy plus structured error output spanning the command surface, including AI provider readiness checks and design generation.\n- Golden tests covering render modes across commands, an agent usage section in the mesheryctl documentation, and a machine-readable command manifest consumable by the Meshery MCP Server.",
+      "technologies": "Golang, Cobra, JSON/YAML/TOON, GitHub Actions",
+      "skills": "Golang, Cobra, JSON/YAML/TOON, GitHub Actions",
+      "mentors": [
+        {
+          "name": "Lee Calcote",
+          "github_handle": "leecalcote",
+          "email": "leecalcote@gmail.com",
+          "lfid": "leecalcote",
+          "role": "primary"
+        },
+        {
+          "name": "Yi Nuo",
+          "github_handle": "yi-nuo426",
+          "email": "yinuo084@gmail.com",
+          "lfid": "yinuo",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/meshery/meshery/issues/20979",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": false,
+        "cover_letter": false,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": {
+          "name": "Participation is Key",
+          "description": "1. Join the community (https://slack.meshery.io).\n2. Join the weekly newcomers meeting (https://meet.meshery.io) and learn about the project.\n3. Get a feel for Meshery's capabilities in the Playground (https://play.meshery.io)\n    1. Create a design.\n    2. Receive a badge (from https://meshery.io/community/recognition/).\n  Optionally:\n   1. Add badge to your GitHub profile.\n   2. Publish your design the Catalog.\n4. Ascertain whether your passions and skills align.",
+          "file_upload": false
+        },
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 2020,
+      "issue_url": "https://github.com/cncf/mentoring/issues/2020",
+      "cncf_project": "Meshery",
+      "cncf_project_slug": "meshery",
+      "cncf_project_maturity": "sandbox",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - Meshery: BYOM: Adapter for AI and LLMs (2026 Term 3)",
+      "program_name_short": "BYOM: Adapter for AI and LLMs",
+      "description": "## Description\n \nMeshery's AI Adapter track aims at natural language to infrastructure: a user describes architectural intent and Meshery renders a valid Design in Kubernetes clusters and Meshery extensions like Kanvas. Early implementations configured providers through startup environment variables such as `MESHERY_AI_OPENAI_API_KEY`, which does not survive contact with real deployments. That approach is per-server rather than per-user, it cannot express more than one provider, and it puts secrets somewhere Meshery already has a better home for them. Meshery has first-class Connections and Credentials with schema-driven registration, and server-side CRUD for model-provider connections has already landed. What is missing is the complete path from a user supplying their own key to a generated, validated Design on the canvas.\n \nThis project makes AI providers bring-your-own and user-owned. The mentee implements provider Connections and Credentials spanning cloud and local inference (OpenAI Codex, Anthropic Claude, GitHub Copilot, Azure OpenAI, AWS Bedrock, Vertex AI, Ollama, LocalAI), a Create New Connection experience in Meshery UI, provider health and readiness checks, and the generation path itself: prompt, to compact model and schema context, to provider call, to candidate Design, to validation, to a deployable workload in a Kubernetes cluster, and a reviewable result in Kanvas. Secrets live only in Credentials. They are never returned to clients, never written into prompt context or generated designs, and never appear in logs or events. Generation produces a candidate for human review and never deploys automatically, which keeps Meshery UI as the review surface and keeps the feature safe to enable by default.\n \n## Expected Outcomes\n \n- Connection and Credential support for at least four provider kinds spanning hosted and local inference, registered through Meshery Models and manageable from both Meshery UI and mesheryctl.\n- A Create New Connection wizard plus provider health and readiness checks surfaced in UI and CLI, with defined status, error, and event semantics and operationId correlation.\n- End-to-end natural language to Design generation using user-supplied credentials, returning a reviewable candidate Design or structured validation errors rather than an automatic deployment.\n- A demonstrated provider swap between a hosted frontier model and a local model with no code changes, plus secret redaction across logs, events, and API responses verified by tests.\n- Documentation covering provider setup, the credential contract, data handling and privacy posture, and an AI production checklist added to the system check guide.",
+      "technologies": "Golang, Javascript, React, REST, Frontier model provider APIs / LLM provider APIs",
+      "skills": "Kubernetes",
+      "mentors": [
+        {
+          "name": "Lee Calcote",
+          "github_handle": "leecalcote",
+          "email": "leecalcote@gmail.com",
+          "lfid": "leecalcote",
+          "role": "primary"
+        },
+        {
+          "name": "James Horton",
+          "github_handle": "hortison",
+          "email": "james.hortison2337@gmail.com",
+          "lfid": "hortison",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/meshery/meshery/issues/20994",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": false,
+        "cover_letter": false,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": {
+          "name": "Participation is Key",
+          "description": "1. Join the community (https://slack.meshery.io).\n2. Join the weekly newcomers meeting (https://meet.meshery.io) and learn about the project.\n3. Get a feel for Meshery's capabilities in the Playground (https://play.meshery.io)\n    1. Create a design.\n    2. Receive a badge (from https://meshery.io/community/recognition/).\n  Optionally:\n   1. Add badge to your GitHub profile.\n   2. Publish your design the Catalog.\n4. Ascertain whether your passions and skills align.",
+          "file_upload": false
+        },
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 2019,
+      "issue_url": "https://github.com/cncf/mentoring/issues/2019",
+      "cncf_project": "Meshery",
+      "cncf_project_slug": "meshery",
+      "cncf_project_maturity": "sandbox",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - Meshery: MCP Server (2026 Term 3)",
+      "program_name_short": "MCP Server",
+      "description": "## Description\n \nMeshery manages cloud and cloud native infrastructure through Designs, Models, Connections, and a live topology continuously discovered by MeshSync. All of it is reachable over Meshery's REST and GraphQL APIs. None of it is reachable by an AI assistant. An engineer working with Claude, Copilot, or Cursor today copies YAML back and forth by hand, because the agent has no way to list designs, inspect a cluster, resolve a component schema, or deploy a pattern. The `meshery-mcp-server` repository was created to close that gap and is currently scaffolding only: a Makefile, lint configuration, and governance files, with no Go module, no protocol implementation, and no tools.\n\nThis project builds the server end to end. The mentee implements the Model Context Protocol foundation over both stdio and streamable HTTP transports, a Go client wrapping Meshery's REST and GraphQL APIs, and the tool, resource, and prompt surfaces that let an agent do real work: design lifecycle operations, Kubernetes cluster connection management, registry and model queries, environment and workspace management, and Nighthawk-backed performance testing. Read-only resources built on MeshSync-discovered topology ground the agent in what is actually running rather than only in what the schema permits, under hard constraints of no mutations and no secret exposure. Configuration supports multiple named Meshery instances with context switching, and the work ships as a real release: unit, integration, and end-to-end tests, CI, multi-platform binaries and a container image, and a quick start that takes a new user from zero to a working integration in under ten minutes.\n \n## Expected Outcomes\n \n- A released `meshery-mcp-server` binary and container image supporting stdio and streamable HTTP transports, verified against at least two MCP clients.\n- Tool coverage across designs, clusters, registry and models, environments and workspaces, and performance tests, each with validated input schemas and structured error handling.\n- Read-only MCP resources exposing MeshSync topology and Meshery Relationships, with enforced guarantees of no mutations and no secret exposure.\n- MCP prompt templates for guided workflows: deploy an application, investigate cluster health, review a design against best practices, and configure a performance test.\n- CI/CD with multi-platform release automation, at least 80% unit coverage on internal packages, and a published user guide, configuration reference, and AI client integration examples.",
+      "technologies": "Golang, Model Context Protocol, REST, GitHub Actions",
+      "skills": "Kubernetes",
+      "mentors": [
+        {
+          "name": "Lee Calcote",
+          "github_handle": "leecalcote",
+          "email": "leecalcote@gmail.com",
+          "lfid": "leecalcote",
+          "role": "primary"
+        },
+        {
+          "name": "Yi Nuo",
+          "github_handle": "yi-nuo426",
+          "email": "yinuo084@gmail.com",
+          "lfid": "yinuo",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/meshery/meshery/issues/19446",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": false,
+        "cover_letter": false,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": {
+          "name": "Participation is Key",
+          "description": "1. Join the community (https://slack.meshery.io).\n2. Join the weekly newcomers meeting (https://meet.meshery.io) and learn about the project.\n3. Get a feel for Meshery's capabilities in the Playground (https://play.meshery.io)\n    1. Create a design.\n    2. Receive a badge (from https://meshery.io/community/recognition/).\n  Optionally:\n   1. Add badge to your GitHub profile.\n   2. Publish your design the Catalog.\n4. Ascertain whether your passions and skills align.",
+          "file_upload": false
+        },
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
     {
       "issue_number": 2014,
       "issue_url": "https://github.com/cncf/mentoring/issues/2014",
@@ -36,6 +240,53 @@
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": null,
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 2013,
+      "issue_url": "https://github.com/cncf/mentoring/issues/2013",
+      "cncf_project": "Kubeflow",
+      "cncf_project_slug": "kubeflow",
+      "cncf_project_maturity": "graduated",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - Kubeflow: OptimizationJob CRD: HPO Engine for Kubeflow Trainer (2026 Term 3)",
+      "program_name_short": "OptimizationJob CRD: HPO Engine for Kubeflow Trainer",
+      "description": "## Description\n\nHyperparameter optimization is critical for maximizing model performance, and Katib has long provided it through the `Experiment` CRD. But that CRD was built for broad use cases, including Neural Architecture Search and arbitrary workloads, which makes ordinary tuning verbose, hard to validate, and reliant on a stateful helper pod and database per experiment. The community has agreed to replace it with `OptimizationJob`, a resource focused solely on tuning `TrainJob`s. That work is half finished: the design is merged, the API is in review, and the push-based metrics foundation has shipped - but nothing yet watches these resources, launches trials, reads results, or picks a winner. This project builds that missing runtime.\n\n## Expected Outcomes\n\n- **Tuning controller:** launches TrainJobs from the template, enforces trial budgets, injects hyperparameters, evaluates reported metrics, and records the best trial\n- **Stateless suggestion service:** a short-lived, per-job companion that proposes values and is cleaned up automatically, with no database or persistent state\n- **Katib compatibility layer:** translation letting the new typed API drive Katib's existing search algorithms unchanged\n- **Testing:** unit, simulated-cluster, and end-to-end coverage, including failure paths\n- **Documentation:** user guide, runnable examples, and migration notes for existing Katib users",
+      "technologies": "Go, Python, Kubernetes controllers, CRDs, HPO frameworks",
+      "skills": "Go, Python, Kubernetes controllers, CRDs, HPO frameworks",
+      "mentors": [
+        {
+          "name": "Tariq Hasan",
+          "github_handle": "tariq-hasan",
+          "email": "mmtariquehsn@gmail.com",
+          "lfid": "tariq-hasan",
+          "role": "primary"
+        },
+        {
+          "name": "Andrey Velichkevich",
+          "github_handle": "andreyvelich",
+          "email": "andrey.velichkevich@gmail.com",
+          "lfid": "andreyvelich",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/kubeflow/trainer/issues/3562",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": false,
         "school_enrollment": false,
         "participation_permission": false,
         "coding_challenge": false,
@@ -515,6 +766,64 @@
         "coding_challenge": false,
         "coding_challenge_url": null,
         "custom": null,
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 1983,
+      "issue_url": "https://github.com/cncf/mentoring/issues/1983",
+      "cncf_project": "PipeCD",
+      "cncf_project_slug": "pipecd",
+      "cncf_project_maturity": "sandbox",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - PipeCD: PipeCD plugin for Headlamp (2026 Term 3)",
+      "program_name_short": "PipeCD plugin for Headlamp",
+      "description": "## Description\nThis proposal outlines the development of a Headlamp plugin for PipeCD. [PipeCD](https://pipecd.dev/) is a GitOps-style continuous delivery platform that handles deployments across multiple platforms (Kubernetes, Cloud Run, AWS, etc.). [Headlamp](https://headlamp.dev/) is an extensible, user-friendly Kubernetes web UI.\nBy building a PipeCD plugin for Headlamp, we can bridge the gap between cluster management and continuous delivery, allowing developers and operators to monitor their deployments, view pipeline statuses, and trigger sync operations without leaving their Kubernetes dashboard. This convergence reduces context switching and streamlines the operational workflow for Kubernetes-native teams.\n\n## Expected outcome\n- PipeCD plugin for Headlamp, with full functional to make PipeCD deployment works on Kubernetes dashboard\n- Docs for PipeCD plugin for Headlamp\n- Blog about the plugin on pipecd.dev official website",
+      "technologies": "Go, Typescript, Kubernetes",
+      "skills": "Go, Typescript, Kubernetes",
+      "mentors": [
+        {
+          "name": "Khanh Tran",
+          "github_handle": "khanhtc1202",
+          "email": "khanhtc1202@gmail.com",
+          "lfid": "khanhtc1202",
+          "role": "primary"
+        },
+        {
+          "name": "Mohammed Firdous",
+          "github_handle": "mohammedfirdouss",
+          "email": "mohammedfirdousaraoye@gmail.com",
+          "lfid": "",
+          "role": "co-mentor"
+        },
+        {
+          "name": "Yash Israni",
+          "github_handle": "yashisrani",
+          "email": "imailyash57@gmail.com",
+          "lfid": "yashisrani",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/pipe-cd/pipecd/issues/6706",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": false,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": {
+          "name": "Implement proposal",
+          "description": "We would like applicants to submit a project proposal document, which should include:\n- An overview of PipeCD and Headlamp to demonstrate understanding of the project\n- An overview of the project implementation plan\n- A preliminary timeline for project implementation",
+          "file_upload": true
+        },
         "standard_courses": [
           {
             "name": "Inclusive Community",

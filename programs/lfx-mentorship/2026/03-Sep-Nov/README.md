@@ -52,6 +52,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - [Enable RuntimeClass and Confidential Containers on KubeEdge](#enable-runtimeclass-and-confidential-containers-on-kubeedge)
   - [Modernize KubeEdge Controllers and Admission Webhooks](#modernize-kubeedge-controllers-and-admission-webhooks)
 - [Kubeflow](#kubeflow)
+  - [OptimizationJob CRD: HPO Engine for Kubeflow Trainer](#optimizationjob-crd-hpo-engine-for-kubeflow-trainer)
   - [Evolve SparkClient into Kubeflow's Unified Data Processing Layer](#evolve-sparkclient-into-kubeflows-unified-data-processing-layer)
   - [Abstracting Pod Lifecycle Diagnostics for Kubeflow Pipelines](#abstracting-pod-lifecycle-diagnostics-for-kubeflow-pipelines)
 - [Kubernetes](#kubernetes)
@@ -66,11 +67,18 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - [Update Pod Security Standards for User Namespaces](#update-pod-security-standards-for-user-namespaces)
   - [AI Assistant](#ai-assistant)
   - [Policy Decision Log](#policy-decision-log)
+- [Meshery](#meshery)
+  - [Grounding AI in the Meshery Registry](#grounding-ai-in-the-meshery-registry)
+  - [AXI - Making mesheryctl Agent-Native](#axi-making-mesheryctl-agent-native)
+  - [BYOM: Adapter for AI and LLMs](#byom-adapter-for-ai-and-llms)
+  - [MCP Server](#mcp-server)
 - [OpenTelemetry](#opentelemetry)
   - [Declarative instrumentation configuration for otelc](#declarative-instrumentation-configuration-for-otelc)
   - [Zero-code AI Agent observability for otelc](#zero-code-ai-agent-observability-for-otelc)
 - [OpenYurt](#openyurt)
   - [Add Claude Code Skills for deploying OpenYurt and configuring Raven](#add-claude-code-skills-for-deploying-openyurt-and-configuring-raven)
+- [PipeCD](#pipecd)
+  - [PipeCD plugin for Headlamp](#pipecd-plugin-for-headlamp)
 - [Podman Container Tools](#podman-container-tools)
   - [Website Design and UX Improvements](#website-design-and-ux-improvements)
   - [Agentic CI Flake Categorization and Analysis](#agentic-ci-flake-categorization-and-analysis)
@@ -442,6 +450,32 @@ CNCF - KubeEdge: Modernize KubeEdge Controllers and Admission Webhooks (2026 Ter
 - LFX URL: TBD
 
 ### Kubeflow
+
+#### OptimizationJob CRD: HPO Engine for Kubeflow Trainer
+
+CNCF - Kubeflow: OptimizationJob CRD: HPO Engine for Kubeflow Trainer (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  > 
+  > Hyperparameter optimization is critical for maximizing model performance, and Katib has long provided it through the `Experiment` CRD. But that CRD was built for broad use cases, including Neural Architecture Search and arbitrary workloads, which makes ordinary tuning verbose, hard to validate, and reliant on a stateful helper pod and database per experiment. The community has agreed to replace it with `OptimizationJob`, a resource focused solely on tuning `TrainJob`s. That work is half finished: the design is merged, the API is in review, and the push-based metrics foundation has shipped - but nothing yet watches these resources, launches trials, reads results, or picks a winner. This project builds that missing runtime.
+  > 
+  > ## Expected Outcomes
+  > 
+  > - **Tuning controller:** launches TrainJobs from the template, enforces trial budgets, injects hyperparameters, evaluates reported metrics, and records the best trial
+  > - **Stateless suggestion service:** a short-lived, per-job companion that proposes values and is cleaned up automatically, with no database or persistent state
+  > - **Katib compatibility layer:** translation letting the new typed API drive Katib's existing search algorithms unchanged
+  > - **Testing:** unit, simulated-cluster, and end-to-end coverage, including failure paths
+  > - **Documentation:** user guide, runnable examples, and migration notes for existing Katib users
+
+- Recommended Skills: Go, Python, Kubernetes controllers, CRDs, HPO frameworks
+- Technologies: Go, Python, Kubernetes controllers, CRDs, HPO frameworks
+- Mentor(s):
+  - Tariq Hasan (@tariq-hasan, mmtariquehsn@gmail.com)
+  - Andrey Velichkevich (@andreyvelich, andrey.velichkevich@gmail.com)
+- Upstream Issue: https://github.com/kubeflow/trainer/issues/3562
+- LFX URL: TBD
 
 #### Evolve SparkClient into Kubeflow's Unified Data Processing Layer
 
@@ -865,6 +899,120 @@ CNCF - Kyverno: Policy Decision Log (2026 Term 3)
 - Upstream Issue: https://github.com/kyverno/kyverno/issues/16692
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/e210712d-94de-4740-9ecf-201f7621425d
 
+### Meshery
+
+#### Grounding AI in the Meshery Registry
+
+CNCF - Meshery: Grounding AI in the Meshery Registry (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  > 
+  > The Meshery Registry holds thousands of components across hundreds of Models spanning Kubernetes, the CNCF landscape, and the major clouds, together with the Relationship definitions that describe how those components legitimately connect. That registry is precisely the knowledge a language model needs in order to generate a design Meshery will accept, and it is orders of magnitude too large to fit in a context window. Today there is no defined mechanism for selecting registry context for AI prompts, and even ordinary component search lacks a model filter. Generation therefore falls back on whatever the model happens to remember about Kubernetes (or any of the public Clouds that Meshery supports), which is how agents invent components that do not exist and propose relationships the policy engine will reject.
+  > 
+  > This project builds the retrieval layer that grounds every other AI capability in Meshery. The mentee implements an embedding index over Models, components, and Relationships with a pluggable backend so that operators can choose a hosted embedding service or a fully local one, incremental re-indexing as models are registered or updated, and a ranked context assembly API that accepts an intent and returns a compact, token-budgeted slice of the registry for the AI Adapter and the Meshery MCP Server to consume. The same index pays off directly for humans: semantic search across the registry pages in Meshery UI, and search improvements in `mesheryctl` including the missing model filter for component search. Effectiveness is measured, not asserted, using the design validation and evaluation work running in parallel this term.
+  > 
+  > ## Expected Outcomes
+  > 
+  > - An embedding index over Meshery Models, components, and Relationships, incrementally rebuilt on registry changes, with a pluggable hosted or local embedding backend.
+  > - A context selection API that returns a ranked, token-budgeted registry slice for a given intent, consumed by both the AI Adapter and the Meshery MCP Server.
+  > - Semantic search in the Meshery UI registry experience and in `mesheryctl`, including the currently missing `--model` filter on component search.
+  > - Measured improvement in component resolution rate and generated design validity against a retrieval-free baseline, reported through the term's evaluation harness.
+  > - Documentation of the retrieval architecture, index schema, backend configuration, and tuning guidance.
+
+- Recommended Skills: Kubernetes CRDs
+- Technologies: Golang, React, vector search, REST, SQL
+- Mentor(s):
+  - Mia Grenell (@miacycle, mia.grenell2337@gmail.com)
+  - Lee Calcote (@leecalcote, leecalcote@gmail.com)
+- Upstream Issue: https://github.com/meshery/meshery/issues/20995
+- LFX URL: TBD
+
+#### AXI - Making mesheryctl Agent-Native
+
+CNCF - Meshery: AXI - Making mesheryctl Agent-Native (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  > 
+  > `mesheryctl` was designed for humans: bordered tables, ANSI color, interactive confirmation prompts, in-place line clearing. Increasingly it is driven by agents, and for an agent every one of those affordances is a defect. Tables cost tokens, escape codes pollute parsing, and an interactive prompt in a non-TTY context hangs a workflow with no diagnostic. The distinction that resolves this is between two different things `mesheryctl` formats: retrieved content, where a Design or an evaluation result is a schema-defined document whose real serializations are JSON and YAML, and command output, which is `mesheryctl` reporting its own rows, counts, statuses, and errors. The table is a presentation choice, not the identity of the data, and command output is the surface an agent actually pays tokens to read.
+  > 
+  > This project makes `mesheryctl` compliant with the Agent Experience Interface conventions the surrounding ecosystem is converging on. The mentee introduces a shared render-mode layer so command output can be emitted for humans or for agents, adds TOON as a first-class global output format wherever JSON and YAML are already honored, makes the CLI automatically non-interactive and free of ANSI when stdout is not a TTY, and defines a tested exit code taxonomy and structured error format across the command surface, including the AI provider check and design generation workflows. The result is a CLI that an agent, an MCP server, or a CI job can drive deterministically, and that stays pleasant for the humans who use it every day.
+  > 
+  > ## Expected Outcomes
+  > 
+  > - A shared render-mode layer applied across `mesheryctl` so command output can be emitted as human tables or agent-oriented structured output, driven centrally rather than command by command.
+  > - Global `-o toon` support wherever `-o json` and `-o yaml` are honored, serializing the same data model with equivalent content across formats.
+  > - Automatic non-interactive behavior when stdout is not a TTY: no prompts, no ANSI, no line clearing, and deterministic, diffable output.
+  > - A documented and tested exit code taxonomy plus structured error output spanning the command surface, including AI provider readiness checks and design generation.
+  > - Golden tests covering render modes across commands, an agent usage section in the mesheryctl documentation, and a machine-readable command manifest consumable by the Meshery MCP Server.
+
+- Recommended Skills: Golang, Cobra, JSON/YAML/TOON, GitHub Actions
+- Technologies: Golang, Cobra, JSON/YAML/TOON, GitHub Actions
+- Mentor(s):
+  - Lee Calcote (@leecalcote, leecalcote@gmail.com)
+  - Yi Nuo (@yi-nuo426, yinuo084@gmail.com)
+- Upstream Issue: https://github.com/meshery/meshery/issues/20979
+- LFX URL: TBD
+
+#### BYOM: Adapter for AI and LLMs
+
+CNCF - Meshery: BYOM: Adapter for AI and LLMs (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  >  
+  > Meshery's AI Adapter track aims at natural language to infrastructure: a user describes architectural intent and Meshery renders a valid Design in Kubernetes clusters and Meshery extensions like Kanvas. Early implementations configured providers through startup environment variables such as `MESHERY_AI_OPENAI_API_KEY`, which does not survive contact with real deployments. That approach is per-server rather than per-user, it cannot express more than one provider, and it puts secrets somewhere Meshery already has a better home for them. Meshery has first-class Connections and Credentials with schema-driven registration, and server-side CRUD for model-provider connections has already landed. What is missing is the complete path from a user supplying their own key to a generated, validated Design on the canvas.
+  >  
+  > This project makes AI providers bring-your-own and user-owned. The mentee implements provider Connections and Credentials spanning cloud and local inference (OpenAI Codex, Anthropic Claude, GitHub Copilot, Azure OpenAI, AWS Bedrock, Vertex AI, Ollama, LocalAI), a Create New Connection experience in Meshery UI, provider health and readiness checks, and the generation path itself: prompt, to compact model and schema context, to provider call, to candidate Design, to validation, to a deployable workload in a Kubernetes cluster, and a reviewable result in Kanvas. Secrets live only in Credentials. They are never returned to clients, never written into prompt context or generated designs, and never appear in logs or events. Generation produces a candidate for human review and never deploys automatically, which keeps Meshery UI as the review surface and keeps the feature safe to enable by default.
+  >  
+  > ## Expected Outcomes
+  >  
+  > - Connection and Credential support for at least four provider kinds spanning hosted and local inference, registered through Meshery Models and manageable from both Meshery UI and mesheryctl.
+  > - A Create New Connection wizard plus provider health and readiness checks surfaced in UI and CLI, with defined status, error, and event semantics and operationId correlation.
+  > - End-to-end natural language to Design generation using user-supplied credentials, returning a reviewable candidate Design or structured validation errors rather than an automatic deployment.
+  > - A demonstrated provider swap between a hosted frontier model and a local model with no code changes, plus secret redaction across logs, events, and API responses verified by tests.
+  > - Documentation covering provider setup, the credential contract, data handling and privacy posture, and an AI production checklist added to the system check guide.
+
+- Recommended Skills: Kubernetes
+- Technologies: Golang, Javascript, React, REST, Frontier model provider APIs / LLM provider APIs
+- Mentor(s):
+  - Lee Calcote (@leecalcote, leecalcote@gmail.com)
+  - James Horton (@hortison, james.hortison2337@gmail.com)
+- Upstream Issue: https://github.com/meshery/meshery/issues/20994
+- LFX URL: TBD
+
+#### MCP Server
+
+CNCF - Meshery: MCP Server (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  >  
+  > Meshery manages cloud and cloud native infrastructure through Designs, Models, Connections, and a live topology continuously discovered by MeshSync. All of it is reachable over Meshery's REST and GraphQL APIs. None of it is reachable by an AI assistant. An engineer working with Claude, Copilot, or Cursor today copies YAML back and forth by hand, because the agent has no way to list designs, inspect a cluster, resolve a component schema, or deploy a pattern. The `meshery-mcp-server` repository was created to close that gap and is currently scaffolding only: a Makefile, lint configuration, and governance files, with no Go module, no protocol implementation, and no tools.
+  > 
+  > This project builds the server end to end. The mentee implements the Model Context Protocol foundation over both stdio and streamable HTTP transports, a Go client wrapping Meshery's REST and GraphQL APIs, and the tool, resource, and prompt surfaces that let an agent do real work: design lifecycle operations, Kubernetes cluster connection management, registry and model queries, environment and workspace management, and Nighthawk-backed performance testing. Read-only resources built on MeshSync-discovered topology ground the agent in what is actually running rather than only in what the schema permits, under hard constraints of no mutations and no secret exposure. Configuration supports multiple named Meshery instances with context switching, and the work ships as a real release: unit, integration, and end-to-end tests, CI, multi-platform binaries and a container image, and a quick start that takes a new user from zero to a working integration in under ten minutes.
+  >  
+  > ## Expected Outcomes
+  >  
+  > - A released `meshery-mcp-server` binary and container image supporting stdio and streamable HTTP transports, verified against at least two MCP clients.
+  > - Tool coverage across designs, clusters, registry and models, environments and workspaces, and performance tests, each with validated input schemas and structured error handling.
+  > - Read-only MCP resources exposing MeshSync topology and Meshery Relationships, with enforced guarantees of no mutations and no secret exposure.
+  > - MCP prompt templates for guided workflows: deploy an application, investigate cluster health, review a design against best practices, and configure a performance test.
+  > - CI/CD with multi-platform release automation, at least 80% unit coverage on internal packages, and a published user guide, configuration reference, and AI client integration examples.
+
+- Recommended Skills: Kubernetes
+- Technologies: Golang, Model Context Protocol, REST, GitHub Actions
+- Mentor(s):
+  - Lee Calcote (@leecalcote, leecalcote@gmail.com)
+  - Yi Nuo (@yi-nuo426, yinuo084@gmail.com)
+- Upstream Issue: https://github.com/meshery/meshery/issues/19446
+- LFX URL: TBD
+
 ### OpenTelemetry
 
 #### Declarative instrumentation configuration for otelc
@@ -954,6 +1102,32 @@ CNCF - OpenYurt: Add Claude Code Skills for deploying OpenYurt and configuring R
   - Lu Chen (@luc99hen, luc99.en@gmail.com)
 - Upstream Issue: https://github.com/openyurtio/openyurt/issues/2559
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/675bb1ec-015c-4b26-a1dd-e1ab517f20cf
+
+### PipeCD
+
+#### PipeCD plugin for Headlamp
+
+CNCF - PipeCD: PipeCD plugin for Headlamp (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  > This proposal outlines the development of a Headlamp plugin for PipeCD. [PipeCD](https://pipecd.dev/) is a GitOps-style continuous delivery platform that handles deployments across multiple platforms (Kubernetes, Cloud Run, AWS, etc.). [Headlamp](https://headlamp.dev/) is an extensible, user-friendly Kubernetes web UI.
+  > By building a PipeCD plugin for Headlamp, we can bridge the gap between cluster management and continuous delivery, allowing developers and operators to monitor their deployments, view pipeline statuses, and trigger sync operations without leaving their Kubernetes dashboard. This convergence reduces context switching and streamlines the operational workflow for Kubernetes-native teams.
+  > 
+  > ## Expected outcome
+  > - PipeCD plugin for Headlamp, with full functional to make PipeCD deployment works on Kubernetes dashboard
+  > - Docs for PipeCD plugin for Headlamp
+  > - Blog about the plugin on pipecd.dev official website
+
+- Recommended Skills: Go, Typescript, Kubernetes
+- Technologies: Go, Typescript, Kubernetes
+- Mentor(s):
+  - Khanh Tran (@khanhtc1202, khanhtc1202@gmail.com)
+  - Mohammed Firdous (@mohammedfirdouss, mohammedfirdousaraoye@gmail.com)
+  - Yash Israni (@yashisrani, imailyash57@gmail.com)
+- Upstream Issue: https://github.com/pipe-cd/pipecd/issues/6706
+- LFX URL: TBD
 
 ### Podman Container Tools
 
