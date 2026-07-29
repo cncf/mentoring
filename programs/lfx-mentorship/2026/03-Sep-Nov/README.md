@@ -77,6 +77,9 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - [AXI - Making mesheryctl Agent-Native](#axi-making-mesheryctl-agent-native)
   - [BYOM: Adapter for AI and LLMs](#byom-adapter-for-ai-and-llms)
   - [MCP Server](#mcp-server)
+- [OpenKruise](#openkruise)
+  - [Build OpenSandbox-Compatible API Adapter Layer](#build-opensandbox-compatible-api-adapter-layer)
+  - [Support identity provider based on keycloak etc.](#support-identity-provider-based-on-keycloak-etc)
 - [OpenTelemetry](#opentelemetry)
   - [Declarative instrumentation configuration for otelc](#declarative-instrumentation-configuration-for-otelc)
   - [Zero-code AI Agent observability for otelc](#zero-code-ai-agent-observability-for-otelc)
@@ -1147,6 +1150,76 @@ CNCF - Meshery: MCP Server (2026 Term 3)
   - Yi Nuo (@yi-nuo426, yinuo084@gmail.com)
 - Upstream Issue: https://github.com/meshery/meshery/issues/19446
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/29b6958b-77df-4135-85b2-f4a3185c1155
+
+### OpenKruise
+
+#### Build OpenSandbox-Compatible API Adapter Layer
+
+CNCF - OpenKruise: Build OpenSandbox-Compatible API Adapter Layer (2026 Term 3)
+
+- Description:
+
+  > Description: OpenKruise Agents is a Kubernetes-native AI sandbox platform that currently exposes an E2B-compatible REST API over Kubernetes CRDs. OpenSandbox is another open-source sandbox platform with its own native API, distinct semantics (image-based creation, async pause, metadata patching, diagnostics), and a formal OpenAPI spec. Users who want to use OpenKruise Agents as the backend but need OpenSandbox API compatibility currently have no path. 
+  > 
+  > This project will build an OpenSandbox-compatible API adapter that reuses the existing orchestration layer without duplication, following the same adapter pattern proven by the E2B API. Additionally, the current in-sandbox execution layer is tightly coupled to the envd runtime. To support OpenSandbox's execd runtime as an alternative, the mentee will design a generic runtime provider interface abstracting command execution, file I/O, and runtime initialization, enabling per-sandbox selection between envd and execd. This abstraction also benefits any future runtime backend.
+  > 
+  > Expected Outcome:
+  > 
+  > - An OpenSandbox-compatible REST API layer coexisting with the existing E2B API in the same process
+  > - Full lifecycle coverage: sandbox CRUD, pause/resume, snapshots, metadata patching, diagnostics
+  > - Data model and state machine conversion between OpenSandbox and Kubernetes CRD semantics
+  > - A generic runtime provider interface with two implementations: envd (existing) and execd (OpenSandbox)
+  > - Per-sandbox runtime provider selection
+  > - Unit tests and a design proposal document
+
+- Recommended Skills: Go, Kubernetes,  container runtimes, test-driven development
+- Technologies: Go, Kubernetes,  container runtimes, test-driven development
+- Mentor(s):
+  - Zhang Zhen (@furykerry, furykerry@gmail.com)
+  - Zhong Tianyun (@AiRanthem, airanthem666@gmail.com)
+- Upstream Issue: https://github.com/openkruise/agents/issues/690
+- LFX URL: TBD
+
+#### Support identity provider based on keycloak etc.
+
+CNCF - OpenKruise: Support identity provider based on keycloak etc. (2026 Term 3)
+
+- Description:
+
+  > * Description: OpenKruise Agents provides a Kubernetes-native platform for orchestrating AI agent sandboxes. With the recent merge of #648 (gateway-side JWT verification via OIDC) and #671 (TokenKind-based token issuance interface), the project now has the interfaces and scaffolding for standards-based token issuance and verification — but does not yet ship an open-source implementation that mints real signed tokens or propagates them into sandboxes.
+  > 
+  >   This project will implement a complete open-source token lifecycle: signed JWT access token issuance, signed ID token issuance, an OIDC discovery and JWKS endpoint so the gateway verifier can bootstrap, and ID token distribution into the sandbox runtime. The implementation should also support integration with open-source identity providers such as Keycloak and Dex, giving community users a fully open-source, end-to-end signed-token authentication path. The implementation will integrate with the existing token refresh controller and claim/clone flows without changing the API contract or CRD schema.
+  > 
+  > * Expected Outcome:
+  > 
+  >   * An open-source IdentityProvider that signs real JWT access tokens with asymmetric keys, with key rotation support
+  > 
+  >   * An OIDC discovery and JWKS endpoint served by the sandbox-manager, eliminating the need for an external identity provider in community deployments
+  > 
+  >   * Signed ID token issuance integrated with the existing SecurityTokenRefreshReconciler for automatic refresh before expiry
+  > 
+  >   * A PropagateSecurityToken implementation that delivers the ID token into the sandbox runtime, with refresh-on-update and cleanup on sandbox lifecycle events
+  > 
+  >   * End-to-end tests covering the full token lifecycle from claim through gateway verification to ID token propagation and refresh
+  > 
+  >   * A design proposal and user-facing documentation
+  > 
+  > * Recommended Skills:
+  > 
+  >   * Go programming (strong proficiency required)
+  >   * Kubernetes (CRDs, controllers, controller-runtime, Secrets, RBAC)
+  >   * JWT, OIDC, and JWKS concepts (token signing, claim design, key rotation)
+  >   * Cryptography fundamentals (asymmetric keys, RSA/ECDSA, X.509)
+  >   * Kubernetes operator patterns and reconciliation loops
+  >   * E2E testing (Ginkgo, pytest)
+
+- Recommended Skills: Go, Kubernetes, OIDC, JWT
+- Technologies: Go, Kubernetes, OIDC, JWT
+- Mentor(s):
+  - Zhao Mingshan (@zmberg, berg.zms@gmail.com)
+  - Kai Shi (@BH4AWS, bh4aws@gmail.com)
+- Upstream Issue: https://github.com/openkruise/agents/issues/659
+- LFX URL: TBD
 
 ### OpenTelemetry
 
