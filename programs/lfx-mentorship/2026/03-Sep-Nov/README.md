@@ -1127,7 +1127,7 @@ CNCF - PipeCD: PipeCD plugin for Headlamp (2026 Term 3)
   - Mohammed Firdous (@mohammedfirdouss, mohammedfirdousaraoye@gmail.com)
   - Yash Israni (@yashisrani, imailyash57@gmail.com)
 - Upstream Issue: https://github.com/pipe-cd/pipecd/issues/6706
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/a92ac5b3-b28c-4927-8e88-df0a6a8fa817
 
 ### Podman Container Tools
 
@@ -1170,7 +1170,7 @@ CNCF - Podman Container Tools: Website Design and UX Improvements (2026 Term 3)
   - Ashley Cui (@ashley-cui, acui@redhat.com)
   - Tom Sweeney (@TomSweeneyRedHat, tsweeney@redhat.com)
 - Upstream Issue: https://github.com/containers/podman.io/issues/512
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/42be74e1-704b-4b17-8b47-e38f37338414
 
 #### Agentic CI Flake Categorization and Analysis
 
@@ -1260,7 +1260,7 @@ CNCF - urunc: Integration of urunc's sandbox execution with Argo (2026 Term 3)
   - Charalampos Mainas (@cmainas, cmainas@nubificus.co.uk)
   - Anastassios Nanos (@ananos, ananos@nubificus.co.uk)
 - Upstream Issue: https://github.com/urunc-dev/urunc/issues/573
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/3581574f-5f52-40c7-9a3b-b1dc019949d7
 
 ### Velero
 
