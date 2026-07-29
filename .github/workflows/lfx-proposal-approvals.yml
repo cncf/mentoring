@@ -49,6 +49,7 @@ jobs:
             const { parseCommands } = _lib('commands.js');
             const { resolveProjectMaintainer } = _lib('authorize.js');
             const { computeConfirm, confirmTargets } = _lib('confirm.js');
+            const { replyReaction } = _lib('reactions.js');
             const { lookupProject } = _lib('projects.js');
             const { getGlobalApprovers, getProjectSection, getFallbackHandles, getFallbackTeams, maintainersCanApprove, buildProjectKeys } = _lib('approvers.js');
             const { cncfApproveDecision } = _lib('cncf-approve.js');
@@ -104,18 +105,20 @@ jobs:
 
             // ── Feedback helper ──
             async function reply(emoji, message) {
-              const reaction = emoji === '✅' ? '+1' : emoji === '❌' ? '-1' : 'confused';
+              const reaction = replyReaction(emoji);
               // Best-effort reaction: it is cosmetic, so a failure here must never
               // block the comment (the command's actual acknowledgement) or, in
               // the multi-command loop, a later command. Adding the same reaction
               // twice is idempotent (the API returns 200, not an error), so a
               // repeated +1 across commands is fine; this guards other failures.
-              try {
-                await github.rest.reactions.createForIssueComment({
-                  owner, repo, comment_id: comment.id, content: reaction,
-                });
-              } catch (e) {
-                console.log(`Could not add ${reaction} reaction: ${e.message}`);
+              if (reaction) {
+                try {
+                  await github.rest.reactions.createForIssueComment({
+                    owner, repo, comment_id: comment.id, content: reaction,
+                  });
+                } catch (e) {
+                  console.log(`Could not add ${reaction} reaction: ${e.message}`);
+                }
               }
               await github.rest.issues.createComment({
                 owner, repo, issue_number, body: `${emoji} ${message}`,
@@ -314,10 +317,9 @@ jobs:
                   `\`/confirm\` requires the proposal to pass validation first.`);
                 return;
               }
-              if (currentLabels.includes('Mentors Confirmed')) {
-                await reply('ℹ️', 'Mentor confirmation is already recorded for this proposal.');
-                return;
-              }
+              // A mentor confirming their participation always gets the same warm
+              // acknowledgement, whether or not the roster was already complete.
+              const alreadyComplete = currentLabels.includes('Mentors Confirmed');
 
               // Roster + universal approvers. A bare /confirm confirms the
               // commenter; /confirm @handle targets a specific mentor: the
@@ -383,24 +385,39 @@ jobs:
               const allComments = priorComments.concat([{ user: { login: commenter }, body: commentBody }]);
               const { remaining, count, total } = computeConfirm(confirmHandles, commenter, allComments, proposer, admins);
 
+              // Warm, participation-first acknowledgement. Self-confirm thanks the
+              // mentor; on-behalf records the named mentor(s) with thanks.
               const recorded = creditedUniq.map(h => `@${h}`).join(', ');
-              const head = (creditedUniq.length === 1 && creditedUniq[0] === me)
-                ? `Confirmation recorded from @${commenter}.`
-                : `Confirmation recorded for ${recorded} (by @${commenter}).`;
+              const bySelf = creditedUniq.length === 1 && creditedUniq[0] === me;
+              let head;
+              if (bySelf) {
+                head = alreadyComplete
+                  ? `Thanks for confirming your participation, @${commenter}!`
+                  : `Thanks for confirming, @${commenter}!`;
+              } else {
+                head = creditedUniq.length === 1
+                  ? `Recorded @${creditedUniq[0]}'s confirmation (by @${commenter}). Thanks!`
+                  : `Recorded confirmation for ${recorded} (by @${commenter}). Thanks!`;
+              }
               const note = uniqIssues.length ? `\n\n⚠️ ${uniqIssues.join('\n\n⚠️ ')}` : '';
 
+              // Already complete: warm per-mentor ack, no re-announcement.
+              if (alreadyComplete) {
+                await reply('✅', `${head}${note}`);
+                return;
+              }
+              // Still waiting on other mentors.
               if (remaining.length) {
                 await reply('✅',
-                  `${head} ${count} of ${total} mentors have confirmed.\n\n` +
+                  `${head} That's ${count} of ${total} mentor${total === 1 ? '' : 's'} so far. ` +
                   `Still waiting on: ${remaining.map(h => `@${h}`).join(', ')}.${note}`);
                 return;
               }
-
-              // Every listed mentor has now confirmed.
+              // This /confirm completes the roster.
               await addLabel('Mentors Confirmed');
               await removeLabel('Awaiting Mentor Confirmation');
               await reply('✅',
-                `${head} All ${total} listed mentor(s) have confirmed. Mentor confirmation is complete.${note}`);
+                `${head} All ${total} listed mentor${total === 1 ? '' : 's'} have confirmed.${note}`);
               await checkBothGates();
               return;
             }
