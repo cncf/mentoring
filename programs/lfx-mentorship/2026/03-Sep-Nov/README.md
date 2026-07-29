@@ -239,7 +239,7 @@ CNCF - Flatcar Container Linux: Nebraska Reporting & Metrics Uplift (2026 Term 3
   - Jan Bronicki (@John15321, jan.bronicki.flatcar@gmail.com)
   - Ervin Racz (@ervcz, raczervin@microsoft.com)
 - Upstream Issue: https://github.com/flatcar/Flatcar/issues/2239
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/7be547a2-488d-493f-ab5b-a0ad32fa17d9
 
 #### Cloud-Init to Butane YAML config transpiler
 
@@ -263,7 +263,7 @@ CNCF - Flatcar Container Linux: Cloud-Init to Butane YAML config transpiler (202
   - Thilo Fromm (@t-lo, thilo.fromm.work@gmail.com)
   - Michael McCune (@elmiko, msm@opbstudios.com)
 - Upstream Issue: https://github.com/flatcar/Flatcar/issues/2226
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/5245ead5-180e-4117-92cd-1d3ec075ed97
 
 ### HAMi
 
@@ -345,7 +345,7 @@ CNCF - HAMi: HAMi GPU Sharing Workshop and Documentation (2026 Term 3)
   - Reza Jelveh (@fishman, reza.jelveh@gmail.com)
   - Jimmy Song (@rootsongjc, rootsongjc@gmail.com)
 - Upstream Issue: https://github.com/Project-HAMi/website/issues/656
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ab5693b7-9759-48e2-b609-f48af6b82206
 
 ### Jaeger
 
@@ -382,7 +382,7 @@ CNCF - Jaeger: OpenTelemetry-Native Query and State Layers Migration (2026 Term 
   - Parship Chowdhury (@parshipcy, parshipchowdhury@gmail.com)
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
 - Upstream Issue: https://github.com/jaegertracing/jaeger-ui/issues/4278
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/36d66a45-bf3f-4bd2-8032-438436557e11
 
 #### Benchmarking the AI Assistant's MCP Tools and Skills
 
@@ -421,7 +421,7 @@ CNCF - Jaeger: Benchmarking the AI Assistant's MCP Tools and Skills (2026 Term 3
   - Jonah Kowall (@jkowall, jkowall@kowall.net)
   - Yuri Shkuro (@yurishkuro, github@ysh.us)
 - Upstream Issue: https://github.com/jaegertracing/jaeger/issues/9135
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/72e84a43-6be8-4967-a077-53e06b769096
 
 ### Kmesh
 
@@ -613,7 +613,7 @@ CNCF - Kubeflow: OptimizationJob CRD: HPO Engine for Kubeflow Trainer (2026 Term
   - Tariq Hasan (@tariq-hasan, mmtariquehsn@gmail.com)
   - Andrey Velichkevich (@andreyvelich, andrey.velichkevich@gmail.com)
 - Upstream Issue: https://github.com/kubeflow/trainer/issues/3562
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/6a3ba49c-5202-4231-b86f-90b798e84997
 
 #### Evolve SparkClient into Kubeflow's Unified Data Processing Layer
 
@@ -648,7 +648,7 @@ CNCF - Kubeflow: Evolve SparkClient into Kubeflow's Unified Data Processing Laye
   - Tariq Hasan (@tariq-hasan, mmtariquehsn@gmail.com)
   - Rishabh Singh (@RobuRishabh, roburishabh@outlook.com)
 - Upstream Issue: https://github.com/kubeflow/sdk/issues/655
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/01d5da81-e5d6-4693-920c-e0e6f4fbc9a8
 
 #### Abstracting Pod Lifecycle Diagnostics for Kubeflow Pipelines
 
@@ -729,7 +729,7 @@ CNCF - Kubernetes: Extract and enforce shared behaviors between resolvers (2026 
   - Pranshu Srivastava (@rexagod, rexagod@gmail.com)
   - Manuel Rüger (@mrueg, manuel@rueg.eu)
 - Upstream Issue: https://github.com/kubernetes-sigs/resource-state-metrics/issues/15
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/352c0c5d-ab96-4e12-bf6e-0ebcd4bf8ca6
 
 ### Kubescape
 
@@ -1178,7 +1178,7 @@ CNCF - OpenKruise: Build OpenSandbox-Compatible API Adapter Layer (2026 Term 3)
   - Zhang Zhen (@furykerry, furykerry@gmail.com)
   - Zhong Tianyun (@AiRanthem, airanthem666@gmail.com)
 - Upstream Issue: https://github.com/openkruise/agents/issues/690
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ada1c2fd-8eb7-45a5-8c95-4da156215a59
 
 #### Support identity provider based on keycloak etc.
 
@@ -1219,7 +1219,7 @@ CNCF - OpenKruise: Support identity provider based on keycloak etc. (2026 Term 3
   - Zhao Mingshan (@zmberg, berg.zms@gmail.com)
   - Kai Shi (@BH4AWS, bh4aws@gmail.com)
 - Upstream Issue: https://github.com/openkruise/agents/issues/659
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/9fd0145c-e463-481a-9cd9-f13f9dab8794
 
 ### OpenTelemetry
 
@@ -1439,7 +1439,7 @@ CNCF - The Update Framework (TUF): Add ELI5 documentation / video to TUF (2026 T
   - Justin Cappos (@JustinCappos, jcappos@nyu.edu)
   - Kairo de Araujo (@kairoaraujo, kairo@dearaujo.nl)
 - Upstream Issue: https://github.com/theupdateframework/theupdateframework.io/issues/132
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/514edf13-be1b-4b3c-a71c-2cacd81c9c8e
 
 ### urunc
 
@@ -1468,7 +1468,7 @@ CNCF - urunc: Fuzzing and robustness testing for urunc (2026 Term 3)
   - Charalampos Mainas (@cmainas, cmainas@nubificus.co.uk)
   - Anastassios Nanos (@ananos, ananos@nubificus.co.uk)
 - Upstream Issue: https://github.com/urunc-dev/urunc/issues/852
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/013ae700-41b4-426c-b265-53edc10b7654
 
 #### Integration of urunc's sandbox execution with Argo
 

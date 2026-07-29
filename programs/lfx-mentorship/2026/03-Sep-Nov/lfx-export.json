@@ -32,7 +32,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/jaegertracing/jaeger-ui/issues/4278",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/36d66a45-bf3f-4bd2-8032-438436557e11",
       "prerequisites": {
         "resume": true,
         "cover_letter": false,
@@ -83,7 +83,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/theupdateframework/theupdateframework.io/issues/132",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/514edf13-be1b-4b3c-a71c-2cacd81c9c8e",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -134,7 +134,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/jaegertracing/jaeger/issues/9135",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/72e84a43-6be8-4967-a077-53e06b769096",
       "prerequisites": {
         "resume": true,
         "cover_letter": false,
@@ -389,7 +389,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/urunc-dev/urunc/issues/852",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/013ae700-41b4-426c-b265-53edc10b7654",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -436,7 +436,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/kubeflow/trainer/issues/3562",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/6a3ba49c-5202-4231-b86f-90b798e84997",
       "prerequisites": {
         "resume": true,
         "cover_letter": false,
@@ -534,7 +534,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/flatcar/Flatcar/issues/2239",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/7be547a2-488d-493f-ab5b-a0ad32fa17d9",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -1417,7 +1417,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/Project-HAMi/website/issues/656",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/ab5693b7-9759-48e2-b609-f48af6b82206",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -1471,7 +1471,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/kubeflow/sdk/issues/655",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/01d5da81-e5d6-4693-920c-e0e6f4fbc9a8",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -1518,7 +1518,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/openkruise/agents/issues/690",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/ada1c2fd-8eb7-45a5-8c95-4da156215a59",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -1565,7 +1565,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/openkruise/agents/issues/659",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/9fd0145c-e463-481a-9cd9-f13f9dab8794",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -1670,7 +1670,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/flatcar/Flatcar/issues/2226",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/5245ead5-180e-4117-92cd-1d3ec075ed97",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -1818,7 +1818,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/kubernetes-sigs/resource-state-metrics/issues/15",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/352c0c5d-ab96-4e12-bf6e-0ebcd4bf8ca6",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
