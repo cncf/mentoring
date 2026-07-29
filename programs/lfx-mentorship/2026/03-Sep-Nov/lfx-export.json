@@ -1,8 +1,59 @@
 {
-  "_generated": "2026-07-29T17:26:46.599Z",
+  "_generated": "2026-07-29T17:42:10.058Z",
   "_term": "2026 Term 3 (Sep-Nov)",
-  "_count": 43,
+  "_count": 44,
   "programs": [
+    {
+      "issue_number": 2029,
+      "issue_url": "https://github.com/cncf/mentoring/issues/2029",
+      "cncf_project": "Jaeger",
+      "cncf_project_slug": "jaeger",
+      "cncf_project_maturity": "graduated",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - Jaeger: OpenTelemetry-Native Query and State Layers Migration (2026 Term 3)",
+      "program_name_short": "OpenTelemetry-Native Query and State Layers Migration",
+      "description": "## Description\n\nJaeger UI is two-thirds through three interlocking migrations at different stages. This program finishes all three and deletes what they replaced.\n\nThe OpenTelemetry-native move stopped at a deliberate decision point: the UI speaks OTEL vocabulary throughout but obtains it by wrapping the legacy Jaeger model in a facade, and while service discovery and search run on `/api/v3/`, loading a trace still goes over the legacy endpoint and is reshaped in the browser. The state migration is nearly done, largely via community contributions: Redux has given up traces, search results, services, config, and dependencies. One part is not more of the same: the trace timeline dual-writes to Redux and Zustand, because analytics tracking is a Redux middleware keyed on the old action types, so tracking must move before the old slice can go. The target architecture is designed but not built.\n\nThe pivotal step is loading a trace natively over `/api/v3/`. Earlier integrations consumed small, flat messages where a generated schema was cheap. A full trace is the first payload that pulls the entire OTLP model into the query layer: nested `resourceSpans`/`scopeSpans`, the recursive `AnyValue` union behind every attribute, events, links, status. Whether that model is generated and validated at the boundary or hand-written is the central judgement. The wire format is its own research task: Jaeger serialises this route differently from a naive protobuf-to-JSON reading, so a parser that guesses wrong passes its fixtures but fails on a real server. Performance is a hard constraint — traces run to 80,000 spans. Everything is gated on it: once traces arrive as OTLP, the facade, the legacy transformer, the legacy types, and the backend's v1 HTTP endpoints lose their reason to exist.\n\nSeveral contributors already have work open here; refereeing competing approaches and shepherding their PRs to merge is part of the program, and a merged PR the mentee helped land counts as a deliverable met.\n\nDeliverables and design docs are in the upstream issue.\n\n## Expected outcomes\n\n1. **Native OTLP trace loading** — traces load from `/api/v3/traces/{trace_id}` into the enriched domain model, validated at the boundary, with visual and performance parity on a large trace.\n2. **Legacy data path deleted** — facade, legacy transformer, and legacy types removed; uploaded OTLP files parsed in the browser; API calls on one client.\n3. **Backend follow-through** — v1 HTTP query endpoints in the `jaeger` repo deprecated and removed where policy allows.\n4. **Redux fully removed** — reducers migrated to TanStack Query, the timeline's dual write severed by relocating analytics, and the store, provider, and four dependencies deleted.\n5. **Unified state architecture implemented** — layout settings resolved by explicit precedence between URL, per-trace heuristics, and stored preferences.\n6. **Community pull requests landed rather than bypassed**, with the unblocking decisions recorded.",
+      "technologies": "TypeScript, React, TanStack Query, Zustand, Zod, OpenTelemetry / OTLP, Go, Protobuf, OpenAPI",
+      "skills": "TypeScript, React, refactoring a large codebase without regressing it, TanStack Query, Zustand, Zod, reading specifications (protobuf/OpenAPI/OTLP), basic Go, browser performance profiling, testing discipline, code review",
+      "mentors": [
+        {
+          "name": "Parship Chowdhury",
+          "github_handle": "parshipcy",
+          "email": "parshipchowdhury@gmail.com",
+          "lfid": "parship999",
+          "role": "primary"
+        },
+        {
+          "name": "Yuri Shkuro",
+          "github_handle": "yurishkuro",
+          "email": "github@ysh.us",
+          "lfid": "yurishkuro",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/jaegertracing/jaeger-ui/issues/4278",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": false,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": {
+          "name": "Project Proposal",
+          "description": "Submit a proposal in your cover letter (see jaegertracing.io/mentorship/applying; PDF preferred). Cover: (1) a wire-format analysis — fetch a trace from `/api/v3/traces/{trace_id}` on a local Jaeger and describe how ids, timestamps, enums, and absent fields are encoded; (2) whether OTLP wire types should be generated and runtime-validated or hand-written, and the trade-off you accept; (3) a migration and deletion plan; (4) how you would engage the pull requests already open; (5) a timeline.",
+          "file_upload": true
+        },
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
     {
       "issue_number": 2028,
       "issue_url": "https://github.com/cncf/mentoring/issues/2028",

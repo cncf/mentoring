@@ -47,6 +47,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - [Fix GPU Memory Isolation for Child and SSH Processes](#fix-gpu-memory-isolation-for-child-and-ssh-processes)
   - [HAMi GPU Sharing Workshop and Documentation](#hami-gpu-sharing-workshop-and-documentation)
 - [Jaeger](#jaeger)
+  - [OpenTelemetry-Native Query and State Layers Migration](#opentelemetry-native-query-and-state-layers-migration)
   - [Benchmarking the AI Assistant's MCP Tools and Skills](#benchmarking-the-ai-assistants-mcp-tools-and-skills)
 - [Kmesh](#kmesh)
   - [Develop MCP Server for AI-Native Kmesh Service Mesh Management](#develop-mcp-server-for-ai-native-kmesh-service-mesh-management)
@@ -344,6 +345,41 @@ CNCF - HAMi: HAMi GPU Sharing Workshop and Documentation (2026 Term 3)
 - LFX URL: TBD
 
 ### Jaeger
+
+#### OpenTelemetry-Native Query and State Layers Migration
+
+CNCF - Jaeger: OpenTelemetry-Native Query and State Layers Migration (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  > 
+  > Jaeger UI is two-thirds through three interlocking migrations at different stages. This program finishes all three and deletes what they replaced.
+  > 
+  > The OpenTelemetry-native move stopped at a deliberate decision point: the UI speaks OTEL vocabulary throughout but obtains it by wrapping the legacy Jaeger model in a facade, and while service discovery and search run on `/api/v3/`, loading a trace still goes over the legacy endpoint and is reshaped in the browser. The state migration is nearly done, largely via community contributions: Redux has given up traces, search results, services, config, and dependencies. One part is not more of the same: the trace timeline dual-writes to Redux and Zustand, because analytics tracking is a Redux middleware keyed on the old action types, so tracking must move before the old slice can go. The target architecture is designed but not built.
+  > 
+  > The pivotal step is loading a trace natively over `/api/v3/`. Earlier integrations consumed small, flat messages where a generated schema was cheap. A full trace is the first payload that pulls the entire OTLP model into the query layer: nested `resourceSpans`/`scopeSpans`, the recursive `AnyValue` union behind every attribute, events, links, status. Whether that model is generated and validated at the boundary or hand-written is the central judgement. The wire format is its own research task: Jaeger serialises this route differently from a naive protobuf-to-JSON reading, so a parser that guesses wrong passes its fixtures but fails on a real server. Performance is a hard constraint — traces run to 80,000 spans. Everything is gated on it: once traces arrive as OTLP, the facade, the legacy transformer, the legacy types, and the backend's v1 HTTP endpoints lose their reason to exist.
+  > 
+  > Several contributors already have work open here; refereeing competing approaches and shepherding their PRs to merge is part of the program, and a merged PR the mentee helped land counts as a deliverable met.
+  > 
+  > Deliverables and design docs are in the upstream issue.
+  > 
+  > ## Expected outcomes
+  > 
+  > 1. **Native OTLP trace loading** — traces load from `/api/v3/traces/{trace_id}` into the enriched domain model, validated at the boundary, with visual and performance parity on a large trace.
+  > 2. **Legacy data path deleted** — facade, legacy transformer, and legacy types removed; uploaded OTLP files parsed in the browser; API calls on one client.
+  > 3. **Backend follow-through** — v1 HTTP query endpoints in the `jaeger` repo deprecated and removed where policy allows.
+  > 4. **Redux fully removed** — reducers migrated to TanStack Query, the timeline's dual write severed by relocating analytics, and the store, provider, and four dependencies deleted.
+  > 5. **Unified state architecture implemented** — layout settings resolved by explicit precedence between URL, per-trace heuristics, and stored preferences.
+  > 6. **Community pull requests landed rather than bypassed**, with the unblocking decisions recorded.
+
+- Recommended Skills: TypeScript, React, refactoring a large codebase without regressing it, TanStack Query, Zustand, Zod, reading specifications (protobuf/OpenAPI/OTLP), basic Go, browser performance profiling, testing discipline, code review
+- Technologies: TypeScript, React, TanStack Query, Zustand, Zod, OpenTelemetry / OTLP, Go, Protobuf, OpenAPI
+- Mentor(s):
+  - Parship Chowdhury (@parshipcy, parshipchowdhury@gmail.com)
+  - Yuri Shkuro (@yurishkuro, github@ysh.us)
+- Upstream Issue: https://github.com/jaegertracing/jaeger-ui/issues/4278
+- LFX URL: TBD
 
 #### Benchmarking the AI Assistant's MCP Tools and Skills
 
