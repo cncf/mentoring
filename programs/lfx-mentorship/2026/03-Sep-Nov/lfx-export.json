@@ -1,7 +1,7 @@
 {
-  "_generated": "2026-07-29T17:42:10.058Z",
+  "_generated": "2026-07-29T18:33:14.683Z",
   "_term": "2026 Term 3 (Sep-Nov)",
-  "_count": 44,
+  "_count": 46,
   "programs": [
     {
       "issue_number": 2029,
@@ -1471,6 +1471,100 @@
         }
       ],
       "upstream_issue_url": "https://github.com/kubeflow/sdk/issues/655",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": null,
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 1974,
+      "issue_url": "https://github.com/cncf/mentoring/issues/1974",
+      "cncf_project": "OpenKruise",
+      "cncf_project_slug": "openkruise",
+      "cncf_project_maturity": "incubating",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - OpenKruise: Build OpenSandbox-Compatible API Adapter Layer (2026 Term 3)",
+      "program_name_short": "Build OpenSandbox-Compatible API Adapter Layer",
+      "description": "Description: OpenKruise Agents is a Kubernetes-native AI sandbox platform that currently exposes an E2B-compatible REST API over Kubernetes CRDs. OpenSandbox is another open-source sandbox platform with its own native API, distinct semantics (image-based creation, async pause, metadata patching, diagnostics), and a formal OpenAPI spec. Users who want to use OpenKruise Agents as the backend but need OpenSandbox API compatibility currently have no path. \n\nThis project will build an OpenSandbox-compatible API adapter that reuses the existing orchestration layer without duplication, following the same adapter pattern proven by the E2B API. Additionally, the current in-sandbox execution layer is tightly coupled to the envd runtime. To support OpenSandbox's execd runtime as an alternative, the mentee will design a generic runtime provider interface abstracting command execution, file I/O, and runtime initialization, enabling per-sandbox selection between envd and execd. This abstraction also benefits any future runtime backend.\n\nExpected Outcome:\n\n- An OpenSandbox-compatible REST API layer coexisting with the existing E2B API in the same process\n- Full lifecycle coverage: sandbox CRUD, pause/resume, snapshots, metadata patching, diagnostics\n- Data model and state machine conversion between OpenSandbox and Kubernetes CRD semantics\n- A generic runtime provider interface with two implementations: envd (existing) and execd (OpenSandbox)\n- Per-sandbox runtime provider selection\n- Unit tests and a design proposal document",
+      "technologies": "Go, Kubernetes,  container runtimes, test-driven development",
+      "skills": "Go, Kubernetes,  container runtimes, test-driven development",
+      "mentors": [
+        {
+          "name": "Zhang Zhen",
+          "github_handle": "furykerry",
+          "email": "furykerry@gmail.com",
+          "lfid": "furykerry",
+          "role": "primary"
+        },
+        {
+          "name": "Zhong Tianyun",
+          "github_handle": "AiRanthem",
+          "email": "airanthem666@gmail.com",
+          "lfid": "airanthem",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/openkruise/agents/issues/690",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": null,
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 1973,
+      "issue_url": "https://github.com/cncf/mentoring/issues/1973",
+      "cncf_project": "OpenKruise",
+      "cncf_project_slug": "openkruise",
+      "cncf_project_maturity": "incubating",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - OpenKruise: Support identity provider based on keycloak etc. (2026 Term 3)",
+      "program_name_short": "Support identity provider based on keycloak etc.",
+      "description": "* Description: OpenKruise Agents provides a Kubernetes-native platform for orchestrating AI agent sandboxes. With the recent merge of #648 (gateway-side JWT verification via OIDC) and #671 (TokenKind-based token issuance interface), the project now has the interfaces and scaffolding for standards-based token issuance and verification — but does not yet ship an open-source implementation that mints real signed tokens or propagates them into sandboxes.\n\n  This project will implement a complete open-source token lifecycle: signed JWT access token issuance, signed ID token issuance, an OIDC discovery and JWKS endpoint so the gateway verifier can bootstrap, and ID token distribution into the sandbox runtime. The implementation should also support integration with open-source identity providers such as Keycloak and Dex, giving community users a fully open-source, end-to-end signed-token authentication path. The implementation will integrate with the existing token refresh controller and claim/clone flows without changing the API contract or CRD schema.\n\n* Expected Outcome:\n\n  * An open-source IdentityProvider that signs real JWT access tokens with asymmetric keys, with key rotation support\n\n  * An OIDC discovery and JWKS endpoint served by the sandbox-manager, eliminating the need for an external identity provider in community deployments\n\n  * Signed ID token issuance integrated with the existing SecurityTokenRefreshReconciler for automatic refresh before expiry\n\n  * A PropagateSecurityToken implementation that delivers the ID token into the sandbox runtime, with refresh-on-update and cleanup on sandbox lifecycle events\n\n  * End-to-end tests covering the full token lifecycle from claim through gateway verification to ID token propagation and refresh\n\n  * A design proposal and user-facing documentation\n\n* Recommended Skills:\n\n  * Go programming (strong proficiency required)\n  * Kubernetes (CRDs, controllers, controller-runtime, Secrets, RBAC)\n  * JWT, OIDC, and JWKS concepts (token signing, claim design, key rotation)\n  * Cryptography fundamentals (asymmetric keys, RSA/ECDSA, X.509)\n  * Kubernetes operator patterns and reconciliation loops\n  * E2E testing (Ginkgo, pytest)",
+      "technologies": "Go, Kubernetes, OIDC, JWT",
+      "skills": "Go, Kubernetes, OIDC, JWT",
+      "mentors": [
+        {
+          "name": "Zhao Mingshan",
+          "github_handle": "zmberg",
+          "email": "berg.zms@gmail.com",
+          "lfid": "bergzhao",
+          "role": "primary"
+        },
+        {
+          "name": "Kai Shi",
+          "github_handle": "BH4AWS",
+          "email": "bh4aws@gmail.com",
+          "lfid": "bh4aws",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/openkruise/agents/issues/659",
       "lfx_url": "",
       "prerequisites": {
         "resume": true,
