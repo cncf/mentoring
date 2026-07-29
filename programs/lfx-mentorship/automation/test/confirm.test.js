@@ -307,3 +307,38 @@ test('confirmTargets treats a handle-less /confirm @ as a bare self-confirm', ()
   // the roster, is ever credited here).
   assert.deepEqual(confirmTargets('/confirm @'), [null]);
 });
+
+// ── Regression (#212): an approver who is ALSO a listed mentor, confirming
+// someone else on-behalf, must NOT self-confirm. The commenter is auto-credited
+// only as a fallback for a just-posted self-confirm not yet in `comments`; once
+// their line is present (the handler appends it), that line governs.
+
+test('an approver-mentor confirming another mentor on-behalf does not self-confirm', () => {
+  // 'a' is a listed mentor AND a universal approver; their comment names @b.
+  // Only b is credited; a is not flipped early off their own on-behalf line.
+  assert.deepEqual(
+    computeConfirm(['a', 'b'], 'a', [
+      { user: { login: 'a' }, body: '/confirm @b' },
+    ], null, ['a']),
+    { flip: false, remaining: ['a'], count: 1, total: 2 },
+  );
+});
+
+test('the commenter is still credited when their self-confirm is not yet in comments', () => {
+  // Legacy fallback: commenter 'a' did a bare /confirm the API has not listed
+  // yet, so there is no line for them in `comments`; auto-credit still applies.
+  assert.deepEqual(
+    computeConfirm(['a', 'b'], 'a', []),
+    { flip: false, remaining: ['b'], count: 1, total: 2 },
+  );
+});
+
+test('an approver-mentor may self-confirm AND confirm another in one comment', () => {
+  // 'a' writes both a bare /confirm (self) and /confirm @b (on-behalf): both count.
+  assert.deepEqual(
+    computeConfirm(['a', 'b'], 'a', [
+      { user: { login: 'a' }, body: '/confirm\n/confirm @b' },
+    ], null, ['a']),
+    { flip: true, remaining: [], count: 2, total: 2 },
+  );
+});

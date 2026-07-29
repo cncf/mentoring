@@ -60,7 +60,16 @@ function computeConfirm(mentorHandles, commenter, comments, author, admins = [])
   const adminSet = new Set((admins || []).map(norm));
   const onRoster = (h) => h && roster.includes(norm(h));
   const confirmed = new Set();
-  if (onRoster(commenter)) confirmed.add(norm(commenter));
+  // Auto-credit the commenter's own slot only as a fallback for a just-posted
+  // self-confirm not yet reflected in `comments`. Once the commenter has a
+  // parsed /confirm line here (the handler appends the current comment), let
+  // that line govern, so an approver-mentor's `/confirm @other` credits only
+  // @other and never flips their own slot early (Copilot review, #212).
+  const cn = norm(commenter);
+  const commenterHasLine = cn && comments.some(
+    (c) => norm(c.user?.login) === cn && confirmTargets(c.body).length > 0,
+  );
+  if (onRoster(commenter) && !commenterHasLine) confirmed.add(cn);
   if (onRoster(author)) confirmed.add(norm(author));
   for (const c of comments) {
     const commentAuthor = norm(c.user?.login);
