@@ -330,7 +330,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/urunc-dev/urunc/issues/573",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/3581574f-5f52-40c7-9a3b-b1dc019949d7",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -811,7 +811,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/pipe-cd/pipecd/issues/6706",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/a92ac5b3-b28c-4927-8e88-df0a6a8fa817",
       "prerequisites": {
         "resume": true,
         "cover_letter": false,
@@ -1210,7 +1210,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/containers/podman.io/issues/512",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/42be74e1-704b-4b17-8b47-e38f37338414",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
