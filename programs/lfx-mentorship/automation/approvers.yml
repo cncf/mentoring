@@ -4,7 +4,7 @@
 # The approvals workflow checks authorization in this order:
 #   1. {org}/.project/maintainers.yaml (project-maintainers team)
 #   2. cncf/foundation/project-maintainers.csv
-#   3. This file — per-project fallback_teams and fallback_handles
+#   3. This file — per-project fallback_handles
 #   4. This file — global_approvers (can /approve for any project)
 #
 # Format:
@@ -14,11 +14,6 @@
 #   <project-key>:                # match by GitHub org (e.g. open-telemetry), the
 #                                 # lowercased/hyphenated name, or the projects.yml
 #                                 # slug; any of the three works.
-#     fallback_teams:             # DEPRECATED, practically dead (slated for removal):
-#       - org/team-name           # only cncf-org teams resolve (the token can't read
-#                                 # cross-org membership), and there are no CNCF-org
-#                                 # mentor/maintainer teams, so global_approvers already
-#                                 # covers that case. Use fallback_handles instead.
 #     fallback_handles:           # individual GitHub handles (works for any org)
 #       - username
 
