@@ -1,8 +1,59 @@
 {
-  "_generated": "2026-07-29T16:07:58.753Z",
+  "_generated": "2026-07-29T17:26:46.599Z",
   "_term": "2026 Term 3 (Sep-Nov)",
-  "_count": 42,
+  "_count": 43,
   "programs": [
+    {
+      "issue_number": 2028,
+      "issue_url": "https://github.com/cncf/mentoring/issues/2028",
+      "cncf_project": "The Update Framework (TUF)",
+      "cncf_project_slug": "tuf",
+      "cncf_project_maturity": "graduated",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - The Update Framework (TUF): Add ELI5 documentation / video to TUF (2026 Term 3)",
+      "program_name_short": "Add ELI5 documentation / video to TUF",
+      "description": "## Description\n\nWe've heard from some potential adopters that TUF is hard to understand.  We'd like to remedy this by making documentation accessible to a five year old (ELI5).  We can be flexible about whether the end result is video, web site documentation, a children's book, or other format. \n\nWe'd like this to be quality tested within our community and with outside users to ensure this is effective.  So, you should be prepared to do this iteratively and test feedback.\n\n## Expected Outcomes\n\n- at least one form of deliverable (documentation, video, etc.) which has been validated internally and externally through an iterative process\n- integration of the deliverable into the TUF website\n- dissemination of the deliverable via appropriate means (LF socials, presentation at an LF event, etc.)",
+      "technologies": "TUF",
+      "skills": "technical writing skills, presentation skills, video editing, storyboarding, etc.",
+      "mentors": [
+        {
+          "name": "Justin Cappos",
+          "github_handle": "JustinCappos",
+          "email": "jcappos@nyu.edu",
+          "lfid": "justincappos",
+          "role": "primary"
+        },
+        {
+          "name": "Kairo de Araujo",
+          "github_handle": "kairoaraujo",
+          "email": "kairo@dearaujo.nl",
+          "lfid": "kairoaraujo",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/theupdateframework/theupdateframework.io/issues/132",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": {
+          "name": "Portfolio",
+          "description": "Please upload samples that show similar work you have done.",
+          "file_upload": true
+        },
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
     {
       "issue_number": 2027,
       "issue_url": "https://github.com/cncf/mentoring/issues/2027",

@@ -86,6 +86,8 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - [Podman Container Tools](#podman-container-tools)
   - [Website Design and UX Improvements](#website-design-and-ux-improvements)
   - [Agentic CI Flake Categorization and Analysis](#agentic-ci-flake-categorization-and-analysis)
+- [The Update Framework (TUF)](#the-update-framework-tuf)
+  - [Add ELI5 documentation / video to TUF](#add-eli5-documentation-video-to-tuf)
 - [urunc](#urunc)
   - [Fuzzing and robustness testing for urunc](#fuzzing-and-robustness-testing-for-urunc)
   - [Integration of urunc's sandbox execution with Argo](#integration-of-uruncs-sandbox-execution-with-argo)
@@ -1301,6 +1303,34 @@ CNCF - Podman Container Tools: Agentic CI Flake Categorization and Analysis (202
   - Mohan Boddu (@mohanboddu, mboddu@redhat.com)
 - Upstream Issue: https://github.com/podman-container-tools/podman/issues/29265
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/050e89d9-aec2-47ad-9113-3ba41a639d55
+
+### The Update Framework (TUF)
+
+#### Add ELI5 documentation / video to TUF
+
+CNCF - The Update Framework (TUF): Add ELI5 documentation / video to TUF (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  > 
+  > We've heard from some potential adopters that TUF is hard to understand.  We'd like to remedy this by making documentation accessible to a five year old (ELI5).  We can be flexible about whether the end result is video, web site documentation, a children's book, or other format. 
+  > 
+  > We'd like this to be quality tested within our community and with outside users to ensure this is effective.  So, you should be prepared to do this iteratively and test feedback.
+  > 
+  > ## Expected Outcomes
+  > 
+  > - at least one form of deliverable (documentation, video, etc.) which has been validated internally and externally through an iterative process
+  > - integration of the deliverable into the TUF website
+  > - dissemination of the deliverable via appropriate means (LF socials, presentation at an LF event, etc.)
+
+- Recommended Skills: technical writing skills, presentation skills, video editing, storyboarding, etc.
+- Technologies: TUF
+- Mentor(s):
+  - Justin Cappos (@JustinCappos, jcappos@nyu.edu)
+  - Kairo de Araujo (@kairoaraujo, kairo@dearaujo.nl)
+- Upstream Issue: https://github.com/theupdateframework/theupdateframework.io/issues/132
+- LFX URL: TBD
 
 ### urunc
 
