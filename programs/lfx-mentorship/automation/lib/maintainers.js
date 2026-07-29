@@ -13,12 +13,29 @@
 const { parseCsvLine } = require('./csv.js');
 const yaml = require('js-yaml');
 
+// Per-project name accommodations between projects.yml (generated from
+// cncf/landscape) and the hand-maintained project-maintainers.csv. When the two
+// name a project differently enough that the prefix/substring match below misses
+// it, list the CSV's wording here, keyed by the projects.yml/proposal name
+// (lowercased). Add an entry per project as the divergences surface.
+//
+// TUF: projects.yml says "The Update Framework (TUF)"; the CSV swaps the
+// parenthetical to "TUF (The Update Framework)", which is neither a prefix nor a
+// substring of the former, so its maintainers went unrecognized. (#2028)
+const CSV_PROJECT_NAME_ALIASES = {
+  'the update framework (tuf)': ['TUF (The Update Framework)'],
+};
+
 // Return { authorized, project } for whether `handle` is listed as a
 // maintainer of `project` in the CSV text. Matching is case-insensitive.
 function findMaintainerInCsv(csvText, project, handle) {
   const wanted = String(project || '').trim().toLowerCase();
   const who = String(handle || '').trim().toLowerCase();
   if (!wanted || !who) return { authorized: false, project: '' };
+
+  // The project name plus any known CSV aliases for it; a CSV group matches when
+  // it prefix/substring-matches ANY of these. Non-aliased projects are unchanged.
+  const wantedNames = [wanted, ...(CSV_PROJECT_NAME_ALIASES[wanted] || []).map((a) => a.toLowerCase())];
 
   let group = '';  // Project column, forward-filled from each group's first row
   for (const line of String(csvText).split('\n').slice(1)) {
@@ -29,7 +46,7 @@ function findMaintainerInCsv(csvText, project, handle) {
     const rowHandle = (cols[4] || '').trim().toLowerCase();
     if (!rowHandle) continue;
     const p = group.toLowerCase();
-    if (rowHandle === who && (p.startsWith(wanted) || p.includes(wanted))) {
+    if (rowHandle === who && wantedNames.some((w) => p.startsWith(w) || p.includes(w))) {
       return { authorized: true, project: group };
     }
   }

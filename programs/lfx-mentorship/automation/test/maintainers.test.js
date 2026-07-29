@@ -15,6 +15,9 @@ const CSV = [
   'Graduated,Kubernetes,Someone Steering,Google,steersperson,https://git.k8s.io/steering#members',
   ',Kubernetes maintainers,Adolfo García Veytia,"Carabiner Systems, Inc",puerco,',
   ',,Carlos Tadeu Panato Jr.,"Chainguard, Inc",cpanato,',
+  // TUF: the CSV orders the parenthetical the other way from projects.yml, which
+  // names it "The Update Framework (TUF)". Covered by the alias table (#2028).
+  'Graduated,TUF (The Update Framework),Justin Cappos,NYU,JustinCappos,https://github.com/theupdateframework/community/blob/main/MAINTAINERS.md',
 ].join('\n');
 
 test('authorizes a project group-header maintainer', () => {
@@ -59,6 +62,21 @@ test('does not leak a maintainer across group boundaries', () => {
 test('rejects on blank project or handle', () => {
   assert.equal(findMaintainerInCsv(CSV, '', 'aliok').authorized, false);
   assert.equal(findMaintainerInCsv(CSV, 'Knative', '').authorized, false);
+});
+
+// Project-name accommodations (#2028): projects.yml (from cncf/landscape) and the
+// hand-maintained project-maintainers.csv sometimes name a project differently,
+// so the substring matcher misses real maintainers. An explicit per-project alias
+// table bridges the known cases. TUF is the first: projects.yml says
+// "The Update Framework (TUF)" while the CSV says "TUF (The Update Framework)".
+test('authorizes a TUF maintainer despite the projects.yml/CSV name-order mismatch (#2028)', () => {
+  const hit = findMaintainerInCsv(CSV, 'The Update Framework (TUF)', 'JustinCappos');
+  assert.equal(hit.authorized, true);
+  assert.equal(hit.project, 'TUF (The Update Framework)');
+});
+
+test('the TUF alias still rejects a non-maintainer for TUF', () => {
+  assert.equal(findMaintainerInCsv(CSV, 'The Update Framework (TUF)', 'nobody').authorized, false);
 });
 
 // ── isProjectMaintainer: tier-1 {org}/.project/maintainers.yaml ──────────
