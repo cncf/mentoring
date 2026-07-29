@@ -51,7 +51,7 @@ jobs:
             const { computeConfirm, confirmTargets } = _lib('confirm.js');
             const { replyReaction } = _lib('reactions.js');
             const { lookupProject } = _lib('projects.js');
-            const { getGlobalApprovers, getProjectSection, getFallbackHandles, getFallbackTeams, maintainersCanApprove, buildProjectKeys } = _lib('approvers.js');
+            const { getGlobalApprovers, getProjectSection, getFallbackHandles, maintainersCanApprove, buildProjectKeys } = _lib('approvers.js');
             const { cncfApproveDecision } = _lib('cncf-approve.js');
             const { lfxUrlDecision, recordedLfxUrlComment, readExports, locateExportedProgram, exportTermLabel, termMismatchWarning, renderRecordedIssues, recordedUrlNextSteps, changedRecordedPrograms, programCountLabel, populateRecordedUrls, upsertLfxUrlBlock } = _lib('lfx-url.js');
             const { termPaths } = _lib('term-paths.js');
@@ -232,34 +232,11 @@ jobs:
               // (approvers.yml and the project section were read once, above.)
               if (!authorized) {
                 try {
-                  // 3a. Per-project fallback handles and teams
+                  // 3a. Per-project fallback handles
                   if (projectSection) {
-                    // Check fallback_handles
                     if (getFallbackHandles(projectSection).includes(commenter.toLowerCase())) {
                       authorized = true;
                       authSource = 'approvers.yml (fallback handle)';
-                    }
-                    // Check fallback_teams
-                    if (!authorized) {
-                      for (const team of getFallbackTeams(projectSection)) {
-                        const [org, slug] = team.split('/');
-                        if (!org || !slug) continue;
-                        try {
-                          const { data } = await github.rest.teams.getMembershipForUserInOrg({
-                            org, team_slug: slug, username: commenter,
-                          });
-                          if (data.state === 'active') {
-                            authorized = true;
-                            authSource = `approvers.yml (team ${team})`;
-                            break;
-                          }
-                        } catch (e) {
-                          // Likely a cross-org team: the repo token can't read
-                          // membership outside this org, so the team authorizes
-                          // no one. Use fallback_handles for cross-org approvers.
-                          console.log(`Could not verify team ${team} for ${commenter}: ${e.message}`);
-                        }
-                      }
                     }
                   }
 

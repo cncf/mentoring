@@ -38,25 +38,17 @@ function getFallbackHandles(section) {
   return [...block[1].matchAll(/-\s+(\S+)/g)].map((m) => m[1].toLowerCase());
 }
 
-// fallback_teams within a project section: raw "org/team" strings (case kept,
-// since GitHub team slugs are matched by the API downstream).
-function getFallbackTeams(section) {
-  const block = String(section).match(/fallback_teams:\s*\n((?:\s+-\s+\S+.*\n?)*)/);
-  if (!block) return [];
-  return [...block[1].matchAll(/-\s+(\S+)/g)].map((m) => m[1]);
-}
-
 // Whether project maintainers may /approve for a project, read from its
 // approvers.yml section text (as returned by getProjectSection). Defaults to
-// true: the additive model where a project's maintainers, its fallback
-// handles/teams, and global_approvers can all /approve. A project sets
-// `maintainers_can_approve: false` to make its fallback_handles/fallback_teams
-// (plus global_approvers) the EXCLUSIVE approver set, so its individual
-// maintainer rosters are skipped (e.g. Kubernetes routes approvals through SIG
-// ContribEx, not per-maintainer). Only an explicit `false` disables it; a
-// missing, commented, or malformed value keeps the default true. The value must
-// be a bare boolean token (optionally followed by whitespace or a # comment to
-// end of line); trailing junk like `false-positive` is malformed, not false.
+// true: the additive model where a project's maintainers, its fallback handles,
+// and global_approvers can all /approve. A project sets
+// `maintainers_can_approve: false` to make its fallback_handles (plus
+// global_approvers) the EXCLUSIVE approver set, so its individual maintainer
+// rosters are skipped (e.g. Kubernetes routes approvals through SIG ContribEx,
+// not per-maintainer). Only an explicit `false` disables it; a missing,
+// commented, or malformed value keeps the default true. The value must be a bare
+// boolean token (optionally followed by whitespace or a # comment to end of
+// line); trailing junk like `false-positive` is malformed, not false.
 function maintainersCanApprove(section) {
   const m = String(section == null ? '' : section)
     .match(/^[ \t]*maintainers_can_approve:[ \t]*(true|false)[ \t]*(#.*)?$/im);
@@ -79,7 +71,6 @@ module.exports = {
   getGlobalApprovers,
   getProjectSection,
   getFallbackHandles,
-  getFallbackTeams,
   maintainersCanApprove,
   buildProjectKeys,
 };

@@ -6,14 +6,13 @@ const {
   getGlobalApprovers,
   getProjectSection,
   getFallbackHandles,
-  getFallbackTeams,
   maintainersCanApprove,
   buildProjectKeys,
 } = require('../lib/approvers');
 
 // Fixture mirrors the real approvers.yml shape: a global_approvers list plus
-// per-project sections keyed by GitHub org, with fallback_teams and an optional
-// commented fallback_handles entry.
+// per-project sections keyed by GitHub org, each with fallback_handles and an
+// optional maintainers_can_approve flag.
 const YAML = `# comment header
 global_approvers:
   - nate-double-u
@@ -21,12 +20,12 @@ global_approvers:
   - Swil78
 
 kubernetes:
-  fallback_teams:
-    - kubernetes/sig-contribex
+  maintainers_can_approve: false
+  fallback_handles:
+    - kaslin
+    - MadhavJivrajani
 
 open-telemetry:
-  fallback_teams:
-    - open-telemetry/governance-committee
   fallback_handles:
     - maryliag    # GC liaison for mentorship
 `;
@@ -41,14 +40,14 @@ test('getGlobalApprovers: returns [] when the key is absent', () => {
 
 test('getProjectSection: returns the block for the first matching key', () => {
   const section = getProjectSection(YAML, ['nope', 'kubernetes']);
-  assert.match(section, /fallback_teams:/);
-  assert.match(section, /kubernetes\/sig-contribex/);
+  assert.match(section, /fallback_handles:/);
+  assert.match(section, /kaslin/);
   // Must stop before the next top-level key.
   assert.doesNotMatch(section, /open-telemetry/);
 });
 
 test('getProjectSection: key matching is case-insensitive', () => {
-  assert.match(getProjectSection(YAML, ['KUBERNETES']), /sig-contribex/);
+  assert.match(getProjectSection(YAML, ['KUBERNETES']), /kaslin/);
 });
 
 test('getProjectSection: a key that is only a prefix does not match', () => {
@@ -67,31 +66,15 @@ test('getFallbackHandles: lowercased, ignoring trailing comments', () => {
 });
 
 test('getFallbackHandles: returns [] for a section without fallback_handles', () => {
-  const section = getProjectSection(YAML, ['kubernetes']);
-  assert.deepEqual(getFallbackHandles(section), []);
-});
-
-test('getFallbackTeams: returns raw org/team strings with case preserved', () => {
-  assert.deepEqual(
-    getFallbackTeams(getProjectSection(YAML, ['kubernetes'])),
-    ['kubernetes/sig-contribex'],
-  );
-  assert.deepEqual(
-    getFallbackTeams(getProjectSection(YAML, ['open-telemetry'])),
-    ['open-telemetry/governance-committee'],
-  );
-});
-
-test('getFallbackTeams: returns [] for a section without fallback_teams', () => {
-  assert.deepEqual(getFallbackTeams('fallback_handles:\n    - someone\n'), []);
+  assert.deepEqual(getFallbackHandles('  maintainers_can_approve: false\n'), []);
 });
 
 // ── maintainersCanApprove: the per-project "exclusive approvers" flag ─────────
 // Default true = the additive model (project maintainers + fallbacks + global
 // approvers can /approve). A project sets `maintainers_can_approve: false` to
-// make its fallback_handles/fallback_teams (+ global_approvers) the EXCLUSIVE
-// approver set, so its individual maintainers cannot /approve (e.g. Kubernetes
-// routes approvals through SIG ContribEx, not per-maintainer).
+// make its fallback_handles (+ global_approvers) the EXCLUSIVE approver set, so
+// its individual maintainers cannot /approve (e.g. Kubernetes routes approvals
+// through SIG ContribEx, not per-maintainer).
 
 test('maintainersCanApprove: false when the section sets it false', () => {
   assert.equal(maintainersCanApprove('  maintainers_can_approve: false\n  fallback_handles:\n    - a\n'), false);
@@ -102,7 +85,7 @@ test('maintainersCanApprove: true when the section sets it true', () => {
 });
 
 test('maintainersCanApprove: defaults to true when the key is absent', () => {
-  assert.equal(maintainersCanApprove('  fallback_teams:\n    - a/b\n'), true);
+  assert.equal(maintainersCanApprove('  fallback_handles:\n    - a\n'), true);
 });
 
 test('maintainersCanApprove: defaults to true for an empty or nullish section', () => {
