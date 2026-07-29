@@ -362,3 +362,17 @@ test('an on-behalf /confirm with trailing punctuation still credits the mentor',
     { flip: false, remaining: ['b'], count: 1, total: 2 },
   );
 });
+
+// ── confirmTargets mirrors GitHub's username-mention grammar ───────────
+// A hyphen continues a handle ONLY when followed by an alphanumeric, exactly
+// as GitHub parses/renders a mention. So a malformed handle extracts the same
+// run GitHub would highlight: `@alice-` shows as @alice, `@a--b` as @a, and
+// `@-alice` is no mention. Crediting matches what the commenter sees; this is
+// intentional, not a partial-match bug.
+
+test('confirmTargets extracts the same run GitHub would render for malformed handles', () => {
+  assert.deepEqual(confirmTargets('/confirm @alice-'), ['alice']);
+  assert.deepEqual(confirmTargets('/confirm @a--b'), ['a']);
+  assert.deepEqual(confirmTargets('/confirm @-alice'), [null]);
+  assert.deepEqual(confirmTargets('/confirm @alice-bob'), ['alice-bob']);
+});
