@@ -13,7 +13,7 @@
 function getGlobalApprovers(raw) {
   const block = String(raw).match(/global_approvers:\s*\n((?:\s+-\s+\S+.*\n?)*)/);
   if (!block) return [];
-  return [...block[1].matchAll(/-\s+(\S+)/g)].map((m) => m[1].toLowerCase());
+  return [...block[1].matchAll(/-\s+(\S+)/g)].map((m) => m[1].replace(/^@+/, '').toLowerCase());
 }
 
 // The indented block for the first matching project key, or '' if none match.
