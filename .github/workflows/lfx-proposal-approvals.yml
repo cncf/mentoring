@@ -48,7 +48,7 @@ jobs:
             const { parseIssueForm, parseMentors } = _lib('parse.js');
             const { parseCommands } = _lib('commands.js');
             const { resolveProjectMaintainer } = _lib('authorize.js');
-            const { computeConfirm } = _lib('confirm.js');
+            const { computeConfirm, confirmTargets } = _lib('confirm.js');
             const { lookupProject } = _lib('projects.js');
             const { getGlobalApprovers, getProjectSection, getFallbackHandles, getFallbackTeams, maintainersCanApprove, buildProjectKeys } = _lib('approvers.js');
             const { cncfApproveDecision } = _lib('cncf-approve.js');
@@ -319,23 +319,58 @@ jobs:
                 return;
               }
 
-              // Authorization: commenter must be a listed mentor
+              // Roster + universal approvers. A bare /confirm confirms the
+              // commenter; /confirm @handle targets a specific mentor: the
+              // commenter's own slot, or (for a CNCF universal approver) another
+              // mentor on their behalf. Several /confirm lines in one comment all
+              // act, yielding a single consolidated reply.
               const mentorsRaw = get('Mentors');
               const confirmHandles = parseMentors(mentorsRaw).map(m => m.github_handle.toLowerCase());
+              const rosterList = confirmHandles.map(h => `@${h}`).join(', ') || '(none parsed)';
+              const me = commenter.toLowerCase();
 
-              if (!confirmHandles.includes(commenter.toLowerCase())) {
-                await reply('❌',
-                  `@${commenter} is not listed as a mentor on this proposal.\n\n` +
-                  `Only listed mentors can \`/confirm\`. ` +
-                  `Current mentors: ${confirmHandles.map(h => `@${h}`).join(', ') || '(none parsed)'}`);
+              let admins = [];
+              try {
+                admins = getGlobalApprovers(fs.readFileSync('programs/lfx-mentorship/automation/approvers.yml', 'utf8'));
+              } catch (e) {
+                console.log(`approvers.yml read failed: ${e.message}`);
+              }
+              const isAdmin = admins.includes(me);
+
+              // Classify each /confirm line into credited handles vs. problems,
+              // so a comment with several lines yields one consolidated reply and
+              // one valid line is never lost to another's error.
+              const credited = [];
+              const issues = [];
+              for (const t of confirmTargets(commentBody)) {
+                const subject = t === null ? me : t;
+                if (!confirmHandles.includes(subject)) {
+                  if (t !== null) {
+                    issues.push(`@${subject} is not a listed mentor on this proposal. Current mentors: ${rosterList}`);
+                  } else if (isAdmin) {
+                    issues.push(`@${commenter}, to confirm a mentor use \`/confirm @their-handle\`. Current mentors: ${rosterList}`);
+                  } else {
+                    issues.push(`@${commenter} is not listed as a mentor on this proposal. Only listed mentors can \`/confirm\`. Current mentors: ${rosterList}`);
+                  }
+                } else if (subject === me || isAdmin) {
+                  credited.push(subject);
+                } else {
+                  issues.push(`Only CNCF universal approvers can \`/confirm\` on behalf of another mentor. To confirm your own participation, comment \`/confirm\`.`);
+                }
+              }
+              const creditedUniq = [...new Set(credited)];
+              const uniqIssues = [...new Set(issues)];
+
+              // Nothing valid to record: reply with the problem(s) only.
+              if (creditedUniq.length === 0) {
+                await reply('❌', uniqIssues.join('\n\n') || 'No `/confirm` action was recognized.');
                 return;
               }
 
-              // Per-mentor confirmation: the gate flips only once EVERY listed
-              // mentor has confirmed. Gather confirmations from the issue's
-              // comment history (plus this one) and the issue author (a
-              // proposer who lists themselves as a mentor counts as confirmed),
-              // compared to the roster (tally logic in lib/confirm.js).
+              // Authoritative tally (recognizes on-behalf confirmations, tally
+              // logic in lib/confirm.js). Append this comment so a just-posted
+              // /confirm counts even before the API lists it; a proposer who
+              // lists themselves as a mentor counts as confirmed.
               let priorComments = [];
               try {
                 priorComments = await github.paginate(github.rest.issues.listComments, {
@@ -345,12 +380,19 @@ jobs:
                 core.warning(`Could not read prior confirmations: ${e.message}`);
               }
               const proposer = context.payload.issue.user?.login;
-              const { remaining, count, total } = computeConfirm(confirmHandles, commenter, priorComments, proposer);
+              const allComments = priorComments.concat([{ user: { login: commenter }, body: commentBody }]);
+              const { remaining, count, total } = computeConfirm(confirmHandles, commenter, allComments, proposer, admins);
+
+              const recorded = creditedUniq.map(h => `@${h}`).join(', ');
+              const head = (creditedUniq.length === 1 && creditedUniq[0] === me)
+                ? `Confirmation recorded from @${commenter}.`
+                : `Confirmation recorded for ${recorded} (by @${commenter}).`;
+              const note = uniqIssues.length ? `\n\n⚠️ ${uniqIssues.join('\n\n⚠️ ')}` : '';
+
               if (remaining.length) {
                 await reply('✅',
-                  `Confirmation recorded from @${commenter}. ` +
-                  `${count} of ${total} mentors have confirmed.\n\n` +
-                  `Still waiting on: ${remaining.map(h => `@${h}`).join(', ')}.`);
+                  `${head} ${count} of ${total} mentors have confirmed.\n\n` +
+                  `Still waiting on: ${remaining.map(h => `@${h}`).join(', ')}.${note}`);
                 return;
               }
 
@@ -358,7 +400,7 @@ jobs:
               await addLabel('Mentors Confirmed');
               await removeLabel('Awaiting Mentor Confirmation');
               await reply('✅',
-                `All ${total} listed mentor(s) have confirmed. Mentor confirmation is complete.`);
+                `${head} All ${total} listed mentor(s) have confirmed. Mentor confirmation is complete.${note}`);
               await checkBothGates();
               return;
             }

@@ -2,7 +2,7 @@
 
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { computeConfirm } = require('../lib/confirm');
+const { computeConfirm, confirmTargets } = require('../lib/confirm');
 
 test('the first of three mentors confirming does not flip the gate', () => {
   assert.deepEqual(
@@ -166,4 +166,127 @@ test('an off-roster commenter is not counted (self-consistent contract)', () => 
     computeConfirm(['a', 'b'], 'zzz', []),
     { flip: false, remaining: ['a', 'b'], count: 0, total: 2 },
   );
+});
+
+// ── On-behalf confirmation: /confirm @handle by a universal approver ───
+// A CNCF global approver can confirm participation for a listed mentor who
+// hasn't run /confirm themselves. The confirmed party is the @handle, not the
+// commenter. A mentor may also confirm with their OWN @handle (no approver
+// needed), and trailing prose after /confirm never voids the intent. The
+// 5th arg is the global-approver (admin) roster, normalized here.
+
+test('a universal approver can confirm on behalf of a listed mentor', () => {
+  assert.deepEqual(
+    computeConfirm(['a', 'b'], null, [
+      { user: { login: 'admin1' }, body: '/confirm @a' },
+    ], null, ['admin1']),
+    { flip: false, remaining: ['b'], count: 1, total: 2 },
+  );
+});
+
+test('on-behalf confirmations can complete the roster and flip the gate', () => {
+  assert.deepEqual(
+    computeConfirm(['a', 'b'], null, [
+      { user: { login: 'admin1' }, body: '/confirm @a\n/confirm @b' },
+    ], null, ['admin1']),
+    { flip: true, remaining: [], count: 2, total: 2 },
+  );
+});
+
+test('a non-approver cannot confirm on behalf of another mentor', () => {
+  assert.deepEqual(
+    computeConfirm(['a', 'b'], null, [
+      { user: { login: 'randouser' }, body: '/confirm @a' },
+    ], null, []),
+    { flip: false, remaining: ['a', 'b'], count: 0, total: 2 },
+  );
+});
+
+test('a mentor /confirm @otherMentor does not silently self-confirm the author', () => {
+  // b (a mentor, not an approver) names a: neither is credited to b, and b is
+  // not authorized to confirm a. The handler surfaces the error; the tally is 0.
+  assert.deepEqual(
+    computeConfirm(['a', 'b'], null, [
+      { user: { login: 'b' }, body: '/confirm @a' },
+    ], null, []),
+    { flip: false, remaining: ['a', 'b'], count: 0, total: 2 },
+  );
+});
+
+test('a mentor confirming with their OWN @handle counts (no approver needed)', () => {
+  assert.deepEqual(
+    computeConfirm(['a', 'b'], null, [
+      { user: { login: 'a' }, body: '/confirm @a' },
+    ], null, []),
+    { flip: false, remaining: ['b'], count: 1, total: 2 },
+  );
+});
+
+test('trailing prose after a bare /confirm still counts the author', () => {
+  assert.deepEqual(
+    computeConfirm(['a', 'b'], null, [
+      { user: { login: 'a' }, body: '/confirm looking forward to mentoring!' },
+    ], null, []),
+    { flip: false, remaining: ['b'], count: 1, total: 2 },
+  );
+});
+
+test('trailing prose after /confirm @self still counts', () => {
+  assert.deepEqual(
+    computeConfirm(['a', 'b'], null, [
+      { user: { login: 'a' }, body: '/confirm @a thanks, happy to help' },
+    ], null, []),
+    { flip: false, remaining: ['b'], count: 1, total: 2 },
+  );
+});
+
+test('an on-behalf /confirm for a non-roster handle is ignored', () => {
+  assert.deepEqual(
+    computeConfirm(['a', 'b'], null, [
+      { user: { login: 'admin1' }, body: '/confirm @zzz' },
+    ], null, ['admin1']),
+    { flip: false, remaining: ['a', 'b'], count: 0, total: 2 },
+  );
+});
+
+test('the admins roster is matched case- and @-insensitively', () => {
+  assert.deepEqual(
+    computeConfirm(['a', 'b'], null, [
+      { user: { login: 'Admin1' }, body: '/confirm @a' },
+    ], null, ['@admin1']),
+    { flip: false, remaining: ['b'], count: 1, total: 2 },
+  );
+});
+
+test('omitting the admins arg preserves prior bare-/confirm behavior', () => {
+  assert.deepEqual(
+    computeConfirm(['a', 'b'], 'a', [{ user: { login: 'b' }, body: '/confirm' }]),
+    { flip: true, remaining: [], count: 2, total: 2 },
+  );
+});
+
+// ── confirmTargets: per-line parse shared by the tally and the handler ──
+// One entry per /confirm line: null for a bare self-confirm (trailing prose
+// ignored), or the lowercased handle for an explicit /confirm @handle.
+
+test('confirmTargets returns null for a bare /confirm and prose', () => {
+  assert.deepEqual(confirmTargets('/confirm'), [null]);
+  assert.deepEqual(confirmTargets('/confirm looking forward!'), [null]);
+});
+
+test('confirmTargets extracts a single leading @handle, lowercased', () => {
+  assert.deepEqual(confirmTargets('/confirm @Alice'), ['alice']);
+  assert.deepEqual(confirmTargets('/confirm @alice thanks!'), ['alice']);
+});
+
+test('confirmTargets returns one entry per /confirm line', () => {
+  assert.deepEqual(
+    confirmTargets('sure\n/confirm @a\n/confirm\n/confirm @b'),
+    ['a', null, 'b'],
+  );
+});
+
+test('confirmTargets ignores mid-sentence and non-command lines', () => {
+  assert.deepEqual(confirmTargets('I will /confirm later'), []);
+  assert.deepEqual(confirmTargets('Use `/confirm` to participate'), []);
 });
