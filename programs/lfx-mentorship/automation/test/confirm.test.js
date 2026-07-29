@@ -342,3 +342,23 @@ test('an approver-mentor may self-confirm AND confirm another in one comment', (
     { flip: true, remaining: [], count: 2, total: 2 },
   );
 });
+
+// ── confirmTargets forgives punctuation right after the handle ─────────
+// GitHub handles are [A-Za-z0-9-]; trailing punctuation ("@alice, thanks")
+// must not become part of the handle, or the roster match silently fails.
+
+test('confirmTargets forgives punctuation immediately after the handle', () => {
+  assert.deepEqual(confirmTargets('/confirm @alice, thanks'), ['alice']);
+  assert.deepEqual(confirmTargets('/confirm @alice.'), ['alice']);
+  assert.deepEqual(confirmTargets('/confirm @alice!'), ['alice']);
+  assert.deepEqual(confirmTargets('/confirm @alice-bob, cheers'), ['alice-bob']);
+});
+
+test('an on-behalf /confirm with trailing punctuation still credits the mentor', () => {
+  assert.deepEqual(
+    computeConfirm(['alice', 'b'], null, [
+      { user: { login: 'admin1' }, body: '/confirm @alice, thanks!' },
+    ], null, ['admin1']),
+    { flip: false, remaining: ['b'], count: 1, total: 2 },
+  );
+});

@@ -32,10 +32,11 @@ function confirmTargets(body) {
     // A leading @ marks a target handle; a handle-less `@` or any non-@ prose
     // falls back to a bare self-confirm, so a mentor's intent is never lost to a
     // typo. A line never confirms a third party by accident: that needs an
-    // explicit @handle.
+    // explicit @handle. The handle is the GitHub-username run after the @, so
+    // trailing punctuation or prose (`@alice, thanks`) is forgiven.
     if (rest.startsWith('@')) {
-      const handle = rest.split(/\s+/)[0].replace(/^@+/, '').toLowerCase();
-      targets.push(handle || null);
+      const h = rest.match(/^@+([A-Za-z0-9](?:-?[A-Za-z0-9])*)/);
+      targets.push(h ? h[1].toLowerCase() : null);
     } else {
       targets.push(null);
     }

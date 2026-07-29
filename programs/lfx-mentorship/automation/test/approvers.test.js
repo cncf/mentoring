@@ -199,3 +199,10 @@ test('real approvers.yml: an unlisted project keeps the additive model (default)
     true,
   );
 });
+
+test('getGlobalApprovers: strips a leading @ and lowercases', () => {
+  assert.deepEqual(
+    getGlobalApprovers('global_approvers:\n  - @Nate-Double-U\n  - dkrook\n'),
+    ['nate-double-u', 'dkrook'],
+  );
+});
