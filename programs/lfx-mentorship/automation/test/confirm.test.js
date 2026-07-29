@@ -290,3 +290,20 @@ test('confirmTargets ignores mid-sentence and non-command lines', () => {
   assert.deepEqual(confirmTargets('I will /confirm later'), []);
   assert.deepEqual(confirmTargets('Use `/confirm` to participate'), []);
 });
+
+// ── confirmTargets anchoring: consistent with COMMAND_RE (commands.js) ──
+// A hyphenated/longer/glued token must NOT read as /confirm, or a stray
+// `/confirm-now` in history would self-confirm its author via computeConfirm.
+
+test('confirmTargets ignores a hyphenated, longer, or glued command token', () => {
+  assert.deepEqual(confirmTargets('/confirm-now'), []);
+  assert.deepEqual(confirmTargets('/confirmed tomorrow'), []);
+  assert.deepEqual(confirmTargets('/confirm@alice'), []);
+});
+
+test('confirmTargets treats a handle-less /confirm @ as a bare self-confirm', () => {
+  // A malformed @ never targets a third party; it falls back to the author's
+  // own slot, so a mentor's intent survives the typo (only the author, if on
+  // the roster, is ever credited here).
+  assert.deepEqual(confirmTargets('/confirm @'), [null]);
+});

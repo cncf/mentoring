@@ -23,9 +23,16 @@
 function confirmTargets(body) {
   const targets = [];
   for (const raw of String(body == null ? '' : body).split(/\r?\n/)) {
-    const m = raw.trim().match(/^\/confirm\b\s*(.*)$/);
+    // Require whitespace or end-of-line after `/confirm`, matching COMMAND_RE in
+    // lib/commands.js, so `/confirm-now`, `/confirmed`, and `/confirm@x` do not
+    // read as the command (a plain \b would admit `/confirm-now`).
+    const m = raw.trim().match(/^\/confirm(?=\s|$)\s*(.*)$/);
     if (!m) continue;
     const rest = (m[1] || '').trim();
+    // A leading @ marks a target handle; a handle-less `@` or any non-@ prose
+    // falls back to a bare self-confirm, so a mentor's intent is never lost to a
+    // typo. A line never confirms a third party by accident: that needs an
+    // explicit @handle.
     if (rest.startsWith('@')) {
       const handle = rest.split(/\s+/)[0].replace(/^@+/, '').toLowerCase();
       targets.push(handle || null);
