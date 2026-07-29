@@ -46,9 +46,13 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - [Reduce HAMi-core Initialization Lock Contention](#reduce-hami-core-initialization-lock-contention)
   - [Fix GPU Memory Isolation for Child and SSH Processes](#fix-gpu-memory-isolation-for-child-and-ssh-processes)
   - [HAMi GPU Sharing Workshop and Documentation](#hami-gpu-sharing-workshop-and-documentation)
+- [Jaeger](#jaeger)
+  - [Benchmarking the AI Assistant's MCP Tools and Skills](#benchmarking-the-ai-assistants-mcp-tools-and-skills)
 - [Kmesh](#kmesh)
   - [Develop MCP Server for AI-Native Kmesh Service Mesh Management](#develop-mcp-server-for-ai-native-kmesh-service-mesh-management)
 - [KubeEdge](#kubeedge)
+  - [KubeEdge-Ianvs Simulation Sandbox: Environment-Isolated Execution](#kubeedge-ianvs-simulation-sandbox-environment-isolated-execution)
+  - [Comprehensive Example Restoration for KubeEdge Ianvs: Phase IV](#comprehensive-example-restoration-for-kubeedge-ianvs-phase-iv)
   - [Enable RuntimeClass and Confidential Containers on KubeEdge](#enable-runtimeclass-and-confidential-containers-on-kubeedge)
   - [Modernize KubeEdge Controllers and Admission Webhooks](#modernize-kubeedge-controllers-and-admission-webhooks)
 - [Kubeflow](#kubeflow)
@@ -87,6 +91,8 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - [Integration of urunc's sandbox execution with Argo](#integration-of-uruncs-sandbox-execution-with-argo)
 - [Velero](#velero)
   - [Add CSI Snapshot E2E Tests to Kind CI](#add-csi-snapshot-e2e-tests-to-kind-ci)
+- [Volcano](#volcano)
+  - [Generic xPU Topology-Aware Scheduling](#generic-xpu-topology-aware-scheduling)
 - [WasmEdge Runtime](#wasmedge-runtime)
   - [Support for the Wide Arithmetic Proposal](#support-for-the-wide-arithmetic-proposal)
 
@@ -335,6 +341,47 @@ CNCF - HAMi: HAMi GPU Sharing Workshop and Documentation (2026 Term 3)
 - Upstream Issue: https://github.com/Project-HAMi/website/issues/656
 - LFX URL: TBD
 
+### Jaeger
+
+#### Benchmarking the AI Assistant's MCP Tools and Skills
+
+CNCF - Jaeger: Benchmarking the AI Assistant's MCP Tools and Skills (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  > 
+  > Jaeger's AI assistant analyzes distributed traces through two layers: an **MCP server** exposing tools that fetch trace data (span details, critical paths, service topology), and a **Skills framework** — declarative Markdown files that carry domain expertise and narrate when and how to use those tools.
+  > 
+  > Both layers were designed by intuition. We have no empirical evidence for how tool shape and Skill wording change an LLM's reasoning trajectory. This program builds a repeatable evaluation harness so those choices can be A/B tested against deterministic fault scenarios and scored on trajectory metrics rather than prose quality:
+  > 
+  > - **Call error rate** — did the model produce valid tool parameters?
+  > - **Steps to evidence** — how many calls before the root cause was in hand?
+  > - **Context bloat** — how much raw JSON did the tools push into the window?
+  > - **Root-cause accuracy** — did it land on the seeded fault, without hallucinating?
+  > 
+  > The scenarios are deliberately *trace-solvable*: faults whose cause is fully deducible from spans and span-derived metrics (Jaeger's SPM API), requiring no application logs. Isolating that class of incident is itself part of the research.
+  > 
+  > Prior art to draw on: the OpenTelemetry Demo's feature flags (`cartFailure`, `productCatalogFailure`, …) for reproducible incidents; RCA benchmarks such as RCA100, Cloud-OpsBench, OpenRCA and RCAEval for methodology; trajectory-level tool-use evaluations that score intermediate steps rather than final text; and open-source LLM evaluation platforms (Opik, Arize Phoenix, Langfuse) to run and score the loops locally.
+  > 
+  > The technical architecture is the mentee's to propose. Existing work: jaegertracing/jaeger#8440 (Skills framework) and the Jaeger MCP server.
+  > 
+  > ## Expected outcomes
+  > 
+  > 1. **Trace-solvable benchmark suite** — 5-10 documented, deterministic fault scenarios with known ground-truth root causes, each verified to be solvable from traces and span-derived metrics alone.
+  > 2. **Evaluation harness** — a local testing loop, built on an open-source evaluation framework, that programmatically runs an LLM agent against the suite through the Jaeger MCP server and Skills framework, capturing full trajectories.
+  > 3. **A/B variants of both layers**, implemented and measured: granular data-fetching tools vs. high-level analytical tools; strict step-by-step Skill narratives vs. loose goal-oriented ones.
+  > 4. **Metrics report** comparing trajectory metrics across tool + Skill combinations, resolving to a data-backed recommendation for the default Jaeger AI assistant configuration.
+  > 5. **Upstreamed changes** to the Jaeger MCP server and Skills that follow from that recommendation, with documentation so the harness can be re-run as both layers evolve.
+
+- Recommended Skills: Go, Python or TypeScript, distributed tracing concepts, LLM tool use / function calling, prompt engineering, agentic evaluation
+- Technologies: Go, Python, TypeScript, OpenTelemetry, Model Context Protocol (MCP), LLMs / prompt engineering, Docker Compose
+- Mentor(s):
+  - Jonah Kowall (@jkowall, jkowall@kowall.net)
+  - Yuri Shkuro (@yurishkuro, github@ysh.us)
+- Upstream Issue: https://github.com/jaegertracing/jaeger/issues/9135
+- LFX URL: TBD
+
 ### Kmesh
 
 #### Develop MCP Server for AI-Native Kmesh Service Mesh Management
@@ -365,6 +412,56 @@ CNCF - Kmesh: Develop MCP Server for AI-Native Kmesh Service Mesh Management (20
 - LFX URL: TBD
 
 ### KubeEdge
+
+#### KubeEdge-Ianvs Simulation Sandbox: Environment-Isolated Execution
+
+CNCF - KubeEdge: KubeEdge-Ianvs Simulation Sandbox: Environment-Isolated Execution (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  > 
+  > For most distributed AI scheme developers, establishing and deploying a large-scale cloud-edge collaborative system is often complicated and burdensome. While KubeEdge-Ianvs currently provides a single-node algorithm tester to evaluate accuracy-wise metrics using test datasets, measuring system-wise metrics, such as bandwidth, computing power, and peak memory, in a real-world manner for large-scale nodes is extremely difficult and costly. Furthermore, executing all test cases within a single shared Python process easily triggers dependency conflicts, path contamination, and fatal OOM crashes when heavy-load models like LLMs, VLAs, and foundation models run alongside lightweight examples. To address these challenges, this project would like to introduce an industrial-grade distributed collaborative system simulation using a worker-in-worker approach on a single machine, providing low-cost, scalable testing capabilities, robust environment isolation, and precise system-level metric profiling. 
+  > 
+  > ## Expected Outcome
+  > 
+  > Restoration of Simulation Core Functions: Considering previous proposal Restore and extend the Ianvs 2022 simulation proposal (Ianvs PR #35) and implementation (Ianvs PR #39, with 5+ identified breakages), to build the Simulation Controller to isolate each test case within an independent transient runtime environment, and enforce system-level resource quotas and boundary control mechanisms to restrict edge node resources (CPU and memory), avoiding dependency conflicts and OOM risks. Key components include: 
+  > Environment Administrator of Simulation Controller: Introduce a simulation controller within the test case controller to provide a worker-in-worker system on a single machine, simulating multi-node systems. Implement the Simulation Environment Administrator to parse system configurations, check host environment requirements (e.g., memory > 4GB), and automatically build, deploy, close, and delete the simulation environment.
+  > Simulation Job Administrator of Simulation Controller: Develop the critical Simulation Job Administrator to handle algorithm image building (e.g., Docker), YAML generation, job deployment/deletion, and list-watching of simulation results with workers. Simultaneously, deploy an isolated execution layer using transient runtime environments and system resource quotas (CPU and memory) to completely prevent dependency conflicts and OOM crashes.
+  > Verify Cluster with Multi-Dimensional Metrics: Complete KubeEdge-native cluster simulation validation using kind + edgecore + Sedna all-in-one scripts.
+  > Multi-Dimensional Metrics Integration: Align underlying system metrics (CPU utilization, peak memory, wall-clock time) with upper-layer algorithm metrics, presenting them uniformly in the existing StoryManager leaderboard to achieve end-to-end comprehensive performance evaluation for distributed AI.
+
+- Recommended Skills: KubeEdge-Ianvs, KubeEdge-Sedna, KubeEdge, Kubernetes, Docker, Linux Kernel mechanisms, Go, Python, Benchmark, AI/ML
+- Technologies: KubeEdge-Ianvs, KubeEdge-Sedna, KubeEdge, Kubernetes, Docker, Linux Kernel mechanisms, Go, Python, Benchmark, AI/ML
+- Mentor(s):
+  - Zimu Zheng (@MooreZheng, zimu.zheng@huawei.com)
+  - Shijing Hu (@hsj576, sjhu21@m.fudan.edu.cn)
+- Upstream Issue: https://github.com/kubeedge/ianvs/issues/348
+- LFX URL: TBD
+
+#### Comprehensive Example Restoration for KubeEdge Ianvs: Phase IV
+
+CNCF - KubeEdge: Comprehensive Example Restoration for KubeEdge Ianvs: Phase IV (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  > 
+  > Ianvs serves as the KubeEdge SIG AI distributed benchmark toolkit. As more and more contributors running, KubeEdge Ianvs now has up to 30 examples, and the number is still increasing. KubeEdge Ianvs then faces mounting usability issues due to dependency evolution and validation mechanisms. As Python versions, third-party libraries, and Ianvs features advance, partial historical examples fail to execute. This has led to surging user-reported Issues from confused contributors, untested PRs breaking core functionality of legacy features, and severely outdated documentation misaligning with actual capabilities. Without systematic intervention, the example risks becoming obsolete for edge-AI developers and especially newcomers. We then try to resurrect Ianvs’ usability with a comprehensive example restoration.
+  > 
+  > ## Expected Outcome
+  > 
+  > - Diagnose & fix bugs across examples, including dependency manifests, license scan, and runtime configurations.
+  > - Documentation Modernization, including revamp tutorials with reproducible step-by-step guides, publish developer-focused debugging playbooks for common failures. Write and upload the corresponding blog to the KubeEdge Website.
+  > - Polish the CI pipeline testing examples with GitHub Actions against multiple Python versions, critical Ianvs/upstream updates, and block PRs that break validated examples
+
+- Recommended Skills: Python, Benchmark, KubeEdge-Ianvs, AI/ML
+- Technologies: Python, Benchmark, KubeEdge-Ianvs, AI/ML
+- Mentor(s):
+  - Zimu Zheng (@MooreZheng, zimu.zheng@huawei.com)
+  - ken6078 (@ken6078, ken60786213@gmail.com)
+- Upstream Issue: https://github.com/kubeedge/ianvs/issues/230
+- LFX URL: TBD
 
 #### Enable RuntimeClass and Confidential Containers on KubeEdge
 
@@ -1297,6 +1394,36 @@ CNCF - Velero: Add CSI Snapshot E2E Tests to Kind CI (2026 Term 3)
   - Shubham Pampattiwar (@shubham-pampattiwar, spampatt@redhat.com)
   - Tiger Kaovilai (@kaovilai, tkaovila@redhat.com)
 - Upstream Issue: https://github.com/velero-io/velero/issues/7507
+- LFX URL: TBD
+
+### Volcano
+
+#### Generic xPU Topology-Aware Scheduling
+
+CNCF - Volcano: Generic xPU Topology-Aware Scheduling (2026 Term 3)
+
+- Description:
+
+  > Volcano currently schedules xPU resources mainly by their aggregate quantity on each Node, without considering whether the available devices belong to the same physical interconnect domain. For example, a 16-NPU server may contain two independent 8-NPU HCCS domains: eight free devices split across both domains cannot satisfy an 8-device same-domain request. Similar constraints exist for NVLink-connected GPU groups, NVSwitch fabrics, ordinary multi-node clusters with only node-local xPU interconnects, and cross-node fabrics such as GB200 NVL72.
+  > 
+  > This project will add a generic scheduler-side xPU topology-aware plugin to Volcano. The scheduler will select an appropriate HyperNode or fabric domain, Node, local device domain, and concrete device IDs before binding. It will support required and preferred topology affinity, track device availability and reservations, and coordinate device planning and rollback for gang workloads.
+  > 
+  > Topology ingestion must be independent of scheduling policy. A generic provider interface will normalize data from Node annotations, topology CRDs, Device Plugin companion components, vendor APIs, or DRA `ResourceSlice`s into one scheduler-facing model. The initial implementation can use mock topology data and KWOK, without requiring physical NVL72 or other accelerator hardware.
+  > 
+  > **Expected outcomes**
+  > 
+  > 1. Define a vendor-neutral topology model and provider interface for node-local device domains and cross-node fabric domains, including their relationship with HyperNode. The scheduling logic must remain independent of whether topology is reported through Node annotations, CRDs, Device Plugins, vendor APIs, or DRA.
+  > 2. Implement an optional topology-aware scheduling plugin that filters and scores placements using actual domain availability, selects concrete device IDs, and supports gang-level planning, reservation, and rollback. Topology state should be integrated into Volcano's existing scheduler cache and updated incrementally.
+  > 3. Validate correctness and performance with KWOK-based scenarios covering multi-domain Nodes, multi-node workloads without a cross-node xPU backplane, and an NVL72-style fabric. Deliver benchmark results, tests, documentation, and examples. Integration with a mock or real Device Plugin is desirable but not required for project validation.
+
+- Recommended Skills: Strong Go programming and hands-on Kubernetes experience; familiarity with scheduler; practical experience with GPUs or other xPUs, accelerator resource management; experience with Volcano, Kubernetes Device Plugins, DRA, NVLink, NVSwitch, HCCS, or similar accelerator interconnects is a plus
+- Technologies: Go, Kubernetes, Volcano, Kubernetes scheduling, Device Plugin, Dynamic Resource Allocation
+- Mentor(s):
+  - Zicong Chen(Jesse Stutler) (@JesseStutler, jessestutler97@gmail.com)
+  - Yang Wang (@wangyang0616, wangyang8216@gmail.com)
+  - João Azevedo (@devzizu, jazevedo960@gmail.com)
+  - Hajnal Mate (@hajnalmt, hajnalmt@gmail.com)
+- Upstream Issue: https://github.com/volcano-sh/volcano/issues/5751
 - LFX URL: TBD
 
 ### WasmEdge Runtime
