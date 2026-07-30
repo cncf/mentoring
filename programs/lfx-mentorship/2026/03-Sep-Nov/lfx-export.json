@@ -192,7 +192,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/kubernetes-sigs/node-readiness-controller/issues/327",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/00419a67-c8d8-4c02-af7c-b3e72b3596bd",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -754,7 +754,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/volcano-sh/dashboard/issues/307",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/b2d21cb7-4380-4375-9384-ca791e652f0d",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -1087,7 +1087,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/headlamp-k8s/plugins/issues/922",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/f02e7ef7-4c89-4da4-9e2c-ccf14ace2af5",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -1141,7 +1141,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/headlamp-k8s/plugins/issues/938",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/db537dd6-3ea7-49d0-9a53-f0b4ad772add",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -1202,7 +1202,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/container-registry/harbor-satellite/issues/542",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/65f18185-8b71-4b12-bccf-478a50896c16",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -1296,7 +1296,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/headlamp-k8s/plugins/issues/939",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/6ae7ef5c-c090-4c08-b4b8-f13d8f6aed9e",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -1531,7 +1531,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/openeverest/openeverest/issues/2255",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/f1ac447c-0f12-42d4-bc90-83c9a3bd2648",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -1578,7 +1578,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/openeverest/openeverest/issues/2464",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/4ef073a5-7d7a-43be-a18c-68e9a9b61b5b",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -1904,7 +1904,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/Project-HAMi/HAMi/issues/2126",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/dd302799-03ec-4184-b289-4d59a41fe7ed",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,

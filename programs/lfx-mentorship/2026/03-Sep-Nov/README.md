@@ -309,7 +309,7 @@ CNCF - HAMi: HAMi GPU Observability: Metrics and Dashboards (2026 Term 3)
   - Reza Jelveh (@fishman, reza.jelveh@gmail.com)
   - Jimmy Song (@rootsongjc, rootsongjc@gmail.com)
 - Upstream Issue: https://github.com/Project-HAMi/HAMi/issues/2126
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/dd302799-03ec-4184-b289-4d59a41fe7ed
 
 #### Reduce HAMi-core Initialization Lock Contention
 
@@ -423,7 +423,7 @@ CNCF - Harbor: Air-Gapped Peer-to-Peer Image Proxying in Harbor-Satellite (2026 
   - Prasanth Baskar (@bupd, prasanth@8gears.com)
   - Vadim Bauer (@Vad1mo, vb@container-registry.com)
 - Upstream Issue: https://github.com/container-registry/harbor-satellite/issues/542
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/65f18185-8b71-4b12-bccf-478a50896c16
 
 ### Headlamp
 
@@ -532,7 +532,7 @@ CNCF - Headlamp: Knative eventing and other improvements (2026 Term 3)
   - Kahiro Okina (@kahirokunn, okinakahiro@gmail.com)
   - Rene Dudfield (@illume, renedudfield@microsoft.com)
 - Upstream Issue: https://github.com/headlamp-k8s/plugins/issues/922
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/f02e7ef7-4c89-4da4-9e2c-ccf14ace2af5
 
 #### Kyverno Policy Visualization & Operational Improvements
 
@@ -553,7 +553,7 @@ CNCF - Headlamp: Kyverno Policy Visualization & Operational Improvements (2026 T
   - Sumit Goyal (@itvi-1234, Sumit.goyal.cse@gmail.com)
   - Ashwani Yadav (@NAME-ASHWANIYADAV, 22ashwaniyadav@gmail.com)
 - Upstream Issue: https://github.com/headlamp-k8s/plugins/issues/938
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/db537dd6-3ea7-49d0-9a53-f0b4ad772add
 
 #### Velero Backup Management Plugin
 
@@ -588,7 +588,7 @@ CNCF - Headlamp: Velero Backup Management Plugin (2026 Term 3)
   - Rene Dudfield (@illume, renedudfield@microsoft.com)
   - Shubham Pampattiwar (@shubham-pampattiwar, spampatt@redhat.com)
 - Upstream Issue: https://github.com/headlamp-k8s/plugins/issues/939
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/6ae7ef5c-c090-4c08-b4b8-f13d8f6aed9e
 
 ### Jaeger
 
@@ -952,7 +952,7 @@ CNCF - Kubernetes: Headlamp Project for Node-Readiness-Controller (2026 Term 3)
   - Ajay Sundar Karuppasamy (@ajaysundark, ajaysundar.k@gmail.com)
   - Rene Dudfield (@illume, renedudfield@microsoft.com)
 - Upstream Issue: https://github.com/kubernetes-sigs/node-readiness-controller/issues/327
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/00419a67-c8d8-4c02-af7c-b3e72b3596bd
 
 #### Expand Declarative Validation (DV) in Kubernetes
 
@@ -1454,7 +1454,7 @@ CNCF - OpenEverest: Develop the Object Storage provider (2026 Term 3)
   - Sergey Pronin (@spron-in, sp@solanica.io)
   - Diogo Recharte (@recharte, diogo.recharte@solanica.io)
 - Upstream Issue: https://github.com/openeverest/openeverest/issues/2255
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/f1ac447c-0f12-42d4-bc90-83c9a3bd2648
 
 #### Performance Testing Plugin
 
@@ -1485,7 +1485,7 @@ CNCF - OpenEverest: Performance Testing Plugin (2026 Term 3)
   - Sergey Pronin (@spron-in, sp@solanica.io)
   - Diogo Recharte (@recharte, diogo.recharte@solanica.io)
 - Upstream Issue: https://github.com/openeverest/openeverest/issues/2464
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/4ef073a5-7d7a-43be-a18c-68e9a9b61b5b
 
 ### OpenKruise
 
@@ -1896,7 +1896,7 @@ CNCF - Volcano: Kthena LLM Resource Management in Volcano Dashboard (2026 Term 3
   - Kuldeep Singh (@de6p, de6p97@gmail.com)
   - Zicong Chen (Jesse Stutler) (@JesseStutler, jessestutler97@gmail.com)
 - Upstream Issue: https://github.com/volcano-sh/dashboard/issues/307
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/b2d21cb7-4380-4375-9384-ca791e652f0d
 
 #### Support inPlace rolling update
 
