@@ -604,6 +604,7 @@ jobs:
           author: ${{ env.BOT_IDENTITY }}
           committer: ${{ env.BOT_IDENTITY }}
           add-paths: programs/lfx-mentorship/${{ env.LFX_URL_YEAR }}/${{ env.LFX_URL_TERM_DIR }}
+          labels: administration
           commit-message: |
             chore: record LFX URLs for ${{ env.LFX_URL_TERM }}
 
