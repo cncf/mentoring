@@ -43,9 +43,12 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - [Nebraska Reporting & Metrics Uplift](#nebraska-reporting-metrics-uplift)
   - [Cloud-Init to Butane YAML config transpiler](#cloud-init-to-butane-yaml-config-transpiler)
 - [HAMi](#hami)
+  - [HAMi GPU Observability: Metrics and Dashboards](#hami-gpu-observability-metrics-and-dashboards)
   - [Reduce HAMi-core Initialization Lock Contention](#reduce-hami-core-initialization-lock-contention)
   - [Fix GPU Memory Isolation for Child and SSH Processes](#fix-gpu-memory-isolation-for-child-and-ssh-processes)
   - [HAMi GPU Sharing Workshop and Documentation](#hami-gpu-sharing-workshop-and-documentation)
+- [Harbor](#harbor)
+  - [Air-Gapped Peer-to-Peer Image Proxying in Harbor-Satellite](#air-gapped-peer-to-peer-image-proxying-in-harbor-satellite)
 - [Jaeger](#jaeger)
   - [OpenTelemetry-Native Query and State Layers Migration](#opentelemetry-native-query-and-state-layers-migration)
   - [Benchmarking the AI Assistant's MCP Tools and Skills](#benchmarking-the-ai-assistants-mcp-tools-and-skills)
@@ -77,6 +80,9 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - [AXI - Making mesheryctl Agent-Native](#axi-making-mesheryctl-agent-native)
   - [BYOM: Adapter for AI and LLMs](#byom-adapter-for-ai-and-llms)
   - [MCP Server](#mcp-server)
+- [OpenEverest](#openeverest)
+  - [Develop the Object Storage provider](#develop-the-object-storage-provider)
+  - [Performance Testing Plugin](#performance-testing-plugin)
 - [OpenKruise](#openkruise)
   - [Build OpenSandbox-Compatible API Adapter Layer](#build-opensandbox-compatible-api-adapter-layer)
   - [Support identity provider based on keycloak etc.](#support-identity-provider-based-on-keycloak-etc)
@@ -98,6 +104,8 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
 - [Velero](#velero)
   - [Add CSI Snapshot E2E Tests to Kind CI](#add-csi-snapshot-e2e-tests-to-kind-ci)
 - [Volcano](#volcano)
+  - [Kthena LLM Resource Management in Volcano Dashboard](#kthena-llm-resource-management-in-volcano-dashboard)
+  - [Support inPlace rolling update](#support-inplace-rolling-update)
   - [Generic xPU Topology-Aware Scheduling](#generic-xpu-topology-aware-scheduling)
 - [WasmEdge Runtime](#wasmedge-runtime)
   - [Support for the Wide Arithmetic Proposal](#support-for-the-wide-arithmetic-proposal)
@@ -267,6 +275,35 @@ CNCF - Flatcar Container Linux: Cloud-Init to Butane YAML config transpiler (202
 
 ### HAMi
 
+#### HAMi GPU Observability: Metrics and Dashboards
+
+CNCF - HAMi: HAMi GPU Observability: Metrics and Dashboards (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  > 
+  > Improve the usefulness, consistency, and documentation of HAMi GPU observability for operators running shared GPU workloads. The program will focus on practical metrics and dashboards, while keeping tracing work bounded to a design and proof of concept for one mentor-approved control-plane path.
+  > 
+  > ## Expected outcomes
+  > 
+  > - A gap analysis of current HAMi metrics, exporters, labels, dashboards, and documentation.
+  > - Maintainer-reviewed improvements to a focused set of Prometheus metrics and labels across the HAMi device plugin and scheduler extension.
+  > - A versioned Grafana dashboard covering selected allocation, utilization, memory, failure, and scheduling signals.
+  > - Documentation of metric semantics, units, labels, cardinality, and example PromQL.
+  > - An OpenTelemetry trace design and bounded proof of concept for one selected workflow.
+  > - Practical alerting or SLO guidance grounded in the delivered telemetry.
+  > - At least one reviewed and merged contribution involving metrics, dashboards, tests, or documentation.
+
+- Recommended Skills: Metrics instrumentation, PromQL, dashboard design, observability, Kubernetes debugging, HAMi internals
+- Technologies: Prometheus, Grafana, OpenTelemetry, Kubernetes, Go, HAMi
+- Mentor(s):
+  - Mesut Oezdil (@mesutoezdil, mesudozdil@gmail.com)
+  - Reza Jelveh (@fishman, reza.jelveh@gmail.com)
+  - Jimmy Song (@rootsongjc, rootsongjc@gmail.com)
+- Upstream Issue: https://github.com/Project-HAMi/HAMi/issues/2126
+- LFX URL: TBD
+
 #### Reduce HAMi-core Initialization Lock Contention
 
 CNCF - HAMi: Reduce HAMi-core Initialization Lock Contention (2026 Term 3)
@@ -346,6 +383,40 @@ CNCF - HAMi: HAMi GPU Sharing Workshop and Documentation (2026 Term 3)
   - Jimmy Song (@rootsongjc, rootsongjc@gmail.com)
 - Upstream Issue: https://github.com/Project-HAMi/website/issues/656
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ab5693b7-9759-48e2-b609-f48af6b82206
+
+### Harbor
+
+#### Air-Gapped Peer-to-Peer Image Proxying in Harbor-Satellite
+
+CNCF - Harbor: Air-Gapped Peer-to-Peer Image Proxying in Harbor-Satellite (2026 Term 3)
+
+- Description:
+
+  > ## Description 
+  > Harbor Satellite makes OCI images and artifacts available at edge locations. In air-gapped or intermittently connected deployments, a Satellite that misses an artifact currently depends on a central registry, Ground Control, or manually imported offline media. This creates unnecessary operational work when another trusted Satellite on the same local network already has the required content.
+  > 
+  > This project will add an opt-in peer-to-peer distribution mode for Harbor Satellite. A Satellite will be able to use a configured set of trusted local peers, identify a peer that has a requested OCI artifact, and copy that artifact into its own local registry. The design must work without Internet or Ground Control connectivity and preserve OCI digest-based integrity verification.
+  > 
+  > ## Expected outcomes
+  > 
+  > - An approved design/ADR covering architecture, trust model, failure modes, and compatibility with headless and air-gapped deployments.
+  > - An opt-in configuration model for trusted peer endpoints, timeouts, retry policy, concurrency limits, and feature enablement.
+  > - Peer selection and artifact-availability checks for OCI manifests and blobs.
+  > - A peer-to-peer transfer path that imports requested artifacts into the local Satellite registry and verifies manifest and blob digests.
+  > - Clear fallback behavior when no eligible peer is reachable.
+  > - Metrics and structured logs for peer attempts, transfer outcomes, bytes transferred, and cache-fill results.
+  > - Unit and integration tests, including a multi-Satellite air-gapped test environment demonstrating successful transfer and failure recovery.
+  > - User and operator documentation, including configuration and troubleshooting.
+
+- Recommended Skills: Go, OCI Distribution Spec, OCI Image Spec, ORAS, go-containerregistry
+- Technologies: Go, OCI Distribution Spec, OCI Image Spec, ORAS, go-containerregistry
+- Mentor(s):
+  - Lakshit Singh (@NucleoFusion, lakshitsinghmail@gmail.com)
+  - Orlin Vasilev (@OrlinVasilev, orlin@orlix.org)
+  - Prasanth Baskar (@bupd, prasanth@8gears.com)
+  - Vadim Bauer (@Vad1mo, vb@container-registry.com)
+- Upstream Issue: https://github.com/container-registry/harbor-satellite/issues/542
+- LFX URL: TBD
 
 ### Jaeger
 
@@ -1151,6 +1222,71 @@ CNCF - Meshery: MCP Server (2026 Term 3)
 - Upstream Issue: https://github.com/meshery/meshery/issues/19446
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/29b6958b-77df-4135-85b2-f4a3185c1155
 
+### OpenEverest
+
+#### Develop the Object Storage provider
+
+CNCF - OpenEverest: Develop the Object Storage provider (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  > 
+  > OpenEverest already manages databases on Kubernetes through its provider framework. This project extends that framework to object storage.
+  > 
+  > The gap is straightforward: users run OpenEverest on-premise or at the edge and need S3-compatible storage alongside their databases. Today they deploy MinIO or SeaweedFS manually, outside of OpenEverest, with no integration. This project fixes that by making object storage a first-class resource.
+  > 
+  > The mentee will implement an object storage provider within OpenEverest's existing v2 provider architecture. Starting with MinIO or SeaweedFS (or you name it), the provider will handle cluster lifecycle - deploy, scale, upgrade, configure replication and access policies—through the same UI, CLI, and API that users already use for databases. Buckets and users will be manageable from the OpenEverest dashboard, and object storage clusters will be usable as backup targets for managed databases.
+  > 
+  > The framework is already in place. The work is building the provider.
+  > 
+  > ## Expected Outcomes:
+  > 
+  > • MinIO or SeaweedFS providers for OpenEverest v2
+  > • Lifecycle management: deploy, configure, scale, upgrade
+  > • Bucket and user management through OpenEverest UI/CLI/API
+  > • Backup target integration with database clusters
+  > • Tests and documentation
+
+- Recommended Skills: Go, Kubernetes, object storage, S3-compatible systems
+- Technologies: Go, Kubernetes, Helm, S3 API, MinIO, SeaweedFS
+- Mentor(s):
+  - Sergey Pronin (@spron-in, sp@solanica.io)
+  - Diogo Recharte (@recharte, diogo.recharte@solanica.io)
+- Upstream Issue: https://github.com/openeverest/openeverest/issues/2255
+- LFX URL: TBD
+
+#### Performance Testing Plugin
+
+CNCF - OpenEverest: Performance Testing Plugin (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  > 
+  > OpenEverest v2 already ships with a generic plugin framework that provides extension points across the UI, CLI, and API. This project is about building a performance-testing plugin on top of that existing infrastructure.
+  > 
+  > The use case is simple: users deploy databases through OpenEverest and want to know if those databases actually perform as expected. Right now that means manually installing sysbench or pgbench, figuring out connection strings, and wrestling with Kubernetes networking. With this plugin, a user picks a database from the OpenEverest dashboard, chooses a workload profile, hits run, and sees throughput and latency results right in the UI. The same operation is also available from the CLI for CI/CD integration.
+  > 
+  > The mentee will build the plugin end-to-end: integrating benchmark runners as ephemeral Kubernetes Jobs, wiring results into OpenEverest's existing UI panels and CLI commands, and keeping historical runs so users can spot regressions. Start with PostgreSQL and MySQL via sysbench/pgbench, and MongoDB via YCSB.
+  > 
+  > ## Expected Outcomes:
+  > 
+  > • Working performance-testing plugin using OpenEverest's generic plugin interfaces
+  > • Support for sysbench (PostgreSQL/MySQL) and YCSB (MongoDB) as initial engines
+  > • UI panel for configuring tests and viewing results
+  > • CLI commands for running tests and retrieving results
+  > • Historical results storage and comparison across runs
+  > • Tests and documentation
+
+- Recommended Skills: Go, Kubernetes, databases, benchmarking
+- Technologies: Go, Kubernetes, TypeScript/React, PostgreSQL, MySQL, MongoDB, sysbench
+- Mentor(s):
+  - Sergey Pronin (@spron-in, sp@solanica.io)
+  - Diogo Recharte (@recharte, diogo.recharte@solanica.io)
+- Upstream Issue: https://github.com/openeverest/openeverest/issues/2464
+- LFX URL: TBD
+
 ### OpenKruise
 
 #### Build OpenSandbox-Compatible API Adapter Layer
@@ -1536,6 +1672,56 @@ CNCF - Velero: Add CSI Snapshot E2E Tests to Kind CI (2026 Term 3)
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/b46bf26c-b458-45eb-b842-cbeccfc8b04a
 
 ### Volcano
+
+#### Kthena LLM Resource Management in Volcano Dashboard
+
+CNCF - Volcano: Kthena LLM Resource Management in Volcano Dashboard (2026 Term 3)
+
+- Description:
+
+  > - Description: Volcano Dashboard already supports Jobs, Queues, Pods, and PodGroups, but Kthena LLM workloads still depend heavily on `kubectl` and separate tooling for day-to-day operations. This project extends the dashboard into a richer operational interface for Kthena by bringing core serving resources into the UI and improving how users inspect, manage, and troubleshoot inference workloads. The mentee should study the existing dashboard architecture and Kthena resource model, then design an experience that covers not only resource management but also deeper operational workflows such as serving status visualization, routing visibility, rollout awareness, resource relationships, and troubleshooting context across Kthena, Volcano, and Kubernetes objects.
+  > 
+  > - Expected Outcome:
+  >   - Dashboard support for major Kthena resources such as ModelServing, ModelBooster, ModelRoute, and ModelServer.
+  >   - UI workflows for inspecting and managing those resources.
+  >   - Clear visibility into conditions, replicas, rollout state, and relationships to related Pods, PodGroups, Queues, and other underlying resources.
+  >   - Improved operational and troubleshooting workflows, including routing visibility and serving health context.
+  >   - Required RBAC and deployment updates for practical cluster usage.
+  >   - Tests and user-facing documentation.
+
+- Recommended Skills: TypeScript, React, Next.js, Kubernetes API, observability basics, familiarity with Volcano and Kthena
+- Technologies: TypeScript, React, Next.js, Kubernetes API, observability basics, familiarity with Volcano and Kthena
+- Mentor(s):
+  - ZhenCheng Lee (@LiZhenCheng9527, lizhencheng6@huawei.com)
+  - Kuldeep Singh (@de6p, de6p97@gmail.com)
+  - Zicong Chen (Jesse Stutler) (@JesseStutler, jessestutler97@gmail.com)
+- Upstream Issue: https://github.com/volcano-sh/dashboard/issues/307
+- LFX URL: TBD
+
+#### Support inPlace rolling update
+
+CNCF - Volcano: Support inPlace rolling update (2026 Term 3)
+
+- Description:
+
+  > ## Description: 
+  > The existing `ServingGroupRollingUpdate` and `RoleRollingUpdate` strategies update workloads by deleting outdated resources and creating replacements. This is appropriate for arbitrary Pod template changes, but it is unnecessarily expensive when the only desired change is a container image.
+  > 
+  > Kubernetes permits updates to regular container image fields on an existing Pod. Kubelet applies the new image by restarting the affected container while retaining the Pod object and node assignment. `ModelServing` should expose this behavior as an explicit update strategy with well-defined safety, availability, recovery, and status semantics.
+  > 
+  > ## Expected Outcome:
+  > 1、design Proposal(Show in the Kthena community Conference)
+  > 2、Implementation Code
+  > 3、Corresponding unit tests and end-to-end tests
+  > 4、Userguide docs
+
+- Recommended Skills: go/kubernetes
+- Technologies: go/kubernetes
+- Mentor(s):
+  - ZhenCheng Lee (@LiZhenCheng9527, lizhencheng6@huawei.com)
+  - JinYu Zhou (@FAUST-BENCHOU, 2319109590@qq.com)
+- Upstream Issue: https://github.com/volcano-sh/kthena/issues/1420
+- LFX URL: TBD
 
 #### Generic xPU Topology-Aware Scheduling
 
