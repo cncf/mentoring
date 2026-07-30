@@ -450,7 +450,7 @@ CNCF - Kmesh: Develop MCP Server for AI-Native Kmesh Service Mesh Management (20
   - Yash Israni (@yashisrani, imailyash57@gmail.com)
   - Sumit Goyal (@itvi-1234, sumit.goyal.cse@gmail.com)
 - Upstream Issue: https://github.com/kmesh-net/kmesh/issues/1800
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/267f9270-0d36-4999-bdf5-c942b95c8e7a
 
 ### KubeEdge
 

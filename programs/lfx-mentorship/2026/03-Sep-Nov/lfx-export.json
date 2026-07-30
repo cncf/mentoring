@@ -628,7 +628,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/kmesh-net/kmesh/issues/1800",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/267f9270-0d36-4999-bdf5-c942b95c8e7a",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
