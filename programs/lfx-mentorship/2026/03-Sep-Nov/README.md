@@ -49,6 +49,12 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - [HAMi GPU Sharing Workshop and Documentation](#hami-gpu-sharing-workshop-and-documentation)
 - [Harbor](#harbor)
   - [Air-Gapped Peer-to-Peer Image Proxying in Harbor-Satellite](#air-gapped-peer-to-peer-image-proxying-in-harbor-satellite)
+- [Headlamp](#headlamp)
+  - [Adding Dynamic Resource Allocation (DRA) to Headlamp](#adding-dynamic-resource-allocation-dra-to-headlamp)
+  - [Improving Kueue plugin for Headlamp](#improving-kueue-plugin-for-headlamp)
+  - [Knative eventing and other improvements](#knative-eventing-and-other-improvements)
+  - [Kyverno Policy Visualization & Operational Improvements](#kyverno-policy-visualization-operational-improvements)
+  - [Velero Backup Management Plugin](#velero-backup-management-plugin)
 - [Jaeger](#jaeger)
   - [OpenTelemetry-Native Query and State Layers Migration](#opentelemetry-native-query-and-state-layers-migration)
   - [Benchmarking the AI Assistant's MCP Tools and Skills](#benchmarking-the-ai-assistants-mcp-tools-and-skills)
@@ -64,6 +70,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - [Evolve SparkClient into Kubeflow's Unified Data Processing Layer](#evolve-sparkclient-into-kubeflows-unified-data-processing-layer)
   - [Abstracting Pod Lifecycle Diagnostics for Kubeflow Pipelines](#abstracting-pod-lifecycle-diagnostics-for-kubeflow-pipelines)
 - [Kubernetes](#kubernetes)
+  - [Headlamp Project for Node-Readiness-Controller](#headlamp-project-for-node-readiness-controller)
   - [Expand Declarative Validation (DV) in Kubernetes](#expand-declarative-validation-dv-in-kubernetes)
   - [Extract and enforce shared behaviors between resolvers](#extract-and-enforce-shared-behaviors-between-resolvers)
 - [Kubescape](#kubescape)
@@ -418,6 +425,171 @@ CNCF - Harbor: Air-Gapped Peer-to-Peer Image Proxying in Harbor-Satellite (2026 
 - Upstream Issue: https://github.com/container-registry/harbor-satellite/issues/542
 - LFX URL: TBD
 
+### Headlamp
+
+#### Adding Dynamic Resource Allocation (DRA) to Headlamp
+
+CNCF - Headlamp: Adding Dynamic Resource Allocation (DRA) to Headlamp (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  > [Headlamp](https://headlamp.dev/) is an extensible Kubernetes web UI. [Dynamic Resource Allocation (DRA)](https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/) lets workloads request and share devices such as GPUs, network interfaces, and accelerators. Compared with device plugins, DRA supports richer selection, device classes, claim-based allocation, and sharing.
+  > 
+  > This project will add first-class DRA support to Headlamp. It will introduce a Devices section and views for four stable `resource.k8s.io/v1` kinds: cluster-scoped `DeviceClass` and `ResourceSlice`, and namespaced `ResourceClaim` and `ResourceClaimTemplate`. The UI will explain devices, selectors, pools, claims, allocations, placement, consumers, and status without relying on raw YAML.
+  > 
+  > In Kubernetes 1.36, the stable baseline includes these four APIs, prioritized request alternatives, and admin access. Stable capabilities are the project's first priority. All DRA APIs that are beta when the project begins are also in scope, including beta resource kinds and capabilities such as device status, health and binding conditions, granular status authorization, extended-resource allocation, partitionable devices, consumable capacity, and device taints. API discovery and compatibility checks will keep the stable experience working where beta features are unavailable.
+  > 
+  > The work will follow Headlamp conventions for RBAC, accessibility, and internationalization. Links and map visualizations should trace allocation from a workload or claim to its class, devices, slices, and nodes. Metrics integration should show device availability, allocation, and health when a compatible source is available. Advanced features will be prioritized with mentors and the community.
+  > 
+  > ## Expected outcomes
+  > 
+  > By the end of the term, the mentee is expected to have:
+  > 
+  > - Added typed classes and UI support for stable Kubernetes 1.36 DRA resources and capabilities, followed by beta resources available when the project begins.
+  > - Added a Devices sidebar section, routes, and list and detail views for the stable resources and in-scope beta APIs.
+  > - Presented DRA configuration, capacity, allocation, conditions, consumers, and node availability clearly.
+  > - Added navigation among DRA resources and relevant Pods or nodes.
+  > - Added map visualizations for DRA resource relationships and integrated available device metrics into relevant views.
+  > - Added API discovery, RBAC handling, and unavailable states for clusters without DRA support or drivers.
+  > - Added support for all beta DRA APIs available in the target Kubernetes release without making them dependencies of the stable experience.
+  > - Added accessible, internationalized UI, focused tests, fixtures, and documentation.
+  > - Published a Kubernetes blog post describing the project, its DRA workflows, and how to use the new Headlamp features.
+  > - Collaborated through design discussions, reviews, and incremental pull requests.
+
+- Recommended Skills: TypeScript, React, (Optional) Kubernetes CRDs and Operators
+- Technologies: TypeScript, React, (Optional) Kubernetes CRDs and Operators
+- Mentor(s):
+  - Kevin Hannon (@kannon92, kehannon@redhat.com)
+  - Heba Elayoty (@helayoty, hebaelayoty@gmail.com)
+  - Rene Dudfield (@illume, renedudfield@microsoft.com)
+- Upstream Issue: https://github.com/kubernetes-sigs/headlamp/issues/4831
+- LFX URL: TBD
+
+#### Improving Kueue plugin for Headlamp
+
+CNCF - Headlamp: Improving Kueue plugin for Headlamp (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  > [Headlamp](https://headlamp.dev/) is an extensible web UI for Kubernetes. [Kueue](https://kueue.sigs.k8s.io/) is a Kubernetes-native queueing system that controls when batch, AI/ML, and high-performance computing workloads are admitted and how they share resources.
+  > 
+  > This project builds on the existing [Headlamp Kueue plugin](https://github.com/headlamp-k8s/plugins/tree/main/kueue) and the previous project's foundational work. That work is expected to provide core resource views, status presentation, related-resource navigation, basic actions, tests, and documentation. This project will improve that foundation and develop advanced features based on user needs and Kueue's state at the start of the term.
+  > 
+  > Potential areas include visualizing workload progress through queueing, admission, execution, and completion; showing relationships among Kueue resources; and improving topology-aware scheduling views. MultiKueue work could help users understand manager and worker clusters, connectivity, workload nomination and routing, and the cluster selected to run a workload.
+  > 
+  > The feature set will be agreed after reviewing the plugin and gathering community feedback. The project will also polish current views, improve accessibility and internationalization, strengthen tests, and update documentation. The goal is a maintainable plugin that helps users and administrators understand and troubleshoot Kueue.
+  > 
+  > ## Expected outcomes
+  > 
+  > By the end of the term, the mentee is expected to have:
+  > 
+  > - Reviewed the plugin and upstream work, gathered feedback, and agreed on a plan that does not duplicate the previous project.
+  > - Delivered reviewed or review-ready improvements to existing views, navigation, status presentation, and error, loading, or empty states.
+  > - Implemented advanced features or visualizations covering areas such as workload lifecycle, resource relationships, MultiKueue, or topology-aware scheduling.
+  > - Improved accessibility, including keyboard operation, meaningful labels, non-color-only status communication, and accessible alternatives for visual information.
+  > - Kubernetes blog post on the project outcome
+  > - Improved internationalization by moving relevant user-facing strings into Headlamp's localization system and ensuring views accommodate translated content.
+  > - Added focused automated tests, representative Kubernetes manifests or fixtures, and documentation for the implemented features.
+  > - Collaborated with the Headlamp community through issues, design discussions, code reviews, and incremental pull requests, leaving the plugin in a maintainable state for future contributors.
+
+- Recommended Skills: TypeScript, React, (Optional) Kubernetes CRDs and Operators
+- Technologies: TypeScript, React, (Optional) Kubernetes CRDs and Operators
+- Mentor(s):
+  - Kevin Hannon (@kannon92, kehannon@redhat.com)
+  - Rene Dudfield (@illume, renedudfield@microsoft.com)
+  - Heba Elayoty (@helayoty, hebaelayoty@gmail.com)
+- Upstream Issue: https://github.com/headlamp-k8s/plugins/issues/937
+- LFX URL: TBD
+
+#### Knative eventing and other improvements
+
+CNCF - Headlamp: Knative eventing and other improvements (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  > Knative brings serverless and event‑driven capabilities to Kubernetes, but operators often lack a clear, unified UI for understanding how Knative resources behave at runtime. Headlamp’s existing Knative plugin provides partial support for Knative Serving, but Eventing resources, metrics, accessibility, and internationalization remain incomplete. 
+  > 
+  > This mentorship focuses on expanding and polishing Knative support within Headlamp. The mentee will work with React/TypeScript, Kubernetes APIs, and Knative CRDs to build intuitive visualizations, improve resource detail pages, integrate Prometheus metrics, and complete foundational UX work such as accessibility and i18n coverage. 
+  > 
+  > ## Expected outcomes
+  > By the end of the term, the mentee will deliver a set of concrete improvements to the Knative plugin for Headlamp, including:
+  > 
+  > - Some improvements to existing Knative Service
+  > - Knative Eventing UI support: List and detail views for Brokers, Triggers, Channels, Subscriptions, and Sources, with linked relationships and status indicators. Forms for creating common Eventing resources.
+  > - Maps visualisation of Knative Eventing resources.
+  > - Prometheus metrics integration: Embed Knative‑Events specific charts (e.g., admission request rate, revision performance) following Headlamp’s existing Prometheus plugin conventions.
+  > - Complete i18n coverage: Audit all components, wrap hardcoded strings with `t()`, finalize the English locale file, and scaffold empty locale files for future translations.
+  > - Accessibility (a11y) improvements: Add ARIA labels, ensure keyboard navigation, provide screen‑reader‑friendly chart descriptions, adopt color‑blind‑friendly palettes, and add visible focus indicators.
+  > - Documentation: Update the plugin README, add developer notes, and provide user‑facing documentation for new features.
+  > - Blog post: on Kubernetes blog describing outcome of project.
+
+- Recommended Skills: (Optional) UX design sensibilities
+- Technologies: TypeScript, React, (Optional) Kubernetes CRDs and Operators, (optional) Knative
+- Mentor(s):
+  - Kahiro Okina (@kahirokunn, okinakahiro@gmail.com)
+  - Rene Dudfield (@illume, renedudfield@microsoft.com)
+- Upstream Issue: https://github.com/headlamp-k8s/plugins/issues/922
+- LFX URL: TBD
+
+#### Kyverno Policy Visualization & Operational Improvements
+
+CNCF - Headlamp: Kyverno Policy Visualization & Operational Improvements (2026 Term 3)
+
+- Description:
+
+  > [Headlamp](https://headlamp.dev/) is a CNCF project providing an extensible, user-friendly web UI for Kubernetes clusters, with a growing plugin ecosystem covering CNCF projects like Flux, KEDA, Knative, and Kubeflow.
+  > 
+  > [Kyverno](https://github.com/kyverno/kyverno/) is a CNCF graduated Kubernetes-native policy engine that validates, mutates, and generates Kubernetes resources, used across thousands of clusters. The existing Headlamp Kyverno plugin has a solid dashboard with compliance metrics, policy list views, reports, and a violations view - but it is entirely read-only with no visualizations. Operators cannot see which resources a policy affects, why a policy behaves the way it does, or how to troubleshoot a violation. The plugin also has incomplete i18n coverage, no accessibility improvements, missing detail views for CEL-based policies (Kyverno v2), and no Prometheus metrics integration.
+  > 
+  > This project significantly upgrades the existing Headlamp Kyverno plugin by introducing two centerpiece visualizations - a Policy Impact Map to help operators understand which resources a policy affects and why, and an enhanced Violation Drill-Down to troubleshoot exactly which rule failed and how to fix it. The mentee will also integrate Prometheus metrics for real-time policy engine health, complete internationalization (i18n) coverage across all components, add accessibility (a11y) improvements , complete missing detail views for Kyverno v2 CEL policies, and register Kyverno as a Map view source in Headlamp.
+
+- Recommended Skills: (Optional) UX design sensibilities
+- Technologies: TypeScript, React, Kubernetes, Kyverno CRDs, Prometheus
+- Mentor(s):
+  - Rene Dudfield (@illume, renedudfield@microsoft.com)
+  - Sumit Goyal (@itvi-1234, Sumit.goyal.cse@gmail.com)
+  - Ashwani Yadav (@NAME-ASHWANIYADAV, 22ashwaniyadav@gmail.com)
+- Upstream Issue: https://github.com/headlamp-k8s/plugins/issues/938
+- LFX URL: TBD
+
+#### Velero Backup Management Plugin
+
+CNCF - Headlamp: Velero Backup Management Plugin (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  > 
+  > [Velero](https://velero.io) is the most widely adopted CNCF project for Kubernetes backup, restore, and disaster recovery. It manages cluster state and persistent volumes through a set of CRDs (Backups, Restores, Schedules, BackupStorageLocations, VolumeSnapshotLocations). Today, Velero has no graphical interface, operators rely entirely on the `velero` CLI and `kubectl` to manage backup operations, inspect failures, and monitor schedule health.
+  > 
+  > [Headlamp](https://headlamp.dev) provides an extensible Kubernetes UI with a growing plugin ecosystem for CNCF projects including Flux, KEDA, Knative, and Kubeflow. This project adds Velero to that ecosystem by building a Headlamp plugin that gives cluster operators a web UI for day-to-day backup management.
+  > 
+  > The mentee will develop a TypeScript/React plugin using the Headlamp plugin SDK that reads and interacts with Velero's CRDs via the Kubernetes API. The plugin will follow existing Headlamp plugin conventions (sidebar registration, list/detail views, status indicators) established by plugins like Flux and Knative.
+  > 
+  > ## Expected outcomes
+  > 
+  > - A "Velero" sidebar section in Headlamp with sub-items for each resource type
+  > - List views for Backups, Restores, and Schedules displaying name, status, timestamps, and included/excluded resources
+  > - Detail views for each resource showing full spec, status conditions, phase progression, and related resources (e.g., a Backup's associated Restore objects)
+  > - List and detail views for BackupStorageLocations and VolumeSnapshotLocations with availability status
+  > - Ability to create on-demand Backups and Restores from the UI via Kubernetes API calls
+  > - An overview dashboard summarizing backup health: recent backup status, schedule adherence, and storage location availability
+  > - Unit tests and plugin documentation
+  > - Plugin published to the headlamp-k8s/plugins repository
+  > - A blog post on the Kubernetes blog showcasing the plugin
+  > - Maps integration, Velero resources displayed on the Headlamp map view
+
+- Recommended Skills: TypeScript, React, Kubernetes fundamentals (CRDs, RBAC, API resources), UI/UX design basics
+- Technologies: TypeScript, React, Kubernetes, Headlamp Plugin SDK, Velero CRDs
+- Mentor(s):
+  - Rene Dudfield (@illume, renedudfield@microsoft.com)
+  - Shubham Pampattiwar (@shubham-pampattiwar, spampatt@redhat.com)
+- Upstream Issue: https://github.com/headlamp-k8s/plugins/issues/939
+- LFX URL: TBD
+
 ### Jaeger
 
 #### OpenTelemetry-Native Query and State Layers Migration
@@ -753,6 +925,34 @@ CNCF - Kubeflow: Abstracting Pod Lifecycle Diagnostics for Kubeflow Pipelines (2
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/aba3293b-593c-4afd-a22d-27d70fc50ff8
 
 ### Kubernetes
+
+#### Headlamp Project for Node-Readiness-Controller
+
+CNCF - Kubernetes: Headlamp Project for Node-Readiness-Controller (2026 Term 3)
+
+- Description:
+
+  > ## Description
+  > 
+  > As Kubernetes clusters grow, understanding why a node is not "Ready for workloads" (and which readiness rule, condition, or taint is holding it back) becomes complex. The node-readiness-controller (NRC) manages node readiness through NodeReadinessRule objects that gate scheduling with taints until node-level conditions are met. Today, this state is visible only through kubectl output, controller logs, and Prometheus metrics with a Grafana dashboard.
+  > 
+  > This project delivers a plugin for [Headlamp](https://headlamp.dev/) that surfaces NRC state directly in the dashboard where users can visualize the readiness rules, per-node evaluation status, gating taints, and failure reasons in their cluster. This is a continuation of the Term 2 observability project, which delivered the metrics foundation and Grafana dashboard.
+  > 
+  > 
+  > ## Expected Outcomes
+  > 
+  > A functional, published Headlamp plugin for NRC, including:
+  > - Cluster-level view: all NodeReadinessRule objects and their impact: nodes matched / help / bootstrap-completed per rule (derived from node taints) and rule health.
+  > - Node-level detail view: which rules apply to a node, per-condition status with failure reasons, current NRC-managed taints, related Events (TaintAdded/TaintRemoved/ TaintAdopted/BootstrapCompleted), and a unified lifecycle-conditions panel showing NRC custom conditions alongside where the cluster has them.
+
+- Recommended Skills: TypeScript / React, Go, Kubernetes, Prometheus, LLM/AI fluency
+- Technologies: TypeScript / React, Go, Kubernetes, Prometheus, LLM/AI fluency
+- Mentor(s):
+  - Anurag Pathak (@AnuragThePathak, contact@anuragthepathak.com)
+  - Ajay Sundar Karuppasamy (@ajaysundark, ajaysundar.k@gmail.com)
+  - Rene Dudfield (@illume, renedudfield@microsoft.com)
+- Upstream Issue: https://github.com/kubernetes-sigs/node-readiness-controller/issues/327
+- LFX URL: TBD
 
 #### Expand Declarative Validation (DV) in Kubernetes
 
