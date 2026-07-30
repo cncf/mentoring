@@ -464,7 +464,7 @@ CNCF - Headlamp: Adding Dynamic Resource Allocation (DRA) to Headlamp (2026 Term
   - Heba Elayoty (@helayoty, hebaelayoty@gmail.com)
   - Rene Dudfield (@illume, renedudfield@microsoft.com)
 - Upstream Issue: https://github.com/kubernetes-sigs/headlamp/issues/4831
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/d5b57a08-b6b6-4818-9a66-880544d4a7e9
 
 #### Improving Kueue plugin for Headlamp
 
