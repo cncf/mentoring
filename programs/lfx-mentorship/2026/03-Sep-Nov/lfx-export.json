@@ -454,7 +454,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/kubernetes-sigs/headlamp/issues/4831",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/d5b57a08-b6b6-4818-9a66-880544d4a7e9",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
