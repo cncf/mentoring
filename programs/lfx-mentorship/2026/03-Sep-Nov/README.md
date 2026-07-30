@@ -501,7 +501,7 @@ CNCF - Headlamp: Improving Kueue plugin for Headlamp (2026 Term 3)
   - Rene Dudfield (@illume, renedudfield@microsoft.com)
   - Heba Elayoty (@helayoty, hebaelayoty@gmail.com)
 - Upstream Issue: https://github.com/headlamp-k8s/plugins/issues/937
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/e5ab53ad-037e-4ca2-8246-58bf48d826ec
 
 #### Knative eventing and other improvements
 
@@ -1921,7 +1921,7 @@ CNCF - Volcano: Support inPlace rolling update (2026 Term 3)
   - ZhenCheng Lee (@LiZhenCheng9527, lizhencheng6@huawei.com)
   - JinYu Zhou (@FAUST-BENCHOU, 2319109590@qq.com)
 - Upstream Issue: https://github.com/volcano-sh/kthena/issues/1420
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/6c797658-daa1-40d6-b24c-3bf496e75755
 
 #### Generic xPU Topology-Aware Scheduling
 
