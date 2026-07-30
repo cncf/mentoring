@@ -478,7 +478,7 @@ CNCF - KubeEdge: KubeEdge-Ianvs Simulation Sandbox: Environment-Isolated Executi
   - Zimu Zheng (@MooreZheng, zimu.zheng@huawei.com)
   - Shijing Hu (@hsj576, sjhu21@m.fudan.edu.cn)
 - Upstream Issue: https://github.com/kubeedge/ianvs/issues/348
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/0aca7087-4985-4d22-a7c2-b8d5845e962b
 
 #### Comprehensive Example Restoration for KubeEdge Ianvs: Phase IV
 
@@ -502,7 +502,7 @@ CNCF - KubeEdge: Comprehensive Example Restoration for KubeEdge Ianvs: Phase IV 
   - Zimu Zheng (@MooreZheng, zimu.zheng@huawei.com)
   - ken6078 (@ken6078, ken60786213@gmail.com)
 - Upstream Issue: https://github.com/kubeedge/ianvs/issues/230
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/0a346d47-1eff-480c-990d-fa8bf6d9e24a
 
 #### Enable RuntimeClass and Confidential Containers on KubeEdge
 
@@ -544,7 +544,7 @@ CNCF - KubeEdge: Enable RuntimeClass and Confidential Containers on KubeEdge (20
   - Hongbing Zhang (@HongbingZhang, hongbing.zhang@daocloud.io)
   - Shelley Bao (@Shelley-BaoYue, baoyue2@huawei.com)
 - Upstream Issue: https://github.com/kubeedge/kubeedge/issues/7106
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/ef5b6ae6-99be-42e0-aeae-897684b0e9c8
 
 #### Modernize KubeEdge Controllers and Admission Webhooks
 
@@ -585,7 +585,7 @@ CNCF - KubeEdge: Modernize KubeEdge Controllers and Admission Webhooks (2026 Ter
   - Chuanhao Jin (@DoisLONG, 15221580643@163.com)
   - Willard Hu (@WillardHu, wei.hu@daocloud.io)
 - Upstream Issue: https://github.com/kubeedge/kubeedge/issues/7105
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/104f564b-8f94-436b-b52e-8915ff290ef9
 
 ### Kubeflow
 
@@ -794,7 +794,7 @@ CNCF - Kubescape: Agent Sandbox: CRD Posture Controls + gVisor Runtime Visibilit
   - Matthias Bertschy (@matthyx, matthias.bertschy@gmail.com)
   - Ben Hirschberg (@slashben, ben@armosec.io)
 - Upstream Issue: https://github.com/kubescape/kubescape/issues/2557
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/4758765a-88a2-4c7e-ac47-8d25f4a23d40
 
 #### Native Multi-Cluster Fleet Posture Aggregation
 
@@ -850,7 +850,7 @@ CNCF - Kubescape: Native Multi-Cluster Fleet Posture Aggregation (2026 Term 3)
   - Matthias Bertschy (@matthyx, matthias.bertschy@gmail.com)
   - Ben Hirschberg (@slashben, ben@armosec.io)
 - Upstream Issue: https://github.com/kubescape/kubescape/issues/2004
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/784f1b4f-9e8b-41e9-a39a-b353099e2702
 
 #### External VEX Ingestion for Kubescape Vulnerability Scanning
 
@@ -904,7 +904,7 @@ CNCF - Kubescape: External VEX Ingestion for Kubescape Vulnerability Scanning (2
   - Matthias Bertschy (@matthyx, matthias.bertschy@gmail.com)
   - Ben Hirschberg (@slashben, ben@armosec.io)
 - Upstream Issue: https://github.com/kubescape/kubevuln/issues/387
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/f83cb3c4-2acf-4f80-b734-83bbd43e0ffd
 
 #### Evidence of Finding: Path-Level Evidence in Scan Output
 
@@ -960,7 +960,7 @@ CNCF - Kubescape: Evidence of Finding: Path-Level Evidence in Scan Output (2026 
   - Matthias Bertschy (@matthyx, matthias.bertschy@gmail.com)
   - Ben Hirschberg (@slashben, ben@armosec.io)
 - Upstream Issue: https://github.com/kubescape/kubescape/issues/1563
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/8f7d8feb-9e09-4d31-a840-63097aaf9c39
 
 ### Kyverno
 
@@ -1533,7 +1533,7 @@ CNCF - Velero: Add CSI Snapshot E2E Tests to Kind CI (2026 Term 3)
   - Shubham Pampattiwar (@shubham-pampattiwar, spampatt@redhat.com)
   - Tiger Kaovilai (@kaovilai, tkaovila@redhat.com)
 - Upstream Issue: https://github.com/velero-io/velero/issues/7507
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/b46bf26c-b458-45eb-b842-cbeccfc8b04a
 
 ### Volcano
 
@@ -1563,7 +1563,7 @@ CNCF - Volcano: Generic xPU Topology-Aware Scheduling (2026 Term 3)
   - João Azevedo (@devzizu, jazevedo960@gmail.com)
   - Hajnal Mate (@hajnalmt, hajnalmt@gmail.com)
 - Upstream Issue: https://github.com/volcano-sh/volcano/issues/5751
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/087b7172-482e-4ae8-af7a-a27f56fbe09f
 
 ### WasmEdge Runtime
 

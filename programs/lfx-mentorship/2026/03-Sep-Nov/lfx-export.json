@@ -581,7 +581,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/kubeedge/ianvs/issues/348",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/0aca7087-4985-4d22-a7c2-b8d5845e962b",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -675,7 +675,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/kubeedge/ianvs/issues/230",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/0a346d47-1eff-480c-990d-fa8bf6d9e24a",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -722,7 +722,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/kubeedge/kubeedge/issues/7106",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/ef5b6ae6-99be-42e0-aeae-897684b0e9c8",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -769,7 +769,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/kubeedge/kubeedge/issues/7105",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/104f564b-8f94-436b-b52e-8915ff290ef9",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -816,7 +816,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/velero-io/velero/issues/7507",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/b46bf26c-b458-45eb-b842-cbeccfc8b04a",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -863,7 +863,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/kubescape/kubescape/issues/2557",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/4758765a-88a2-4c7e-ac47-8d25f4a23d40",
       "prerequisites": {
         "resume": false,
         "cover_letter": false,
@@ -910,7 +910,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/kubescape/kubescape/issues/2004",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/784f1b4f-9e8b-41e9-a39a-b353099e2702",
       "prerequisites": {
         "resume": false,
         "cover_letter": false,
@@ -957,7 +957,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/kubescape/kubevuln/issues/387",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/f83cb3c4-2acf-4f80-b734-83bbd43e0ffd",
       "prerequisites": {
         "resume": false,
         "cover_letter": false,
@@ -1004,7 +1004,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/kubescape/kubescape/issues/1563",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/8f7d8feb-9e09-4d31-a840-63097aaf9c39",
       "prerequisites": {
         "resume": false,
         "cover_letter": false,
@@ -1065,7 +1065,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/volcano-sh/volcano/issues/5751",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/087b7172-482e-4ae8-af7a-a27f56fbe09f",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
