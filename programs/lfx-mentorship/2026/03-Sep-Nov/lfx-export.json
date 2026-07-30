@@ -1,7 +1,7 @@
 {
-  "_generated": "2026-07-29T18:33:14.683Z",
+  "_generated": "2026-07-30T15:49:14.409Z",
   "_term": "2026 Term 3 (Sep-Nov)",
-  "_count": 46,
+  "_count": 52,
   "programs": [
     {
       "issue_number": 2029,
@@ -553,6 +553,111 @@
       }
     },
     {
+      "issue_number": 2009,
+      "issue_url": "https://github.com/cncf/mentoring/issues/2009",
+      "cncf_project": "Volcano",
+      "cncf_project_slug": "volcano",
+      "cncf_project_maturity": "incubating",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - Volcano: Kthena LLM Resource Management in Volcano Dashboard (2026 Term 3)",
+      "program_name_short": "Kthena LLM Resource Management in Volcano Dashboard",
+      "description": "- Description: Volcano Dashboard already supports Jobs, Queues, Pods, and PodGroups, but Kthena LLM workloads still depend heavily on `kubectl` and separate tooling for day-to-day operations. This project extends the dashboard into a richer operational interface for Kthena by bringing core serving resources into the UI and improving how users inspect, manage, and troubleshoot inference workloads. The mentee should study the existing dashboard architecture and Kthena resource model, then design an experience that covers not only resource management but also deeper operational workflows such as serving status visualization, routing visibility, rollout awareness, resource relationships, and troubleshooting context across Kthena, Volcano, and Kubernetes objects.\n\n- Expected Outcome:\n  - Dashboard support for major Kthena resources such as ModelServing, ModelBooster, ModelRoute, and ModelServer.\n  - UI workflows for inspecting and managing those resources.\n  - Clear visibility into conditions, replicas, rollout state, and relationships to related Pods, PodGroups, Queues, and other underlying resources.\n  - Improved operational and troubleshooting workflows, including routing visibility and serving health context.\n  - Required RBAC and deployment updates for practical cluster usage.\n  - Tests and user-facing documentation.",
+      "technologies": "TypeScript, React, Next.js, Kubernetes API, observability basics, familiarity with Volcano and Kthena",
+      "skills": "TypeScript, React, Next.js, Kubernetes API, observability basics, familiarity with Volcano and Kthena",
+      "mentors": [
+        {
+          "name": "ZhenCheng Lee",
+          "github_handle": "LiZhenCheng9527",
+          "email": "lizhencheng6@huawei.com",
+          "lfid": "LiZhenCheng9527",
+          "role": "primary"
+        },
+        {
+          "name": "Kuldeep Singh",
+          "github_handle": "de6p",
+          "email": "de6p97@gmail.com",
+          "lfid": "05cc0d01-c938-4a18-951e-af71be282b2b",
+          "role": "co-mentor"
+        },
+        {
+          "name": "Zicong Chen (Jesse Stutler)",
+          "github_handle": "JesseStutler",
+          "email": "jessestutler97@gmail.com",
+          "lfid": "ca54663f-6e7b-4839-a779-eaafb23aab59",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/volcano-sh/dashboard/issues/307",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": true,
+        "coding_challenge_url": "https://github.com/volcano-sh/dashboard/issues/308",
+        "custom": {
+          "name": "Dashboard Authn/z",
+          "description": "Applicants should review this issue and submit a short technical design covering:\n1) proposed auth approach for Volcano Dashboard,\n2) how user identity maps to Kubernetes RBAC,\n3) how the UI should behave for unauthorized access,\n4) a high-level implementation and test plan.",
+          "file_upload": true
+        },
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 2007,
+      "issue_url": "https://github.com/cncf/mentoring/issues/2007",
+      "cncf_project": "Volcano",
+      "cncf_project_slug": "volcano",
+      "cncf_project_maturity": "incubating",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - Volcano: Support inPlace rolling update (2026 Term 3)",
+      "program_name_short": "Support inPlace rolling update",
+      "description": "## Description: \nThe existing `ServingGroupRollingUpdate` and `RoleRollingUpdate` strategies update workloads by deleting outdated resources and creating replacements. This is appropriate for arbitrary Pod template changes, but it is unnecessarily expensive when the only desired change is a container image.\n\nKubernetes permits updates to regular container image fields on an existing Pod. Kubelet applies the new image by restarting the affected container while retaining the Pod object and node assignment. `ModelServing` should expose this behavior as an explicit update strategy with well-defined safety, availability, recovery, and status semantics.\n\n## Expected Outcome:\n1、design Proposal(Show in the Kthena community Conference)\n2、Implementation Code\n3、Corresponding unit tests and end-to-end tests\n4、Userguide docs",
+      "technologies": "go/kubernetes",
+      "skills": "go/kubernetes",
+      "mentors": [
+        {
+          "name": "ZhenCheng Lee",
+          "github_handle": "LiZhenCheng9527",
+          "email": "lizhencheng6@huawei.com",
+          "lfid": "LiZhenCheng9527",
+          "role": "primary"
+        },
+        {
+          "name": "JinYu Zhou",
+          "github_handle": "FAUST-BENCHOU",
+          "email": "2319109590@qq.com",
+          "lfid": "benchou8",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/volcano-sh/kthena/issues/1420",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": null,
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
+    {
       "issue_number": 2006,
       "issue_url": "https://github.com/cncf/mentoring/issues/2006",
       "cncf_project": "KubeEdge",
@@ -770,6 +875,67 @@
       ],
       "upstream_issue_url": "https://github.com/kubeedge/kubeedge/issues/7105",
       "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/104f564b-8f94-436b-b52e-8915ff290ef9",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": null,
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 1999,
+      "issue_url": "https://github.com/cncf/mentoring/issues/1999",
+      "cncf_project": "Harbor",
+      "cncf_project_slug": "harbor",
+      "cncf_project_maturity": "graduated",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - Harbor: Air-Gapped Peer-to-Peer Image Proxying in Harbor-Satellite (2026 Term 3)",
+      "program_name_short": "Air-Gapped Peer-to-Peer Image Proxying in Harbor-Satellite",
+      "description": "## Description \nHarbor Satellite makes OCI images and artifacts available at edge locations. In air-gapped or intermittently connected deployments, a Satellite that misses an artifact currently depends on a central registry, Ground Control, or manually imported offline media. This creates unnecessary operational work when another trusted Satellite on the same local network already has the required content.\n\nThis project will add an opt-in peer-to-peer distribution mode for Harbor Satellite. A Satellite will be able to use a configured set of trusted local peers, identify a peer that has a requested OCI artifact, and copy that artifact into its own local registry. The design must work without Internet or Ground Control connectivity and preserve OCI digest-based integrity verification.\n\n## Expected outcomes\n\n- An approved design/ADR covering architecture, trust model, failure modes, and compatibility with headless and air-gapped deployments.\n- An opt-in configuration model for trusted peer endpoints, timeouts, retry policy, concurrency limits, and feature enablement.\n- Peer selection and artifact-availability checks for OCI manifests and blobs.\n- A peer-to-peer transfer path that imports requested artifacts into the local Satellite registry and verifies manifest and blob digests.\n- Clear fallback behavior when no eligible peer is reachable.\n- Metrics and structured logs for peer attempts, transfer outcomes, bytes transferred, and cache-fill results.\n- Unit and integration tests, including a multi-Satellite air-gapped test environment demonstrating successful transfer and failure recovery.\n- User and operator documentation, including configuration and troubleshooting.",
+      "technologies": "Go, OCI Distribution Spec, OCI Image Spec, ORAS, go-containerregistry",
+      "skills": "Go, OCI Distribution Spec, OCI Image Spec, ORAS, go-containerregistry",
+      "mentors": [
+        {
+          "name": "Lakshit Singh",
+          "github_handle": "NucleoFusion",
+          "email": "lakshitsinghmail@gmail.com",
+          "lfid": "nucleofusion",
+          "role": "primary"
+        },
+        {
+          "name": "Orlin Vasilev",
+          "github_handle": "OrlinVasilev",
+          "email": "orlin@orlix.org",
+          "lfid": "OrlinVasilev",
+          "role": "co-mentor"
+        },
+        {
+          "name": "Prasanth Baskar",
+          "github_handle": "bupd",
+          "email": "prasanth@8gears.com",
+          "lfid": "bupd",
+          "role": "co-mentor"
+        },
+        {
+          "name": "Vadim Bauer",
+          "github_handle": "Vad1mo",
+          "email": "vb@container-registry.com",
+          "lfid": "vad1mo",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/container-registry/harbor-satellite/issues/542",
+      "lfx_url": "",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -1008,6 +1174,100 @@
       "prerequisites": {
         "resume": false,
         "cover_letter": false,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": null,
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 1987,
+      "issue_url": "https://github.com/cncf/mentoring/issues/1987",
+      "cncf_project": "OpenEverest",
+      "cncf_project_slug": "openeverest",
+      "cncf_project_maturity": "sandbox",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - OpenEverest: Develop the Object Storage provider (2026 Term 3)",
+      "program_name_short": "Develop the Object Storage provider",
+      "description": "## Description\n\nOpenEverest already manages databases on Kubernetes through its provider framework. This project extends that framework to object storage.\n\nThe gap is straightforward: users run OpenEverest on-premise or at the edge and need S3-compatible storage alongside their databases. Today they deploy MinIO or SeaweedFS manually, outside of OpenEverest, with no integration. This project fixes that by making object storage a first-class resource.\n\nThe mentee will implement an object storage provider within OpenEverest's existing v2 provider architecture. Starting with MinIO or SeaweedFS (or you name it), the provider will handle cluster lifecycle - deploy, scale, upgrade, configure replication and access policies—through the same UI, CLI, and API that users already use for databases. Buckets and users will be manageable from the OpenEverest dashboard, and object storage clusters will be usable as backup targets for managed databases.\n\nThe framework is already in place. The work is building the provider.\n\n## Expected Outcomes:\n\n• MinIO or SeaweedFS providers for OpenEverest v2\n• Lifecycle management: deploy, configure, scale, upgrade\n• Bucket and user management through OpenEverest UI/CLI/API\n• Backup target integration with database clusters\n• Tests and documentation",
+      "technologies": "Go, Kubernetes, Helm, S3 API, MinIO, SeaweedFS",
+      "skills": "Go, Kubernetes, object storage, S3-compatible systems",
+      "mentors": [
+        {
+          "name": "Sergey Pronin",
+          "github_handle": "spron-in",
+          "email": "sp@solanica.io",
+          "lfid": "sproninsolanica",
+          "role": "primary"
+        },
+        {
+          "name": "Diogo Recharte",
+          "github_handle": "recharte",
+          "email": "diogo.recharte@solanica.io",
+          "lfid": "drecharte",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/openeverest/openeverest/issues/2255",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": null,
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 1986,
+      "issue_url": "https://github.com/cncf/mentoring/issues/1986",
+      "cncf_project": "OpenEverest",
+      "cncf_project_slug": "openeverest",
+      "cncf_project_maturity": "sandbox",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - OpenEverest: Performance Testing Plugin (2026 Term 3)",
+      "program_name_short": "Performance Testing Plugin",
+      "description": "## Description\n\nOpenEverest v2 already ships with a generic plugin framework that provides extension points across the UI, CLI, and API. This project is about building a performance-testing plugin on top of that existing infrastructure.\n\nThe use case is simple: users deploy databases through OpenEverest and want to know if those databases actually perform as expected. Right now that means manually installing sysbench or pgbench, figuring out connection strings, and wrestling with Kubernetes networking. With this plugin, a user picks a database from the OpenEverest dashboard, chooses a workload profile, hits run, and sees throughput and latency results right in the UI. The same operation is also available from the CLI for CI/CD integration.\n\nThe mentee will build the plugin end-to-end: integrating benchmark runners as ephemeral Kubernetes Jobs, wiring results into OpenEverest's existing UI panels and CLI commands, and keeping historical runs so users can spot regressions. Start with PostgreSQL and MySQL via sysbench/pgbench, and MongoDB via YCSB.\n\n## Expected Outcomes:\n\n• Working performance-testing plugin using OpenEverest's generic plugin interfaces\n• Support for sysbench (PostgreSQL/MySQL) and YCSB (MongoDB) as initial engines\n• UI panel for configuring tests and viewing results\n• CLI commands for running tests and retrieving results\n• Historical results storage and comparison across runs\n• Tests and documentation",
+      "technologies": "Go, Kubernetes, TypeScript/React, PostgreSQL, MySQL, MongoDB, sysbench",
+      "skills": "Go, Kubernetes, databases, benchmarking",
+      "mentors": [
+        {
+          "name": "Sergey Pronin",
+          "github_handle": "spron-in",
+          "email": "sp@solanica.io",
+          "lfid": "sproninsolanica",
+          "role": "primary"
+        },
+        {
+          "name": "Diogo Recharte",
+          "github_handle": "recharte",
+          "email": "diogo.recharte@solanica.io",
+          "lfid": "drecharte",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/openeverest/openeverest/issues/2464",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
         "school_enrollment": false,
         "participation_permission": false,
         "coding_challenge": false,
@@ -1285,6 +1545,60 @@
           "description": "Create a 2-5 minute video introducing yourself and then articulating your understanding of the problem and the proposed solution. Provide a link to the video on either Google Drive or YouTube as part of your cover letter.",
           "file_upload": false
         },
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 1979,
+      "issue_url": "https://github.com/cncf/mentoring/issues/1979",
+      "cncf_project": "HAMi",
+      "cncf_project_slug": "hami",
+      "cncf_project_maturity": "incubating",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - HAMi: HAMi GPU Observability: Metrics and Dashboards (2026 Term 3)",
+      "program_name_short": "HAMi GPU Observability: Metrics and Dashboards",
+      "description": "## Description\n\nImprove the usefulness, consistency, and documentation of HAMi GPU observability for operators running shared GPU workloads. The program will focus on practical metrics and dashboards, while keeping tracing work bounded to a design and proof of concept for one mentor-approved control-plane path.\n\n## Expected outcomes\n\n- A gap analysis of current HAMi metrics, exporters, labels, dashboards, and documentation.\n- Maintainer-reviewed improvements to a focused set of Prometheus metrics and labels across the HAMi device plugin and scheduler extension.\n- A versioned Grafana dashboard covering selected allocation, utilization, memory, failure, and scheduling signals.\n- Documentation of metric semantics, units, labels, cardinality, and example PromQL.\n- An OpenTelemetry trace design and bounded proof of concept for one selected workflow.\n- Practical alerting or SLO guidance grounded in the delivered telemetry.\n- At least one reviewed and merged contribution involving metrics, dashboards, tests, or documentation.",
+      "technologies": "Prometheus, Grafana, OpenTelemetry, Kubernetes, Go, HAMi",
+      "skills": "Metrics instrumentation, PromQL, dashboard design, observability, Kubernetes debugging, HAMi internals",
+      "mentors": [
+        {
+          "name": "Mesut Oezdil",
+          "github_handle": "mesutoezdil",
+          "email": "mesudozdil@gmail.com",
+          "lfid": "mesutoezdil777",
+          "role": "primary"
+        },
+        {
+          "name": "Reza Jelveh",
+          "github_handle": "fishman",
+          "email": "reza.jelveh@gmail.com",
+          "lfid": "softsage",
+          "role": "co-mentor"
+        },
+        {
+          "name": "Jimmy Song",
+          "github_handle": "rootsongjc",
+          "email": "rootsongjc@gmail.com",
+          "lfid": "jimmysong",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/Project-HAMi/HAMi/issues/2126",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": null,
         "standard_courses": [
           {
             "name": "Inclusive Community",
