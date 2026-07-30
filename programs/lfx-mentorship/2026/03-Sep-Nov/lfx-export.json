@@ -508,7 +508,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/headlamp-k8s/plugins/issues/937",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/e5ab53ad-037e-4ca2-8246-58bf48d826ec",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
@@ -805,7 +805,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/volcano-sh/kthena/issues/1420",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/6c797658-daa1-40d6-b24c-3bf496e75755",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
