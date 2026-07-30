@@ -1,7 +1,7 @@
 {
-  "_generated": "2026-07-30T15:49:14.409Z",
+  "_generated": "2026-07-30T16:49:29.043Z",
   "_term": "2026 Term 3 (Sep-Nov)",
-  "_count": 52,
+  "_count": 58,
   "programs": [
     {
       "issue_number": 2029,
@@ -145,6 +145,64 @@
         "custom": {
           "name": "Project Proposal",
           "description": "Upload a proposal (guidelines: jaegertracing.io/mentorship/for-mentees) covering: (1) how you would isolate and verify \"trace-solvable\" incidents from general system failures; (2) your plan for the evaluation loop — which open-source framework and LLM, and how you would capture and score trajectory metrics; (3) concrete variations you would test, e.g. how a tool's JSON schema might change and how the matching .md Skill file would support it; (4) a timeline, with a research phase before coding.",
+          "file_upload": true
+        },
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 2024,
+      "issue_url": "https://github.com/cncf/mentoring/issues/2024",
+      "cncf_project": "Kubernetes",
+      "cncf_project_slug": "k8s",
+      "cncf_project_maturity": "graduated",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - Kubernetes: Headlamp Project for Node-Readiness-Controller (2026 Term 3)",
+      "program_name_short": "Headlamp Project for Node-Readiness-Controller",
+      "description": "## Description\n\nAs Kubernetes clusters grow, understanding why a node is not \"Ready for workloads\" (and which readiness rule, condition, or taint is holding it back) becomes complex. The node-readiness-controller (NRC) manages node readiness through NodeReadinessRule objects that gate scheduling with taints until node-level conditions are met. Today, this state is visible only through kubectl output, controller logs, and Prometheus metrics with a Grafana dashboard.\n\nThis project delivers a plugin for [Headlamp](https://headlamp.dev/) that surfaces NRC state directly in the dashboard where users can visualize the readiness rules, per-node evaluation status, gating taints, and failure reasons in their cluster. This is a continuation of the Term 2 observability project, which delivered the metrics foundation and Grafana dashboard.\n\n\n## Expected Outcomes\n\nA functional, published Headlamp plugin for NRC, including:\n- Cluster-level view: all NodeReadinessRule objects and their impact: nodes matched / help / bootstrap-completed per rule (derived from node taints) and rule health.\n- Node-level detail view: which rules apply to a node, per-condition status with failure reasons, current NRC-managed taints, related Events (TaintAdded/TaintRemoved/ TaintAdopted/BootstrapCompleted), and a unified lifecycle-conditions panel showing NRC custom conditions alongside where the cluster has them.",
+      "technologies": "TypeScript / React, Go, Kubernetes, Prometheus, LLM/AI fluency",
+      "skills": "TypeScript / React, Go, Kubernetes, Prometheus, LLM/AI fluency",
+      "mentors": [
+        {
+          "name": "Anurag Pathak",
+          "github_handle": "AnuragThePathak",
+          "email": "contact@anuragthepathak.com",
+          "lfid": "anuragpathak",
+          "role": "primary"
+        },
+        {
+          "name": "Ajay Sundar Karuppasamy",
+          "github_handle": "ajaysundark",
+          "email": "ajaysundar.k@gmail.com",
+          "lfid": "ajaysundark",
+          "role": "co-mentor"
+        },
+        {
+          "name": "Rene Dudfield",
+          "github_handle": "illume",
+          "email": "renedudfield@microsoft.com",
+          "lfid": "illume",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/kubernetes-sigs/node-readiness-controller/issues/327",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": {
+          "name": "Availability stmt",
+          "description": "Please confirm LFX Term is a full-time commitment (ref: https://docs.linuxfoundation.org/lfx/mentorship/mentee-guide/introduction#full-time-program). Read the LFX requirements and mention explicit weekly hours that can be committed in your statement. Also, timezone and any competing commitments (courses, exams, jobs) during the term with dates.",
           "file_upload": true
         },
         "standard_courses": [
@@ -351,6 +409,114 @@
           "description": "1. Join the community (https://slack.meshery.io).\n2. Join the weekly newcomers meeting (https://meet.meshery.io) and learn about the project.\n3. Get a feel for Meshery's capabilities in the Playground (https://play.meshery.io)\n    1. Create a design.\n    2. Receive a badge (from https://meshery.io/community/recognition/).\n  Optionally:\n   1. Add badge to your GitHub profile.\n   2. Publish your design the Catalog.\n4. Ascertain whether your passions and skills align.",
           "file_upload": false
         },
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 2017,
+      "issue_url": "https://github.com/cncf/mentoring/issues/2017",
+      "cncf_project": "Headlamp",
+      "cncf_project_slug": "headlamp",
+      "cncf_project_maturity": "sandbox",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - Headlamp: Adding Dynamic Resource Allocation (DRA) to Headlamp (2026 Term 3)",
+      "program_name_short": "Adding Dynamic Resource Allocation (DRA) to Headlamp",
+      "description": "## Description\n[Headlamp](https://headlamp.dev/) is an extensible Kubernetes web UI. [Dynamic Resource Allocation (DRA)](https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/) lets workloads request and share devices such as GPUs, network interfaces, and accelerators. Compared with device plugins, DRA supports richer selection, device classes, claim-based allocation, and sharing.\n\nThis project will add first-class DRA support to Headlamp. It will introduce a Devices section and views for four stable `resource.k8s.io/v1` kinds: cluster-scoped `DeviceClass` and `ResourceSlice`, and namespaced `ResourceClaim` and `ResourceClaimTemplate`. The UI will explain devices, selectors, pools, claims, allocations, placement, consumers, and status without relying on raw YAML.\n\nIn Kubernetes 1.36, the stable baseline includes these four APIs, prioritized request alternatives, and admin access. Stable capabilities are the project's first priority. All DRA APIs that are beta when the project begins are also in scope, including beta resource kinds and capabilities such as device status, health and binding conditions, granular status authorization, extended-resource allocation, partitionable devices, consumable capacity, and device taints. API discovery and compatibility checks will keep the stable experience working where beta features are unavailable.\n\nThe work will follow Headlamp conventions for RBAC, accessibility, and internationalization. Links and map visualizations should trace allocation from a workload or claim to its class, devices, slices, and nodes. Metrics integration should show device availability, allocation, and health when a compatible source is available. Advanced features will be prioritized with mentors and the community.\n\n## Expected outcomes\n\nBy the end of the term, the mentee is expected to have:\n\n- Added typed classes and UI support for stable Kubernetes 1.36 DRA resources and capabilities, followed by beta resources available when the project begins.\n- Added a Devices sidebar section, routes, and list and detail views for the stable resources and in-scope beta APIs.\n- Presented DRA configuration, capacity, allocation, conditions, consumers, and node availability clearly.\n- Added navigation among DRA resources and relevant Pods or nodes.\n- Added map visualizations for DRA resource relationships and integrated available device metrics into relevant views.\n- Added API discovery, RBAC handling, and unavailable states for clusters without DRA support or drivers.\n- Added support for all beta DRA APIs available in the target Kubernetes release without making them dependencies of the stable experience.\n- Added accessible, internationalized UI, focused tests, fixtures, and documentation.\n- Published a Kubernetes blog post describing the project, its DRA workflows, and how to use the new Headlamp features.\n- Collaborated through design discussions, reviews, and incremental pull requests.",
+      "technologies": "TypeScript, React, (Optional) Kubernetes CRDs and Operators",
+      "skills": "TypeScript, React, (Optional) Kubernetes CRDs and Operators",
+      "mentors": [
+        {
+          "name": "Kevin Hannon",
+          "github_handle": "kannon92",
+          "email": "kehannon@redhat.com",
+          "lfid": "kannon92",
+          "role": "primary"
+        },
+        {
+          "name": "Heba Elayoty",
+          "github_handle": "helayoty",
+          "email": "hebaelayoty@gmail.com",
+          "lfid": "helayoty",
+          "role": "co-mentor"
+        },
+        {
+          "name": "Rene Dudfield",
+          "github_handle": "illume",
+          "email": "renedudfield@microsoft.com",
+          "lfid": "illume",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/kubernetes-sigs/headlamp/issues/4831",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": null,
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 2016,
+      "issue_url": "https://github.com/cncf/mentoring/issues/2016",
+      "cncf_project": "Headlamp",
+      "cncf_project_slug": "headlamp",
+      "cncf_project_maturity": "sandbox",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - Headlamp: Improving Kueue plugin for Headlamp (2026 Term 3)",
+      "program_name_short": "Improving Kueue plugin for Headlamp",
+      "description": "## Description\n[Headlamp](https://headlamp.dev/) is an extensible web UI for Kubernetes. [Kueue](https://kueue.sigs.k8s.io/) is a Kubernetes-native queueing system that controls when batch, AI/ML, and high-performance computing workloads are admitted and how they share resources.\n\nThis project builds on the existing [Headlamp Kueue plugin](https://github.com/headlamp-k8s/plugins/tree/main/kueue) and the previous project's foundational work. That work is expected to provide core resource views, status presentation, related-resource navigation, basic actions, tests, and documentation. This project will improve that foundation and develop advanced features based on user needs and Kueue's state at the start of the term.\n\nPotential areas include visualizing workload progress through queueing, admission, execution, and completion; showing relationships among Kueue resources; and improving topology-aware scheduling views. MultiKueue work could help users understand manager and worker clusters, connectivity, workload nomination and routing, and the cluster selected to run a workload.\n\nThe feature set will be agreed after reviewing the plugin and gathering community feedback. The project will also polish current views, improve accessibility and internationalization, strengthen tests, and update documentation. The goal is a maintainable plugin that helps users and administrators understand and troubleshoot Kueue.\n\n## Expected outcomes\n\nBy the end of the term, the mentee is expected to have:\n\n- Reviewed the plugin and upstream work, gathered feedback, and agreed on a plan that does not duplicate the previous project.\n- Delivered reviewed or review-ready improvements to existing views, navigation, status presentation, and error, loading, or empty states.\n- Implemented advanced features or visualizations covering areas such as workload lifecycle, resource relationships, MultiKueue, or topology-aware scheduling.\n- Improved accessibility, including keyboard operation, meaningful labels, non-color-only status communication, and accessible alternatives for visual information.\n- Kubernetes blog post on the project outcome\n- Improved internationalization by moving relevant user-facing strings into Headlamp's localization system and ensuring views accommodate translated content.\n- Added focused automated tests, representative Kubernetes manifests or fixtures, and documentation for the implemented features.\n- Collaborated with the Headlamp community through issues, design discussions, code reviews, and incremental pull requests, leaving the plugin in a maintainable state for future contributors.",
+      "technologies": "TypeScript, React, (Optional) Kubernetes CRDs and Operators",
+      "skills": "TypeScript, React, (Optional) Kubernetes CRDs and Operators",
+      "mentors": [
+        {
+          "name": "Kevin Hannon",
+          "github_handle": "kannon92",
+          "email": "kehannon@redhat.com",
+          "lfid": "kannon92",
+          "role": "primary"
+        },
+        {
+          "name": "Rene Dudfield",
+          "github_handle": "illume",
+          "email": "renedudfield@microsoft.com",
+          "lfid": "illume",
+          "role": "co-mentor"
+        },
+        {
+          "name": "Heba Elayoty",
+          "github_handle": "helayoty",
+          "email": "hebaelayoty@gmail.com",
+          "lfid": "helayoty",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/headlamp-k8s/plugins/issues/937",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": null,
         "standard_courses": [
           {
             "name": "Inclusive Community",
@@ -893,6 +1059,107 @@
       }
     },
     {
+      "issue_number": 2001,
+      "issue_url": "https://github.com/cncf/mentoring/issues/2001",
+      "cncf_project": "Headlamp",
+      "cncf_project_slug": "headlamp",
+      "cncf_project_maturity": "sandbox",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - Headlamp: Knative eventing and other improvements (2026 Term 3)",
+      "program_name_short": "Knative eventing and other improvements",
+      "description": "## Description\nKnative brings serverless and event‑driven capabilities to Kubernetes, but operators often lack a clear, unified UI for understanding how Knative resources behave at runtime. Headlamp’s existing Knative plugin provides partial support for Knative Serving, but Eventing resources, metrics, accessibility, and internationalization remain incomplete. \n\nThis mentorship focuses on expanding and polishing Knative support within Headlamp. The mentee will work with React/TypeScript, Kubernetes APIs, and Knative CRDs to build intuitive visualizations, improve resource detail pages, integrate Prometheus metrics, and complete foundational UX work such as accessibility and i18n coverage. \n\n## Expected outcomes\nBy the end of the term, the mentee will deliver a set of concrete improvements to the Knative plugin for Headlamp, including:\n\n- Some improvements to existing Knative Service\n- Knative Eventing UI support: List and detail views for Brokers, Triggers, Channels, Subscriptions, and Sources, with linked relationships and status indicators. Forms for creating common Eventing resources.\n- Maps visualisation of Knative Eventing resources.\n- Prometheus metrics integration: Embed Knative‑Events specific charts (e.g., admission request rate, revision performance) following Headlamp’s existing Prometheus plugin conventions.\n- Complete i18n coverage: Audit all components, wrap hardcoded strings with `t()`, finalize the English locale file, and scaffold empty locale files for future translations.\n- Accessibility (a11y) improvements: Add ARIA labels, ensure keyboard navigation, provide screen‑reader‑friendly chart descriptions, adopt color‑blind‑friendly palettes, and add visible focus indicators.\n- Documentation: Update the plugin README, add developer notes, and provide user‑facing documentation for new features.\n- Blog post: on Kubernetes blog describing outcome of project.",
+      "technologies": "TypeScript, React, (Optional) Kubernetes CRDs and Operators, (optional) Knative",
+      "skills": "(Optional) UX design sensibilities",
+      "mentors": [
+        {
+          "name": "Kahiro Okina",
+          "github_handle": "kahirokunn",
+          "email": "okinakahiro@gmail.com",
+          "lfid": "kahirokunn",
+          "role": "primary"
+        },
+        {
+          "name": "Rene Dudfield",
+          "github_handle": "illume",
+          "email": "renedudfield@microsoft.com",
+          "lfid": "illume",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/headlamp-k8s/plugins/issues/922",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": null,
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 2000,
+      "issue_url": "https://github.com/cncf/mentoring/issues/2000",
+      "cncf_project": "Headlamp",
+      "cncf_project_slug": "headlamp",
+      "cncf_project_maturity": "sandbox",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - Headlamp: Kyverno Policy Visualization & Operational Improvements (2026 Term 3)",
+      "program_name_short": "Kyverno Policy Visualization & Operational Improvements",
+      "description": "[Headlamp](https://headlamp.dev/) is a CNCF project providing an extensible, user-friendly web UI for Kubernetes clusters, with a growing plugin ecosystem covering CNCF projects like Flux, KEDA, Knative, and Kubeflow.\n\n[Kyverno](https://github.com/kyverno/kyverno/) is a CNCF graduated Kubernetes-native policy engine that validates, mutates, and generates Kubernetes resources, used across thousands of clusters. The existing Headlamp Kyverno plugin has a solid dashboard with compliance metrics, policy list views, reports, and a violations view - but it is entirely read-only with no visualizations. Operators cannot see which resources a policy affects, why a policy behaves the way it does, or how to troubleshoot a violation. The plugin also has incomplete i18n coverage, no accessibility improvements, missing detail views for CEL-based policies (Kyverno v2), and no Prometheus metrics integration.\n\nThis project significantly upgrades the existing Headlamp Kyverno plugin by introducing two centerpiece visualizations - a Policy Impact Map to help operators understand which resources a policy affects and why, and an enhanced Violation Drill-Down to troubleshoot exactly which rule failed and how to fix it. The mentee will also integrate Prometheus metrics for real-time policy engine health, complete internationalization (i18n) coverage across all components, add accessibility (a11y) improvements , complete missing detail views for Kyverno v2 CEL policies, and register Kyverno as a Map view source in Headlamp.",
+      "technologies": "TypeScript, React, Kubernetes, Kyverno CRDs, Prometheus",
+      "skills": "(Optional) UX design sensibilities",
+      "mentors": [
+        {
+          "name": "Rene Dudfield",
+          "github_handle": "illume",
+          "email": "renedudfield@microsoft.com",
+          "lfid": "illume",
+          "role": "primary"
+        },
+        {
+          "name": "Sumit Goyal",
+          "github_handle": "itvi-1234",
+          "email": "Sumit.goyal.cse@gmail.com",
+          "lfid": "sumit15012005",
+          "role": "co-mentor"
+        },
+        {
+          "name": "Ashwani Yadav",
+          "github_handle": "NAME-ASHWANIYADAV",
+          "email": "22ashwaniyadav@gmail.com",
+          "lfid": "ashwaniyadav",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/headlamp-k8s/plugins/issues/938",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": null,
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
+    {
       "issue_number": 1999,
       "issue_url": "https://github.com/cncf/mentoring/issues/1999",
       "cncf_project": "Harbor",
@@ -983,6 +1250,53 @@
       ],
       "upstream_issue_url": "https://github.com/velero-io/velero/issues/7507",
       "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/b46bf26c-b458-45eb-b842-cbeccfc8b04a",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": null,
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 1995,
+      "issue_url": "https://github.com/cncf/mentoring/issues/1995",
+      "cncf_project": "Headlamp",
+      "cncf_project_slug": "headlamp",
+      "cncf_project_maturity": "sandbox",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - Headlamp: Velero Backup Management Plugin (2026 Term 3)",
+      "program_name_short": "Velero Backup Management Plugin",
+      "description": "## Description\n\n[Velero](https://velero.io) is the most widely adopted CNCF project for Kubernetes backup, restore, and disaster recovery. It manages cluster state and persistent volumes through a set of CRDs (Backups, Restores, Schedules, BackupStorageLocations, VolumeSnapshotLocations). Today, Velero has no graphical interface, operators rely entirely on the `velero` CLI and `kubectl` to manage backup operations, inspect failures, and monitor schedule health.\n\n[Headlamp](https://headlamp.dev) provides an extensible Kubernetes UI with a growing plugin ecosystem for CNCF projects including Flux, KEDA, Knative, and Kubeflow. This project adds Velero to that ecosystem by building a Headlamp plugin that gives cluster operators a web UI for day-to-day backup management.\n\nThe mentee will develop a TypeScript/React plugin using the Headlamp plugin SDK that reads and interacts with Velero's CRDs via the Kubernetes API. The plugin will follow existing Headlamp plugin conventions (sidebar registration, list/detail views, status indicators) established by plugins like Flux and Knative.\n\n## Expected outcomes\n\n- A \"Velero\" sidebar section in Headlamp with sub-items for each resource type\n- List views for Backups, Restores, and Schedules displaying name, status, timestamps, and included/excluded resources\n- Detail views for each resource showing full spec, status conditions, phase progression, and related resources (e.g., a Backup's associated Restore objects)\n- List and detail views for BackupStorageLocations and VolumeSnapshotLocations with availability status\n- Ability to create on-demand Backups and Restores from the UI via Kubernetes API calls\n- An overview dashboard summarizing backup health: recent backup status, schedule adherence, and storage location availability\n- Unit tests and plugin documentation\n- Plugin published to the headlamp-k8s/plugins repository\n- A blog post on the Kubernetes blog showcasing the plugin\n- Maps integration, Velero resources displayed on the Headlamp map view",
+      "technologies": "TypeScript, React, Kubernetes, Headlamp Plugin SDK, Velero CRDs",
+      "skills": "TypeScript, React, Kubernetes fundamentals (CRDs, RBAC, API resources), UI/UX design basics",
+      "mentors": [
+        {
+          "name": "Rene Dudfield",
+          "github_handle": "illume",
+          "email": "renedudfield@microsoft.com",
+          "lfid": "illume",
+          "role": "primary"
+        },
+        {
+          "name": "Shubham Pampattiwar",
+          "github_handle": "shubham-pampattiwar",
+          "email": "spampatt@redhat.com",
+          "lfid": "spampatt",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/headlamp-k8s/plugins/issues/939",
+      "lfx_url": "",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,
