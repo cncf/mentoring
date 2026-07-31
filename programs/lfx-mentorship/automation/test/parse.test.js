@@ -2,7 +2,7 @@
 
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { parseIssueForm, parseCheckboxes, parseMentors, normalizeMentorEmail } = require('../lib/parse');
+const { parseIssueForm, parseCheckboxes, parseMentors, normalizeMentorEmail, customPrerequisiteChecked } = require('../lib/parse');
 
 test('parseIssueForm: splits ### sections into a label->value map', () => {
   const body = [
@@ -35,6 +35,32 @@ test('parseCheckboxes: keeps only checked items, stripping the box', () => {
 
 test('parseCheckboxes: empty input yields empty array', () => {
   assert.deepEqual(parseCheckboxes(''), []);
+});
+
+// The custom-prerequisite checkbox moved from "Application Prerequisites" to its
+// own "Custom Prerequisites" section (#2009 template cleanup). The reader must
+// still detect it on proposals created before that change (back-compat).
+test('customPrerequisiteChecked: true when checked in the new Custom Prerequisites section', () => {
+  const custom = '- [x] Custom Prerequisite (fill in details below)';
+  const app = '- [x] Resume\n- [ ] Coding Challenge';
+  assert.equal(customPrerequisiteChecked(custom, app), true);
+});
+
+test('customPrerequisiteChecked: back-compat true when checked in the old Application Prerequisites location', () => {
+  const custom = '';
+  const app = '- [x] Resume\n- [x] Custom Prerequisite (fill in details below)';
+  assert.equal(customPrerequisiteChecked(custom, app), true);
+});
+
+test('customPrerequisiteChecked: false when unchecked in both locations', () => {
+  const custom = '- [ ] Custom Prerequisite (fill in details below)';
+  const app = '- [x] Resume\n- [ ] Coding Challenge';
+  assert.equal(customPrerequisiteChecked(custom, app), false);
+});
+
+test('customPrerequisiteChecked: false when both sections are empty or absent', () => {
+  assert.equal(customPrerequisiteChecked('', ''), false);
+  assert.equal(customPrerequisiteChecked(undefined, undefined), false);
 });
 
 test('parseMentors: a 4-field line yields lfid and strips @', () => {

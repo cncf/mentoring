@@ -73,7 +73,17 @@ function normalizeMentorEmail(raw) {
   return s.replace(/^<(.*)>$/, '$1').replace(/^mailto:/i, '').trim();
 }
 
-module.exports = { parseIssueForm, parseCheckboxes, parseMentors, normalizeMentorEmail, formFieldsChanged };
+// The custom-prerequisite checkbox moved from the "Application Prerequisites"
+// field to its own "Custom Prerequisites" section (#2009 template cleanup).
+// Detect it in the new section first, then fall back to the old location so
+// proposals created before the change still parse correctly (back-compat).
+function customPrerequisiteChecked(customPrereqSection, applicationPrereqSection) {
+  const LABEL = 'Custom Prerequisite (fill in details below)';
+  return parseCheckboxes(customPrereqSection || '').includes(LABEL)
+    || parseCheckboxes(applicationPrereqSection || '').includes(LABEL);
+}
+
+module.exports = { parseIssueForm, parseCheckboxes, parseMentors, normalizeMentorEmail, customPrerequisiteChecked, formFieldsChanged };
 
 // True when two issue-form bodies differ in any parsed field value — i.e. the
 // edit was "material" (a field's content changed), not merely cosmetic

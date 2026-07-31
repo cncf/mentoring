@@ -72,7 +72,7 @@ jobs:
             const fs = require('fs');
             const path = require('path');
             const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
-            const { parseIssueForm, parseMentors, parseCheckboxes, formFieldsChanged } = _lib('parse.js');
+            const { parseIssueForm, parseMentors, parseCheckboxes, formFieldsChanged, customPrerequisiteChecked } = _lib('parse.js');
             const { validateMentors, validateUpstreamUrl, mentorCountWarning, validateCustomPrerequisite, CUSTOM_PREREQ_NAME_MAX, CUSTOM_PREREQ_DESC_MAX, findDuplicateUpstreamIssues, expectedFormSections, missingSections, validateCodingChallenge } = _lib('validate.js');
             const { lookupProject } = _lib('projects.js');
             const { isProposalTitle, looksLikeProposalForm } = _lib('labels.js');
@@ -254,8 +254,8 @@ jobs:
             // lfx-export.yml), so copy left with the box unchecked is flagged
             // too, and every problem is reported together. Decision in
             // lib/validate.js; prose stays here.
-            const customPrereqChecked = parseCheckboxes(get('Custom Prerequisites'))
-              .includes('Custom Prerequisite (fill in details below)');
+            const customPrereqChecked = customPrerequisiteChecked(
+              get('Custom Prerequisites'), get('Application Prerequisites'));
             const customName = get('Custom Prerequisite Name');
             const customDesc = get('Custom Prerequisite Description');
             const customPrereq = validateCustomPrerequisite({
