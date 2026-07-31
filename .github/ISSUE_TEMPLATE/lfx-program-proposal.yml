@@ -408,8 +408,6 @@ body:
           required: false
         - label: "Coding Challenge"
           required: false
-        - label: "Custom Prerequisite (fill in details below)"
-          required: false
 
   # ── Coding Challenge URL ──────────────────────────────────────────
   - type: input
@@ -421,6 +419,18 @@ body:
       placeholder: "https://example.com/challenge"
     validations:
       required: false
+
+  # ── Custom Prerequisites ──────────────────────────────────────────
+  - type: checkboxes
+    id: custom_prerequisites
+    attributes:
+      label: Custom Prerequisites
+      description: >
+        Add a project-specific prerequisite beyond the standard toggles
+        above. Check the box, then fill in the name and description below.
+      options:
+        - label: "Custom Prerequisite (fill in details below)"
+          required: false
 
   # ── Custom Prerequisite Name ──────────────────────────────────────
   - type: input

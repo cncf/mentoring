@@ -98,7 +98,7 @@ jobs:
               const skills = skillsSame ? technologies : get('Required/Desirable Skills');
 
               const prerequisites = parseCheckboxes(get('Application Prerequisites'));
-              const customPrereqChecked = prerequisites.includes(
+              const customPrereqChecked = parseCheckboxes(get('Custom Prerequisites')).includes(
                 'Custom Prerequisite (fill in details below)'
               );
               const customFileUpload = (get('Custom Prerequisite — File Upload') || '')

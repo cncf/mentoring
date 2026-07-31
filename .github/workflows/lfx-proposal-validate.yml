@@ -254,7 +254,7 @@ jobs:
             // lfx-export.yml), so copy left with the box unchecked is flagged
             // too, and every problem is reported together. Decision in
             // lib/validate.js; prose stays here.
-            const customPrereqChecked = parseCheckboxes(get('Application Prerequisites'))
+            const customPrereqChecked = parseCheckboxes(get('Custom Prerequisites'))
               .includes('Custom Prerequisite (fill in details below)');
             const customName = get('Custom Prerequisite Name');
             const customDesc = get('Custom Prerequisite Description');
