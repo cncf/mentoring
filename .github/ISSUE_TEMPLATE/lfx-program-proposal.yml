@@ -417,8 +417,7 @@ body:
     attributes:
       label: Coding Challenge URL
       description: >
-        If you checked Coding Challenge above, provide the URL.
-        Leave blank otherwise.
+        Required if you selected Coding Challenge above; leave blank otherwise.
       placeholder: "https://example.com/challenge"
     validations:
       required: false

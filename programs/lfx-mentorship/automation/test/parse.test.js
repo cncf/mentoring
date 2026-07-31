@@ -2,7 +2,7 @@
 
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { parseIssueForm, parseCheckboxes, parseMentors } = require('../lib/parse');
+const { parseIssueForm, parseCheckboxes, parseMentors, normalizeMentorEmail } = require('../lib/parse');
 
 test('parseIssueForm: splits ### sections into a label->value map', () => {
   const body = [
@@ -145,4 +145,23 @@ test('formFieldsChanged: adding the /lfx-url block is not a material edit', () =
   const body = '### CNCF Project\n\nKubernetes\n\n### Upstream Issue URL\n\nhttps://example.test/1';
   const withBlock = upsertLfxUrlBlock(body, { title: 'CNCF - Kubernetes: X (2026 Term 3)', url: A_LFX_URL });
   assert.equal(formFieldsChanged(body, withBlock), false);
+});
+
+// ── normalizeMentorEmail: unwrap auto-linked email forms (#1987) ────────
+// A typed email can arrive Markdown mailto-linked, angle-bracket autolinked,
+// or bare-mailto-prefixed; the stored/validated address should be the bare one.
+
+test('normalizeMentorEmail unwraps autolink forms to a bare address', () => {
+  assert.equal(normalizeMentorEmail('[a@x.com](mailto:a@x.com)'), 'a@x.com');
+  assert.equal(normalizeMentorEmail('<a@x.com>'), 'a@x.com');
+  assert.equal(normalizeMentorEmail('mailto:a@x.com'), 'a@x.com');
+  assert.equal(normalizeMentorEmail('a@x.com'), 'a@x.com');
+  assert.equal(normalizeMentorEmail('  a@x.com  '), 'a@x.com');
+});
+
+test('parseMentors: strips a Markdown mailto autolink from the email (#1987)', () => {
+  assert.deepEqual(
+    parseMentors('Jane Doe | @janedoe | [jane@example.com](mailto:jane@example.com) | janedoe'),
+    [{ name: 'Jane Doe', github_handle: 'janedoe', email: 'jane@example.com', lfid: 'janedoe', role: 'primary' }],
+  );
 });

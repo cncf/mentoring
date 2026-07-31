@@ -8,6 +8,9 @@
 // functions that return structured error codes (presentation stays in the
 // workflow). Error codes, not prose, are the stable contract.
 
+const yaml = require('js-yaml');
+const { normalizeMentorEmail, parseIssueForm } = require('./parse.js');
+
 const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const urlRe = /^https?:\/\/\S+$/;
 const ghHandleRe = /^@[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}$/;
@@ -43,7 +46,8 @@ function validateMentors(raw) {
       return;
     }
 
-    const [name, handle, email, lfid] = parts;
+    const [name, handle, rawEmail, lfid] = parts;
+    const email = normalizeMentorEmail(rawEmail);
 
     if (!name) errors.push({ role, code: 'name' });
     if (!ghHandleRe.test(handle)) errors.push({ role, code: 'handle', value: handle });
@@ -181,6 +185,50 @@ function validateCustomPrerequisite({ checked, name, description } = {}) {
   return { ok: errors.length === 0, errors };
 }
 
+// ── Structural completeness of the submitted issue form ─────────────────
+// A GitHub issue form writes every field as a "### <label>" section (empty ones
+// as "_No response_"), so a missing heading means the body was hand-altered.
+// expectedFormSections reads the intended section labels from the issue
+// template (skipping markdown blocks, which have no heading); missingSections
+// returns the expected labels that are absent from a body. The workflow treats
+// a non-empty result as a validation error (grandfathering already-approved
+// proposals, which may predate a later template field). (#1928)
+function expectedFormSections(templateYaml) {
+  let doc;
+  try { doc = yaml.load(templateYaml); } catch (e) { return []; }
+  const body = doc && Array.isArray(doc.body) ? doc.body : [];
+  const out = [];
+  for (const el of body) {
+    if (!el || el.type === 'markdown') continue;
+    const label = el.attributes && el.attributes.label;
+    if (label != null && String(label).trim()) out.push(String(label).trim());
+  }
+  return out;
+}
+
+function missingSections(body, expected) {
+  const present = parseIssueForm(body);
+  return (expected || []).filter((label) => !(label in present));
+}
+
+// LFX requires a Coding Challenge URL when the "Coding Challenge" prerequisite
+// is checked. A URL left with the box unchecked is dropped by the export (it
+// keys off the box), so that mismatch is flagged too. Mirrors
+// validateCustomPrerequisite. Codes: 'url-missing', 'url-invalid',
+// 'unchecked-with-url'.
+function validateCodingChallenge({ checked, url } = {}) {
+  const errors = [];
+  const u = (url || '').trim();
+  if (!checked && !u) return { ok: true, errors };
+  if (!checked) {
+    errors.push({ code: 'unchecked-with-url' });
+    return { ok: false, errors };
+  }
+  if (!u) errors.push({ code: 'url-missing' });
+  else if (!urlRe.test(u)) errors.push({ code: 'url-invalid', value: u });
+  return { ok: errors.length === 0, errors };
+}
+
 module.exports = {
   emailRe,
   urlRe,
@@ -191,8 +239,11 @@ module.exports = {
   mentorCountWarning,
   MIN_PREFERRED_MENTORS,
   validateCustomPrerequisite,
+  validateCodingChallenge,
   CUSTOM_PREREQ_NAME_MAX,
   CUSTOM_PREREQ_DESC_MAX,
   normalizeUpstreamUrl,
+  expectedFormSections,
+  missingSections,
   findDuplicateUpstreamIssues,
 };

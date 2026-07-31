@@ -9,6 +9,8 @@ const {
   validateCustomPrerequisite,
   CUSTOM_PREREQ_NAME_MAX, CUSTOM_PREREQ_DESC_MAX,
   normalizeUpstreamUrl, findDuplicateUpstreamIssues,
+  expectedFormSections, missingSections,
+  validateCodingChallenge,
 } = require('../lib/validate');
 
 const codes = (result) => result.errors.map(e => e.code);
@@ -361,4 +363,74 @@ test('findDuplicateUpstreamIssues: preserves input order and handles missing/emp
     { number: 3, url: 'https://github.com/a/b/issues/1' },
   ];
   assert.deepEqual(findDuplicateUpstreamIssues('https://github.com/a/b/issues/1', others), [9, 3]);
+});
+
+// A mentor's email that arrived Markdown mailto-linked still validates (#1987).
+test('validateMentors: accepts a Markdown mailto-autolinked email', () => {
+  assert.deepEqual(
+    validateMentors('Jane Doe | @janedoe | [jane@example.com](mailto:jane@example.com) | janedoe'),
+    { ok: true, count: 1, errors: [] },
+  );
+});
+
+// ── Structural completeness: expected template sections (#1928) ─────────
+// A submitted issue form includes every template field as a "### <label>"
+// section; a removed heading means the body was altered.
+
+test('expectedFormSections returns non-markdown field labels in order', () => {
+  const tmpl = [
+    'name: Test',
+    'body:',
+    '  - type: markdown',
+    '    attributes:',
+    '      value: "Intro, no heading"',
+    '  - type: dropdown',
+    '    attributes:',
+    '      label: CNCF Project',
+    '  - type: input',
+    '    attributes:',
+    '      label: Program Name',
+    '  - type: checkboxes',
+    '    attributes:',
+    '      label: Application Prerequisites',
+  ].join('\n');
+  assert.deepEqual(expectedFormSections(tmpl), ['CNCF Project', 'Program Name', 'Application Prerequisites']);
+});
+
+test('missingSections returns expected labels absent from the body', () => {
+  const body = '### CNCF Project\n\nA\n\n### Program Name\n\nFoo\n';
+  assert.deepEqual(
+    missingSections(body, ['CNCF Project', 'Program Name', 'Application Prerequisites']),
+    ['Application Prerequisites'],
+  );
+});
+
+test('missingSections is empty when every section is present, even if empty', () => {
+  const body = '### A\n\n_No response_\n\n### B\n\ny\n';
+  assert.deepEqual(missingSections(body, ['A', 'B']), []);
+});
+
+// ── Coding Challenge URL required when the prerequisite is checked (#2009) ──
+// LFX requires the challenge URL when "Coding Challenge" is selected; a URL
+// left with the box unchecked is dropped by the export. Mirrors the custom
+// prerequisite check.
+
+test('validateCodingChallenge: unchecked and empty passes', () => {
+  assert.deepEqual(validateCodingChallenge({ checked: false, url: '' }), { ok: true, errors: [] });
+});
+
+test('validateCodingChallenge: checked with a valid URL passes', () => {
+  assert.deepEqual(validateCodingChallenge({ checked: true, url: 'https://github.com/x/y/issues/1' }), { ok: true, errors: [] });
+});
+
+test('validateCodingChallenge: checked but empty URL flags url-missing', () => {
+  assert.deepEqual(validateCodingChallenge({ checked: true, url: '' }).errors, [{ code: 'url-missing' }]);
+});
+
+test('validateCodingChallenge: checked with a malformed URL flags url-invalid', () => {
+  assert.deepEqual(validateCodingChallenge({ checked: true, url: 'not a url' }).errors, [{ code: 'url-invalid', value: 'not a url' }]);
+});
+
+test('validateCodingChallenge: URL filled but box unchecked flags unchecked-with-url', () => {
+  assert.deepEqual(validateCodingChallenge({ checked: false, url: 'https://x.com/c' }).errors, [{ code: 'unchecked-with-url' }]);
 });

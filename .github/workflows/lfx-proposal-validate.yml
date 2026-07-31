@@ -73,7 +73,7 @@ jobs:
             const path = require('path');
             const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
             const { parseIssueForm, parseMentors, parseCheckboxes, formFieldsChanged } = _lib('parse.js');
-            const { validateMentors, validateUpstreamUrl, mentorCountWarning, validateCustomPrerequisite, CUSTOM_PREREQ_NAME_MAX, CUSTOM_PREREQ_DESC_MAX, findDuplicateUpstreamIssues } = _lib('validate.js');
+            const { validateMentors, validateUpstreamUrl, mentorCountWarning, validateCustomPrerequisite, CUSTOM_PREREQ_NAME_MAX, CUSTOM_PREREQ_DESC_MAX, findDuplicateUpstreamIssues, expectedFormSections, missingSections, validateCodingChallenge } = _lib('validate.js');
             const { lookupProject } = _lib('projects.js');
             const { isProposalTitle, looksLikeProposalForm } = _lib('labels.js');
             const { resolveProjectMaintainer } = _lib('authorize.js');
@@ -286,6 +286,56 @@ jobs:
             }
             if (customPrereqChecked && customPrereq.ok) {
               passed.push(`Custom Prerequisite: name ${customName.trim().length}/${CUSTOM_PREREQ_NAME_MAX} chars, description ${customDesc.trim().length}/${CUSTOM_PREREQ_DESC_MAX} chars`);
+            }
+
+            // Coding Challenge URL is required by LFX when the Coding Challenge
+            // prerequisite is checked; a URL left with the box unchecked is
+            // dropped by the export. Decision in lib/validate.js.
+            const codingChallengeChecked = parseCheckboxes(get('Application Prerequisites'))
+              .includes('Coding Challenge');
+            const codingChallengeUrl = get('Coding Challenge URL');
+            const codingChallenge = validateCodingChallenge({ checked: codingChallengeChecked, url: codingChallengeUrl });
+            for (const e of codingChallenge.errors) {
+              switch (e.code) {
+                case 'url-missing':
+                  errors.push(
+                    'You selected "Coding Challenge" as a prerequisite, but the Coding ' +
+                    'Challenge URL is empty. LFX requires the challenge URL. Add it, or ' +
+                    'uncheck Coding Challenge.');
+                  break;
+                case 'url-invalid':
+                  errors.push(`Coding Challenge URL \`${e.value}\` is not a valid URL.`);
+                  break;
+                case 'unchecked-with-url':
+                  errors.push(
+                    'A Coding Challenge URL is filled in, but the Coding Challenge box is ' +
+                    'not checked, so it will not be sent to LFX. Check the box to include ' +
+                    'it, or clear the URL.');
+                  break;
+              }
+            }
+            if (codingChallengeChecked && codingChallenge.ok) {
+              passed.push('Coding Challenge URL: provided');
+            }
+
+            // Structural completeness: a submitted issue form writes every
+            // template field as a "### <label>" section, so a missing heading
+            // means the body was altered. Fail on any missing section, but
+            // grandfather already-approved proposals (CNCF Approved or Exported),
+            // which may predate a later template field. (#1928)
+            const proposalLabels = (context.payload.issue.labels || []).map(l => l.name);
+            if (!proposalLabels.includes('CNCF Approved') && !proposalLabels.includes('Exported')) {
+              try {
+                const tmpl = fs.readFileSync('.github/ISSUE_TEMPLATE/lfx-program-proposal.yml', 'utf8');
+                const missing = missingSections(body, expectedFormSections(tmpl));
+                if (missing.length) {
+                  errors.push(
+                    `This proposal is missing required template section(s): ${missing.map(s => `**${s}**`).join(', ')}. ` +
+                    `Please re-submit with the current proposal template instead of removing sections.`);
+                }
+              } catch (e) {
+                console.log(`template section check skipped: ${e.message}`);
+              }
             }
 
             // ── 10. Same project + term scan (shared) ──
