@@ -506,6 +506,36 @@ test('populateRecordedUrls: preserves an existing sibling url when it has no rec
   assert.equal(programs[1].lfx_url, `${PROJ}/aaaaaaaa-0000-4000-8000-000000000002`);
 });
 
+test('populateRecordedUrls: a sibling whose comments fail to load (e.g. 404) keeps its existing url and the run continues', async () => {
+  const programs = [
+    { issue_number: 1, lfx_url: `${PROJ}/aaaaaaaa-0000-4000-8000-000000000001` }, // baseline url; its issue will 404
+    { issue_number: 2, lfx_url: '' },                                             // current
+    { issue_number: 3, lfx_url: '' },                                             // later sibling with a recorded comment
+  ];
+  const notFound = Object.assign(new Error('Not Found'), { status: 404 });
+  const comments = { 3: [recComment(`${PROJ}/aaaaaaaa-0000-4000-8000-000000000003`)] };
+  await populateRecordedUrls(programs, {
+    currentIssue: 2,
+    currentUrl: `${PROJ}/aaaaaaaa-0000-4000-8000-000000000002`,
+    fetchComments: async (n) => { if (n === 1) throw notFound; return comments[n] || []; },
+  });
+  assert.equal(programs[0].lfx_url, `${PROJ}/aaaaaaaa-0000-4000-8000-000000000001`, 'unreadable sibling keeps its existing url');
+  assert.equal(programs[1].lfx_url, `${PROJ}/aaaaaaaa-0000-4000-8000-000000000002`, 'current still set');
+  assert.equal(programs[2].lfx_url, `${PROJ}/aaaaaaaa-0000-4000-8000-000000000003`, 'later sibling still processed after the failure');
+});
+
+test('populateRecordedUrls: a non-404 fetch error propagates (do not mask real failures)', async () => {
+  const programs = [{ issue_number: 1, lfx_url: '' }, { issue_number: 2, lfx_url: '' }];
+  const boom = Object.assign(new Error('Server Error'), { status: 500 });
+  await assert.rejects(
+    populateRecordedUrls(programs, {
+      currentIssue: 2, currentUrl: `${PROJ}/aaaaaaaa-0000-4000-8000-000000000002`,
+      fetchComments: async () => { throw boom; },
+    }),
+    /Server Error/,
+  );
+});
+
 test('populateRecordedUrls: empty program list makes no fetches', async () => {
   let called = 0;
   const out = await populateRecordedUrls([], { currentIssue: 1, currentUrl: 'x', fetchComments: async () => { called++; return []; } });

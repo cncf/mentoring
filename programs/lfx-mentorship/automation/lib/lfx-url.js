@@ -247,7 +247,18 @@ async function populateRecordedUrls(programs, { currentIssue, currentUrl, fetchC
       prog.lfx_url = currentUrl;
       continue;
     }
-    const url = parseRecordedLfxUrl(await fetchComments(prog.issue_number));
+    // A program whose issue is gone/inaccessible (404) keeps its existing
+    // recorded url instead of crashing the run; a merged url is never
+    // regressed (§ above). Anything other than "not found" is unexpected, so
+    // re-throw rather than silently masking a real failure.
+    let comments;
+    try {
+      comments = await fetchComments(prog.issue_number);
+    } catch (e) {
+      if (e && e.status === 404) continue;
+      throw e;
+    }
+    const url = parseRecordedLfxUrl(comments);
     if (url) prog.lfx_url = url;
   }
   return programs;
