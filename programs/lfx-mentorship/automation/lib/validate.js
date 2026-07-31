@@ -191,11 +191,12 @@ function validateCustomPrerequisite({ checked, name, description } = {}) {
 // expectedFormSections reads the intended section labels from the issue
 // template (skipping markdown blocks, which have no heading); missingSections
 // returns the expected labels that are absent from a body. The workflow treats
-// a non-empty result as a validation error (grandfathering already-approved
-// proposals, which may predate a later template field). (#1928)
+// a non-empty result as a validation error. (#1928)
 function expectedFormSections(templateYaml) {
-  let doc;
-  try { doc = yaml.load(templateYaml); } catch (e) { return []; }
+  // Let a YAML parse error throw; the workflow wraps this call in try/catch and
+  // logs, so swallowing it here would make the missing-section check a silent
+  // no-op on a broken template.
+  const doc = yaml.load(templateYaml);
   const body = doc && Array.isArray(doc.body) ? doc.body : [];
   const out = [];
   for (const el of body) {

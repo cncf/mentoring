@@ -320,22 +320,18 @@ jobs:
 
             // Structural completeness: a submitted issue form writes every
             // template field as a "### <label>" section, so a missing heading
-            // means the body was altered. Fail on any missing section, but
-            // grandfather already-approved proposals (CNCF Approved or Exported),
-            // which may predate a later template field. (#1928)
-            const proposalLabels = (context.payload.issue.labels || []).map(l => l.name);
-            if (!proposalLabels.includes('CNCF Approved') && !proposalLabels.includes('Exported')) {
-              try {
-                const tmpl = fs.readFileSync('.github/ISSUE_TEMPLATE/lfx-program-proposal.yml', 'utf8');
-                const missing = missingSections(body, expectedFormSections(tmpl));
-                if (missing.length) {
-                  errors.push(
-                    `This proposal is missing required template section(s): ${missing.map(s => `**${s}**`).join(', ')}. ` +
-                    `Please re-submit with the current proposal template instead of removing sections.`);
-                }
-              } catch (e) {
-                console.log(`template section check skipped: ${e.message}`);
+            // means the body predates a later template field or was hand-edited.
+            // Run on every proposal; a program that changes should be checked. (#1928)
+            try {
+              const tmpl = fs.readFileSync('.github/ISSUE_TEMPLATE/lfx-program-proposal.yml', 'utf8');
+              const missing = missingSections(body, expectedFormSections(tmpl));
+              if (missing.length) {
+                errors.push(
+                  `This proposal is missing required template section(s): ${missing.map(s => `**${s}**`).join(', ')}. ` +
+                  `Please re-submit using the current proposal template.`);
               }
+            } catch (e) {
+              console.log(`template section check skipped: ${e.message}`);
             }
 
             // ── 10. Same project + term scan (shared) ──

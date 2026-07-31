@@ -397,6 +397,10 @@ test('expectedFormSections returns non-markdown field labels in order', () => {
   assert.deepEqual(expectedFormSections(tmpl), ['CNCF Project', 'Program Name', 'Application Prerequisites']);
 });
 
+test('expectedFormSections lets a YAML parse error surface (no silent no-op)', () => {
+  assert.throws(() => expectedFormSections('[unterminated flow sequence'));
+});
+
 test('missingSections returns expected labels absent from the body', () => {
   const body = '### CNCF Project\n\nA\n\n### Program Name\n\nFoo\n';
   assert.deepEqual(
