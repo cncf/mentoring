@@ -4,12 +4,15 @@
 // so it can be unit-tested while the workflow's side effects stay thin.
 
 // Extract the issue numbers the export workflow records in the PR body as
-// "- #<n> — <name>" (emitted by lfx-export.yml). The em-dash (U+2014) is a
-// functional delimiter: this regex must match the line format lfx-export.yml
-// emits, so changing that output means changing this too. Returns an array of
+// "- #<n> <name>" list items (emitted by renderExportChangeBody in lfx-url.js).
+// That line format is a contract shared with the renderer; test/notify.test.js
+// round-trips the two so they cannot drift. (They did once: an em-dash
+// delimiter was dropped from the renderer but not from this parser, which
+// silently broke the merge notification.) Line-anchored so a "- #n" inside a
+// free-text program name is not mistaken for a list item. Returns an array of
 // numbers (order preserved, no de-dup).
 function parseExportedIssueNumbers(body) {
-  return [...String(body || '').matchAll(/-\s+#(\d+)\s+—/g)].map(m => parseInt(m[1], 10));
+  return [...String(body || '').matchAll(/^\s*-\s+#(\d+)\b/gm)].map(m => parseInt(m[1], 10));
 }
 
 // True when ref is a branch the export workflow created. Guards the

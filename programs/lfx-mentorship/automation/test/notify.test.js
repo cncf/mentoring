@@ -3,20 +3,26 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const { parseExportedIssueNumbers, isExportBranch, exportPathForBranch, exportedIssueNumbers, newIssueNumbers } = require('../lib/notify');
+const { renderExportChangeBody } = require('../lib/lfx-url');
 
 // parseExportedIssueNumbers extracts the issue numbers the export workflow
-// writes into the PR body as "- #<n> — <name>". The em-dash (U+2014) is a
-// functional delimiter shared with lfx-export.yml: it must match exactly.
+// writes into the PR body as "- #<n> <name>" list items (see
+// renderExportChangeBody). The writer/reader format contract is enforced by the
+// round-trip test below; these cases pin the parser's own behavior.
 test('parseExportedIssueNumbers: single issue', () => {
   assert.deepEqual(
-    parseExportedIssueNumbers('- #29 — CNCF - OpenTelemetry: Testing (2026 Term 3)'),
+    parseExportedIssueNumbers('- #29 CNCF - OpenTelemetry: Testing (2026 Term 3)'),
     [29]
   );
 });
 
 test('parseExportedIssueNumbers: multiple issues across lines', () => {
-  const body = '**Exported proposals:**\n- #12 — Foo\n- #34 — Bar\n';
+  const body = '**Newly added:**\n- #12 Foo\n- #34 Bar\n';
   assert.deepEqual(parseExportedIssueNumbers(body), [12, 34]);
+});
+
+test('parseExportedIssueNumbers: a bare "- #<n>" line (no name) still matches', () => {
+  assert.deepEqual(parseExportedIssueNumbers('- #42'), [42]);
 });
 
 test('parseExportedIssueNumbers: empty string yields none', () => {
@@ -28,10 +34,37 @@ test('parseExportedIssueNumbers: null/undefined yields none', () => {
   assert.deepEqual(parseExportedIssueNumbers(undefined), []);
 });
 
-test('parseExportedIssueNumbers: only the em-dash delimiter matches', () => {
-  // hyphen-minus and en-dash must not be treated as the delimiter
-  assert.deepEqual(parseExportedIssueNumbers('- #5 - Foo'), []);
-  assert.deepEqual(parseExportedIssueNumbers('- #5 \u2013 Foo'), []);
+test('parseExportedIssueNumbers: only list items match, not inline refs', () => {
+  // an issue ref in prose or mid-line (not a "- #<n>" list item) is ignored
+  assert.deepEqual(parseExportedIssueNumbers('See #5 for context.'), []);
+  assert.deepEqual(parseExportedIssueNumbers('a name that mentions #5 mid-line'), []);
+});
+
+test('parseExportedIssueNumbers: ignores the "Export files" backtick list', () => {
+  // the real export PR body carries a "- `path`" file list; only "- #<n>" counts
+  const body = [
+    '**Newly added:**', '- #12 CNCF - Foo', '',
+    '**Export files:**',
+    '- `programs/lfx-mentorship/2026/03-Sep-Nov/lfx-export.json`: JSON',
+    '- `programs/lfx-mentorship/2026/03-Sep-Nov/README.md`: list', '',
+  ].join('\n');
+  assert.deepEqual(parseExportedIssueNumbers(body), [12]);
+});
+
+// ── Format contract (the test that was missing) ──────────────────────────────
+// parseExportedIssueNumbers (notify.js) reads the export PR body that
+// renderExportChangeBody (lfx-url.js) writes. They share a line format; testing
+// each against its own hand-written fixture let them silently drift (#1945
+// dropped the em-dash from the renderer but not the parser), which killed the
+// merge notification in prod. This round-trip fails if either side drifts.
+test('parseExportedIssueNumbers round-trips renderExportChangeBody output (format contract)', () => {
+  const added = [
+    { issue_number: 218, program_name_full: 'CNCF - Backstage: Knative eventing' },
+    { issue_number: 219, program_name_full: 'CNCF - Kyverno: Policy log' },
+  ];
+  const updated = [{ issue_number: 220, program_name_full: 'CNCF - Meshery: Registry' }];
+  const body = renderExportChangeBody(added, updated);
+  assert.deepEqual(parseExportedIssueNumbers(body), [218, 219, 220]);
 });
 
 test('parseExportedIssueNumbers: requires the leading list dash', () => {
