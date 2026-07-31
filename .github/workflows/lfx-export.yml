@@ -36,7 +36,7 @@ jobs:
             const fs = require('fs');
             const path = require('path');
             const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
-            const { parseIssueForm, parseCheckboxes, parseMentors } = _lib('parse.js');
+            const { parseIssueForm, parseCheckboxes, parseMentors, customPrerequisiteChecked } = _lib('parse.js');
             const { standardPrerequisites } = _lib('prerequisites.js');
             const { buildReadme, renderAcceptedProgramsBody } = _lib('readme.js');
             const { renderTrackingCsv } = _lib('csv.js');
@@ -98,9 +98,8 @@ jobs:
               const skills = skillsSame ? technologies : get('Required/Desirable Skills');
 
               const prerequisites = parseCheckboxes(get('Application Prerequisites'));
-              const customPrereqChecked = prerequisites.includes(
-                'Custom Prerequisite (fill in details below)'
-              );
+              const customPrereqChecked = customPrerequisiteChecked(
+                get('Custom Prerequisites'), get('Application Prerequisites'));
               const customFileUpload = (get('Custom Prerequisite — File Upload') || '')
                 .match(/\[x\]/i);
 

@@ -54,7 +54,7 @@ function parseMentors(raw) {
       return {
         name: parts[0],
         github_handle: parts[1].replace(/^@/, ''),
-        email: parts[2],
+        email: normalizeMentorEmail(parts[2]),
         lfid: parts[3] || '',
         role: i === 0 ? 'primary' : 'co-mentor',
       };
@@ -62,7 +62,28 @@ function parseMentors(raw) {
     .filter(Boolean);
 }
 
-module.exports = { parseIssueForm, parseCheckboxes, parseMentors, formFieldsChanged };
+// Unwrap common auto-linked forms so a mentor's email validates and exports as
+// a bare address: an editor or paste can store a typed email as a Markdown
+// mailto link `[addr](mailto:addr)`, an angle-bracket autolink `<addr>`, or a
+// bare `mailto:` prefix. A plain address is returned unchanged. (#1987)
+function normalizeMentorEmail(raw) {
+  const s = String(raw == null ? '' : raw).trim();
+  const md = s.match(/^\[[^\]]*\]\(mailto:([^)]+)\)$/i);
+  if (md) return md[1].trim();
+  return s.replace(/^<(.*)>$/, '$1').replace(/^mailto:/i, '').trim();
+}
+
+// The custom-prerequisite checkbox moved from the "Application Prerequisites"
+// field to its own "Custom Prerequisites" section (#2009 template cleanup).
+// Detect it in the new section first, then fall back to the old location so
+// proposals created before the change still parse correctly (back-compat).
+function customPrerequisiteChecked(customPrereqSection, applicationPrereqSection) {
+  const LABEL = 'Custom Prerequisite (fill in details below)';
+  return parseCheckboxes(customPrereqSection || '').includes(LABEL)
+    || parseCheckboxes(applicationPrereqSection || '').includes(LABEL);
+}
+
+module.exports = { parseIssueForm, parseCheckboxes, parseMentors, normalizeMentorEmail, customPrerequisiteChecked, formFieldsChanged };
 
 // True when two issue-form bodies differ in any parsed field value — i.e. the
 // edit was "material" (a field's content changed), not merely cosmetic
