@@ -4,10 +4,11 @@
 // /cncf-approve handlers post (lfx-proposal-approvals.yml), so the validation
 // workflow can @-tag the people whose approval it clears after a material edit.
 //
-// Coupled to those confirmation-comment strings — if the approvals workflow
-// changes the wording, update these patterns (and their tests) with it. Only
-// github-actions[bot] comments are scanned, so a user quoting the phrase can't
-// spoof an approver.
+// The emitters (maintainerApprovalComment / cncfApprovalComment below) are the
+// single source of truth for this copy; the workflow posts them and the parser
+// reads them back, and round-trip tests keep the two in lockstep so a wording
+// change can't silently break approval tallying. Only github-actions[bot]
+// comments are scanned, so a user quoting the phrase can't spoof an approver.
 
 const MAINTAINER_RE = /Maintainer approval recorded from @([A-Za-z0-9-]+)/g;
 const CNCF_RE = /CNCF admin approval granted by @([A-Za-z0-9-]+)/g;
@@ -33,4 +34,16 @@ function findRecordedApprovers(comments) {
   return { maintainers, cncfAdmins };
 }
 
-module.exports = { findRecordedApprovers };
+// The approval-record comments the /approve and /cncf-approve handlers post.
+// findRecordedApprovers parses these exact strings back, so they are defined
+// here (not inline in the workflow) and locked by round-trip tests.
+function maintainerApprovalComment({ commenter, source } = {}) {
+  return `Maintainer approval recorded from @${commenter} (${source}).`;
+}
+
+function cncfApprovalComment({ commenter } = {}) {
+  return `CNCF admin approval granted by @${commenter}.\n\n` +
+    `This proposal is approved and will be included in the next LFX export.`;
+}
+
+module.exports = { findRecordedApprovers, maintainerApprovalComment, cncfApprovalComment };
