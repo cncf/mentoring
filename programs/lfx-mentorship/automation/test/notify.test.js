@@ -68,11 +68,11 @@ test('parseExportedIssueNumbers round-trips renderExportChangeBody output (forma
 });
 
 test('parseExportedIssueNumbers: requires the leading list dash', () => {
-  assert.deepEqual(parseExportedIssueNumbers('#7 — no leading dash'), []);
+  assert.deepEqual(parseExportedIssueNumbers('#7 no leading dash'), []);
 });
 
 test('parseExportedIssueNumbers: does not de-duplicate (captures current behaviour)', () => {
-  assert.deepEqual(parseExportedIssueNumbers('- #5 — A\n- #5 — A again'), [5, 5]);
+  assert.deepEqual(parseExportedIssueNumbers('- #5 A\n- #5 A again'), [5, 5]);
 });
 
 // isExportBranch guards the destructive branch delete: only branches the
