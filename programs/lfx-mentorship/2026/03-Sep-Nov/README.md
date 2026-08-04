@@ -112,6 +112,7 @@ Mentee application instructions can be found on the [Program Guidelines](https:/
   - [Add CSI Snapshot E2E Tests to Kind CI](#add-csi-snapshot-e2e-tests-to-kind-ci)
 - [Volcano](#volcano)
   - [Kthena LLM Resource Management in Volcano Dashboard](#kthena-llm-resource-management-in-volcano-dashboard)
+  - [Build a KVCache-aware scheduler E2E test suite](#build-a-kvcache-aware-scheduler-e2e-test-suite)
   - [Support inPlace rolling update](#support-inplace-rolling-update)
   - [Generic xPU Topology-Aware Scheduling](#generic-xpu-topology-aware-scheduling)
 - [WasmEdge Runtime](#wasmedge-runtime)
@@ -1897,6 +1898,32 @@ CNCF - Volcano: Kthena LLM Resource Management in Volcano Dashboard (2026 Term 3
   - Zicong Chen (Jesse Stutler) (@JesseStutler, jessestutler97@gmail.com)
 - Upstream Issue: https://github.com/volcano-sh/dashboard/issues/307
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/b2d21cb7-4380-4375-9384-ca791e652f0d
+
+#### Build a KVCache-aware scheduler E2E test suite
+
+CNCF - Volcano: Build a KVCache-aware scheduler E2E test suite (2026 Term 3)
+
+- Description:
+
+  > ## Description: 
+  > Kthena router already has a scheduler plugin E2E framework covering prefix-cache, least-request, least-latency, lora-affinity, random, and gpu-usage. The KVCache-aware scheduler plugin also exists, but lacks robust end-to-end coverage for the full runtime path involving the router, mock backends, tokenization, ZMQ events, and Redis.
+  > 
+  > This project aims to build a reusable KVCache-aware scheduler E2E test suite on top of the existing router plugin framework. In addition to validating routing behavior, the suite should provide reusable setup, cache-state injection, observation, and assertion utilities for future KVCache-aware test scenarios.
+  > 
+  > ## Expected Outcome:
+  > 
+  > 1. Build a reusable KVCache-aware E2E test suite under `test/e2e/router/`, including shared fixtures and helpers for llm-d-sim, the ZMQ bridge, Redis, cache-state injection, request generation, and routing assertions.
+  > 2. Validate the complete data path: dispatch KV-cache ownership events through ZMQ, verify the resulting Redis mappings, and confirm that the router uses them when scoring replicas.
+  > 3. Provide a focused command or Make target for running the suite independently, and document how contributors can add future KVCache-aware scenarios.
+  > 4. Integrate the suite into CI with deterministic cleanup and useful failure diagnostics for router, Redis, ZMQ, and backend state.
+
+- Recommended Skills: Go, Kubernetes, Kind-based E2E testing, Redis, ZMQ, observability/metrics, and distributed-system debugging.
+- Technologies: Go, Kubernetes, Kind-based E2E testing, Redis, ZMQ, observability/metrics, and distributed-system debugging.
+- Mentor(s):
+  - Jinyu Zhou (@FAUST-BENCHOU, 2319109590@qq.com)
+  - Jprakash (@katara-Jayprakash, katarajayprakash@icloud.com)
+- Upstream Issue: https://github.com/volcano-sh/kthena/issues/1328
+- LFX URL: TBD
 
 #### Support inPlace rolling update
 
