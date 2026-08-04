@@ -1,7 +1,7 @@
 {
-  "_generated": "2026-07-30T16:49:29.043Z",
+  "_generated": "2026-08-04T21:49:16.677Z",
   "_term": "2026 Term 3 (Sep-Nov)",
-  "_count": 58,
+  "_count": 59,
   "programs": [
     {
       "issue_number": 2029,
@@ -767,6 +767,53 @@
           "description": "Applicants should review this issue and submit a short technical design covering:\n1) proposed auth approach for Volcano Dashboard,\n2) how user identity maps to Kubernetes RBAC,\n3) how the UI should behave for unauthorized access,\n4) a high-level implementation and test plan.",
           "file_upload": true
         },
+        "standard_courses": [
+          {
+            "name": "Inclusive Community",
+            "description": "Please upload the completion certificate for the Inclusive Open Source Community Orientation (LFC102) course: https://training.linuxfoundation.org/training/inclusive-open-source-community-orientation-lfc102/\n\nOnce completed you can find the certificate in your openprofile.dev dashboard under Training & Certifications -> Certificates of Completion.",
+            "file_upload": true
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 2008,
+      "issue_url": "https://github.com/cncf/mentoring/issues/2008",
+      "cncf_project": "Volcano",
+      "cncf_project_slug": "volcano",
+      "cncf_project_maturity": "incubating",
+      "term": "2026 Term 3 (Sep-Nov)",
+      "program_name_full": "CNCF - Volcano: Build a KVCache-aware scheduler E2E test suite (2026 Term 3)",
+      "program_name_short": "Build a KVCache-aware scheduler E2E test suite",
+      "description": "## Description: \nKthena router already has a scheduler plugin E2E framework covering prefix-cache, least-request, least-latency, lora-affinity, random, and gpu-usage. The KVCache-aware scheduler plugin also exists, but lacks robust end-to-end coverage for the full runtime path involving the router, mock backends, tokenization, ZMQ events, and Redis.\n\nThis project aims to build a reusable KVCache-aware scheduler E2E test suite on top of the existing router plugin framework. In addition to validating routing behavior, the suite should provide reusable setup, cache-state injection, observation, and assertion utilities for future KVCache-aware test scenarios.\n\n## Expected Outcome:\n\n1. Build a reusable KVCache-aware E2E test suite under `test/e2e/router/`, including shared fixtures and helpers for llm-d-sim, the ZMQ bridge, Redis, cache-state injection, request generation, and routing assertions.\n2. Validate the complete data path: dispatch KV-cache ownership events through ZMQ, verify the resulting Redis mappings, and confirm that the router uses them when scoring replicas.\n3. Provide a focused command or Make target for running the suite independently, and document how contributors can add future KVCache-aware scenarios.\n4. Integrate the suite into CI with deterministic cleanup and useful failure diagnostics for router, Redis, ZMQ, and backend state.",
+      "technologies": "Go, Kubernetes, Kind-based E2E testing, Redis, ZMQ, observability/metrics, and distributed-system debugging.",
+      "skills": "Go, Kubernetes, Kind-based E2E testing, Redis, ZMQ, observability/metrics, and distributed-system debugging.",
+      "mentors": [
+        {
+          "name": "Jinyu Zhou",
+          "github_handle": "FAUST-BENCHOU",
+          "email": "2319109590@qq.com",
+          "lfid": "benchou8",
+          "role": "primary"
+        },
+        {
+          "name": "Jprakash",
+          "github_handle": "katara-Jayprakash",
+          "email": "katarajayprakash@icloud.com",
+          "lfid": "lfxkatara1",
+          "role": "co-mentor"
+        }
+      ],
+      "upstream_issue_url": "https://github.com/volcano-sh/kthena/issues/1328",
+      "lfx_url": "",
+      "prerequisites": {
+        "resume": true,
+        "cover_letter": true,
+        "school_enrollment": false,
+        "participation_permission": false,
+        "coding_challenge": false,
+        "coding_challenge_url": null,
+        "custom": null,
         "standard_courses": [
           {
             "name": "Inclusive Community",
@@ -1681,7 +1728,7 @@
           "name": "Mohammed Firdous",
           "github_handle": "mohammedfirdouss",
           "email": "mohammedfirdousaraoye@gmail.com",
-          "lfid": "",
+          "lfid": "mohdfir23",
           "role": "co-mentor"
         },
         {
