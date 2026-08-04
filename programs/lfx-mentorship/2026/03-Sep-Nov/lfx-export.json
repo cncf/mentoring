@@ -805,7 +805,7 @@
         }
       ],
       "upstream_issue_url": "https://github.com/volcano-sh/kthena/issues/1328",
-      "lfx_url": "",
+      "lfx_url": "https://mentorship.lfx.linuxfoundation.org/project/16e5821d-2ae3-4145-a729-1b0c755b613b",
       "prerequisites": {
         "resume": true,
         "cover_letter": true,

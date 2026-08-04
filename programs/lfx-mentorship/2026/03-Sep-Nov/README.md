@@ -1923,7 +1923,7 @@ CNCF - Volcano: Build a KVCache-aware scheduler E2E test suite (2026 Term 3)
   - Jinyu Zhou (@FAUST-BENCHOU, 2319109590@qq.com)
   - Jprakash (@katara-Jayprakash, katarajayprakash@icloud.com)
 - Upstream Issue: https://github.com/volcano-sh/kthena/issues/1328
-- LFX URL: TBD
+- LFX URL: https://mentorship.lfx.linuxfoundation.org/project/16e5821d-2ae3-4145-a729-1b0c755b613b
 
 #### Support inPlace rolling update
 
