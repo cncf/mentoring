@@ -247,7 +247,18 @@ async function populateRecordedUrls(programs, { currentIssue, currentUrl, fetchC
       prog.lfx_url = currentUrl;
       continue;
     }
-    const url = parseRecordedLfxUrl(await fetchComments(prog.issue_number));
+    // A program whose issue is gone/inaccessible (404) keeps its existing
+    // recorded url instead of crashing the run; a merged url is never
+    // regressed (§ above). Anything other than "not found" is unexpected, so
+    // re-throw rather than silently masking a real failure.
+    let comments;
+    try {
+      comments = await fetchComments(prog.issue_number);
+    } catch (e) {
+      if (e && e.status === 404) continue;
+      throw e;
+    }
+    const url = parseRecordedLfxUrl(comments);
     if (url) prog.lfx_url = url;
   }
   return programs;
@@ -341,12 +352,24 @@ function renderExportChangeBody(added, updated) {
     : '_No programs added or updated in this run (regenerated files only)._';
 }
 
+// The comment posted to each newly-exported proposal when the export PR opens.
+// The files link targets `main` (the durable location once the PR merges), not
+// the export branch, which is deleted on merge and would leave a dead link.
+// Extracted from lfx-export.yml and unit-tested so the link target and copy
+// can't silently drift, as the inline version did. (#252)
+function exportInclusionComment({ owner, repo, term, year, termDir } = {}) {
+  const path = `programs/lfx-mentorship/${year}/${termDir}/`;
+  return `\u{1F4E6} This proposal has been included in the **${term}** export.\n\n` +
+    `Export files: [\`${path}\`](/${owner}/${repo}/tree/main/${path})\n\n` +
+    `The export PR is awaiting review. Once merged and posted to LFX, this issue will be updated again.`;
+}
+
 module.exports = {
   recordedLfxUrlComment, parseRecordedLfxUrl, lfxUrlDecision,
   findExportedProgram, exportTermLabel, readExports, locateExportedProgram,
   termMismatchWarning, recordedPrograms, renderRecordedIssues, recordedUrlNextSteps,
   changedRecordedPrograms, programCountLabel,
   populateRecordedUrls, upsertLfxUrlBlock, stripLfxUrlBlock,
-  exportChangeLabel, renderExportChangeBody,
+  exportChangeLabel, renderExportChangeBody, exportInclusionComment,
   LFX_PROGRAM_URL_RE,
 };

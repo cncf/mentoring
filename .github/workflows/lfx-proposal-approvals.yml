@@ -52,6 +52,7 @@ jobs:
             const { replyReaction } = _lib('reactions.js');
             const { lookupProject } = _lib('projects.js');
             const { getGlobalApprovers, getProjectSection, getFallbackHandles, maintainersCanApprove, buildProjectKeys } = _lib('approvers.js');
+            const { maintainerApprovalComment, cncfApprovalComment } = _lib('approvals.js');
             const { cncfApproveDecision } = _lib('cncf-approve.js');
             const { lfxUrlDecision, recordedLfxUrlComment, readExports, locateExportedProgram, exportTermLabel, termMismatchWarning, renderRecordedIssues, recordedUrlNextSteps, changedRecordedPrograms, programCountLabel, populateRecordedUrls, upsertLfxUrlBlock } = _lib('lfx-url.js');
             const { termPaths } = _lib('term-paths.js');
@@ -278,8 +279,7 @@ jobs:
 
               await addLabel('Maintainer/Contribex Approved');
               await removeLabel('Awaiting Maintainer/Contribex Approval');
-              await reply('✅',
-                `Maintainer approval recorded from @${commenter} (${authSource}).`);
+              await reply('✅', maintainerApprovalComment({ commenter, source: authSource }));
               await checkBothGates();
               return;
             }
@@ -438,9 +438,7 @@ jobs:
 
               await addLabel('CNCF Approved');
               await removeLabel('Awaiting CNCF Admin Approval');
-              await reply('✅',
-                `CNCF admin approval granted by @${commenter}.\n\n` +
-                `This proposal is approved and will be included in the next LFX export.`);
+              await reply('✅', cncfApprovalComment({ commenter }));
               return;
             }
 
