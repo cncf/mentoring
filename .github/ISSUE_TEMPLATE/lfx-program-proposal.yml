@@ -123,6 +123,7 @@ body:
         - "KAITO"
         - "Kanister"
         - "Karmada"
+        - "kbind"
         - "KCL"
         - "kcp"
         - "KEDA"
