@@ -314,6 +314,9 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
+            const path = require('path');
+            const _lib = (m) => require(path.join(process.env.GITHUB_WORKSPACE || process.cwd(), 'programs/lfx-mentorship/automation/lib', m));
+            const { exportInclusionComment } = _lib('lfx-url.js');
             const { owner, repo } = context.repo;
             const issues = process.env.EXPORTED_ISSUES.split(',').filter(Boolean);
             const notify = new Set((process.env.NOTIFY_ISSUES || '').split(',').filter(Boolean).map(Number));
@@ -339,12 +342,10 @@ jobs:
                 continue;
               }
 
-              // Comment linking to the export
+              // Comment linking to the export (copy in lib/lfx-url.js, tested)
               await github.rest.issues.createComment({
                 owner, repo, issue_number,
-                body: `📦 This proposal has been included in the **${term}** export.\n\n` +
-                  `Export files: [\`programs/lfx-mentorship/${year}/${termDir}/\`](/${owner}/${repo}/tree/automation/lfx-export-${year}-${termDir}/programs/lfx-mentorship/${year}/${termDir}/)\n\n` +
-                  `The export PR is awaiting review. Once merged and posted to LFX, this issue will be updated again.`,
+                body: exportInclusionComment({ owner, repo, term, year, termDir }),
               });
 
               console.log(`Notified issue #${issue_number}`);

@@ -7,7 +7,7 @@ const {
   exportTermLabel, readExports, locateExportedProgram, termMismatchWarning,
   recordedPrograms, renderRecordedIssues, recordedUrlNextSteps, populateRecordedUrls,
   changedRecordedPrograms, programCountLabel, upsertLfxUrlBlock, stripLfxUrlBlock,
-  exportChangeLabel, renderExportChangeBody,
+  exportChangeLabel, renderExportChangeBody, exportInclusionComment,
 } = require('../lib/lfx-url');
 
 const bot = (body) => ({ user: { login: 'github-actions[bot]' }, body });
@@ -705,4 +705,28 @@ test('renderExportChangeBody: no em-dash', () => {
     [{ issue_number: 2, program_name_full: 'CNCF - B (T)' }],
   );
   assert.ok(!md.includes('\u2014'));
+});
+
+// ── exportInclusionComment: the "included in the export" comment posted to each
+// newly-exported proposal when the export PR opens. The files link must target
+// `main` (durable once the PR merges), never the export branch (deleted on
+// merge, which breaks the link). Extracted from lfx-export.yml and tested so the
+// link target and copy can't silently drift, as the inline version did. (#252)
+test('exportInclusionComment: links the export files to main, not the export branch', () => {
+  const body = exportInclusionComment({
+    owner: 'cncf', repo: 'mentoring',
+    term: '2026 Term 3 (Sep-Nov)', year: '2026', termDir: '03-Sep-Nov',
+  });
+  assert.match(body, /\(\/cncf\/mentoring\/tree\/main\/programs\/lfx-mentorship\/2026\/03-Sep-Nov\/\)/);
+  assert.doesNotMatch(body, /tree\/automation/);
+});
+
+test('exportInclusionComment: names the term and shows the export files path', () => {
+  const body = exportInclusionComment({
+    owner: 'o', repo: 'r',
+    term: '2026 Term 3 (Sep-Nov)', year: '2026', termDir: '03-Sep-Nov',
+  });
+  assert.match(body, /included in the \*\*2026 Term 3 \(Sep-Nov\)\*\* export/);
+  assert.match(body, /`programs\/lfx-mentorship\/2026\/03-Sep-Nov\/`/);
+  assert.match(body, /awaiting review/);
 });
