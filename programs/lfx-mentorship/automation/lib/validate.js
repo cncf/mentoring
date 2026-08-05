@@ -14,8 +14,11 @@ const { normalizeMentorEmail, parseIssueForm } = require('./parse.js');
 const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const urlRe = /^https?:\/\/\S+$/;
 const ghHandleRe = /^@[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}$/;
-// LF Username (LFID): a single token, no spaces, '@', or URL slashes.
-const lfidRe = /^[^\s@/]+$/;
+// LF Username (LFID): letters, digits, and . _ - only, starting with a letter
+// or digit — LFX/openprofile handles contain nothing else. The previous
+// whitelist (anything but space, '@', or a slash) admitted placeholder tokens
+// like "jkowall(?)", which then shipped to LFX in the term export.
+const lfidRe = /^[A-Za-z0-9][A-Za-z0-9_.-]*$/;
 
 // Validate the Mentors field (pipe-separated, one mentor per line).
 // Returns { ok, count, errors }, where each error is { role, code, ... }.

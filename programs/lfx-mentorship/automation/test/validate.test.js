@@ -142,6 +142,13 @@ test('validateUpstreamUrl: whitespace fails the URL regex first (format, not mul
 test('lfidRe: accepts plain usernames and dot/dash/underscore', () => {
   assert.equal(lfidRe.test('janedoe'), true);
   assert.equal(lfidRe.test('jane.doe-1_x'), true);
+  assert.equal(lfidRe.test('05cc0d01-c938-4a18-951e-af71be282b2b'), true);
+});
+
+test('lfidRe: rejects placeholder punctuation like "jkowall(?)" (leaked into a 2026 T3 export)', () => {
+  assert.equal(lfidRe.test('jkowall(?)'), false);
+  assert.equal(lfidRe.test('jane?'), false);
+  assert.equal(lfidRe.test('(tbd)'), false);
 });
 
 test('lfidRe: rejects empty, spaces, emails, and URLs', () => {
@@ -149,6 +156,13 @@ test('lfidRe: rejects empty, spaces, emails, and URLs', () => {
   assert.equal(lfidRe.test('jane doe'), false);
   assert.equal(lfidRe.test('jane@example.com'), false);
   assert.equal(lfidRe.test('https://openprofile.dev/profile/janedoe'), false);
+});
+
+test('validateMentors: a placeholder LFID like "jkowall(?)" flags "lfid-format"', () => {
+  assert.deepEqual(
+    codes(validateMentors('Jonah Kowall | @jkowall | jkowall@kowall.net | jkowall(?)')),
+    ['lfid-format'],
+  );
 });
 
 test('emailRe / ghHandleRe / urlRe: basic accept and reject', () => {
