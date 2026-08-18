@@ -553,6 +553,7 @@ CNCF - Headlamp: Kyverno Policy Visualization & Operational Improvements (2026 T
   - Rene Dudfield (@illume, renedudfield@microsoft.com)
   - Sumit Goyal (@itvi-1234, Sumit.goyal.cse@gmail.com)
   - Ashwani Yadav (@NAME-ASHWANIYADAV, 22ashwaniyadav@gmail.com)
+  - Joshna Waikar (@Joshna907, joshnawaikar@gmail.com)
 - Upstream Issue: https://github.com/headlamp-k8s/plugins/issues/938
 - LFX URL: https://mentorship.lfx.linuxfoundation.org/project/db537dd6-3ea7-49d0-9a53-f0b4ad772add
 
