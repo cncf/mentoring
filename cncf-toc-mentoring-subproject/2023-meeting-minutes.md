@@ -1,19 +1,18 @@
 ---
-title: TAGCS Mentoring Working Group Monthly Meeting (2023)
+title: CNCF TOC Mentoring Subproject Monthly Meeting (2023)
 tags: Meeting Minutes, 2023
 ---
 
 [![hackmd-github-sync-badge](https://hackmd.io/7vA7fKNrRG6KrGbA01oupw/badge)](https://hackmd.io/7vA7fKNrRG6KrGbA01oupw)
 
 
-CNCF TAG Contributor Strategy
-# Mentoring Working Group
+# CNCF TOC Mentoring Subproject
 
 
-## About TAGCS Mentorship Working Group
+## About CNCF TOC Mentoring Subproject
 
 * [Primary repository](https://github.com/cncf/mentoring)
-* CNCF Slack: [#tag-contributor-strategy](https://cloud-native.slack.com/archives/CT6CWS1JN)
+* CNCF Slack: [#cncf-mentoring](https://cloud-native.slack.com/archives/CGPK98JNQ)
 * [Discussion boards](https://github.com/cncf/mentoring/discussions)
 * [Email list](https://lists.cncf.io/g/tag-cs-mentoring-wg/)
 
@@ -23,7 +22,7 @@ CNCF TAG Contributor Strategy
 ### Recurring monthly
 * 2nd Tuesday of the month at 9PM UTC
 
-[CNCF Public Events - TAG CS Mentoring WG](https://tockify.com/cncf.public.events/monthly?search=CNCF%20TAG%20Contributor%20Strategy%20Mentoring%20WG)
+[CNCF TOC Mentoring Subproject Public Calendar](https://zoom-lfx.platform.linuxfoundation.org/meetings/toc-mentoring-subproject?view=month)
 
 ### Zoom
 

@@ -1,12 +1,10 @@
-CNCF TAG Contributor Strategy
-# Mentoring Working Group
+# CNCF TOC Mentoring Subproject
 
+## About
 
-## About TAGCS Mentorship Working Group
+[Mentoring Subproject Charter](https://github.com/cncf/toc/blob/main/toc_subprojects/mentoring-subproject/charter.md)
 
-[Mentoring WG Charter](https://github.com/cncf/tag-contributor-strategy/tree/main/mentoring)
-
-* CNCF Slack: [#tag-contributor-strategy](https://cloud-native.slack.com/archives/CT6CWS1JN)
+* CNCF Slack: [#cncf-mentoring](https://cloud-native.slack.com/archives/CGPK98JNQ)
 * [Discussion boards](https://github.com/cncf/mentoring/discussions)
 * [Email list](https://lists.cncf.io/g/tag-cs-mentoring-wg/)
 

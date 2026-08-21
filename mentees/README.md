@@ -171,9 +171,9 @@ Being active in GitHub, meetings, events and blogs or articles are also examples
 
 The best way to start contributing is:
 * Learn how to use the project, read the docs, try the tutorial/quickstart, and find ways to gain experience using the project and understanding how it works
-* Read the [CONTRIBUTING](https://github.com/cncf/tag-contributor-strategy/blob/main/CONTRIBUTING.md) guide.
+* Read the [CONTRIBUTING](https://github.com/cncf/mentoring/blob/main/CONTRIBUTING.md) guide.
 * Volunteer to work on an open issue that you know how to fix.
-* Attend [meetings or join our Slack channel](https://github.com/cncf/tag-contributor-strategy#communicating-with-us).
+* Attend [meetings or join our Slack channel](https://github.com/cncf/mentoring#communicating-with-us).
 * Contribute a bug fix for a problem that is impacting you.
 
 The CNCF Contributor website is a great starting point for new contributors. 
