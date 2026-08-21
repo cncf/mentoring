@@ -17,7 +17,7 @@ This initiative is guided by the [CNCF Mentoring Subproject](/cncf-toc-mentoring
 Participation in the CNCF Mentoring Program is open to anyone who is interested in learning about cloud native technologies and contributing to open source projects in the ecosystem.
 
 Contact
-If you have any questions or need help getting started, please reach out through our various [communication channels](/mentoring-wg/communications.md).
+If you have any questions or need help getting started, please reach out through our various [communication channels](/cncf-toc-mentoring-subproject/communications.md).
 
 ## Mentoring Programs
 
