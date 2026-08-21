@@ -1,18 +1,18 @@
 ---
-title: CNCF TOC Mentoring Subproject Monthly Meeting (2024)
+title: TAGCS Mentoring Working Group Monthly Meeting (2024)
 tags: Meeting Minutes, 2024
 ---
 
-# CNCF TOC Mentoring Subproject
+# Mentoring Working Group
 
 This file’s location: 
-[1\. Technical Advisory Groups / TOC Subprojects / TOC Mentoring Subproject](https://drive.google.com/drive/folders/1IlgEbbspQTpSthEuXgZqZsUCEJxH5NBZ?usp=drive_link)  
+[1\. Technical Advisory Groups / TAG Contributor Strategy / Mentoring](https://drive.google.com/drive/folders/1IlgEbbspQTpSthEuXgZqZsUCEJxH5NBZ?usp=drive_link)  
 GitHub location: [https://github.com/cncf/mentoring/blob/main/mentoring-wg/2024-meeting-minutes.md](https://github.com/cncf/mentoring/blob/main/mentoring-wg/2024-meeting-minutes.md)
 
-# About CNCF TOC Mentoring Subproject
+# About TAGCS Mentorship Working Group
 
 * [Primary repository](https://github.com/cncf/mentoring)
-* CNCF Slack: [\#cncf-mentoring](https://cloud-native.slack.com/archives/CGPK98JNQ)
+* CNCF Slack: [\#tag-contributor-strategy](https://cloud-native.slack.com/archives/CT6CWS1JN)
 * [Discussion boards](https://github.com/cncf/mentoring/discussions)
 * [Email list](https://lists.cncf.io/g/tag-cs-mentoring-wg/)
 
@@ -21,7 +21,7 @@ GitHub location: [https://github.com/cncf/mentoring/blob/main/mentoring-wg/2024-
 ### Recurring monthly
 
 3rd Thursday of the month at 10AM Pacific Time  
-[CNCF TOC Mentoring Subproject Public Calendar](https://zoom-lfx.platform.linuxfoundation.org/meetings/toc-mentoring-subproject?view=month)
+[CNCF Public Events \- TAG CS Mentoring WG](https://tockify.com/cncf.public.events/monthly?search=CNCF%20TAG%20Contributor%20Strategy%20Mentoring%20WG)
 
 ### Zoom
 

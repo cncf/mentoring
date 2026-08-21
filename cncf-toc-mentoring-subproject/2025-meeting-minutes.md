@@ -11,7 +11,7 @@ GitHub location: [https://github.com/cncf/mentoring/blob/main/mentoring-wg/2024-
 # About CNCF TOC Mentoring Subproject
 
 * [Primary repository](https://github.com/cncf/mentoring)  
-* CNCF Slack: [\#cncf-mentoring](https://cloud-native.slack.com/archives/CGPK98JNQ)  
+* CNCF Slack: [\#tag-contributor-strategy](https://cloud-native.slack.com/archives/CT6CWS1JN)  
 * [Discussion boards](https://github.com/cncf/mentoring/discussions)  
 * [Email list](https://lists.cncf.io/g/tag-cs-mentoring-wg/)
 

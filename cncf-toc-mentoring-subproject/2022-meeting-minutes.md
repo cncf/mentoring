@@ -14,7 +14,7 @@ This file has been archived. Please find the [2023 meeting minutes here](https:/
 ## About CNCF TOC Mentoring Subproject
 
 * [Primary repository](https://github.com/cncf/mentoring)
-* CNCF Slack: [#cncf-mentoring](https://cloud-native.slack.com/archives/CGPK98JNQ)
+* CNCF Slack: [#cncf-mentoring](https://cloud-native.slack.com/archives/CGPK98JNQ), [#toc-mentoring-subproject](https://cloud-native.slack.com/archives/C09C9EGPJAC)
 * [Discussion boards](https://github.com/cncf/mentoring/discussions)
 * [Email list](https://lists.cncf.io/g/tag-cs-mentoring-wg/)
 
