@@ -1,0 +1,60 @@
+# LFX Mentorship 2027 Term 1 (Mar-May) schedule.
+# Source: https://github.com/cncf/mentoring/issues/2060
+
+term:
+  year: 2027
+  number: 1
+
+schedule:
+  - key: proposals_open
+    label: Project Proposals Open
+    start: 2027-01-06
+    end: 2027-01-27
+    time: 18:00 UTC
+  - key: mentor_info_sessions
+    label: Mentor/Maintainer Info Sessions
+    start: 2027-01-12
+    time: Times TBD (will be multiple timezone options)
+  - key: candidate_info_sessions
+    label: Mentee Candidate Info Sessions
+    start: 2027-01-28
+    time: Times TBD (will be multiple timezone options)
+  - key: applications_open
+    label: Mentee Applications Open
+    start: 2027-02-03
+    end: 2027-02-16
+    time: 23:59 UTC
+  - key: application_review
+    label: Application Review Period
+    start: 2027-02-17
+    end: 2027-03-02
+    time: 18:00 UTC
+  - key: selection_notify
+    label: Selection Notifications
+    start: 2027-03-03
+    end: 2027-03-05
+    note: "*(notifications may take a few days to reach all mentees)*"
+  - key: term_start
+    label: Mentorship Program Begins
+    start: 2027-03-08
+  - key: kickoff_call
+    label: Mentorship Kick Off Call
+    start: 2027-03-09
+    time: Times TBD (will be multiple timezone options)
+  - key: midterm_evals
+    label: Midterm Mentee Evaluations
+    start: 2027-04-20
+    time: 18:00 UTC
+  - key: first_stipends
+    label: First Stipend Payments
+    start: 2027-04-21
+  - key: final_evals
+    label: Final Mentee Evaluations
+    start: 2027-05-25
+    time: 18:00 UTC
+  - key: second_stipends
+    label: Second Stipend Payments
+    start: 2027-05-26
+  - key: term_end
+    label: Last Day of Term
+    start: 2027-05-28
