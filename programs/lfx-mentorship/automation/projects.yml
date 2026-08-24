@@ -1,5 +1,5 @@
 # Auto-generated from cncf/landscape — DO NOT EDIT MANUALLY.
-# Last updated: 2026-08-10
+# Last updated: 2026-08-24
 # Total projects: 227
 
 - name: Aeraki Mesh
@@ -153,7 +153,7 @@
   repo_url: https://github.com/cdk8s-team/cdk8s
   has_dot_project: true
 - name: Cedar
-  slug: cedar
+  slug: cedar-policy
   maturity: sandbox
   homepage: https://cedarpolicy.com
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/cedar.svg
@@ -1060,6 +1060,13 @@
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/open-policy-containers.svg
   repo_url: https://github.com/opcr-io/policy
   has_dot_project: true
+- name: Open Workflow Specification
+  slug: openworkflow
+  maturity: sandbox
+  homepage: https://open-workflow-specification.org
+  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/sws_logo.svg
+  repo_url: https://github.com/open-workflow-specification/specification
+  has_dot_project: true
 - name: OpenChoreo
   slug: openchoreo
   maturity: sandbox
@@ -1106,6 +1113,7 @@
   homepage: https://openfunction.dev
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/openfunction.svg
   repo_url: https://github.com/OpenFunction/OpenFunction
+  has_dot_project: true
 - name: openGemini
   slug: opengemini
   maturity: sandbox
@@ -1304,12 +1312,6 @@
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/serverless-devs.svg
   repo_url: https://github.com/serverless-devs/serverless-devs
   has_dot_project: true
-- name: Serverless Workflow
-  slug: serverlessworkflow
-  maturity: sandbox
-  homepage: https://serverlessworkflow.io
-  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/sws_logo.svg
-  repo_url: https://github.com/serverlessworkflow/specification
 - name: Shipwright
   slug: shipwright
   maturity: sandbox
@@ -1464,18 +1466,21 @@
   homepage: https://velero.io
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/project-velero.svg
   repo_url: https://github.com/velero-io/velero
+  has_dot_project: true
 - name: Virtual Kubelet
   slug: virtualkubelet
   maturity: sandbox
   homepage: https://virtual-kubelet.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/virtual-kubelet.svg
   repo_url: https://github.com/virtual-kubelet/virtual-kubelet
+  has_dot_project: true
 - name: Visual Studio Code Kubernetes Tools
   slug: vscodekubernetestools
   maturity: sandbox
   homepage: https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/vscodek8stools.svg
   repo_url: https://github.com/vscode-kubernetes-tools/vscode-kubernetes-tools
+  has_dot_project: true
 - name: Vitess
   slug: vitess
   maturity: graduated
@@ -1488,6 +1493,7 @@
   homepage: https://volcano.sh/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/volcano.svg
   repo_url: https://github.com/volcano-sh/volcano
+  has_dot_project: true
 - name: wasmCloud
   slug: wasmcloud
   maturity: incubating
@@ -1508,18 +1514,21 @@
   homepage: https://werf.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/werf.svg
   repo_url: https://github.com/werf/werf
+  has_dot_project: true
 - name: xRegistry
   slug: xregistry
   maturity: sandbox
   homepage: https://xregistry.io
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/xregistry.svg
   repo_url: https://github.com/xregistry/server
+  has_dot_project: true
 - name: youki
   slug: youki
   maturity: sandbox
   homepage: https://youki-dev.github.io/youki/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/youki.svg
   repo_url: https://github.com/youki-dev/youki
+  has_dot_project: true
 - name: zot
   slug: zot
   maturity: sandbox
