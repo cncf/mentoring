@@ -11,7 +11,7 @@
 // Shape:
 //   {
 //     term:     { year: 2026, number: 3 },
-//     schedule: [ { key, label, start, end?, time?, note? }, ... ],
+//     schedule: [ { key, label, start, start_time?, end?, time?, end_time?, note? }, ... ],
 //     // optional, used by later phases:
 //     repo?: 'cncf/mentoring', project?: 91
 //   }
@@ -72,6 +72,15 @@ function validateConfig(raw) {
     }
     if (e.end != null && e.end < e.start) {
       throw new Error(`schedule "${e.key}" has end date ${e.end} before start date ${e.start}`);
+    }
+    if (e.start_time != null && e.end == null) {
+      throw new Error(`schedule "${e.key}" has a "start_time" but no "end" date (use "time" for a single date)`);
+    }
+    if (e.end_time != null && e.end == null) {
+      throw new Error(`schedule "${e.key}" has an "end_time" but no "end" date (use "time" for a single date)`);
+    }
+    if (e.end_time != null && e.time != null) {
+      throw new Error(`schedule "${e.key}" has both "time" and "end_time" (they render in the same place; pick one)`);
     }
     if (seen.has(e.key)) throw new Error(`schedule has a duplicate key: ${e.key}`);
     seen.add(e.key);

@@ -16,6 +16,10 @@
 #            omitted from the timeline until you add a date and re-run.
 #   end      optional, YYYY-MM-DD for a date range (needs a start).
 #   time     optional, comma-appended suffix, e.g. "18:00 UTC" or "Times TBD (...)".
+#   start_time optional, comma-appended to the range start, e.g. "00:00 UTC"
+#            when a window opens and closes at stated times (needs an end).
+#   end_time optional, comma-appended to the range end, e.g. "23:59 UTC"; pairs
+#            with start_time (needs an end, and replaces time on that entry).
 #   note     optional, space-appended suffix, e.g. an italic "*(...)*" aside.
 #   timeline optional, set false to keep a board-only anchor out of the README.
 

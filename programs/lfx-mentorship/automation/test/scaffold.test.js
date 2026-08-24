@@ -12,8 +12,6 @@ const {
 } = require('../lib/scaffold');
 const { termIdentity } = require('../lib/term');
 
-const EN_DASH = '\u2013';
-
 test('fmtShort: ISO date -> "Ddd, Mon D" (UTC, no leading zero)', () => {
   assert.equal(fmtShort('2026-07-01'), 'Wed, Jul 1');
   assert.equal(fmtShort('2026-09-07'), 'Mon, Sep 7');
@@ -29,15 +27,19 @@ test('dateCell: single date, range, time and note compose predictably', () => {
   assert.equal(dateCell({ start: '2026-09-07' }), 'Mon, Sep 7');
   assert.equal(
     dateCell({ start: '2026-07-01', end: '2026-07-28' }),
-    `Wed, Jul 1 ${EN_DASH} Tue, Jul 28`,
+    'Wed, Jul 1 - Tue, Jul 28',
   );
   assert.equal(
     dateCell({ start: '2026-07-01', end: '2026-07-28', time: '18:00 UTC' }),
-    `Wed, Jul 1 ${EN_DASH} Tue, Jul 28, 18:00 UTC`,
+    'Wed, Jul 1 - Tue, Jul 28, 18:00 UTC',
+  );
+  assert.equal(
+    dateCell({ start: '2027-02-03', start_time: '00:00 UTC', end: '2027-02-16', end_time: '23:59 UTC' }),
+    'Wed, Feb 3, 00:00 UTC - Tue, Feb 16, 23:59 UTC',
   );
   assert.equal(
     dateCell({ start: '2026-09-02', end: '2026-09-04', note: '*(notifications may take a few days)*' }),
-    `Wed, Sep 2 ${EN_DASH} Fri, Sep 4 *(notifications may take a few days)*`,
+    'Wed, Sep 2 - Fri, Sep 4 *(notifications may take a few days)*',
   );
 });
 
@@ -50,7 +52,7 @@ test('renderTimeline: builds the ### Timeline block with a year-stamped header',
   const out = renderTimeline(schedule, 2026);
   assert.match(out, /^### Timeline\n/);
   assert.match(out, /\| Activity \| Dates \(2026\) \|/);
-  assert.match(out, /\| Project Proposals Open \| Wed, Jul 1 \u2013 Tue, Jul 28, 18:00 UTC \|/);
+  assert.match(out, /\| Project Proposals Open \| Wed, Jul 1 - Tue, Jul 28, 18:00 UTC \|/);
   assert.match(out, /\| Mentorship Program Begins \| Mon, Sep 7 \|/);
   assert.match(out, /\| Last Day of Term \| Fri, Nov 27 \|/);
 });

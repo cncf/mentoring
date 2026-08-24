@@ -78,6 +78,32 @@ test('validateConfig: rejects an end date with no start', () => {
   assert.throws(() => validateConfig(raw), /end/i);
 });
 
+test('validateConfig: rejects a start_time with no end date (use time instead)', () => {
+  const raw = validRaw();
+  raw.schedule[1].start_time = '00:00 UTC'; // term_start is a single date
+  assert.throws(() => validateConfig(raw), /start_time/i);
+
+  const ok = validRaw();
+  ok.schedule[0].start_time = '00:00 UTC'; // proposals_open is a range
+  assert.doesNotThrow(() => validateConfig(ok));
+});
+
+test('validateConfig: rejects an end_time with no end date, or combined with time', () => {
+  const raw = validRaw();
+  raw.schedule[1].end_time = '23:59 UTC'; // term_start is a single date
+  assert.throws(() => validateConfig(raw), /end_time/i);
+
+  const both = validRaw();
+  both.schedule[0].end_time = '23:59 UTC'; // proposals_open already has time
+  assert.throws(() => validateConfig(both), /end_time/i);
+
+  const ok = validRaw();
+  delete ok.schedule[0].time;
+  ok.schedule[0].start_time = '00:00 UTC';
+  ok.schedule[0].end_time = '23:59 UTC';
+  assert.doesNotThrow(() => validateConfig(ok));
+});
+
 test('validateConfig: rejects a malformed date', () => {
   const raw = validRaw();
   raw.schedule[1].start = '2026-13-40';

@@ -16,8 +16,6 @@
 
 const { parseISO } = require('./dates');
 
-const EN_DASH = '\u2013';
-
 const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const MONTHS_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const MONTHS_LONG = ['January', 'February', 'March', 'April', 'May', 'June',
@@ -36,13 +34,19 @@ function fmtLong(iso) {
 }
 
 // Compose a Timeline "Dates" cell from a schedule entry:
-//   { start, end?, time?, note? }
-// -> "Wed, Jul 1 – Tue, Jul 28, 18:00 UTC" (+ " <note>" appended verbatim so the
-// runner controls any italics/parenthetical wording).
-function dateCell({ start, end, time, note }) {
+//   { start, start_time?, end?, time?, end_time?, note? }
+// -> "Wed, Jul 1 - Tue, Jul 28, 18:00 UTC" (+ " <note>" appended verbatim so the
+// runner controls any italics/parenthetical wording). A window that opens and
+// closes at stated times pairs start_time with end_time, comma-appended to
+// their dates ("Wed, Feb 3, 00:00 UTC - Tue, Feb 16, 23:59 UTC"); time is the
+// same trailing suffix for entries without that symmetry ("18:00 UTC",
+// "Times TBD (...)").
+function dateCell({ start, start_time, end, time, end_time, note }) {
   let cell = fmtShort(start);
-  if (end) cell += ` ${EN_DASH} ${fmtShort(end)}`;
-  if (time) cell += `, ${time}`;
+  if (start_time) cell += `, ${start_time}`;
+  if (end) cell += ` - ${fmtShort(end)}`;
+  const suffix = end_time || time;
+  if (suffix) cell += `, ${suffix}`;
   if (note) cell += ` ${note}`;
   return cell;
 }
