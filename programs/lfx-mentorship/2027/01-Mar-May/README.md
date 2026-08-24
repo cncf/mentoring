@@ -8,12 +8,12 @@ Mentorship duration - three months (full-time schedule)
 
 | Activity | Dates (2027) |
 |----------|--------------|
-| Project Proposals Open | Wed, Jan 6 – Wed, Jan 27, 18:00 UTC |
+| Project Proposals Open | Wed, Jan 6 - Wed, Jan 27, 18:00 UTC |
 | Mentor/Maintainer Info Sessions | Tue, Jan 12, Times TBD (will be multiple timezone options) |
 | Mentee Candidate Info Sessions | Thu, Jan 28, Times TBD (will be multiple timezone options) |
 | Mentee Applications Open | Wed, Feb 3, 00:00 UTC - Tue, Feb 16, 23:59 UTC |
-| Application Review Period | Wed, Feb 17 – Tue, Mar 2, 18:00 UTC |
-| Selection Notifications | Wed, Mar 3 – Fri, Mar 5 *(notifications may take a few days to reach all mentees)* |
+| Application Review Period | Wed, Feb 17 - Tue, Mar 2, 18:00 UTC |
+| Selection Notifications | Wed, Mar 3 - Fri, Mar 5 *(notifications may take a few days to reach all mentees)* |
 | Mentorship Program Begins | Mon, Mar 8 |
 | Mentorship Kick Off Call | Tue, Mar 9, Times TBD (will be multiple timezone options) |
 | Midterm Mentee Evaluations | Tue, Apr 20, 18:00 UTC |

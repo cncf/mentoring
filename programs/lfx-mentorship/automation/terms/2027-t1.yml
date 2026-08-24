@@ -22,8 +22,9 @@ schedule:
   - key: applications_open
     label: Mentee Applications Open
     start: 2027-02-03
+    start_time: 00:00 UTC
     end: 2027-02-16
-    time: 23:59 UTC
+    end_time: 23:59 UTC
   - key: application_review
     label: Application Review Period
     start: 2027-02-17
