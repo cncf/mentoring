@@ -11,7 +11,7 @@
 //   getIssue({ number })                      -> { number, id, nodeId }
 //   getSubIssues({ parentNumber })            -> [childDatabaseId, ...]
 //   listIssues({ labels })                    -> [{ number, title, nodeId }, ...]
-//                                                (resume only; all states, every label required)
+//                                                (resume only; open issues, every label required)
 //   addSubIssue({ parentNumber, childId })    -> void
 //   addToBoard({ contentId })                 -> { itemId }
 //   setFields({ itemId, status, start, due }) -> void

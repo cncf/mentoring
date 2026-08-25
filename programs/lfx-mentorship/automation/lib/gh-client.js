@@ -56,11 +56,13 @@ function createGhClient({ repo, projectId, fields, exec }) {
 
     async listIssues({ labels }) {
       // REST label filtering is AND-semantics, so an item's full label set
-      // pins the search to this term. Issues only; the endpoint mixes in PRs.
+      // pins the search to this term. Open only: closing a stray is a
+      // documented recovery path, so it must drop out of the search. Issues
+      // only; the endpoint mixes in PRs.
       const raw = JSON.parse(await exec([
         'api', '--method', 'GET', `repos/${repo}/issues`,
         '-f', `labels=${(labels || []).join(',')}`,
-        '-f', 'state=all',
+        '-f', 'state=open',
         '-f', 'per_page=100',
       ]));
       return raw

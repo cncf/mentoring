@@ -129,7 +129,9 @@ test('setFields: throws when the board lacks the requested status option', async
   );
 });
 
-test('listIssues: queries all states with every label and maps issues, skipping PRs', async () => {
+test('listIssues: queries open issues with every label and maps them, skipping PRs', async () => {
+  // Open only: the gap-recovery instruction is "close the stray and re-run",
+  // so a closed issue must drop out of the search instead of refusing forever.
   const exec = fakeExec([JSON.stringify([
     { number: 42, title: 'Approve stipends', node_id: 'N42' },
     { number: 43, title: 'A pull request', node_id: 'N43', pull_request: { url: 'x' } },
@@ -138,7 +140,7 @@ test('listIssues: queries all states with every label and maps issues, skipping 
   assert.deepEqual(exec.calls[0], [
     'api', '--method', 'GET', 'repos/o/r/issues',
     '-f', 'labels=lfx mentorship,2026',
-    '-f', 'state=all',
+    '-f', 'state=open',
     '-f', 'per_page=100',
   ]);
   assert.deepEqual(found, [{ number: 42, title: 'Approve stipends', nodeId: 'N42' }]);
