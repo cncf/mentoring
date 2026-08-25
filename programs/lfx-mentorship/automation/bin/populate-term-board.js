@@ -6,7 +6,11 @@
 // board the admin created from the template, and set Status + Start/Due dates.
 // Phase 3 of the term-setup tooling; see ADMIN_GUIDE.md.
 //
-//   node bin/populate-term-board.js <config.(yml|json)> [--repo-root DIR] [--dry-run] [--force]
+//   node bin/populate-term-board.js <config.(yml|json)> [--repo-root DIR] [--dry-run] [--force] [--resume]
+//
+// --resume continues an interrupted run from its manifest: recorded issues are
+// skipped, the last recorded one is re-verified (its nest/board/fields may have
+// been lost in the crash), and the rest are created as usual.
 //
 // The config must carry `repo` (owner/repo) and `project` (the board URL). This
 // is the impure glue: the plan, dates, board-field resolution and the client are
@@ -25,18 +29,19 @@ const { createGhClient } = require('../lib/gh-client');
 const { runManifestPath, openRunManifest } = require('../lib/run-manifest');
 
 const USAGE =
-  'Usage: node bin/populate-term-board.js <config.(yml|json)> [--repo-root DIR] [--dry-run] [--force]';
+  'Usage: node bin/populate-term-board.js <config.(yml|json)> [--repo-root DIR] [--dry-run] [--force] [--resume]';
 
 const FIELDS_QUERY =
   'query($id:ID!){node(id:$id){... on ProjectV2{fields(first:50){nodes{'
   + '... on ProjectV2FieldCommon{id name} ... on ProjectV2SingleSelectField{id name options{id name}}}}}}}';
 
 function parseArgs(argv) {
-  const opts = { config: null, repoRoot: null, dryRun: false, force: false };
+  const opts = { config: null, repoRoot: null, dryRun: false, force: false, resume: false };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--dry-run') opts.dryRun = true;
     else if (a === '--force') opts.force = true;
+    else if (a === '--resume') opts.resume = true;
     else if (a === '--repo-root') opts.repoRoot = argv[++i];
     else if (a === '-h' || a === '--help') opts.help = true;
     else if (a.startsWith('-')) throw new Error(`Unknown option: ${a}`);
@@ -95,9 +100,18 @@ function instrument(inner, manifest) {
   });
 }
 
-function dryRun(plan, schedule, repo) {
-  console.log(`[dry-run] would create ${plan.length} issues on ${repo} and add them to the board:\n`);
-  console.log(formatPlanPreview(plan, schedule).join('\n'));
+function dryRun(plan, schedule, repo, completed = []) {
+  if (completed.length > 0) {
+    const last = completed[completed.length - 1];
+    console.log(
+      `[dry-run] resuming: ${completed.length} of ${plan.length} issues already recorded; ` +
+      `would re-verify "${last.title}" (#${last.number}) and create the remaining ${plan.length - completed.length}:\n`,
+    );
+    console.log(formatPlanPreview(plan.slice(completed.length), schedule).join('\n'));
+  } else {
+    console.log(`[dry-run] would create ${plan.length} issues on ${repo} and add them to the board:\n`);
+    console.log(formatPlanPreview(plan, schedule).join('\n'));
+  }
   console.log('\n(no issues created; re-run without --dry-run to apply)');
 }
 
@@ -114,35 +128,58 @@ async function main(argv) {
   const issuesPath = path.join(repoRoot, 'programs/lfx-mentorship/automation/term-issues.yml');
   const plan = buildIssuePlan(parseIssues(fs.readFileSync(issuesPath, 'utf8')), identity);
 
+  const automationDir = path.join(repoRoot, 'programs/lfx-mentorship/automation');
+  const manifest = cfg.repo
+    ? openRunManifest({ path: runManifestPath(automationDir, identity, cfg.repo) })
+    : null;
+  const completed = opts.resume && manifest && manifest.exists() ? manifest.read() : [];
+  if (opts.resume && completed.length === 0) {
+    throw new Error(
+      '--resume needs an existing run manifest (and "repo" in the config); nothing to resume' +
+      (manifest ? ` at ${manifest.path}` : ''),
+    );
+  }
+
   if (opts.dryRun) {
-    dryRun(plan, cfg.schedule, cfg.repo || '<config.repo>');
+    dryRun(plan, cfg.schedule, cfg.repo || '<config.repo>', completed);
     return 0;
   }
 
   if (!cfg.repo) throw new Error('config is missing "repo" (e.g. nate-double-u/mentoring)');
   if (!cfg.project) throw new Error('config is missing "project" (the board URL the admin created)');
 
-  const automationDir = path.join(repoRoot, 'programs/lfx-mentorship/automation');
-  const manifest = openRunManifest({ path: runManifestPath(automationDir, identity, cfg.repo) });
-  if (manifest.exists()) {
-    throw new Error(
-      `A run manifest already exists at ${manifest.path}. Tear down that run first ` +
-      '(bin/teardown-term.js), or remove the manifest, before starting a new one.',
-    );
+  if (!opts.resume) {
+    if (manifest.exists()) {
+      throw new Error(
+        `A run manifest already exists at ${manifest.path}. Resume the interrupted run ` +
+        '(--resume), tear it down (bin/teardown-term.js), or remove the manifest, ' +
+        'before starting a new one.',
+      );
+    }
+    const labels = ['lfx mentorship', identity.label, identity.yearLabel, 'administration'];
+    const existingCount = await countExisting(cfg.repo, labels, ghExec);
+    assertSafeToCreate({ existingCount, force: opts.force });
   }
-
-  const labels = ['lfx mentorship', identity.label, identity.yearLabel, 'administration'];
-  const existingCount = await countExisting(cfg.repo, labels, ghExec);
-  assertSafeToCreate({ existingCount, force: opts.force });
 
   console.log(`Resolving board ${cfg.project} …`);
   const { projectId, fields } = await resolveBoard(cfg.project, ghExec);
 
-  console.log(`Creating ${plan.length} issues on ${cfg.repo} and populating the board:`);
+  if (completed.length > 0) {
+    const last = completed[completed.length - 1];
+    console.log(
+      `Resuming on ${cfg.repo}: ${completed.length - 1} issues already done, ` +
+      `re-verifying #${last.number}, creating the remaining ${plan.length - completed.length}:`,
+    );
+  } else {
+    console.log(`Creating ${plan.length} issues on ${cfg.repo} and populating the board:`);
+  }
   const client = instrument(createGhClient({ repo: cfg.repo, projectId, fields, exec: ghExec }), manifest);
-  const { created } = await populateTerm(plan, { schedule: cfg.schedule }, client);
+  const { created, repaired } = await populateTerm(plan, { schedule: cfg.schedule, completed }, client);
 
-  console.log(`\nDone: ${created} issues created, linked, and added to the board for ${identity.title}.`);
+  console.log(
+    `\nDone: ${created} issues created${repaired ? ` (+${repaired} re-verified)` : ''}, ` +
+    `linked, and added to the board for ${identity.title}.`,
+  );
   console.log(`Recorded in ${manifest.path}.`);
   console.log('Tip: run bin/teardown-term.js with the same config to remove exactly this run (dev cleanup).');
   return 0;

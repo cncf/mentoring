@@ -138,6 +138,84 @@ test('populateTerm: fails fast when the plan is not in pre-order (parent not yet
   await assert.rejects(() => populateTerm(outOfOrder, { schedule: [] }, c), /pre-order/i);
 });
 
+// ── populateTerm resume (completed manifest records from an interrupted run) ─
+// The manifest records issues in creation (= plan) order. All records but the
+// last completed their full loop; the last one's nest/board/fields are unknown
+// (the crash window), so it is re-verified idempotently.
+function resumeClient({ subIssues = [] } = {}) {
+  const c = fakeClient();
+  c.getIssue = async ({ number }) => { c.calls.push(['getIssue', number]); return { number, id: number * 10, nodeId: `node-${number}` }; };
+  c.getSubIssues = async ({ parentNumber }) => { c.calls.push(['getSubIssues', parentNumber]); return subIssues; };
+  return c;
+}
+
+const COMPLETED = [
+  { number: 2000, title: '[LFX 2026 T3] 0. Key dates', nodeId: 'node-2000' },
+  { number: 2001, title: 'Project proposals open', nodeId: 'node-2001' },
+  { number: 2002, title: 'Mentorship Kick Off Call', nodeId: 'node-2002' },
+];
+
+test('populateTerm: resume skips completed records and creates only the rest', async () => {
+  const c = resumeClient({ subIssues: [20020] });
+  const r = await populateTerm(plan(), { schedule: SCHEDULE, completed: COMPLETED }, c);
+  const created = c.calls.filter((k) => k[0] === 'createIssue').map((k) => k[1]);
+  assert.deepEqual(created, [
+    '[LFX 2026 T3] 2. Proposals',
+    '[LFX 2026 T3] 2.1 [Announce] Applications open for candidates',
+    'Initial announcement',
+  ]);
+  assert.deepEqual(r, { created: 3, skipped: 2, repaired: 1 });
+});
+
+test('populateTerm: resume repairs the last record (board + fields, no re-nest when nested)', async () => {
+  const c = resumeClient({ subIssues: [20020] }); // 2002's id, already a sub-issue
+  await populateTerm(plan(), { schedule: SCHEDULE, completed: COMPLETED }, c);
+  assert.ok(c.calls.some((k) => k[0] === 'getIssue' && k[1] === 2002));
+  assert.ok(c.calls.some((k) => k[0] === 'getSubIssues' && k[1] === 2000));
+  assert.ok(!c.calls.some((k) => k[0] === 'addSubIssue' && k[2] === 20020));
+  assert.ok(c.calls.some((k) => k[0] === 'addToBoard' && k[1] === 'node-2002'));
+  const fields = c.calls.find((k) => k[0] === 'setFields' && k[1] === 'item-node-2002');
+  assert.deepEqual(fields.slice(2), ['Todo', null, null]); // kickoff is keyless
+});
+
+test('populateTerm: resume re-nests the last record when the parent lacks it', async () => {
+  const c = resumeClient({ subIssues: [] });
+  await populateTerm(plan(), { schedule: SCHEDULE, completed: COMPLETED }, c);
+  assert.ok(c.calls.some((k) => k[0] === 'addSubIssue' && k[1] === 2000 && k[2] === 20020));
+});
+
+test('populateTerm: resume repairs a top-level last record without a nest check, and later children nest under it', async () => {
+  const c = resumeClient();
+  await populateTerm(plan(), { schedule: SCHEDULE, completed: COMPLETED.slice(0, 1) }, c);
+  assert.ok(c.calls.some((k) => k[0] === 'getIssue' && k[1] === 2000));
+  assert.ok(!c.calls.some((k) => k[0] === 'getSubIssues'));
+  // "Project proposals open" is created fresh (number 1000) and nests under #2000
+  assert.ok(c.calls.some((k) => k[0] === 'addSubIssue' && k[1] === 2000 && k[2] === 10000));
+});
+
+test('populateTerm: resume rejects a manifest record that does not match the plan', async () => {
+  const bad = [{ number: 2000, title: 'Wrong title', nodeId: 'node-2000' }];
+  await assert.rejects(
+    () => populateTerm(plan(), { schedule: [], completed: bad }, resumeClient()),
+    /manifest/i,
+  );
+});
+
+test('populateTerm: resume rejects a manifest with more records than the plan', async () => {
+  const over = plan().map((p, i) => ({ number: 3000 + i, title: p.title, nodeId: `n${i}` }));
+  over.push({ number: 9999, title: 'Extra', nodeId: 'x' });
+  await assert.rejects(
+    () => populateTerm(plan(), { schedule: [], completed: over }, resumeClient()),
+    /manifest/i,
+  );
+});
+
+test('populateTerm: a fresh run reports zero skipped and repaired', async () => {
+  const c = fakeClient();
+  const r = await populateTerm(plan(), { schedule: SCHEDULE }, c);
+  assert.deepEqual(r, { created: 6, skipped: 0, repaired: 0 });
+});
+
 // ── assertSafeToCreate (pure guard against a double-run) ───────────────────
 test('assertSafeToCreate: throws when the term already has issues, unless forced', () => {
   assert.throws(() => assertSafeToCreate({ existingCount: 12, force: false }), /already|force/i);

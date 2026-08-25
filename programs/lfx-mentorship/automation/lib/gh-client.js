@@ -8,6 +8,8 @@
 
 const ADD_ITEM =
   'mutation($projectId:ID!,$contentId:ID!){addProjectV2ItemById(input:{projectId:$projectId,contentId:$contentId}){item{id}}}';
+const PROJECT_ITEMS =
+  'query($id:ID!){node(id:$id){... on Issue{projectItems(first:50){nodes{id project{id}}}}}}';
 const SET_SELECT =
   'mutation($projectId:ID!,$itemId:ID!,$fieldId:ID!,$optionId:String!){updateProjectV2ItemFieldValue(input:{projectId:$projectId,itemId:$itemId,fieldId:$fieldId,value:{singleSelectOptionId:$optionId}}){projectV2Item{id}}}';
 const SET_DATE =
@@ -35,8 +37,31 @@ function createGhClient({ repo, projectId, fields, exec }) {
     },
 
     async addToBoard({ contentId }) {
-      const out = await gql(ADD_ITEM, { projectId, contentId });
-      return { itemId: JSON.parse(out).data.addProjectV2ItemById.item.id };
+      try {
+        const out = await gql(ADD_ITEM, { projectId, contentId });
+        return { itemId: JSON.parse(out).data.addProjectV2ItemById.item.id };
+      } catch (err) {
+        // A board automation (e.g. "Auto-add sub-issues to project", carried
+        // over when the admin copies last term's board) can add the issue
+        // between our create and this call. Recover the item it created so a
+        // lost race is not a failed run.
+        if (!/already exists/i.test(err.message)) throw err;
+        const out = await gql(PROJECT_ITEMS, { id: contentId });
+        const nodes = JSON.parse(out).data.node.projectItems.nodes || [];
+        const existing = nodes.find((n) => n.project && n.project.id === projectId);
+        if (!existing) throw err;
+        return { itemId: existing.id };
+      }
+    },
+
+    async getIssue({ number }) {
+      const issue = JSON.parse(await exec(['api', `repos/${repo}/issues/${number}`]));
+      return { number: issue.number, id: issue.id, nodeId: issue.node_id };
+    },
+
+    async getSubIssues({ parentNumber }) {
+      const subs = JSON.parse(await exec(['api', `repos/${repo}/issues/${parentNumber}/sub_issues`]));
+      return subs.map((s) => s.id);
     },
 
     async setFields({ itemId, status, start, due }) {

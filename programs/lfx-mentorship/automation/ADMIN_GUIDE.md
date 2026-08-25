@@ -141,6 +141,17 @@ your issue notifications to see what needs attention.
    `teardown` helper is a development-only safeguard and refuses to run against
    production), so a mistaken run has to be cleaned up by hand.
 
+   An interrupted run (crash, rate limit, network drop) is safe to continue
+   with `--resume`: issues the manifest recorded are skipped, the last recorded
+   one is re-verified (its nesting, board card, or dates may have been lost in
+   the crash), and the rest are created as usual. Two things to know about the
+   copied board: it can carry over **built-in workflows** from the source board
+   (e.g. "Auto-add sub-issues to project", which races the tool's own board
+   adds — the tool treats an already-added card as success), and the double-run
+   guard counts every issue carrying all four admin labels, so a hand-labelled
+   issue (like the term's scheduling issue) can trip it; `--force` is the
+   escape hatch once you've confirmed the count is explained.
+
 3. **Sync the dropdowns:** Run the **Sync CNCF Projects from Landscape**
    workflow manually (Actions → **Sync CNCF Projects from Landscape** → Run
    workflow), or wait for
