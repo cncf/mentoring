@@ -54,6 +54,20 @@ function createGhClient({ repo, projectId, fields, exec }) {
       }
     },
 
+    async listIssues({ labels }) {
+      // REST label filtering is AND-semantics, so an item's full label set
+      // pins the search to this term. Issues only; the endpoint mixes in PRs.
+      const raw = JSON.parse(await exec([
+        'api', '--method', 'GET', `repos/${repo}/issues`,
+        '-f', `labels=${(labels || []).join(',')}`,
+        '-f', 'state=all',
+        '-f', 'per_page=100',
+      ]));
+      return raw
+        .filter((x) => !x.pull_request)
+        .map((x) => ({ number: x.number, title: x.title, nodeId: x.node_id }));
+    },
+
     async getIssue({ number }) {
       const issue = JSON.parse(await exec(['api', `repos/${repo}/issues/${number}`]));
       return { number: issue.number, id: issue.id, nodeId: issue.node_id };

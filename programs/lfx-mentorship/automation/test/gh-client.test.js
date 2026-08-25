@@ -128,3 +128,18 @@ test('setFields: throws when the board lacks the requested status option', async
     /Nope/,
   );
 });
+
+test('listIssues: queries all states with every label and maps issues, skipping PRs', async () => {
+  const exec = fakeExec([JSON.stringify([
+    { number: 42, title: 'Approve stipends', node_id: 'N42' },
+    { number: 43, title: 'A pull request', node_id: 'N43', pull_request: { url: 'x' } },
+  ])]);
+  const found = await client(exec).listIssues({ labels: ['lfx mentorship', '2026'] });
+  assert.deepEqual(exec.calls[0], [
+    'api', '--method', 'GET', 'repos/o/r/issues',
+    '-f', 'labels=lfx mentorship,2026',
+    '-f', 'state=all',
+    '-f', 'per_page=100',
+  ]);
+  assert.deepEqual(found, [{ number: 42, title: 'Approve stipends', nodeId: 'N42' }]);
+});

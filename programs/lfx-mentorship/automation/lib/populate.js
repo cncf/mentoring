@@ -10,6 +10,8 @@
 //   createIssue({ title, labels })            -> { number, id, nodeId }
 //   getIssue({ number })                      -> { number, id, nodeId }
 //   getSubIssues({ parentNumber })            -> [childDatabaseId, ...]
+//   listIssues({ labels })                    -> [{ number, title, nodeId }, ...]
+//                                                (resume only; all states, every label required)
 //   addSubIssue({ parentNumber, childId })    -> void
 //   addToBoard({ contentId })                 -> { itemId }
 //   setFields({ itemId, status, start, due }) -> void
@@ -48,13 +50,22 @@ function assertSafeToCreate({ existingCount, force } = {}) {
 //
 // Records are matched to plan items by position and verified field-by-field:
 // title, scheduleKey, parent number, and the dates the current schedule
-// resolves must all equal what the recorded run used, so an edited
-// term-issues.yml or schedule refuses to resume rather than silently mixing
-// old and new plans. Fields absent from a record (a legacy manifest) skip
-// their checks. ctx.onCreated, when given, receives each created issue's full
-// record ({ number, title, nodeId, parentNumber, scheduleKey, start, due })
-// the moment it exists, so the runner can persist it before any later step
-// can crash; skipped and repaired issues are already recorded.
+// resolves must all equal what the recorded run used, so an edited record
+// prefix refuses to resume rather than silently mispairing existing issues.
+// Unrecorded plan items do not exist yet, so they are created from the
+// current plan exactly as a fresh run would; editing them between runs is
+// allowed. Fields absent from a record (a legacy manifest) skip their checks.
+//
+// A create can succeed remotely without being recorded (the response is lost
+// or the process dies before the manifest write). Resume closes that gap by
+// searching for an issue matching the next uncreated plan item; if one exists
+// outside the manifest, it refuses with instructions to adopt or close it
+// rather than creating a duplicate.
+//
+// ctx.onCreated, when given, receives each created issue's full record
+// ({ number, title, nodeId, parentNumber, scheduleKey, start, due }) the
+// moment it exists, so the runner can persist it before any later step can
+// crash; skipped and repaired issues are already recorded.
 async function populateTerm(plan, ctx, client) {
   const schedule = (ctx && ctx.schedule) || [];
   const completed = (ctx && ctx.completed) || [];
@@ -95,6 +106,24 @@ async function populateTerm(plan, ctx, client) {
       }
     }
   });
+
+  if (completed.length > 0 && completed.length < plan.length) {
+    const next = plan[completed.length];
+    const recorded = new Set(completed.map((rec) => rec.number));
+    const strays = (await client.listIssues({ labels: next.labels })).filter(
+      (x) => x.title === next.title && !recorded.has(x.number),
+    );
+    if (strays.length > 0) {
+      const s = strays[0];
+      const line = JSON.stringify({ number: s.number, title: s.title, nodeId: s.nodeId });
+      throw new Error(
+        `found issue #${s.number} ("${s.title}") matching the next uncreated plan item but ` +
+        'missing from the manifest; a create likely succeeded without being recorded. ' +
+        `To adopt it, append this line to the manifest and re-run with --resume: ${line} ` +
+        'Or close the issue and re-run with --resume to recreate it.',
+      );
+    }
+  }
 
   let created = 0;
   let repaired = 0;

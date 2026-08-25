@@ -144,10 +144,14 @@ your issue notifications to see what needs attention.
    `teardown` helper is a development-only safeguard and refuses to run against
    production), so a mistaken run has to be cleaned up by hand.
 
-   An interrupted run (crash, rate limit, network drop) is safe to continue
-   with `--resume`: issues the manifest recorded are skipped, the last recorded
-   one is re-verified (its nesting, board card, or dates may have been lost in
-   the crash), and the rest are created as usual. Two things to know about the
+   An interrupted run (crash, rate limit, network drop) can be continued
+   with `--resume`: issues the manifest recorded are skipped after being
+   verified against the current plan, the last recorded one is re-verified
+   (its nesting, board card, or dates may have been lost in the crash), and
+   the rest are created from the current files, as a fresh run would. If a
+   create succeeded but the crash prevented recording it, resume detects the
+   unrecorded issue and refuses with instructions to adopt or close it,
+   instead of creating a duplicate. Two things to know about the
    copied board: it can carry over **built-in workflows** from the source board
    (e.g. "Auto-add sub-issues to project", which races the tool's own board
    adds — the tool treats an already-added card as success), and the double-run

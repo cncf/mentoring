@@ -181,10 +181,11 @@ test('populateTerm: does not create an issue whose parent is missing (pre-order 
 // The manifest records issues in creation (= plan) order. All records but the
 // last completed their full loop; the last one's nest/board/fields are unknown
 // (the crash window), so it is re-verified idempotently.
-function resumeClient({ subIssues = [] } = {}) {
+function resumeClient({ subIssues = [], issues = [] } = {}) {
   const c = fakeClient();
   c.getIssue = async ({ number }) => { c.calls.push(['getIssue', number]); return { number, id: number * 10, nodeId: `node-${number}` }; };
   c.getSubIssues = async ({ parentNumber }) => { c.calls.push(['getSubIssues', parentNumber]); return subIssues; };
+  c.listIssues = async ({ labels }) => { c.calls.push(['listIssues', labels]); return issues; };
   return c;
 }
 
@@ -288,6 +289,54 @@ test('populateTerm: resume accepts legacy records without the verification field
   const c = resumeClient({ subIssues: [20020] });
   const r = await populateTerm(plan(), { schedule: SCHEDULE, completed: COMPLETED }, c);
   assert.deepEqual(r, { created: 3, skipped: 2, repaired: 1 });
+});
+
+test('populateTerm: resume refuses when an unrecorded issue matches the next plan item', async () => {
+  // A create that succeeded without being recorded (crash in the create/record
+  // gap) must be surfaced, not silently duplicated.
+  const gapIssue = { number: 7777, title: '[LFX 2026 T3] 2. Proposals', nodeId: 'node-7777' };
+  const c = resumeClient({ issues: [gapIssue] });
+  await assert.rejects(
+    () => populateTerm(plan(), { schedule: SCHEDULE, completed: COMPLETED }, c),
+    (err) => {
+      assert.match(err.message, /#7777/);
+      assert.match(err.message, /missing from the manifest/);
+      assert.match(err.message, /\{"number":7777,"title":"\[LFX 2026 T3\] 2\. Proposals","nodeId":"node-7777"\}/);
+      return true;
+    },
+  );
+  assert.equal(c.calls.filter((k) => k[0] === 'createIssue').length, 0);
+});
+
+test('populateTerm: gap check queries with the next plan item labels', async () => {
+  const c = resumeClient({ subIssues: [20020] });
+  await populateTerm(plan(), { schedule: SCHEDULE, completed: COMPLETED }, c);
+  const listCalls = c.calls.filter((k) => k[0] === 'listIssues');
+  assert.deepEqual(listCalls, [['listIssues', plan()[COMPLETED.length].labels]]);
+});
+
+test('populateTerm: gap check ignores recorded issues and other titles', async () => {
+  const c = resumeClient({
+    subIssues: [20020],
+    issues: [
+      { number: 2002, title: '[LFX 2026 T3] 2. Proposals', nodeId: 'node-2002' }, // recorded number
+      { number: 8888, title: 'Some other issue', nodeId: 'node-8888' }, // different title
+    ],
+  });
+  const r = await populateTerm(plan(), { schedule: SCHEDULE, completed: COMPLETED }, c);
+  assert.deepEqual(r, { created: 3, skipped: 2, repaired: 1 });
+});
+
+test('populateTerm: gap check is skipped on fresh runs and complete manifests', async () => {
+  // fakeClient has no listIssues at all: a fresh run must not need it.
+  await populateTerm(plan(), { schedule: SCHEDULE }, fakeClient());
+  // A complete manifest (every plan item recorded) only repairs the last item;
+  // no gap is possible past the end of the plan.
+  const all = plan().map((p, i) => ({ number: 3000 + i, title: p.title, nodeId: `node-${3000 + i}` }));
+  const c = resumeClient({ subIssues: [(3000 + 5) * 10] });
+  delete c.listIssues;
+  const r = await populateTerm(plan(), { schedule: SCHEDULE, completed: all }, c);
+  assert.deepEqual(r, { created: 0, skipped: 5, repaired: 1 });
 });
 
 test('populateTerm: a fresh run reports zero skipped and repaired', async () => {
