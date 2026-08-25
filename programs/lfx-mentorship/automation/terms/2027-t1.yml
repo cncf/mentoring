@@ -5,6 +5,10 @@ term:
   year: 2027
   number: 1
 
+# Board population (ADMIN_GUIDE.md "Populate the term admin board"):
+repo: cncf/mentoring
+project: https://github.com/orgs/cncf/projects/98
+
 schedule:
   - key: proposals_open
     label: Project Proposals Open
