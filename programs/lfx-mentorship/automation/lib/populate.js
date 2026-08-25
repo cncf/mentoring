@@ -45,12 +45,20 @@ function assertSafeToCreate({ existingCount, force } = {}) {
 // loop, so those plan items are skipped (their numbers still seed the parent
 // map). The last record was created, but the crash window means its nest,
 // board add, or fields may be missing, so it is re-verified idempotently.
-// Records are matched to plan items by position and checked by title, so a
-// changed plan (edited term-issues.yml) refuses to resume rather than
-// mispairing issues.
+//
+// Records are matched to plan items by position and verified field-by-field:
+// title, scheduleKey, parent number, and the dates the current schedule
+// resolves must all equal what the recorded run used, so an edited
+// term-issues.yml or schedule refuses to resume rather than silently mixing
+// old and new plans. Fields absent from a record (a legacy manifest) skip
+// their checks. ctx.onCreated, when given, receives each created issue's full
+// record ({ number, title, nodeId, parentNumber, scheduleKey, start, due })
+// the moment it exists, so the runner can persist it before any later step
+// can crash; skipped and repaired issues are already recorded.
 async function populateTerm(plan, ctx, client) {
   const schedule = (ctx && ctx.schedule) || [];
   const completed = (ctx && ctx.completed) || [];
+  const onCreated = (ctx && ctx.onCreated) || null;
 
   if (completed.length > plan.length) {
     throw new Error(
@@ -58,17 +66,35 @@ async function populateTerm(plan, ctx, client) {
       'the plan must be the one the recorded run used',
     );
   }
-  completed.forEach((rec, i) => {
-    if (rec.title !== plan[i].title) {
-      throw new Error(
-        `manifest record ${i} ("${rec.title}") does not match the plan ("${plan[i].title}"); ` +
-        'the plan must be unchanged to resume',
-      );
-    }
-  });
 
   const numberById = new Map(); // plan id -> issue number (created or recorded)
   completed.forEach((rec, i) => numberById.set(plan[i].id, rec.number));
+
+  const refuse = (i, what) => {
+    throw new Error(`manifest record ${i} ("${completed[i].title}") ${what}; the plan must be unchanged to resume`);
+  };
+  completed.forEach((rec, i) => {
+    const item = plan[i];
+    if (rec.title !== item.title) {
+      refuse(i, `does not match the plan ("${item.title}")`);
+    }
+    const planKey = item.scheduleKey || null;
+    if (rec.scheduleKey !== undefined && rec.scheduleKey !== planKey) {
+      refuse(i, `was created with scheduleKey ${JSON.stringify(rec.scheduleKey)} but the plan now has ${JSON.stringify(planKey)}`);
+    }
+    if (rec.parentNumber !== undefined) {
+      const expected = item.parentId != null ? numberById.get(item.parentId) : null;
+      if (rec.parentNumber !== expected) {
+        refuse(i, `recorded parent ${rec.parentNumber === null ? 'none' : `#${rec.parentNumber}`} but the plan now expects ${expected === null ? 'none' : `#${expected}`}`);
+      }
+    }
+    if (rec.start !== undefined || rec.due !== undefined) {
+      const { start, due } = resolveDates(item.scheduleKey, schedule);
+      if (rec.start !== start || rec.due !== due) {
+        refuse(i, `recorded dates ${rec.start}/${rec.due} but the schedule now resolves ${start}/${due}`);
+      }
+    }
+  });
 
   let created = 0;
   let repaired = 0;
@@ -79,6 +105,19 @@ async function populateTerm(plan, ctx, client) {
     const item = plan[i];
     const repairing = i === completed.length - 1;
 
+    // Resolve the parent first, so a malformed plan fails before an orphan
+    // issue is created, and the created record can carry its parent number.
+    let parentNumber = null;
+    if (item.parentId !== null && item.parentId !== undefined) {
+      parentNumber = numberById.get(item.parentId);
+      if (parentNumber === undefined) {
+        throw new Error(
+          `plan is not in pre-order: parent "${item.parentId}" of "${item.id}" has not been created yet`,
+        );
+      }
+    }
+    const { start, due } = resolveDates(item.scheduleKey, schedule);
+
     let issue;
     if (repairing) {
       issue = await client.getIssue({ number: completed[i].number });
@@ -87,22 +126,26 @@ async function populateTerm(plan, ctx, client) {
       issue = await client.createIssue({ title: item.title, labels: item.labels });
       numberById.set(item.id, issue.number);
       created += 1;
+      if (onCreated) {
+        await onCreated({
+          number: issue.number,
+          title: item.title,
+          nodeId: issue.nodeId,
+          parentNumber,
+          scheduleKey: item.scheduleKey || null,
+          start,
+          due,
+        });
+      }
     }
 
-    if (item.parentId !== null && item.parentId !== undefined) {
-      const parentNumber = numberById.get(item.parentId);
-      if (parentNumber === undefined) {
-        throw new Error(
-          `plan is not in pre-order: parent "${item.parentId}" of "${item.id}" has not been created yet`,
-        );
-      }
+    if (parentNumber !== null) {
       const alreadyNested =
         repairing && (await client.getSubIssues({ parentNumber })).includes(issue.id);
       if (!alreadyNested) await client.addSubIssue({ parentNumber, childId: issue.id });
     }
 
     const boardItem = await client.addToBoard({ contentId: issue.nodeId });
-    const { start, due } = resolveDates(item.scheduleKey, schedule);
     await client.setFields({ itemId: boardItem.itemId, status: 'Todo', start, due });
   }
 

@@ -138,6 +138,45 @@ test('populateTerm: fails fast when the plan is not in pre-order (parent not yet
   await assert.rejects(() => populateTerm(outOfOrder, { schedule: [] }, c), /pre-order/i);
 });
 
+// ── populateTerm onCreated (rich manifest records) ─────────────────────────
+test('populateTerm: onCreated receives the full record for each created issue', async () => {
+  const c = fakeClient();
+  const records = [];
+  await populateTerm(plan(), { schedule: SCHEDULE, onCreated: (r) => records.push(r) }, c);
+  assert.equal(records.length, 6);
+  // top-level keyless section
+  assert.deepEqual(records[0], {
+    number: 1000, title: '[LFX 2026 T3] 0. Key dates', nodeId: 'node-1000',
+    parentNumber: null, scheduleKey: null, start: null, due: null,
+  });
+  // nested, scheduled child
+  assert.deepEqual(records[1], {
+    number: 1001, title: 'Project proposals open', nodeId: 'node-1001',
+    parentNumber: 1000, scheduleKey: 'proposals_open', start: '2026-07-01', due: '2026-07-28',
+  });
+});
+
+test('populateTerm: onCreated is not invoked for skipped or repaired records', async () => {
+  const c = resumeClient({ subIssues: [20020] });
+  const records = [];
+  await populateTerm(plan(), { schedule: SCHEDULE, completed: COMPLETED, onCreated: (r) => records.push(r) }, c);
+  assert.deepEqual(records.map((r) => r.title), [
+    '[LFX 2026 T3] 2. Proposals',
+    '[LFX 2026 T3] 2.1 [Announce] Applications open for candidates',
+    'Initial announcement',
+  ]);
+});
+
+test('populateTerm: does not create an issue whose parent is missing (pre-order checked first)', async () => {
+  const c = fakeClient();
+  const outOfOrder = [
+    { id: 'child', title: 'Child', labels: [], parentId: 'parent', scheduleKey: null, isParent: false },
+    { id: 'parent', title: 'Parent', labels: [], parentId: null, scheduleKey: null, isParent: true },
+  ];
+  await assert.rejects(() => populateTerm(outOfOrder, { schedule: [] }, c), /pre-order/i);
+  assert.equal(c.calls.filter((k) => k[0] === 'createIssue').length, 0);
+});
+
 // ── populateTerm resume (completed manifest records from an interrupted run) ─
 // The manifest records issues in creation (= plan) order. All records but the
 // last completed their full loop; the last one's nest/board/fields are unknown
@@ -208,6 +247,47 @@ test('populateTerm: resume rejects a manifest with more records than the plan', 
     () => populateTerm(plan(), { schedule: [], completed: over }, resumeClient()),
     /manifest/i,
   );
+});
+
+test('populateTerm: resume rejects a record whose scheduleKey no longer matches the plan', async () => {
+  const withKeys = [
+    { number: 2000, title: '[LFX 2026 T3] 0. Key dates', nodeId: 'node-2000', parentNumber: null, scheduleKey: null, start: null, due: null },
+    { number: 2001, title: 'Project proposals open', nodeId: 'node-2001', parentNumber: 2000, scheduleKey: 'other_key', start: '2026-07-01', due: '2026-07-28' },
+  ];
+  await assert.rejects(
+    () => populateTerm(plan(), { schedule: SCHEDULE, completed: withKeys }, resumeClient()),
+    /scheduleKey|schedule_key/i,
+  );
+});
+
+test('populateTerm: resume rejects a record whose parent number no longer matches the plan', async () => {
+  const reparented = [
+    { number: 2000, title: '[LFX 2026 T3] 0. Key dates', nodeId: 'node-2000', parentNumber: null, scheduleKey: null, start: null, due: null },
+    { number: 2001, title: 'Project proposals open', nodeId: 'node-2001', parentNumber: 9999, scheduleKey: 'proposals_open', start: '2026-07-01', due: '2026-07-28' },
+  ];
+  await assert.rejects(
+    () => populateTerm(plan(), { schedule: SCHEDULE, completed: reparented }, resumeClient()),
+    /parent/i,
+  );
+});
+
+test('populateTerm: resume rejects a record whose dates no longer resolve the same (schedule edited)', async () => {
+  const shifted = [
+    { number: 2000, title: '[LFX 2026 T3] 0. Key dates', nodeId: 'node-2000', parentNumber: null, scheduleKey: null, start: null, due: null },
+    { number: 2001, title: 'Project proposals open', nodeId: 'node-2001', parentNumber: 2000, scheduleKey: 'proposals_open', start: '2026-06-01', due: '2026-07-28' },
+  ];
+  await assert.rejects(
+    () => populateTerm(plan(), { schedule: SCHEDULE, completed: shifted }, resumeClient()),
+    /dates|start|due/i,
+  );
+});
+
+test('populateTerm: resume accepts legacy records without the verification fields', async () => {
+  // COMPLETED has only {number,title,nodeId} (the pre-verification manifest
+  // shape); missing fields skip their checks rather than failing.
+  const c = resumeClient({ subIssues: [20020] });
+  const r = await populateTerm(plan(), { schedule: SCHEDULE, completed: COMPLETED }, c);
+  assert.deepEqual(r, { created: 3, skipped: 2, repaired: 1 });
 });
 
 test('populateTerm: a fresh run reports zero skipped and repaired', async () => {

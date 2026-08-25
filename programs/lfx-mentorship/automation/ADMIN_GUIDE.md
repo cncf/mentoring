@@ -125,7 +125,10 @@ your issue notifications to see what needs attention.
       project view, so the tool can't (and doesn't) set them up. (First time only,
       with nothing to copy: create a board, add `Start Date` + `Due Date` **date**
       fields via `•••` → Customize fields → New field → Date, and add any views by
-      hand.) Copy the new board's URL.
+      hand.) Copy the new board's URL. Copying does not carry the source board's
+      repository links, so the new board won't appear on the repo's Projects tab
+      until you link it: `gh project link <number> --owner cncf --repo
+      cncf/mentoring`.
    2. Add `repo` (e.g. `cncf/mentoring`) and `project` (the board URL) to the
       term config, then populate:
 

@@ -86,20 +86,6 @@ async function countExisting(repo, labels, exec) {
   return JSON.parse(await exec(args)).length;
 }
 
-// Record each issue in the run manifest the instant it is created (before the
-// board add), and log progress. Recording at creation time means teardown can
-// always find an issue even if a later step crashes.
-function instrument(inner, manifest) {
-  return Object.assign({}, inner, {
-    async createIssue(a) {
-      const r = await inner.createIssue(a);
-      manifest.append({ number: r.number, title: a.title, nodeId: r.nodeId });
-      process.stdout.write(`  #${r.number}  ${a.title}\n`);
-      return r;
-    },
-  });
-}
-
 function dryRun(plan, schedule, repo, completed = []) {
   if (completed.length > 0) {
     const last = completed[completed.length - 1];
@@ -173,8 +159,19 @@ async function main(argv) {
   } else {
     console.log(`Creating ${plan.length} issues on ${cfg.repo} and populating the board:`);
   }
-  const client = instrument(createGhClient({ repo: cfg.repo, projectId, fields, exec: ghExec }), manifest);
-  const { created, repaired } = await populateTerm(plan, { schedule: cfg.schedule, completed }, client);
+  const client = createGhClient({ repo: cfg.repo, projectId, fields, exec: ghExec });
+  // Record each issue in the run manifest the instant it is created (before
+  // the board add), and log progress. Recording at creation time means resume
+  // and teardown can always find an issue even if a later step crashes.
+  const onCreated = (rec) => {
+    manifest.append(rec);
+    process.stdout.write(`  #${rec.number}  ${rec.title}\n`);
+  };
+  const { created, repaired } = await populateTerm(
+    plan,
+    { schedule: cfg.schedule, completed, onCreated },
+    client,
+  );
 
   console.log(
     `\nDone: ${created} issues created${repaired ? ` (+${repaired} re-verified)` : ''}, ` +
