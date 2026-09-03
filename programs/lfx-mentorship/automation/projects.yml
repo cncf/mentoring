@@ -1,5 +1,5 @@
 # Auto-generated from cncf/landscape — DO NOT EDIT MANUALLY.
-# Last updated: 2026-08-24
+# Last updated: 2026-09-03
 # Total projects: 227
 
 - name: Aeraki Mesh
@@ -43,6 +43,7 @@
   homepage: https://argoproj.github.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/argo.svg
   repo_url: https://github.com/argoproj/argo-cd
+  has_dot_project: true
 - name: Armada
   slug: armada
   maturity: sandbox
@@ -56,6 +57,7 @@
   homepage: https://artifacthub.io
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/artifact-hub.svg
   repo_url: https://github.com/artifacthub/hub
+  has_dot_project: true
 - name: Athenz
   slug: athenz
   maturity: sandbox
@@ -76,6 +78,7 @@
   homepage: https://backstage.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/backstage.svg
   repo_url: https://github.com/backstage/backstage
+  has_dot_project: true
 - name: Bank-Vaults
   slug: bank-vaults
   maturity: sandbox
@@ -110,6 +113,7 @@
   homepage: https://buildpacks.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/buildpacks.svg
   repo_url: https://github.com/buildpacks/pack
+  has_dot_project: true
 - name: Cadence Workflow
   slug: cadence
   maturity: sandbox
@@ -172,6 +176,7 @@
   homepage: https://chaos-mesh.org/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/chaos-mesh.svg
   repo_url: https://github.com/chaos-mesh/chaos-mesh
+  has_dot_project: true
 - name: Chaosblade
   slug: chaosblade
   maturity: sandbox
@@ -185,18 +190,21 @@
   homepage: https://cilium.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/cilium.svg
   repo_url: https://github.com/cilium/cilium
+  has_dot_project: true
 - name: Cloud Custodian
   slug: c7n
   maturity: incubating
   homepage: https://cloudcustodian.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/cloud-custodian.svg
   repo_url: https://github.com/cloud-custodian/cloud-custodian
+  has_dot_project: true
 - name: CloudEvents
   slug: cloudevents
   maturity: graduated
   homepage: https://cloudevents.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/cloud-events.svg
   repo_url: https://github.com/cloudevents/spec
+  has_dot_project: true
 - name: CloudNativePG
   slug: cloudnativepg
   maturity: sandbox
@@ -250,6 +258,7 @@
   homepage: https://www.cni.dev/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/container-network-interface-cni.svg
   repo_url: https://github.com/containernetworking/cni
+  has_dot_project: true
 - name: container2wasm
   slug: container2wasm
   maturity: sandbox
@@ -277,6 +286,7 @@
   homepage: https://projectcontour.io
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/contour.svg
   repo_url: https://github.com/projectcontour/contour
+  has_dot_project: true
 - name: Copa
   slug: copacetic
   maturity: sandbox
@@ -290,12 +300,14 @@
   homepage: https://coredns.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/core-dns.svg
   repo_url: https://github.com/coredns/coredns
+  has_dot_project: true
 - name: Cortex
   slug: cortex
   maturity: incubating
   homepage: https://cortexmetrics.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/cortex.svg
   repo_url: https://github.com/cortexproject/cortex
+  has_dot_project: true
 - name: Cozystack
   slug: cozystack
   maturity: sandbox
@@ -309,6 +321,7 @@
   homepage: https://cri-o.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/cri-o.svg
   repo_url: https://github.com/cri-o/cri-o
+  has_dot_project: true
 - name: Crossplane
   slug: crossplane
   maturity: graduated
@@ -322,6 +335,7 @@
   homepage: https://cubefs.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/cubefs.svg
   repo_url: https://github.com/cubeFS/cubefs
+  has_dot_project: true
 - name: Curvine
   slug: curvine
   maturity: sandbox
@@ -397,12 +411,14 @@
   homepage: https://emissary-ingress.dev/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/emissary-ingress.svg
   repo_url: https://github.com/emissary-ingress/emissary
+  has_dot_project: true
 - name: Envoy
   slug: envoy
   maturity: graduated
   homepage: https://www.envoyproxy.io
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/envoy.svg
   repo_url: https://github.com/envoyproxy/envoy
+  has_dot_project: true
 - name: Eraser
   slug: eraser
   maturity: sandbox
@@ -429,18 +445,21 @@
   homepage: https://falco.org/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/falco.svg
   repo_url: https://github.com/falcosecurity/falco
+  has_dot_project: true
 - name: Flatcar Container Linux
   slug: flatcar
   maturity: incubating
   homepage: https://www.flatcar.org/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/flatcar.svg
   repo_url: https://github.com/flatcar/Flatcar
+  has_dot_project: true
 - name: Fluentd
   slug: fluentd
   maturity: graduated
   homepage: https://www.fluentd.org/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/fluentd.svg
   repo_url: https://github.com/fluent/fluentd
+  has_dot_project: true
 - name: Fluid
   slug: fluid
   maturity: incubating
@@ -454,6 +473,7 @@
   homepage: https://fluxcd.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/flux.svg
   repo_url: https://github.com/fluxcd/flux2
+  has_dot_project: true
 - name: gRPC
   slug: grpc
   maturity: incubating
@@ -474,6 +494,7 @@
   homepage: https://goharbor.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/harbor.svg
   repo_url: https://github.com/goharbor/harbor
+  has_dot_project: true
 - name: Headlamp
   slug: headlamp
   maturity: sandbox
@@ -486,6 +507,7 @@
   homepage: https://helm.sh/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/helm.svg
   repo_url: https://github.com/helm/helm
+  has_dot_project: true
 - name: Higress
   slug: higress
   maturity: sandbox
@@ -520,6 +542,7 @@
   homepage: https://in-toto.io
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/in-toto.svg
   repo_url: https://github.com/in-toto/in-toto
+  has_dot_project: true
 - name: Inclavare Containers
   slug: inclavarecontainers
   maturity: sandbox
@@ -547,12 +570,14 @@
   homepage: https://istio.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/istio.svg
   repo_url: https://github.com/istio/istio
+  has_dot_project: true
 - name: Jaeger
   slug: jaeger
   maturity: graduated
   homepage: https://www.jaegertracing.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/jaeger.svg
   repo_url: https://github.com/jaegertracing/jaeger
+  has_dot_project: true
 - name: k0s
   slug: k0s
   maturity: sandbox
@@ -625,7 +650,7 @@
   has_dot_project: true
 - name: Karmada
   slug: karmada
-  maturity: incubating
+  maturity: graduated
   homepage: https://karmada.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/karmada.svg
   repo_url: https://github.com/karmada-io/karmada
@@ -657,6 +682,7 @@
   homepage: https://keda.sh/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/keda.svg
   repo_url: https://github.com/kedacore/keda
+  has_dot_project: true
 - name: Kepler
   slug: kepler
   maturity: sandbox
@@ -670,6 +696,7 @@
   homepage: https://www.keycloak.org/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/keycloak.svg
   repo_url: https://github.com/keycloak/keycloak
+  has_dot_project: true
 - name: Keylime
   slug: keylime
   maturity: sandbox
@@ -815,6 +842,7 @@
   homepage: https://kubeedge.io/en/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kube-edge.svg
   repo_url: https://github.com/kubeedge/kubeedge
+  has_dot_project: true
 - name: KubeElasti
   slug: kubeelasti
   maturity: sandbox
@@ -876,6 +904,7 @@
   homepage: https://kubevela.io
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kubevela.svg
   repo_url: https://github.com/kubevela/kubevela
+  has_dot_project: true
 - name: KubeVirt
   slug: kubevirt
   maturity: incubating
@@ -944,6 +973,7 @@
   homepage: https://litmuschaos.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/litmus.svg
   repo_url: https://github.com/litmuschaos/litmus
+  has_dot_project: true
 - name: llm-d
   slug: llm-d
   maturity: sandbox
@@ -964,6 +994,7 @@
   homepage: https://longhorn.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/longhorn.svg
   repo_url: https://github.com/longhorn/longhorn
+  has_dot_project: true
 - name: LoxiLB
   slug: loxilb
   maturity: sandbox
@@ -1033,6 +1064,7 @@
   homepage: https://notaryproject.dev/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/notary-project.svg
   repo_url: https://github.com/notaryproject/notation
+  has_dot_project: true
 - name: OAuth2 Proxy
   slug: oauth2-proxy
   maturity: sandbox
@@ -1053,6 +1085,7 @@
   homepage: https://www.openpolicyagent.org/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/opa.svg
   repo_url: https://github.com/open-policy-agent/opa
+  has_dot_project: true
 - name: Open Policy Containers
   slug: opcr
   maturity: sandbox
@@ -1080,6 +1113,7 @@
   homepage: https://www.opencost.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/opencost.svg
   repo_url: https://github.com/opencost/opencost
+  has_dot_project: true
 - name: OpenEBS
   slug: openebs
   maturity: sandbox
@@ -1100,6 +1134,7 @@
   homepage: https://openfeature.dev/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/openfeature.svg
   repo_url: https://github.com/open-feature/spec
+  has_dot_project: true
 - name: OpenFGA
   slug: openfga
   maturity: incubating
@@ -1134,6 +1169,7 @@
   homepage: https://openkruise.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/OpenKruise.svg
   repo_url: https://github.com/openkruise/kruise
+  has_dot_project: true
 - name: OpenTelemetry
   slug: opentelemetry
   maturity: graduated
@@ -1154,12 +1190,14 @@
   homepage: https://openyurt.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/openyurt.svg
   repo_url: https://github.com/openyurtio/openyurt
+  has_dot_project: true
 - name: Operator Framework
   slug: operator-sdk
   maturity: incubating
   homepage: https://operatorframework.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/operator-framework.svg
   repo_url: https://github.com/operator-framework/operator-sdk
+  has_dot_project: true
 - name: ORAS
   slug: oras
   maturity: sandbox
@@ -1277,6 +1315,7 @@
   homepage: https://rook.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/rook.svg
   repo_url: https://github.com/rook/rook
+  has_dot_project: true
 - name: Runme Notebooks
   slug: runme-notebooks
   maturity: sandbox
@@ -1353,6 +1392,7 @@
   homepage: https://spiffe.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/spiffe.svg
   repo_url: https://github.com/spiffe/spiffe
+  has_dot_project: true
 - name: Spin
   slug: spin
   maturity: sandbox
@@ -1373,6 +1413,7 @@
   homepage: https://spiffe.io/spire/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/spire.svg
   repo_url: https://github.com/spiffe/spire
+  has_dot_project: true
 - name: Stacker
   slug: stacker
   maturity: sandbox
@@ -1386,6 +1427,7 @@
   homepage: https://strimzi.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/strimzi.svg
   repo_url: https://github.com/strimzi/strimzi-kafka-operator
+  has_dot_project: true
 - name: Submariner
   slug: submariner
   maturity: sandbox
@@ -1413,18 +1455,21 @@
   homepage: https://thanos.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/thanos.svg
   repo_url: https://github.com/thanos-io/thanos
+  has_dot_project: true
 - name: The Update Framework (TUF)
   slug: tuf
   maturity: graduated
   homepage: https://theupdateframework.github.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/the-update-framework-tuf.svg
   repo_url: https://github.com/theupdateframework/python-tuf
+  has_dot_project: true
 - name: TiKV
   slug: tikv
   maturity: graduated
   homepage: https://tikv.org
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/tikv.svg
   repo_url: https://github.com/tikv/tikv
+  has_dot_project: true
 - name: Tinkerbell
   slug: tinkerbell
   maturity: sandbox
@@ -1487,6 +1532,7 @@
   homepage: https://vitess.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/vitess.svg
   repo_url: https://github.com/vitessio/vitess
+  has_dot_project: true
 - name: Volcano
   slug: volcano
   maturity: incubating
