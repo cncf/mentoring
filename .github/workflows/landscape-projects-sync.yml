@@ -95,21 +95,16 @@ jobs:
             let formText = fs.readFileSync(formPath, 'utf8');
             formText = rewriteOptionsBlock(formText, 'id: cncf_project', projects.map((p) => p.name));
 
-            // Sync term dropdowns from terms.yml (single source of truth) into
-            // the issue form (id: term) and the export workflow (workflow_dispatch input)
+            // Sync the term dropdown from terms.yml (single source of truth)
+            // into the issue form (id: term). The export workflow is NOT
+            // synced: it validates its free-text term input against terms.yml
+            // at run time, because this job's GITHUB_TOKEN may never push
+            // changes to workflow files.
             const termsPath = 'programs/lfx-mentorship/automation/terms.yml';
             const termList = yaml.load(fs.readFileSync(termsPath, 'utf8')).terms || [];
             formText = rewriteOptionsBlock(formText, 'id: term', termList);
             fs.writeFileSync(formPath, formText);
-
-            const exportPath = '.github/workflows/lfx-export.yml';
-            const exportText = rewriteOptionsBlock(
-              fs.readFileSync(exportPath, 'utf8'),
-              'term:',
-              termList,
-            );
-            fs.writeFileSync(exportPath, exportText);
-            core.info(`Term dropdowns synced: ${termList.join(', ')}`);
+            core.info(`Term dropdown synced: ${termList.join(', ')}`);
 
             core.info('Files updated successfully');
 
@@ -137,7 +132,6 @@ jobs:
           add-paths: |
             programs/lfx-mentorship/automation/projects.yml
             .github/ISSUE_TEMPLATE/lfx-program-proposal.yml
-            .github/workflows/lfx-export.yml
           commit-message: |
             chore: sync CNCF project list from landscape
 

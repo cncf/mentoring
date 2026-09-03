@@ -163,7 +163,8 @@ your issue notifications to see what needs attention.
    workflow manually (Actions → **Sync CNCF Projects from Landscape** → Run
    workflow), or wait for
    the Monday cron. This propagates the new `terms.yml` entry into the term
-   dropdown in both the issue form and the export workflow.
+   dropdown in the issue form. (The export workflow needs no sync — it
+   validates its term input against `terms.yml` when you run it.)
 
 4. **Announce the term:** Post to the CNCF blog, Slack (#mentoring), and
    social media. Include a link to the issue form.
@@ -177,7 +178,7 @@ the start of a new year) is still listed explicitly there.
 1. **Remove the term from `terms.yml`** so no new proposals can be filed
    for it.
 
-2. **Run the landscape sync** to update the dropdowns.
+2. **Run the landscape sync** to update the issue form dropdown.
 
 3. Existing open proposals for the closed term remain open — close them
    manually or leave them if they'll carry over to a future term.
@@ -234,7 +235,9 @@ Only users listed in `approvers.yml` under `global_approvers` can use
 The export workflow is triggered manually:
 
 1. Go to **Actions → LFX Export → Run workflow**
-2. Select the term from the dropdown
+2. Enter the term exactly as listed in
+   [`terms.yml`](./terms.yml), e.g. `2027 Term 1 (Mar-May)` — a typo fails
+   fast with an error listing the active terms
 3. Click **Run workflow**
 
 The workflow:
@@ -302,7 +305,7 @@ the existing branch if the previous PR wasn't merged).
 
 ### terms.yml
 
-Single source of truth for active term dropdowns. Format:
+Single source of truth for the active terms. Format:
 
 ```yaml
 terms:
@@ -311,7 +314,8 @@ terms:
 ```
 
 After editing, run the landscape sync workflow to propagate changes to the
-issue form and export workflow.
+issue form dropdown. The export workflow reads this file at run time, so it
+needs no sync.
 
 Opening a term adds its entry automatically (see [Opening a new
 term](#opening-a-new-term)); edit this file by hand only to retire a term or fix

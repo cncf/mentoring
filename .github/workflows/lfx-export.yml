@@ -5,12 +5,11 @@ on:
     inputs:
       term:
         description: >
-          Term to export (must match the dropdown value in the issue form,
-          e.g. "2026 Term 3 (Sep-Nov)")
+          Term to export — must exactly match an entry in
+          programs/lfx-mentorship/automation/terms.yml,
+          e.g. "2027 Term 1 (Mar-May)"
         required: true
-        type: choice
-        options:
-          - "2026 Term 3 (Sep-Nov)"
+        type: string
 
 permissions:
   contents: write
@@ -46,7 +45,20 @@ jobs:
             const { lookupProject } = _lib('projects.js');
             const { lfxTitle } = _lib('title.js');
             const { owner, repo } = context.repo;
-            const term = context.payload.inputs.term;
+            const { unknownTermMessage } = _lib('terms-file.js');
+
+            // Free-text input: a choice dropdown would hardcode the term list
+            // in this workflow file, which the landscape sync's GITHUB_TOKEN
+            // may never edit — so validate against terms.yml at run time.
+            const term = (context.payload.inputs.term || '').trim();
+            const termError = unknownTermMessage(
+              fs.readFileSync('programs/lfx-mentorship/automation/terms.yml', 'utf8'),
+              term,
+            );
+            if (termError) {
+              core.setFailed(termError);
+              return;
+            }
 
             console.log(`Exporting proposals for: ${term}`);
 

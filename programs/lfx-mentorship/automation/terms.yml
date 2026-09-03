@@ -1,11 +1,12 @@
 # Active terms for LFX Mentorship proposals.
 #
-# This is the single source of truth for the term dropdown in the issue
-# form and the export workflow.  When you add or retire a term, edit this
-# file and run the landscape-projects-sync workflow (or wait for the
-# Monday cron) — it will update both:
+# This is the single source of truth for the LFX term list.  When you add
+# or retire a term, edit this file and run the landscape-projects-sync
+# workflow (or wait for the Monday cron) — it will update the issue form
+# dropdown:
 #   .github/ISSUE_TEMPLATE/lfx-program-proposal.yml  (id: term)
-#   .github/workflows/lfx-export.yml                  (workflow_dispatch input)
+# The export workflow (.github/workflows/lfx-export.yml) is not synced: it
+# reads this file at run time to validate its free-text term input.
 
 terms:
   - "2027 Term 1 (Mar-May)"

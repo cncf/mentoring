@@ -2,7 +2,7 @@
 
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { addTermToDropdown, listedTerms } = require('../lib/terms-file');
+const { addTermToDropdown, listedTerms, unknownTermMessage } = require('../lib/terms-file');
 
 const SAMPLE = `# Active terms for LFX Mentorship proposals.
 #
@@ -44,4 +44,32 @@ test('listedTerms: returns the current entries, unquoted, in order', () => {
   assert.deepEqual(listedTerms(SAMPLE), ['2026 Term 3 (Sep-Nov)']);
   const grown = addTermToDropdown(SAMPLE, '2027 Term 1 (Mar-May)');
   assert.deepEqual(listedTerms(grown), ['2027 Term 1 (Mar-May)', '2026 Term 3 (Sep-Nov)']);
+});
+
+// ── unknownTermMessage ──
+// Backs the export workflow's free-text term input: the term dropdown used to
+// be hardcoded in lfx-export.yml, which the landscape sync could never update
+// (GITHUB_TOKEN pushes may not touch workflow files), so the input is now
+// validated here against terms.yml at run time.
+
+test('unknownTermMessage: null for an active term', () => {
+  assert.equal(unknownTermMessage(SAMPLE, '2026 Term 3 (Sep-Nov)'), null);
+});
+
+test('unknownTermMessage: names the bad term and lists the active ones', () => {
+  const grown = addTermToDropdown(SAMPLE, '2027 Term 1 (Mar-May)');
+  const msg = unknownTermMessage(grown, '2026 Term 3');
+  assert.match(msg, /Unknown term "2026 Term 3"/);
+  assert.match(msg, /"2027 Term 1 \(Mar-May\)"/);
+  assert.match(msg, /"2026 Term 3 \(Sep-Nov\)"/);
+});
+
+test('unknownTermMessage: exact match only — no trimming or case folding', () => {
+  assert.notEqual(unknownTermMessage(SAMPLE, ' 2026 Term 3 (Sep-Nov)'), null);
+  assert.notEqual(unknownTermMessage(SAMPLE, '2026 term 3 (sep-nov)'), null);
+});
+
+test('unknownTermMessage: says so when terms.yml lists nothing', () => {
+  const msg = unknownTermMessage('terms:\n', '2026 Term 3 (Sep-Nov)');
+  assert.match(msg, /no active terms/);
 });

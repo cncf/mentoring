@@ -3,9 +3,10 @@
 // Maintain terms.yml — the LFX proposal term dropdown source — as a scaffold
 // output, so a new term is listed once (from its config) instead of by hand.
 //
-// terms.yml is a plain block list of quoted term strings under a `terms:` key,
-// and the landscape-projects-sync workflow reads it verbatim to render the
-// issue-form and export dropdowns. To keep that contract (and the comment
+// terms.yml is a plain block list of quoted term strings under a `terms:` key;
+// the landscape-projects-sync workflow reads it verbatim to render the
+// issue-form dropdown, and the export workflow validates its free-text term
+// input against it at run time. To keep that contract (and the comment
 // header) intact, entries are inserted as text rather than round-tripped
 // through a YAML dumper, which would drop comments and re-quote everything.
 
@@ -38,4 +39,18 @@ function addTermToDropdown(text, label) {
   return lines.join('\n');
 }
 
-module.exports = { addTermToDropdown, listedTerms };
+// Validation for the export workflow's free-text term input. The term choices
+// used to be hardcoded in lfx-export.yml, but the landscape sync could never
+// update them there: GITHUB_TOKEN pushes may not touch workflow files. Returns
+// null when `term` exactly matches a listed entry, otherwise a setFailed-ready
+// message naming the term and the active list.
+function unknownTermMessage(termsText, term) {
+  const active = listedTerms(termsText);
+  if (active.includes(term)) return null;
+  const listing = active.length
+    ? `Active terms in terms.yml: ${active.map((t) => `"${t}"`).join(', ')}`
+    : 'terms.yml lists no active terms';
+  return `Unknown term "${term}". ${listing}.`;
+}
+
+module.exports = { addTermToDropdown, listedTerms, unknownTermMessage };
