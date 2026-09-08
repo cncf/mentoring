@@ -14,7 +14,7 @@ Mentorship duration - three months (full-time schedule)
 | Application Review Period (2 weeks) | Wed, Aug 19 – Tue, Sep 1, 18:00 UTC |
 | Selection Notifications | Wed, Sep 2 – Fri, Sep 4 *(notifications may take a few days to reach all mentees)* |
 | Mentorship Program Begins | Mon, Sep 7 |
-| Mentorship Kick Off Call | Tue, Sep 8, Times TBD (will be multiple timezone options) |
+| Mentorship Kick Off Call | Tue, Sep 8, 15:30 UTC |
 | Midterm Mentee Evaluations | Tue, Oct 20, 18:00 UTC |
 | First Stipend Payments | Wed, Oct 21 |
 | Final Mentee Evaluations | Tue, Nov 24, 18:00 UTC |
