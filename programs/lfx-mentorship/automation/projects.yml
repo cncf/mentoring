@@ -1,5 +1,5 @@
 # Auto-generated from cncf/landscape — DO NOT EDIT MANUALLY.
-# Last updated: 2026-09-03
+# Last updated: 2026-09-28
 # Total projects: 227
 
 - name: Aeraki Mesh
@@ -96,7 +96,7 @@
 - name: bootc
   slug: bootc
   maturity: sandbox
-  homepage: https://bootc-dev.github.io
+  homepage: https://bootc.dev
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/bootc.svg
   repo_url: https://github.com/bootc-dev/bootc
   has_dot_project: true
@@ -124,7 +124,7 @@
 - name: Capsule
   slug: capsule
   maturity: sandbox
-  homepage: https://capsule.clastix.io
+  homepage: https://projectcapsule.dev
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/capsule.svg
   repo_url: https://github.com/projectcapsule/capsule
   has_dot_project: true
@@ -397,7 +397,8 @@
   maturity: sandbox
   homepage: https://drasi.io
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/drasi.svg
-  repo_url: http://github.com/drasi-project/drasi-platform
+  repo_url: https://github.com/drasi-project/drasi-platform
+  has_dot_project: true
 - name: Easegress
   slug: easegress
   maturity: sandbox
@@ -484,7 +485,7 @@
 - name: HAMi
   slug: hami
   maturity: incubating
-  homepage: https://project-hami.io/
+  homepage: https://project-hami.github.io/HAMi/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/hami.svg
   repo_url: https://github.com/Project-HAMi/HAMi
   has_dot_project: true
@@ -609,7 +610,7 @@
 - name: K8up
   slug: k8up
   maturity: sandbox
-  homepage: https://www.k8up.io/
+  homepage: https://k8up.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/k8up.svg
   repo_url: https://github.com/k8up-io/k8up
   has_dot_project: true
@@ -1004,7 +1005,7 @@
   has_dot_project: true
 - name: Meshery
   slug: meshery
-  maturity: sandbox
+  maturity: incubating
   homepage: https://meshery.io
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/meshery.svg
   repo_url: https://github.com/meshery/meshery
@@ -1295,6 +1296,7 @@
   homepage: https://prometheus.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/prometheus.svg
   repo_url: https://github.com/prometheus/prometheus
+  has_dot_project: true
 - name: Radius
   slug: radius
   maturity: sandbox
