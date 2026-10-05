@@ -1,6 +1,6 @@
 # Auto-generated from cncf/landscape — DO NOT EDIT MANUALLY.
-# Last updated: 2026-09-28
-# Total projects: 227
+# Last updated: 2026-10-05
+# Total projects: 230
 
 - name: Aeraki Mesh
   slug: aerakimesh
@@ -9,6 +9,12 @@
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/aeraki-mesh.svg
   repo_url: https://github.com/aeraki-mesh/aeraki
   has_dot_project: true
+- name: Agent Substrate
+  slug: agent-substrate
+  maturity: sandbox
+  homepage: https://github.com/agent-substrate/substrate
+  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/agent-substrate.svg
+  repo_url: https://github.com/agent-substrate/substrate
 - name: Agones
   slug: agones
   maturity: sandbox
@@ -515,6 +521,13 @@
   homepage: https://higress.io
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/higress.svg
   repo_url: https://github.com/higress-group/higress
+  has_dot_project: true
+- name: Hive Commons
+  slug: hive
+  maturity: sandbox
+  homepage: https://hivecommons.dev
+  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/hive-commons.svg
+  repo_url: https://github.com/hivecommons/hive
   has_dot_project: true
 - name: HolmesGPT
   slug: holmesgpt
@@ -1171,6 +1184,12 @@
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/OpenKruise.svg
   repo_url: https://github.com/openkruise/kruise
   has_dot_project: true
+- name: OpenShell
+  slug: openshell
+  maturity: sandbox
+  homepage: https://docs.nvidia.com/openshell/latest/
+  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/openshell.svg
+  repo_url: https://github.com/NVIDIA/OpenShell
 - name: OpenTelemetry
   slug: opentelemetry
   maturity: graduated
