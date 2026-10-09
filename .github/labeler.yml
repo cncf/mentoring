@@ -26,7 +26,7 @@
   - programs/summerofcode/2023.md
   - programs/lfx-mentorship/2023/*
   - programs/lfx-mentorship/2023/**/*
-  - mentoring-wg/2023-meeting-minutes.md
+  - cncf-toc-mentoring-subproject/2023-meeting-minutes.md
 
 # Add '2024' to any change to 2024 project files
 2024:
@@ -45,6 +45,12 @@
   - programs/summerofcode/2026.md
   - programs/lfx-mentorship/2026/*
   - programs/lfx-mentorship/2026/**/*
+
+# Add '2027' to any change to 2027 project files
+2027:
+  - programs/summerofcode/2027.md
+  - programs/lfx-mentorship/2027/*
+  - programs/lfx-mentorship/2027/**/*
 
 # Per-term labels. The '*' matches the year, so a new term folder is labeled
 # automatically without editing this file.
