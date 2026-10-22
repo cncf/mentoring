@@ -269,7 +269,8 @@ the existing branch if the previous PR wasn't merged).
    change in a per-term `chore: record LFX URLs` PR), and advances the card to
    `Posted to LFX`. Restricted to global approvers; the issue must already be
    `Exported` and open. The URL must be a full LFX Mentorship program URL
-   (`https://mentorship.lfx.linuxfoundation.org/project/<id>`); anything else is
+   (`https://mentorship.linuxfoundation.org/programs/<id>`, or the legacy
+   `https://mentorship.lfx.linuxfoundation.org/project/<id>`); anything else is
    rejected, so the card only advances on a real program URL. A closed proposal
    is rejected too (reopen it first) — a withdrawn program should not be posted.
    The term's export must already be **merged to `main`** (step 2): `/lfx-url`
