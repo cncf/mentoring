@@ -11,7 +11,7 @@
 const BOT_LOGIN = 'github-actions[bot]';
 const RECORD_RE = /LFX URL recorded from @[A-Za-z0-9-]+:\s*(\S+)/g;
 
-// The exact shape of an LFX Mentorship program URL. Two shapes are accepted:
+// The accepted shapes of an LFX Mentorship program URL. There are two:
 // the legacy site, https://mentorship.lfx.linuxfoundation.org/project/<uuid>
 // (every URL recorded in previous terms), and the new site it moved to in
 // October 2026, https://mentorship.linuxfoundation.org/programs/<uuid>. The
