@@ -478,7 +478,8 @@ jobs:
                 } else if (decision.reason === 'invalid-url') {
                   await reply('❌',
                     'That isn\'t an LFX Mentorship program URL. ' +
-                    'Expected `https://mentorship.lfx.linuxfoundation.org/project/<id>`.');
+                    'Expected `https://mentorship.linuxfoundation.org/programs/<id>` ' +
+                    '(or the legacy `https://mentorship.lfx.linuxfoundation.org/project/<id>`).');
                 }
                 return;
               }

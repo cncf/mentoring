@@ -61,7 +61,8 @@ test('parseRecordedLfxUrl: empty / none → empty string', () => {
 // ── lfxUrlDecision: the /lfx-url gate (§4.3.5) ──
 // Same admin allowlist as /cncf-approve; requires the Exported label; and the
 // argument must be an exact LFX Mentorship program URL
-// (https://mentorship.lfx.linuxfoundation.org/project/<uuid>). Anything else —
+// (https://mentorship.lfx.linuxfoundation.org/project/<uuid> or
+// https://mentorship.linuxfoundation.org/programs/<uuid>). Anything else —
 // other lfx.linuxfoundation.org products, the bare host, a bad id — is rejected,
 // so the board only advances on a real program URL.
 const admins = ['natedoubleu', 'dkrook'];
@@ -116,6 +117,13 @@ test('lfxUrlDecision: a valid LFX program URL passes', () => {
     { ok: true, url: LFX });
 });
 
+test('lfxUrlDecision: a program URL on the new site passes', () => {
+  const next = 'https://mentorship.linuxfoundation.org/programs/005db8db-7efe-4433-9605-91d14174c72c';
+  assert.deepEqual(
+    lfxUrlDecision({ commenter: 'natedoubleu', admins, currentLabels: ['Exported'], arg: next }),
+    { ok: true, url: next });
+});
+
 test('lfxUrlDecision: an uppercase-hex UUID still passes', () => {
   const upper = 'https://mentorship.lfx.linuxfoundation.org/project/005DB8DB-7EFE-4433-9605-91D14174C72C';
   assert.deepEqual(
@@ -133,6 +141,8 @@ test('lfxUrlDecision: anything that is not an exact LFX program URL is rejected'
     'not a url',
     'javascript:alert(1)',
     'http://mentorship.lfx.linuxfoundation.org/project/005db8db-7efe-4433-9605-91d14174c72c', // http, not https
+    'https://mentorship.lfx.linuxfoundation.org/programs/005db8db-7efe-4433-9605-91d14174c72c', // legacy host with the new path
+    'https://mentorship.linuxfoundation.org/project/005db8db-7efe-4433-9605-91d14174c72c', // new host with the legacy path
     'https://mentorship.lfx.linuxfoundation.org',                                              // bare host, no program
     'https://mentorship.lfx.linuxfoundation.org/project/not-a-uuid',                           // malformed id
     'https://mentorship.lfx.linuxfoundation.org/program/005db8db-7efe-4433-9605-91d14174c72c', // wrong path segment

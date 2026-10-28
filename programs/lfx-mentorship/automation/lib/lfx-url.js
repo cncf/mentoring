@@ -11,14 +11,15 @@
 const BOT_LOGIN = 'github-actions[bot]';
 const RECORD_RE = /LFX URL recorded from @[A-Za-z0-9-]+:\s*(\S+)/g;
 
-// The exact shape of an LFX Mentorship program URL, e.g.
-// https://mentorship.lfx.linuxfoundation.org/project/005db8db-7efe-4433-9605-91d14174c72c
-// Confirmed against every URL recorded in previous terms: https only, the
-// mentorship host, a /project/ segment, then a UUID. Anything else (the bare
-// host, other lfx.linuxfoundation.org products, a mistyped id) is not a program
-// URL. If LFX ever changes this shape, update this one pattern.
+// The accepted shapes of an LFX Mentorship program URL. There are two:
+// the legacy site, https://mentorship.lfx.linuxfoundation.org/project/<uuid>
+// (every URL recorded in previous terms), and the new site it moved to in
+// October 2026, https://mentorship.linuxfoundation.org/programs/<uuid>. The
+// program UUID is the same on both. Anything else (the bare host, other LFX
+// products, a mistyped id) is not a program URL. If LFX ever changes this
+// shape again, update this one pattern.
 const LFX_PROGRAM_URL_RE =
-  /^https:\/\/mentorship\.lfx\.linuxfoundation\.org\/project\/[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
+  /^https:\/\/(?:mentorship\.lfx\.linuxfoundation\.org\/project|mentorship\.linuxfoundation\.org\/programs)\/[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
 
 // The canonical recorded-URL comment body. A leading '@' on the user is
 // normalized away so the phrasing is stable.
