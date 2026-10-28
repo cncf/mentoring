@@ -6,7 +6,7 @@ tags: Meeting Minutes, 2025
 # CNCF TOC Mentoring Subproject
 
 This file’s location: [1\. Technical Advisory Groups / TOC Subprojects / TOC Mentoring Subproject](https://drive.google.com/drive/folders/1IlgEbbspQTpSthEuXgZqZsUCEJxH5NBZ?usp=drive_link)  
-GitHub location: [https://github.com/cncf/mentoring/blob/main/mentoring-wg/2024-meeting-minutes.md](https://github.com/cncf/mentoring/blob/main/cncf-toc-mentoring-subproject/2025-meeting-minutes.md) 
+GitHub location: [https://github.com/cncf/mentoring/blob/main/cncf-toc-mentoring-subproject/2025-meeting-minutes.md](https://github.com/cncf/mentoring/blob/main/cncf-toc-mentoring-subproject/2025-meeting-minutes.md) 
 
 # About CNCF TOC Mentoring Subproject
 
