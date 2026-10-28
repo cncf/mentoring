@@ -1,6 +1,6 @@
 # Auto-generated from cncf/landscape — DO NOT EDIT MANUALLY.
-# Last updated: 2026-10-05
-# Total projects: 230
+# Last updated: 2026-10-26
+# Total projects: 231
 
 - name: Aeraki Mesh
   slug: aerakimesh
@@ -1308,6 +1308,13 @@
   homepage: https://porter.sh/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/porter-sh.svg
   repo_url: https://github.com/getporter/porter
+  has_dot_project: true
+- name: Praxis
+  slug: praxis
+  maturity: sandbox
+  homepage: https://praxis.fast
+  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/cncf.svg
+  repo_url: https://github.com/praxis-proxy/praxis
   has_dot_project: true
 - name: Prometheus
   slug: prometheus

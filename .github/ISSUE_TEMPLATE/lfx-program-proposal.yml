@@ -217,6 +217,7 @@ body:
         - "Podman Container Tools"
         - "Podman Desktop"
         - "Porter"
+        - "Praxis"
         - "Prometheus"
         - "Radius"
         - "Ratify"
