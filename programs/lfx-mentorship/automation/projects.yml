@@ -1,5 +1,5 @@
 # Auto-generated from cncf/landscape — DO NOT EDIT MANUALLY.
-# Last updated: 2026-10-26
+# Last updated: 2026-11-02
 # Total projects: 231
 
 - name: Aeraki Mesh
@@ -931,7 +931,7 @@
   maturity: sandbox
   homepage: https://www.kubewarden.io
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kubewarden.svg
-  repo_url: https://github.com/kubewarden/kubewarden-controller
+  repo_url: https://github.com/kubewarden/adm-controller
   has_dot_project: true
 - name: KUDO
   slug: kudo
@@ -971,7 +971,7 @@
 - name: Lima
   slug: lima
   maturity: incubating
-  homepage: https://github.com/lima-vm/lima
+  homepage: https://lima-vm.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/lima.svg
   repo_url: https://github.com/lima-vm/lima
   has_dot_project: true
