@@ -1,6 +1,6 @@
 # Term 01 - 2026 March - May
 
-Status: Accepting Applications
+Status: Completed
 
 Mentorship duration - three months (full-time schedule)
 

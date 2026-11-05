@@ -1,6 +1,6 @@
 # Term 02 - 2026 June - August
 
-Status: Planning
+Status: Completed
 
 Mentorship duration - three months (full-time schedule)
 
