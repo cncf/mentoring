@@ -33,6 +33,8 @@ These are the number of successful internships per year for each program.
 
 | Year | Program                          | Mentorships | Total (per year) |
 |------|----------------------------------|-------------|------------------|
+| 2026 | LFX Mentorship                   | 124         | 129 (so far)     |
+|      | GSoC                             | 5           |                  |
 | 2025 | LFX Mentorship                   | 176         | 187              |
 |      | GSoC                             | 11          |                  |
 | 2024 | LFX Mentorship                   | 134         | 147              |

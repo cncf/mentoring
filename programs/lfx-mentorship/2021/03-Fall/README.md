@@ -1,6 +1,6 @@
 # Q3 - Fall'2021
 
-Status: Planned
+Status: Completed
 
 ### Timeline
 
