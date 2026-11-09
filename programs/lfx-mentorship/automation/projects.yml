@@ -1,5 +1,5 @@
 # Auto-generated from cncf/landscape — DO NOT EDIT MANUALLY.
-# Last updated: 2026-11-02
+# Last updated: 2026-11-09
 # Total projects: 231
 
 - name: Aeraki Mesh
@@ -213,7 +213,7 @@
   has_dot_project: true
 - name: CloudNativePG
   slug: cloudnativepg
-  maturity: sandbox
+  maturity: incubating
   homepage: https://www.cloudnative-pg.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/cloudnative-pg.svg
   repo_url: https://github.com/cloudnative-pg/cloudnative-pg
@@ -637,8 +637,8 @@
 - name: KAI Scheduler
   slug: kai-scheduler
   maturity: sandbox
-  homepage: https://github.com/kai-scheduler/KAI-Scheduler
-  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/cncf.svg
+  homepage: https://kai-scheduler.dev
+  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kai-scheduler.svg
   repo_url: https://github.com/kai-scheduler/KAI-Scheduler
   has_dot_project: true
 - name: Kairos
@@ -921,7 +921,7 @@
   has_dot_project: true
 - name: KubeVirt
   slug: kubevirt
-  maturity: incubating
+  maturity: graduated
   homepage: https://kubevirt.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kubevirt.svg
   repo_url: https://github.com/kubevirt/kubevirt
@@ -1053,7 +1053,7 @@
   has_dot_project: true
 - name: NATS
   slug: nats
-  maturity: incubating
+  maturity: graduated
   homepage: https://nats.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/nats.svg
   repo_url: https://github.com/nats-io/nats-server
@@ -1088,7 +1088,7 @@
   has_dot_project: true
 - name: Open Cluster Management
   slug: openclustermanagement
-  maturity: sandbox
+  maturity: incubating
   homepage: https://open-cluster-management.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/open-cluster-management.svg
   repo_url: https://github.com/open-cluster-management-io/ocm
@@ -1185,7 +1185,7 @@
   repo_url: https://github.com/openkruise/kruise
   has_dot_project: true
 - name: OpenShell
-  slug: openshell
+  slug: nvidia-openshell
   maturity: sandbox
   homepage: https://docs.nvidia.com/openshell/latest/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/openshell.svg
