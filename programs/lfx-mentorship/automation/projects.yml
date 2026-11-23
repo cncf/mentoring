@@ -1,6 +1,6 @@
 # Auto-generated from cncf/landscape — DO NOT EDIT MANUALLY.
-# Last updated: 2026-11-02
-# Total projects: 231
+# Last updated: 2026-11-23
+# Total projects: 240
 
 - name: Aeraki Mesh
   slug: aerakimesh
@@ -19,8 +19,15 @@
   slug: agones
   maturity: sandbox
   homepage: https://agones.dev/site/
-  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/cncf.svg
+  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/agones.svg
   repo_url: https://github.com/agones-dev/agones
+  has_dot_project: true
+- name: AI Runway
+  slug: ai-runway
+  maturity: sandbox
+  homepage: https://ai-runway.github.io/airunway/
+  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/cncf.svg
+  repo_url: https://github.com/ai-runway/airunway
   has_dot_project: true
 - name: Akri
   slug: akri
@@ -127,6 +134,13 @@
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/cadenceworkflow.svg
   repo_url: https://github.com/cadence-workflow/cadence
   has_dot_project: true
+- name: CAIPE
+  slug: caipe
+  maturity: sandbox
+  homepage: https://caipe.io/
+  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/cncf.svg
+  repo_url: https://github.com/caipe-io/ai-platform-engineering
+  has_dot_project: true
 - name: Capsule
   slug: capsule
   maturity: sandbox
@@ -213,7 +227,7 @@
   has_dot_project: true
 - name: CloudNativePG
   slug: cloudnativepg
-  maturity: sandbox
+  maturity: incubating
   homepage: https://www.cloudnative-pg.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/cloudnative-pg.svg
   repo_url: https://github.com/cloudnative-pg/cloudnative-pg
@@ -488,6 +502,13 @@
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/grpc.svg
   repo_url: https://github.com/grpc/grpc
   has_dot_project: true
+- name: gVisor
+  slug: gvisor
+  maturity: sandbox
+  homepage: https://gvisor.dev/
+  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/gvisor.svg
+  repo_url: https://github.com/gvisor/gvisor
+  has_dot_project: true
 - name: HAMi
   slug: hami
   maturity: incubating
@@ -599,6 +620,13 @@
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/k0s-logo-2025.svg
   repo_url: https://github.com/k0sproject/k0s
   has_dot_project: true
+- name: K2s
+  slug: k2s
+  maturity: sandbox
+  homepage: https://k2s-project.github.io/k2s/
+  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/cncf.svg
+  repo_url: https://github.com/k2s-project/k2s
+  has_dot_project: true
 - name: k3s
   slug: k3s
   maturity: sandbox
@@ -637,8 +665,8 @@
 - name: KAI Scheduler
   slug: kai-scheduler
   maturity: sandbox
-  homepage: https://github.com/kai-scheduler/KAI-Scheduler
-  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/cncf.svg
+  homepage: https://kai-scheduler.dev
+  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kai-scheduler.svg
   repo_url: https://github.com/kai-scheduler/KAI-Scheduler
   has_dot_project: true
 - name: Kairos
@@ -878,6 +906,13 @@
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kubeflow.svg
   repo_url: https://github.com/kubeflow/kubeflow
   has_dot_project: true
+- name: KubeRay
+  slug: kuberay
+  maturity: sandbox
+  homepage: https://github.com/kuberay-project/kuberay
+  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kuberay.svg
+  repo_url: https://github.com/kuberay-project/kuberay
+  has_dot_project: true
 - name: Kuberhealthy
   slug: kuberhealthy
   maturity: sandbox
@@ -921,7 +956,7 @@
   has_dot_project: true
 - name: KubeVirt
   slug: kubevirt
-  maturity: incubating
+  maturity: graduated
   homepage: https://kubevirt.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/kubevirt.svg
   repo_url: https://github.com/kubevirt/kubevirt
@@ -1016,6 +1051,13 @@
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/loxilb.svg
   repo_url: https://github.com/loxilb-io/loxilb
   has_dot_project: true
+- name: MatrixHub
+  slug: matrixhub
+  maturity: sandbox
+  homepage: https://matrixhub.ai
+  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/matrixhub.svg
+  repo_url: https://github.com/matrixhub-ai/matrixhub
+  has_dot_project: true
 - name: Meshery
   slug: meshery
   maturity: incubating
@@ -1053,7 +1095,7 @@
   has_dot_project: true
 - name: NATS
   slug: nats
-  maturity: incubating
+  maturity: graduated
   homepage: https://nats.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/nats.svg
   repo_url: https://github.com/nats-io/nats-server
@@ -1088,7 +1130,7 @@
   has_dot_project: true
 - name: Open Cluster Management
   slug: openclustermanagement
-  maturity: sandbox
+  maturity: incubating
   homepage: https://open-cluster-management.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/open-cluster-management.svg
   repo_url: https://github.com/open-cluster-management-io/ocm
@@ -1184,8 +1226,15 @@
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/OpenKruise.svg
   repo_url: https://github.com/openkruise/kruise
   has_dot_project: true
+- name: OpenRL
+  slug: openrl
+  maturity: sandbox
+  homepage: https://openrl.dev/
+  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/cncf.svg
+  repo_url: https://github.com/openrl-dev/openrl
+  has_dot_project: true
 - name: OpenShell
-  slug: openshell
+  slug: nvidia-openshell
   maturity: sandbox
   homepage: https://docs.nvidia.com/openshell/latest/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/openshell.svg
@@ -1313,7 +1362,7 @@
   slug: praxis
   maturity: sandbox
   homepage: https://praxis.fast
-  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/cncf.svg
+  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/praxis.svg
   repo_url: https://github.com/praxis-proxy/praxis
   has_dot_project: true
 - name: Prometheus
@@ -1364,6 +1413,13 @@
   homepage: https://score.dev/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/score.svg
   repo_url: https://github.com/score-spec/spec
+  has_dot_project: true
+- name: SDC
+  slug: schema-driven-configuration
+  maturity: sandbox
+  homepage: https://docs.sdcio.dev/
+  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/sdc.svg
+  repo_url: https://github.com/sdcio/docs
   has_dot_project: true
 - name: Sermant
   slug: sermant
@@ -1560,6 +1616,13 @@
   homepage: https://vitess.io/
   logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/vitess.svg
   repo_url: https://github.com/vitessio/vitess
+  has_dot_project: true
+- name: VMAPI
+  slug: vmapi
+  maturity: sandbox
+  homepage: https://github.com/vm-api/vm-api
+  logo: https://raw.githubusercontent.com/cncf/landscape/master/hosted_logos/vm-api.svg
+  repo_url: https://github.com/vm-api/vm-api
   has_dot_project: true
 - name: Volcano
   slug: volcano
